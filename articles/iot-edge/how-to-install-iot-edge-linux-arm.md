@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 5b5212d5e1663fee01ff87642432818071d4f4dd
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988527"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213865"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (ARM32v7 / armhf)
 
@@ -101,6 +101,10 @@ O dispositivo de borda pode ser configurado manualmente usando uma [cadeia de co
      scope_id: "{scope_id}"
      registration_id: "{registration_id}"
    ```
+
+Salve e feche o arquivo. 
+
+   `CTRL + X`, `Y`, `Enter`
 
 Depois de inserir as informações de provisionamento na configuração, reinicie o daemon:
 

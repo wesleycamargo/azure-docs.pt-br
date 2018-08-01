@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919012"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258479"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -93,6 +93,12 @@ Siga estas etapas no servidor local em que você está executando o Azure AD Con
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Etapa 2. Atualizar a chave de descriptografia de Kerberos em cada floresta do AD que foi configurado
 
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de Administrador de Domínio da floresta do AD pretendida.
+
+>[!NOTE]
+>Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+
+use UPNs, nós traduzimos 
+
 2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia do Kerberos para a `AZUREADSSOACC` conta de computador nessa floresta do AD específico e a atualiza no AD do Azure.
 3. Repita as etapas anteriores para cada floresta do AD em que você configurou o recurso.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261671"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206064"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Usar conjuntos de dispositivos no aplicativo Azure IoT Central
 
@@ -112,13 +112,13 @@ Para adicionar um mapa de localização ao seu painel de conjuntos de dispositiv
     ![Salvar mapas do painel](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. Agora, quando um operador exibe o painel de conjuntos de dispositivos, ele pode ver todos os blocos configurados, incluindo o mapa de localização para visualizar a localização de todos os dispositivos em um relance!
+5. Agora, quando um operador exibe o painel de conjuntos de dispositivos, ele pode ver todos os blocos configurados, incluindo o mapa de localização para visualizar a localização de todos os dispositivos em um relance! 
 
     ![Modo de exibição do operador dos mapas do painel](media/howto-use-device-sets/LocationMaps4.png)
 
     Será possível redimensionar o mapa para o tamanho desejado.
 
-
+    Clicar em um alfinete no mapa exibirá as informações, o nome e o local do dispositivo. Você pode clicar no pop-up para ir para a página de propriedades do dispositivo.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurar a lista para o conjunto de dispositivos

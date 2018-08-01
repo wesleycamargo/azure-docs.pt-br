@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593445"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214686"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -68,7 +68,7 @@ O recurso de sincronização de hash de senha repete automaticamente tentativas 
 A sincronização de uma senha não afeta um usuário conectado atualmente.
 Sua sessão de serviço de nuvem atual não será afetada imediatamente por uma alteração de senha sincronizada que ocorre enquanto você está logado em um serviço de nuvem. No entanto, quando o serviço de nuvem exigir que você se autentique novamente, será necessário fornecer a nova senha.
 
-O usuário deve inserir suas credenciais corporativas uma segunda vez para autenticar no Azure AD, independentemente se ele está conectado à rede corporativa. Porém, esse padrão pode ser minimizado se o usuário marca a caixa de seleção "Manter-me conectado" (KMSI) ao entrar. Essa seleção define um cookie de sessão que ignora a autenticação por um curto período. O comportamento KMSI pode ser habilitado ou desabilitado pelo administrador do Azure AD.
+O usuário deve inserir suas credenciais corporativas uma segunda vez para autenticar no Azure AD, independentemente se ele está conectado à rede corporativa. Porém, esse padrão pode ser minimizado se o usuário marca a caixa de seleção "Manter-me conectado" (KMSI) ao entrar. Essa seleção define um cookie de sessão que ignora a autenticação por 180 dias. O comportamento KMSI pode ser habilitado ou desabilitado pelo administrador do Azure AD. Além disso, você pode reduzir os prompts de senha ativando [SSO Contínuo](active-directory-aadconnect-sso.md), que conecta automaticamente os usuários quando eles estão em seus dispositivos corporativos conectados à rede corporativa.
 
 > [!NOTE]
 > Somente há suporte para a sincronização de senha para o usuário do tipo de objeto no Active Directory. Não há suporte para o tipo de objeto iNetOrgPerson.
@@ -99,10 +99,6 @@ Ao sincronizar senhas, a versão da sua senha em texto sem formatação não é 
 
 A autenticação do usuário ocorre no Azure AD e não na própria instância do Active Directory da organização. Se sua organização se preocupar com a saída de dados de senha da empresa, considere o fato de que os dados de senha SHA256 armazenados no Azure AD -- um hash do hash MD4 original -- são consideravelmente mais seguros do que o que está armazenado no Active Directory. Além disso, como não é possível descriptografar esse hash SHA256, ele não pode ser levado de volta ao ambiente do Active Directory da organização e apresentado como uma senha de usuário válida em um ataque de passagem de hash.
 
-
-
-
-
 ### <a name="password-policy-considerations"></a>Considerações sobre política de senha
 Há dois tipos de políticas de senha que são afetadas ao habilitar a sincronização de hash de senha:
 
@@ -121,7 +117,7 @@ Se um usuário estiver no escopo de sincronização de hash de senha, a senha da
 Você pode continuar entrando nos serviços de nuvem usando uma senha sincronizada que expirou no seu ambiente local. A senha de nuvem será atualizada na próxima vez que você alterar a senha no ambiente local.
 
 #### <a name="account-expiration"></a>Expiração da conta
-Se sua organização usar o atributo accountExpires como parte do gerenciamento de contas de usuário, lembre-se de que esse atributo não está sincronizado no Azure AD. Como resultado, uma conta expirada do Active Directory em um ambiente configurado para sincronização de hash de senha ainda estará ativa no Azure AD. Recomendamos que, se a conta expirar, uma ação de fluxo de trabalho deverá disparar um script do PowerShell que desabilita a conta de usuário do Azure AD. Por outro lado, quando a conta for ativada, a instância do Azure AD deverá ser ativada.
+Se sua organização usar o atributo accountExpires como parte do gerenciamento de contas de usuário, lembre-se de que esse atributo não está sincronizado no Azure AD. Como resultado, uma conta expirada do Active Directory em um ambiente configurado para sincronização de hash de senha ainda estará ativa no Azure AD. Recomendamos que, se a conta expirar, uma ação de fluxo de trabalho dispare um script do PowerShell que desabilite a conta de usuário do Azure AD (use o cmdlet [Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0)). Por outro lado, quando a conta for ativada, a instância do Azure AD deverá ser ativada.
 
 ### <a name="overwrite-synchronized-passwords"></a>Substituir senhas sincronizadas
 Um administrador pode redefinir sua senha manualmente usando o Windows PowerShell.
@@ -134,21 +130,14 @@ A sincronização de uma senha não afeta um usuário do Azure que está conecta
 
 ### <a name="additional-advantages"></a>Vantagens adicionais
 
-- Em geral, a sincronização de hash de senha é mais simples de implementar do que um serviço de federação. Ela não exige quaisquer servidores adicionais e elimina a dependência de um serviço de federação altamente disponível para autenticar usuários. 
+- Em geral, a sincronização de hash de senha é mais simples de implementar do que um serviço de federação. Ela não exige quaisquer servidores adicionais e elimina a dependência de um serviço de federação altamente disponível para autenticar usuários.
 - A sincronização de hash de senha também pode ser habilitada além da federação. Ela pode ser usada como um fallback se seu serviço de federação sofrer uma interrupção.
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>Permitir a sincronização de hash de senha
+
+>[!IMPORTANT]
+>Se você estiver migrando do AD FS (ou outras tecnologias de federação) para Sincronização de Hash de Senha, recomendamos fortemente seguir nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+
 Quando você instala o Azure AD Connect usando as **Configurações Expressas**, a sincronização de hash de senha é habilitada automaticamente. Para obter mais detalhes, confira [Introdução ao Azure AD Connect usando configurações expressas](active-directory-aadconnect-get-started-express.md).
 
 Se você usar configurações personalizadas quando instalar o Azure AD Connect, a sincronização de hash de senha estará disponível na página de entrada do usuário. Para obter mais detalhes, confira [Instalação personalizada do Azure AD Connect](active-directory-aadconnect-get-started-custom.md).

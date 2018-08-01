@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 97006f2dfecc8d3ade680f97cbb7776dfda98dd5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 95941b3f9333273c11208c56a63c62d5d37a9386
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921018"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213547"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Solucionar problemas de Hyper-V para replicação e failover do Azure
 
@@ -131,7 +131,7 @@ Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no t
 2. Para gerar os instantâneos do VSS para a VM, verifique se os serviços de integração do Hyper-V estão instalados na VM e se o serviço de integração de Backup (VSS) está habilitado.
     - Certifique-se de que o serviço VSS/daemons do Integration Services estão em execução no convidado e se estão em um estado **OK**.
     - Você pode verificar isso em uma sessão do PowerShell elevada no host Hyper-V com o comando **et-VMIntegrationService -VMName<VMName>-Name VSS**. Também é possível obter essas informações fazendo logon na VM convidada. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Verifique se os serviços de integração de Backup/VSS na VM estão em execução e em estado íntegro. Se não estiverem, reinicie esses serviços, e o serviço do solicitante de cópia de sombra de volume do Hyper-V no servidor host Hyper-V.
+    - Verifique se os serviços de integração de Backup/VSS na VM estão em execução e em estado íntegro. Se não, reinicie esses serviços e o serviço do solicitante de Cópia de Sombra de Volume do Hyper-V no servidor host Hyper-V.
 
 ### <a name="common-errors"></a>Erros comuns
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2814e5f8641e9287b94eb23b719601c75afe9c9f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335084"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214825"
 ---
 # <a name="what-is-appsource"></a>O que é o AppSource
 O AppSource permite que os parceiros da Microsoft tornem seus serviços e sua tecnologia detectáveis para os clientes por meio de uma vitrine online com suporte da Microsoft. Como editor do AppSource, você pode envolver os usuários de negócios no AppSource para localizar, experimentar e obter aplicativos SaaS de linha de negócios, além de serviços de implementação para ajudar a determinar os resultados de negócios e reduzir o tempo para obtenção de valor: 
@@ -72,7 +72,7 @@ Alguns aplicativos de vitrine do AppSource são necessários para a integração
 | Serviço Gerenciado do Dynamics NAV | Não  | Uma oferta baseada em licença não exige a Integração do Azure AD |
 | Power BI | Não  | Uma oferta baseada em licença não exige a Integração do Azure AD |
 | Ofertas de consultoria | Não  | Os serviços são coordenados pelo parceiro, não por meio de uma experiência na Web |
-| Cortana Intelligence | sim | O Azure AD é uma prática recomendada para garantir uma experiência de cliente perfeita, e que leva a clientes potenciais da mais alta qualidade |
+| Cortana Intelligence | SIM | O Azure AD é uma prática recomendada para garantir uma experiência de cliente perfeita, e que leva a clientes potenciais da mais alta qualidade |
 | Aplicativos SaaS (anteriormente conhecidos como Aplicativos Web) | Preferencial | O Azure AD é uma prática recomendada para garantir uma experiência de cliente perfeita, e que leva a clientes potenciais da mais alta qualidade |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tabela: as ofertas do AppSource que exigem a integração com o Azure Active Directory
 

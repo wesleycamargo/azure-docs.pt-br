@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: wesmc
-ms.openlocfilehash: db488f759752880a47a78dfeec13b14f65bd503c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6733891213f15e9ceaf08ef7fb50380db47a695f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910080"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259187"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Importar e Exportar dados no Cache Redis do Azure
 A Importação/Exportação é uma operação de gerenciamento de dados do Cache Redis do Azure que permite importar dados no Cache Redis do Azure ou exportar dados dele importando e exportando um instantâneo do RDB (Banco de Dados do Cache Redis) de um cache premium para um blob em uma Conta de Armazenamento do Azure. 
@@ -117,7 +117,7 @@ A Importação/Exportação está disponível apenas no tipo de preço premium.
 Sim, além de importar os dados exportados de instâncias de Cache Redis do Azure, você pode importar arquivos RDB de qualquer servidor Redis em execução em qualquer nuvem ou ambiente, como o Linux, Windows ou provedores de nuvem como o Amazon Web Services. Para fazer isso, carregue o arquivo RDB do servidor Redis desejado em um blob de páginas ou de blocos em uma Conta de Armazenamento do Azure e importe-o para sua instância premium de Cache Redis do Azure. Por exemplo, convém exportar os dados do cache de produção e importá-los para um cache usado como parte de um ambiente de preparo para testes ou migração.
 
 > [!IMPORTANT]
-> Para importar com êxito os dados exportados de servidores Redis, outros que não o Cache Redis do Azure ao usar um blob de páginas, o tamanho do blob de páginas deve ser alinhado com um limite de 512 bytes. Para obter o código de exemplo a fim de executar o preenchimento de bytes necessários, confira [Sample page blog upload](https://github.com/JimRoberts-MS/SamplePageBlobUpload) (Exemplo de upload do blob de páginas).
+> Para importar com êxito os dados exportados de servidores Redis, outros que não o Cache Redis do Azure ao usar um blob de páginas, o tamanho do blob de páginas deve ser alinhado com um limite de 512 bytes. Para obter o código de amostra para executar qualquer preenchimento de bytes necessários, veja [Exemplo de upload de blob de páginas](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
 > 
 > 
 

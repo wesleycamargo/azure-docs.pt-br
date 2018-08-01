@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 2de926746a5e6b94a458dbc1a126ab5bc86b12fe
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838527"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214335"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
@@ -170,7 +170,7 @@ O script do PowerShell a seguir é um exemplo de carregamento de dados paralela 
 
 ## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Crie índices para otimizar o desempenho de associações e consultas
 * Se você pretende extrair dados de modelagem de várias tabelas, crie índices nas chaves de associação para melhorar o desempenho da junção.
-* [Crie índices](https://technet.microsoft.com/library/ms188783.aspx) (em cluster ou não clusterizados) direcionando o mesmo grupo de arquivos para cada partição, por exemplo:
+* [Crie índices](https://technet.microsoft.com/library/ms188783.aspx) (em cluster ou não em cluster) direcionados para o mesmo grupo de arquivos para cada partição, por exemplo:
   
         CREATE CLUSTERED INDEX <table_idx> ON <table_name>( [include index columns here] )
         ON <TablePScheme>(<partition)field>)

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
-ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 907bb9b998012a5b907c041b3eba061036289cc1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195549"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186978"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure
 
@@ -24,9 +24,8 @@ Como a [Configuração de Estado Desejado do PowerShell](https://technet.microso
 
 O DSC de Automação do Azure pode ser usado para gerenciar uma variedade de máquinas:
 
-* Máquinas virtuais do Azure (clássico)
-* Máquinas virtuais do Azure
-* Máquinas virtuais do AWS (Amazon Web Services)
+* Máquinas virtuais do Azure (implantadas no modelo de implantação clássico e do Azure Resource Manager)
+* Instâncias de EC2 da Amazon Web Services (AWS) 
 * Máquinas físicas/virtuais locais do Windows, ou em uma nuvem diferente do Azure/AWS
 * Máquinas físicas/virtuais locais do Linux, no Azure, ou em uma nuvem diferente do Azure
 

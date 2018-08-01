@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f7c569eabcf6e4b743f1b6616161787764e8f84
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7cda2a406c6c49e9252bfd5840e8f943e5b7043f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723488"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205792"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Gerenciar recursos com o Azure PowerShell
 
@@ -72,13 +72,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Normalmente, você repete o processo para **Colaborador de Rede** e **Colaborador da Conta de Armazenamento**, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 
-## <a name="azure-policies"></a>Políticas do Azure
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>Aplicar políticas
-
-Sua assinatura já possui várias definições de políticas. Para ver as definições de políticas disponíveis, use:
+O [Azure Policy](../azure-policy/azure-policy-introduction.md) ajuda a garantir que todos os recursos da assinatura atendam aos padrões corporativos. Sua assinatura já possui várias definições de políticas. Para ver as definições de políticas disponíveis, use:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType

@@ -13,24 +13,24 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 386be8737fcddacab9fdd7ec19ae00188342d917
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e8aacc95f73294420042549681aff5494dc63cce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506316"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257803"
 ---
 # <a name="how-to-complete-an-access-review-in-azure-ad-privileged-identity-management"></a>Como concluir uma análise de acesso no Azure AD Privileged Identity Management
-os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de segurança ter sido iniciada](pim-how-to-start-security-review.md). O Azure AD PIM (Privileged Identity Management) automaticamente enviará um email solicitando que os usuários revisem seu acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [Como executar uma análise de segurança](pim-how-to-perform-security-review.md).
+Os administradores de função com privilégios podem examinar o acesso privilegiado quando uma [revisão de acesso tiver sido iniciada](pim-how-to-start-security-review.md). O Azure AD PIM (Privileged Identity Management) automaticamente enviará um email solicitando que os usuários revisem seu acesso. Se um usuário não tiver recebido um email, você poderá enviar para ele as instruções sobre [como executar uma revisão de acesso](pim-how-to-perform-security-review.md).
 
-Depois do período de revisão de segurança, ou todos os usuários terminarem a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.
+Depois do fim do período da revisão de acesso, ou quando todos os usuários tiverem terminado a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.
 
-## <a name="manage-security-reviews"></a>Gerenciar revisões de segurança
+## <a name="manage-access-reviews"></a>Gerenciar revisões de acesso
 1. Acesse o [portal do Azure](https://portal.azure.com/) e selecione o aplicativo **Azure AD Privileged Identity Management** no painel.
 2. Clique na seção **Revisões de acesso** do painel.
 3. Selecione a análise de acesso que você deseja gerenciar.
 
-Na folha de detalhes da análise de acesso, há uma série de opções para o gerenciamento da análise.
+Na folha de detalhes da revisão de acesso, há uma série de opções para o gerenciamento da revisão.
 
 ![Botões de análise de acesso do PIM - captura de tela](./media/pim-how-to-complete-review/PIM_review_buttons.png)
 
@@ -44,7 +44,7 @@ Todas as revisões de acesso têm uma data de término, mas você pode usar o bo
 Após uma análise de acesso ser concluída, seja porque você atingiu a data de término ou a interrompeu manualmente, o botão **Aplicar** implementa o resultado da análise. Se o acesso de um usuário foi negado na análise, esta é a etapa que removerá sua atribuição de função.  
 
 ### <a name="export"></a>Exportação
-Se você desejar aplicar os resultados da revisão de segurança manualmente, poderá exportar a revisão. O botão **Exportar** começará a baixar um arquivo CSV. Você pode gerenciar os resultados no Excel ou em outros programas que abrem arquivos CSV.
+Se você quiser aplicar os resultados da revisão de acesso manualmente, poderá exportar a revisão. O botão **Exportar** começará a baixar um arquivo CSV. Você pode gerenciar os resultados no Excel ou em outros programas que abrem arquivos CSV.
 
 ### <a name="delete"></a>Excluir
 Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir** remove a análise do aplicativo PIM.

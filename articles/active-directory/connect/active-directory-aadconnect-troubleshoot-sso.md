@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4df60668f6b9aa0afb2203fa59788c47e2ffaefb
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110882"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259289"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -28,12 +28,12 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - Se você desabilitar e habilitar novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache, normalmente válidos por 10 horas, tenham se expirado.
 - O suporte ao navegador Microsoft Edge não está disponível.
-- Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os cenários de mapeamento do SharePoint e do OneDrive não funcionam.
-- Os clientes do Office abaixo da versão 16.0.8730.xxxx não têm suporte para a entrada não interativa com o SSO Contínuo. Nos clientes, os usuários devem digitar seus nomes de usuário, mas não senhas, para entrar.
+- Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de selecionar **Manter-me conectado**. Devido a esse comportamento, os [cenários de mapeamento do SharePoint e do OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) não funcionam.
+- Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Não há suporte para outras versões; nessas versões, os usuários inserirão seus nomes de usuário, mas não senhas, para entrar. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
-- Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 16 KB; os tíquetes Kerberos precisam ser muito menores do que esse número para acomodar outros artefatos do Azure AD como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
+- Se um usuário fizer parte de muitos grupos no Active Directory, o tíquete Kerberos do usuário provavelmente será muito grande para processar e isso causará falha no SSO Contínuo. Solicitações de HTTPS do Azure AD podem ter cabeçalhos com um tamanho máximo de 50 KB; os tíquetes Kerberos precisam ser muito menores do que o limite para acomodar outros artefatos do Azure AD (tipicamente, 2 a 5 KB), como cookies. Nossa recomendação é reduzir as associações de grupo do usuário e tentar novamente.
 - Se você estiver sincronizando 30 ou mais florestas do Active Directory, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.
 - Adicionar a URL do serviço Azure AD (https://autologon.microsoftazuread-sso.com)) à zona Sites confiáveis em vez da zona Intranet local *bloqueia a entrada dos usuários*.
 - Desabilitar o uso do tipo de criptografia **RC4_HMAC_MD5** para Kerberos em suas configurações do Active Directory irá interromper o SSO Contínuo. Na ferramenta do Editor de Gerenciamento de Política de Grupo, verifique se o valor da política para **RC4_HMAC_MD5** em **Configuração do Computador -> Configurações do Windows -> Configurações de Segurança -> Políticas Locais -> Opções de Segurança -> "Segurança de Rede: Configurar tipos de criptografia permitidos para Kerberos"** é" Habilitado ".
@@ -81,7 +81,7 @@ Use a lista de verificação a seguir para solucionar problemas de SSO Contínuo
 - Verifique se a conta do usuário é de uma floresta do Active Directory na qual o SSO Contínuo foi configurado.
 - Certifique-se de que o dispositivo esteja conectado à rede corporativa.
 - Certifique-se de que a hora do dispositivo esteja sincronizada com a hora do Active Directory e dos Controladores de Domínio, e que tenham cinco minutos ou menos de diferença.
-- Certifique-se de que a conta do computador `AZUREADSSOACCT` está presente e habilitada em cada floresta do AD que você deseja que o SSO contínuo habilitado. 
+- Certifique-se de que a conta do computador `AZUREADSSOACCT` está presente e habilitada em cada floresta do AD que você deseja que o SSO contínuo habilitado. Se a conta de computador tiver sido excluída ou estiver ausente, você poderá usar os [cmdlets do PowerShell](#manual-reset-of-the-feature) para recriá-las.
 - Liste os tíquetes Kerberos existentes no dispositivo usando o comando `klist` em um prompt de comando. Certifique-se de que os tíquetes emitidos para a conta do computador `AZUREADSSOACCT` estejam presentes. Os tíquetes Kerberos dos usuários são normalmente válidos durante 10 horas. Você pode ter configurações diferentes no Active Directory.
 - Se você desabilitou e habilitou novamente o SSO Contínuo em seu locatário, os usuários não obterão a experiência de logon único até que seus tíquetes de Kerberos armazenados em cache tenham se expirado.
 - Limpe os tíquetes Kerberos existentes do dispositivo usando o comando `klist purge` e tente novamente.
@@ -119,12 +119,20 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Etapa 3: Desabilitar o SSO Contínuo para cada floresta do Active Directory onde você configurou o recurso
 
 1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
+
+>[!NOTE]
+>Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+
 2. Chame `Disable-AzureADSSOForest -OnPremCredentials $creds`. Este comando remove a conta do computador `AZUREADSSOACCT` do controlador de domínio local dessa floresta do Active Directory específica.
 3. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Etapa 4: Habilitar o SSO Contínuo para cada floresta do Active Directory
 
 1. Chame `Enable-AzureADSSOForest`. Quando solicitado, insira as credenciais de administrador de domínio da floresta do Active Directory pretendida.
+
+>[!NOTE]
+>Usamos o nome de usuário do Administrador de Domínio, fornecido no formato de nome UPN (johndoe@contoso.com) ou no formato de conta SAM qualificada por domínio (contoso\johndoe ou contoso.com\johndoe) para localizar a floresta do AD pretendida. Se você usar o nome de conta SAM qualificado do domínio, usaremos a parte de domínio do nome de usuário para [localizar o Controlador de Domínio do Administrador do Domínio usando o DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN em vez disso, poderemos [traduzi-lo para um nome de conta SAM qualificado de domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+
 2. Repita as etapas anteriores para cada floresta do Active Directory onde você configurou o recurso.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Etapa 5. Habilitar o recurso em seu locatário

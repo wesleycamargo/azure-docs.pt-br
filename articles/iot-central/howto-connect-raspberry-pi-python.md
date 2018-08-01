@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629058"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205581"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (Python)
 
@@ -29,53 +29,23 @@ Para concluir as etapas neste artigo, você precisa do seguinte:
 * Um dispositivo Raspberry Pi executando o sistema operacional Raspbian. É necessário ter um monitor, teclado e mouse conectado ao Raspberry Pi para acessar o ambiente da GUI. O Raspberry Pi deve ser capaz de [conectar-se à Internet](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * Opcionalmente, um complemento [Sense Hat](https://www.raspberrypi.org/products/sense-hat/) para o Raspberry Pi. Esta placa coleta dados de telemetria de vários sensores para enviar ao aplicativo Azure IoT Central. Caso não tenha uma placa **Sense Hat**, você poderá usar um emulador.
 
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as características a seguir:
+## <a name="sample-devkits-application"></a>Aplicativo **Devkits de exemplo**
 
-### <a name="telemetry-measurements"></a>Medidas de telemetria
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as características a seguir: 
 
-| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
-| -------------- | ------ | ------- | ------- | -------------- |
-| umidade       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura**, **Pressão**, **Magnômetro** (medido ao longo dos eixos X, Y e Z), **Acelerômetro** (medido ao longo dos eixos X, Y e Z) e **Giroscópio** (medido ao longo dos eixos X, Y, Z).
+- Configurações mostrando **Tensão**, **Corrente**,**Velocidade do Ventilador** e uma alternância de **IV**.
+- Propriedades contendo a propriedade de dispositivo **número do dado** e a propriedade de nuvem **local**.
 
-### <a name="settings"></a>Configurações
 
-Configurações numéricas
+Para obter detalhes completos sobre a configuração do modelo de dispositivo, veja os [detalhes do modelo de Dispositivo do Raspberry PI](howto-connect-raspberry-pi-python.md#raspberry-pi-device-template-details)
+    
 
-| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltagem      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Atual      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Configurações de alternância
-
-| Nome de exibição | Nome do campo | Texto ativado | Texto desativado | Inicial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ATIVADO      | DESATIVADO      | Desativar     |
-
-### <a name="properties"></a>propriedades
-
-| type            | Nome de exibição | Nome do campo | Tipo de dados |
-| --------------- | ------------ | ---------- | --------- |
-| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Local padrão     | location   | N/D       |
-
-### <a name="add-a-real-device"></a>Adicionar um dispositivo real
+## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
 No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispositivo **Raspberry Pi** e anote a cadeia de conexão do dispositivo. Para obter mais informações, consulte [Adicionar um dispositivo real ao aplicativo Azure IoT Central](tutorial-add-device.md).
 
-## <a name="configure-the-raspberry-pi"></a>Configurar o Raspberry Pi
+### <a name="configure-the-raspberry-pi"></a>Configurar o Raspberry Pi
 
 As etapas a seguir descrevem como baixar e configurar o aplicativo Python de exemplo do GitHub. Este aplicativo de exemplo:
 
@@ -111,6 +81,51 @@ As etapas a seguir descrevem como baixar e configurar o aplicativo Python de exe
     * Na página **Medidas** do dispositivo real, é possível ver a telemetria enviada do Raspberry Pi. Se estiver usando o **Emulador Sense HAT**, será possível modificar os valores de telemetria na GUI no Raspberry Pi.
     * Na página **Propriedades**, é possível ver o valor da propriedade do **Número Impresso**.
     * Na página **Configurações**, é possível alterar várias configurações no Raspberry Pi, como tensão e velocidade da ventoinha. Quando o Raspberry Pi reconhece a alteração, a configuração é mostrada como **sincronizada** no Azure IoT Central.
+
+
+## <a name="raspberry-pi-device-template-details"></a>Detalhes de modelo do Dispositivo Raspberry PI
+
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Raspberry Pi** com as características a seguir:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetria
+
+| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
+| -------------- | ------ | ------- | ------- | -------------- |
+| umidade       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressão       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>Configurações
+
+Configurações numéricas
+
+| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltagem      | setVoltage | Volts | 0              | 0       | 240     | 0       |
+| Atual      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Configurações de alternância
+
+| Nome de exibição | Nome do campo | Texto ativado | Texto desativado | Inicial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ATIVADO      | DESATIVADO      | Desativar     |
+
+### <a name="properties"></a>propriedades
+
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
+| --------------- | ------------ | ---------- | --------- |
+| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
+| Texto            | Localização     | location   | N/D       |
 
 ## <a name="next-steps"></a>Próximas etapas
 

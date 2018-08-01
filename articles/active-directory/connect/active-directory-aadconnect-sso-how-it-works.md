@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6507158a63de508164fc74bcafe39785046a2c79
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918247"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213343"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Logon Único Contínuo do Azure Active Directory: aprofundamento técnico
 
@@ -36,8 +36,8 @@ Esta seção tem três partes:
 ### <a name="how-does-set-up-work"></a>Como funciona a configuração?
 
 O SSO Contínuo é habilitado por meio do Azure AD Connect, conforme mostrado [aqui](active-directory-aadconnect-sso-quick-start.md). Ao habilitar o recurso, ocorrem as seguintes etapas:
-- Uma conta de computador denominada `AZUREADSSOACC` (que representa o Azure AD) é criada em seu AD (Active Directory) local.
-- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD.
+- Uma conta de computador denominada `AZUREADSSOACC` (que representa o Azure AD) é criada em seu AD (Active Directory) local em cada floresta do AD.
+- A chave de descriptografia Kerberos da conta do computador é compartilhada com segurança com o Azure AD. Se houver várias florestas do AD, cada uma terá a própria chave de descriptografia do Kerberos.
 - Além disso, os dois SPNs (nomes de entidade de serviço) Kerberos são criados para representar duas URLs que são usadas durante a entrada no Azure AD.
 
 >[!NOTE]

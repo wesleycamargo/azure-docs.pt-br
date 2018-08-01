@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051062"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259221"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Active Directory do Azure com o ServiceNow
 
@@ -153,7 +153,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 9. Para configurar o **ServiceNow** automaticamente siga as etapas a seguir
 
-    a. Volte para a página de Logon único do **ServiceNow** no portal do Azure.
+    a. Volte para a página de Logon Único do **ServiceNow** no portal do Azure.
 
     b. Um serviço de configuração de um clique é fornecido para o ServiceNow, ou seja, para que o Azure AD configure automaticamente o ServiceNow para autenticação baseada em SAML. Para habilitar esse serviço, vá para a seção **Configuração do ServiceNow**, clique em **Configurar ServiceNow** para abrir a janela de logon Configurar.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 42d5b55e0bddf2d027810bfdf146de9bfee8a0fb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931507"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188124"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Criar, listar e excluir uma identidade atribuída pelo usuário usando o Azure Resource Manager
 
@@ -33,12 +33,12 @@ Não for possível listar e excluir uma identidade atribuída pelo usuário usan
 
 - [Listar identidade atribuída pelo usuário](how-to-manage-ua-identity-cli.md#list-user-assigned-identities)
 - [Excluir identidade atribuída pelo usuário](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-identity)
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-
-Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
+- Para realizar as operações neste artigo, sua conta precisará da seguinte atribuição de função:
+    - [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (listar), atualizar e excluir uma identidade atribuída ao usuário.
 
 ## <a name="template-creation-and-editing"></a>Criação e edição de modelo
 

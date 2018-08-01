@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436698"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257991"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 Você pode transmitir o [Log de Atividades do Azure](monitoring-overview-activity-logs.md) quase em tempo real para qualquer aplicativo das seguintes formas:
@@ -34,7 +34,7 @@ Se você não tiver um namespace de Hubs de Eventos, precisará criar um. Se voc
 
 A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. Atualmente, o streaming para Hubs de Eventos exige as permissões **Gerenciar**, **Enviar** e **Escutar**. Você pode criar ou modificar políticas de acesso compartilhado para o namespace de Hubs de Eventos no Portal do Azure, na guia **Configurar**, para seu namespace de Hubs de Eventos. 
 
-Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário que está fazendo a alteração deve ter a permissão ListKey nessa regra de autorização dos Hubs de Eventos. O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas.
+Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário que está fazendo a alteração deve ter a permissão ListKey nessa regra de autorização dos Hubs de Eventos. O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas e as duas assinaturas estejam no mesmo locatário do ADD.
 
 ### <a name="via-the-azure-portal"></a>Por meio do Portal do Azure
 1. Navegue até a seção **Log de Atividades** usando a pesquisa **Todos os serviços** no lado esquerdo do portal.
@@ -53,8 +53,9 @@ Para atualizar o perfil de registro do Log de Atividades a fim de incluir o stre
    > Se você selecionar qualquer coisa diferente de **Todas as regiões**, perderá eventos importantes que espera receber. O Log de atividades é um registro global (não regional), por isso a maioria dos eventos não tem uma região associado a eles. 
    >
 
-4. Selecione **Salvar** para salvar as configurações. As configurações são aplicadas imediatamente à sua assinatura.
-5. Se você tiver várias assinaturas, repita essa ação e envie todos os dados para o mesmo hub de eventos.
+4. Clique na opção **Hubs de Eventos do Azure** e selecione um namespace de hubs de eventos para o qual os logs devem ser enviados, então clique em **OK**.
+5. Selecione **Salvar** para salvar as configurações. As configurações são aplicadas imediatamente à sua assinatura.
+6. Se você tiver várias assinaturas, repita essa ação e envie todos os dados para o mesmo hub de eventos.
 
 ### <a name="via-powershell-cmdlets"></a>Via cmdlets do PowerShell
 Se um perfil de log já existir, primeiro será necessário remover o perfil de log existente e criar um novo.

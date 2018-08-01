@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 48056d6e2988dd674351aca83526032175c355b6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082515"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214384"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerenciar laboratórios de sala de aula no Azure Lab Services 
 Este artigo descreve como criar e configurar um laboratório de sala de aula, exibir todos os laboratórios de sala de aula ou excluir um laboratório de sala de aula.
 
-## <a name="prerequisites"></a>pré-requisitos
-Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. Um proprietário de laboratório pode adicionar um usuário à função Criador de Laboratório usando as etapas deste artigo: [Adicionar um usuário à função Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+## <a name="prerequisites"></a>Pré-requisitos
+Para configurar um laboratório de sala de aula em uma conta de laboratório, você deve ser um membro da função **Criador de Laboratório** na conta de laboratório. A conta que você usou para criar uma conta de laboratório é adicionada automaticamente a essa função. Um proprietário de laboratório pode adicionar outros usuários à função de Criador de Laboratório seguindo as etapas neste artigo: [Adicionar um usuário à função de Criador de Laboratório](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Criar um laboratório de sala de aula
 
 1. Navegue até [Site do Azure Lab Services](https://labs.azure.com).
-2. Na janela **Novo laboratório**, execute as seguintes ações: 
+2. Selecione **Iniciar sessão** e insira suas credenciais. O Azure Lab Services oferece suporte a contas organizacionais e contas Microsoft.
+3. Na janela **Novo laboratório**, execute as seguintes ações: 
     1. Especifique um **nome** para o laboratório de sala de aula. 
     2. Selecione o **tamanho** da máquina virtual que você planeja usar na sala de aula.
     3. Selecione a **imagem** a ser usada para criar a máquina virtual.

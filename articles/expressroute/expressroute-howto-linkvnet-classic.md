@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.date: 07/25/2018
 ms.author: ganesr
-ms.openlocfilehash: 2f0fed77a676bc46e8daa9c41efd533dffe72d8b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7e1faa9dc5901861aab8e7911c241e6704b805b1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874990"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257830"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Conectar uma rede virtual a um circuito do ExpressRoute usando o PowerShell (clássico)
 > [!div class="op_single_selector"]
@@ -57,6 +57,12 @@ Você pode vincular uma rede virtual a um circuito do ExpressRoute usando o cmdl
 
     New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
     Provisioned
+    
+## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Remover um link de rede virtual para um circuito
+Você pode remover um link de rede virtual para um circuito do ExpressRoute usando o cmdlet a seguir. Verifique se a assinatura atual está selecionada para a rede virtual especificada. 
+
+    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+ 
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Conectar uma rede virtual em uma assinatura diferente a um circuito
 Você pode compartilhar um circuito do ExpressRoute entre várias assinaturas. A figura a seguir mostra um esquema simples de como funciona o compartilhamento de circuitos do ExpressRoute entre várias assinaturas.

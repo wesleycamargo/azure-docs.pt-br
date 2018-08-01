@@ -19,4 +19,4 @@ As etapas para cancelar o registro de um servidor de processo difere dependendo 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Isso descartará os detalhes do servidor de processo do sistema.
+4. Essa mensagem é emitida quando o servidor de processo é removido com êxito: **nome do servidor com registro cancelado com sucesso> (server-IP-address)**.

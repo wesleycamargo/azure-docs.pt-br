@@ -1,6 +1,6 @@
 ---
-title: Como configurar o MSI em uma VM do Azure usando o portal do Azure
-description: Instruções passo a passo para configurar uma Identidade de Serviço Gerenciado (MSI) em uma VM do Azure usando o portal do Azure.
+title: Como configurar a Identidade de Serviço Gerenciada em uma VM do Azure usando o portal do Azure
+description: Instruções passo a passo para configurar uma Identidade de Serviço Gerenciada em uma VM do Azure usando o portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035934"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213258"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma Identidade do Serviço Gerenciado (MSI) da VM usando a CLI do Azure
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Configure uma Identidade de Serviço Gerenciada VM de usando o portal do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -36,6 +36,8 @@ Neste artigo, você aprenderá a habilitar e a desabilitar a identidade atribuí
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md).
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para realizar as operações de gerenciamento deste artigo, sua conta precisará da seguinte atribuição de função:
+    - [Colaborador de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar e remover a identidade atribuída do sistema de uma VM do Azure.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Identidade de Serviço Gerenciada durante a criação de uma VM do Azure
 
@@ -50,14 +52,14 @@ Vá para a próxima seção para obter detalhes sobre como habilitar a Identidad
 
 Para habilitar a identidade atribuída pelo sistema em uma VM que foi originalmente provisionada sem ela:
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM.
 
 2. Navegue até a Máquina Virtual desejada e selecione a página "Configuração".
 
 3. Habilite a identidade atribuída pelo sistema na VM selecionando "Sim" em "Identidade de serviço gerenciada" e clique em **Salvar**. Esta operação pode demorar 60 segundos ou mais para ser concluída:
 
-    > [!NOTE]
-    > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
+   > [!NOTE]
+   > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
 
    ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ Para habilitar a identidade atribuída pelo sistema em uma VM que foi originalme
 
 Se você tiver uma Máquina Virtual que não precisa mais da identidade atribuída pelo sistema:
 
-1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual".
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. 
 
 2. Navegue até a Máquina Virtual desejada e selecione a página "Configuração".
 
@@ -82,5 +84,5 @@ Se você tiver uma Máquina Virtual que não precisa mais da identidade atribuí
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Usando o portal do Azure, conceda [acesso a outro recurso do Azure](howto-assign-access-portal.md) ao MSI da VM do Azure.
+- Usando o portal do Azure, dê a uma Identidade de Serviço Gerenciada de VM do Azure [acesso a outro recurso do Azure](howto-assign-access-portal.md).
 

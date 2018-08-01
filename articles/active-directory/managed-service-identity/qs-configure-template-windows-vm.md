@@ -1,6 +1,6 @@
 ---
-title: Como configurar o MSI em uma VM do Azure usando um modelo
-description: Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciado) em uma VM do Azure usando um modelo do Azure Resource Manager.
+title: Como configurar a Identidade de Serviço Gerenciada em uma VM do Azure usando um modelo
+description: Instruções passo a passo para configurar uma Identidade de Serviço Gerenciada em uma VM do Azure usando um modelo do Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114872"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258686"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -33,6 +33,10 @@ Neste artigo, você aprenderá a executar as seguintes operações de Identidade
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para realizar as operações de gerenciamento deste artigo, sua conta precisará das seguintes atribuições de função:
+    - [Colaborador da Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para criar uma VM e habilitar e remover a identidade gerenciada atribuída ao usuário e/ou sistema de uma VM do Azure.
+    - Função de [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) para criar uma identidade atribuída ao usuário.
+    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para atribuir e remover uma identidade atribuída ao usuário de e para uma VM.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Gerenciador de Recursos do Azure
 
@@ -51,7 +55,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
 
 ### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Habilitar a identidade atribuída pelo sistema durante a criação de uma VM do Azure ou de uma VM existente
 
-1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual.
 
 2. Depois de carregar o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. O seu pode parecer um pouco diferente do mostrado captura de tela a seguir, dependendo do editor usado e de se você está editando um modelo para uma implantação nova ou existente.
 
@@ -69,7 +73,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
    },
    ```
 
-4. (Opcional) Adicione a extensão da MSI da VM como um elemento `resources`. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Use a seguinte sintaxe:
+4. (Opcional) Adicione a extensão de Identidade de Serviço Gerenciada da VM como um elemento `resources`. Essa etapa é opcional, pois você pode usar o ponto de extremidade de identidade do Serviço de Metadados da Instância do Azure (IMDS) para recuperar também os tokens.  Use a seguinte sintaxe:
 
    >[!NOTE] 
    > O exemplo a seguir pressupõe que uma extensão de VM do Windows (`ManagedIdentityExtensionForWindows`) está sendo implantada. Você também pode configurar para Linux usando `ManagedIdentityExtensionForLinux` em vez disso, para os elementos `"name"` e `"type"`.
@@ -105,7 +109,7 @@ Nesta seção, você habilitará e desabilitará uma identidade atribuída pelo 
 
 Depois que você habilitar a identidade atribuída pelo sistema na VM, recomendamos conceder uma função a ela, como o acesso de **Leitor** ao grupo de recursos no qual ele foi criado.
 
-1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Garanta também que sua conta pertença a uma função que concede permissões de gravação na VM (por exemplo, a função “Colaborador da Máquina Virtual”).
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual.
  
 2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e adicione as informações a seguir para conceder o acesso de **Leitor** na VM ao grupo de recursos no qual ela foi criada.  A estrutura do modelo pode variar conforme o editor e o modelo de implantação escolhido.
    
@@ -149,9 +153,9 @@ Depois que você habilitar a identidade atribuída pelo sistema na VM, recomenda
 
 Se você tiver uma VM que não precise mais de uma máquina virtual:
 
-1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual. Verifique também se a sua conta pertence a uma função que lhe dá permissões de gravação na VM (por exemplo, a função de “Colaborador da Máquina Virtual”).
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual.
 
-2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Caso tenha uma VM que tem apenas a identidade atribuída pelo sistema, desabilite-a alterando o tipo de identidade para `None`.  Se a VM tiver identidades atribuídas pelo sistema e pelo usuário, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com a matriz `identityIds` de identidades atribuídas pelo usuário.  O exemplo a seguir mostra como remover uma identidade atribuída pelo sistema de uma VM sem nenhuma identidade atribuída pelo usuário:
+2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Caso tenha uma VM com apenas a identidade atribuída ao sistema, desabilite-a alterando o tipo de identidade para `None`.  Se a VM tiver identidades atribuídas pelo sistema e pelo usuário, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com a matriz `identityIds` de identidades atribuídas pelo usuário.  O exemplo a seguir mostra como remover uma identidade atribuída pelo sistema de uma VM sem nenhuma identidade atribuída pelo usuário:
    
    ```JSON
     {
@@ -218,8 +222,30 @@ Nesta seção você atribui uma identidade atribuída pelo usuário a uma VM do 
 
       ![Captura de tela de identidade atribuída pelo usuário](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
 
+### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Remover identidade atribuída ao usuário de uma VM do Azure
+
+Se você tiver uma VM que não precise mais de uma máquina virtual:
+
+1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual.
+
+2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Caso tenha uma VM que tem apenas a identidade atribuída ao usuário, desabilite-a alterando o tipo de identidade para `None`.  Se a sua VM tiver identidades atribuídas pelo sistema e pelo usuário e você quiser manter a identidade atribuída ao sistema, remova `UserAssigned` do tipo de identidade junto com a matriz `identityIds` das identidades atribuídas pelo usuário.
+    
+   Para remover uma única identidade de usuário atribuída de uma VM, remova-a da matriz `identityIds`.
+   
+   O exemplo a seguir mostra como remover todas as identidades atribuídas pelo usuário de uma VM sem identidades atribuídas pelo sistema:
+   
+   ```JSON
+    {
+      "apiVersion": "2017-12-01",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[parameters('vmName')]",
+      "location": "[resourceGroup().location]",
+      "identity": { 
+          "type": "None"
+    }
+   ```
 
 ## <a name="related-content"></a>Conteúdo relacionado
 
-- Para obter uma perspectiva mais ampla sobre MSI, leia a [visão geral da Identidade de Serviço Gerenciado](overview.md).
+- Para obter uma perspectiva mais ampla sobre Identidade de Serviço Gerenciada, leia a [visão geral de Identidade de Serviço Gerenciada](overview.md).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261892"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205741"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central
 
@@ -24,33 +24,19 @@ Este artigo descreve como um desenvolvedor de dispositivos conecta um dispositiv
 Para concluir as etapas neste artigo, você precisa do seguinte:
 
 1. Um aplicativo Azure IoT Central criado a partir do modelo de aplicativo de **Devkits de Exemplo**. Para obter mais informações, consulte [Criar o aplicativo Azure IoT Central](howto-create-application.md).
-2. Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para este passo a passo, vamos usar um Raspberry Pi
-
-Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir:
-
-### <a name="telemetry-measurements"></a>Medidas de telemetria
-
-| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
-| -------------- | ------ | ------- | ------- | -------------- |
-| umidade       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-
-### <a name="settings"></a>Configurações
-
-Configurações numéricas
-
-| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+2. Um dispositivo executando o sistema operacional Windows 10 IoT Core. Para este passo a passo, vamos usar um Raspberry Pi.
 
 
-### <a name="properties"></a>propriedades
+## <a name="sample-devkits-application"></a>Aplicativo **Devkits de exemplo**
 
-| type            | Nome de exibição | Nome do campo | Tipo de dados |
-| --------------- | ------------ | ---------- | --------- |
-| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Local padrão     | location   | N/D       |
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir: 
+
+- Telemetria que contém as medidas para o dispositivo **Umidade**, **Temperatura** e **Pressão**. 
+- Configurações mostrando a **Velocidade do Ventilador**.
+- Propriedades contendo a propriedade de dispositivo **número do dado** e a propriedade de nuvem **local**.
+
+
+Para obter detalhes completos sobre a configuração do modelo de dispositivo, veja os [Detalhes do modelo de Dispositivo do Windows IoT Core](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
 
 ## <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
@@ -106,3 +92,31 @@ Se você quiser explorar e modificar o código-fonte do aplicativo cliente, ser�
 
 > [!NOTE]
 > Se o **git** não estiver instalado no ambiente de desenvolvimento, será possível baixá-lo a partir de [https://git-scm.com/download](https://git-scm.com/download).
+
+## <a name="windows-iot-core-device-template-details"></a>Detalhes do modelo do dispositivo Windows IoT Core
+
+Um aplicativo criado a partir do modelo de aplicativo de **Devkits de Exemplo** inclui um modelo de dispositivo **Windows IoT Core** com as características a seguir:
+
+### <a name="telemetry-measurements"></a>Medidas de telemetria
+
+| Nome do campo     | Unidades  | Mínimo | Máximo | Casas decimais |
+| -------------- | ------ | ------- | ------- | -------------- |
+| umidade       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressão       | hPa    | 260     | 1260    | 0              |
+
+### <a name="settings"></a>Configurações
+
+Configurações numéricas
+
+| Nome de exibição | Nome do campo | Unidades | Casas decimais | Mínimo | Máximo | Inicial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Velocidade da ventoinha    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### <a name="properties"></a>propriedades
+
+| Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
+| --------------- | ------------ | ---------- | --------- |
+| Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
+| Texto            | Localização     | location   | N/D       |

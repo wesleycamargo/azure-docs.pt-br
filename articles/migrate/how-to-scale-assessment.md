@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919855"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215172"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
 As Migrações para Azure têm um limite de 1500 computadores por projeto e este artigo descreve como avaliar um grande número de VMs (máquinas virtuais) locais usando as [Migrações para Azure](migrate-overview.md).   
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **VMware**: as VMs que você planeja migrar devem ser gerenciadas por um vCenter Server versão 5.5, 6.0 ou 6.5. Além disso, é necessário um host ESXi executando a versão 5.0 ou posterior para implantar a VM de coletor.
 - **Conta do vCenter**: você precisa de uma conta de somente leitura para acessar o vCenter Server. O Migrações para Azure usa essa conta para descobrir as VMs locais.

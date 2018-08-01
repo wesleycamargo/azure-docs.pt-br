@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085082"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258177"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmitir logs de diagnóstico do Azure para um hub de eventos
 Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)** podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar para os Hubs de Eventos" no Portal, ou habilitando a ID da Regra de Autorização do Hub de Eventos em uma configuração de diagnóstico por meio de Cmdlets do Azure PowerShell ou da CLI 2.0 do Azure.
@@ -22,16 +22,16 @@ Os **[logs de diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)*
 Veja algumas maneiras de usar o recurso de streaming para os Logs de Diagnóstico:
 
 * **Transmitir logs para sistemas de registro em log e telemetria de terceiros** – você pode transmitir todos os logs de diagnóstico para um único hub de eventos a fim de enviar os dados de log por pipe para uma ferramenta de análise de logs ou um SIEM de terceiros.
-* **Exibir a integridade do serviço transmitindo dados de "afunilamento" para o PowerBI** – com os Hubs de Eventos, Stream Analytics e o PowerBI, é fácil transformar seus dados de diagnóstico em informações quase em tempo real nos serviços do Azure. [Este artigo de documentação apresenta uma excelente visão geral de como configurar Hubs de Eventos, processar dados com o Stream Analytics e usar o PowerBI como saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para configurá-lo com os logs de diagnóstico:
+* **Exibir a integridade do serviço transmitindo dados de "afunilamento" para o Power BI** – usando Hubs de Eventos, Stream Analytics e Power BI, é fácil transformar seus dados de diagnóstico em insights quase em tempo real nos seus serviços do Azure. [Este artigo de documentação apresenta uma excelente visão geral de como configurar Hubs de Eventos, processar dados com o Stream Analytics e usar o Power BI como saída](../stream-analytics/stream-analytics-power-bi-dashboard.md). Aqui estão algumas dicas para configurá-lo com os logs de diagnóstico:
 
   * Um hub de eventos de uma categoria de logs de diagnóstico é criado automaticamente quando você marca a opção no portal ou habilita-a por meio do PowerShell, de modo que você possa selecionar o hub de evento no namespace com o nome que começa com **insights-**.
-  * O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do PowerBI:
+  * O código SQL a seguir é um exemplo de consulta do Stream Analytics que você pode usar para analisar todos os dados de log em uma tabela do Power BI:
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
@@ -46,7 +46,7 @@ Você pode habilitar programaticamente o streaming de logs de diagnóstico por m
 > [!WARNING]
 > A habilitação e streaming de logs de diagnóstico dos recursos de computação (por exemplo, VMs ou Service Fabric) [exige um conjunto diferente de etapas](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que o recurso que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas.
+O namespace dos Hubs de Eventos não precisa estar na mesma assinatura que o recurso que emite os logs, desde que o usuário que define a configuração tenha acesso RBAC adequado a ambas as assinaturas e que as duas assinaturas façam parte do mesmo locatário do ADD.
 
 > [!NOTE]
 > Atualmente, não há suporte para o envio da métrica multidimensional por meio das configurações de diagnóstico. As métricas com dimensões são exportadas como métricas dimensionais simples, agregadas nos valores da dimensão.
@@ -195,5 +195,6 @@ Também é possível transmitir logs de diagnóstico de recursos de Computação
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Transmitir logs do Azure Active Directory com o Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Saiba mais sobre os Logs de Diagnóstico do Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

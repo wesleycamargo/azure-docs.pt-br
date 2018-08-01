@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a6db6b7f1a0e81867a1db75ed3b31a38a8dbdeb0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008222"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213530"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Mergulho profundo – Análise avançada
 
@@ -97,7 +97,7 @@ Há três tarefas-chave nesse cenário de análise avançada:
 
 1. Criar um cluster de Azure HDInsight Hadoop com uma distribuição do Apache Spark 2.1.0. 
 2. Executar um script personalizado para instalar o Kit de Ferramentas Cognitivas da Microsoft em todos os nós de um cluster do Azure HDInsight Spark. 
-3. Carregar um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Kit de Ferramentas Cognitivas da Microsoft a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark). 
+3. Carregue um Jupyter Notebook pré-compilado no cluster do HDInsight Spark para ver como aplicar um modelo de aprendizado profundo treinado do Microsoft Cognitive Toolkit a arquivos em uma Conta de Armazenamento de Blobs do Azure usando a API Python Spark (PySpark). 
 
 Este exemplo usa o conjunto de imagens CIFAR-10 compilado e distribuído por Alex Krizhevsky, Vinod Nair e Geoffrey Hinton. O conjunto de dados CIFAR-10 contém 60.000 imagens coloridas 32x32 que pertencem a 10 classes mutuamente exclusivas:
 

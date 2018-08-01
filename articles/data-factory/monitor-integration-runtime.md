@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113250"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259095"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -41,7 +41,7 @@ O recurso de computação para um tempo de execução de integração do Azure �
 ### <a name="properties"></a>propriedades
 A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet para um tempo de execução de integração:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 -------- | ------------- | 
 | NOME | Nome do tempo de execução de integração do Azure. |  
 | Estado | Status do tempo de execução de integração do Azure. | 
@@ -68,7 +68,7 @@ Esta seção fornece descrições para propriedades retornadas pelo cmdlet Get-A
 
 A tabela a seguir apresenta descrições das Propriedades de monitoramento para **cada nó**:
 
-| Propriedade | DESCRIÇÃO | 
+| Propriedade | Descrição | 
 | -------- | ----------- | 
 | NOME | Nome do tempo de execução de integração auto-hospedado e nós associados a ele. O nó é um computador local do Windows em que o tempo de execução de integração auto-hospedado está instalado. |  
 | Status | O status do tempo de execução de integração auto-hospedado geral e de cada nó. Exemplo: Online/Offline/Limitado/etc. Para obter informações sobre esses status, consulte a próxima seção. | 
@@ -76,10 +76,18 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 | Memória disponível | Memória disponível em um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. |
 | Rede (Entrada/Saída) | Utilização da rede de um nó de tempo de execução de integração auto-hospedado. Esse valor é um instantâneo quase em tempo real. | 
-| Trabalhos Simultâneos (Executando/Limite) | Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que memória/CPU/rede são subutilizados, mas as atividades estão atingindo o tempo limite. Essa funcionalidade também está disponível com tempo de execução de integração auto-hospedado de nó único. |
+| Trabalhos Simultâneos (Executando/Limite) | **Executando**. Número de trabalhos ou tarefas em execução em cada nó. Esse valor é um instantâneo quase em tempo real. <br/><br/>**Limite**. Limite significa a máxima de trabalhos simultâneos para cada nó. Esse valor é definido com base no tamanho do computador. Você pode aumentar o limite para escalar verticalmente a execução de trabalhos simultâneos em cenários avançados, em que as atividades estão atingindo o tempo limite mesmo quando há subutilização de memória, CPU ou rede. Essa funcionalidade também está disponível com tempo de execução de integração auto-hospedado de nó único. |
 | Função | Há dois tipos de funções em um tempo de execução de integração auto-hospedado com vários nós – dispatcher e de trabalho. Todos os nós são de trabalho, o que significa que eles podem ser usados para executar trabalhos. Há apenas um nó dispatcher, que é usado para efetuar pull de tarefas/trabalhos dos serviços de nuvem e distribuí-los para nós de trabalho diferentes. O nó dispatcher também é um nó de trabalho. |
 
-Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós (cenário de expansão) no tempo de execução de integração auto-hospedado. 
+Algumas configurações das propriedades fazem mais sentido quando há dois ou mais nós no tempo de execução de integração auto-hospedado (ou seja, no cenário de expansão).
+
+#### <a name="concurrent-jobs-limit"></a>Limite de trabalhos simultâneos
+
+O valor padrão do limite de trabalhos simultâneos é definido com base no tamanho do computador. Os fatores usados para calcular esse valor dependem da quantidade de RAM e do número de núcleos de CPU do computador. Portanto, quanto mais núcleos e mais memória, maior será o limite padrão de trabalhos simultâneos.
+
+Você escala horizontalmente aumentando o número de nós. Quando você aumenta o número de nós, o limite de trabalhos simultâneos é a soma dos valores de limite de trabalhos simultâneos de todos os nós disponíveis.  Por exemplo, se um nó permitir que você execute um máximo de 12 trabalhos simultâneos, adicionar mais três nós semelhantes permitirá que você execute um máximo de 48 trabalhos simultâneos (ou seja, 4 × 12). É recomendável aumentar o limite de trabalhos simultâneos apenas quando você observar um baixo uso de recursos com os valores padrão em cada nó.
+
+Você pode substituir o valor padrão calculado no portal do Azure. Selecione Autor > Conexões > Integration Runtimes > Editar > Nós > Modificar valor de trabalhos simultâneos por nó. Você também pode usar o comando [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) do PowerShell.
   
 ### <a name="status-per-node"></a>Status (por nó)
 A tabela a seguir fornece os possíveis status de um nó de tempo de execução de integração auto-hospedado:

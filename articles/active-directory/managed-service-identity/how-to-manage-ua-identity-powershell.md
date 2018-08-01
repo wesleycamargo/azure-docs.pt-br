@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ca0493d43abb5d1e79ffb28e45b427eef0432b9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: def5788b83116ce0843f1fdd86933830cabc9ee2
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904098"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187982"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Criar, listar ou excluir uma identidade atribuída pelo usuário usando o Azure PowerShell
 
@@ -29,12 +29,15 @@ A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidad
 
 Neste artigo, você aprenderá a criar, listar e excluir uma identidade atribuída pelo usuário usando o Azure PowerShell.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md). **Verifique se examinou a [diferença entre uma identidade atribuída pelo sistema e uma atribuída pelo usuário](overview.md#how-does-it-work)**.
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 - Instale [a versão mais recente do Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) se ainda não o fez.
 - Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 5.7.0 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
+- Para realizar as operações de gerenciamento deste artigo, sua conta precisará das seguintes atribuições de função:
+    - [Colaborador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) função para criar, ler (listar), atualizar e excluir uma identidade atribuída ao usuário.
+    - Função de [Operador de Identidade Gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) para ler (listar) as propriedades de uma identidade atribuída ao usuário.
 
 ## <a name="create-a-user-assigned-identity"></a>Criar uma identidade atribuída pelo usuário
 
@@ -47,7 +50,7 @@ New-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER A
 ```
 ## <a name="list-user-assigned-identities"></a>Listar identidades atribuídas pelo usuário
 
-Para listar identidades atribuídas pelo usuário, use o comando [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos onde a identidade atribuída pelo usuário foi criada.  Substitua o `<RESOURCE GROUP>` por seu próprio valor:
+Para listar identidades atribuídas pelo usuário, use o comando [Get-AzureRmUserAssigned](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos onde a identidade atribuída pelo usuário foi criada. Substitua o `<RESOURCE GROUP>` por seu próprio valor:
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
@@ -58,7 +61,7 @@ Na resposta, identidades de usuário têm valor `"Microsoft.ManagedIdentity/user
 
 ## <a name="delete-a-user-assigned-identity"></a>Excluir uma identidade atribuída pelo usuário
 
-Para excluir uma identidade atribuída do usuário, use o comando [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos onde a identidade definida pelo usuário foi criada e o parâmetro `-Name` especifica seu nome.  Substitua os valores de parâmetros `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
+Para excluir uma identidade atribuída do usuário, use o comando [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity).  O parâmetro `-ResourceGroupName` especifica o grupo de recursos onde a identidade definida pelo usuário foi criada e o parâmetro `-Name` especifica seu nome. Substitua os valores de parâmetros `<RESOURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` pelos seus próprios valores:
 
  ```azurecli-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>

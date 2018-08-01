@@ -7,24 +7,28 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b889c77bbbcff31aa84cb0df5d06de487ba91d8e
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136546"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259340"
 ---
-# <a name="overview-failover-groups-and-active-geo-replication"></a>Visão geral: grupos de failover e replicação geográfica ativa
-A replicação geográfica ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário. O failover deve ser iniciado manualmente pelo aplicativo do usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
+# <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Visão geral: grupos de failover automático e replicação geográfica ativa
+A replicação geográfica ativa foi projetada como uma solução de continuidade de negócios que permite que o aplicativo execute a recuperação de desastres rápida no caso de uma interrupção na escala do data center. Se a replicação geográfica estiver habilitada, o aplicativo poderá iniciar o failover para um banco de dados secundário em uma região do Azure diferente. Há suporte para até quatro secundários na mesma região ou em regiões diferentes, e os secundários também podem ser usados para consultas de acesso somente leitura. O failover deve ser iniciado manualmente pelo aplicativo ou pelo usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
 
 > [!NOTE]
 > A replicação geográfica ativa agora está disponível para todos os bancos de dados em todas as camadas de serviço e em todas as regiões.
 >  
 
-Os grupos de failover automático do Banco de Dados SQL do Azure são um recurso do Banco de Dados SQL projetado para gerenciar automaticamente o relacionamento de replicação geográfica, conectividade e failover em escala. Com ele, os clientes têm a capacidade de recuperar automaticamente vários bancos de dados relacionados na região secundária após falhas catastróficas regionais ou outros eventos não planejados que resultam em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de somente leitura.  Como os grupos de failover automático incluem vários bancos de dados, eles devem ser configurados no servidor primário. Os servidores primários e secundários devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente. A replicação geográfica ativa, sem grupos de failover automático, permite a existência de até quatro secundários em qualquer região.
+Grupos de failover automático são uma extensão da replicação geográfica ativa. Ele foi projetado para gerenciar o failover de vários bancos de dados com replicação geográfica usando um failover iniciado pelo aplicativo ou delegando o failover para ser feito pelo serviço do Banco de Dados SQL com base em critérios definidos pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
+
+> [!NOTE]
+> Use a replicação geográfica ativa se vários secundários forem necessários.
+>  
 
 Se você estiver usando replicação geográfica ativa e, por algum motivo, o seu banco de dados primário falhar ou simplesmente precisar ser colocado offline, você poderá iniciar o failover para qualquer um dos seus bancos de dados secundários. Quando o failover é ativado para um dos bancos de dados secundários, todos os outros secundários são vinculados automaticamente ao novo primário. Se você estiver usando grupos de failover automático para gerenciar a recuperação dos bancos de dados e qualquer interrupção que afete um ou vários bancos de dados no grupo resultar em failover automático. Você pode configurar a política de failover automático que melhor atenda às necessidades do seu aplicativo, ou você pode recusar e usar a ativação manual. Além disso, os grupos de failover automático fornecem pontos de extremidade de ouvinte de leitura/gravação e somente leitura que permanecem inalterados durante failovers. Não importa se você usa a ativação de failover manual ou automática, o failover alterna todos os bancos de dados secundários no grupo para primário. Após o failover de banco de dados ser concluído, o registro DNS é atualizado automaticamente para redirecionar os pontos de extremidade para a nova região.
 
@@ -40,7 +44,7 @@ Você pode gerenciar a replicação e o failover de um banco de dados individual
  
 Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md). Isso aplica-se aos grupos de failover automático e replicação geográfica ativa.
 
-A replicação geográfica ativa aproveita a tecnologia [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do SQL Server para replicar de forma assíncrona transações confirmadas no banco de dados primário para um banco de dados secundário usando RCSI (isolamento do instantâneo confirmado por leitura). Os grupos de failover automático fornecem a semântica de grupo além da replicação geográfica ativa, mas o mesmo mecanismo de replicação assíncrona é usado. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de nunca terem transações parciais. A redundância entre regiões permite que os aplicativos se recuperem rapidamente de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. Os dados específicos de RPO podem ser encontrados em [Visão geral da continuidade de negócios](sql-database-business-continuity.md).
+A replicação geográfica ativa aproveita a tecnologia [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do SQL Server para replicar de maneira assíncrona transações confirmadas no banco de dados primário para um banco de dados secundário usando isolamento de instantâneo. Os grupos de failover automático fornecem a semântica de grupo além da replicação geográfica ativa, mas o mesmo mecanismo de replicação assíncrona é usado. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de nunca terem transações parciais. A redundância entre regiões permite que os aplicativos se recuperem rapidamente de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. Os dados específicos de RPO podem ser encontrados em [Visão geral da continuidade de negócios](sql-database-business-continuity.md).
 
 A figura a seguir mostra que um exemplo de replicação geográfica ativa configurada com um banco de dados primário na região Centro-Norte dos EUA e um secundário na região Centro-Sul dos EUA.
 
@@ -60,15 +64,15 @@ O recurso de replicação geográfica ativa fornece os seguintes recursos essenc
 * **Replicação Assíncrona Automática**: você só pode criar um banco de dados secundário adicionando-o a um banco de dados existente. O banco de dados secundário só pode ser criado em qualquer servidor de Banco de Dados SQL do Azure. Depois de criado, o banco de dados secundário é preenchido com os dados copiados do banco de dados primário. Este processo é conhecido como propagação. Depois que o banco de dados secundário for criado e propagado, as atualizações para o banco de dados primário serão replicadas de forma assíncrona para o banco de dados secundário automaticamente. A replicação assíncrona significa que as transações são confirmadas no banco de dados primário antes de serem replicadas para o banco de dados secundário. 
 * **Bancos de dados secundários legíveis**: um aplicativo pode acessar um banco de dados secundário para operações somente leitura usando as mesmas entidades de segurança usadas para acessar o banco de dados primário, ou outras diferentes. Os bancos de dados secundários operam no modo de isolamento de instantâneo para garantir que a replicação das atualizações do primário (repetição de log) não seja atrasada por consultas executadas no secundário.
 
-   > [!NOTE]
-   > A repetição do log será atrasada no banco de dados secundário se houver atualizações de esquema no primário. Este último requer um bloqueio de esquema no banco de dados secundário. 
-   > 
+> [!NOTE]
+> A repetição do log será atrasada no banco de dados secundário se houver atualizações de esquema no primário. Este último requer um bloqueio de esquema no banco de dados secundário. 
+> 
 
 * **Vários bancos de dados secundários legíveis**: dois ou mais bancos de dados secundários aumentam a redundância e o nível de proteção para o banco de dados primário e o aplicativo. Se existirem vários bancos de dados secundários, o aplicativo permanecerá protegido mesmo se houver uma falha em um dos bancos de dados secundários. Se houver apenas um banco de dados secundário e ele falhar, o aplicativo será exposto a um risco maior até que um novo banco de dados secundário seja criado.
 
-   > [!NOTE]
-   > Se você estiver usando replicação geográfica ativa para compilar um aplicativo distribuído globalmente e precisa fornecer acesso somente leitura aos dados em mais de quatro regiões, poderá criar um banco de dados secundário de outro banco de dados secundário (um processo conhecido como encadeamento). Dessa forma, que você pode obter uma escala praticamente ilimitada de replicação de banco de dados. Além disso, o encadeamento reduz a sobrecarga de replicação do banco de dados primário. A desvantagem é uma maior latência de replicação nos bancos de dados secundários filhos. 
-   >
+> [!NOTE]
+> Se você estiver usando replicação geográfica ativa para compilar um aplicativo distribuído globalmente e precisa fornecer acesso somente leitura aos dados em mais de quatro regiões, poderá criar um banco de dados secundário de outro banco de dados secundário (um processo conhecido como encadeamento). Dessa forma, que você pode obter uma escala praticamente ilimitada de replicação de banco de dados. Além disso, o encadeamento reduz a sobrecarga de replicação do banco de dados primário. A desvantagem é uma maior latência de replicação nos bancos de dados secundários filhos. 
+>
 
 * **Suporte de bancos de dados do pool Elástico**: cada réplica pode participar de um Pool Elástico separadamente ou não estar em qualquer pool Elástico em todos os. A escolha de pool para cada réplica é separada e não dependem da configuração de outra réplica (seja primário ou secundário). Cada Pool Elástico está dentro de uma única região, portanto, várias réplicas na mesma topologia nunca podem compartilhar um Pool Elástico.
 * **Nível de desempenho configurável do banco de dados secundário**: os bancos de dados primários e secundários são necessários para ter a mesma camada de serviço. Um banco de dados secundário pode ser criado com o nível de desempenho inferior (DTUs) ao primário. Essa opção não é recomendada para aplicativos com atividade de gravação de banco de dados elevada, pois o retardo maior de replicação aumenta o risco de perda de dados substancial após o failover. Além disso, após o failover, o desempenho do aplicativo será afetado até que o novo primário seja atualizado para um nível mais alto de desempenho. O gráfico de percentual de E/S de log no Portal do Azure fornece uma boa maneira de estimar o nível mínimo de desempenho do banco de dados secundário que será necessário para sustentar a carga de replicação. Por exemplo, se o banco de dados Primário for P6 (1000 DTUS) e seu percentual de E/S de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Você também pode recuperar os dados de E/S de log usando as exibições de banco de dados [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para obter mais informações sobre os níveis de desempenho do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](sql-database-service-tiers.md). 
@@ -84,28 +88,27 @@ O recurso grupos de failover automático fornece uma abstração eficaz de repli
 * **Servidor secundário**: um servidor que hospeda os bancos de dados secundários no grupo de failover. O servidor secundário não pode estar na mesma região do servidor primário.
 * **Adicionando bancos de dados ao grupo de failover**: Você pode colocar vários bancos de dados em um servidor ou em um pool elástico no mesmo grupo de failover. Se você adicionar um banco de dados independente ao grupo, ele cria automaticamente um banco de dados secundário usando a mesma edição e nível de desempenho. Se o banco de dados primário estiver em um pool elástico, o banco de dados secundário é criado automaticamente no pool elástico com o mesmo nome. Se você adicionar um banco de dados que já possui um banco de dados secundário no servidor secundário, essa replicação geográfica é herdada pelo grupo.
 
-   > [!NOTE]
-   > Ao adicionar um banco de dados que já possui um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo banco de dados secundário é criado no servidor secundário. 
-   >
+> [!NOTE]
+> Ao adicionar um banco de dados que já possui um banco de dados secundário em um servidor que não faz parte do grupo de failover, um novo banco de dados secundário é criado no servidor secundário. 
+>
 
 * **Ouvinte de leitura/gravação do grupo de failover**: um registro CNAME de DNS formado como **&lt;nome-do-grupo-de-failover&gt;.database.windows.net** que aponta para a URL do servidor primário atual. Ele permite que os aplicativos de SQL de leitura/gravação se reconectem de forma transparente ao banco de dados primário quando o banco de dados primário for alterado após o failover. 
 * **Ouvinte somente leitura do grupo de failover**: um registro CNAME de DNS formado como **&lt;nome-do-grupo-de-failover&gt;.secondary.database.windows.net** que aponta para a URL do servidor secundário. Ele permite que os aplicativos SQL de somente leitura se conectem de forma transparente ao banco de dados secundário usando as regras de balanceamento de carga especificadas. 
-* **Política de failover automático**: O grupo de failover está configurado, por padrão, com uma política de failover automático. O sistema dispara o failover assim que a falha é detectada. Se você deseja controlar o fluxo de trabalho de failover do aplicativo, pode desligar o failover automático. 
+* **Política de failover automático**: O grupo de failover está configurado, por padrão, com uma política de failover automático. O sistema dispara o failover após a falha ser detectada e o período de cortesia expirar. O sistema deve verificar se a interrupção não pode ser mitigada pela infraestrutura de alta disponibilidade interna do serviço do Banco de Dados SQL devido à escala do impacto. Se você deseja controlar o fluxo de trabalho de failover do aplicativo, pode desligar o failover automático. 
 * **Política de failover somente leitura**: por padrão, o failover do ouvinte somente leitura é desabilitado. Isso garante que o desempenho do primário não seja afetado quando o secundário estiver offline. No entanto, isso também significa que as sessões somente leitura não poderão conectar-se até que o secundário seja recuperado. Se não for possível tolerar o tempo de inatividade para sessões somente leitura e tiver condições para usar temporariamente o primário tanto para tráfego somente leitura como leitura/gravação às custas da possível degradação do desempenho do primário, você poderá habilitar o failover para o ouvinte somente leitura. Nesse caso, o tráfego somente leitura será redirecionado automaticamente para o servidor primário se o servidor secundário não estiver disponível.  
 * **Failover manual**: Você pode iniciar o failover manualmente a qualquer momento, independentemente da configuração de failover automático. Se a política de failover automático não for configurada, será necessário fazer o failover manual para recuperar os bancos de dados no grupo de failover. Você pode iniciar um failover forçado ou amigável (com sincronização total de dados). O failover amigável pode ser usado para realocar o servidor ativo para a região primária. Quando o failover estiver concluído os registros DNS são atualizados automaticamente para garantir a conectividade com o servidor correto.
 * **Período de carência para a perda de dados**: como os bancos de dados primários e secundários são sincronizados usando a replicação assíncrona, o failover pode resultar em perda de dados. Você pode personalizar a política de failover automático para refletir a tolerância do seu aplicativo à perda de dados. Ao configurar **GracePeriodWithDataLossHours**, você poderá controlar quanto tempo o sistema aguarda antes de iniciar o failover que provavelmente resultará em perda de dados. 
 
-   > [!NOTE]
-   > Quando o sistema detecta que os bancos de dados no grupo ainda estão online (por exemplo, a interrupção só afetou o plano de controle de serviço), ele ativa imediatamente o failover com a sincronização total de dados (failover amigável), independentemente do valor definido por **GracePeriodWithDataLossHours**. Esse comportamento faz com que não haja nenhuma perda de dados durante a recuperação. O período de carência tem efeito somente quando não é possível fazer um failover amigável. Se a interrupção for reduzida antes do período de carência expirar, o failover não está ativado.
-   >
+> [!NOTE]
+> Quando o sistema detecta que os bancos de dados no grupo ainda estão online (por exemplo, a interrupção só afetou o plano de controle de serviço), ele ativa imediatamente o failover com a sincronização total de dados (failover amigável), independentemente do valor definido por **GracePeriodWithDataLossHours**. Esse comportamento faz com que não haja nenhuma perda de dados durante a recuperação. O período de carência tem efeito somente quando não é possível fazer um failover amigável. Se a interrupção for reduzida antes do período de carência expirar, o failover não está ativado.
+>
 
 * **Vários grupos de failover**: Você pode configurar vários grupos de failover para o mesmo par de servidores para controlar a escala de failovers. Cada grupo sofre failover de forma independente. Se seu aplicativo multilocatário usa pools elásticos, você pode usar esse recurso para misturar os bancos de dados primários e secundários em cada pool. Dessa forma, você pode reduzir o impacto de uma interrupção a somente metade dos locatários.
 
-## <a name="best-practices-of-building-highly-available-service"></a>Práticas recomendadas para a criação de serviço altamente disponível
+## <a name="best-practices-of-using-failover-groups-for-business-continuity"></a>Melhores práticas para o uso de grupos de failover para continuidade dos negócios
+Ao projetar um serviço pensando em continuidade de negócios, você deve seguir estas diretrizes:
 
-Para criar um serviço altamente disponível que usa o Banco de Dados SQL do Azure, você deve seguir estas diretrizes:
-
-- **Usar grupo de failover**: Um ou mais grupos de failover podem ser criados entre dois servidores em regiões diferentes (servidores primário e secundário). Cada grupo pode conter um ou vários bancos de dados que são recuperados como uma unidade no caso de alguns ou todos os bancos de dados primários ficarem indisponíveis devido a uma interrupção na região primária. O grupo de failover cria um banco de dados geograficamente secundário com o mesmo objetivo de serviço do primário. Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, verifique se o geograficamente secundário está configurado com o mesmo objetivo de nível de serviço do primário.
+- **Use um ou vários grupos de failover para gerenciar o failover de vários bancos de dados**: um ou vários grupos de failover podem ser criados entre dois servidores em diferentes regiões (servidores primário e secundário). Cada grupo pode conter um ou vários bancos de dados que são recuperados como uma unidade no caso de alguns ou todos os bancos de dados primários ficarem indisponíveis devido a uma interrupção na região primária. O grupo de failover cria um banco de dados geograficamente secundário com o mesmo objetivo de serviço do primário. Se você adicionar uma relação de replicação geográfica existente ao grupo de failover, verifique se o geograficamente secundário está configurado com o mesmo objetivo de nível de serviço do primário.
 - **Usar o ouvinte de leitura/gravação para a carga de trabalho OLTP**: ao executar operações de OLTP use **&lt;nome-do-grupo-de-failover&gt;.database.windows.net** como a URL do servidor, e as conexões são automaticamente direcionadas ao primário. Essa URL não é alterada após o failover. Observe que o failover envolve a atualização do registro DNS, para que conexões de cliente sejam redirecionadas ao novo primário somente após a atualização do cliente do cache DNS.
 - **Usar o ouvinte somente leitura para cargas de trabalho somente leitura**: se você tiver uma carga de trabalho somente leitura logicamente isolada que seja tolerante a determinadas desatualização dos dados, use o banco de dados secundário no aplicativo. Para sessões somente leitura, use **&lt;nome-do-grupo-de-failover&gt;.secondary.database.windows.net** como a URL do servidor, e a conexão é direcionada automaticamente para o secundário. Também recomendamos que você indique na cadeia de conexão a intenção de leitura usando **ApplicationIntent=ReadOnly**. 
 - **Prepare-se para a degradação do desempenho**: a decisão de failover do SQL independe dos demais aplicativos ou outros serviços usados. O aplicativo pode estar "misturado", com alguns componentes em uma região e outros em outra. Para evitar a degradação, garanta a implantação do aplicativo redundante na região de DR e siga as diretrizes neste artigo. Observe que o aplicativo na área de recuperação de desastres não precisa usar uma cadeia de conexão diferente.  
@@ -113,6 +116,44 @@ Para criar um serviço altamente disponível que usa o Banco de Dados SQL do Azu
 
 > [!IMPORTANT]
 > Os pools elásticos com 800 ou menos DTUs e mais de 250 bancos de dados usando a replicação geográfica podem encontrar problemas, incluindo failovers planejados mais longos e diminuição do desempenho.  A ocorrência desses problemas é mais provável para cargas de trabalho com uso intensivo de gravação, quando os pontos de extremidade de replicação geográfica são separados por uma grande extensão geográfica ou quando vários pontos de extremidade secundários são usados para cada banco de dados.  Os sintomas desses problemas são indicados quando o retardo da replicação geográfica aumenta ao longo do tempo.  Esse retardo pode ser monitorado usando [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se esses problemas ocorrerem, considere mitigações como aumentar o número de DTUs do pool ou reduzir o número de bancos de dados replicados geograficamente no mesmo pool.
+
+## <a name="failover-groups-and-network-security"></a>Grupos de failover e a segurança de rede 
+
+Para alguns aplicativos, as regras de segurança exigem que o acesso à rede para a camada de dados seja restrito a um ou mais componentes específicos, como uma VM, um serviço Web etc. Essa exigência impõe alguns desafios para o design de continuidade de negócios e o uso dos grupos de failover. Você deve considerar as opções a seguir ao implementar tal acesso restrito.
+
+### <a name="using-failover-groups-and-virtual-network-rules"></a>Como usar grupos de failover e regras de rede virtual
+
+Se você está usando [Pontos de extremidade e regras de serviço de Rede Virtual](sql-database-vnet-service-endpoint-rule-overview.md) para restringir o acesso ao seu banco de dados SQL, lembre-se de que cada ponto de extremidade de serviço da Rede Virtual se aplica a apenas uma região do Azure. O ponto de extremidade não permite que outras regiões aceitem a comunicação da sub-rede. Uma vez que o failover resulta em sessões de cliente SQL que estão sendo redirecionadas para o servidor na região diferente (secundária), essas sessões falharão se originadas de um cliente fora dessa região. Por esse motivo, a política de failover automático não poderá ser habilitada se os servidores participantes estiverem incluídos nas regras de Rede Virtual. Para dar suporte a failover manual, siga estas etapas:
+
+1.  Provisione as cópias redundantes dos componentes front-end do seu aplicativo (serviço Web, máquinas virtuais etc.) na região secundária
+2.  Configurar as [regras de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md) individualmente para os servidores primário e secundário
+3.  Habilitar o [failover front-end usando uma configuração do Gerenciador de tráfego](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+4.  Iniciar o failover manual quando a interrupção for detectada
+
+Essa opção é otimizada para os aplicativos que precisam de latência consistente entre o front-end e a camada de dados e oferece suporte à recuperação quando o front-end, a camada de dados ou ambos são afetados pela interrupção. 
+
+> [!NOTE]
+> Se você estiver usando o **ouvinte somente leitura** para balanceamento de uma carga de trabalho somente leitura, essa carga de trabalho deverá ser executada em uma VM ou outro recurso na região secundária para que possa se conectar ao banco de dados secundário.
+>
+
+ ### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Usando grupos de failover e regras de firewall de banco de dados SQL
+
+Se o seu plano de continuidade de negócios exigir failover usando grupos com failover automático, você poderá restringir o acesso ao banco de dados SQL usando as regras de firewall tradicional.  Para dar suporte a failover automático, siga estas etapas:
+
+1.  [Criar um IP público](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) 
+2.  [Crie um balanceador de carga público](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) e atribua o IP público a ele. 
+3.  [Crie uma rede virtual e as máquinas virtuais](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) para os componentes de front-end 
+4.  [Crie um grupo de segurança de rede](../virtual-network/security-overview.md) e configure conexões de entrada. 
+5. Verifique se as conexões de saída estão abertas para o banco de dados SQL do Azure usando a [marca de serviço](../virtual-network/security-overview.md#service-tags) 'Sql'. 
+5.  Crie uma [regra de firewall de banco de dados SQL](sql-database-firewall-configure.md) para permitir o tráfego de entrada do endereço IP público criado na etapa 1. 
+
+Para obter mais informações sobre como configurar o acesso de saída e qual IP usar nas regras de firewall, veja [conexões de saída do balanceador de carga](../load-balancer/load-balancer-outbound-connections.md).
+
+A configuração acima garantirá que o failover automático não bloqueie conexões dos componentes front-end e pressupõe que o aplicativo pode tolerar a latência mais longa entre o front-end e a camada de dados.
+
+> [!IMPORTANT]
+> Para garantir a continuidade dos negócios para interrupções regionais, garanta redundância geográfica para bancos de dados e componentes de front-end. 
+>
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade de um banco de dados primário
 Você pode atualizar ou fazer downgrade de um banco de dados primário para um nível de desempenho diferente (dentro da mesma camada de serviço) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize primeiro o banco de dados secundário e, depois, atualize o primário. Ao fazer downgrade, inverta a ordem: faça primeiro o downgrade do banco de dados primário e, depois, faça do secundário. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta. 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034211"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214669"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Como - exigir dispositivos para acesso de aplicativo de nuvem com acesso condicional gerenciados
 
@@ -30,7 +30,7 @@ Em um mundo que prioriza os dispositivos móveis e a nuvem, o Azure AD (Azure Ac
 Este artigo explica como você pode configurar políticas de acesso condicional que exigem que os dispositivos gerenciados para acessar determinados aplicativos de nuvem em seu ambiente. 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Requerer dispositivos gerenciados para acesso de aplicativo de nuvem junta o **acesso condicional do Azure AD** e o **gerenciamento de dispositivos do Azure AD**. Caso ainda não esteja familiarizado com uma dessas áreas, você deverá ler os seguintes tópicos primeiro:
 

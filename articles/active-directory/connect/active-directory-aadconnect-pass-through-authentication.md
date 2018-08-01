@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d88bf5d20beb9de9bf4a0cdcb43548d0d582779
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917271"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214022"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Entrada do usuário com autenticação de passagem do Azure Active Directory
 
@@ -30,7 +30,7 @@ A autenticação de passagem do Azure AD (Azure Active Directory) permite que os
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Esse recurso é uma alternativa à [Sincronização de Hash de Senha do Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, as políticas de conformidade e segurança de certas organizações não permitirem que essas organizações enviem as senhas dos usuários, mesmo em um formato com hash, para fora de seus limites internos. A Autenticação de Passagem é a solução ideal para essas organizações.
+Esse recurso é uma alternativa à [Sincronização de Hash de Senha do Azure AD](active-directory-aadconnectsync-implement-password-hash-synchronization.md), que fornece o mesmo benefício da autenticação de nuvem para as organizações. No entanto, determinadas organizações que desejam impor suas políticas de segurança e senha do Active Directory local podem optar por usar a Autenticação de Passagem. Leia [este guia](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) para uma comparação entre os vários métodos de conexão do Azure AD e como escolher o método de entrada certo para a sua organização.
 
 ![O que é a Autenticação de Passagem do Azure AD](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 
@@ -49,7 +49,7 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 - *Proteger*
   - Senhas locais nunca são armazenadas na nuvem, em formato nenhum.
   - O agente estabelece conexões de saída apenas de dentro de sua rede. Portanto, não há nenhum requisito de instalar o agente em uma rede de perímetro, também conhecida como DMZ.
-  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
+  - Proteja suas contas de usuário trabalhando diretamente com as [Políticas de acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md), incluindo a MFA (Autenticação Multifator), [bloqueando autenticação herdada](../active-directory-conditional-access-conditions.md) e [filtrando ataques de senha de força bruta](../authentication/howto-password-smart-lockout.md).
 - *Altamente disponível*
   - Agentes adicionais podem ser instalados em vários servidores locais para promover a alta disponibilidade de solicitações de entrada.
 
@@ -68,12 +68,13 @@ Você pode combinar a Autenticação de Passagem com o recurso de [SSO (logon ú
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
-- [**Bloqueio Inteligente**](../authentication/howto-password-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
-- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
-- [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
-- [**Perguntas frequentes**](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.
-- [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
-- [**Aprofundamento em Segurança**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) – informações técnicas aprofundadas adicionais sobre o recurso.
-- [**SSO contínuo do Azure AD**](active-directory-aadconnect-sso.md) – Saiba mais sobre esse recurso complementar.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
+- [Início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md) – comece a usar rapidamente a Autenticação de Passagem do Azure AD.
+- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
+- [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md) – configure a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
+- [Limitações Atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
+- [Aprofundamento técnico](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
+- [Perguntas frequentes](active-directory-aadconnect-pass-through-authentication-faq.md) – respostas para perguntas frequentes.
+- [Solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – saiba como resolver problemas comuns do recurso.
+- [Aprofundamento em Segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) – informações técnicas aprofundadas adicionais sobre o recurso.
+- [SSO contínuo do Azure AD](active-directory-aadconnect-sso.md) – saiba mais sobre esse recurso complementar.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

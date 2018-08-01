@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 246943b7e3df955394a6a79f9b3130633fe4ec50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096468"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186606"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Implantação contínua com o Jenkins e o Serviço de Kubernetes do Azure
 
@@ -29,7 +29,7 @@ O fluxo de trabalho de exemplo inclui as seguintes etapas:
 > * Essa imagem é enviada por push para um ACR (Registro de Contêiner do Azure).
 > * O aplicativo em execução no cluster do AKS é atualizado com a nova imagem de contêiner.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas neste artigo, você precisa dos itens a seguir.
 
@@ -149,6 +149,9 @@ Um script foi criado previamente para implantar uma máquina virtual, configurar
 
 Execute os comandos a seguir para baixar e executar o script. A URL abaixo também pode ser usada para examinar o conteúdo do script.
 
+> [!WARNING]
+> Esse script de amostra é para fins de demonstração para provisionar rapidamente um ambiente Jenkins executado em uma VM do Azure. Ele usa a extensão de script personalizado do Azure para configurar uma VM e, em seguida, exibir as credenciais necessárias. Sua *~/.kube/config* é copiada para a VM Jenkins.
+
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
@@ -263,12 +266,11 @@ Quando o processo estiver concluído, clique em **Build 1** no histórico de com
 Em seguida, conecte o repositório de aplicativo ao servidor de build do Jenkins para que, no evento de qualquer confirmação, um novo build seja disparado.
 
 1. Navegue até o repositório do GitHub em que um fork foi criado.
-2. Selecione **Configurações** e, em seguida, **Integrações e serviços** no lado esquerdo.
-3. Escolha **Adicionar Serviço**, digite `Jenkins (GitHub plugin)` na caixa de filtro e selecione o plug-in.
-4. Para a URL de conexão do Jenkins, digite `http://<publicIp:8080>/github-webhook/`, em que `publicIp` é o endereço IP do servidor Jenkins. Não deixe de incluir a barra (/) à direita.
-5. Selecione Adicionar serviço.
+2. Selecione **Configurações** e, em seguida, **Webhooks** no lado esquerdo.
+3. Escolha **Adicionar webhook**. Para a *URL de Payload*, digite `http://<publicIp:8080>/github-webhook/`, em que `publicIp` é o endereço IP do servidor Jenkins. Não deixe de incluir a barra (/) à direita. Deixe os outros padrões para o tipo de conteúdo e para gatilho em eventos de *push*.
+4. Selecione **Adicionar webhook**.
 
-![Webhook do GitHub](media/aks-jenkins/webhook.png)
+    ![Webhook do GitHub](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>Testar o processo de CI/CD de ponta a ponta
 

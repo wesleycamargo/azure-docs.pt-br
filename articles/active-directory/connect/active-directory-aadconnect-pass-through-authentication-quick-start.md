@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917703"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214975"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: início rápido
 
@@ -29,9 +29,9 @@ ms.locfileid: "37917703"
 A autenticação de passagem do Azure Active Directory (Azure AD) permite que os usuários entrem em aplicativos locais e baseados em nuvem usando as mesmas senhas. Ela permite a entrada de usuários validando suas senhas diretamente no Active Directory local.
 
 >[!IMPORTANT]
->Se usar esse recurso por meio de uma versão prévia, verifique se você atualizou as versões prévias dos Agentes de autenticação usando as instruções fornecidas em [Autenticação de passagem do Azure Active Directory: atualizar versão prévia dos Agentes de autenticação](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md).
+>Se você estiver migrando do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem, é altamente recomendável seguir nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-Siga estas instruções para implantar a Autenticação de passagem:
+Siga estas instruções para implantar a Autenticação de Passagem no seu locatário:
 
 ## <a name="step-1-check-the-prerequisites"></a>Etapa 1: Verificar os pré-requisitos
 
@@ -50,7 +50,11 @@ Verifique se os pré-requisitos a seguir estão em vigor.
     >[!NOTE]
     >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
 
-3. Identifique um servidor adicional (que execute o Windows Server 2012 R2 ou posterior) no qual você pode executar o Agente de Autenticação autônomo. A versão do Agente de autenticação precisa ser a 1.5.193.0 ou posterior. Esse servidor adicional é necessário para garantir a alta disponibilidade de solicitações para entrar. Adicione o servidor à mesma floresta do Active Directory dos usuários cujas senhas você precisa validar.
+3. Identifique um ou mais servidores adicionais (que execute o Windows Server 2012 R2 ou posterior) no qual você possa executar Agentes de Autenticação autônomos. Esses servidores adicionais são necessários para garantir a alta disponibilidade de solicitações de entrada. Adicione os servidores à mesma floresta do Active Directory dos usuários cujas senhas você precisa validar.
+
+    >[!IMPORTANT]
+    >Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 12 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+
 4. Se houver um firewall entre os servidores e o Azure AD, configure os seguintes itens:
    - Certifique-se de que os Agentes de Autenticação podem fazer solicitações de *saída* ao Azure AD sobre as seguintes portas:
    
@@ -62,32 +66,14 @@ Verifique se os pré-requisitos a seguir estão em vigor.
     Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitirem lista de permissões de DNS, adicione as conexões a **\*msappproxy.net** e **\*servicebus.windows.net** à lista de permissões. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
-   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www.microsoft.com:80**. Essas URLs são usadas para a validação de certificado com outros produtos da Microsoft. Talvez essas URLs já estejam desbloqueados.
+   - Para validação de certificado, desbloqueie as seguintes URLs: **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** e **www.microsoft.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
-## <a name="step-2-enable-exchange-activesync-support-optional"></a>Etapa 2: Habilitar o suporte do Exchange ActiveSync (opcional)
-
-Siga estas instruções para habilitar o suporte do Exchange ActiveSync:
-
-1. Use o [PowerShell do Exchange](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx) para executar o comando a seguir:
-```
-Get-OrganizationConfig | fl per*
-```
-
-2. Verifique o valor da configuração `PerTenantSwitchToESTSEnabled`. Se o valor for **true**, o locatário está configurado corretamente. Geralmente é isso que acontece para a maioria dos clientes. Se o valor for **false**, execute o seguinte comando:
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
-
-3. Verifique se o valor da configuração `PerTenantSwitchToESTSEnabled` agora está definida como **true**. Aguarde uma hora antes de passar para a próxima etapa.
-
-Se encontrar problemas durante essa etapa, verifique o [guia de solução de problemas](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues).
-
-## <a name="step-3-enable-the-feature"></a>Etapa 3: Habilitar o recurso
+## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
 Habilite a Autenticação de passagem por meio do [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. Você deve habilitá-lo a partir do servidor primário.
+>É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É recomendável habilitá-las usando o servidor primário.
 
 Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](active-directory-aadconnect-get-started-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 
@@ -98,9 +84,9 @@ Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expr
 ![Azure AD Connect: alterar entrada do usuário](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição.
+>A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso guia detalhado de implantação publicado [aqui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
 
-## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
+## <a name="step-3-test-the-feature"></a>Etapa 3: testar o recurso
 
 Siga estas instruções para verificar se você habilitou a Autenticação de passagem corretamente:
 
@@ -116,9 +102,12 @@ Siga estas instruções para verificar se você habilitou a Autenticação de pa
 
 Nesse momento, os usuários de todos os domínios gerenciados no seu locatário podem entrar usando a Autenticação de passagem. No entanto, os usuários de domínios federados continuam a entrar usando o AD FS ou outro provedor de federação que já esteja configurado. Se você converter um domínio de federado para gerenciado, todos os usuários nesse domínio passarão automaticamente a entrar usando a Autenticação de passagem. O recurso de Autenticação de passagem os não afeta os usuários somente de nuvem.
 
-## <a name="step-5-ensure-high-availability"></a>Etapa 5: Verificar a alta disponibilidade
+## <a name="step-4-ensure-high-availability"></a>Etapa 4: Verificar a alta disponibilidade
 
-Se você planeja implantar autenticação de passagem em um ambiente de produção, instale pelo menos mais um Agente de Autenticação autônomo. Instale esses Agentes de Autenticação no(s) servidor(es) _diferente(s)_ do que está executando o Azure AD Connect. Esta configuração fornece alta disponibilidade para solicitações de entrada de usuário.
+Se você planeja implantar autenticação de passagem em um ambiente de produção, instale um Agente de Autenticação autônomo. Instale esses Agentes de Autenticação no(s) servidor(es) _diferente(s)_ do que está executando o Azure AD Connect. Esta configuração fornece alta disponibilidade para solicitações de entrada de usuário.
+
+>[!IMPORTANT]
+>Em ambientes de produção, recomendamos ter um mínimo de três Agentes de Autenticação em execução no seu locatário. Há um limite do sistema de 12 Agentes de Autenticação por locatário. Como melhor prática, trate todos os servidores que estão executando Agentes de Autenticação como sistemas de Camada 0 (veja a [referência](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Siga estas instruções para fazer o download do software do Agente de Autenticação:
 
@@ -132,7 +121,7 @@ Siga estas instruções para fazer o download do software do Agente de Autentica
 ![Centro de administração do Azure Active Directory: painel Baixar Agente](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->Você também pode fazer o download diretamente do software do Agente de Autenticação [aqui](https://aka.ms/getauthagent). Leia e aceite os [Termos de Serviço](https://aka.ms/authagenteula) do Agente de Autenticação _antes_ de instalá-lo.
+>Você também pode [baixar o software Agente de Autenticação](https://aka.ms/getauthagent) diretamente. Leia e aceite os [Termos de Serviço](https://aka.ms/authagenteula) do Agente de Autenticação _antes_ de instalá-lo.
 
 Existem duas formas de implantar um Agente de Autenticação autônomo:
 
@@ -152,6 +141,7 @@ Segundo, você pode criar e executar um script de implantação autônomo. Isso 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Próximas etapas
+- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Limitações atuais](active-directory-aadconnect-pass-through-authentication-current-limitations.md): saiba quais cenários têm suporte na Autenticação de passagem e quais não têm.
 - [Análise técnica aprofundada](active-directory-aadconnect-pass-through-authentication-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.

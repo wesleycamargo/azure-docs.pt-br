@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 655a6ab2960047cde50bec2953015283ca8577f0
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265281"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214842"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação visual no Azure Data Factory
 A experiência (UX) da interface do usuário do Azure Data Factory permite criar e implantar visualmente recursos para seu data factory sem ter que gravar nenhum código. Você pode arrastar atividades para uma tela de pipeline, realizar execuções de teste, depurar iterativamente e implantar e monitorar as execuções do pipeline. Há duas abordagens para usar a UX para executar a criação visual:
@@ -88,7 +88,7 @@ Depois de remover a associação com o repositório atual, você pode configurar
 ### <a name="use-version-control"></a>Usar controle de versão
 Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem aos desenvolvedores colaborar em código e acompanhar as alterações feitas no código base. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
-Cada repositório do Git do VSTS associado a um data factory tem uma ramificação de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários criam ramificações do recurso clicando **+ Nova ramificação** e fazem o desenvolvimento nas ramificações do recurso.
+Cada repositório Git do VSTS associado a um data factory tem uma ramificação de colaboração. (`master` é a ramificação de colaboração padrão). Os usuários criam ramificações do recurso clicando **+ Nova ramificação** e fazem o desenvolvimento nas ramificações do recurso.
 
 ![Alterar o código sincronizando ou publicando](media/author-visually/sync-publish.png)
 

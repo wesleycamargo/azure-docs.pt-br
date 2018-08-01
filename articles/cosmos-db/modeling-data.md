@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2016
 ms.author: sngun
-ms.openlocfilehash: ef40bcb473e4d7dbe51f9d8d9ca20265c04d0df6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: acd3fa3367f68d5cc98a4ace82508f028d5fdbf8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612676"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214738"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
 Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
@@ -281,7 +281,7 @@ Mudar um pouco as coisas resultaria em um modelo que ainda representa os mesmos 
     ...
     {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
 
-No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora no documento de cada livro.
+No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez disso, temos apenas uma referência à editora em cada documento de livro.
 
 ### <a name="how-do-i-model-manymany-relationships"></a>Como eu modelo relações de muitos para muitos?
 Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 

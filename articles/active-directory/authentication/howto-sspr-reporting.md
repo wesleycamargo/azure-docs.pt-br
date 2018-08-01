@@ -4,18 +4,18 @@ description: Relatórios de eventos de autoatendimento de redefinição de senha
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044521"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258789"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -54,6 +54,10 @@ Na experiência do portal do Azure, melhoramos a maneira de exibir a redefiniç�
 6. Para filtrar essa exibição somente para os eventos relacionados à redefinição de senha, selecione o botão **Filtrar** na parte superior do painel.
 7. No menu **Filtro**, selecione a lista suspensa **Categoria** e altere-a para o tipo de categoria **Gerenciamento de Senha de Autoatendimento**.
 8. Opcionalmente, filtre mais a lista escolhendo a **Atividade** específica em que você está interessado.
+
+### <a name="converged-registration-preview"></a>Registro convergente (versão prévia)
+
+Se você estiver participando da visualização pública do registro convergente, informações sobre a atividade de usuário nos logs de auditoria serão encontradas na categoria **Métodos de Autenticação**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 

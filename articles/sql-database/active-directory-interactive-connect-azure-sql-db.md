@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/06/2018
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: cbbaa789295a0e8fe602d7d90055f6d3af6bfc01
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34643749"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238261"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Use o modo ActiveDirectoryInteractive para se conectar ao Banco de Dados SQL do Azure
 
@@ -122,13 +122,13 @@ O programa em C# se baseia no namespace **Microsoft.IdentityModel.Clients.Active
 
 O exemplo de C# se baseia no namespace **System.Data.SqlClient**. A enumeração **SqlAuthenticationMethod** é de interesse especial. Essa enumeração tem os seguintes valores:
 
-- **SqlAuthenticationMethod.ActiveDirectory*Interactive***:&nbsp; use com um nome de usuário do Azure AD para executar a MFA (autenticação multifator).
+- **SqlAuthenticationMethod.ActiveDirectory\*Interactive**\*:&nbsp; use com um nome de usuário do Azure AD para executar a MFA (autenticação multifator).
     - Esse valor é o foco deste artigo. Ele produz uma experiência interativa exibindo caixas de diálogo para a senha do usuário e, em seguida, para a validação de MFA se ela é imposta ao usuário.
-    - Esse valor está disponível do .NET Framework versão 4.7.2 em diante.
+    - Esse valor está disponível a partir do .NET Framework versão 4.7.2.
 
 - **SqlAuthenticationMethod.ActiveDirectory*Integrated***:&nbsp; use para uma conta *federada*. Para uma conta federada, o nome de usuário é conhecido pelo domínio do Windows. Esse método não é compatível com a MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Password***:&nbsp; use para autenticação que requer um usuário do Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
+- **SqlAuthenticationMethod.ActiveDirectory\*Password**\*:&nbsp; use para autenticação que requer um usuário do Azure AD e a senha do usuário. O Banco de Dados SQL do Azure executa a autenticação. Esse método não é compatível com a MFA.
 
 
 

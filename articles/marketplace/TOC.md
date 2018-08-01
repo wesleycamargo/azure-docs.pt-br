@@ -11,6 +11,7 @@
 ##### [Criar uma Conta da Microsoft](./guidelines.md)
 ##### [Registrar no Centro de Desenvolvimento](./register-dev-center.md) 
 ##### [Opções de Cobrança do Azure Marketplace](./billing-options-azure-marketplace.md)  
+##### [Atribuição de uso do cliente do parceiro do Azure](./azure-partner-customer-usage-attribution.md)
 
 ### Guia de Publicação por Tipo de Oferta 
 #### [Máquinas virtuais](./marketplace-virtual-machines.md)

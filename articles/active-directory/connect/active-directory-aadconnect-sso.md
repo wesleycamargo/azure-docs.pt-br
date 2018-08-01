@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad7c412ee92db53dd797e38df2fc6db0a762fe78
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916159"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213224"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -55,17 +55,17 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 - Se um aplicativo (por exemplo, https://myapps.microsoft.com/contoso.com) encaminhar um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML) - identificando seu locatário, ou um parâmetro `login_hint` - identificando o usuário, na solicitação de entrada do Microsoft Azure AD, os usuários serão automaticamente conectados sem inserir nomes de usuário ou senhas.
 - Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, https://contoso.sharepoint.com)) enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>.
 - Há suporte para saída. Isso permite que os usuários escolham outra conta do Azure AD para conectar, em vez de conectar automaticamente usando o SSO contínuo automaticamente.
-- Os clientes do Office 365 (16.0.8730.xxxx e acima) têm suporte usando um fluxo não interativo.
+- Clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com as versões 16.0.8730.xxxx e superiores têm suporte com o uso de um fluxo não interativo. Para o OneDrive, você precisará ativar o [recurso de Configuração silenciosa do OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silenciosa.
 - Isso pode ser habilitado por meio do Azure AD Connect.
 - Essa é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 - Há suporte para ele em clientes baseados em navegador da Web e clientes do Office que dão suporte à [autenticação moderna](https://aka.ms/modernauthga) em plataformas e navegadores que sejam compatíveis com a autenticação Kerberos:
 
 | Sistema operacional\Navegador |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|sim|Não |sim|Sim\*|N/D
-|Windows 8.1|sim|N/D|sim|Sim\*|N/D
-|Windows 8|sim|N/D|sim|Sim\*|N/D
-|Windows 7|sim|N/D|sim|Sim\*|N/D
+|Windows 10|SIM|Não |SIM|Sim\*|N/D
+|Windows 8.1|SIM|N/D|SIM|Sim\*|N/D
+|Windows 8|SIM|N/D|SIM|Sim\*|N/D
+|Windows 7|SIM|N/D|SIM|Sim\*|N/D
 |Mac OS X|N/D|N/D|Sim\*|Sim\*|Sim\*
 
 \*Exige [configuração adicional](active-directory-aadconnect-sso-quick-start.md#browser-considerations)

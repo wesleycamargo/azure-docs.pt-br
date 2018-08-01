@@ -11,18 +11,18 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 78ef7d98d9e11ba9b2c52bfc88d6ecb050cafa84
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dd1d6ca6d43a7c1054b822336d23b4b6be392788
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793293"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39212969"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introdução ao Armazenamento do Azure (Projetos WebJob do Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de tabela do Azure. Os exemplos de código usam o [SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versão 1.x.
+Este artigo apresenta exemplos de código em C# para mostrar como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de tabela do Azure. Os exemplos de código usam o [SDK WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki) versão 1.x.
 
 O serviço de armazenamento de Tabela do Azure armazena grandes quantidades de dados estruturados. O serviço é um repositório de dados NoSQL que aceita chamadas autenticadas de dentro e de fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.  Consulte a [Introdução ao Armazenamento de Tabelas do Azure usando o .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) para obter mais informações.
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057608"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: integração do Azure Active Directory com o Skills Base
 
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [Equipe de suporte ao cliente do Skills Base](mailto:support@skills-base.com) para obter o valor.
+    > Você pode obter a URL de logon do aplicativo de Base de Habilidades. Faça logon como Administrador e vá para o Administrador -> Configurações -> Detalhes da instância -> Link de atalho. Copie a URL de logon e cole-a acima da caixa de texto.
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -141,7 +141,6 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Clique em **Salvar**.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
@@ -179,7 +178,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Skills Base. O Skills Base dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Um novo usuário é criado durante uma tentativa de acessar o Skills Base, caso ele ainda não exista.
 
 >[!Note]
->Se você precisar criar um usuário manualmente, contate a [Equipe de suporte ao cliente do Skills Base](mailto:support@skills-base.com).
+>Se você precisar criar um usuário manualmente, siga as instruções [aqui](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 

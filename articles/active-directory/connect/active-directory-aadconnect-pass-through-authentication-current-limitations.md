@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 34b83c54e31ed73af3f776a6add8f218dda35cf7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918913"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258279"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -29,36 +29,32 @@ ms.locfileid: "37918913"
 
 ## <a name="supported-scenarios"></a>Cenários com suporte
 
-Os cenários a seguir têm suporte total:
+Há suporte para os cenários a seguir:
 
-- Entradas de usuário em todos os aplicativos com base em navegador da Web.
-- Entradas de usuário em aplicativos Office com suporte para [autenticação moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _com_ autenticação moderna.
-- Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, SMTP, POP e IMAP.
-- Entradas do usuário para o Skype for Business que suportam autenticação moderna, incluindo topologias online e híbridas. Saiba mais sobre topologias com suporte [aqui](https://technet.microsoft.com/library/mt803262.aspx).
-- Ingressos no domínio do Azure AD para dispositivos do Windows 10.
+- Entradas de usuário em aplicativos com base em navegador da Web.
+- Entradas do usuário para clientes do Outlook usando protocolos herdados, como Exchange ActiveSync, EAS, SMTP, POP e IMAP.
+- Entradas de usuário para aplicativos cliente herdados do Office e aplicativos do Office compatíveis com [autenticação moderna](https://aka.ms/modernauthga): versões do Office 2010, 2013 e 2016.
+- Entradas de usuário para aplicativos de protocolo herdados, como o PowerShell versão 1.0 e outros.
+- Ingressos do Azure AD para dispositivos Windows 10.
 - Senhas de aplicativo para Autenticação Multifator.
 
 ## <a name="unsupported-scenarios"></a>Cenários sem suporte
 
 Os cenários a seguir _não_ têm suporte:
 
-- Entradas do usuário para aplicativos de cliente do Office herdados, com exceção do Outlook (consulte **Cenários com suporte** acima): Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
-- Acesso ao compartilhamento de calendário e informações livres/ocupadas nos ambientes híbridos do Exchange somente no Office 2010.
-- O usuário entra em aplicativos cliente do Skype for Business, _sem_ autenticação moderna.
-- Entradas de usuário no PowerShell versão 1.0. Recomendamos usar o PowerShell versão 2.0.
 - Detecção de usuários com [credenciais vazadas](../active-directory-reporting-risk-events.md#leaked-credentials).
 - Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
 - A Autenticação de passagem não está integrada com [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
-- O Programa de Registro de Dispositivos da Apple (DEP da Apple) usando o Assistente de Configuração do iOS não é compatível com a autenticação moderna. Isso fará com que dispositivos do DEP da Apple não consigam ser registrados no Intune para domínios gerenciados usando a Autenticação de Passagem. Considere o uso do [aplicativo Portal da Empresa](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) como uma alternativa.
 
 >[!IMPORTANT]
->Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect. Quando os usuários entram nos aplicativos listados na seção "cenários sem suporte", essas solicitações de entrada específicas _não_ são tratadas por Agentes de autenticação de passagem e, portanto, não serão registradas no [Logs de autenticação de passagem](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Como uma solução alternativa para cenários sem suporte _apenas_ (exceto integração do Azure AD Connect Health), habilite a Sincronização de Hash de Senha na página [Recursos Opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) no assistente do Azure AD Connect. Quando os usuários entram nos aplicativos listados na seção "cenários sem suporte", essas solicitações de entrada específicas _não_ são tratadas por Agentes de autenticação de passagem e, portanto, não serão registradas no [Logs de autenticação de passagem](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
-Habilitar a sincronização de hash de senha oferece a opção de fazer failover da autenticação se sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a sincronização de hash de senha do Active Directory não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.
+Habilitar a Sincronização de Hash de Senha dará a opção de fazer failover da autenticação se a sua infraestrutura local sofrer uma interrupção. Esse failover da Autenticação de Passagem para a Sincronização de Hash de Senha não é automático. Você precisará alterar manualmente o método de entrada usando o Azure AD Connect. Se o servidor que está executando o Azure AD Connect ficar inativo, será preciso a ajuda do Suporte da Microsoft para desativar a Autenticação de passagem.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Início rápido](active-directory-aadconnect-pass-through-authentication-quick-start.md): instale e execute com a Autenticação de Passagem do Azure AD.
+- [Migrar do AD FS para Autenticação de Passagem](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) – um guia detalhado para migrar do AD FS (ou outras tecnologias de federação) para Autenticação de Passagem.
 - [Bloqueio Inteligente](../authentication/howto-password-smart-lockout.md): saiba como configurar a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [Análise técnica aprofundada](active-directory-aadconnect-pass-through-authentication-how-it-works.md): entenda como funciona o recurso de Autenticação de passagem.
 - [Perguntas frequentes](active-directory-aadconnect-pass-through-authentication-faq.md): obtenha respostas para perguntas frequentes sobre o recurso de Autenticação de Passagem.

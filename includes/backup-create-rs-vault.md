@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
-ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ff9bf829e2dbe1bca078360ccded94bad63d9a6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38730491"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249454"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups e os pontos de recuperação criados ao longo do tempo. O cofre de Serviços de Recuperação também contém as políticas de backup associadas às máquinas virtuais protegidas.
@@ -21,36 +21,39 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 Para criar um cofre de Serviços de Recuperação:
 
 1. Entre na sua assinatura no [Portal do Azure](https://portal.azure.com/).
-2. No menu esquerdo, selecione **Todos os Serviços**.
 
-    ![Escolha a opção Todos os Serviços no menu principal](./media/backup-create-rs-vault/click-all-services.png) <br/>
+2. No menu esquerdo, selecione **Todos os serviços**.
 
-3. Na caixa de diálogo Todos os Serviços, digite *Serviços de Recuperação*. Conforme você começa a digitar, sua entrada filtra a lista de recursos. Ao ver a opção, selecione **Cofres dos Serviços de Recuperação**.
+    ![Selecionar Todos os serviços](./media/backup-create-rs-vault/click-all-services.png)
 
-    ![Digite Serviços de Recuperação na caixa de diálogo Todos os serviços](./media/backup-create-rs-vault/all-services.png) <br/>
+3. Na caixa de diálogo **Todos os serviços**, insira **Serviços de Recuperação**. A lista de recurso filtra de acordo com sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação**.
+
+    ![Insira e escolha os cofres dos Serviços de Recuperação](./media/backup-create-rs-vault/all-services.png)
 
     A lista de cofres de Serviços de Recuperação na assinatura aparecerá.
-4. No menu **Cofres de Serviços de Recuperação**, selecione **Adicionar**.
+    
+4. No painel **Cofres dos Serviços de Recuperação**, selecione **Adicionar**.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-create-rs-vault/add-button-create-vault.png)
+    ![Adicionar um cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/add-button-create-vault.png)
 
-    O menu **Cofres de Serviços de Recuperação** é aberto. Ele solicita que você forneça informações para **Nome**, **Assinatura**, **Grupo de recursos** e **Localização**.
+    A caixa de diálogo **Cofre dos Serviços de Recuperação** é aberta. Forneça valores para **Nome**, **Assinatura**, **Grupo de recursos** e **Local**.
 
-    ![Painel "Cofres de Serviços de Recuperação"](./media/backup-create-rs-vault/create-new-vault-dialog.png)
-5. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e pode conter apenas letras, números e hifens.
-6. Para **Assinatura**, escolha a assinatura que deseja usar. Se você for um membro de apenas uma assinatura, esse nome será exibido. Se você não tiver certeza sobre qual assinatura usar, use a assinatura padrão (ou a sugerida). Só haverá múltiplas opções se sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
-7. Para o **Grupo de recursos** é possível usar um grupo de recursos existente ou criar um novo. Para consultar a lista disponível de grupos de recurso na sua assinatura, selecione **Usar existente** e clique no menu suspenso. Para criar um novo grupo de recursos, selecione **Criar novo** e digite o nome. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
-8. Em **Local**, selecione a região geográfica para o cofre. Se você estiver criando um cofre para proteger as máquinas virtuais, o cofre *deve* estar na mesma região que as máquinas virtuais.
+    ![Configurar o cofre de Serviços de Recuperação](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   > [!IMPORTANT]
-   > Se você não souber ao certo a localização em que a VM se encontra, feche a caixa de diálogo de criação do cofre e vá para a lista de máquinas virtuais no portal. Se você tiver máquinas virtuais em várias regiões, crie um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre de Serviços de Recuperação e o serviço de Backup do Azure lidam com isso automaticamente.
-   >
-   >
+   - **Nome**: digite um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hifens.
+   - **Assinatura**: escolha a assinatura a ser usada. Se você for um membro de apenas uma assinatura, verá esse nome. Se você não tem certeza de qual assinatura usar, utilize a assinatura padrão (sugerida). Só haverá múltiplas opções se a sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
+   - **Grupo de recursos**: use um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis em sua assinatura, selecione **Usar existente** e, em seguida, selecione um recurso na caixa de listagem suspensa. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+   - **Local**: selecione a região geográfica para o cofre. Se você estiver criando um cofre para proteger as máquinas virtuais, o cofre **deverá** estar na mesma região que as máquinas virtuais.
 
-9. Quando você estiver pronto para criar o Cofre de Serviços de Recuperação, clique em **Criar**.
+      > [!IMPORTANT]
+      > Se você não tem certeza do local da sua VM, feche a caixa de diálogo. Vá para a lista de máquinas virtuais no portal. Se você tem máquinas virtuais em várias regiões, crie um cofre dos Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de criar o cofre para outro local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre de Serviços de Recuperação e o serviço de Backup do Azure lidam com isso automaticamente.
+      >
+      >
 
-    ![Lista de cofres de backup](./media/backup-create-rs-vault/click-create-button.png)
+5. Quando você estiver pronto para criar o cofre dos Serviços de Recuperação, clique em **Criar**.
 
-    Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na seção Notificações (área superior direita do portal). Depois que o cofre é criado, ele aparece na lista de cofres de Serviços de Recuperação. Se você não encontrar seu cofre, clique em **Atualizar**.
+    ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/click-create-button.png)
 
-     ![Lista de cofres de backup](./media/backup-create-rs-vault/refresh-button.png)
+    Pode levar um tempo para criar o cofre dos Serviços de Recuperação. Monitore as notificações de status na área **Notificações** no canto superior direito do portal. Depois que o cofre tiver sido criado, ele aparecerá na lista de cofres dos Serviços de Recuperação. Se você não encontrar seu cofre, selecione **Atualizar**.
+
+     ![Atualizar a lista de cofres de backup](./media/backup-create-rs-vault/refresh-button.png)

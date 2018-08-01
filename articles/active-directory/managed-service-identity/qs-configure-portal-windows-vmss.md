@@ -1,6 +1,6 @@
 ---
-title: Configurar MSI em um conjunto de dimensionamento de máquinas virtuais do Azure usando o Portal do Azure
-description: Instruções passo a passo para configurar uma MSI (Identidade de Serviço Gerenciada) em VMSS do Azure, usando o Portal do Azure.
+title: Configurar uma Identidade de Serviço Gerenciada em um conjunto de dimensionamento de máquinas virtuais do Azure usando o Portal do Azure
+description: Instruções passo a passo para configurar uma Identidade de Serviço Gerenciada em VMSS do Azure usando o Portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035234"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257752"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) do conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Configurar uma Identidade de Serviço Gerenciada do conjunto de dimensionamento de máquinas virtuais usando o portal do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,9 +34,10 @@ Neste artigo, você aprenderá a habilitar e a desabilitar a identidade atribuí
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 - Se você não estiver familiarizado com a Identidade de Serviço Gerenciada, consulte a [seção de visão geral](overview.md).
 - Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
+- Para realizar as operações de gerenciamento deste artigo, sua conta precisará da seguinte atribuição de função:
+    - [Colaborador de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar e remover identidade gerenciada atribuída ao sistema de um conjunto de dimensionamento de máquinas virtuais.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Habilitar a Identidade de Serviço Gerenciada durante a criação de um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -44,7 +45,7 @@ No momento, não há suporte de criação de VM por meio do Portal do Azure para
 
 - [Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-Em seguida, avance para a próxima seção para obter detalhes sobre como habilitar MSI no conjunto de dimensionamento de máquinas virtuais.
+Vá para a próxima seção para obter detalhes sobre como habilitar a Identidade de Serviço Gerenciada no conjunto de dimensionamento de máquinas virtuais.
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>Habilitar a Identidade de Serviço Gerenciada em uma VMMS existente do Azure
 
@@ -60,7 +61,7 @@ Para habilitar a identidade atribuída pelo sistema em uma VM que foi originalme
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Remover a Identidade de Serviço Gerenciada de um conjunto de dimensionamento de máquinas virtuais do Azure
 
-Se você tiver um conjunto de dimensionamento de máquinas virtuais que não precisa mais de uma MSI:
+Se você tiver um conjunto de dimensionamento de máquinas virtuais que não precise mais de uma Identidade de Serviço Gerenciada:
 
 1. Entre no [Portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contém o conjunto de dimensionamento de máquinas virtuais. Certifique-se também de que sua conta pertence a uma função que concede permissões de gravação no conjunto de dimensionamento de máquinas virtuais.
 
@@ -76,6 +77,6 @@ Se você tiver um conjunto de dimensionamento de máquinas virtuais que não pre
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Usando o Portal do Azure, conceda acesso a uma MSI do conjunto de dimensionamento de máquinas virtuais do Azure [a outro recurso do Azure](howto-assign-access-portal.md).
+- Usando o portal do Azure, conceda a uma Identidade de Serviço Gerenciada do conjunto de dimensionamento de máquinas virtuais do Azure [acesso a outro recurso do Azure](howto-assign-access-portal.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.

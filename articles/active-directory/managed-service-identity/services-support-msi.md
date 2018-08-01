@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 462ec359b8c29488a913d036a14b21b28ba27cdc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f63832723a2c33b88d0e5fc9c6a38a0cad63fa38
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005207"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259170"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Serviços que oferecem suporte à Identidade de Serviço Gerenciada 
 
-A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidade gerenciada automaticamente no Active Directory do Azure. Usando uma identidade gerenciada, você pode autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, sem ter as credenciais no seu código. Estamos no processo de integração da autenticação do MSI e do Azure AD no Azure. Verifique regularmente as atualizações.
+A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidade gerenciada automaticamente no Active Directory do Azure. Usando uma identidade gerenciada, você pode autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, sem ter as credenciais no seu código. Estamos no processo de integração da autenticação de Identidade de Serviço Gerenciada e do Azure AD em todo o Azure. Verifique regularmente as atualizações.
 
 ## <a name="azure-services-that-support-managed-service-identity"></a>Serviços do Azure que oferecem suporte à Identidade de Serviço Gerenciado
 

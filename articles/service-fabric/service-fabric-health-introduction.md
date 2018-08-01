@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114309"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215223"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
 O Service Fabric do Azure introduz um modelo de integridade que fornece avaliação e relatório de integridade avançados, flexíveis e extensíveis. O modelo permite o monitoramento do estado quase em tempo real do cluster e dos serviços que são executados nele. Você pode obter as informações sobre integridade facilmente e corrigir possíveis problemas antes que eles se espalhem e causem interrupções massivas. No modelo comum, os serviços enviam relatórios com base na respectiva exibição local e as informações são agregadas para fornecer uma exibição geral no nível de cluster.
@@ -186,8 +186,8 @@ Depois que o Repositório de Integridade tiver avaliado todos os filhos, ele agr
 
 * Se todos os filhos tiverem estados OK, o estado de integridade agregada dos filhos será OK.
 * Se todos os filhos tiverem estados OK e aviso, o estado de integridade agregada dos filhos é um aviso.
-* Se houver filhos com estados de erro que não respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um erro.
-* Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade agregada é um aviso.
+* Se houver filhos com estados de erro que não respeitem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade pai agregado será um erro.
+* Se os filhos com estados de erro respeitarem a porcentagem máxima permitida de filhos não íntegros, o estado de integridade pai agregado será um aviso.
 
 ## <a name="health-reporting"></a>Relatório de integridade
 Os componentes do sistema, os aplicativos do System Fabric e os watchdogs internos/externos podem ser relatados em relação às entidades do Service Fabric. Os relatores fazem uma determinação *local* da integridade da entidades monitoradas com base em algumas condições que estão monitorando. Eles não precisam observar nenhum estado global ou dados agregados. O comportamento desejado é ter relatores simples e organismos não complexos que precisariam observar muitas circunstâncias para inferir quais informações enviar.

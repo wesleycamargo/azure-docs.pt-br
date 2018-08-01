@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 0397c520dd0135df56e7eb7e8cd6ed7ffa46156e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d87c8a46459a9b4bf80bef895ec97e436d38e699
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012234"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186825"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Armazenar segredos em um cofre de chaves no Azure DevTest Labs
 Talvez seja necessário inserir um segredo complexo ao usar o Azure DevTest Labs: a senha para sua VM do Windows, a chave SSH pública para sua VM do Linux ou o token de acesso pessoal para clonar o repositório do Git por meio de um artefato. Segredos geralmente são longos e têm caracteres aleatórios. Portanto, inseri-los pode ser complicado e inconveniente, especialmente se você usar o mesmo segredo várias vezes.
 
-Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [Azure Key Vault](../key-vault/key-vault-overview.md). Quando um usuário armazena um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. 
+Para resolver esse problema e também manter seus segredos em um local seguro, o DevTest Labs dá suporte ao armazenamento de segredos em um [Azure Key Vault](../key-vault/key-vault-overview.md). Quando um usuário salva um segredo pela primeira vez, o serviço DevTest Labs cria automaticamente um cofre de chaves no mesmo grupo de recursos que contém o laboratório e armazena o segredo no cofre de chaves. O DevTest Labs cria um cofre de chaves separado para cada usuário. 
 
 ## <a name="save-a-secret-in-azure-key-vault"></a>Salvar um segredo no Azure Key Vault
 Para salvar seu segredo no Azure Key Vault, siga as etapas a seguir:

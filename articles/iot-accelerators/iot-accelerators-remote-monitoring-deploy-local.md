@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627224"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188656"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Implantar o acelerador da solução de monitoramento remoto localmente
 
 Este artigo mostra como implantar o acelerador de solução de Monitoramento Remoto no computador local para teste e desenvolvimento. Essa abordagem implanta os microsserviços em um contêiner do Docker local e usa o Hub IoT, Cosmos DB e serviços de armazenamento do Azure na nuvem. Você usa os aceleradores de solução (PCS) CLI para implantar os serviços de nuvem do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para implantar os serviços do Azure usados pelo acelerador de solução de Monitoramento Remoto, você precisará de uma assinatura ativa do Azure.
 
@@ -134,6 +134,6 @@ Neste tutorial, você aprendeu como:
 > * Implantar o acelerador de solução
 > * Entrar no acelerador de solução
 
-Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](iot-accelerators-remote-monitoring-deploy.md).
+Agora que você implantou a solução de Monitoramento Remoto, a próxima etapa será [explorar os recursos do painel da solução](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

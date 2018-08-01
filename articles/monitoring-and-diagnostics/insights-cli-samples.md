@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: 571e4707cd89f1d159928845eca955801ffb9209
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dfc9a65325d25889c9d8d3c10aa0dcda2b5a9980
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971638"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213191"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Exemplos de início rápido da CLI 2.0 do Azure Monitor
 Este artigo mostra um exemplo de CLI (interface de linha de comando) que ajudará você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você dimensione automaticamente Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web e envie notificações de alerta ou chame URLs da Web com base em valores de dados de telemetria configurados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não instalou a CLI do Azure, siga as instruções para [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no navegador. Veja a referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Se você ainda não instalou a CLI do Azure, siga as instruções para [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli). Você também pode usar o [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no navegador. Veja uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 A primeira etapa é fazer logon na conta do Azure.
@@ -151,7 +151,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
 az monitor log-profiles delete --name <profile name>
 ```
 
-## <a name="diagnostics"></a>Diagnostics
+## <a name="diagnostics"></a>Diagnósticos
 
 Use as informações desta seção para trabalhar com configurações de diagnóstico.
 

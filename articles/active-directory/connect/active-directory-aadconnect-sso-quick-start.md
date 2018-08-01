@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917509"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259112"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -41,9 +41,15 @@ Verifique se os seguintes pré-requisitos estão em vigor:
     >[!NOTE]
     >O Azure AD Connect versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de Passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
 
+* **Usar uma topologia do Azure AD Connect com suporte**: verifique se você está usando uma das topologias com suporte do Azure AD Connect descritas [aqui](active-directory-aadconnect-topologies.md).
+
 * **Configurar credenciais de administrador de domínio**: você precisa ter credenciais de administrador de domínio para cada floresta do Active Directory que:
     * Você sincroniza com o Azure AD por meio do Azure AD Connect.
     * Contém os usuários que você deseja habilitar para o SSO Contínuo.
+    
+* **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](https://aka.ms/modernauthga) em seu locatário para que esse recurso funcione.
+
+* **Usar as versões mais recentes de clientes do Office 365**: para obter uma experiência de logon silenciosa com clientes do Office 365 (Outlook, Word, Excel e outros), você precisa da versão 16.0.8730.xxxx ou superior.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
@@ -77,21 +83,27 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
-Para implementar o recurso para seus usuários, você deve adicionar a seguinte URL do Azure Active Directory às configurações de zona da Intranet dos usuários usando a Política de Grupo no Active Directory:
+Você pode gradualmente implantar o SSO Contínuo para seus usuários utilizando as instruções abaixo. Comece adicionando a seguinte URL do Azure AD para as configurações de zona de Intranet de todos ou de alguns usuários usando a Política de Grupo no Active Directory:
 
 - https://autologon.microsoftazuread-sso.com
-
 
 Além disso, você precisa habilitar uma configuração da política de Zona de intranet chamada **Permitir atualizações à barra de status por meio de script** usando a Política de Grupo. 
 
 >[!NOTE]
-> As instruções a seguir só funcionam para o Internet Explorer e o Google Chrome no Windows (se ele usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no Mac.
+> As instruções a seguir só funcionam para o Internet Explorer e o Google Chrome no Windows (se ele usa o mesmo conjunto de URLs de sites confiáveis que o Internet Explorer). Leia a próxima seção para obter instruções sobre como configurar o Mozilla Firefox e o Google Chrome no macOS.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Por que você precisa modificar as configurações de Zona da Intranet dos usuários?
 
 Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Intranet, de uma URL específica. Por exemplo, "http://contoso/" é mapeada para a Zona da Intranet, enquanto "http://intranet.contoso.com/" é mapeada para a Zona da Internet (porque a URL contém um ponto). Os navegadores não enviarão tickets Kerberos para um ponto de extremidade da nuvem, como a URL do Azure Active Directory, a menos que a URL seja explicitamente adicionada à zona da Intranet do navegador.
 
-### <a name="detailed-steps"></a>Etapas detalhadas
+Há duas maneiras de modificar as configurações de zona de Intranet dos usuários:
+
+| Opção | Consideração de administração | Experiência do usuário |
+| --- | --- | --- |
+| Política de grupo | O administrador bloqueia a edição das configurações da zona da Intranet | Os usuários não podem modificar as próprias configurações |
+| Preferência de política de grupo |  O administrador permite edição nas configurações da zona de Intranet | Os usuários podem modificar as próprias configurações |
+
+### <a name="group-policy-option---detailed-steps"></a>Opção "Política de grupo" – etapas detalhadas
 
 1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
@@ -123,6 +135,32 @@ Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Int
 
     ![Logon único](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>Opção "Preferência de política de grupo" – etapas detalhadas
+
+1. Abra a ferramenta Editor de Gerenciamento de Política de Grupo.
+2. Edite a política de grupo que é aplicada a alguns ou todos os seus usuários. Este exemplo usa a **Política de domínio padrão**.
+3. Navegue para **Configuração do Usuário** > **Preferências** > **Configurações do Windows** > **Registro** > **Novo** > **Item de Registro**.
+
+    ![Logon único](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. Insira os seguintes valores nos campos apropriados e clique em **OK**.
+   - **Caminho da Chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **Nome do valor**: ***https***.
+   - **Tipo de valor**: ***REG_DWORD***.
+   - **Dados do valor**: ***00000001***.
+ 
+    ![Logon único](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![Logon único](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. Navegue até **Configuração do Usuário** > **Modelos Administrativos** > **Componentes do Windows** > **Internet Explorer** > **Painel de Controle da Internet** > **Página de Segurança** > **Zona de Intranet**. Em seguida, selecione **Permitir atualizações à barra de status por meio de script**.
+
+    ![Logon único](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. Habilite a configuração de política e, em seguida, selecione **OK**.
+
+    ![Logon único](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>Considerações de navegador
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas as plataformas)
@@ -134,15 +172,15 @@ O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuá
 4. Insira https://autologon.microsoftazuread-sso.com no campo.
 5. Selecione **OK** e, em seguida, reabra o navegador.
 
-#### <a name="safari-mac-os"></a>Safari (Mac OS)
+#### <a name="safari-macos"></a>Safari (macOS)
 
-Certifique-se de que o computador executando o Mac OS é associado ao AD. Para obter instruções sobre como associar o Azure AD, veja [Práticas recomendadas para integrar o OS X ao Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Verifique se o computador que está executando o macOS está associado ao AD. Para obter instruções sobre como associar o Azure AD, veja [Práticas recomendadas para integrar o OS X ao Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
 
-Caso tenha substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, certifique-se de adicionar também a URL do Azure AD (https://autologon.microsoftazuread-sso.com)).
+Caso tenha substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, adicione também a URL do Azure AD (https://autologon.microsoftazuread-sso.com)).
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome (somente Mac OS)
+#### <a name="google-chrome-macos-only"></a>Google Chrome (somente macOS)
 
 Para o Google Chrome no Mac OS e outras plataformas que não sejam Windows, veja [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar a URL do Azure Active Directory à lista de permissões para uma autenticação integrada.
 
@@ -169,7 +207,12 @@ Para testar o cenário em que o usuário não tem que inserir o nome de usuário
 
 ## <a name="step-5-roll-over-keys"></a>Etapa 5: Sobrepor chaves
 
-Na etapa 2, o Azure AD Connect cria contas de computador (representando o Azure Active Directory) em todas as florestas do AD no qual você habilitou o SSO contínuo. Para saber mais, veja [Logon Único Contínuo do Azure Active Directory: aprofundamento técnico](active-directory-aadconnect-sso-how-it-works.md). Para maior segurança, recomendamos que você sobreponha periodicamente chaves de descriptografia Kerberos dessas contas de computador. Para obter instruções sobre como implantar as chaves, veja [Logon Único Contínuo do Azure Active Directory: perguntas frequentes](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account).
+Na etapa 2, o Azure AD Connect cria contas de computador (representando o Azure Active Directory) em todas as florestas do AD no qual você habilitou o SSO contínuo. Para saber mais, veja [Logon Único Contínuo do Azure Active Directory: aprofundamento técnico](active-directory-aadconnect-sso-how-it-works.md).
+
+>[!IMPORTANT]
+>A chave de descriptografia do Kerberos em uma conta de computador, se vazada, poderá ser usada para gerar tíquetes Kerberos para qualquer usuário em sua floresta do AD. Indivíduos mal-intencionados então poderão representar logons do Azure AD para usuários comprometidos. É altamente recomendável renovar periodicamente essas chaves de descriptografia do Kerberos – pelo menos uma vez a cada 30 dias.
+
+Para obter instruções sobre como implantar as chaves, veja [Logon Único Contínuo do Azure Active Directory: perguntas frequentes](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account). Estamos trabalhando em uma funcionalidade para introduzir renovação automatizada das chaves.
 
 >[!IMPORTANT]
 >Você não precisa executar essa etapa _imediatamente_ depois de habilitar o recurso. Sobrepor as chaves de descriptografia Kerberos pelo menos uma vez a cada 30 dias.

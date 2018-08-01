@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 1a46564c324edb1999a2e1b1d482817685df2893
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971033"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205979"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -175,8 +175,11 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 
 Você pode desativá-lo, mas isso não é recomendado. A amostragem é projetada para que a telemetria relacionada seja corretamente transmitida para fins de diagnóstico. 
 
+## <a name="client-ip-address-is-0000"></a>O Endereço IP do cliente é 0.0.0.0 
+Em fevereiro de 2018, [anunciamos](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) que removemos o registro em log do endereço IP do cliente. Isso não afeta a localização geográfica.
+
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dados geográficos errados na telemetria do usuário
-A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas.
+A dimensões de cidade, de região e de país são derivadas de endereços IP e nem sempre são precisas. Esses endereços IP são processados para o local primeiro e, em seguida, alterados para 0.0.0.0 para armazenamento.
 
 ## <a name="exception-method-not-found-on-running-in-azure-cloud-services"></a>Exceção "método não encontrado" em execução nos Serviços de Nuvem do Azure
 Você compilou para .NET 4.6? O 4.6 não tem suporte automático nas funções dos Serviços de Nuvem do Azure. [Instale o 4.6 em cada função](../cloud-services/cloud-services-dotnet-install-dotnet.md) antes de executar seu aplicativo.
