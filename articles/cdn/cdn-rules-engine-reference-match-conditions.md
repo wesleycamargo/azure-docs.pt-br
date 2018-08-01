@@ -738,7 +738,7 @@ Informações de chave:
     
 - Especifique vários caminhos de URL delimitando cada um deles com um único espaço.
 
-   Por exemplo: /marketing/asset.* /sales/*.htm
+   Por exemplo: /marketing/asset.* /sales/\*.htm
 
 - Cadeias de caracteres de consulta na URL são ignoradas.
     
