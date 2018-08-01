@@ -116,6 +116,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tempo de execução de integração
       href: concepts-integration-runtime.md
+    - name: Regras de nomenclatura
+      href: naming-rules.md
 - name: Guias de instruções
   items:
     - name: Autor
