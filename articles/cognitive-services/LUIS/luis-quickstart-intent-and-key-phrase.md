@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224255"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282731"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adicionar entidade KeyPhrase 
 Neste tutorial, use um aplicativo que demonstra como extrair os principais assuntos dos enunciados.
@@ -27,7 +27,7 @@ Neste tutorial, use um aplicativo que demonstra como extrair os principais assun
 > * Treinar e publicar o aplicativo
 > * Consulte o ponto de extremidade do aplicativo para ver a resposta JSON do LUIS incluindo as frases-chave
 
-Para este artigo, você precisará de uma conta gratuita do [LUIS](luis-reference-regions.md#publishing-regions) para criar o seu aplicativo de LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade simples](luis-quickstart-primary-and-secondary-data.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
@@ -50,8 +50,6 @@ O aplicativo cliente pode usar esses valores, junto com outras entidades extraí
 Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
 
 1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
-
-    [ ![Captura de tela do aplicativo de LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. Selecione **Entidades** no menu à esquerda.
 
@@ -85,21 +83,12 @@ A nova versão `keyphrase` do aplicativo precisa ser treinada.
 
 ## <a name="publish-app-to-endpoint"></a>Publicar o aplicativo para o ponto de extremidade
 
-1. Selecione **Publicar** no painel de navegação superior direito.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "Captura de tela da página Publicar com o botão Publicar no slot de produção realçado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. Selecione o Slot de produção e o botão **Publicar**.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "Captura de tela da página Publicar com o botão Publicar no slot de produção realçado")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Consultar o ponto de extremidade com um enunciado
 
-1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
-
-    ![Captura de tela da página Publicar com a URL de ponto de extremidade realçada](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá até o final da URL no endereço e insira `does form hrf-123456 cover the new dental benefits and medical plan`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 

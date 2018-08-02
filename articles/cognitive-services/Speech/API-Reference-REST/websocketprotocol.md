@@ -289,7 +289,7 @@ Humanos não sinalizam explicitamente quando terminaram de falar. Qualquer aplic
 
 ##### <a name="service-end-of-speech-detection"></a>Detecção de final de fala de serviço
 
-Para criar a experiência ideal de fala viva-voz, os aplicativos permitem que o serviço detecte quando o usuário termina de falar. Os clientes enviam áudio do microfone como partes* de áudio até que o serviço detecta silêncio e responde com uma `speech.endDetected` mensagem.
+Para criar a experiência ideal de fala viva-voz, os aplicativos permitem que o serviço detecte quando o usuário termina de falar. Os clientes enviam áudio do microfone como partes de *áudio* até que o serviço detecta silêncio e responde com uma `speech.endDetected` mensagem.
 
 ##### <a name="client-end-of-speech-detection"></a>Detecção de final de fala de serviço
 

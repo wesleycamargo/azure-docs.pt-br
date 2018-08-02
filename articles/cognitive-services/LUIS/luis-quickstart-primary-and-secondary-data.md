@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237998"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308962"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutorial: 7. Adicionar entidade simples e lista de frases
 Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendizado de máquina de um enunciado usando a entidade **Simple**.
@@ -29,7 +29,7 @@ Neste tutorial, crie um aplicativo que demonstra como extrair dados de aprendiza
 > * Adicionar lista de frase para aumentar o sinal de palavras de trabalho
 > * Treinar, publicar o aplicativo e repetir a consulta no ponto de extremidade
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade composta](luis-tutorial-composite-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
@@ -70,8 +70,6 @@ Esse aplicativo LUIS tem nomes de trabalho em várias intenções. Ao rotular es
 ## <a name="create-job-simple-entity"></a>Criar uma entidade simple de trabalho
 
 1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
-
-    [ ![Captura de tela do aplicativo LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png)](./media/luis-quickstart-primary-and-secondary-data/hr-first-image.png#lightbox)
 
 2. Na página **Intenções**, selecione a intenção **ApplyForJob**. 
 
@@ -139,22 +137,14 @@ O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) 
     ![Notificação de sucesso do treinamento](./media/luis-quickstart-primary-and-secondary-data/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
-Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precisa publicar o aplicativo. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-2. Selecione o Slot de produção e o botão **Publicar**.
-
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Captura de tela da página Publicar com o botão Publicar no slot de produção realçado")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
-
-3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
-Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. 
 
-[![](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png "Captura de tela da página Publicar com o ponto de extremidade realçado")](media/luis-quickstart-primary-and-secondary-data/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. Vá até o final da URL no endereço e insira `Here is my c.v. for the programmer job`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `ApplyForJob`.
+2. Vá até o final da URL no endereço e insira `Here is my c.v. for the programmer job`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar os enunciados `ApplyForJob`.
 
 ```JSON
 {

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222963"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345773"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar listar de entidades
 Neste tutorial, crie um aplicativo que demonstra como obter dados que correspondam a uma lista predefinida. 
@@ -27,7 +27,7 @@ Neste tutorial, crie um aplicativo que demonstra como obter dados que correspond
 > * Treinar e publicar o aplicativo
 > * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
 
-Para este artigo, você precisa de uma conta gratuita do [LUIS](luis-reference-regions.md#luis-website) para criar seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade regex](luis-quickstart-intents-regex-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
@@ -71,11 +71,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
-    [ ![Captura de tela do aplicativo de LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-list-entity/hr-first-image.png#lightbox)
-
 2. Selecione **Criar nova intenção**. 
-
-    [ ![Captura de tela da página Intenções com o botão Criar nova intenção realçado](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-button.png#lightbox)
 
 3. Insira `MoveEmployee` na caixa de diálogo pop-up, depois selecione **Concluído**. 
 
@@ -103,11 +99,7 @@ Agora que a intenção **MoveEmployee** tem enunciados, LUIS precisa entender o 
 
 1. Selecione **Entidades** no painel esquerdo.
 
-    [ ![Captura de tela da página Intenção com o botão Entidades realçado na navegação à esquerda](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-select-entity-button.png#lightbox)
-
 2. Selecione **Criar nova entidade**.
-
-    [ ![Captura de tela da página Entidades com Criar nova entidade realçado](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png) ](./media/luis-quickstart-intent-and-list-entity/hr-create-new-entity-button.png#lightbox)
 
 3. No diálogo pop-up da entidade, insira `Employee` como o nome de entidade e **List** como o tipo de entidade. Selecione **Concluído**.  
 
@@ -153,136 +145,126 @@ O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) 
     ![Treinamento bem-sucedido](./media/luis-quickstart-intent-and-list-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
-Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precisa publicar o aplicativo. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish.png "Captura de tela de seleção do botão Publish")](media/luis-quickstart-intent-and-list-entity/publish.png#lightbox)
-
-2. Selecione o Slot de produção e o botão **Publicar**. 
-
-    [![](media/luis-quickstart-intent-and-list-entity/publish-to-production.png "Captura de tela de seleção do botão Publish to production slot (Publicar no espaço de produção)")](media/luis-quickstart-intent-and-list-entity/publish-to-production.png#lightbox)
-
-3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
-1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
 
-    [![](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png "Captura de tela da URL do ponto de extremidade na página Publish")](media/luis-quickstart-intent-and-list-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Vá até o final da URL no endereço e insira `shift 123-45-6789 from Z-1242 to T-54672`. O último parâmetro de querystring é `q`, o enunciado **q**uery. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, é um bom teste e deve retornar a intenção `MoveEmployee` com `Employee` extraído.
 
-```JSON
-{
-  "query": "shift 123-45-6789 from Z-1242 to T-54672",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9882801
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "shift 123-45-6789 from Z-1242 to T-54672",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9882801
     },
-    {
-      "intent": "FindForm",
-      "score": 0.016044287
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.007611245
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.007063288
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00684710965
-    },
-    {
-      "intent": "None",
-      "score": 0.00304174074
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.002981
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00212222221
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00191026414
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0007461446
-    }
-  ],
-  "entities": [
-    {
-      "entity": "123 - 45 - 6789",
-      "type": "Employee",
-      "startIndex": 6,
-      "endIndex": 16,
-      "resolution": {
-        "values": [
-          "Employee-24612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9882801
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.016044287
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.007611245
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.007063288
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00684710965
+      },
+      {
+        "intent": "None",
+        "score": 0.00304174074
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.002981
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 0.00212222221
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00191026414
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0007461446
       }
-    },
-    {
-      "entity": "123",
-      "type": "builtin.number",
-      "startIndex": 6,
-      "endIndex": 8,
-      "resolution": {
-        "value": "123"
+    ],
+    "entities": [
+      {
+        "entity": "123 - 45 - 6789",
+        "type": "Employee",
+        "startIndex": 6,
+        "endIndex": 16,
+        "resolution": {
+          "values": [
+            "Employee-24612"
+          ]
+        }
+      },
+      {
+        "entity": "123",
+        "type": "builtin.number",
+        "startIndex": 6,
+        "endIndex": 8,
+        "resolution": {
+          "value": "123"
+        }
+      },
+      {
+        "entity": "45",
+        "type": "builtin.number",
+        "startIndex": 10,
+        "endIndex": 11,
+        "resolution": {
+          "value": "45"
+        }
+      },
+      {
+        "entity": "6789",
+        "type": "builtin.number",
+        "startIndex": 13,
+        "endIndex": 16,
+        "resolution": {
+          "value": "6789"
+        }
+      },
+      {
+        "entity": "-1242",
+        "type": "builtin.number",
+        "startIndex": 24,
+        "endIndex": 28,
+        "resolution": {
+          "value": "-1242"
+        }
+      },
+      {
+        "entity": "-54672",
+        "type": "builtin.number",
+        "startIndex": 34,
+        "endIndex": 39,
+        "resolution": {
+          "value": "-54672"
+        }
       }
-    },
-    {
-      "entity": "45",
-      "type": "builtin.number",
-      "startIndex": 10,
-      "endIndex": 11,
-      "resolution": {
-        "value": "45"
-      }
-    },
-    {
-      "entity": "6789",
-      "type": "builtin.number",
-      "startIndex": 13,
-      "endIndex": 16,
-      "resolution": {
-        "value": "6789"
-      }
-    },
-    {
-      "entity": "-1242",
-      "type": "builtin.number",
-      "startIndex": 24,
-      "endIndex": 28,
-      "resolution": {
-        "value": "-1242"
-      }
-    },
-    {
-      "entity": "-54672",
-      "type": "builtin.number",
-      "startIndex": 34,
-      "endIndex": 39,
-      "resolution": {
-        "value": "-54672"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
-O funcionário foi encontrado e retornado como tipo `Employee` com um valor de resolução de `Employee-24612`.
+  O funcionário foi encontrado e retornado como tipo `Employee` com um valor de resolução de `Employee-24612`.
 
 ## <a name="where-is-the-natural-language-processing-in-the-list-entity"></a>Onde está o processamento de linguagem natural na entidade de lista? 
 Como a entidade de lista é uma correspondência exata do texto, ela não depende de processamento de linguagem natural (ou aprendizado de máquina). O LUIS usa o processamento de linguagem natural (ou o aprendizado de máquina) para selecionar a intenção correta com maior pontuação. Além disso, um enunciado pode ser uma mistura de mais de uma entidade, ou até mesmo de mais de um tipo de entidade. Cada enunciado é processado para todas as entidades no aplicativo, incluindo entidades de processamento de linguagem natural (ou aprendizado de máquina).
