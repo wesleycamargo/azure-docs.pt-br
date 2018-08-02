@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242930"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412858"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integração do datacenter do Azure Stack - identidade
 Você pode implantar o Azure Stack usando o Azure Active Directory (Azure AD) ou os serviços de Federação do Active Directory (AD FS) como os provedores de identidade. Você deve fazer a escolha antes de implantar o Azure Stack. Implantação usando o AD FS também é chamada da implantação do Azure Stack no modo desconectado.
@@ -26,7 +26,7 @@ A tabela a seguir mostra as diferenças entre as opções de dois identidade:
 |---------|---------|---------|
 |Cobrança|Deve ser a capacidade<br> Enterprise Agreement (EA) apenas|Capacidade ou pagamento-como-uso<br>EA ou provedor de soluções de nuvem (CSP)|
 |Identidade|Deve ser o AD FS|Azure AD ou AD FS|
-|Sindicalização do Marketplace|Com suporte<br>Licenciamento de BYOL|Com suporte<br>Licenciamento de BYOL|
+|Marketplace |Com suporte<br>Licenciamento de BYOL|Com suporte<br>Licenciamento de BYOL|
 |Registro|Recomendado, requer mídia removível<br> e um dispositivo conectado separado.|Automatizada|
 |Patches e atualizações|Obrigatório, requer mídia removível<br> e um dispositivo conectado separado.|Pacote de atualização pode ser baixada diretamente<br> da Internet para o Azure Stack.|
 

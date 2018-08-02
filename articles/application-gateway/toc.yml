@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: Terminação de SSL usando o Azure PowerShell
           href: tutorial-ssl-powershell.md
+        - name: Terminação de SSL ponta a ponta usando o Azure PowerShell
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: Renovar certificados
           href: renew-certificates.md
         - name: Configurar política de SSL
@@ -135,7 +137,7 @@
       items:
         - name: Solucionar problemas de erros de Gateway inválido (502)
           href: application-gateway-troubleshooting-502.md
-        - name: Diagnostics
+        - name: Diagnósticos
           href: application-gateway-diagnostics.md
 - name: Referência
   items:

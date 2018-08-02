@@ -319,6 +319,8 @@
       items:
         - name: Depurar trabalhos Spark
           href: apache-spark-job-debugging.md
+        - name: Depurar trabalhos do Spark por meio do Grafo do Trabalho
+          href: apache-azure-spark-history-server.md
         - name: Use o IntelliJ para depurar o trabalho do Spark
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Solucionar problemas de um cluster HDInsight lento ou falhando

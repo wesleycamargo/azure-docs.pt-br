@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326017"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412892"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Baixar itens do marketplace do Azure para o Azure Stack
 
@@ -31,7 +31,7 @@ Como um operador de nuvem, baixar itens do Azure Marketplace e torná-los dispon
 Há dois cenários para conectar-se no Azure Marketplace: 
 
 - **Um cenário conectado** -que requer que o seu ambiente do Azure Stack para ser conectado à internet. Você pode usar o portal do Azure Stack para localizar e baixar itens. 
-- **Um cenário parcialmente conectado ou desconectado** -que exige que você acessar a internet usando a ferramenta de sindicalização do marketplace para baixar itens do marketplace. Em seguida, você deve transferir seus downloads à instalação do Azure Stack desconectada. Esse cenário usa o PowerShell.
+- **Um cenário parcialmente conectado ou desconectado** -que exige que você acessar a Internet usando a ferramenta de sindicalização do marketplace para baixar itens do marketplace. Em seguida, você deve transferir seus downloads à instalação do Azure Stack desconectada. Esse cenário usa o PowerShell.
 
 Ver [itens do Azure Marketplace para o Azure Stack](azure-stack-marketplace-azure-items.md) para obter uma lista dos itens de marketplace, você pode baixar.
 

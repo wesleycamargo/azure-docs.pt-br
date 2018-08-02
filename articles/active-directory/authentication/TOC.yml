@@ -25,6 +25,8 @@
   items:
     - name: Métodos de autenticação
       href: concept-authentication-methods.md
+    - name: Registro convergente
+      href: concept-registration-mfa-sspr-converged.md
     - name: Redefinição de senha de autoatendimento
       items:
         - name: Como funciona a redefinição de senha
@@ -51,7 +53,7 @@
           href: multi-factor-authentication-security-best-practices.md
         - name: MFA para Office 365
           href: 'https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba'
-        - name: Perguntas frequentes sobre o MFA
+        - name: PERGUNTAS FREQUENTES SOBRE O MFA
           href: multi-factor-authentication-faq.md
     - name: Proteção de senha do Azure AD
       items:
