@@ -3,17 +3,16 @@ title: Habilitar o acesso de leitura público para contêineres e blobs no Armaz
 description: Saiba como disponibilizar os contêineres e blobs para acesso anônimo e como acessá-los programaticamente.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 4ddafb095816b5be82a18faa9c60869094e5e4c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29557045"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398811"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gerenciar o acesso de leitura anônimo aos contêineres e blobs
 Você pode habilitar o acesso de leitura anônimo, público para um contêiner e seus blobs no Armazenamento de Blobs do Azure. Ao fazer isso, você pode conceder acesso somente leitura a esses recursos sem compartilhar a chave da conta e sem exigir uma SAS (assinatura de acesso compartilhado).

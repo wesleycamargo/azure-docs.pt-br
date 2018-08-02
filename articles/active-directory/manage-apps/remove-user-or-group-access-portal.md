@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: b6da8eed16b67db098ceb90079b7da7dfadcd5e3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fde6d5fa2488d86af542f409df7c5b76d2510f08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301921"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368644"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Remover a atribuição de um usuário ou grupo de um aplicativo empresarial no Azure Active Directory
 É fácil impedir que um usuário ou grupo receba acesso a um de seus aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
@@ -69,7 +69,7 @@ ms.locfileid: "35301921"
     ``` 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Ver todos os meus grupos](../active-directory-groups-view-azure-portal.md)
+- [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Atribuir um usuário ou um grupo a um aplicativo empresarial](assign-user-or-group-access-portal.md)
 - [Desabilitar as entradas de usuário em um aplicativo empresarial](disable-user-sign-in-portal.md)
 - [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)

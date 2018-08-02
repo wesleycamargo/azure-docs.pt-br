@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b7ea8a755f1f23c76bb0f7d8120970bb7795e95b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091825"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364023"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos necessários sem a exigência de autenticação (por exemplo, digitar uma senha) uma segunda vez.

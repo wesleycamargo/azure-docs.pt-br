@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: a8478436bfae20ee729ce41bcb134bd3a77fb26e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053464"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -133,7 +133,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do G Suite](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
-    a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
     | |
@@ -150,7 +150,7 @@ Nesta seção, você habilita o logon único do Microsoft Azure AD no Portal do 
 
     ![Informações de logon único de Domínio e URLs do G Suite](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
-    a. Na caixa de texto **URL de Entrara**, digite uma URL usando o padrão a seguir: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: 
     | |

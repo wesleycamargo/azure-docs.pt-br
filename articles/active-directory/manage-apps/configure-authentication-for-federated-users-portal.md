@@ -10,15 +10,15 @@ ms.component: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: it-pro
+ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 24a6956d3f2289f6ac8ad85e2f48252cc1a4a633
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b8d0a8026c140545a5029d2772fdcbc5090e7b00
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858748"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363572"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
@@ -150,7 +150,7 @@ Usaremos os cmdlets do PowerShell do Azure AD para percorrer a alguns cenários,
 - Listando os aplicativos para os quais uma política é configurada.
 
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas em entidades de serviço do aplicativo no Azure AD.
 
 1.  Para começar, faça o download da visualização do cmdlet do PowerShell do Azure AD mais recente. 

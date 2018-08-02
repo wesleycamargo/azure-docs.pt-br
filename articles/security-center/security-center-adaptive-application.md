@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161925"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389320"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
@@ -87,8 +87,7 @@ A seção **Grupos de VMs** contém três guias:
 
 5. Após concluir suas seleções, selecione **Criar**.
 
-6. A Central de Segurança aplica as regras apropriadas em cada uma das VMs selecionadas, aproveitando os recursos internos do AppLocker para os servidores Windows. Além disso, a Central de Segurança sempre habilita o controle de aplicativo no modo Auditoria, por padrão. Após verificar que a lista de permissões não teve nenhum efeito adverso sobre sua carga de trabalho, você pode alterar para o modo **Impor**. Para saber mais, consulte [Como o AppLocker funciona](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref).
- 
+
 > [!NOTE]
 > - A Central de Segurança conta com um mínimo de duas semanas de dados para criar uma linha de base e preencher as recomendações exclusivas por grupo de VMs. Os novos clientes da camada standard da Central de Segurança devem esperar que seus grupos de máquinas virtuais sejam exibidos primeiro na guia *sem recomendações*.
 > - Os controles de aplicativo adaptáveis da Central de Segurança não oferecem suporte a máquinas virtuais para as quais uma política AppLocker já está habilitada por um GPO ou uma política de segurança local.

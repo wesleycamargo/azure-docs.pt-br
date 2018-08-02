@@ -40,7 +40,7 @@
   items:
     - name: O que é um Load Balancer Standard?
       href: load-balancer-standard-overview.md
-    - name: Investigações do Balanceador de Carga
+    - name: Investigações de integridade
       href: load-balancer-custom-probe-overview.md
     - name: Portas de alta disponibilidade
       href: load-balancer-ha-ports-overview.md

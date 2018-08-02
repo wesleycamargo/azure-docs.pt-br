@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 2fef141cada8faffc055571516ae4c899ae6dc42
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229437"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264140"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar Slack para provisionamento automático de usuário
 
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas no Slack e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Slack. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
-*   Um locatário de diretório do Azure Active Directory
+*   Um locatário do Azure Active Directory
 *   Um locatário do Slack com o [plano Plus](https://aadsyncfabric.slack.com/pricing), ou outro com mais recursos, habilitado 
 *   Uma conta de usuário no Slack com permissões de Administrador de Equipe 
 

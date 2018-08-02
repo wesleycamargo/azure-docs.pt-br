@@ -48,7 +48,6 @@ Para obter mais opções de comando, execute `az acs scale --help`.
 
 * Dependendo do orquestrador que você implanta no cluster, é possível dimensionar separadamente o número de instâncias de um contêiner em execução no cluster. Por exemplo, em um cluster DC/OS, use o [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) para alterar o número de instâncias de um aplicativo contêiner.
 
-* Atualmente, não há suporte para o dimensionamento automático dos nós de agente em um cluster do serviço de contêiner.
 
 ## <a name="next-steps"></a>Próximas etapas
 * Confira [mais exemplos](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) de como usar os comandos da CLI 2.0 do Azure com o Serviço de Contêiner do Azure.

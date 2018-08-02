@@ -2,24 +2,17 @@
 title: Perguntas frequentes do Gateway de VPN do Azure | Microsoft Docs
 description: Perguntas frequentes sobre o Gateway de VPN. Perguntas frequentes para conexões entre locais de Rede Virtual do Microsoft Azure, conexões de configuração híbrida e gateways de VPN.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719636"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359051"
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -75,7 +68,7 @@ Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em
 Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 2. Exclua o gateway:
-* [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 * [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)

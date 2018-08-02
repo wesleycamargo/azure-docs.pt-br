@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa689e9556e57560138d9629c616bd3a284f9b6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0050613f4a92380f48a93cdf1f82ed91dc34f6a4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222300"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Learning
 
@@ -33,7 +33,7 @@ A integração do LinkedIn Learning com o Azure AD oferece os seguintes benefíc
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o LinkedIn Learning, serão necessários os seguintes itens:
 
@@ -85,7 +85,7 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o LinkedIn Learning, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 3. **[Criando um usuário de teste do LinkedIn Learning](#creating-a-linkedin-learning-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
@@ -214,7 +214,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Criando um usuário de teste do LinkedIn Learning
 
-O aplicativo LinkedIn Learning dá suporte ao provisionamento de usuário just in time e, após a autenticação, os usuários serão criados automaticamente no aplicativo. Na página de configurações de administração no portal do LinkedIn Learning, coloque a opção **Atribuir licenças automaticamente** na posição de ativar o provisionamento just in time, o que também atribuirá uma licença ao usuário. O LinkedIn Learning também dá suporte ao provisionamento automático do usuário. É possível encontrar [aqui](linkedinlearning-provisioning-tutorial.md) detalhes sobre como configurar o provisionamento automático do usuário.
+O aplicativo LinkedIn Learning dá suporte ao provisionamento de usuário just in time e, após a autenticação, os usuários serão criados automaticamente no aplicativo. Na página de configurações de administração no portal do LinkedIn Learning, coloque a opção **Atribuir licenças automaticamente** na posição de ativar o provisionamento just in time, o que também atribuirá uma licença ao usuário.
 
    ![Criação de um usuário de teste do AD do Azure](./media/linkedinlearning-tutorial/LinkedinUserprovswitch.png)
 
@@ -258,7 +258,6 @@ Quando você clica no bloco LinkedIn Learning no Painel de Acesso, você deve ob
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar Provisionamento de Usuário](linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

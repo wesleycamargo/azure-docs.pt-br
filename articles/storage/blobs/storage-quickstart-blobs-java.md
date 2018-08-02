@@ -3,24 +3,23 @@ title: Início Rápido do Azure – Criar um blob no armazenamento de objeto usa
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para Java a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606602"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398702"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Início Rápido: Carregar, baixar e listar blobs usando o SDK do Java V7
 
 Neste guia de início rápido, você aprenderá como usar Java para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 

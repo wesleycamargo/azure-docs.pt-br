@@ -3,19 +3,18 @@ title: Tornar os dados de aplicativos altamente disponíveis no Azure | Microsof
 description: Use o armazenamento com redundância geográfica com acesso de leitura para tornar os dados do aplicativo altamente disponíveis
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193767"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399025"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Torne os dados do aplicativo altamente disponíveis com o armazenamento do Azure
 
@@ -29,7 +28,7 @@ Na primeira parte da série, você aprenderá a:
 > * Definir a cadeia de conexão
 > * Executar o aplicativo de console
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
  

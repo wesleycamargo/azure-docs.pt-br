@@ -2,7 +2,7 @@
 title: Como executar funções duráveis como WebJobs - Azure
 description: Saiba como codificar e configurar funções durável para executar em trabalhos Web usando o SDK do WebJobs.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fc84d1492d2855ffa3bb5538226da049a928339
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 90100461d7db93ece23bf2420a1b7e8c43da915b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766688"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343042"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Como executar funções duráveis como WebJobs
 
@@ -27,7 +27,7 @@ ms.locfileid: "33766688"
 
 O exemplo de funções duráveis de encadeamento de propriedades está disponível em uma versão do SDK do WebJobs: realize download ou clonar as funções do [repositório durável](https://github.com/azure/azure-functions-durable-extension/) e navegue até a *pasta de exemplos \\webjobssdk\\oencadeamento*.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você está familiarizado com os conceitos básicos do SDK do WebJobs, desenvolvimento de bibliotecas de classe C# para funções do Azure Functions e as funções duráveis. Se você precisar obter uma introdução a esses tópicos, consulte os seguintes recursos:
 

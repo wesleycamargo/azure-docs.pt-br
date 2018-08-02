@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 487312cb79c5c278849668a472acfda7823e4bc1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301895"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368684"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
 Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
@@ -120,7 +120,7 @@ Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workpl
     ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Ver todos os meus grupos](../active-directory-groups-view-azure-portal.md)
+* [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](remove-user-or-group-access-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](disable-user-sign-in-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](change-name-or-logo-portal.md)

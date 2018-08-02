@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: f318c53de073c8f1fa6c3ae11cb335a4a91e137d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334954"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364284"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Solucionar problemas configurações de delegação restrita de Kerberos para o Proxy do Aplicativo
 
@@ -40,7 +40,7 @@ Este artigo pressupõe o seguinte:
 
 -   O aplicativo em questãoo é publicado em um locatário do Azure com pré-autenticação habilitada. Os usuários devem autenticar no Azure por meio da autenticação baseada em formulários. Cenários de autenticação de cliente avançados não são cobertos por este artigo. Eles podem ser adicionados em algum momento no futuro.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O Proxy de Aplicativo do Azure AD pode ser implantado em vários tipos de infraestruturas ou ambientes. As arquiteturas variam de organização para organização. As causas mais comuns de problemas relacionados ao KCD não são os ambientes. Pequenos erros de configuração ou erros gerais são o que causam a maior parte dos problemas.
 

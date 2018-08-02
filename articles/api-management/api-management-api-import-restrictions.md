@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598463"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295154"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de API e problemas conhecidos
 ## <a name="about-this-list"></a>Sobre esta lista
 Ao importar uma API, você pode se deparar com algumas restrições ou identificar problemas que precisam ser corrigidos antes de poder importar com êxito. Este artigo documenta essas informações, organizadas pelo formato de importação da API.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se você o validou usando o designer no portal do Azure (Design – Front-End – Editor de especificação de OpenAPI) ou com uma ferramenta de terceiros, como o <a href="http://www.swagger.io">Editor do Swagger</a>.
+Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se você o validou usando o designer no portal do Azure (Design – Front-End – Editor de especificação de OpenAPI) ou com uma ferramenta de terceiros, como o <a href="http://editor.swagger.io">Editor do Swagger</a>.
 
 * Apenas o formato JSON para OpenAPI tem suporte.
 * Os parâmetros obrigatórios para o caminho e a consulta precisam ter nomes exclusivos. (Na OpenAPI, um nome de parâmetro só precisa ser exclusivo em um local, por exemplo, caminho, consulta, cabeçalho.  No entanto, no Gerenciamento de API, permitimos que as operações sejam discriminadas por parâmetros de caminho e de consulta [o que não é compatível com a OpenAPI]. Dessa forma, é necessário que os nomes de parâmetro sejam exclusivos dentro de todo o modelo de URL.)
@@ -36,7 +36,7 @@ Caso esteja recebendo erros ao importar seu documento da OpenAPI, verifique se v
 * As extensões personalizadas são ignoradas na importação e não são salvas ou preservadas para exportação.
 
 > [!IMPORTANT]
-> Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) para obter dicas e informações importantes relacionadas à importação do OpenAPI.
+> Consulte este [documento](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) para obter dicas e informações importantes relacionadas à importação do OpenAPI.
 
 ## <a name="wsdl"> </a>WSDL
 Arquivos WSDL são usados para gerar as APIs de passagem SOAP ou servir como o back-end de uma API de SOAP para REST.

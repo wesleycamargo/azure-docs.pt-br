@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797168"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364267"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
@@ -43,9 +43,7 @@ Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/
 | Máximo de réplicas por serviço |3 |12 |12 |12 |12 |
 | Máximo de partições por serviço |1 |12 |12 |12 |3 |
 | Máximo de unidades de pesquisa (réplicas * partições) por serviço |3 |36 |36 |36 |36 (máx. de 3 partições) |
-| Máximo de documentos por serviço |1 milhão |180 milhões |720 milhões |1.4 bilhão |600 milhões |
 | Armazenamento máximo por serviço |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |
-| Máximo de documentos por partição |1 milhão |15 milhões |60 milhões |120 milhões |200 milhões |
 | Armazenamento máximo por partição |2 GB |25 GB |100 GB |200 GB |200 GB |
 | Índices máximos por serviço |5 |50 |200 |200 |3000 (máx. de 1000 índices/partição) |
 

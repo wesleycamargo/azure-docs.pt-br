@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d56fccbb378736dc8235bf8b8f17afffc085c49f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 49fa81d89fb195e1caedc2348a8b0990022b0d0d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002000"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414259"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
@@ -29,7 +29,7 @@ Use os módulos do Azure IoT Edge para implantar um código que implementa a ló
 
 O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gerados pelo seu dispositivo. Ele somente envia mensagens upstream se a temperatura estiver acima de um limite especificado. Esse tipo de análise na borda é útil para reduzir a quantidade de dados que é comunicada e armazenada na nuvem. 
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -77,7 +77,7 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
 
 4. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar em sua conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
 
-5. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+5. Na paleta de comandos, insira e execute o comando **Azure IoT Edge: nova solução IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    1. Selecione a pasta na qual deseja criar a solução. 
    2. Forneça um nome para a solução ou aceite o padrão **EdgeSolution**.
@@ -251,11 +251,11 @@ Para excluir o grupo de recursos inteiro por nome:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome**, digite o nome do grupo de recursos que contém o hub IoT. 
+2. Na caixa de texto **Filtrar por nome**, insira o nome do grupo de recursos que contém seu Hub IoT. 
 
-3. À direita do seu grupo de recursos na lista de resultados, selecione as reticências (**...** ) e selecione **Excluir grupo de recursos**.
+3. À direita do seu grupo de recursos na lista de resultados, selecione as reticências (**...**) e selecione **Excluir grupo de recursos**.
 
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite novamente o nome do grupo de recursos para confirmar e selecione **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Insira novamente o nome do grupo de recursos para confirmar e selecione **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

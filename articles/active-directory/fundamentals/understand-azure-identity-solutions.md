@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056929"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398357"
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 O Microsoft Azure Active Directory (Azure AD) é um dispositivo de nuvem de gerenciamento de identidade e acesso que fornece serviços de diretório, governança de identidade e gerenciamento de acesso do aplicativo. O Azure AD rapidamente [habilita SSO (logon único)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) para milhares de aplicativos comerciais e personalizados pré-integrados na [Galeria de aplicativos do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Muitos desses aplicativos você provavelmente já usa, como o Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -103,7 +103,7 @@ Aqui estão alguns dos cenários comuns de identidade e acesso com recomendaçõ
 |Minha organização fez grandes investimentos no Windows Server Active Directory local, mas quer estender a identidade para a nuvem.| A solução de identidade do Azure mais amplamente usados é a [identidade híbrida](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Se você já tiver feito investimentos no AD DS local, poderá estender facilmente a identidade para a nuvem usando o Azure AD Connect.|
 |Minha empresa nasceu na nuvem e não temos investimentos em soluções de identidade locais.| O [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) é a melhor opção para empresas somente em nuvem sem investimentos locais.|
 |Preciso de controle e configuração simples de VM do Azure para atender aos requisitos de identidade locais para teste e desenvolvimento de aplicativos.|O [Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) é uma boa opção para quem precisa usar o AD DS para controle simples de configuração de VM do Azure ou está procurando desenvolver ou migrar aplicativos locais herdados e com reconhecimento de diretório para a nuvem.|  
-|Preciso dar suporte a algumas máquinas virtuais no Azure, mas minha empresa ainda investe intensamente no AD DS (Active Directory) local.|Use [AD DS do tipo DIY](https://msdn.microsoft.com/library/azure/jj156090.aspx) para usar VMs do Azure quando você precisar dar suporte a algumas máquinas virtuais e tiver grandes investimentos em AD DS local. |
+|Preciso dar suporte a algumas máquinas virtuais no Azure, mas minha empresa ainda investe intensamente no AD DS (Active Directory) local.|Use [AD DS do tipo DIY](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) para usar VMs do Azure quando você precisar dar suporte a algumas máquinas virtuais e tiver grandes investimentos em AD DS local. |
 
 ## <a name="where-can-i-learn-more"></a>Onde posso saber mais?
 Temos inúmeros ótimos recursos online para ajudá-lo a aprender tudo sobre o AD do Azure. Aqui está uma lista de artigos excelentes para você começar:
@@ -126,5 +126,3 @@ Agora que você entende os conceitos de identidade do Azure e as opções dispon
 [Saiba mais sobre as soluções de identidade híbridas do Azure](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Saiba mais em um ambiente de prova de conceito do Azure](https://aka.ms/aad-poc)
-
-[Implantar o Azure AD em produção](https://aka.ms/aad-onboard)

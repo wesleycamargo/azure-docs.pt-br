@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: f9b8c64aadf813ab1157820fc4051d48989e48c4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448696"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413783"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption para Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -27,19 +27,19 @@ ms.locfileid: "37448696"
 
 O Azure Disk Encryption aproveita o Bitlocker para fornecer criptografia de disco completo em máquinas virtuais do Azure executando o Windows.  Está solução é integrada ao Azure Key Vault para gerenciar os segredos e as chaves de criptografia de disco em sua assinatura do cofre de chaves. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para obter uma lista completa dos pré-requisitos, consulte [Pré-requisitos do Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="operating-system"></a>Sistema operacional
 
-Para obter uma lista das versões do Windows no momento, consulte [Pré-requisitos do Azure Disk Encryption](../../security/azure-security-disk-encryption.md#prerequisites).
+Para obter uma lista das versões do Windows no momento, consulte [Pré-requisitos do Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
 O Azure Disk Encryption exige conectividade com a Internet para acesso ao Active Directory, o Cofre de chaves, armazenamento e pontos de extremidade de gerenciamento de pacote.  Para saber mais sobre configurações de segurança de rede, consulte [Pré-requisitos do Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 18a1481b72904b0ac9c27e100271dc0fd0666baf
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5fc1163f590b2408fca913e35e57f014424b225c
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001755"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308391"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Windows
 
@@ -189,7 +189,7 @@ Start-Service iotedge
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 
-Se você tiver usado as etapas de **configuração manual** na seção anterior, o tempo de execução do IoT Edge deve ser provisionado e estar em execução no seu dispositivo com êxito. Se você tiver usado as etapas de **configuração automática**, você precisará concluir algumas etapas adicionais para que o tempo de execução pode registrar seu dispositivo no hub IoT em seu nome. Para as próximas etapas, consulte [criar e provisionar um dispositivo de borda do TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
+Se você tiver usado as etapas de **configuração manual** na seção anterior, o tempo de execução do IoT Edge deve ser provisionado e em execução no seu dispositivo com êxito. Se você tiver usado as etapas de **configuração automática**, você precisará concluir algumas etapas adicionais para que o tempo de execução pode registrar seu dispositivo no hub IoT em seu nome. Para as próximas etapas, consulte [criar e provisionar um dispositivo de borda do TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable).
 
 É possível verificar o status do serviço do IoT Edge por: 
 
@@ -207,7 +207,8 @@ Get-WinEvent -ea SilentlyContinue `
   -FilterHashtable @{ProviderName= "iotedged";
     LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
   select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false}
+  sort-object @{Expression="TimeCreated";Descending=$false} |
+  format-table -autosize -wrap
 ```
 
 Além disso, lista de módulos com em execução:

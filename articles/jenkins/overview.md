@@ -1,22 +1,19 @@
 ---
 title: Visão geral do Jenkins e do Azure | Microsoft Docs
 description: Hospede o servidor de automação de build e implantação do Jenkins no Azure e use os recursos de computação e armazenamento do Azure para estender os pipelines de CI/CD (integração e implantação contínuas).
-services: jenkins
-author: rloutlaw
-manager: justhe
-ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
-ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: overview
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
+ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30832655"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281548"
 ---
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
@@ -51,4 +48,3 @@ Use os plug-ins do Jenkins para implantar seus aplicativos no Azure como parte d
 
 - [Aplicativo Web do Azure no Linux](/azure/app-service/containers/app-service-linux-intro). Consulte o [tutorial](java-deploy-webapp-tutorial.md) para começar.
 - [Aplicativo Web do Azure](/azure/app-service/app-service-web-overview). Consulte as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.
-
