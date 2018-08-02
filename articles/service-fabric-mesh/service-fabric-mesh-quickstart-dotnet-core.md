@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125496"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412909"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Início rápido: Criar e implantar um aplicativo Web na Malha do Microsoft Azure Service Fabric
 
@@ -42,7 +42,7 @@ Na caixa **Nome**, digite **ServiceFabricMesh1** e na caixa **Local** defina o c
 
 Certifique-se de que **Criar diretório para solução** está selecionado e clique em **OK** para criar o projeto de Malha do Service Fabric.
 
-![Caixa de diálogo do novo projeto de Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Diálogo do novo projeto de malha do Service Fabric no Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Criar um serviço
 
@@ -74,28 +74,15 @@ Você verá uma caixa de diálogo **Publicar Aplicativo do Service Fabric**.
 
 ![Caixa de diálogo da Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
-Selecione a conta e assinatura do Azure. Escolha um **Local**. Este artigo usa **Leste dos EUA**.
+Escolha a conta e assinatura do Azure. Escolha um **Local**. Este artigo usa **Leste dos EUA**.
 
 Em **Grupo de recursos**, selecione **\<Criar Novo Grupo de Recursos...>**. A caixa de diálogo **Criar Grupo de Recursos** é exibida. Defina o **Nome do grupo de recursos** e o **Local**.  Este início rápido usa o local **Leste dos EUA** e nomeia o grupo **sfmeshTutorial1RG** (se sua organização tiver várias pessoas usando a mesma assinatura, escolha um nome de grupo de recursos exclusivo).  Clique em **Criar** para criar o grupo de recursos e retornar à caixa de diálogo de publicação.
 
 ![Caixa de diálogo do novo grupo de recursos da Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-De volta à caixa de diálogo **Publicar Aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, selecione **\<Criar Novo Registro de Contêiner...>**. Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este início rápido usa **Leste dos EUA**). Selecione o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e, em seguida, clique em **Criar** para retornar à caixa de diálogo de publicação.
+De volta à caixa de diálogo **Publicar aplicativo do Service Fabric**, em **Registro de Contêiner do Azure**, escolha **\<Criar Novo Registro de Contêiner...>**. Na caixa de diálogo **Criar Registro de Contêiner**, use um nome exclusivo para o **Nome do registro de contêiner**. Especifique um **Local** (este início rápido usa **Leste dos EUA**). Selecione o **Grupo de recursos** que você criou na etapa anterior na lista suspensa, por exemplo, **sfmeshTutorial1RG**. Defina a **SKU** para **Básico** e, em seguida, clique em **Criar** para retornar à caixa de diálogo de publicação.
 
-Se receber um erro informando que um provedor de recursos não foi registrado para a assinatura, você poderá registrá-lo. Primeiro, verifique se o provedor de recursos está disponível para a assinatura:
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Se o provedor de registro de contêiner (`Microsoft.ContainerRegistry`) estiver disponível, registre-o no Powershell:
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
-
-![Caixa de diálogo do novo grupo de recursos da Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+![Caixa de diálogo do novo grupo de recursos de Malha do Service Fabric do Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
 Na caixa de diálogo de publicação, clique no botão **Publicar** para implantar o aplicativo de Malha do Service Fabric no Azure.
 
@@ -131,6 +118,6 @@ Como alternativa, é possível excluir o grupo de recursos [do portal do Azure](
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre como criar e implantar aplicativos de Malha do Service Fabric, continue no tutorial.
+Para saber mais sobre como criar e implantar aplicativos da Malha do Service Fabric, continue no tutorial.
 > [!div class="nextstepaction"]
 > [Criar, depurar e implantar um aplicativo Web de vários serviços para Malha do Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md)

@@ -3,18 +3,17 @@ title: Início Rápido do Azure - Criar um blob no armazenamento de objeto usand
 description: Neste início rápido, você criará uma conta de armazenamento e um contêiner no armazenamento de objeto (Blob). Em seguida, você deve usar a biblioteca de clientes de armazenamento para .NET a fim de carregar um blob no Armazenamento do Azure, baixar um blob e listar os blobs em um contêiner.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d5a9c87246a175cc7455113c36caa59d59a79226
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767129"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399678"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Início rápido: Carregar, baixar e listar blobs usando .NET
 
@@ -22,7 +21,7 @@ Neste guia de início rápido, você aprende a usar a biblioteca de clientes do 
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este início rápido, primeiro crie uma conta de armazenamento do Azure no [portal do Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Para obter ajuda sobre como criar a conta, confira [Criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 

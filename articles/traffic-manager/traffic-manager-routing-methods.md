@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 03f1cc3a34fa8a472dcab9654b65cc97b8473993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245355"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398610"
 ---
 # <a name="traffic-manager-routing-methods"></a>Métodos de roteamento do Gerenciador de Tráfego
 
@@ -83,7 +83,7 @@ O ponto de extremidade “mais próximo” não é necessariamente o mais próxi
 
 O Gerenciador de Tráfego pesquisa o endereço IP de origem da solicitação DNS de entrada na Tabela de Latência da Internet. O Gerenciador de Tráfego escolhe um ponto de extremidade disponível no data center do Azure que tem a latência mais baixa para esse intervalo de endereços IP e retorna o ponto de extremidade na resposta DNS.
 
-Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-overview.md#how-traffic-manager-works), o Gerenciador de Tráfego não recebe consultas DNS diretamente de clientes. Em vez disso, as consultas DNS são recebidas do serviço DNS recursivo que os clientes são configurados para usar. Portanto, o endereço IP usado para determinar o ponto de extremidade “mais próximo” não é o endereço IP do cliente, mas o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.
+Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-how-it-works.md), o Gerenciador de Tráfego não recebe consultas DNS diretamente de clientes. Em vez disso, as consultas DNS são recebidas do serviço DNS recursivo que os clientes são configurados para usar. Portanto, o endereço IP usado para determinar o ponto de extremidade “mais próximo” não é o endereço IP do cliente, mas o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.
 
 
 Regularmente, o Gerenciador de Tráfego atualiza a Tabela de Latência da Internet para verificar se há alterações na Internet global e em novas regiões do Azure. No entanto, o desempenho do aplicativo varia de acordo com as variações em tempo real na carga pela Internet. O roteamento de tráfego por desempenho não monitora a carga em um ponto de extremidade de serviço específico. No entanto, se um ponto de extremidade ficar indisponível, o Gerenciador de Tráfego não incluirá isso nas respostas a consultas DNS.
@@ -122,7 +122,7 @@ O Gerenciador de Tráfego lê o endereço IP de origem da consulta DNS e decide 
 - Se um ponto de extremidade exibir o status **Desabilitado**, ele não será incluído no processo de correspondência de região. Esse comportamento também vale para tipos de ponto de ponto de extremidade aninhados quando o ponto de extremidade está no estado **Desabilitado**.
 - Se uma consulta estiver vindo proveniente de uma região geográfica que não tenha mapeamento no perfil, o Gerenciador de Tráfego retornará uma resposta NODATA. Portanto, é enfaticamente aconselhável que os clientes que usem roteamento geográfico com um ponto de extremidade, idealmente do tipo Aninhado com pelo menos dois pontos de extremidade no perfil filho, com a região **Mundo** atribuída a ele. Isso também garante que os endereços IP que não são mapeados para uma região sejam manipulados.
 
-Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-how-traffic-manager-works.md), o Gerenciador de Tráfego não recebe consultas DNS diretamente de clientes. Em vez disso, as consultas DNS são recebidas do serviço DNS recursivo que os clientes são configurados para usar. Portanto, o endereço IP usado para determinar a região não é o endereço IP do cliente, mas o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.
+Como explicamos em [Como funciona o Gerenciador de Tráfego](traffic-manager-how-it-works.md), o Gerenciador de Tráfego não recebe consultas DNS diretamente de clientes. Em vez disso, as consultas DNS são recebidas do serviço DNS recursivo que os clientes são configurados para usar. Portanto, o endereço IP usado para determinar a região não é o endereço IP do cliente, mas o endereço IP do serviço DNS recursivo. Na prática, esse endereço IP é um bom proxy para o cliente.
 
 
 ## <a name="next-steps"></a>Próximas etapas

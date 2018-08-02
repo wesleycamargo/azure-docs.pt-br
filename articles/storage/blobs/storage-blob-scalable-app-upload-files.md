@@ -3,20 +3,19 @@ title: Carregar grandes quantidades de dados aleatórios em paralelo no Armazena
 description: Saiba como usar o SDK do Azure para carregar grandes quantidades de dados aleatórios em paralelo para uma conta do Armazenamento do Azure
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 668700cf3ff3d1a90f9639129ef2953ddca016f1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30239891"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399729"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -34,7 +33,7 @@ O armazenamento de blobs do Azure fornece um serviço escalonável para armazena
 
 A [partição de nomenclatura](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator importante durante a criação de um aplicativo de alto desempenho usando blobs. O armazenamento do Azure usa um esquema de particionamento com base em intervalo de escala e balanceamento de carga. Essa configuração significa que arquivos com convenções de nomenclatura semelhantes ou prefixos vão para a mesma partição. Essa lógica inclui o nome do contêiner em que os arquivos estão sendo carregados. Neste tutorial, você deve usar arquivos que tenham GUIDs como nomes bem como conteúdo gerado aleatoriamente. Eles são então carregados em cinco contêineres diferentes com nomes aleatórios.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você deve concluir o tutorial anterior de Armazenamento: [Criar uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
 

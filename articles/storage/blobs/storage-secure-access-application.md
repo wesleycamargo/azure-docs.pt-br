@@ -3,18 +3,17 @@ title: Proteger o acesso aos dados de um aplicativo na nuvem com o Armazenamento
 description: Use tokens SAS, criptografia e HTTPS para proteger os dados do aplicativo na nuvem.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: bfc5085374759290701f49cdf25698827c0779e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 71eec62f4468b6b74a15a30be3e472b41c4d45b0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650087"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397764"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de um aplicativo na nuvem
 
@@ -29,7 +28,7 @@ Na terceira parte da série, você aprenderá a:
 
 O [Armazenamento de Blobs do Azure](../common/storage-introduction.md#blob-storage) fornece um serviço robusto para armazenar arquivos de aplicativos. Este tutorial estende o [tópico anterior][previous-tutorial] para mostrar como proteger o acesso à sua conta de armazenamento de um aplicativo Web. Quando você terminar as imagens são criptografadas e o aplicativo Web usa tokens SAS seguros para acessar as imagens em miniatura.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial você deve ter concluído o Tutorial de armazenamento anterior: [Automate resizing uploaded images using Event Grid][previous-tutorial] (Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos). 
 

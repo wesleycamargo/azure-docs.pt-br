@@ -3,17 +3,17 @@ title: Hospedagem de site estático no armazenamento do Azure (visualização) |
 description: Armazenamento do Azure agora oferece um site estático hospedando (visualização), fornecendo uma solução econômica e dimensionável para hospedar aplicativos web modernos.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131602"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397468"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Hospedagem de site estático no armazenamento do Azure (visualização)
 Armazenamento do Azure agora oferece um site estático hospedando (visualização), fornecendo uma solução econômica e dimensionável para hospedar aplicativos web modernos. Em um site estático, páginas da Web contém conteúdo estático e o JavaScript ou outro código do lado do cliente. Por outro lado, os sites dinâmicos dependem de código do lado do servidor e podem ser hospedados usando [aplicativos Web do Azure](/app-service/app-service-web-overview.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593360"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326183"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este tópico descreve os pré-requisitos e requisitos de hardware para o Azure AD Connect.
@@ -43,7 +43,6 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
 * A versão de esquema do AD e o nível funcional de floresta devem ser o Windows Server 2003 ou posterior. Os controladores de domínio podem executar qualquer versão, desde os requisitos de nível de floresta e de esquema sejam atendidos.
 * Se você pretende usar o recurso **write-back de senha**, os Controladores de Domínio devem estar no Windows Server 2008 (com o último SP) ou posterior. Se os controladores de domínio estiverem no 2008 (pré-R2), você também deverá aplicar o [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 * O controlador de domínio usado pelo Azure AD deve ser gravável. **Não há suporte** para o uso de um RODC (controlador de domínio somente leitura) e o Azure AD Connect não segue redirecionamentos de gravação.
-* **Não há suporte** para o uso de florestas/domínios locais que usam SLDs (Domínios de Rótulo Único).
 * **Não há suporte** para o uso de florestas/domínios locais que usam nomes NetBios “com pontos” (nome que contém um ponto “.”).
 * É recomendável [habilitar a lixeira do Active Directory](active-directory-aadconnectsync-recycle-bin.md).
 
@@ -94,7 +93,7 @@ Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você pr
     </system.net>
 ```
 
-* Se o servidor proxy precisar de autenticação, a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). Você também precisa de uma alteração diferente em machine.config. Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
+* Se o servidor proxy precisar de autenticação, a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) deverá estar localizada no domínio e você deverá usar o caminho de instalação das configurações personalizadas para especificar uma [conta de serviço personalizada](active-directory-aadconnect-get-started-custom.md#install-required-components). Você também precisa de uma alteração diferente em machine.config. Com essa alteração em machine.config, o assistente de instalação e o mecanismo de sincronização respondem às solicitações de autenticação do servidor proxy. Em todas as páginas do assistente de instalação, com exceção da página **Configurar**, as credenciais do usuário conectado são usadas. Na página **Configurar** no final do assistente de instalação, o contexto é alternado para a [conta de serviço](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) que foi criada por você. A seção machine.config deve ter esta aparência.
 
 ```
     <system.net>

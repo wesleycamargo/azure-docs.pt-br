@@ -3,7 +3,7 @@ title: Recursos e extensões da VM do Azure para Windows | Microsoft Docs
 description: Saiba quais extensões estão disponíveis para as máquinas virtuais do Azure, agrupadas pelas funcionalidades fornecidas ou aperfeiçoadas.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809719"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413031"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -41,7 +41,7 @@ Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um c
 
 Além de extensões específicas ao processo, uma extensão de Script Personalizado está disponível para máquinas virtuais Windows e Linux. A extensão de Script personalizado para Windows permite a execução de qualquer script do PowerShell em uma VM. Scripts personalizados são úteis para a criação de implantações do Azure que exigem uma configuração que vai além da capacidade das ferramentas nativas do Azure. Para saber mais, veja [Extensão de Script personalizado de VM do Windows](custom-script-windows.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para lidar com a extensão na VM, é necessário ter o Agente Linux do Microsoft Azure instalado. Algumas extensões individuais têm pré-requisitos, como acesso a recursos ou dependências.
 

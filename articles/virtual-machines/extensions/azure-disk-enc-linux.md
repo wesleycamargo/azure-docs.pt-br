@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: e7926fa488ad38784a3db96035055a80f841aed8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448713"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414765"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -27,19 +27,18 @@ ms.locfileid: "37448713"
 
 Azure Disk Encryption aproveita o subsistema de dm-crypt no Linux para fornecer criptografia de disco completo em [selecionar distribuições de Linux do Azure](https://aka.ms/adelinux).  A solução é integrada ao Azure Key Vault para gerenciar as chaves de criptografia de disco e segredos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para obter uma lista completa dos pré-requisitos, consulte [Pré-requisitos do Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+../../security/azure-security-disk-encryption-prerequisites.md).
 
 ### <a name="operating-system"></a>Sistema operacional
 
-O Azure Disk Encryption tem suporte nas versões selecionadas do servidor Linux.  Consulte as [perguntas frequentes sobre o Azure Disk Encryption](../../security/azure-security-disk-encryption-faq.md#what-linux-distributions-does-azure-disk-encryption-support) para a lista de distribuições do Linux que têm suporte.
+O Azure Disk Encryption tem suporte nas versões selecionadas do servidor Linux.  Consulte as [perguntas frequentes sobre o Azure Disk Encryption](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) para a lista de distribuições do Linux que têm suporte.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
-O Azure Disk Encryption para Linux exige conectividade com a Internet para acesso ao Active Directory, o Cofre de chaves, armazenamento e pontos de extremidade de gerenciamento de pacote.  Para obter mais informações, confira [Azure Disk Encryption](
-../../security/azure-security-disk-encryption.md#prerequisites).
+O Azure Disk Encryption para Linux exige conectividade com a Internet para acesso ao Active Directory, o Cofre de chaves, armazenamento e pontos de extremidade de gerenciamento de pacote.  Para obter mais informações, confira [Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

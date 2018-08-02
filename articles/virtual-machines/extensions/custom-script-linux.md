@@ -3,7 +3,7 @@ title: Executar scripts personalizados em VMs do Linux no Azure | Microsoft Docs
 description: Automatizar tarefas de configuração de VM do Linux usando a Extensão de Script Personalizado v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: danis
-ms.openlocfilehash: 850acae818638bb7c823edde03dbbecccf930073
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: roiyz
+ms.openlocfilehash: 439b38af14da85a9ad263645be8a0961c1266d73
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969316"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414718"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
 A Versão 2 da Extensão de Script Personalizado baixa e executa scripts em máquinas virtuais do Azure. Essa extensão é útil para a configuração de implantação de postagem, instalação de software ou qualquer outra configuração/tarefa de gerenciamento. Você pode fazer o download de scripts a partir do Armazenamento do Microsoft Azure ou outro local acessível da internet, ou você pode fornecê-los para o tempo de execução da extensão. 
@@ -226,7 +226,7 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
       },
     "protectedSettings": {
       "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/MyPythonScript.py"
+      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"
       ]  
     }
   }

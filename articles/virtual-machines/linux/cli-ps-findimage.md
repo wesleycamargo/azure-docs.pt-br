@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f1091b9d252f32086c237e7c62f11c166eb558a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292952"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345150"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Como localizar imagens de VMs Linux no Azure Marketplace com a CLI do Azure
 Este tópico descreve como usar a CLI do Azure 2.0 para localizar imagens de VM no Azure Marketplace. Use essas informações para especificar uma imagem do Marketplace quando você criar uma VM programaticamente com a CLI, os modelos do Gerenciador de Recursos ou outras ferramentas.
@@ -285,16 +285,16 @@ Saída:
 Executar um comando semelhante para a imagem de RabbitMQ Certified by Bitnami mostra as seguintes `plan` propriedades: `name`, `product` e `publisher`. (Algumas imagens também têm uma propriedade `promotion code`.) Para implantar essa imagem, consulte as seções a seguir para aceitar os termos e habilitar a implantação programática.
 
 ```azurecli
-az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1801130730
+az vm image show --location westus --publisher bitnami --offer rabbitmq --sku rabbitmq --version 3.7.1807171506
 ```
 Saída:
 
 ```
 {
   "dataDiskImages": [],
-  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1801130730",
+  "id": "/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/bitnami/ArtifactTypes/VMImage/Offers/rabbitmq/Skus/rabbitmq/Versions/3.7.1807171506",
   "location": "westus",
-  "name": "3.7.1801130730",
+  "name": "3.7.1807171506",
   "osDiskImage": {
     "operatingSystem": "Linux"
   },

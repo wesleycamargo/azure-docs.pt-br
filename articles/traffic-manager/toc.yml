@@ -45,6 +45,8 @@
       href: traffic-manager-metrics-alerts.md
     - name: Recuperação de desastres usando o DNS do Azure e o Gerenciador de Tráfego
       href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Como funciona o Gerenciador de Tráfego
+      href: traffic-manager-how-it-works.md
     - name: Perguntas frequentes
       href: traffic-manager-FAQs.md
 - name: Como

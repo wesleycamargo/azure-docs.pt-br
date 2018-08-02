@@ -3,7 +3,7 @@ title: Extensão de script personalizado do Azure para Windows | Microsoft Docs
 description: Automatizar tarefas de configuração de VM do Windows usando a Extensão de Script Personalizado
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
-ms.author: danis
-ms.openlocfilehash: 80f9ecd40c5b9504a6554b95bf374046d8253933
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: roiyz
+ms.openlocfilehash: 5c105c6adba1a5fca52a85f6d54751e1b54fd721
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809770"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412824"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -28,7 +28,7 @@ A extensão de script personalizado baixa e executa scripts em máquinas virtuai
 
 Este documento detalha como usar a Extensão de Script Personalizado usando o módulo do Azure PowerShell e modelos do Azure Resource Manager, além de detalhar as etapas da solução de problemas em sistemas Windows.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 > [!NOTE]  
 > Não use a Extensão de Script Personalizado para executar Update-AzureRmVM com a mesma VM que seu parâmetro, pois ela aguardará por si própria.  

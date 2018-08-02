@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 951e59333ab1a1e982386c5c71f79b86f5e62440
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194189"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397706"
 ---
 # <a name="runbook-settings"></a>Configurações de runbook
 Cada runbook na Automação do Azure tem várias configurações que ajudam a identificá-lo e a alterar seu comportamento de log. Cada uma dessas configurações é descrita abaixo seguida de procedimentos sobre como modificá-las.
@@ -34,12 +34,12 @@ Por padrão, os registros Detalhado e Progresso não são gravados no histórico
 ### <a name="changing-runbook-settings-with-the-azure-portal"></a>Alterando as configurações de runbook com o portal do Azure
 Você pode alterar as configurações de um runbook no portal do Azure na folha **Configurações** para o runbook.
 
-1. No portal do Azure, selecione **Automação** e clique no nome de uma conta de automação.
+1. No Portal do Azure, selecione **Automação** e, em seguida, clique no nome de uma conta de automação.
 2. Selecione a guia **Runbooks** .
 3. Clique no nome de um runbook e você será direcionado para a folha de configurações do runbook. Aqui, você pode especificar ou modificar marcas e a descrição do runbook, configurar definições de rastreamento e registro em log e acessar ferramentas de suporte para ajudar a resolver problemas.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Alterando as configurações de runbook com o Windows PowerShell
-Você pode usar o cmdlet [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+Você pode usar o cmdlet [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) para alterar as configurações de um runbook. Se você quiser especificar várias marcas, pode fornecer uma matriz ou uma única cadeia de caracteres com valores delimitados por vírgula para o parâmetro dos Rótulos. Você pode obter as marcas atuais com o [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 Os comandos de exemplo a seguir mostram como definir as propriedades de um runbook. Este exemplo adiciona três rótulos aos rótulos existentes e especifica que registros detalhados devem ser registrados em log.
 

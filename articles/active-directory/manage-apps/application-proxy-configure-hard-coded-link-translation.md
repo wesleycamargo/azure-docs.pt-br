@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 8c3cd66a376c1526f50201b7fd662c4faf650df5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161599"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366785"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecione os links inseridos no código para aplicativos publicados com o Proxy de Aplicativo do Azure AD
 
@@ -48,13 +48,13 @@ Esses três recursos mantêm seus vínculos de trabalho, independentemente de on
  
 ### <a name="option-1-intune-managed-browser-integration"></a>Opção 1: integração com o Intune Managed Browser 
 
-Você pode usar o Intune Managed Browser para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar aos usuários que acessem o aplicativo por meio do Intune Managed Browser. Todas as URLs internas publicados com o Proxy de Aplicativo serão reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas  inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
+Você pode usar o Intune Managed Browser para proteger ainda mais seu aplicativo e conteúdo. Para usar essa solução, você precisa exigir/recomendar aos usuários que acessem o aplicativo por meio do Intune Managed Browser. Todas as URLs internas publicados com o Proxy de Aplicativo serão reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for ao navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
 Para saber mais, incluindo como definir essa opção, consulte a documentação do [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opção 2: extensão de navegador MyApps 
 
-Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Proxy de Aplicativo são reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas  inseridas no código funcionem, e se um usuário for à barra de endereço do navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
+Com a extensão de navegador My Apps, todas as URLs internas publicadas com o Proxy de Aplicativo são reconhecidas pelo Managed Browser e redirecionadas para a URL externa correspondente. Isso garante que todas as URLs internas inseridas no código funcionem, e se um usuário for à barra de endereço do navegador e digitar diretamente a URL interna, ela funcione mesmo se o usuário estiver remoto.  
 
 Para usar esse recurso, o usuário deve fazer o download da extensão e estar conectado. Não há nenhuma outra configuração necessária para os administradores ou usuários. 
 

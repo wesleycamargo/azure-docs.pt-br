@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 50f17d7b833874cd15ddc9f2e4f93fa7af1700a2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161589"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364966"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicativos em redes e locais separados usando grupos de conectores
 
@@ -33,7 +33,7 @@ Todos os aplicativos são atribuídos a um grupo de conectores. Se você não cr
 >[!TIP] 
 >Se você tiver uma grande implantação de Proxy de Aplicativo, não atribua nenhum aplicativo ao grupo de conectores padrão. Dessa forma, novos conectores não recebem nenhum tráfego ao vivo até você atribuí-los a um grupo de conectores ativo. Essa configuração permite que você coloque conectores em um modo ocioso, movendo-os de volta ao grupo padrão, para que você possa executar manutenções sem afetar os usuários.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para agrupar seus conectores, você precisa assegurar-se de ter [instalado vários conectores](application-proxy-enable.md). Quando você instala um novo conector, ele automaticamente se junta ao grupo de conector **Padrão** .
 
 ## <a name="create-connector-groups"></a>Criar grupos de conectores

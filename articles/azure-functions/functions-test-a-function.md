@@ -3,7 +3,7 @@ title: Testando o Azure Functions | Microsoft Docs
 description: Teste o Azure Functions usando Postman, cURL e Node.js.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083237"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344691"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estratégias para testar seu código no Azure Functions
 
@@ -443,4 +443,4 @@ Na janela do navegador para a função de fila, você poderá ver cada mensagem 
 
 <!-- URLs. -->
 
-[Portal do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com

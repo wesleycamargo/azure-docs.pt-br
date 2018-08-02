@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916472"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346672"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Proteger novamente computadores do Azure para um site local
 
@@ -63,7 +63,7 @@ Para implantar um servidor de processo no Azure:
 O servidor de destino mestre recebe dados de failback. Por padrão, o servidor de destino mestre é executado no servidor de configuração local. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback. Veja como criar um:
 
 * [Crie um servidor de destino mestre Linux](vmware-azure-install-linux-master-target.md) para failback de VMs do Linux. Isso é necessário.
-* Opcionalmente, crie um servidor de destino mestre separado para failback de VM do Windows. Para fazer isso, execute a instalação do Unified novamente e selecione para criar um servidor de destino mestre. [Saiba mais](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* Opcionalmente, crie um servidor de destino mestre separado para failback de VM do Windows. Para fazer isso, execute a instalação do Unified novamente e selecione para criar um servidor de destino mestre. [Saiba mais](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Depois de criar um servidor de destino mestre, faça o seguinte:
 

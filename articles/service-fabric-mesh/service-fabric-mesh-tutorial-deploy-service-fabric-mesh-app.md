@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126568"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284720"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Tutorial: Implantar um aplicativo Web de Malha do Service Fabric
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Abra um navegador da Web e navegue até a URL para ver o site em execução no Azure.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Configurar CLI da Malha do Service Fabric 
+Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir as etapas restantes. Instale o módulo de extensão de CLI da Malha do Azure Service Fabric seguindo estas [instruções](service-fabric-mesh-howto-setup-cli.md).
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir as etapas restantes.
-
-Se você optar por instalar e usar a CLI localmente, este tutorial exigirá a execução da CLI do Azure versão 2.0.35 ou posterior. Execute `az --version` para encontrar a versão. Para instalar ou atualizar para a versão mais recente da CLI, confira [Instalar a CLI do Azure 2.0][azure-cli-install].
-
-## <a name="install-the-az-mesh-cli"></a>Instalar a cli de malha do az
-No prompt da CLI
-
-1) Remova qualquer instalação anterior do módulo da CLI da Malha do Azure Service Fabric.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Instale o módulo de extensão da CLI de Malha do Azure Service Fabric. No caso da versão prévia, a CLI de Malha do Azure Service Fabric é gravada como uma extensão da CLI do Azure. No entanto, na versão prévia pública, ela seria fornecida como parte da CLI do Azure.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>Verificar o status da implantação do aplicativo
 

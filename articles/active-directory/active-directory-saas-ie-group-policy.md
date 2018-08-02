@@ -3,24 +3,24 @@ title: Implantar a extensão do Painel de Acesso do Azure do IE usando um GPO | 
 description: Como usar a política de grupo para implantar o complemento do Internet Explorer para o portal de meus aplicativos.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: 7c2d49c8-5be0-4e7e-abac-332f9dfda736
 ms.service: active-directory
+ms.component: app-mgmt
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/31/2017
-ms.author: markvi
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308527"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366802"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
 Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -29,7 +29,7 @@ Este tutorial mostra como usar a política de grupo para instalar remotamente a 
 
 A extensão do Painel de Acesso também está disponível para o [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) e o [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998) e nenhum deles exige permissões de administrador para instalar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Você configurou os [Serviços de Domínio do Active Directory](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx)e os computadores dos usuários ingressaram no domínio.
 * Você deve ter a permissão "Editar configurações" para editar o GPO (Objeto de Política de Grupo). Por padrão, os membros dos grupos de segurança a seguir têm esta permissão: Administradores de Domínio, Administradores de Empresa e Proprietários Criadores de Política de Grupo. [Saiba mais.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 

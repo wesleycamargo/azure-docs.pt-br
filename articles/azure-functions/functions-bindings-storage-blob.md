@@ -3,7 +3,7 @@ title: Associações de armazenamento do Blob do Azure para o Azure Functions
 description: Entenda como usar gatilhos e associações do Armazenamento de blob do Azure em Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
-ms.author: tdykstra
-ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: glenga
+ms.openlocfilehash: b9ddfb6582a4ce483e93b7ea753112d54fe65a9d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724791"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346361"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Associações de armazenamento do Blob do Azure para o Azure Functions
 
@@ -319,7 +319,7 @@ Se o blob é nomeado *{20140101}soundfile.mp3*, o valor da variável `name` no c
 
 O gatilho de blob fornece várias propriedades de metadados. Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Esses valores têm a mesma semântica que o tipo [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet).
 
-|Propriedade  |type  |DESCRIÇÃO  |
+|Propriedade  |Tipo  |DESCRIÇÃO  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho do blob de gatilho.|
 |`Uri`|`System.Uri`|A URI do blob para o local principal.|

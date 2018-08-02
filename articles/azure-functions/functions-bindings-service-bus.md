@@ -3,7 +3,7 @@ title: Associações do Barramento de Serviço para o Azure Functions
 description: Entenda como usar gatilhos e associações do Barramento de Serviço do Azure no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,13 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
-ms.author: tdykstra
-ms.openlocfilehash: 0e9e7dcab208d1ffd8410a02a7c1cd713d11b277
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: glenga
+ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753482"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346252"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -281,7 +281,7 @@ As funções de 1. x permitem que você configure `autoRenewTimeout` na *host.js
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Número total de entregas.|
 |`DeadLetterSource`|`string`|A origem de mensagens mortas.|

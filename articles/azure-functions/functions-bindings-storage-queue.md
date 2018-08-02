@@ -3,7 +3,7 @@ title: Associações de armazenamento de filas do Azure Functions
 description: Entenda como usar o gatilho do armazenamento de fila do Azure e a associação de saída no Azure Functions.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 71adccabc0778e2765c574f3714aab0ed0179deb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724462"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344092"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -29,7 +29,7 @@ Este artigo explica como trabalhar com associações de armazenamento de Fila do
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Pacotes - Functions 1.x
+## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
 As associações de armazenamento Filas são fornecidas no pacote NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), versão 2.x. O código-fonte do pacote está no repositório GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
 
@@ -254,7 +254,7 @@ Em JavaScript, use `context.bindings.<name>` para acessar o conteúdo de item de
 
 O gatilho de fila fornece várias propriedades de [metadados](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage).
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se o conteúdo de mensagem de fila como uma cadeia de caracteres `QueueTrigger` tem o mesmo valor da variável nomeada pela `name` propriedade em *function.json*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|

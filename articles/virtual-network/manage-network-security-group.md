@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 5ca70b085b5ac9db4d108966fa695f042c20489d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76a7b2f8339798d9580ef989e8931a6776129885
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920504"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346618"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
 
@@ -104,7 +104,7 @@ Se um Grupo de Segurança de Rede estiver associado a sub-redes ou adaptadores d
 **Comandos**
 
 - CLI do Azure: [az network nsg delete](/cli/azure/network/nsg#az-network-nsg-delete)
-- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroupp) 
+- PowerShell: [Remove-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/remove-azurermnetworksecuritygroup) 
 
 ## <a name="work-with-security-rules"></a>Trabalhar com regras de segurança
 
@@ -121,7 +121,7 @@ Há um limite para o número de regras por Grupo de Segurança de Rede que podem
     
     |Configuração  |Valor  |Detalhes  |
     |---------|---------|---------|
-    |Fonte     | Selecione **Qualquer**, **Grupo de segurança do aplicativo**, **Endereços IP** ou **Marcação de serviço** para as regras de segurança de entrada. Se estiver criando uma regra de segurança de saída, as opções serão as mesmas opções listadas para **Destino**.       | Se você selecionar **Grupo de segurança do aplicativo**, selecione, em seguida, um ou mais grupos de segurança do aplicativo existentes na mesma região do adaptador de rede. Saiba como [criar um grupo de segurança do aplicativo](#create-an-application-security-group). Se você selecionar **Grupo de segurança do aplicativo** para **Origem** e **Destino**, os adaptadores de rede de ambos os grupos de segurança do aplicativo precisarão estar na mesma rede virtual. Se você selecionar **Endereços IP**, especifique **Endereços IP/intervalos de CIDR de origem**. Você pode especificar um único valor ou uma lista separada por vírgulas com vários valores. Um exemplo de vários valores é 10.0.0.0/16, 192.188.1.1. Há limites para o número de valores que podem ser especificados. Consulte [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes. Se você selecionar **Marcação de Serviço**, selecione uma marcação de serviço. Uma marcação de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre marcas de serviço disponível e o que cada uma delas representa, consulte [Marcas de serviço](security-overview.md#service-tags). Se o endereço IP especificado estiver atribuído a uma máquina virtual do Azure, lembre-se de especificar o IP privado, não o endereço IP público atribuído à máquina virtual. As regras de segurança são processadas depois que o Azure traduz o endereço IP público em um endereço IP privado para regras de segurança de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados no Azure, consulte [Tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
+    |Fonte     | Selecione **Qualquer**, **Grupo de segurança do aplicativo**, **Endereços IP** ou **Marca de serviço** para as regras de segurança de entrada. Se estiver criando uma regra de segurança de saída, as opções serão as mesmas opções listadas para **Destino**.       | Se você selecionar **Grupo de segurança do aplicativo**, selecione, em seguida, um ou mais grupos de segurança do aplicativo existentes na mesma região do adaptador de rede. Saiba como [criar um grupo de segurança do aplicativo](#create-an-application-security-group). Se você selecionar **Grupo de segurança do aplicativo** para **Origem** e **Destino**, os adaptadores de rede de ambos os grupos de segurança do aplicativo precisarão estar na mesma rede virtual. Se você selecionar **Endereços IP**, especifique **Endereços IP/intervalos de CIDR de origem**. Você pode especificar um único valor ou uma lista separada por vírgulas com vários valores. Um exemplo de vários valores é 10.0.0.0/16, 192.188.1.1. Há limites para o número de valores que podem ser especificados. Consulte [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes. Se você selecionar **Marca de Serviço**, selecione uma marca de serviço. Uma marcação de serviço é um identificador predefinido para uma categoria de endereços IP. Para saber mais sobre marcas de serviço disponível e o que cada uma delas representa, consulte [Marcas de serviço](security-overview.md#service-tags). Se o endereço IP especificado estiver atribuído a uma máquina virtual do Azure, lembre-se de especificar o IP privado, não o endereço IP público atribuído à máquina virtual. As regras de segurança são processadas depois que o Azure traduz o endereço IP público em um endereço IP privado para regras de segurança de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados no Azure, consulte [Tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de portas de origem     | Especifique uma única porta, como 80, um intervalo de portas, como por exemplo, 1024-65535 ou uma lista separada por vírgulas de portas individuais e/ou intervalos de porta, como 80, 1024-65535. Insira um asterisco para permitir o tráfego em qualquer porta. | As portas e intervalos especificam qual tráfego de portas é permitido ou negado pela regra. Há limites para o número de portas que podem ser especificadas. Consulte [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para obter detalhes.  |
     |Destino     | Selecione **Qualquer**, **Grupo de segurança do aplicativo**, **Endereços IP** ou **Rede Virtual** para as regras de segurança de entrada. Se estiver criando uma regra de segurança de saída, as opções serão as mesmas opções listadas para **Origem**.        | Se você selecionar **Grupo de segurança do aplicativo**, selecione, em seguida, um ou mais grupos de segurança do aplicativo existentes na mesma região do adaptador de rede. Saiba como [criar um grupo de segurança do aplicativo](#create-an-application-security-group). Se você selecionar **Grupo de segurança do aplicativo**, selecione, em seguida, um grupo de segurança do aplicativo existente na mesma região do adaptador de rede. Se você selecionar **Endereços IP**, especifique **Endereços IP/intervalos de CIDR de destino**. Semelhante à **Origem** e aos **Endereços IP/intervalos de CIDR de origem**, você pode especificar um único endereço, vários endereços ou intervalos de endereços, e também há limites para o número de endereços que podem ser especificados. Selecionar **Rede Virtual**, que é uma marcação de serviço, significa que o tráfego é permitido em todos os endereços IP no espaço de endereços da rede virtual. Se o endereço IP especificado estiver atribuído a uma máquina virtual do Azure, lembre-se de especificar o IP privado, não o endereço IP público atribuído à máquina virtual. As regras de segurança são processadas depois que o Azure traduz o endereço IP público em um endereço IP privado para regras de segurança de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para regras de saída. Para saber mais sobre endereços IP públicos e privados no Azure, consulte [Tipos de endereços IP](virtual-network-ip-addresses-overview-arm.md).        |
     |Intervalos de portas de destino     | Especifique um único valor ou uma lista separada por vírgulas com vários valores. | Semelhante aos **Intervalos de porta de origem**, você pode especificar uma única porta ou várias portas e intervalos de portas e também há limites para o número de portas que podem ser especificadas. |
@@ -171,7 +171,7 @@ A lista contém as regras que você criou e as [regras de segurança padrão](se
 **Comandos**
 
 - CLI do Azure: [az network nsg rule update](/cli/azure/network/nsg/rule#az-network-nsg-rule-update)
-- PowerShell: [Set-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
+- PowerShell: [Set-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/set-azurermnetworksecurityruleconfig)
 
 ### <a name="delete-a-security-rule"></a>Excluir uma regra de segurança
 
@@ -181,7 +181,7 @@ A lista contém as regras que você criou e as [regras de segurança padrão](se
 **Comandos**
 
 - CLI do Azure: [az network nsg rule delete](/cli/azure/network/nsg/rule#az-network-nsg-rule-delete)
-- PowerShell: [Remove-AzureRmSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
+- PowerShell: [Remove-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/remove-azurermnetworksecurityruleconfig)
 
 ## <a name="work-with-application-security-groups"></a>Trabalhar com grupos de segurança de aplicativo
 

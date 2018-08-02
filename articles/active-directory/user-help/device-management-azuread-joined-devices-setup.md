@@ -2,26 +2,22 @@
 title: Configurar dispositivos adicionados ao Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos adicionados ao Azure Active Directory.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058458"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411702"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Configurar dispositivos adicionados ao Azure Active Directory
 
@@ -32,7 +28,7 @@ Se desejar colocar os dispositivos Windows 10 de trabalho sob o controle do Azur
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](../device-management-azure-portal.md#configure-device-settings).
+Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -120,16 +116,14 @@ Você também pode examinar as configurações do dispositivo no portal do Azure
 
 ![Conectado](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Para obter mais informações, consulte [Localizar dispositivos](../device-management-azure-portal.md#locate-devices).
+Para obter mais informações, consulte [Localizar dispositivos](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, consulte: 
 
-- A [Introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md)
-- [Gerenciar dispositivos usando o portal do Azure](../device-management-azure-portal.md)
-- 
-
+- A [Introdução ao gerenciamento de dispositivos no Azure Active Directory](../devices/overview.md)
+- [Gerenciar dispositivos usando o portal do Azure](../devices/device-management-azure-portal.md)
 
 

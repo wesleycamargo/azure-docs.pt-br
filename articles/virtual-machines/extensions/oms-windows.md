@@ -3,7 +3,7 @@ title: Extensão da máquina virtual do Log Analytics do Azure para Windows | Mi
 description: Implante o agente do Log Analytics na máquina virtual do Windows usando uma extensão da máquina virtual.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,19 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
-ms.author: danis
-ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: roiyz
+ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301773"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414735"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Log Analytics para Windows
 
 O Log Analytics fornece recursos de monitoramento nos ativos locais e da nuvem. A extensão da máquina virtual do agente do Log Analytics para Windows é publicada e recebe suporte da Microsoft. A extensão instala o agente do Log Analytics em máquinas virtuais do Azure e registra máquinas virtuais em um espaço de trabalho do Log Analytics existente. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da máquina virtual do Log Analytics para Windows.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
 

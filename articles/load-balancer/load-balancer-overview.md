@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215043"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325472"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -123,20 +123,7 @@ _É uma prática recomendada especificar os SKUs explicitamente, mesmo que ainda
 >[!IMPORTANT]
 >O Azure Load Balancer Standard é um novo produto de Azure Load Balancere amplamente um superconjunto Load Balancer Basic. Há diferenças importantes e deliberadas entre os dois produtos. Qualquer cenário de ponta a ponta possível com o Load Balancer Básico também pode ser criado com o Load Balancer Standard. Se já estiver habituado a usar o Load Balancer Básico, você deverá se familiarizar com o Load Balancer Standard para entender as últimas alterações no comportamento entre o Standard e o Básico, bem como seu impacto. Revise esta seção com cuidado.
 
-| | SKU Standard | SKU Básico |
-| --- | --- | --- |
-| Tamanho do pool de back-end | até 1000 instâncias | até 100 instâncias |
-| Pontos de extremidade de pool de back-end | qualquer máquina virtual em uma rede virtual única, incluindo a mistura de máquinas virtuais, conjuntos de disponibilidade, conjuntos de dimensionamento de máquina virtual. | máquinas virtuais em um conjunto de disponibilidade ou conjunto de dimensionamento da máquina virtual |
-| Zonas de Disponibilidades | front-ends com redundância de zona e por zona para entrada e saída, o mapeamento de fluxos de saída sobrevivem à falha de zona, balanceamento de carga entre zonas | / |
-| Diagnósticos | Azure Monitor, métricas multidimensionais incluindo contadores byte e pacote, status de investigação de integridade, tentativas de conexão (TCP SYN), integridade de conexão de saída (SNAT bem sucedido e fluxos com falha), medidas de plano de dados ativo | Log Analytics do Azure apenas para o Azure Load Balancer público, alerta de exaustão SNAT, conta de integridade de pool back-end |
-| Portas de alta disponibilidade | Azure Load Balancer interno | / |
-| Segurança por padrão | padrão fechado para IP público e pontos de extremidade de Azure Load Balancer e um grupo de segurança de rede deve ser usado para indicar explicitamente a permissão para o tráfego fluir | padrão aberto, grupo de segurança de rede opcional |
-| [Conexões de saída](load-balancer-outbound-connections.md) | Vários front-ends com recusa por regra de balanceamento de carga. Um cenário de saída _deve_ ser explicitamente criado para a máquina virtual poder usar a conectividade de saída.  [Pontos de Extremidade de Serviço de VNet](../virtual-network/virtual-network-service-endpoints-overview.md) podem ser acessados sem conectividade de saída e não são considerados dados processados.  Quaisquer endereços de IP públicos, incluindo serviços de PaaS do Azure não estão disponíveis como pontos de extremidade de VNet, devem ser acessados por meio de conectividade de saída e contam para dados processados. Quando apenas um Azure Load Balancer interno estiver atendendo uma máquina virtual, as conexões de saída via SNAT padrão não estão disponíveis. A programação de saída SNAT é o protocolo de transporte específicos com base no protocolo da regra de balanceamento de carga de entrada. | Único front-end, selecionado aleatoriamente quando vários front-ends estiverem presentes.  Quando apenas o Azure Load Balancer interno estiver atendendo a uma máquina virtual, o padrão SNAT é usado. |
-| [Vários front-ends](load-balancer-multivip-overview.md) | Entrada e [saída](load-balancer-outbound-connections.md) | Somente entrada |
-| [Comportamento de investigação de integridade inoperante](load-balancer-custom-probe-overview.md) | As conexões TCP permanecem ativas com investigação inoperante __e__ todas as investigações inoperantes | As conexões TCP permanecem ativas com investigação de instância inoperante. Todas as conexões TCP terminam com todas as investigações inoperantes |
-| Operações de Gerenciamento | Maioria das operações < 30 segundos | 60-90+ segundos típicos |
-| Contrato de Nível de Serviço | 99,99% para o caminho de dados com duas máquinas virtuais íntegras | Implícito no SLA de VM | 
-| Preços | Cobrado com base no número de regras, dados processados de entrada ou saída associados ao recurso  | Sem encargos |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 Para obter mais informações, confira [Limites de serviço do Load Balancer](https://aka.ms/lblimits). Para obter detalhes sobre o Load Balancer Standard, confira [visão geral](load-balancer-standard-overview.md), [preços](https://aka.ms/lbpricing) e [SLA](https://aka.ms/lbsla).
 

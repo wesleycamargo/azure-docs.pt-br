@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
+ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e0bb014ec0706d458ff2f38e409efba5d66aaf18
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72ed9e921d96faea155c1da88dd32fcbd467d549
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529229"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413993"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure com o Azure PowerShell
 
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name $resourcegroupname -Location $location
 ```
 ## <a name="create-a-logical-server"></a>Criar um servidor lógico
 
-Crie um [servidor lógico do SQL do Azure](../sql-database/sql-database-servers-databases.md#what-is-an-azure-sql-logical-server) usando o comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
+Crie um [servidor lógico do SQL do Azure](../sql-database/sql-database-logical-servers.md) usando o comando [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver). Um servidor lógico contém um grupo de bancos de dados gerenciados conjuntamente. O exemplo a seguir cria um servidor nomeado aleatoriamente no seu grupo de recursos com logon de administrador `ServerAdmin` e senha `ChangeYourAdminPassword1`. Substitua esses valores predefinidos como desejado.
 
 ```powershell
 New-AzureRmSqlServer -ResourceGroupName $resourcegroupname `

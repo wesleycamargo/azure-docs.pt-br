@@ -2,18 +2,18 @@
 title: Encaminhar eventos de Armazenamento de Blobs do Azure para um ponto de extremidade da Web personalizado - PowerShell | Microsoft Docs
 description: Use a Grade de Eventos do Azure para assinar eventos de Armazenamento de Blobs.
 services: storage,event-grid
-keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c2db67738dddbc9e20eb8fe9d2a30c7a26bf07cd
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068913"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262745"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell
 

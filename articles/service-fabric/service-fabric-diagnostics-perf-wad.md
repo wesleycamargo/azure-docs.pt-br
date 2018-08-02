@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c8c1f107e9e70e72c48ea93ef211b2a760ffb5c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f99206fe673f69c78bf130026207ed58344ccea5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213224"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324418"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Monitoramento de desempenho com a extensão de Diagnóstico do Microsoft Azure do Windows
 
 Este documento aborda as etapas necessárias para configurar a coleta de contadores de desempenho por meio da extensão WAD (Diagnóstico do Microsoft Azure) para clusters do Windows. Para clusters do Linux, configure o [Agente do OMS](service-fabric-diagnostics-oms-agent.md) para coletar contadores de desempenho para seus nós. 
 
  > [!NOTE]
-> A extensão WAD deve ser implantada em seu cluster para que essas etapas funcionem para você. Se não estiver configurado, vá até [Coleta e agregação de eventos utilizando o Diagnóstico do Microsoft Azure do Windows](service-fabric-reliable-serviceremoting-diagnostics.md#list-of-performance-counters).
+> A extensão WAD deve ser implantada em seu cluster para que essas etapas funcionem para você. Se não estiver configurado, vá até [Coleta e agregação de eventos utilizando o Diagnóstico do Microsoft Azure do Windows](service-fabric-diagnostics-event-aggregation-wad.md).  
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Coletar contadores de desempenho por meio do WadCfg
 

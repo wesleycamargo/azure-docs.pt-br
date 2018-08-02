@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301573"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309112"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -158,7 +158,7 @@ Para configurar o proxy reverso seguro, o certificado SSL pode ser especificado 
 
 O proxy reverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
 
-Consulte [Configurar proxy reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster) para amostras de modelo do Azure Resource Manager para configurar o proxy reverso de segurança com um certificado e o tratamento da substituição de certificados.
+Consulte [Configurar proxy reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) para amostras de modelo do Azure Resource Manager para configurar o proxy reverso de segurança com um certificado e o tratamento da substituição de certificados.
 
 Primeiro, você obtém o modelo para o cluster que deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo do Resource Manager personalizado. Em seguida, você pode habilitar o proxy reverso usando as seguintes etapas:
 

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 92e476d38e6e56edca19afe78bed2705feadd0bb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a895f21bc061763b1d5d45b2bedb44fc932190dc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040901"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345202"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Usar Visual Studio Code para desenvolver e depurar módulos C# para Azure IoT Edge
 
@@ -24,7 +24,7 @@ Você pode transformar sua lógica de negócios em módulos do Azure IoT Edge. E
 Este artigo presume que você esteja usando um computador ou uma máquina virtual que executa Windows ou Linux como seu computador de desenvolvimento. Seu dispositivo do IoT Edge pode ser outro dispositivo físico. Você também pode simular seu dispositivo do IoT Edge no computador de desenvolvimento.
 
 > [!NOTE]
-> Este artigo sobre depuração demonstra como anexar um processo em um contêiner de módulo e depurá-lo com o VS Code. Só é possível depurar funções de C# em contêineres amd64 Linux. Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [Depuração](https://code.visualstudio.com/Docs/editor/debugging). 
+> Este artigo sobre depuração demonstra como anexar um processo em um contêiner de módulo e depurá-lo com o VS Code. Você só pode depurar módulos C# em contêineres amd64 Linux. Se você não estiver familiarizado com os recursos de depuração do Visual Studio Code, leia sobre [Depuração](https://code.visualstudio.com/Docs/editor/debugging). 
 
 Este artigo usa o Visual Studio Code como ferramenta de desenvolvimento principal; instale o VS Code. Em seguida, adicione as extensões necessárias:
 * [Visual Studio Code](https://code.visualstudio.com/) 
