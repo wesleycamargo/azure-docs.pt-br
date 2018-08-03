@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045051"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213326"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Usar "Conversão de Texto em Fala" no serviço de Fala
 
 O serviço de Fala fornece a funcionalidade Conversão de Texto em Fala por meio de uma solicitação HTTP simples. Você escreve o texto a ser falado ao ponto de extremidade apropriado, e o serviço retorna um arquivo de áudio (`.wav`) que contém a fala sintetizada. Seu aplicativo pode usar este áudio como desejar.
 
-O corpo da solicitação de postagem para a Conversão de Texto em Fala pode ser texto sem formatação (ASCII ou UTF8) ou um documento [SSML](speech-synthesis-markup.md). Solicitações de texto sem formatação são faladas com uma voz padrão. Na maioria dos casos, você deseja usar um corpo SSML. A solicitação HTTP deve incluir um token de autorização. 
+O corpo da solicitação de postagem para a Conversão de Texto em Fala pode ser texto sem formatação (ASCII ou UTF8) ou um documento [SSML](speech-synthesis-markup.md). Solicitações de texto sem formatação são faladas com uma voz padrão. Na maioria dos casos, você deseja usar um corpo SSML. A solicitação HTTP deve incluir um token de [autorização](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Os pontos de extremidade de Conversão de Texto em Fala regionais são mostrados aqui. Use o apropriado para sua assinatura.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>Especificar uma voz
 
@@ -95,5 +95,7 @@ Para obter mais informações sobre a API REST de Conversão de Texto em Fala, c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obter sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer fala no C#](quickstart-csharp-windows.md)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconhecer fala em C++](quickstart-cpp-windows.md)
+- [Reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+- [Reconhecer fala em Java](quickstart-java-android.md)

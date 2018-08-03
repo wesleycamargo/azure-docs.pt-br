@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fcb44a4c737f85941b33c278cfbae3f128df8207
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301284"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867582"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Início rápido para a API de QnA Maker da Microsoft com Go 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ O código a seguir cria uma nova base de dados de conhecimento usando o método 
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -228,7 +228,7 @@ O código a seguir atualiza uma base de dados de conhecimento existente usando o
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -412,7 +412,7 @@ O código a seguir publica uma base de dados de conhecimento existente usando o 
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -502,7 +502,7 @@ O código a seguir substitui o conteúdo da base de dados de conhecimento especi
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -610,7 +610,7 @@ O código a seguir baixa o conteúdo da base de dados de conhecimento especifica
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -721,7 +721,7 @@ O código a seguir obtém respostas para uma pergunta usando a base de dados de 
 1. Adicione o código fornecido abaixo.
 1. Substitua o valor `host` pelo nome do site da sua assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
 1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a sua assinatura. Observe que não será igual à sua chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
-1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar em busca de resposta. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
+1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
 1. Execute o programa.
 
 ```go
@@ -820,7 +820,7 @@ O código a seguir obtém informações sobre a base de dados de conhecimento es
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -912,7 +912,7 @@ O código a seguir obtém informações sobre todas as bases de dados de conheci
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -1017,7 +1017,7 @@ O código a seguir exclui a base de dados de conhecimento especificada usando o 
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -1103,7 +1103,7 @@ O código a seguir obtém as chaves do ponto de extremidade atuais usando o mét
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -1181,7 +1181,7 @@ O código a seguir gera novamente as chaves do ponto de extremidade atuais usand
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -1267,7 +1267,7 @@ O código a seguir obtém as alterações de palavras atuais usando o método [B
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go
@@ -1351,7 +1351,7 @@ O código a seguir substitui as alterações de palavras atuais usando o método
 
 1. Crie um novo projeto Go no seu IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```go

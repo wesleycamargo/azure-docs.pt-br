@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: ad5af799fd46dc51b85432999f986de8cdb056ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364589"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258840"
 ---
 # <a name="creating-custom-voice-fonts"></a>Criar fontes de voz personalizadas
 
@@ -25,21 +25,11 @@ Você pode começar com uma pequena quantidade de dados para uma prova de concei
 
 A personalização de voz está disponível para inglês dos EUA (en-US) e chinês do continente (zh-CN).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Atualmente, o recurso de personalização de voz de Conversão de Texto em Fala está em versão prévia privada. [Preencha o formulário de aplicativo](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) a ser considerado para acesso.
 
-Você também precisará de:
-
-* Uma conta do Azure ([inscreva-se para obter uma avaliação gratuita](https://azure.microsoft.com/free/ai/), se ainda não tiver uma).
-
-* Uma assinatura para o serviço de Fala. [Crie uma](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices), se ainda não tiver.
-
-    ![Criar painel](media/custom-voice/create-panel.png)
-
-Após criar a assinatura, será possível localizar duas chaves de assinatura no painel Início Rápido ou no painel Visão Geral da nova assinatura. Você pode usar qualquer uma das chaves.
-
-Por fim, conecte a assinatura ao portal de Voz Personalizada conforme a seguir.
+Também é necessário ter uma conta do Azure e uma assinatura do Serviço de Fala. [Crie uma](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started), se ainda não tiver. Conecte a assinatura ao portal de Voz Personalizada conforme a seguir.
 
 1. Faça logon no [portal de Voz Personalizada](https://customvoice.ai) usando a mesma conta Microsoft utilizada para solicitar o acesso.
 
@@ -51,7 +41,7 @@ Por fim, conecte a assinatura ao portal de Voz Personalizada conforme a seguir.
 
      ![Conectar assinatura existente](media/custom-voice/connect-existing-sub.png)
 
-4. Cole a chave de assinatura na tabela, conforme mostrado abaixo.
+4. Cole a chave de assinatura na tabela, conforme mostrado abaixo. Cada assinatura tem duas chaves e você pode usar qualquer uma delas.
 
      ![Adicionar assinatura](media/custom-voice/add-subscription.png)
 
@@ -61,9 +51,9 @@ Está tudo pronto!
 
 Um conjunto de dados de treinamento de voz consiste em um conjunto de arquivos de áudio, junto com um arquivo de texto contendo as transcrições de todos esses arquivos de áudio.
 
-É possível preparar esses arquivos em qualquer direção: grave um script e leia-o por talento de voz, ou use áudio publicamente disponível e transcreva-o para texto. Nesse último caso, edite as disfluências dos arquivos de áudio, como "um" e outros sons de preenchimento, gagueja, palavras murmuradas ou pronunciamentos incorretos.
+É possível preparar esses arquivos em qualquer direção: escreva um script e leia-o para o ator de voz ou use áudio disponível publicamente e transcreva-o para texto. Nesse último caso, edite as disfluências dos arquivos de áudio, como "um" e outros sons de preenchimento, gagueja, palavras murmuradas ou pronunciamentos incorretos.
 
-Para produzir uma fonte de voz boa, é importante que as gravações sejam feitas em uma sala silenciosa com um microfone de alta qualidade. Volume consistente, velocidade de fala, densidade de fala e expressivos maneirismos da fala são essenciais para compilar uma excelente voz digital. Para criar uma voz para uso de produção, é recomendável utilizar um estúdio de gravação profissional e um talento de voz.
+Para produzir uma fonte de voz boa, é importante que as gravações sejam feitas em uma sala silenciosa com um microfone de alta qualidade. Volume consistente, velocidade de fala, densidade de fala e expressivos maneirismos da fala são essenciais para compilar uma excelente voz digital. Para criar uma voz para uso de produção, é recomendável utilizar um estúdio de gravação profissional e um talento de voz. Para mais detalhes, consulte [Como gravar amostras de voz para uma voz personalizada](record-custom-voice-samples.md).
 
 ### <a name="audio-files"></a>Arquivos de áudio
 
@@ -74,8 +64,7 @@ Arquivos de áudio devem ser preparados conforme a seguir. Outros formatos não 
 | **Propriedade** | **Valor** |
 | ------------ | --------- |
 | Formato de arquivo  | RIFF (WAV)|
-| Taxa de amostragem| 16.000 Hz |
-| Canais     | 1 (monofônico)  |
+| Taxa de amostragem| pelo menos 16.000 Hz |
 | Formato de exemplo| PCM, 16 bits |
 | Nome do Arquivo    | Numérico, com extensão `.wav` |
 | Formato de arquivo| Zip      |
@@ -84,11 +73,12 @@ Arquivos de áudio devem ser preparados conforme a seguir. Outros formatos não 
 Coloque o conjunto de arquivos de áudio em uma única pasta sem subdiretórios e empacote todo o conjunto como um único arquivo ZIP.
 
 > [!NOTE]
+> Arquivos wave com uma taxa de amostragem menor que 16.000 Hz serão rejeitados. Nos casos em que um arquivo zip contiver ondas com taxas de amostragem diferentes, apenas aquelas iguais ou superiores a 16.000 Hz serão importadas.
 > Atualmente, o portal importa arquivos ZIP de até 200 MB. No entanto, vários arquivos podem ser enviados. O número máximo de conjuntos de dados permitidos é de 10 arquivos ZIP para usuários de assinatura gratuita e 50 para usuários de assinatura padrão.
 
 ### <a name="transcripts"></a>Transcrições
 
-O arquivo de transcrição é um arquivo de texto Unicode simples (UTF-16 little-endian). Cada linha do arquivo de transcrição deve ter o nome de um arquivo de áudio, seguido por um caractere de tabulação (ponto de código 9) e, finalmente, a transcrição. Nenhuma linha em branco é permitida.
+O arquivo de transcrição é um arquivo de texto simples (ANSI/UTF-8/UTF-8-BOM/UTF-16-LE/UTF-16-BE). Cada linha do arquivo de transcrição deve ter o nome de um arquivo de áudio, seguido por um caractere de tabulação (ponto de código 9) e, finalmente, a transcrição. Nenhuma linha em branco é permitida.
 
 Por exemplo: 
 
@@ -198,7 +188,7 @@ O status mostrado reflete o processo de conversão do conjunto de dados em uma f
 O tempo de treinamento varia dependendo do volume de dados de áudio processados. Intervalos de tempo típicos variam de aproximadamente 30 minutos para centenas de enunciados a 40 horas para 20.000 enunciados.
 
 > [!NOTE]
-> Usuários de assinatura gratuita podem treinar duas fontes de voz de cada vez. Usuários de assinatura padrão podem treinar três vozes simultaneamente. Se o limite for alcançado, aguarde até que pelo menos uma das fontes de voz termine o treinamento e, em seguida, tente novamente.
+> Usuários de assinatura gratuita podem treinar uma fonte de voz de cada vez. Usuários de assinatura padrão podem treinar três vozes simultaneamente. Se o limite for alcançado, aguarde até que pelo menos uma das fontes de voz termine o treinamento e, em seguida, tente novamente.
 
 ## <a name="test-your-voice-font"></a>Testar a fonte de voz
 
@@ -218,21 +208,21 @@ Após preencher a caixa de texto e confirmar o modo de entrada, clique em **Sim*
 
 Depois de ter criado e testado com êxito o modelo de voz, implante-o em um ponto de extremidade de Conversão de Texto em Fala. Em seguida, você usará esse ponto de extremidade no lugar do ponto de extremidade comum ao fazer solicitações de Conversão de Texto em Fala por meio de API REST. O ponto de extremidade personalizado pode ser chamado apenas pela assinatura usada para implantar a fonte.
 
-Para criar um novo ponto de extremidade personalizado, escolha **Pontos de Extremidade** no menu Voz Personalizada na parte superior da página. A página Implantação é exibida, com a tabela de pontos de extremidade de voz personalizada atual, se houver.
+Para criar um novo ponto de extremidade personalizado, escolha **Pontos de Extremidade** no menu Voz Personalizada na parte superior da página. A página Minhas Vozes Implantadas será exibida, com a tabela de pontos de extremidade de voz personalizada atual, se houver. A localidade atual é refletida na primeira linha da tabela. Para criar uma implantação para um idioma diferente, altere a localidade exibida. (Deve corresponder à voz que você está implantando.)
 
-Clique no botão **Implantar vozes** para criar um novo ponto de extremidade. Na página Criar Ponto de Extremidade, a localidade atual é refletida na primeira linha da tabela. Para criar uma implantação para um idioma diferente, altere a localidade exibida. (Deve corresponder à voz que você está implantando.) Insira o Nome e a Descrição do ponto de extremidade personalizado.
+Clique no botão **Implantar vozes** para criar um novo ponto de extremidade. Insira o Nome e a Descrição do ponto de extremidade personalizado.
 
 No menu Assinatura, escolha a assinatura que você quer usar. Usuários de assinatura gratuita podem ter apenas um modelo implantado por vez. Usuários de assinatura padrão podem criar até 20 pontos de extremidade, cada um com a própria voz personalizada.
 
 ![Criar Ponto de Extremidade](media/custom-voice/create-endpoint.png)
 
-Após selecionar o modelo a ser implantado, clique em **Criar**. A página Implantação aparece novamente, agora com uma entrada para o novo ponto de extremidade. Pode demorar alguns minutos para instanciar um novo ponto de extremidade. Quando o status da implantação for Com êxito, o ponto de extremidade estará pronto para uso.
+Após selecionar o modelo a ser implantado, clique em **Criar**. A página Minhas Vozes Implantadas será exibida novamente, agora com uma entrada para o novo ponto de extremidade. Pode demorar alguns minutos para instanciar um novo ponto de extremidade. Quando o status da implantação for Com êxito, o ponto de extremidade estará pronto para uso.
 
 ![Minhas Vozes Implantadas](media/custom-voice/my-deployed-voices.png)
 
 Quando o status da implantação for Com Êxito, o ponto de extremidade da fonte de voz implantada aparecerá na tabela Minhas Vozes Implantadas. É possível usar esse URI diretamente em uma solicitação HTTP.
 
-O teste online do ponto de extremidade também está disponível no portal de voz personalizada. Para testar o ponto de extremidade, escolha **Teste de pontos de extremidade** no menu suspenso Voz Personalizada. A página de teste do ponto de extremidade é exibida. Escolha uma voz que você tenha implantado e insira o texto a ser falado (em texto sem formatação ou formato SSML) na caixa de texto.
+O teste online do ponto de extremidade também está disponível no portal de voz personalizada. Para testar o ponto de extremidade, escolha **Teste de pontos de extremidade** no menu suspenso Voz Personalizada. A página de teste do ponto de extremidade é exibida. Escolha uma voz personalizada implantada e digite o texto a ser falado (em texto sem formatação ou em formato SSML) na caixa de texto.
 
 > [!NOTE] 
 > Ao usar SSML, a marca `<voice>` deverá especificar o nome que você forneceu à voz personalizada ao criá-la.
@@ -245,5 +235,5 @@ O ponto de extremidade personalizado é funcionalmente idêntico ao ponto de ext
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obter a assinatura de avaliação do Speech](https://azure.microsoft.com/try/cognitive-services/)
-- [Reconhecer fala em C#](quickstart-csharp-windows.md)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

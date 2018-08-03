@@ -2,19 +2,19 @@
 title: Gerenciar versões em aplicativos LUIS no Azure | Microsoft Docs
 description: Saiba como gerenciar versões em aplicativos LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363458"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226587"
 ---
 # <a name="manage-versions"></a>Gerenciar versões
 
@@ -28,7 +28,7 @@ Para trabalhar com versões, abra o aplicativo selecionando o nome dele na pági
 A página **Configurações** permite que você defina configurações para todo o aplicativo, incluindo versões e colaboradores. 
 
 ## <a name="clone-a-version"></a>Clonar uma versão
-1. Na página **Configurações**, depois das seções Configurações de Aplicativo e Colaboradores, localize a linha com a versão que você quer clonar. Selecione os três pontos (...) à extrema direita. 
+1. Na página **Configurações**, depois das seções Configurações de Aplicativo e Colaboradores, localize a linha com a versão que você quer clonar. Selecione o botão de reticências (***...***) na extrema direita. 
 
     ![Propriedades da linha de versão](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ A página **Configurações** permite que você defina configurações para todo
  > Conforme mostrado na imagem anterior, uma versão publicada é associada a uma marca colorida, indicando o tipo de slot onde foi publicado: Produção (verde), Processo de preparo (vermelho) e ambos (preto). As datas de treinamento e publicação são exibidas para cada versão publicada.
 
 ## <a name="set-active-version"></a>Definir versão ativa
-1. Na página **Configurações**, na lista **Versões** selecione os três pontos (...) à extrema direita.
+1. Na página **Configurações**, na lista **Versões**, selecione as reticências (***...***) na extrema direita.
 
 2. Na lista pop-up, selecione **Definir como ativo**.
 
@@ -82,14 +82,14 @@ A página **Configurações** permite que você defina configurações para todo
 
 **Para exportar uma versão:**
 
-1. Na página **Configurações**, na lista **Versões** selecione os três pontos (...) à extrema direita.
+1. Na página **Configurações**, na lista **Versões**, selecione as reticências (***...***) na extrema direita.
 
 2. Selecione **Exportar** na lista pop-up de ações e selecione onde quer salvar o arquivo.
 
 ## <a name="delete-a-version"></a>Excluir uma versão
 É possível excluir versões, porém é necessário manter pelo menos uma versão do aplicativo. É possível excluir todas as versões, exceto a versão ativa. 
 
-1. Na página **Configurações**, na lista **Versões** selecione os três pontos (...) à extrema direita.
+1. Na página **Configurações**, na lista **Versões**, selecione as reticências (***...***) na extrema direita.
 
 2. Selecione **Excluir** na lista pop-up de ações e selecione onde quer salvar o arquivo.
 
@@ -99,7 +99,7 @@ A página **Configurações** permite que você defina configurações para todo
 ## <a name="rename-a-version"></a>Renomear uma versão
 É possível renomear versões, contanto que o nome da versão não esteja em uso.  
 
-1. Na página **Configurações**, na lista **Versões** selecione os três pontos (...) à extrema direita.
+1. Na página **Configurações**, na lista **Versões**, selecione as reticências (***...***) na extrema direita.
 
 2. Selecione **Renomear** na lista pop-up de ações.
 

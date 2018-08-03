@@ -1,7 +1,7 @@
 ---
-title: Como usar operações desfazer e ramificação com um aplicativo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar operações desfazer e ramificação com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar operações desfazer e ramificação com um aplicativo de Aprendiz de Conversa.
+description: Saiba como usar operações desfazer e ramificação com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 724a9e47267e0bd7417130efe54c609ac7a465fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 05140693026e21a73b756ed0ea7bc9936bef067e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364235"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173291"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Como usar operações desfazer e ramificação
 Neste tutorial, apresentaremos as operações desfazer e ramificação.
+
 
 ## <a name="details"></a>Detalhes
 - Desfazer: permite que o desenvolvedor "desfaça" uma entrada do usuário ou escolha de ação. Na verdade, "desfazer" realmente cria um novo diálogo e o reproduz até a etapa anterior.  Isso significa que o retorno de chamada de detecção de entidade e chamadas à API no diálogo serão chamados novamente.
@@ -33,7 +34,7 @@ Este tutorial exige que o bot de pedido de pizza esteja em execução:
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de aplicativos da interface do usuário da Web, clique no Tutorial de demonstração de pedido de pizza. 
+Na lista Modelo da interface do usuário da Web, clique no TutorialDemo de Pedido de Pizza. 
 
 Para obter detalhes sobre a demonstração do Pedido de Pizza, consulte o tutorial de pedido de pizza.
 
@@ -47,7 +48,7 @@ Vamos iniciar uma sessão de treinamento.
 1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
 1. Insira 'pedir uma pizza'.
 2. Clique em Pontuar Ação.
-3. Clique para Selecionar 'o que você gostaria na sua pizza?'
+3. Clique para selecionar 'o que você gostaria em sua pizza?'
 4. Insira 'cogumelos e queijo'.
 5. Clique em Pontuar Ações.
 3. Clique para selecionar 'você tem $Toppings em sua pizza'.
@@ -55,7 +56,7 @@ Vamos iniciar uma sessão de treinamento.
 7. Insira 'retirar cogumelos e adicionar pimentas'.
     - Selecione os cogumelos e desmarque as entidades Ingredientes. Estamos criando uma ação que iremos desfazer.
 2. Clique na Etapa Desfazer.
-    - Observe que a última entrada foi removida e voltamos para 'Deseja mais alguma coisa?'  (captura de tela abaixo)
+    - A última entrada foi removida e voltamos para 'Deseja mais alguma coisa?'  (captura de tela abaixo)
 2. Insira 'retirar cogumelos e adicionar pimentas'.
 8. Clique para selecionar 'você tem $Toppings em sua pizza'
     - Verifique se que ambas as entidades estão selecionadas corretamente.
@@ -66,14 +67,14 @@ Você já viu como usar o recurso Desfazer para remover uma entrada e uma ação
 
 ![](../media/tutorial15_undo.PNG)
 
-## <a name="branch"></a>Ramificação
+## <a name="branch"></a>Branch
 
 Como exemplo, vamos abrir um diálogo de treinamento existente e criar outro diálogo de treinamento por ramificação.
 
 1. Clique em Diálogos de Treinamento e, em seguida, em 'novo pedido' para abrir o diálogo existente. 
 2. Clique no último 'não' no diálogo (veja a imagem abaixo).
-3. clique em Ramificação.
-    - Observe que 'não' é removido e todo o diálogo até esse ponto é copiado para um novo. 
+3. Clique em Ramificação.
+    - 'não' é removido e todo o diálogo até esse ponto é copiado para um novo. 
     - Isso evita que você entre novamente nos turnos anteriores para explorar uma nova "ramificação" a partir desse ponto.
 1. Insira 'sim'.
 2. Clique em Pontuar Ação.

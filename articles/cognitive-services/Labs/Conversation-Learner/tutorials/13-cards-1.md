@@ -1,7 +1,7 @@
 ---
-title: Como usar cartões com um aplicativo de Aprendizado de Conversa, parte 1 - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar cartões com um modelo de Aprendiz de Conversa, parte 1 - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar cartões com um aplicativo de Aprendizado de Conversa.
+description: Saiba como usar cartões com o modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e90ccd42b21eea6139c402937be7e20513d73c84
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 988a2433f098f41bca4796299825293efd4de44b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364218"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171126"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Como usar cartões (parte 1 de 2)
 
 Este tutorial mostra como adicionar e usar um cartão simples no seu bot.
 
-Observe que o Aprendizado de Conversa espera que os arquivos de definição de cartão estejam localizados em um diretório chamado “cartões” que está presente no diretório onde o bot é iniciado.
+> [!NOTE]
+> Atualmente, o Aprendiz de Conversa espera que os arquivos de definição de cartão estejam localizados em um diretório chamado "cards", que está presente no diretório onde o bot é iniciado. Futuramente, isso será configurável.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 13](http://aka.ms/cl-tutorial-13-preview)](http://aka.ms/blis-tutorial-13)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial general esteja em execução
+Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
 
@@ -32,9 +37,9 @@ Este tutorial requer que o bot tutorial general esteja em execução
 
 Os cartões são elementos de interface do usuário que permitem ao usuário selecionar uma opção na conversa. 
 
-### <a name="open-the-demo"></a>Abra a demonstração
+### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de aplicativos da interface do usuário da Web, clique no Tutorial-13-Cartões-1. 
+Na lista de modelos da interface do usuário da Web, clique em Tutorial-13-Cards-1. 
 
 ### <a name="the-card"></a>O cartão
 
@@ -44,12 +49,13 @@ O sistema espera encontrar suas definições de cartão neste diretório de cart
 
 ![](../media/tutorial13_prompt.PNG)
 
-- Observe o TextBlock e o modelo de pergunta.
-- Há dois botões de enviar e o texto que é enviado para cada um.
+> [!NOTE]
+> Observe o tipo de corpo `TextBlock` e o espaço reservado `{{question}}` no campo de texto.
+> Há dois botões de enviar e o texto que é enviado para cada um.
 
 ### <a name="actions"></a>Ações
 
-Criamos três ações. Como você pode ver abaixo, a primeira ação é um cartão.
+Nós criamos três ações. Como você pode ver abaixo, a primeira ação é um cartão.
 
 ![](../media/tutorial13_actions.PNG)
 
@@ -57,7 +63,8 @@ Vamos ver como o tipo de ação do cartão foi criado:
 
 ![](../media/tutorial13_cardaction.PNG)
 
-Observe a entrada da pergunta e os botões 1 e 2. Essas são as referências do modelo no cartão de onde você digita a pergunta e as respectivas respostas. Você também pode referenciar e usar entidades ou uma mistura de texto e entidades.
+> [!NOTE]
+> A entrada de perguntas e os botões 1 e 2. Essas são as referências do modelo no cartão de onde você digita a pergunta e as respectivas respostas. Você também pode referenciar e usar entidades ou uma mistura de texto e entidades.
 
 O ícone de olho mostra a aparência do cartão.
 
@@ -65,8 +72,8 @@ O ícone de olho mostra a aparência do cartão.
 
 Vamos examinar uma caixa de diálogo de ensino.
 
-1. Clique em Caixas de diálogo de treinamento, em seguida em Nova caixa de diálogo de treinamento.
-1. Digite “hi”.
+1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
+1. Digite ‘oi’.
 2. Clique em Pontuar ação.
 3. Clique para selecionar "O prompt vai para a esquerda ou direita".
     - Clicar em “esquerda” ou “direita” é equivalente ao usuário digitar “esquerda” “direita” respectivamente. 

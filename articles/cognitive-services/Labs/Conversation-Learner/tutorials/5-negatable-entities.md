@@ -1,7 +1,7 @@
 ---
-title: Como usar entidades negáveis com um aplicativo Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar entidades negáveis com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar entidades negáveis com um aplicativo Aprendiz de Conversa.
+description: Saiba como usar entidades negáveis com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364246"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171394"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Como usar entidades negáveis com um aplicativo Aprendiz de Conversa
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Como usar entidades negáveis com um modelo de Aprendiz de Conversa
 
 Este tutorial demonstra a propriedade "negável" das entidades.
 
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot de tutorial geral esteja em execução
+Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
 
@@ -37,17 +41,17 @@ Concretamente, se a propriedade "negável" de uma entidade for definida:
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, insira NegatableEntity. Em seguida, clique em Criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
 
 1. Clique em Entidades e, em seguida, em Nova Entidade.
 2. Em Nome da Entidade, insira o nome.
-3. Verificação de negável.
-    - Isso indica que o usuário será capaz de fornecer um valor para a entidade ou dizer que algo *não* é o valor da entidade. No último caso, isso resultará na exclusão de um valor correspondente da entidade.
+3. Marque Negável.
+    - Essa propriedade indica que o usuário poderá fornecer um valor para a entidade, ou informar que algo *não* é o valor da entidade. No último caso, isso resultará na exclusão de um valor correspondente da entidade.
 3. Clique em Criar.
 
 ![](../media/tutorial5_entities.PNG)
@@ -74,19 +78,19 @@ Agora você tem duas ações.
 1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
 2. Digite 'olá'.
 3. Clique em Ações de Pontuação e selecione "Eu não sei o seu nome"
-    - Observe que está obtendo uma pontuação de 100%, pois é a única ação válida.
+    - A classificação é 100% porque é a única ação válida.
 2. Insira "meu nome é david"
 3. Selecione "david" e escolha o rótulo "+name"
-    - Observe que há duas instâncias de "name"': "+name" e "-name".  O sinal de adição significa que estamos fornecendo esse valor. O sinal de subtração significa que estamos informando ao sistema que algo não é o valor.
+    - Há duas instâncias de 'nome': '+name' e '-name'.  (+) Mais, adiciona ou substitui o valor. (-) Menos, remove o valor.
 5. Clique em Ações de Pontuação
-    - Observe que o valor de nome agora está na memória do bot.
+    - O valor do nome agora está na memória do bot.
     - "Sei o seu nome. É $name" é a única resposta disponível. 
 6. Selecione "Sei o seu nome. É $name".
 
 Vamos tentar limpar a entidade negável:
 
 7. Insira "meu nome não é david".
-    - Observe que "não" está selecionado como baseado em nome no padrão anterior. Isso está incorreto.
+    - Observe que "não" está selecionado como baseado em nome no padrão anterior. Este rótulo está incorreto.
 2. Clique em "não" e, depois, no x vermelho. 
 3. Clique em "david".
     - Agora, isso é uma entidade negativa comunicando que isso não é o valor da entidade de nome.

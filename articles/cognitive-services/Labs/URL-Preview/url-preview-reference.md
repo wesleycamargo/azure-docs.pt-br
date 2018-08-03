@@ -9,12 +9,12 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: adc2f83f703e740e40d9ba4fd3ed08ba429e5d97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364284"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865868"
 ---
 # <a name="project-url-preview-v7-reference"></a>Referência de Visualização de URL de Projeto v7
 
@@ -74,7 +74,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL. A consulta precisa ser uma URL absoluta com um esquema HTTP ou HTTPS; não damos suporte para URLs relativas ou outros esquemas como ftp://
   
   
-|NOME|Valor|type|Obrigatório|  
+|NOME|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas à geografia EUA e ao idioma inglês.<br /><br />|Cadeia de caracteres|sim|  
 |<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|sim|  
@@ -93,7 +93,7 @@ O esquema de resposta é uma [WebPage] ou uma ErrorResponse, como na API de Pesq
 ### <a name="error"></a>Erro  
 Define o erro ocorrido.  
   
-|Elemento|DESCRIÇÃO|type|  
+|Elemento|DESCRIÇÃO|Tipo|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|O código de erro que identifica a categoria de erro. Para obter uma lista dos possíveis códigos, confira [Códigos de erro](#error-codes).|Cadeia de caracteres|  
 |<a name="error-message" />message|Uma descrição do erro.|Cadeia de caracteres|  
@@ -106,7 +106,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|   
@@ -115,17 +115,17 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="webpage"></a>WebPage  
 Define as informações sobre uma página da Web na visualização.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|
 |Nome|O título de página, não necessariamente o título HTML|Cadeia de caracteres|
 |url|A URL que foi realmente rastreada (a solicitação pode ter seguido os redirecionamentos)|Cadeia de caracteres|  
-|Descrição|Descrição breve da página e do conteúdo|Cadeia de caracteres|  
+|Descrição|Breve descrição da página e do conteúdo|Cadeia de caracteres|  
 |isFamilyFriendly|Mais preciso para itens no índice da Web; os fetches em tempo real fazem essa detecção baseada somente na URL e não no conteúdo da página|booleano|
 |primaryImageOfPage/contentUrl|A URL de uma imagem representativa a ser incluída na visualização|Cadeia de caracteres| 
 
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|Cadeia de caracteres|
  
@@ -186,7 +186,7 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido do C#](csharp.md)
+- [Início Rápido do C#](csharp.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início Rápido do JavaScript](javascript.md)
 - [Início Rápido do Node](node-quickstart.md)

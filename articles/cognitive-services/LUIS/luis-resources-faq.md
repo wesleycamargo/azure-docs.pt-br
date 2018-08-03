@@ -1,20 +1,20 @@
 ---
 title: Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal) no Azure | Microsoft Docs
 description: Obtenha respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333608"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239110"
 ---
 # <a name="language-understanding-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal
 
@@ -53,21 +53,25 @@ Veja [entidades](luis-concept-entity-types.md) e [extração de dados](luis-conc
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>Variações de um enunciado de exemplo devem incluir pontuação? 
 Adicione as diferentes variações como enunciados de exemplo para a intenção ou adicione o padrão do enunciado de exemplo com a [sintaxe para ignorar](luis-concept-patterns.md#pattern-syntax) a pontuação. 
 
+### <a name="does-luis-currently-support-cortana"></a>O LUIS atualmente dá suporte à Cortana?
+
+Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mais suporte para esses aplicativos. 
+
 ## <a name="luis-endpoint"></a>Ponto de extremidade LUIS
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>Por que o LUIS adiciona espaços à consulta ao redor ou no meio das palavras?
 O LUIS transforma em [token](luis-glossary.md#token) o enunciado com base na [cultura](luis-supported-languages.md#tokenization). O valor original e o valor em token estão disponíveis para [extração de dados](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Como fazer para criar e atribuir uma chave de ponto de extremidade de LUIS?
-[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribua a chave](Manage-keys.md#assign-endpoint-key) na página **[Publicar](publishapp.md)**. Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
+[Crie a chave do ponto de extremidade](luis-how-to-azure-subscription.md#create-luis-endpoint-key) no Azure para seu nível de [serviço](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Atribua a chave](luis-how-to-manage-keys.md#assign-endpoint-key) na página **[Publicar](luis-how-to-publish-app.md)**. Não há uma API correspondente para essa ação. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Como fazer para interpretar as pontuações de LUIS? 
 Seu sistema deve usar a intenção de pontuação mais alta, independentemente do seu valor. Por exemplo, uma pontuação inferior a 0,5 (menor que 50%) não significa necessariamente que o LUIS tem confiança baixa. Fornecer mais dados de treinamento pode ajudar a aumentar a pontuação da intenção mais provável.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>Por que eu não vejo minhas ocorrências de ponto de extremidade no painel do meu aplicativo?
-O total de ocorrências de ponto de extremidade total no painel do aplicativo são atualizadas periodicamente, mas as métricas associadas à sua chave de Assinatura de LUIS no portal do Azure são atualizadas com mais frequência. 
+O total de pontos de extremidade no Painel do aplicativo é atualizado periodicamente, mas as métricas associadas à chave de ponto de extremidade de LUIS no portal do Azure são atualizadas com mais frequência. 
 
-Se você não visualizar as ocorrências de ponto de extremidade atualizadas no painel, faça logon no portal do Azure e localize o recurso associado à sua chave de assinatura de LUIS e abra **Métricas** para selecionar a métrica **Total de Chamadas**. Se a chave de assinatura for usada para mais de um aplicativo de LUIS, a métrica no portal do Azure mostrará o número agregado de chamadas de todos os aplicativos LUIS que a utilizam.
+Se não visualizar ocorrências de ponto de extremidade atualizados no Painel, faça logon no portal do Azure e localize o recurso associado à chave de ponto de extremidade de LUIS e, em seguida, abra **Métricas** para selecionar a métrica **Total de Chamadas**. Se a chave de ponto de extremidade for usada para mais de um aplicativo de LUIS, a métrica no portal do Azure mostrará o número agregado de chamadas de todos os aplicativos de LUIS que a utilizam.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la? 
 Seguindo as [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas próximas perguntas frequentes para criar uma chave de ponto de extremidade de LUIS e atribuindo-a ao aplicativo. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -115,8 +119,9 @@ No Azure, um locatário representa o cliente ou a organização que está associ
 
 ![ID de locatário no portal do Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Por que há mais chaves de assinatura na página de publicação do meu aplicativo do que eu atribuí ao aplicativo? 
-Cada aplicativo de LUIS tem a chave de criação/inicial. Chaves de assinatura de LUIS criadas durante o período de GA são visíveis na sua página de publicação, independentemente de você tê-las adicionado ao aplicativo. Isso foi feito para facilitar a migração de GA. Novas chaves de assinatura de LUIS não aparecerão na página de publicação. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Por que há mais chaves de ponto de extremidade na página de publicação do aplicativo do que eu atribuí ao aplicativo? 
+Cada aplicativo de LUIS tem a chave de criação/inicial. As chaves de ponto de extremidade de LUIS criadas durante o período de GA são visíveis na página de publicação, independentemente de terem sido adicionadas ao aplicativo. Isso foi feito para facilitar a migração de GA. Qualquer nova chave de ponto de extremidade de LUIS não aparecerá na página de publicação. 
 
 ## <a name="app-management"></a>Gerenciamento de aplicativos
 
@@ -153,7 +158,7 @@ Se você estiver usando o log para análise de previsão, não capture enunciado
 ## <a name="app-notification"></a>Notificação do aplicativo
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>Porque eu recebi um email dizendo que estou quase sem cota?
-Sua chave de criação/inicial tem permissão apenas para mil consultas de ponto de extremidade por um mês. Crie uma chave de assinatura de LUIS (gratuita ou paga) e use-a ao fazer consultas de ponto de extremidade. Se você estiver fazendo consultas de ponto de extremidade de um bot ou outro aplicativo cliente, precisará alterar a chave do ponto de extremidade LUIS lá. 
+Sua chave de criação/inicial tem permissão apenas para mil consultas de ponto de extremidade por um mês. Crie uma chave de ponto de extremidade de LUIS (gratuita ou paga) e use essa chave ao fazer consultas de ponto de extremidade. Se você estiver fazendo consultas de ponto de extremidade de um bot ou outro aplicativo cliente, precisará alterar a chave do ponto de extremidade LUIS lá. 
 
 ## <a name="integrating-luis"></a>Integrando LUIS
 
@@ -167,7 +172,7 @@ Se você selecionar um modelo de LUIS e o botão **Selecionar** no painel de mod
 
 ## <a name="luis-service"></a>Serviço LUIS 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>LUIS está disponível localmente ou na nuvem privada?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>O LUIS está disponível na nuvem privada ou local?
 Não. 
 
 ## <a name="changes-to-the-docs"></a>Alterações aos documentos
@@ -182,7 +187,7 @@ Os artigos que estavam anteriormente na seção Tutorial agora estão na seção
 |Criar um aplicativo de LUIS programaticamente usando [Node.js](luis-tutorial-node-import-utterances-csv.md)|
 |Usar a [entidade composta](luis-tutorial-composite-entity.md) para extrair dados agrupados|
 |Adicionar [lista de entidades](luis-tutorial-list-entity.md) para maior detecção de entidade usando Node.js|
-|Melhorar a precisão da previsão com [lista de frases](luis-tutorial-interchangeable-phrase-list.md), [padrões](luis-tutorial-pattern.md) e [teste em lote](luis-tutorial-batch-testing.md)|
+|Melhorar a precisão da previsão com [lista de frases](luis-quickstart-primary-and-secondary-data.md), [padrões](luis-tutorial-pattern.md) e [teste em lote](luis-tutorial-batch-testing.md)|
 |[Corrigir a ortografia](luis-tutorial-batch-testing.md) com a API de Verificação Ortográfica do Bing v7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Na Conferência Build 2018, ouvi falar de uma demonstração ou um recurso de Reconhecimento Vocal, mas não lembro como se chamava. 
@@ -193,7 +198,7 @@ Os seguintes recursos foram lançados na Conferência Build 2018:
 |--|--|
 |Melhorias|Entidades de [Expressão regular](luis-concept-data-extraction.md##regular-expression-entity-data) e de [Frase-chave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Padrões|[Conceito](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md) e [instruções](luis-how-to-model-intent-pattern.md) de padrões<br>Conceito da entidade [Patterns.Any](luis-concept-entity-types.md) incluindo [Lista explícita](luis-concept-patterns.md#explicit-lists) para exceções<br>Conceito de [Funções](luis-concept-roles.md)|
-|Integrações|Integração de [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) da [análise de sentimento](publishapp.md#enable-sentiment-analysis)<br>Integração de [fala](https://docs.microsoft.com/azure/cognitive-services/speech) da [preparação de fala](publishapp.md#enable-speech-priming) junto com o [SDK de Fala](https://aka.ms/SpeechSDK)|
+|Integrações|Integração de [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) da [análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>Integração de [fala](https://docs.microsoft.com/azure/cognitive-services/speech) da [preparação de fala](luis-how-to-publish-app.md#enable-speech-priming) junto com o [SDK de Fala](https://aka.ms/SpeechSDK)|
 |Ferramenta de Expedição|Parte de [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools), [ferramenta](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) de linha de comando de Expedição para combinar vários aplicativos LUIS e QnA Maker em único aplicativo de LUIS para um melhor reconhecimento de intenção em um Bot
 
 [Rotas de API](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) de criação adicionais foram incluídas. 
@@ -212,5 +217,3 @@ Projetos:
 Para saber mais sobre o LUIS, veja os seguintes recursos:
 * [Perguntas do Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)
 * [Fórum de LUIS (Serviço Inteligente de Reconhecimento Vocal) na MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

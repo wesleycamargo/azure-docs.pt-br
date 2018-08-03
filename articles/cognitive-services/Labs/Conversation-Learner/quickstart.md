@@ -1,7 +1,7 @@
 ---
-title: Como criar um aplicativo de Aprendiz de Conversa usando Node.js - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como criar um modelo de Aprendiz de Conversa usando Node.js - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um aplicativo de Aprendiz de Conversa usando Node.js.
+description: Saiba como criar um modelo de Aprendiz de Conversa usando Node.js.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a3a51aa86a30b060c8dc4113da69462904d7df54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ff9c5402c3fa409999e9933a6c1f7bf6d5a089
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364586"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172323"
 ---
-# <a name="create-a-conversation-learner-application-using-nodejs"></a>Criar um aplicativo de Aprendiz de Conversa usando Node.js
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>Como criar um modelo de Aprendiz de Conversa usando Node.js
 
-O Aprendiz de Conversa reduz a complexidade de compilar bots. Ele permite um fluxo de trabalho de desenvolvimento híbrido, permitindo que o código gravado à mão e o aprendizado de máquina reduzam a quantidade de código necessária para gravar bots. Determinadas partes fixas do aplicativo, como verificar se o usuário está conectado ou fazer uma solicitação de API para verificar o estoque da loja, ainda podem ser codificadas. No entanto, outras alterações na seleção de estado e ação podem ser aprendidas em diálogos de exemplo fornecidos pelo desenvolvedor ou especialista do domínio.
+O Aprendiz de Conversa reduz a complexidade de compilar bots. Ele permite um fluxo de trabalho de desenvolvimento híbrido, permitindo que o código gravado à mão e o aprendizado de máquina reduzam a quantidade de código necessária para gravar bots. Determinadas partes fixas do modelo, como verificar se o usuário está conectado ou fazer uma solicitação de API para verificar o estoque da loja, ainda podem ser codificadas. No entanto, outras alterações na seleção de estado e ação podem ser aprendidas em diálogos de exemplo fornecidos pelo desenvolvedor ou especialista do domínio.
 
 ## <a name="invitation-required"></a>Convite necessário
 
@@ -27,7 +27,7 @@ O Aprendiz de Conversa reduz a complexidade de compilar bots. Ele permite um flu
 
 O Aprendiz de Conversa do Projeto consiste em um SDK que você adiciona ao bot e um serviço de nuvem que o SDK acessa para aprendizado de máquina.  Atualmente, o acesso ao serviço de nuvem do Aprendiz de Conversa do Projeto exige um convite.  Se você ainda não foi convidado, [solicite um convite](https://aka.ms/conversation-learner-request-invite).  Se você não recebeu um convite, não poderá acessar a API de nuvem.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Nó 8.5.0 ou superior e npm 5.3.0 ou superior. Instalar de [https://nodejs.org](https://nodejs.org).
   
@@ -96,7 +96,7 @@ Agora, você está usando o Aprendiz de Conversa e pode criar e ensinar um model
 
 As instruções acima iniciaram o bot vazio genérico.  Para executar um tutorial ou um bot de demonstração:
 
-1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de aplicativos em http://localhost:5050/home.
+1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em http://localhost:5050/home.
     
 2. Se outro bot estiver em execução (como `npm start` ou `npm run demo-pizza`), pare-o.  Não é necessário parar o processo da interface do usuário ou fechar o navegador da Web.
 
@@ -123,7 +123,7 @@ Os arquivos de origem das demonstrações estão em `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Crie um bot que inclua código back-end
 
-1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de aplicativos em http://localhost:5050/home.
+1. Se você tiver a interface do usuário da Web do Aprendiz de Conversa aberta, retorne à lista de modelos em http://localhost:5050/home.
     
 2. Se um bot estiver em execução( como `npm run demo-pizza`), pare-o.  Não é necessário parar o processo da interface do usuário ou fechar o navegador da Web.
 
@@ -138,7 +138,7 @@ Os arquivos de origem das demonstrações estão em `cl-bot-01/src/demos`
 
 5. Caso ainda não esteja, alterne para a interface do usuário da Web do Aprendiz de Conversa no Chrome, carregando http://localhost:5050/home. 
 
-6. Crie um novo aplicativo de Aprendiz de Conversa na interface do usuário e comece a ensinar.
+6. Crie um novo modelo de Aprendiz de Conversa na interface do usuário e comece a ensinar.
 
 7. Para fazer alterações de código em `cl-bot-01/src/app.ts`, repita as etapas acima, iniciando pela etapa 2.
 

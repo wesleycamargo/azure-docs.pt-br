@@ -1,7 +1,7 @@
 ---
-title: Como criar um aplicativo de Aprendiz de Conversa "Olá, Mundo" - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como criar um modelo de Aprendiz de Conversa "Olá, Mundo" - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um aplicativo de Aprendiz de Conversa "Olá, Mundo".
+description: Saiba como criar um modelo de Aprendiz de Conversa "Olá, Mundo".
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,21 +10,26 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364257"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170864"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>Como criar um aplicativo "Olá, Mundo" com o Aprendiz de Conversa
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Como criar um modelo "Olá, Mundo" com o Aprendiz de Conversa
 
 Este tutorial mostra uma introdução ao Aprendiz de Conversa, incluindo a criação de ações, ensino interativo e correções de diálogos registrados dos usuários finais.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 1](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>Requisitos
 Se você ainda não fez isso, conclua todas as etapas de configuração, incluindo a criação de um arquivo `.env` com sua chave de criação do LUIS.  Consulte [Início Rápido](https://github.com/Microsoft/ConversationLearner-Samples) para obter detalhes.
 
-Este tutorial requer que o bot de tutorial geral esteja em execução
+Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
 
@@ -32,14 +37,14 @@ Este tutorial requer que o bot de tutorial geral esteja em execução
 
 Inicie na home page na interface de usuário da Web.
 
-### <a name="create-the-app"></a>Crie o aplicativo
-1. Clique em Novo Aplicativo
+### <a name="create-the-model"></a>Criar o modelo
+1. Clique em Novo Modelo
 2. No campo Nome, insira Olá, Mundo
 3. Clicar em Criar
 
 ### <a name="create-an-action"></a>Criar uma ação
 
-1. Clique no aplicativo Olá, Mundo para iniciá-lo
+1. Clique no modelo Olá, Mundo para iniciá-lo
 2. Clique em Ações e, em seguida, em Nova Ação
     - Uma Ação pode ser uma mensagem de texto retornada pelo Aprendiz de Conversa para o usuário, uma chamada de API ou um cartão.
 3. Em Resposta, digite "Olá, Mundo!"

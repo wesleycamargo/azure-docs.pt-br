@@ -1,106 +1,96 @@
 ---
-title: Início rápido do SDK de Fala para C++ e Windows | Microsoft Docs
+title: 'Início Rápido: Reconhecer fala em C++ no Windows Desktop usando o SDK de Fala dos Serviços Cognitivos| Microsoft Docs'
 titleSuffix: Microsoft Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente o SDK de Fala com Windows e C++ em Serviços Cognitivos.
+description: Saiba como reconhecer fala em C++ no Windows Desktop usando o SDK de Fala dos Serviços Cognitivos
 services: cognitive-services
 author: wolfma61
 manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a8c5f7053c1976233bf9de6a0c142885b73c8aa
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049223"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071191"
 ---
-# <a name="quickstart-for-c-and-windows"></a>Início rápido para C++ e Windows
-
-A versão atual do SDK de Fala dos Serviços Cognitivos é `0.4.0`.
+# <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows Desktop usando o SDK de Fala
 
 Descrevemos como criar um aplicativo de console baseado em C++ para a área de trabalho do Windows que usa o SDK de Fala.
-O aplicativo é baseado no [Pacote NuGet do SDK dos Serviços Cognitivos da Microsoft](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) e Microsoft Visual Studio 2017.
+O aplicativo é baseado no [Pacote NuGet do SDK de Fala dos Serviços Cognitivos da Microsoft](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
 
-> [!NOTE]
-> Se você estiver procurando um início rápido para C++ e Linux, acesse [aqui](quickstart-cpp-linux.md).<br>
-> Se você estiver procurando um início rápido para C# e Windows, acesse [aqui](quickstart-csharp-windows.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-> [!NOTE]
-> Este início rápido requer um PC com um microfone funcionando.<br>
-> Para um exemplo que reconhece a fala de um determinado arquivo de entrada de áudio, consulte o [exemplo](speech-to-text-sample.md#speech-recognition-from-a-file).
+* Uma chave de assinatura para o serviço de fala. Veja [Experimente o serviço de fala gratuitamente](get-started.md).
+* Um PC com Windows com um microfone funcionando.
+* [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition ou superior.
+* A carga de trabalho de **Desenvolvimento para desktop com C++** no Visual Studio e o componente do **gerenciador de pacotes NuGet** no Visual Studio.
+  É possível habilitar ambos em **Ferramentas** \> **Obter Ferramentas e Recursos**, nas guias **Cargas de trabalho** e **Componentes individuais**, respectivamente:
 
-> [!NOTE]
-> Assegure-se de que a instalação do Visual Studio inclui a carga de trabalho de **Desenvolvimento de área de trabalho com C++**.
-> Se você não tiver certeza, utilize estas etapas para verificar e corrigir: No Visual Studio 2017, selecione **Ferramentas** \> **Obter Ferramentas e Recursos** e confirme o prompt de Controle de Conta de Usuário, escolhendo**Sim**.
-> Na guia **Cargas de Trabalho**, se **Desenvolvimento de área de trabalho com C++** não tiver uma caixa de seleção ao lado, configure-o e clique em **Modificar** para salvar as alterações.
+  ![Habilitar carga de trabalho de Desenvolvimento para desktop com C++](media/sdk/vs-enable-cpp-workload.png)
 
-[!include[Get a Subscription Key](includes/get-subscription-key.md)]
+  ![Habilitar o gerenciador de pacotes NuGet no Visual Studio ](media/sdk/vs-enable-nuget-package-manager.png)
 
-## <a name="creating-an-empty-console-application-project"></a>Criar um projeto de aplicativo de console vazio
+## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
-No Visual Studio 2017, crie um novo Aplicativo de Console do Windows de Área de Trabalho do Windows para Visual C++ com o nome "CppHelloSpeech":
+No Visual Studio 2017, crie um novo Aplicativo de Console do Windows de Área de Trabalho do Windows para Visual C++. Na caixa de diálogo **Novo Projeto**, no painel esquerdo, expanda **Instalado** \> **Visual C++** \> **Windows Desktop** e, em seguida, selecione **Aplicativo de Console do Windows**. Para o nome do projeto, insira *helloworld*.
 
-![Criar Aplicativo de Console do Windows de Área de Trabalho do Windows para Visual C++](media/sdk/speechsdk-05-vs-cpp-new-console-app.png)
+![Criar Aplicativo de Console do Windows de Área de Trabalho do Windows para Visual C++](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
 Se estiver executando em uma instalação do Windows de 64 bits, alterne opcionalmente a plataforma de compilação para `x64`:
 
-![Alterne a plataforma de compilação para x64](media/sdk/speechsdk-07-vs-cpp-switch-to-x64.png)
+![Alterne a plataforma de compilação para x64](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
 ## <a name="install-and-reference-the-speech-sdk-nuget-package"></a>Instalar e referenciar o pacote NuGet do SDK de Fala
 
-> [!NOTE]
-> Assegure-se de que o gerenciador de pacotes NuGet está habilitado para a instalação do Visual Studio 2017.
-> No Visual Studio 2017, selecione **Ferramentas** \> **Obter Ferramentas e Recursos** e confirme o prompt de Controle de Conta de Usuário escolhendo **Sim**. Em seguida, selecione a guia **Componentes individuais** e procure o **Gerenciador de Pacotes NuGet** em **Ferramentas de código**.
-> Se a caixa de seleção esquerda não estiver configurada, configure-a e clique em **Modificar** para salvar as alterações.
->
-> ![Habilitar o gerenciador de pacotes NuGet no Visual Studio ](media/sdk/speechsdk-05-vs-enable-nuget-package-manager.png)
-
 No Gerenciador de Soluções, clique com o botão direito do mouse na solução e clique em **Gerenciar pacotes NuGet para solução**.
 
-![Clicar com o botão direito do mouse em Gerenciar pacotes NuGet para solução](media/sdk/speechsdk-09-vs-cpp-manage-nuget-packages.png)
+![Clicar com o botão direito do mouse em Gerenciar pacotes NuGet para solução](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
 No canto superior direito, no campo **Origem do Pacote e**, escolha "Nuget.org".
-Na guia **Procurar** , procure o pacote "Microsoft.CognitiveServices.Speech", selecione-o e marque as caixas **Projeto** e **CppHelloSpeech** à direita e selecione **Instalar** para instalá-lo no projeto CppHelloSpeech.
+Na guia **Procurar**, pesquise o pacote "Microsoft.CognitiveServices.Speech", selecione-o e marque as caixas **Projeto** e **helloworld** à direita e selecione **Instalar** para instalá-lo no projeto helloworld.
 
-![Instalar o pacote NuGet Microsoft.CognitiveServices.Speech](media/sdk/speechsdk-11-vs-cpp-manage-nuget-install.png)
+> [!NOTE]
+> A versão atual do SDK de Fala dos Serviços Cognitivos é `0.5.0`.
+
+![Instalar o pacote NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 
 Na tela de licença que é exibida, aceite a licença:
 
-![Aceitar a licença](media/sdk/speechsdk-12-vs-cpp-manage-nuget-license.png)
+![Aceitar a licença](media/sdk/qs-cpp-windows-05-nuget-license.png)
 
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
-Substitua o código inicial padrão pelo seguinte:
+1. Substitua o código inicial padrão pelo seguinte:
 
-[!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/Windows/quickstart-cpp/CppHelloSpeech.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp-windows/helloworld/helloworld.cpp#code)]
 
-> [!IMPORTANT]
-> Substitua a chave de assinatura por uma que você obteve. <br>
-> Substitua a região pela sua região da [API REST do Serviço de Fala](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis), por exemplo, substitua por "westus".
+1. Substitua a cadeia de caracteres `YourSubscriptionKey` pela chave de assinatura.
 
-![Adicionar a chave de assinatura](media/sdk/sub-key-recognize-speech-cpp.png)
+1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
+
+1. Salve as alterações no projeto.
 
 ## <a name="build-and-run-the-sample"></a>Criar e executar a amostra
 
-O código deve compilar sem erros:
+1. Construa o aplicativo. Na barra de menus, selecione **Build** > **Build Solution**. O código deve compilar sem erros agora:
 
-![Compilar com êxito](media/sdk/speechsdk-16-vs-cpp-build.png)
+   ![Compilar com êxito](media/sdk/qs-cpp-windows-06-build.png)
 
-Inicialize o programa sob o depurador com o botão de Inicialização ou usando o atalho de teclado F5:
+1. Inicie o aplicativo. Na barra de menus, selecione **Depurar**  > **Inicie a depuração**, ou pressione **F5**.
 
-![Inicializar o aplicativo na depuração](media/sdk/speechsdk-17-vs-cpp-f5.png)
+   ![Inicializar o aplicativo na depuração](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-Uma janela pop-up do console deverá aparecer, solicitando que você fale alguma coisa (em inglês).
-O resultado do reconhecimento será exibido na tela.
+1. Uma janela do console aparece, solicitando que você diga alguma coisa (em inglês).
+   O resultado do reconhecimento será exibido na tela.
 
-![Saída do console após o reconhecimento com êxito](media/sdk/speechsdk-18-vs-cpp-console-output-release.png)
+   ![Saída do console após o reconhecimento com êxito](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-## <a name="downloading-the-sample"></a>Baixar o exemplo
-
-Para obter o último conjunto de exemplos, consulte o [Repositório GitHub de exemplo do SDK de Fala dos Serviços Cognitivos](https://aka.ms/csspeech/samples).
+[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+Procure esse exemplo na pasta `quickstart/cpp-windows`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

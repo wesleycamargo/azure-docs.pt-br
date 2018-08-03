@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364602"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071988"
 ---
 # <a name="your-first-bing-visual-search-query-in-java"></a>Sua primeira consulta de Pesquisa Visual do Bing em Java
 
@@ -35,9 +35,9 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Este artigo inclui um aplicativo de console simples que envia uma solicitação de API de Pesquisa Visual do Bing e exibe os resultados da pesquisa JSON. Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisará ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você poderá usar um Java IDE se tiver um favorito, mas um editor de texto será suficiente.
+É necessário ter o [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para compilar e executar esse código. Você poderá usar um Java IDE, se tiver um favorito, mas um editor de texto é suficiente.
 
 Para este guia de início rápido, você pode usar uma chave de assinatura de [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de assinatura paga.
 
@@ -49,7 +49,7 @@ Para executar o aplicativo, siga estas etapas:
 
 1. Baixe ou instale a [biblioteca gson](https://github.com/google/gson). Você também pode obtê-la por meio do Maven.
 2. Crie um projeto Java em seu IDE ou editor favorito.
-3. Adicione o código fornecido em um arquivo chamado `VisualSearch.java`.
+3. Adicione o código fornecido em um arquivo nomeado `VisualSearch.java`.
 4. Substitua o valor `subscriptionKey` pela sua chave de assinatura.
 4. Substitua o valor `imagePath` pelo caminho da imagem da qual o upload será feito.
 5. Execute o programa.
@@ -147,9 +147,10 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>Próximas etapas
 
 [Obter insights sobre uma imagem usando um token de insights](../use-insights-token.md)  
-[Tutorial do aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Tutorial de upload de imagem da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
+[Tutorial de aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Visão geral da Pesquisa Visual do Bing](../overview.md)  
 [Experimente](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referência da API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Referência de API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)
 

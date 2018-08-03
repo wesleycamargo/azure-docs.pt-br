@@ -3,24 +3,24 @@ title: Referência de domínio pré-compilada - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Referência para os domínios predefinidos, que são conjuntos predefinidos de tentativas e entidades de idioma Noções básicas sobre inteligente serviços (LUÍS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061957"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238889"
 ---
 # <a name="prebuilt-domain-reference"></a>Referência de domínio predefinido
 Esta referência contém informações sobre o [domínios pré-compilada](luis-how-to-use-prebuilt-domains.md), que são conjuntos predefinidos de entidades que oferece LUÍS e tentativas.
 
-[Domínios personalizados](create-new-app.md), por outro lado, iniciar sem tentativas e modelos. Você pode adicionar quaisquer tentativas de domínio pré-compilada e entidades a um modelo personalizado.
+[Domínios personalizados](luis-how-to-start-new-app.md), por outro lado, iniciar sem tentativas e modelos. Você pode adicionar quaisquer tentativas de domínio pré-compilada e entidades a um modelo personalizado.
 
 ## <a name="list-of-prebuilt-domains"></a>Lista de domínios predefinidos
 LUIS oferece 20 domínios predefinidos. 
@@ -43,7 +43,7 @@ LUIS oferece 20 domínios predefinidos.
 | Reminder | Tratar as solicitações relacionadas à criação, edição e localizar lembretes.| pt-BR<br/> zh-CN |
 | RestaurantReservation | Tratamento de solicitações para gerenciar reservas restaurante.| pt-BR<br/> zh-CN |
 | táxi | Reservas de tratamento para um táxi.| pt-BR<br/> zh-CN |
-| Traduzir | Convertendo texto para um idioma de destino.| pt-BR<br/> zh-CN |
+| Translate | Convertendo texto para um idioma de destino.| pt-BR<br/> zh-CN |
 | TV | Controlando TVs.| pt-BR |
 | Utilidades  | Solicitações de manipulação que são comuns em vários domínios, como "Ajuda", "Repetir", "recomeçar".| pt-BR |
 | Clima | Obtendo boletins meteorológicos e previsões.| pt-BR<br/> zh-CN |
@@ -67,7 +67,7 @@ O domínio de calendário fornece tentativas e entidades relacionadas a entradas
 ### <a name="entities"></a>Entidades
 | Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Local padrão | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
+| Localização | Local do item de calendário, reunião ou compromisso. Endereços, cidades e regiões são bons exemplos de locais.| Academia 209 Nashville <br/><br/>897 casa de panqueca<br/><br/>Garagem|
 | Assunto | O título de uma reunião ou compromisso.| Consulta odontológica <br/><br/>Almoçar com Julia<br/><br/>Consulta médica|
 
 ## <a name="camera"></a>Câmera 
@@ -102,7 +102,7 @@ O domínio de comunicação fornece tentativas e entidades relacionadas a email,
 | AssignContactNickname| Atribua um apelido para um contato.|Alterar Isaac para pai <br/>Editar o apelido do Jim<br/>Adicionar apelido para Patti Owens|
 | CallVoiceMail| Conecte-se a mensagem de voz do usuário.|Conectar-me a minha caixa de correio de voz <br/>Mensagem de voz<br/>Chamada de correio de voz|
 | CheckIMStatus| Verifique o status de um contato do Skype.|O status online do Jim está definido como ausente? <br/>Carol está disponível para conversar?|
-| Confirmar| Confirme uma ação.|sim<br/>Okey<br/>Está bem<br/>Confirmo que desejo enviar este email.<br/>|
+| Confirmar| Confirme uma ação.|SIM<br/>Okey<br/>Está bem<br/>Confirmo que desejo enviar este email.<br/>|
 | Discagem| Fazer uma chamada telefônica.|Chamar Jim<br/>Por favor, disque 311<br/>|
 | FindContact| Localize informações de contato por nome.|Localizar o número de Carol<br/>Mostre-me o número de Carol<br/>|
 | FindSpeedDial| Localize o número de discagem rápido que um número de telefone está definido como e vice-versa.|Qual é o meu número de discagem 5?<br/>É necessário velocidade discar conjunto?<br/>O que é o número de discagem para 941-5555-333?|
@@ -154,7 +154,7 @@ Mostra o domínio fornece entidades relacionadas à pesquisa de filmes, músicas
 | ContentRating | Classificação de conteúdo de mídia como G ou R para filmes.|Vídeo de crianças.<br/>PG classificado.|
 | Gênero | Gênero de filme, jogos, aplicativos ou música.|Comédias<br/>Dramas<br/>Cômicos|
 | Palavra-chave| Uma palavra-chave de pesquisa genérica especificando um atributo de não existe nos slots de mídia mais específicos.|Trilhas sonoras<br/>Rio de lua<br/>Amelia Earhart|
-| Linguagem | Classificação de conteúdo de mídia como G ou R para filmes.|Francês<br/>Inglês<br/>Coreano|
+| Linguagem | Linguagem usada na mídia, como a linguagem falada de filmes ou músicas.|Francês<br/>Inglês<br/>Coreano|
 | MediaFormat | O tipo técnico especial adicional em que a mídia é formatada.|Vídeos de alta definição<br/>Filmes 3D<br/>Para download|
 | MediaSource | O repositório ou marketplace para adquirir a mídia.|Netflix<br/>Prime|
 | MediaSubTypes| Tipos de mídia menores do que filmes e jogos.|Demonstrações<br/>DLC<br/>Trailers|
@@ -162,7 +162,7 @@ Mostra o domínio fornece entidades relacionadas à pesquisa de filmes, músicas
 | Pessoa| O ator, diretor, produtor, músico ou artista associado a um filme, um aplicativo, jogos ou programa de TV.|Madonna<br/>Stanley Kubrick|
 | Função| Função desempenhada por uma pessoa na criação de mídia.|Faz grandes<br/>Direcionado por<br/>Por|
 | Title| O nome de um filme, um aplicativo, jogo, programa de TV ou música.|Friends<br/>Minecraft|
-| type| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
+| Tipo| O formato de tipo ou a mídia de um filme, um aplicativo, jogo, programa de TV ou música.|Música<br/>MovieTV <br/>programas|
 | UserRating| Estrela de usuário ou de classificação de miniaturas.|5 estrelas<br/>3 estrelas<br/>4 estrelas|
 
 ## <a name="events"></a>Eventos 
@@ -181,7 +181,7 @@ O domínio de eventos fornece tentativas e entidades relacionadas ao reservar pa
 | NOME | O nome de um evento.|Shakespeare no parque|
 | Colocar nome| O nome do evento local.|Louvre<br/>Casa de ópera<br/>Broadway|
 | PlaceType | O tipo do local em que o evento será realizado.|Cafe<br/>Teatro<br/>Biblioteca|
-| type | O tipo de um evento.|Concerto<br/>Jogo de esportes|
+| Tipo | O tipo de um evento.|Concerto<br/>Jogo de esportes|
 
 ## <a name="fitness"></a>Adequação 
 O domínio de adequação fornece entidades relacionadas ao controle de atividades de adequação e tentativas. As tentativas de incluem salvando-as, o restante do tempo ou distância ou salvar os resultados da atividade.
@@ -390,7 +390,7 @@ At what time does Safeway close?
 ### <a name="intents"></a>Intenções
 | Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Adicione um local para a lista de favoritos do usuário.|Salve este local nos meus favoritos<br/>Adicionar esse endereço em Meus Favoritos|
+| AddFavoritePlace | Adicione um local à lista de favoritos do usuário.|Salve este local nos meus favoritos<br/>Adicionar esse endereço em Meus Favoritos|
 |CheckAccident|Pergunte se há um acidente em um caminho especificado.|Há um acidente na 880?<br/>Mostrar informações de acidente|
 |CheckAreaTraffic|Verifique se o tráfego para uma área geral ou estrada, não em uma rota especificada.|O tráfego em Seattle<br/>Como é o trânsito em Seattle?|
 |CheckIntoPlace|Check-in em um local usando a mídia social.|Verifique-me no Foursquare<br/>Check-in aqui|
@@ -491,7 +491,7 @@ Table for 3 in Palo Alto at 7
 | Facilidades | Um local de evento ou endereço para uma reserva.|vista do oceano<br/>não fumante|
 | AppName | O nome de um aplicativo para fazer reservas.|Mesa aberta<br/>Yelp<br/>TripAdvisor|
 | Atmosfera | Uma descrição da atmosfera de um restaurante ou outro local.|romântico<br/>casual<br/>bom para grupos|
-| Cozinha | Um tipo de comida, cozinha ou nacionalidade culinária. |Chinesa<br/>Italiano<br/>Mexicana|
+| Cozinha | Um tipo de comida, cozinha ou nacionalidade culinária. |Chinês<br/>Italiano<br/>Mexicana|
 | Tipo de Refeição | Um tipo de refeição associado a uma reserva.|Café da manhã<br/>Refeição<br/>Almoçar<br/>Supper|
 | Colocar nome | O nome de uma empresa local, restaurante, atração pública ou instituição.|IHOP<br/>Fábrica de cheesecake<br/>Louvre|
 | PlaceType | O tipo de empresa local, restaurante, atração pública ou instituição.|restaurante<br/>ópera<br/>cinema|
@@ -527,7 +527,7 @@ Cancel my Uber
 | TransportationCompany | O nome de um provedor de transporte.|Amtrak<br/>Acela<br/>Raça|
 | TransportationType | O tipo de transporte.|ônibus<br/>Treinar<br/>Automóvel|
 
-## <a name="translate"></a>Traduzir 
+## <a name="translate"></a>Translate 
 O domínio do Google Tradutor fornece intenções e entidades relacionadas à tradução de texto para um idioma de destino.
 
 ### <a name="examples"></a>Exemplos
@@ -540,7 +540,7 @@ Translate this sentence to English
 ### <a name="intents"></a>Intenções
 | Nome do método | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Traduzir| Traduzir texto para outro idioma.|Traduzir para francês<br/>Traduzir olá para alemão|
+| Translate| Traduzir texto para outro idioma.|Traduzir para francês<br/>Traduzir olá para alemão|
 
 
 ### <a name="entities"></a>Entidades
@@ -615,7 +615,7 @@ What's the average temperature in India in september?
 ### <a name="entities"></a>Entidades
 | Nome da entidade | DESCRIÇÃO | Exemplos |
 | ---------------- |-----------------------|----|
-| Local padrão| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
+| Localização| A localização absoluta para um pedido de tempo.|Seattle<br/>Paris<br/>Palo Alto|
 
 ## <a name="web"></a>Web 
 O domínio da Web fornece uma intenção de navegar para um site.

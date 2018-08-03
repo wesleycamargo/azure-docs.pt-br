@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 639fea64fc8eeb2c1f6e6240c4eb26efc68febbd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41fe350fd712f6c521a9020af9a540e554abe94b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364214"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170592"
 ---
 # <a name="how-to-teach-with-conversation-learner"></a>Como ensinar com um Aprendiz de conversa 
 
@@ -57,9 +57,10 @@ Ações do sistema antes da vez anterior | 4 |
 Entidades presentes nas vezes anteriores ao momento atual | 4 | 
 Declarações de usuários anteriores ao momento atual | 5 | 
 
-Observe que a seleção da ação usa o conteúdo das ações do sistema, ou seja, o texto, o conteúdo do cartão ou o nome ou o comportamento da API, apenas a identidade da ação do sistema.  Como resultado, alterar o conteúdo de uma ação não alterará o comportamento do modelo de seleção da ação.
-
-Além disso, observe que o conteúdo/valores de entidades não são usados, somente sua presença/ausência.
+> [!NOTE]
+> Seleção de ação não considera o conteúdo das ações do sistema, ou seja, o texto, o conteúdo do cartão ou o nome ou comportamento da API, apenas a identidade da ação do sistema.  Como resultado, alterar o conteúdo de uma ação não alterará o comportamento do modelo de seleção da ação.
+>
+> Além disso, que o conteúdo/valores de entidades não são usados, somente sua presença/ausência.
 
 Se seleção da ação não estiver se comportando conforme o esperado, veja as possíveis soluções:
 

@@ -3,19 +3,19 @@ title: Adicionar a API de Verificação Ortográfica do Bing v7 a consultas do L
 titleSuffix: Azure
 description: Corrija palavras grafadas incorretamente na declaração adicionando a API de Verificação Ortográfica do Bing V7 para consultas de ponto de extremidade do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35364915"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239144"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corrigir palavras grafas incorretamente com a Verificação Ortográfica do Bing
 
@@ -26,8 +26,9 @@ A [primeira chave da API de Verificação Ortográfica do Bing v7](https://azure
 
 ![Criar uma chave gratuita](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>Criar chave de Assinatura
-Se sua chave gratuita expirar, crie uma chave de assinatura.
+<a name"create-subscription-key"></a>
+## <a name="create-endpoint-key"></a>Criar chave de ponto de extremidade
+Se a chave gratuita expirou, crie uma chave de ponto de extremidade.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com). 
 
@@ -56,7 +57,7 @@ Se sua chave gratuita expirar, crie uma chave de assinatura.
 10. Copie a primeira chave. Você precisa apenas de uma das duas chaves. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>Usar a chave no painel de teste do LUIS
-Há dois locais no LUIS para usar a chave. A primeira é no [painel de teste](train-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é salva no LUIS, em vez disso, é uma variável de sessão. Você precisa definir a chave toda vez que quiser que o painel de teste aplique o serviço da API de Verificação Ortográfica do Bing v7 na declaração. Veja as [instruções](train-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para configurar a chave.
+Há dois locais no LUIS para usar a chave. A primeira é no [painel de teste](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave não é salva no LUIS, em vez disso, é uma variável de sessão. Você precisa definir a chave toda vez que quiser que o painel de teste aplique o serviço da API de Verificação Ortográfica do Bing v7 na declaração. Veja as [instruções](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) no painel de teste para configurar a chave.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>Adicionar a chave à URL do ponto de extremidade
 A consulta do ponto de extremidade precisa que a chave seja passada nos parâmetros da cadeia de consulta de cada consulta na qual você quer aplicar a correção ortográfica. Você pode ter um chatbot que chama o LUIS ou você pode chamar diretamente a API do ponto de extremidade do LUIS. Independentemente de como o ponto de extremidade é chamado, toda chamada deve incluir as informações necessárias para que a correção ortográfica funcione corretamente.
@@ -90,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 Se você não quiser usar o serviço da API de Verificação Ortográfica do Bing v7, poderá rotular as declarações que apresentam erros de ortografia para que o LUIS possa aprender a ortografia correta, bem como erros de digitação. Essa opção exige mais esforço de aplicação de rótulos do que o uso de um verificador ortográfico.
 
 ## <a name="publishing-page"></a>Página de publicação
-A página de [publicação](publishapp.md) tem uma caixa de seleção **Habilitar o verificador ortográfico do Bing**. Isso é uma conveniência para criar a chave e entender como a URL de ponto de extremidade é alterada. Você ainda precisará usar os parâmetros de ponto de extremidade corretos para que a ortografia seja corrigida em cada declaração. 
+A página de [publicação](luis-how-to-publish-app.md) tem uma caixa de seleção **Habilitar o verificador ortográfico do Bing**. Isso é uma conveniência para criar a chave e entender como a URL de ponto de extremidade é alterada. Você ainda precisará usar os parâmetros de ponto de extremidade corretos para que a ortografia seja corrigida em cada declaração. 
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre declarações de exemplo](luis-how-to-add-example-utterances.md)

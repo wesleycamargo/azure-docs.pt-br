@@ -9,22 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044802"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112866"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do Serviço de Fala
 
 As APIs REST do serviço de Fala unificado são semelhantes às APIs fornecidas pela [API de Fala](https://docs.microsoft.com/azure/cognitive-services/Speech) (anteriormente conhecida como o Serviço de Fala do Bing). Os pontos de extremidade diferenciam-se dos pontos de extremidade usados pelo serviço de Fala anterior.
 
-## <a name="speech-to-text"></a>Conversão de fala em texto
+## <a name="speech-to-text"></a>Conversão de Fala em Texto
 
 Na API de Conversão de fala em texto, somente os pontos de extremidade usados diferenciam-se da API De Reconhecimento de Fala do Serviço de Fala anterior. Os novos pontos de extremidade são mostrados na tabela a seguir. Use um que corresponda com sua região de assinatura.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 A API de Conversão de fala em texto é, pelo contrário, semelhante à [API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de Fala anterior.
 
@@ -50,12 +50,12 @@ O serviço de Fala agora oferece duas vozes de 24 KHz:
 
 Local | Linguagem   | Gênero | Mapeamento do nome do serviço
 -------|------------|--------|------------
-pt-BR  | Inglês (EUA) | Feminino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, Jessa24kRUS)" 
-pt-BR  | Inglês (EUA) | Masculino   | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-US, Guy24kRUS)"
+pt-BR  | Inglês (EUA) | Feminino | "Conversão de Texto em Fala do Microsoft Server (en-US, Jessa24kRUS)" 
+pt-BR  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft Server (en-US, Guy24kRUS)"
 
 A seguir estão os pontos de extremidades de REST para a API de Conversão de Texto em Fala do Serviço de Fala. Use o ponto de extremidade que corresponda com sua região de assinatura.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Mantenha essas diferenças em mente, ao consultar a [documentação da API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de Fala anterior.
 
@@ -63,7 +63,7 @@ Mantenha essas diferenças em mente, ao consultar a [documentação da API REST]
 
 Enviar uma solicitação à API REST do Serviço de Fala requer um token de acesso. Você obtém um token fornecendo a chave de assinatura para um ponto de extremidade `issueToken` de serviço de Fala regional, mostrado na tabela a seguir. Use o ponto de extremidade que corresponda com sua região de assinatura.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Cada token de acesso é válido por 10 minutos. Você pode obter um novo token a qualquer momento — incluindo, se quiser, exatamente antes de cada solicitação da API REST de Fala. Para minimizar a latência e o tráfego de rede, no entanto, é recomendável usar o mesmo token por nove minutos.
 
@@ -265,5 +265,7 @@ Como antes, certifique-se de que o valor `FetchTokenUri` corresponda com sua reg
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obter sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como personalizar um modelo de fala](how-to-customize-speech-models.md)
+- [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
+- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
+- [Personalizar modelos de linguagem](how-to-customize-language-model.md)
+

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: a520466825eb429e45e0500b52bd7af502c0a38c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 96bd94e37c75d10726245fbcea7044d4ae2ed07e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364582"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070368"
 ---
 # <a name="your-first-bing-visual-search-query-in-python"></a>Sua primeira consulta de Pesquisa Visual do Bing em Python
 
@@ -34,18 +34,18 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 Este artigo inclui um aplicativo de console simples que envia uma solicitação de API de Pesquisa Visual do Bing e exibe os resultados da pesquisa JSON. Embora este aplicativo seja escrito em Python, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que possa fazer solicitações HTTP e analisar JSON. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você precisa de [Python 3](https://www.python.org/) para executar esse código.
+Você precisa do [Python 3](https://www.python.org/) para executar esse código.
 
 Para este guia de início rápido, você pode usar uma chave de assinatura de [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de assinatura paga.
 
 ## <a name="running-the-walkthrough"></a>Executando o passo a passo
 
-Para executar o aplicativo, siga estas etapas:
+Para executar este aplicativo, siga estas etapas:
 
 1. Crie um novo projeto Python no seu IDE ou editor favorito.
-2. Crie um arquivo chamado visualsearch.py e adicione o código mostrado neste guia de início rápido.
+2. Crie um arquivo nomeado visualsearch.py e adicione o código mostrado neste guia de início rápido.
 3. Substitua o valor `SUBSCRIPTION_KEY` pela sua chave de assinatura.
 3. Substitua o valor `imagePath` pelo caminho da imagem da qual o upload será feito.
 4. Execute o programa.
@@ -100,8 +100,9 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>Próximas etapas
 
 [Obter insights sobre uma imagem usando um token de insights](../use-insights-token.md)  
-[Tutorial do aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
+[Tutorial de upload de imagem da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
+[Tutorial de aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)  
 [Visão geral da Pesquisa Visual do Bing](../overview.md)  
 [Experimente](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referência da API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Referência de API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)

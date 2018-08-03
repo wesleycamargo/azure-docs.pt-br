@@ -1,7 +1,7 @@
 ---
-title: Aplicativo de demonstração de Aprendiz de Conversa, redefinição de senha - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Demonstração do Modelo do Aprendiz de Conversa, redefinição de senha - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como criar um aplicativo de demonstração para Aprendiz de Conversa.
+description: Saiba como criar um modelo do Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364222"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170626"
 ---
 # <a name="demo-password-reset"></a>Demonstração: redefinição de senha
 Esta demonstração ilustra um bot de suporte técnico simples que pode ajudar na redefinição de senhas. 
 
 Ela mostra como o Aprendiz de Conversa pode aprender fluxos de diálogo não triviais, sequências de vários turnos, incluindo uma classe fora do domínio. Esta demonstração não usa nenhum código ou entidades.
+
+## <a name="video"></a>Vídeo
+
+[![Demonstração da visualização de senha](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de redefinição de senha esteja em execução
@@ -29,7 +33,7 @@ Este tutorial exige que o bot de redefinição de senha esteja em execução
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de aplicativos da interface do usuário da Web, clique no Tutorial de demonstração de redefinição de senha. 
+Na lista de modelos da interface do usuário da Web, clique no Tutorial de demonstração de redefinição de senha. 
 
 ### <a name="actions"></a>Ações
 

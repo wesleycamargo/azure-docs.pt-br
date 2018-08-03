@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35364895"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113344"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Usar metadados e API do GenerateAnswer
 
@@ -57,7 +57,7 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
     - **Ponto de extremidade do QnAMaker** (cadeia de caracteres): o nome do host do ponto de extremidade implantado na sua assinatura do Azure.
 - **Cabeçalhos da solicitação**
     - **Content-Type** (cadeia de caracteres): o tipo de mídia do corpo enviado para a API.
-    - **Autorização** (cadeia de caracteres): a chave do ponto de extremidade.
+    - **Autorização** (cadeia de caracteres): a chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **Corpo da solicitação**
     - **pergunta** (cadeia de caracteres): uma pergunta do usuário a ser consultada na base de dados de conhecimento.
     - **superior** (opcional, inteiro): o número de resultados classificados para incluir na saída. O valor padrão é 1.
@@ -82,6 +82,7 @@ Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de ex
     - **respostas** - Uma lista de respostas para a consulta do usuário, classificada em ordem decrescente de pontuação do ranking.
         - **pontuação**: Uma pontuação de classificação entre 0 e 100.
         - **perguntas**: As perguntas fornecidas pelo usuário.
+        - **resposta**: A resposta à pergunta.
         - **fonte**: O nome da fonte da qual a resposta foi extraída ou salva na base de dados de conhecimento.
         - **metadados**: Os metadados associados à resposta.
             - nome: nome dos metadados. (cadeia de caracteres, Comprimento máx.: 100, obrigatório)

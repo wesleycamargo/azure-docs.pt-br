@@ -1,7 +1,7 @@
 ---
-title: Como adicionar entidades predefinidas a um aplicativo Aprendiz de Conversa – Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como adicionar entidades pré-compiladas a um modelo de Aprendiz de Conversa – Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como adicionar entidades predefinidas a um aplicativo de Aprendiz de Conversa.
+description: Saiba como adicionar entidades pré-compiladas a um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,18 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364587"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171360"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Como adicionar entidades predefinidas
-Este tutorial mostra como adicionar entidades "predefinidas" ao seu aplicativo de Aprendiz de Conversa.
+Este tutorial mostra como adicionar entidades "pré-comiladas" ao modelo de Aprendiz de Conversa.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 7](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot de tutorial geral esteja em execução
+Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
 
@@ -31,9 +35,9 @@ Entidades predefinidas reconhecem tipos comuns de entidades, como números, data
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, insira BuiltInEntities. Em seguida, clique em Criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
@@ -66,7 +70,7 @@ Agora você tem duas ações.
 
 ### <a name="train-the-bot"></a>Treinar o bot
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
+1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
 2. Digite 'olá'.
 3. Clique em Ações de Pontuação e selecione 'Qual é a data?'
 2. Insira 'hoje'. 

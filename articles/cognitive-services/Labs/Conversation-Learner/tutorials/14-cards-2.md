@@ -1,7 +1,7 @@
 ---
-title: Como usar cartões com um aplicativo de Aprendizado de Conversa, parte 2 - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar cartões com um modelo de Aprendiz de Conversa, parte 2 - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar cartões com um aplicativo de Aprendizado de Conversa.
+description: Saiba como usar cartões com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 254f0953fd3e281a35857e69d9795e3decebf45d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364212"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170565"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Como usar cartões (parte 1 de 2)
 Este tutorial mostra como adicionar um cartão de formulário preenchível ao seu bot. Ele mostrará como os campos de formulário se movem para as entidades.
 
 O Aprendizado de Conversa espera que os arquivos de definição de cartão estejam localizados em um diretório chamado “cartões” que está presente no diretório onde o bot é iniciado.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 14](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -33,7 +37,7 @@ Os cartões são elementos de interface do usuário que permitem ao usuário sel
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de aplicativos da interface do usuário da Web, clique no Tutorial-14-Cartões-2. 
+Na lista de modelos da interface do usuário da Web, clique em Tutorial-14-Cards-2. 
 
 ### <a name="the-card"></a>O cartão
 
@@ -76,7 +80,7 @@ Definimos duas ações.
 
 Vamos examinar uma caixa de diálogo de ensino.
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
+1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
 1. Digite ‘oi’.
 2. Clique em Ação de Pontuação.
 3. Clique para Selecionar ‘Endereço de Entrega’.

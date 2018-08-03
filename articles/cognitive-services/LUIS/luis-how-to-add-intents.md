@@ -2,19 +2,19 @@
 title: Adicionar intenções em aplicativos do LUIS | Microsoft Docs
 description: Use Reconhecimento vocal (LUIS) para adicionar intenções para ajudar os aplicativos a entenderem as solicitações do usuário e reagir a elas corretamente.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 6e013e994a3bcb60c3104aa10cd7bad1535706f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364812"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225879"
 ---
 # <a name="manage-intents"></a>Gerenciar intenções 
 Adicionar [intenções](luis-concept-intent.md) ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções. 
@@ -66,7 +66,7 @@ Na página de intenções, digite uma declaração relevante esperada dos usuár
 >[!NOTE]
 >O LUIS converte todas as declarações para letras minúsculas.
 
-![Captura de tela da página de detalhes de intenções, com a declaração realçada](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+![Captura de tela da página Detalhes de intenções, com o enunciado realçado](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
 Declarações são adicionadas à lista de declarações para a intenção atual. Depois que uma declaração é adicionada, [rotule as entidades](luis-how-to-add-example-utterances.md) dentro das declarações e [treine](luis-how-to-train.md) seu aplicativo. 
 
@@ -75,9 +75,9 @@ Veja [Adicionar padrão de declaração existente na página de intenção ou en
 
 ## <a name="edit-an-utterance-on-intent-page"></a>Editar uma declaração na página de intenções
 
-Para editar uma declaração, selecione o ícone de reticências (...) na extremidade direita da linha para essa declaração e selecione **Editar**. Modifique o texto e pressione Enter no teclado.
+Para editar um enunciado, selecione o botão de reticências (***...***) na extremidade direita da linha para essa expressão e, em seguida, selecione **Editar**. Modifique o texto e pressione Enter no teclado.
 
-![Captura de tela da página de detalhes de intenções, com as reticências realçadas](./media/luis-how-to-add-intents/edit-utterance.png) 
+![Captura de tela da página de detalhes de Intenções, com o botão de reticências realçado](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>Reatribuir declarações na página de intenções
 Você pode alterar a intenção de uma ou mais declarações reatribuindo-as para outra intenção. 
@@ -92,7 +92,7 @@ Para alterar a intenção de várias declarações, marque as caixas de seleçã
 
 ## <a name="delete-utterances-on-intent-page"></a>Excluir declarações na página de intenções
 
-Para excluir uma declaração, selecione o ícone de reticências (...) na extremidade direita da linha para essa declaração e selecione **Excluir**. A declaração é removida da lista e do aplicativo LUIS.
+Para excluir um enunciado, selecione o botão de reticências (***...***) na extremidade direita da linha para essa expressão e, em seguida, selecione **Excluir**. A declaração é removida da lista e do aplicativo LUIS.
 
 ![Captura de tela da página de detalhes de intenções, com a opção Excluir realçada](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 
@@ -139,7 +139,7 @@ Ativar/desativar **Exibição de Tokens** para exibir os tokens em vez dos nomes
 ![Captura de tela da intenção BookFlight com a Exibição de Tokens realçada](./media/luis-how-to-add-intents/toggle-tokens-view.png)
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Treinar seu aplicativo após alterar o modelo com intenções
-Depois de adicionar, editar ou remover intenções, [treine](luis-how-to-train.md) e [publique](PublishApp.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
+Depois de adicionar, editar ou remover intenções, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,7 +1,7 @@
 ---
-title: Como usar entidades com um aplicativo Conversation Learner - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar entidades com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar entidades com um aplicativo Conversation Learner.
+description: Saiba como usar entidades com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 85df31c2e2ff3ca81698921a1f17f415daefb6c5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364225"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172374"
 ---
 # <a name="introduction-to-entities"></a>Introdução a entidades
 
 Este tutorial apresenta as entidades e mostra como usar os campos "Entidades de desqualificação" e "Entidades necessárias" em ações.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>Requisitos
 
@@ -37,9 +41,9 @@ Outros tutoriais abordam outros aspectos de entidades, como entidades predefinid
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, insira IntroduçãoAEntidades. Em seguida, clique em Criar.
 
 ### <a name="create-entity"></a>Criar entidade
@@ -48,9 +52,10 @@ Outros tutoriais abordam outros aspectos de entidades, como entidades predefinid
 2. Em Nome da Entidade, insira a cidade.
 3. Clicar em Criar
 
-Observe que o tipo de entidade é 'personalizada', ou seja, a entidade pode ser treinada.  Também há entidades predefinidas, o que significa que seu comportamento não pode ser ajustado, isso é, abordado em outro tutorial.
+> [!NOTE]
+> O tipo de entidade é 'personalizada', ou seja, a entidade pode ser treinada.  Também há entidades predefinidas, o que significa que seu comportamento não pode ser ajustado, isso é, abordado em outro tutorial.
 
-### <a name="create-two-actions"></a>Criar duas ações
+### <a name="create-two-actions"></a>Crie duas ações
 
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite 'Não sei qual é a cidade que você deseja'.
@@ -58,7 +63,7 @@ Observe que o tipo de entidade é 'personalizada', ou seja, a entidade pode ser 
     - Isso significa que se essa entidade for definida na memória do bot, então essa ação *não* estará disponível.
 2. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite ‘O clima em $city provavelmente está ensolarado’.
-4. Em Entidades Necessárias, observe que entidade cidade foi adicionada automaticamente desde que foi referenciada.
+4. Em Entidades Necessárias, a entidade cidade foi adicionada automaticamente desde que foi referenciada.
 5. Clique em Salvar
 
 Agora você tem duas ações.
@@ -67,19 +72,19 @@ Agora você tem duas ações.
 
 ### <a name="train-the-bot"></a>Treinar o bot
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
+1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
 2. Digite ‘olá’.
 3. Clique em Ações de Pontuação e selecione 'Não sei qual é a cidade que você deseja?'
-    - Observe que a resposta em que a entidade de cidade é necessária não pode ser selecionada porque a entidade de cidade não está definida na memória do bot.
+    - A resposta em que a entidade de cidade é necessária não pode ser selecionada porque a entidade de cidade não está definida na memória do bot.
 2. Selecione 'Não sei qual é a cidade você deseja'.
 4. Insira 'seattle'. Realce seattle, então clique em cidade.
 5. Clique em Ações de Pontuação
-    - Observe que o valor de cidade agora está na memória do bot.
+    - O valor da cidade agora está na memória do bot.
     - 'O clima em $city provavelmente está ensolarado' agora está disponível como uma resposta. 
 6. Selecione ‘O clima em $city provavelmente está ensolarado’.
 
 Digamos que o usuário insira 'repita isso'. 
-1. Digite isso e pressione Enter. Observe que a entidade cidade e seu valor estão na memória e disponíveis.
+1. Digite isso e pressione Enter. A entidade da cidade e o valor está na memória e disponível.
 2. Selecione ‘O clima em $city provavelmente está ensolarado’.
 
 ![](../media/tutorial3_entities.PNG)

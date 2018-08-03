@@ -1,7 +1,7 @@
 ---
-title: Como usar chamadas de API com um aplicativo Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar chamadas à API com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar chamadas de API com um aplicativo de Aprendiz de Conversa.
+description: Saiba como usar chamadas à API com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364236"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215832"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>Como adicionar chamadas de API a um aplicativo de Aprendizado de Conversa
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Como adicionar chamadas à API a um modelo Aprendiz de Conversa
 
-Este tutorial mostra como adicionar chamadas de API ao seu aplicativo. Chamadas de API são funções que você define e grava em seu bot, e que podem ser chamadas pelo Aprendiz de Conversa.
+Este tutorial mostra como adicionar chamadas à API ao modelo. Chamadas de API são funções que você define e grava em seu bot, e que podem ser chamadas pelo Aprendiz de Conversa.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 12](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>Requisitos
 O tutorial exige que o bot "tutorialAPICalls.ts" esteja em execução.
@@ -34,11 +38,11 @@ O tutorial exige que o bot "tutorialAPICalls.ts" esteja em execução.
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de aplicativos da interface do usuário da Web, clique no Tutorial-12-APICalls. 
+Na lista Modelo da interface do usuário da Web, clique em Tutorial-12-APICalls. 
 
 ### <a name="entities"></a>Entidades
 
-Definimos uma entidade no número chamado pelo aplicativo.
+Nós definimos uma entidade no modelo chamado número.
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -74,14 +78,14 @@ Veja aqui como criamos a ação de Multiplicação: depois de selecionar API_Loc
 Vamos examinar uma caixa de diálogo de ensino.
 
 1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
-1. Digite “olá”.
+1. Digite ‘oi’.
 2. Clique em Ação de Pontuação.
 3. Clique para selecionar RandomGreeting. Isso executará a chamada à API de Saudação Aleatória.
 3. Clique para selecionar "Que número você deseja multiplicar por 12?'
 4. Insira "8". Depois, clique em Ações de Pontuação.
 4. Selecione "Multiplicar $number 12". Anote o resultado da multiplicação.
 5. Selecione "Limpar Entidades".
-    - Observe que o valor da entidade numérica foi apagado.
+    - O valor da entidade `number` foi apagado.
 3. Clique para selecionar "Que número você deseja multiplicar por 12?'
 4. Clique em Concluir Teste.
 

@@ -7,36 +7,39 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054864"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071412"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Regiões e pontos de extremidade do serviço de fala
+# <a name="regions-of-the-speech-service"></a>Regiões do serviço de Fala
 
-> [!NOTE]
-> Nomes de região no [fala SDK](speech-sdk.md) corresponde a primeira parte do domínio dos pontos de extremidade indicados abaixo.
-> Por exemplo, use `westus` para especificar a região Oeste dos EUA no SDK de fala.
+O serviço de Fala está disponível em diferentes regiões.
+Ao criar uma assinatura você poderá escolher uma região disponível, dependendo de suas necessidades.
 
-## <a name="speech-to-text"></a>Conversão de fala em texto
+Quando você usar a assinatura, deverá levar em conta a região escolhida.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>API REST
 
-## <a name="text-to-speech"></a>Texto em fala
+Usando a API REST, escolha os pontos de extremidade específicos da região correta.
+Consulte [APIs REST](rest-apis.md) para obter mais detalhes.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+## <a name="speech-sdk"></a>SDK de fala
 
-## <a name="authentication"></a>Autenticação
+No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK de Fala para C#).
 
-[!include[](includes/endpoints-token-service.md)]
+A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
 
-Consulte [aqui](rest-apis.md#authentication) para obter detalhes de como obter e atualizar tokens de autorização.
+Região| Valor para o parâmetro de região no SDK de fala
+-|-
+Oeste dos EUA| `westus`
+Ásia Oriental| `eastasia`
+Norte da Europa| `northeurope`
 
-## <a name="language-understanding-speech-sdk-only"></a>Compreensão de idioma (somente SDK de fala)
-
-Regiões para o serviço de compreensão de idioma são listados [aqui](/azure/cognitive-services/luis/luis-reference-regions).
-No Speech SDK, especifique essas regiões pela primeira parte do nome do domínio do terminal (por exemplo, `westus`).
+As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala estão listadas na [página da região do serviço](/azure/cognitive-services/luis/luis-reference-regions).
+Para cada região de publicação listada, o parâmetro da região do SDK de Fala correspondente é determinado como a primeira parte do nome de domínio do ponto de extremidade.
+Por exemplo, use `westus` para especificar a região de publicação Oeste dos EUA.

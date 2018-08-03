@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: dd7531004759cdaeb59f4706dc2650d0db3c0cdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364600"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070919"
 ---
 # <a name="your-first-bing-visual-search-query-in-c"></a>Sua primeira consulta de Pesquisa Visual do Bing em C#
 
@@ -37,9 +37,9 @@ Este artigo inclui um aplicativo de console simples que envia uma solicitação 
 O programa de exemplo usa somente classes .NET Core e é executado no Windows usando .NET CLR, ou no Linux ou no macOS usando [Mono](http://www.mono-project.com/).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você vai precisar [Visual Studio 2017](https://www.visualstudio.com/downloads/) para fazer este código executar no Windows. (A Community Edition gratuita funcionará.)
+Você precisará do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para obter esse código em execução no Windows. (O Community Edition gratuito funcionará.)
 
 Para este guia de início rápido, você pode usar uma chave de assinatura de [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) ou uma chave de assinatura paga.
 
@@ -49,7 +49,7 @@ O exemplo a seguir mostra como enviar a mensagem usando HttpWebRequest. Para obt
 
 Para executar o aplicativo, siga estas etapas:
 
-1. Crie uma solução de Console no Visual Studio.
+1. Crie uma nova solução de Console no Visual Studio.
 1. Substitua o conteúdo de `Program.cs` pelo código mostrado neste guia de início rápido.
 2. Substitua o valor `accessKey` pela sua chave de assinatura.
 2. Substitua o valor `imagePath` pelo caminho da imagem da qual o upload será feito.
@@ -387,8 +387,9 @@ Substitua o método BingImageSearch por este código:
 ## <a name="next-steps"></a>Próximas etapas
 
 [Obter insights sobre uma imagem usando um token de insights](../use-insights-token.md)  
-[Tutorial do aplicativo de página única de Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)
-[Visão geral de Pesquisa Visual do Bing](../overview.md)  
+[Tutorial de upload de imagem da Pesquisa Visual do Bing](../tutorial-visual-search-image-upload.md)
+[Tutorial de aplicativo de página única da Pesquisa Visual do Bing](../tutorial-bing-visual-search-single-page-app.md)
+[Visão geral da Pesquisa Visual do Bing](../overview.md)  
 [Experimente](https://aka.ms/bingvisualsearchtryforfree)  
 [Obter uma chave de acesso de avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Referência da API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)
+[Referência de API de Pesquisa Visual do Bing](https://aka.ms/bingvisualsearchreferencedoc)

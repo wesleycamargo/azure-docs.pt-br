@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 8c95fac0c031ec62a9d98d6c3278bd3b3f345140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364279"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866977"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência da Pesquisa de Resposta de Projeto v7
 
@@ -82,7 +82,7 @@ Veja a seguir os cabeçalhos que podem ser incluídos em uma solicitação e uma
 A solicitação pode incluir os parâmetros de consulta a seguir. Confira a coluna Obrigatório para obter os parâmetros necessários. É necessário codificar os parâmetros de consulta em URL.  
   
   
-|NOME|Valor|type|Obrigatório|  
+|NOME|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|  
 |<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas ao mercado e ao idioma en-us.<br /><br />|Cadeia de caracteres|sim|  
 |<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|sim|  
@@ -105,7 +105,7 @@ O esquema de resposta é uma [WebPage] ou uma ErrorResponse, como na API de Pesq
 ### <a name="error"></a>Erro  
 Define o erro ocorrido.  
   
-|Elemento|DESCRIÇÃO|type|  
+|Elemento|DESCRIÇÃO|Tipo|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />code|O código de erro que identifica a categoria de erro. Para obter uma lista dos possíveis códigos, confira [Códigos de erro](#error-codes).|Cadeia de caracteres|  
 |<a name="error-message" />message|Uma descrição do erro.|Cadeia de caracteres|  
@@ -118,7 +118,7 @@ Define o erro ocorrido.
 ### <a name="errorresponse"></a>ErrorResponse  
 O objeto de nível superior incluído pela resposta quando a solicitação falha.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|  
@@ -128,7 +128,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 ### <a name="license"></a>Licença  
 Define a licença sob a qual a foto ou o texto pode ser usado.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |Nome|O nome da licença.|Cadeia de caracteres|  
 |url|A URL para um site em que o usuário pode obter mais informações sobre a licença.<br /><br /> Use o nome e a URL para criar um hiperlink.|Cadeia de caracteres|  
@@ -137,7 +137,7 @@ Define a licença sob a qual a foto ou o texto pode ser usado.
 ### <a name="licenseattribution"></a>LicenseAttribution  
 Define uma regra contratual para atribuição de licença.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LicenseAttribution.|Cadeia de caracteres|  
 |license|A licença sob a qual o conteúdo pode ser usado.|[Licença](#license)|  
@@ -149,7 +149,7 @@ Define uma regra contratual para atribuição de licença.
 ### <a name="link"></a>Link  
 Define os componentes de um hiperlink.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
 |text|O texto de exibição.|Cadeia de caracteres|  
@@ -159,7 +159,7 @@ Define os componentes de um hiperlink.
 ### <a name="linkattribution"></a>LinkAttribution  
 Define uma regra contratual para atribuição de link.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como LinkAttribution.|Cadeia de caracteres|  
 |mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|BOOLEAN|  
@@ -171,7 +171,7 @@ Define uma regra contratual para atribuição de link.
 ### <a name="mediaattribution"></a>MediaAttribution  
 Define uma regra contratual para atribuição de mídia.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como MediaAttribution.|Cadeia de caracteres|  
 |mustBeCloseToContent|Um valor booliano que determina se o conteúdo da regra precisa ser colocado nas proximidades do campo ao qual a regra se aplica. Se for **true**, o conteúdo precisará ser colocado nas proximidades. Se for **false** ou se esse campo não existir, o conteúdo poderá ser colocado em qualquer lugar, a critério do chamador.|BOOLEAN|  
@@ -185,7 +185,7 @@ Define um editor.
   
 Observe que um editor pode fornecer seu nome, seu site ou ambos.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |Nome|O nome do editor.|Cadeia de caracteres|  
 |url|A URL para o site do editor.<br /><br /> Observe que o editor pode não fornecer um site.|Cadeia de caracteres|  
@@ -195,11 +195,11 @@ Observe que um editor pode fornecer seu nome, seu site ou ambos.
 ### <a name="webpage"></a>WebPage  
 Define as informações sobre uma página da Web na visualização.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|
 |Nome|O título de página, não necessariamente o título HTML|Cadeia de caracteres|
 |url|A URL que foi realmente rastreada (a solicitação pode ter seguido os redirecionamentos)|Cadeia de caracteres|  
-|Descrição|Descrição breve da página e do conteúdo|Cadeia de caracteres|  
+|Descrição|Breve descrição da página e do conteúdo|Cadeia de caracteres|  
 |isFamilyFriendly|Mais preciso para itens no índice da Web; os fetches em tempo real fazem essa detecção baseada somente na URL e não no conteúdo da página|booleano|
 |primaryImageOfPage/contentUrl|A URL de uma imagem representativa a ser incluída na visualização|Cadeia de caracteres| 
   
@@ -207,7 +207,7 @@ Define as informações sobre uma página da Web na visualização.
 ### <a name="querycontext"></a>QueryContext  
 Define o contexto de consulta usado pelo Bing para a solicitação.  
   
-|Elemento|DESCRIÇÃO|type|  
+|Elemento|DESCRIÇÃO|Tipo|  
 |-------------|-----------------|----------|  
 |adultIntent|Um valor booliano que indica se a consulta especificada é direcionada para adultos. O valor é **true** se a consulta é direcionada para adultos; caso contrário, **false**.|BOOLEAN|  
 |alterationOverrideQuery|A cadeia de caracteres de consulta a ser usada para forçar o Bing a usar a cadeia de caracteres original. Por exemplo, se a cadeia de caracteres de consulta for *velejando na direção do vento*, a cadeia de caracteres de consulta de substituição será *+velejando na direção do vento*. Lembre-se de codificar a cadeia de caracteres de consulta que resulta em *%2Bvelejando+na direção do vento*.<br /><br /> Esse campo é incluído somente se a cadeia de caracteres de consulta original contém um erro de ortografia.|Cadeia de caracteres|  
@@ -216,19 +216,19 @@ Define o contexto de consulta usado pelo Bing para a solicitação.
 |originalQuery|A cadeia de caracteres de consulta especificada na solicitação.|Cadeia de caracteres|  
 
 ### <a name="identifiable"></a>Identifiable
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |-------------|-----------------|----------|
 |ID|Um identificador de recurso|Cadeia de caracteres|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Define um grupo de resultados da pesquisa, como linha principal.
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |-------------|-----------------|----------|
 |itens|Uma lista de resultados da pesquisa a serem exibidos no grupo.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Define um item de resultado da pesquisa a ser exibido.
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |-------------|-----------------|----------|
 |resultIndex|Um índice baseado em zero do item na resposta a ser exibido. Se o item não incluir esse campo, exiba todos os itens na resposta. Por exemplo, exiba todos os artigos de notícias na resposta Notícias.|Número inteiro|
 |answerType|A resposta que contém o item a ser exibido. Por exemplo, Notícias.<br /><br />Use o tipo para encontrar a resposta no objeto SearchResponse. O tipo é o nome de um campo SearchResponse.<br /><br /> No entanto, use o tipo de resposta somente se esse objeto incluir o campo de valor; caso contrário, ignore-o.|Cadeia de caracteres|
@@ -250,7 +250,7 @@ Define o objeto de nível superior incluído pela resposta quando a solicitaçã
   
 Observe que se o serviço suspeitar de um ataque de negação de serviço, a solicitação será bem-sucedida (o código de status HTTP é 200 OK); no entanto, o corpo da resposta estará vazio.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo, que é definida como SearchResponse.|Cadeia de caracteres|  
 |WebPage|Um objeto JSON que define a visualização|string|  
@@ -259,7 +259,7 @@ Observe que se o serviço suspeitar de um ataque de negação de serviço, a sol
 ### <a name="textattribution"></a>TextAttribution  
 Define uma regra contratual para a atribuição de texto sem formatação.  
   
-|NOME|Valor|type|  
+|NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Uma dica de tipo, que é definida como TextAttribution.|Cadeia de caracteres|  
 |text|O texto de atribuição.<br /><br /> A atribuição de texto se aplica à entidade como um todo e deve ser exibida imediatamente após a apresentação da entidade. Se houver várias regras de atribuição de texto ou de link que não especificam um destino, você deverá concatená-las e exibi-las usando um rótulo "Dados de:".|Cadeia de caracteres| 
@@ -318,7 +318,7 @@ Veja a seguir os possíveis valores de código de erro e de código de suberro.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido do C#](c-sharp-quickstart.md)
+- [Início Rápido do C#](c-sharp-quickstart.md)
 - [Início Rápido do Java](java-quickstart.md)
 - [Início Rápido do Node](node-quickstart.md)
 - [Início Rápido do Python](python-quickstart.md)

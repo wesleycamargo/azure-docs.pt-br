@@ -1,7 +1,7 @@
 ---
-title: Como usar entidades multivalor com um aplicativo Conversation Learner - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar entidades multivalor com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar entidades negáveis com um aplicativo Conversation Learner.
+description: Saiba como usar entidades multivalor com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364227"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173094"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Como usar entidades negáveis com um aplicativo Conversation Learner
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Como usar entidades multivalor com um modelo de Aprendiz de Conversa
 Este tutorial mostra a propriedade "multivalor" de entidades.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##<a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -32,9 +36,9 @@ Concretamente, se uma entidade for marcada como "multivalor", então cada instâ
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, digite EntidadesMultiValor. Em seguida, clique em Criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
@@ -49,7 +53,7 @@ Concretamente, se uma entidade for marcada como "multivalor", então cada instâ
 
 ![](../media/tutorial6_entities.PNG)
 
-### <a name="create-two-actions"></a>Criar duas ações
+### <a name="create-two-actions"></a>Crie duas ações
 
 1. Clique em Ações e, em seguida, em Nova Ação
 2. Em Resposta, digite 'Quais ingredientes você deseja?'.
@@ -68,7 +72,7 @@ Agora você tem duas ações.
 
 ### <a name="train-the-bot"></a>Treinar o bot
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
+1. Clique em Caixas de Diálogo de Treinamento, em seguida, em Nova Caixa de Diálogo de Treinamento.
 2. Digite ‘olá’.
 3. Clique em Ações de Pontuação e Selecionar ‘Quais ingredientes você deseja?’
 2. Insira 'cogumelos e queijo'. 
@@ -76,7 +80,7 @@ Agora você tem duas ações.
 3. Clique em 'cogumelos' e selecione Ingredientes.
 4. Clique em 'queijo' e selecione Ingredientes.
 5. Clique em Ações de Pontuação
-    - Observe que os dois valores agora estão presentes na entidade Ingredientes. 
+    - Os dois valores agora estão presentes na entidade Ingredientes. 
 6. Selecione 'Aqui estão seus ingredientes: $Toppings'.
 
 Podemos adicionar mais:
@@ -84,7 +88,7 @@ Podemos adicionar mais:
 7. Insira 'adicionar pimentões'.
     - Clique em ‘pimentões’ na Detecção de Entidade e selecione Ingredientes.
 3. Clique em Ações de Pontuação.
-    - Observe que agora o item pimentões aparece como um valor adicional em Ingredientes.
+    - 'pimentões' agora aparece como um valor adicional em Ingredientes.
 6. Selecione 'Aqui estão seus ingredientes: $Toppings'.
 
 Vamos remover um ingrediente e adicionar outro:
@@ -93,7 +97,7 @@ Vamos remover um ingrediente e adicionar outro:
 1. Clique em 'pimentões' e clique no x vermelho para removê-lo.
 2. Clique em 'pimentões' e selecione '-Ingredientes’.
 3. Clique em Ações de Pontuação.
-    - Observe que 'pimentões' foi excluído e 'linguiça' foi adicionado.
+    - 'pimentões' foi excluído e 'linguiça' foi adicionado.
 6. Selecione 'Aqui estão seus ingredientes: $Toppings'.
 
 Agora vamos tentar remover tudo:
@@ -101,7 +105,7 @@ Agora vamos tentar remover tudo:
 6. Insira 'remover cogumelos, remover queijo e remover linguiça'.
 7. Clique em cada um dos três e selecione '-Ingredientes.
 7. Clique em Ações de Pontuação.
-    - Observe que todos os ingredientes estão desmarcados.
+    - Todos os ingredientes estão desmarcados.
 2. Selecione 'Quais ingredientes você deseja?'
 3. Clique em Ensino Concluído
 

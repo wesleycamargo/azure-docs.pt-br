@@ -3,26 +3,26 @@ title: Gerenciar suas configurações de conta em LUIS | Microsoft Docs
 description: Use o website do LUIS para gerenciar suas configurações de conta.
 titleSuffix: Azure
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: 1f22112a38bf32af03ffaf0493db16839b3fe794
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.date: 07/08/2018
+ms.author: diberry
+ms.openlocfilehash: 963a7f8c196702ea899ddfe31e6187a15eb5f683
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749956"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223201"
 ---
-# <a name="manage-your-luis-account"></a>Gerenciar sua conta LUIS
-As duas partes principais de informação para uma conta LUIS são a conta de usuário e a chave de criador. Suas informações de logon são gerenciadas em [account.microsoft.com](https://account.microsoft.com). Sua chave de criador é gerenciada na página [Configurações] no website [LUIS] de **LUIS**. 
+# <a name="manage-account-and-authoring-key"></a>Gerenciar conta e chave de criação
+As duas partes principais de informação para uma conta LUIS são a conta de usuário e a chave de criador. Suas informações de logon são gerenciadas em [account.microsoft.com](https://account.microsoft.com). A chave de criação é gerenciada no site do [LUIS](luis-reference-regions.md) na página **Configurações**. 
 
-## <a name="authoring-key"></a>Chave de criador
+## <a name="authoring-key"></a>Chave de criação
 
-Esta chave de criador única específica da região, na página de **Configurações**, permite que você autorize todos seus aplicativos do website [LUIS] de [LUIS] bem como as [APIs de autorização](https://aka.ms/luis-authoring-api). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês. 
+Essa chave única de criação específica à região, na página **Configurações**, permite que você crie todos os aplicativos no site do [LUIS](luis-reference-regions.md) assim como nas [APIs de criação](https://aka.ms/luis-authoring-api). Para sua comodidade, a chave de criador é permitida para fazer um número [limitado](luis-boundaries.md) de consultas de ponto de extremidade a cada mês. 
 
 ![Página Configurações de LUIS](./media/luis-how-to-account-settings/account-settings.png)
 
@@ -32,7 +32,7 @@ A chave de criador é usada para todos os seus aplicativos, bem como quaisquer a
 A chave de criador é específica para a [região de autoria](luis-reference-regions.md#publishing-regions). A chave não funciona em uma região diferente. 
 
 ## <a name="reset-authoring-key"></a>Redefinir a chave de criador
-Se a chave de criador estiver comprometida, redefina a chave. A chave é redefinida em todos os seus aplicativos no website de [LUIS]. Se você criar seus aplicativos por meio de APIs de criador, você precisa alterar o valor de `Ocp-Apim-Subscription-Key` para a nova chave. 
+Se a chave de criador estiver comprometida, redefina a chave. A chave é redefinida em todos os seus aplicativos no website de [LUIS](luis-reference-regions.md). Se você criar seus aplicativos por meio de APIs de criador, você precisa alterar o valor de `Ocp-Apim-Subscription-Key` para a nova chave. 
 
 ## <a name="delete-account"></a>Exclui a conta
 Consulte [Armazenamento e remoção de dados](luis-concept-data-storage.md#accounts) para obter informações sobre quais dados são excluídos quando você exclui sua conta. 
@@ -60,4 +60,3 @@ Se você adicionar colaboradores a um aplicativo LUIS, você está especificando
 
 Saiba mais sobre sua [chave de criador](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

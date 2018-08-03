@@ -9,12 +9,12 @@ ms.technology: microsoft translator
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 31435fcfca61517bfc72d534e911a1dcadbee52b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364549"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868074"
 ---
 # <a name="text-api-30-dictionary-lookup"></a>API de Texto 3.0: consulta no dicionário
 
@@ -37,19 +37,19 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   <th>DESCRIÇÃO</th>
   <tr>
     <td>api-version</td>
-    <td>*Parâmetro necessário*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
   </tr>
   <tr>
     <td>de</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de entrada. O idioma de origem deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td>*Parâmetro necessário*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
+    <td>*Parâmetro obrigatório*.<br/>Especifica o idioma do texto de saída. O idioma de destino deve ser um dos [idiomas compatíveis](.\v3-0-languages.md) incluídos no escopo de `dictionary`.</td>
   </tr>
 </table>
 
-Os cabeçalhos da solicitação incluem:
+Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
@@ -68,7 +68,7 @@ Os cabeçalhos da solicitação incluem:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. Você pode omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta chamado `ClientTraceId`.</td>
+    <td>*Opcional*.<br/>Um GUID gerado pelo cliente para identificar exclusivamente a solicitação. É possível omitir esse cabeçalho se incluir a ID de rastreamento na cadeia de caracteres de consulta usando um parâmetro de consulta nomeado `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -89,7 +89,7 @@ As seguintes limitações se aplicam:
 
 ## <a name="response-body"></a>Corpo da resposta
 
-Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
+Uma resposta com êxito é uma matriz JSON com um resultado para cada cadeia de caracteres na matriz de entrada. Um objeto de resultado inclui as seguintes propriedades:
 
   * `normalizedSource`: uma cadeia de caracteres fornecendo o formulário normalizado do termo de origem. Por exemplo, se a solicitação for "JOHN", o formato normalizado será "john". O conteúdo desse campo se torna a entrada para [exemplos de pesquisa](.\v3-0-dictionary-examples.md).
     
@@ -120,7 +120,7 @@ Uma resposta bem-sucedida é uma matriz JSON com um resultado para cada cadeia d
 
     * `confidence`: um valor entre 0,0 e 1,0 que representa a "confiança" (ou, talvez mais precisamente, a "probabilidade nos dados de treinamento") daquele par de tradução. A soma das pontuações de confiança para uma palavra de origem pode ou não somar 1,0. 
 
-    * `prefixWord`: uma cadeia de caracteres fornecendo a palavra a exibir como um prefixo da tradução. Atualmente, isso é o determinante de gênero de substantivos em idiomas que têm determinantes de gênero. Por exemplo, o prefixo da palavra em espanhol "mosca" é "la", uma vez que "mosca" é um substantivo feminino em espanhol. Isso só é dependente da tradução, e não da origem. Se não houver nenhum prefixo, será uma cadeia de caracteres vazia.
+    * `prefixWord`: uma cadeia de caracteres que fornece a palavra para exibir como um prefixo da tradução. Atualmente, isso é o determinante de gênero de substantivos em idiomas que têm determinantes de gênero. Por exemplo, o prefixo da palavra em espanhol "mosca" é "la", uma vez que "mosca" é um substantivo feminino em espanhol. Isso só é dependente da tradução, e não da origem. Se não houver nenhum prefixo, será uma cadeia de caracteres vazia.
     
     * `backTranslations`: uma lista de "traduções reversas" do destino. Por exemplo, palavras de origem para as quais o destino pode ser traduzido. É garantido que a lista contenha a palavra de origem que foi solicitada (por exemplo, se a palavra de origem que está sendo pesquisada for "fly", será garantido que "fly" estará na lista `backTranslations`). No entanto, não é garantido que estará na primeira posição, e geralmente não estará. Cada elemento da lista `backTranslations` é um objeto descrito pelas seguintes propriedades:
 

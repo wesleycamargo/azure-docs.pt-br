@@ -1,7 +1,7 @@
 ---
-title: Como registrar diálogos em um aplicativo de Aprendiz de Conversa – Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como registrar diálogos em um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como registrar diálogos com um aplicativo de Aprendizado de Conversa.
+description: Saiba como registrar diálogos com um modelo de Aprendizado de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364262"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171428"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Como registrar diálogos com um aplicativo de Aprendizado de Conversa
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Como registrar diálogos com um modelo de Aprendizado de Conversa
 
 Este tutorial mostra como fazer teste de usuário final dentro da interface do Aprendiz de Conversa; como os diálogo são registrados; e como fazer correções em diálogos registrados para melhorar seu modelo.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 9](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -31,9 +35,9 @@ Você pode usar os registros de diálogos para revisar e fazer correções nos d
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, insira LogDialogs. Em seguida, clique em Criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
@@ -117,7 +121,7 @@ Agora, vamos fazer correções no outro diálogo:
 
 1. Clique em "olá" em Registrar Diálogos.
     - Isso abre a conversa.
-3. Observe que a resposta para "olá" é "qual cidade". Mas queremos mudar isso para algo que faça mais sentido. Seria melhor ter uma resposta como "olá, sou o bot do tempo". Mas não há uma ação que faça isso, então teremos que criar uma.
+3. A resposta para "olá" é "qual cidade". Mas queremos mudar isso para algo que faça mais sentido. Seria melhor ter uma resposta como "olá, sou o bot do tempo". Mas não há uma ação que faça isso, então teremos que criar uma.
 4. Clique em Ação.
     - Na resposta, digite "sou o bot do tempo. Posso ajudar com previsões".
 6. Desmarque a caixa de seleção Aguardar Resposta para torná-la uma ação sem espera.

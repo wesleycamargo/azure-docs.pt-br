@@ -9,20 +9,18 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363799"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085752"
 ---
 # <a name="text-moderation"></a>Moderação de texto
 
-Use a moderação de texto assistida por computador do Content Moderator e os recursos [human-in-the-loop](Review-Tool-User-Guide/human-in-the-loop.md) para moderar o conteúdo de texto.
+Use a moderação de texto assistida por computador do Content Moderator e os recursos de [análise humana](Review-Tool-User-Guide/human-in-the-loop.md) para moderar o conteúdo de texto.
 
-As empresas usam o serviço de moderação de texto para bloquear, aprovar ou analisar o conteúdo com base em suas políticas e limites. O serviço de moderação de texto pode ser usado para aumentar a moderação humana de ambientes que exigem que parceiros, funcionários e consumidores gerem conteúdo de texto. Isso inclui salas de chat, fóruns de discussão, chatbots, catálogos de comércio eletrônico, documentos e muito mais. 
-
-A API examina o texto recebido (máximo de 1024 caracteres) para conteúdo ofensivo, classifica o possível texto indesejado (versão prévia), corrige automaticamente o texto e detecta PII (Informações de Identificação Pessoal). Ele também corresponde a listas de termos personalizada. O recurso de autocorreção ajuda a capturar deliberadamente palavras com erros ortográficos. Depois que o conteúdo é processado, o serviço retorna uma resposta detalhada. Você usa a resposta para criar uma análise humana na ferramenta de análise ou removê-la, etc.
+Você bloqueia, aprova ou analisa o conteúdo com base nas políticas e limites. Use-o para aumentar a moderação humana de ambientes em que parceiros, funcionários e consumidores geram conteúdo de texto. Isso inclui salas de chat, quadros de discussão, chatbots, catálogos de comércio eletrônico e documentos. 
 
 A resposta de serviço inclui as informações a seguir:
 
@@ -52,12 +50,9 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
 
 ## <a name="classification"></a>classificação
 
-O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser considerado inadequado, dependendo do contexto. Além de transmitir a probabilidade de cada categoria, pode recomendar uma análise humana do conteúdo. O recurso utiliza um modelo treinado para identificar possíveis linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
+O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar possíveis linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
 
 A extração a seguir na extração JSON mostra uma saída de exemplo:
-
-> [!NOTE]
-> O recurso 'Classificação' assistido por computador está em versão prévia.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ A extração a seguir na extração JSON mostra uma saída de exemplo:
 
 ### <a name="explanation"></a>Explicação
 
-- `Category1` representa a presença potencial de linguagem que pode ser considerada sexualmente explícita ou de conteúdo para adulto em determinadas situações.
-- `Category2` representa a presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou para adulto em determinadas situações.
-- `Category3` representa a presença potencial de linguagem que pode ser considerada ofensiva em determinadas situações.
+- `Category1` refere-se à presença potencial de linguagem que pode ser considerada sexualmente explícita ou para adulto em determinadas situações.
+- `Category2` refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou para adulto em determinadas situações.
+- `Category3` refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
 - `Score` é entre 0 e 1. Quanto maior a pontuação, maior o modelo estará prevendo que a categoria pode ser aplicável. Essa versão prévia depende de um modelo estatístico, em vez de resultados codificados manualmente. É recomendável testar com o seu próprio conteúdo para determinar como cada categoria alinha-se aos seus requisitos.
 - `ReviewRecommended` é verdadeiro ou falso, dependendo dos limites da pontuação interna. Os clientes devem avaliar se desejam usar esse valor ou escolher limites personalizados com base nas políticas de conteúdo.
 
@@ -151,7 +146,7 @@ Se você solicitar correção automática, a resposta conterá a versão corrigi
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Criar e gerenciar as listas de termos personalizadas
 
-Embora a lista global de termos padrão funcione muito bem na maioria dos casos, convém filtrar os termos específicos das necessidades da sua empresa. Por exemplo, é possível querer filtrar qualquer marca competitiva das postagens dos usuários. O limite de conteúdo de texto permitido pode ser diferente da lista padrão.
+Embora a lista global de termos padrão funcione muito bem na maioria dos casos, convém filtrar os termos específicos das necessidades da sua empresa. Por exemplo, é possível querer filtrar qualquer marca competitiva das postagens dos usuários.
 
 > [!NOTE]
 > Há um limite máximo de **5 listas de termos** com cada lista para **não exceder 10.000 termos**.

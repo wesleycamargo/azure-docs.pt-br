@@ -1,124 +1,115 @@
 ---
-title: Criar uma entidade composta para extrair dados complexos – Azure | Microsoft Docs
+title: Tutorial sobre como criar uma entidade composta para extrair dados complexos - Azure | Microsoft Docs
 description: Saiba como criar uma entidade composta no aplicativo LUIS para extrair diferentes tipos de dados de entidade.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
-ms.author: v-geberr
-ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/09/2018
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264378"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238090"
 ---
-# <a name="use-composite-entity-to-extract-complex-data"></a>Use a entidade composta para extrair dados complexos
-Este aplicativo simples tem duas [intenções](luis-concept-intent.md) e várias entidades. Sua finalidade é reservar voos como "1 passagem de Seattle para Cairo na sexta-feira" e retornar todas as especificações da reserva como uma parte única dos dados. 
+# <a name="tutorial-6-add-composite-entity"></a>Tutorial: 6. Adicionar entidade Composta 
+Neste tutorial, adicione uma entidade composta para agrupar os dados extraídos em uma entidade contida.
 
 Neste tutorial, você aprenderá como:
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* Adicionar entidades predefinidas datetimeV2 e number
-* Criar uma entidade composta
-* Consultar o LUIS e receber dados de entidade composta
+> * Reconhecer entidades compostas 
+> * Adicionar entidade composta para extrair dados
+> * Treinar e publicar o aplicativo
+> * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
 
 ## <a name="before-you-begin"></a>Antes de começar
-* Seu aplicativo LUIS do **[início rápido hierárquico](luis-tutorial-composite-entity.md)**. 
+Caso não tenha o aplicativo de recursos humanos do tutorial da [entidade hierárquica](luis-quickstart-intent-and-hier-entity.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
 
-> [!Tip]
-> Se você ainda não tem uma assinatura, é possível se registrar em uma [conta gratuita](https://azure.microsoft.com/free/).
+Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `composite`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>A entidade composta é um agrupamento lógico 
-A finalidade da entidade é localizar e categorizar partes do texto no enunciado. Uma entidade [composta](luis-concept-entity-types.md) é composta de outros tipos de entidade aprendidos de contexto. Para esse aplicativo de viagem que faz reservas de voos, há várias partes de informações somo datas, locais e número de assentos. 
+A finalidade da entidade composta é agrupar entidades relacionadas em uma entidade de categoria pai. As informações existem como entidades separadas antes da criação de uma composição. É semelhante à entidade hierárquica, mas pode conter mais tipos de entidades. 
 
-As informações existem como entidades separadas antes da criação de uma composição. Crie uma entidade composta quando as entidades separadas puderem ser logicamente agrupadas e esse agrupamento lógico for útil para o chatbot ou outro aplicativo que consome o LUIS. 
+ Crie uma entidade composta, quando as entidades separadas puderem ser logicamente agrupadas e esse agrupamento lógico for útil para o aplicativo cliente. 
 
-Os exemplos de enunciados simples dos usuários incluem:
+Neste aplicativo, o nome do funcionário é definido na entidade de lista **Funcionário** e inclui sinônimos de nome, endereço de email, ramal de telefone da empresa, número de celular e EUA. ID de imposto federal. 
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+A intenção **MoveEmployee** tem exemplos de enunciados para solicitar que um funcionário seja transferido de um prédio e escritório para outro. Nomes de edifícios são alfabéticos: "A", "B", etc., enquanto os escritórios são numéricos: "1234", "13245". 
+
+Exemplo de enunciados na intenção de **MoveEmployee** incluem:
+
+|Exemplo de enunciados|
+|--|
+|Transferir João W . Silva para a-2345|
+|desloca x12345 para h-1234 amanhã|
  
-A entidade composta corresponde à contagem de assentos, local da origem, local do destino e data. 
+A solicitação de transferência deve incluir pelo menos o funcionário (usando qualquer sinônimo) e a localização final do prédio e do escritório. A solicitação também pode incluir o escritório de origem, bem como uma data em que a transferência deverá acontecer. 
 
-## <a name="what-luis-does"></a>O que o LUIS faz
-Quando a intenção e as entidades do enunciado são identificadas, [extraídas](luis-concept-data-extraction.md#list-entity-data) e retornadas em JSON do [ponto de extremidade](https://aka.ms/luis-endpoint-apis), o LUIS conclui sua ação. O aplicativo de chamada ou chatbot usa essa resposta JSON e atende a solicitação, conforme a maneira como o aplicativo ou chatbot foram projetados. 
+Os dados extraídos do ponto de extremidade devem conter essas informações e retorná-los em uma entidade composta `RequestEmployeeMove`. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>Adicionar entidades predefinidas number e datetimeV2
-1. Selecione o aplicativo `MyTravelApp` da lista de aplicativos no site do [LUIS][LUIS].
+## <a name="create-composite-entity"></a>Criar entidade composta
+1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
-2. Quando o aplicativo abrir, selecione o link de navegação esquerdo **Entidades**.
+    [ ![Captura de tela do aplicativo LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
-    ![Botão Selecionar entidades](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
+2. Na página **Intenções**, selecione **MoveEmployee**. 
 
-3. Selecione **Gerenciar entidades predefinidas**.
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "Captura de tela de LUIS com a intenção 'MoveEmployee' realçada")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-    ![Botão Selecionar entidades](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
+3. Selecione o ícone de lupa na barra de ferramentas para filtrar a lista de enunciados. 
 
-4. Na caixa pop-up, selecione **number** e **datetimeV2**.
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Captura de tela de LUIS na intenção 'MoveEmployee' com o botão de lupa realçado")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
-    ![Botão Selecionar entidades](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
+4. Insira `tomorrow` na caixa de texto do filtro para localizar o enunciado `shift x12345 to h-1234 tomorrow`.
 
-5. Para que as novas entidades sejam extraídas, selecione **Treinar** na barra de navegação superior.
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "Captura de tela de LUIS na intenção 'MoveEmployee' com filtro de 'amanhã' realçado")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-    ![Selecione o botão treinar](./media/luis-tutorial-composite-entity/train.png)
+    Outro método é filtrar a entidade por datetimeV2, selecionando **Filtros de entidades** e, em seguida, selecionando **datetimeV2** na lista. 
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>Usar intenção existente para criar a entidade composta
-1. Selecione **Intenções** no painel de navegação esquerdo. 
+5. Selecione a primeira entidade, `Employee` e, em seguida, selecione **Encapsular em entidade composta** na lista do menu pop-up. 
 
-    ![Selecione a página Intenções](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
-2. Selecione `BookFlight` na lista **Intenções**.  
 
-    ![Selecione a intenção BookFlight da lista](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
+6. Em seguida, selecione imediatamente a última entidade, `datetimeV2` no enunciado. Uma barra verde é desenhada sob as palavras selecionadas, indicando uma entidade composta. No menu pop-up, insira o nome composto `RequestEmployeeMove` e, em seguida, selecione **Criar nova composição** no menu pop-up. 
 
-    As entidades predefinidas number e datetimeV2 são rotuladas nas declarações.
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição e criando a entidade realçada")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-3. Para a declaração `book 2 flights from seattle to cairo next monday`, selecione a entidade `number` azul e **Encapsular na entidade composta** da lista. Uma linha verde, sob as palavras, segue o cursor à medida que ele se move para a direita, indicando uma entidade composta. Em seguida, passe para a direita para selecionar a última entidade predefinida `datetimeV2`, insira `FlightReservation` na caixa de texto da janela pop-up e selecione **Criar nova composição**. 
+7. Em **Que tipo de entidade você quer criar?**, quase todos os campos necessários estão na lista. Apenas o local de origem está ausente. Selecione **Adicionar uma entidade filho**, selecione **Locations::Origin** na lista de entidades existentes, em seguida, selecione **Concluído**. 
 
-    ![Criar entidade composta na página de intenções](./media/luis-tutorial-composite-entity/create-new-composite.png)
+  ![Captura de tela do LUIS na intenção 'MoveEmployee' adicionando outra entidade na janela pop-up](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
-4. Uma caixa de diálogo pop-up que permite que você verifique se os filhos de entidade composta. Selecione **Concluído**.
+8. Selecione a lupa na barra de ferramentas para remover o filtro. 
 
-    ![Criar entidade composta na página de intenções](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+## <a name="label-example-utterances-with-composite-entity"></a>Declarações de exemplo de rótulo com entidade composta
+1. Em cada enunciado de exemplo, selecione a entidade mais à esquerda que deveria estar na composição. Em seguida, selecione **Encapsular em entidade composta**.
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>Encapsular as entidades na entidade composta
-Depois que a entidade composta for criada, rotule as declarações restantes na entidade composta. Para encapsular uma frase como uma entidade composta, é necessário selecionar a palavra mais à esquerda e selecionar **Encapsular na entidade composta** na lista exibida e, em seguida, selecionar a palavra mais à direita e selecionar a entidade composta nomeada `FlightReservation`. Esta é uma etapa rápida e suave de seleções, divididas nas seguintes etapas:
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a primeira entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-1. Na declaração `schedule 4 seats from paris to london for april 1`, selecione o 4 como a entidade predefinida de número.
+2. Selecione a última palavra na entidade composta e, em seguida, selecione **RequestEmployeeMove** no menu pop-up. 
 
-    ![Selecione a palavra mais à esquerda](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "Captura de tela do LUIS na intenção 'MoveEmployee' selecionando a última entidade na composição realçada")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-2. Selecione **Encapsular na entidade composta** da lista exibida.
+3. Verifique se todos os enunciados na intenção estão rotulados com a entidade composta. 
 
-    ![Selecione o encapsulamento da lista](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
-
-3. Selecione a palavra mais à direita. Uma linha verde é exibida embaixo da frase, indicando uma entidade composta.
-
-    ![Selecione a palavra mais à direita](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. Selecione o nome composto `FlightReservation` na lista exibida.
-
-    ![Selecione a entidade composta nomeada](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    Para a última declaração, encapsule `London` e `tomorrow` na entidade composta, usando as mesmas instruções. 
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Captura de tela do LUIS em 'MoveEmployee' com todos os enunciados realçados")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
-O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) até que seja treinado. 
+O LUIS não reconhecerá a nova entidade composta até que o aplicativo seja treinado. 
 
 1. No canto superior direito do site do LUIS, selecione o botão **Train** (Treinar).
 
-    ![Treinar o aplicativo](./media/luis-tutorial-composite-entity/train-button.png)
+    ![Treinar o aplicativo](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. O treinamento é concluído quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
 
-    ![Treinamento bem-sucedido](./media/luis-tutorial-composite-entity/trained.png)
+    ![Treinamento bem-sucedido](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precisa publicar o aplicativo. 
@@ -127,127 +118,202 @@ Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precis
 
 2. Selecione o slot de produção e o botão **Publicar**.
 
-    ![publicar aplicativo](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![publicar aplicativo](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
-3. A publicação estará concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
+## <a name="query-the-endpoint"></a>Consultar o ponto de extremidade 
 1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
 
-    ![Selecionar a URL de ponto de extremidade](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![Selecionar a URL de ponto de extremidade](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
-2. Vá até o final da URL no endereço e insira `reserve 3 seats from London to Cairo on Sunday`. O último parâmetro querystring é `q`, a consulta da declaração. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `BookFlight` com a entidade hierárquica extraída.
+2. Vá até o final da URL no endereço e insira `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`. O último parâmetro querystring é `q`, a consulta da declaração. 
 
-```
+    Esse teste é para verificar se a composição é extraída corretamente, e um teste poderá incluir um enunciado de exemplo existente ou um novo enunciado. Um bom teste é incluir todas as entidades filho na entidade composta.
+
+```JSON
 {
-  "query": "reserve 3 seats from London to Cairo on Sunday",
+  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
+    "intent": "MoveEmployee",
+    "score": 0.9959525
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
+      "intent": "MoveEmployee",
+      "score": 0.9959525
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.009858314
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00728598563
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.0058053555
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005371796
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00266987388
     },
     {
       "intent": "None",
-      "score": 0.227036044
+      "score": 0.00123299169
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00116407464
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00102653319
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0006628214
     }
   ],
   "entities": [
     {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
+      "entity": "march 3 2 p.m",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 41,
+      "endIndex": 54,
       "resolution": {
         "values": [
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2018-03-03 14:00:00"
           },
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2019-03-03 14:00:00"
           }
         ]
       }
     },
     {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
     },
     {
-      "entity": "cairo",
-      "type": "Location::Destination",
+      "entity": "z - 2345",
+      "type": "Locations::Destination",
       "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
+      "endIndex": 36,
+      "score": 0.9690751
     },
     {
-      "entity": "london",
-      "type": "Location::Origin",
+      "entity": "a - 1234",
+      "type": "Locations::Origin",
       "startIndex": 21,
       "endIndex": 26,
-      "score": 0.8933808
+      "score": 0.9713137
+    },
+    {
+      "entity": "-1234",
+      "type": "builtin.number",
+      "startIndex": 22,
+      "endIndex": 26,
+      "resolution": {
+        "value": "-1234"
+      }
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 36,
+      "resolution": {
+        "value": "-2345"
+      }
     },
     {
       "entity": "3",
       "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
+      "startIndex": 47,
+      "endIndex": 47,
       "resolution": {
         "value": "3"
       }
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 50,
+      "endIndex": 50,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+      "type": "requestemployeemove",
+      "startIndex": 5,
+      "endIndex": 54,
+      "score": 0.4027723
     }
   ],
   "compositeEntities": [
     {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
+      "parentType": "requestemployeemove",
+      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
       "children": [
         {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
+          "type": "builtin.datetimeV2.datetime",
+          "value": "march 3 2 p.m"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "type": "Locations::Destination",
+          "value": "z - 2345"
         },
         {
-          "type": "builtin.number",
-          "value": "3"
+          "type": "Employee",
+          "value": "jill jones"
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "type": "Locations::Origin",
+          "value": "a - 1234"
         }
       ]
     }
-  ]
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
 }
 ```
 
-Essa declaração retorna uma matriz de entidades compostas incluindo o objeto **flightreservation** com os dados extraídos.  
+Esse enunciado retorna uma matriz de entidades compostas. Cada entidade recebe um tipo e valor. Para conseguir maior precisão para cada entidade filho, use a combinação de tipo e valor do item da matriz composta para localizar o item correspondente na matriz de entidades.  
 
 ## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
-Esse aplicativo, com apenas duas intenções e uma entidade composta, identificou uma intenção de consulta de linguagem natural e retornou os dados extraídos. 
+Esse aplicativo identificou uma intenção de consulta de linguagem natural e retornou os dados extraídos como um grupo nomeado. 
 
-Agora seu chatbot tem informações suficientes para determinar a ação primária, `BookFlight`, e as informações de reserva encontradas na declaração. 
+O chatbot agora tem informações suficientes para determinar a ação primária e os detalhes relacionados no enunciado. 
 
 ## <a name="where-is-this-luis-data-used"></a>Onde esses dados do LUIS são usados? 
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados da entidade para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
+## <a name="clean-up-resources"></a>Limpar recursos
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o botão de reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
 ## <a name="next-steps"></a>Próximas etapas
-
-[Saiba mais sobre entidades](luis-concept-entity-types.md). 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [!div class="nextstepaction"] 
+> [Saiba mais sobre como adicionar uma entidade simples com uma lista de frases](luis-quickstart-primary-and-secondary-data.md)  

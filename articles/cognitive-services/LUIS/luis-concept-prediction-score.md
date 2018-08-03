@@ -2,19 +2,19 @@
 title: Noções básicas sobre a pontuação de previsão retornada pelo LUIS – Azure | Microsoft Docs
 description: Saiba o que significa pontuação de previsão no LUIS
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265981"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224579"
 ---
 # <a name="prediction-score"></a>Pontuação de previsão
 Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão. 
@@ -28,7 +28,7 @@ Geralmente uma pontuação de previsão está entre 0 (zero) e 1 (um). Um exempl
 |0,01|baixa confiança|
 |0|falha definida na correspondência|
 
-Quando uma declaração resulta em uma pontuação com baixa confiança, o LUIS realça isso na página **Intenção** do site do [LUIS][LUIS], com a **intenção-rotulada** identificada descrita em vermelho. 
+Quando um enunciado resulta em uma classificação de baixa confiança, o LUIS destaca isso na página de [Intenção](luis-reference-regions.md) do site do **LUIS**, com a **intenção-rotulada** identificada destacada em vermelho. 
 
 ![Discrepância da pontuação](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ Quando você treina o mesmo modelo em um aplicativo diferente, e as pontuações
 
 Se o chatbot requerer uma pontuação do LUIS específica para indicar confiança em uma intenção, você deverá usar a diferença de pontuação entre as duas principais intenções. Isso proporciona flexibilidade para variações no treinamento. 
 
+## <a name="punctuation"></a>Pontuação
+Pontuação é um token separado no LUIS. Um enunciado que contém um período no final em comparação com um enunciado que não são dois enunciados separados e pode ter duas previsões diferentes. Certifique-se de que o modelo trate a pontuação nos [enunciados de exemplo](luis-concept-utterance.md) (com e sem pontuação) ou no [patterns}(luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

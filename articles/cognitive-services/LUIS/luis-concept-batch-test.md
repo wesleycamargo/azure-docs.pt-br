@@ -2,19 +2,19 @@
 title: Testar em lote seu aplicativo LUIS - Azure | Microsoft Docs
 description: Use o teste em lote para trabalhar continuamente em seu aplicativo para aprimorá-lo e melhorar o reconhecimento do idioma.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364007"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222646"
 ---
 # <a name="batch-testing-in-luis"></a>Teste em lote no LUIS
 
@@ -34,14 +34,99 @@ Envie um arquivo de declarações em lote, conhecido como *conjunto de dados*, p
 
 *As duplicatas serão consideradas correspondências da cadeia de caracteres exatas, não correspondências sinalizadas com token primeiro. 
 
+## <a name="entities-allowed-in-batch-tests"></a>Entidades permitidas nos testes em lotes
+As entidades incluem pais hierárquicos e composição simples. Todas as entidades desses tipos aparecem no filtro de entidades de teste em lote, mesmo que não haja entidades correspondentes no arquivo em lotes.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>Formato do arquivo em lote
 O arquivo em lote consiste em declarações. Cada declaração deve ter uma previsão de intenção esperada junto com qualquer [entidade aprendida por máquina](luis-concept-entity-types.md#types-of-entities) que você espera detectar. 
 
-Segue um exemplo de arquivo em lote:
+A seguir, é apresentado um exemplo de um arquivo em lotes com a sintaxe adequada:
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>Modelo de sintaxe em lotes
+
+Use o modelo a seguir para iniciar o arquivo em lotes:
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+O arquivo em lotes usa as propriedades **startPos** e **endPos** para observar o início e o fim de uma entidade. Os valores são baseados em zero e não devem iniciar ou terminar em um espaço. 
+
+Isso é diferente dos logs de consulta, que usam as propriedades startIndex e endIndex. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>Erros comuns ao importar um lote
@@ -49,6 +134,7 @@ Os erros comuns incluem:
 
 > * Mais de 1.000 declarações
 > * Um objeto JSON de declaração que não tem uma propriedade de entidades
+> * Palavra(s) rotulada(s) em várias entidades
 
 ## <a name="batch-test-state"></a>Estado do teste em lote
 O LUIS controla o estado do último teste de cada conjunto de dados. Isso inclui o tamanho (número de declarações no lote), data da última execução e último resultado (número de declarações previstas com êxito).

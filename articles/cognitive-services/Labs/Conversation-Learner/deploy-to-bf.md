@@ -10,22 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364211"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171469"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Como implantar um bot Aprendiz de conversa
 
 Este documento explica como implantar um bot Aprendiz de conversa localmente ou no Azure.
 
-## <a name="prerequisite-determine-the-application-id"></a>Pré-requisito: determinar a ID do aplicativo 
+## <a name="prerequisite-determine-the-model-id"></a>Pré-requisito: determinar a ID do modelo 
 
-Para executar um bot fora da interface do usuário do Aprendiz de conversa, você deve definir a ID do aplicativo do Aprendiz de conversa que o bot usará – ou seja, a ID do modelo de aprendizado de máquina na nuvem do Aprendiz de conversa.  (Por contraste, ao executar o bot por meio da interface do usuário do Aprendiz de conversa, a interface do usuário escolhe a ID de aplicativo.)  
+Para executar um bot fora da interface do usuário de Aprendiz de Conversa, será necessário definir a ID do modelo de Aprendiz de Conversa que o bot utilizará -- ou seja, a ID do modelo de aprendizado de máquina na nuvem do Aprendiz de Conversa.  (Por contraste, ao executar o bot por meio da interface do usuário de Aprendiz de Conversa, a interface do usuário escolhe a ID do modelo.).  
 
-Eis como obter a ID do aplicativo:
+A seguir, veja como obter a ID do modelo:
 
 1. Inicie o bot e a interface de usuário do Aprendiz de conversa.  Consulte o guia de início rápido para obter instruções completas. Para resumir:
 
@@ -47,11 +47,11 @@ Eis como obter a ID do aplicativo:
 
 2. Abra o navegador para http://localhost:5050 
 
-3. Clique no aplicativo Aprendiz de conversa para o qual você deseja obter a ID
+3. Clique no modelo de Aprendiz de conversa para o qual você deseja obter a ID
 
 4. Clique em “Configurações” na barra de navegação à esquerda.
 
-5. O GUID “ID do aplicativo” é exibido na parte superior da página.
+5. O GUID da "ID do Modelo" é exibido na parte superior da página.
 
 ## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>Opção 1: implantando um bot Aprendiz de conversa para ser executado localmente
 
@@ -62,7 +62,7 @@ Isso implanta um bot em seu computador local e mostra como acessá-lo usando o e
 Ao executar um bot localmente, adicione a ID do aplicativo ao arquivo `.env` do bot:
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 Em seguida, inicie o bot:
@@ -116,8 +116,8 @@ Abaixo estão instruções passo a passo para implantar um bot de Aprendiz de co
         Variável de ambiente | value
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | GUID da ID de aplicativo, obtida da interface do usuário do Aprendiz de conversa em “configurações” do aplicativo>
-        LUIS_AUTHORING_KEY               | Chave de criação do LUIS para este aplicativo
+        CONVERSATION_LEARNER_MODEL_ID      | GUID da ID do aplicativo, obtida da interface do usuário do Aprendiz de Conversa em “configurações” do modelo>
+        LUIS_AUTHORING_KEY               | Chave de criação de LUIS para esse modelo
     
     4. Clique em “Salvar” na parte superior da página
     5. Abra o item de navegação “Build” à esquerda

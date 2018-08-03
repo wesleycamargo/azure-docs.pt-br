@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 102bd0e916491738d74956c209829008d779bcbf
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 927a02b400c7a7b250b315ad5668feb198fd590a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364267"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005682"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exemplos de uso de insights do Bing
 
@@ -61,7 +61,7 @@ O exemplo a seguir mostra como o Bing pode exibir pesquisas relacionadas de imag
 
 ## <a name="entity-insight-example"></a>Exemplo de insight de entidade
 
-O exemplo a seguir mostra como o Bing pode exibir informações sobre a entidade (pessoa, lugar ou coisa) mostrada na imagem. Se o usuário clicar no link da entidade, o usuário levado à página de resultados da pesquisa de Bing.com para essa entidade.
+O exemplo a seguir mostra como o Bing pode exibir informações sobre a entidade (pessoa, lugar ou coisa) mostrada na imagem. Se o usuário clicar no link da entidade, o usuário será direcionado para a página de resultados de pesquisa Bing.com da entidade.
 
 ![Entidade mostrada na imagem](./media/entity.PNG)
 

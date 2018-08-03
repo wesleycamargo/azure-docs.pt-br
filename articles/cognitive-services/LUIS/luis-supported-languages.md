@@ -2,19 +2,19 @@
 title: Suporte à localização usando aplicativos LUIS no Azure | Microsoft Docs
 description: Saiba mais sobre os idiomas com suporte do LUIS.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: 1eabc01ee07f8791680738a156471e3efe2c44ff
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35364913"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248410"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Reconhecimento de especificidades da cultura em aplicativos LUIS
 
@@ -59,7 +59,7 @@ O suporte aos idiomas varia para [entidades predefinidas](luis-reference-prebuil
      - です não é o mesmo que だ. 
 
 ### <a name="text-analytics-support-notes"></a>**Notas de suporte a análises de texto
-Só há suporte para subculturas em português: `pt-PT` e `pt-BR`. Todas as outras culturas têm suporte no nível de cultura principal. Saiba mais sobre os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) da Análise de Texto. 
+A análise de texto inclui análise de sentimento e entidade pré-compilada keyPhrase. Só há suporte para subculturas em português: `pt-PT` e `pt-BR`. Todas as outras culturas têm suporte no nível de cultura principal. Saiba mais sobre os [idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) da Análise de Texto. 
 
 ### <a name="speech-api-supported-languages"></a>Idiomas com suporte da API de Fala
 Veja [Idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) de Fala para idiomas no modo de ditado de Fala.

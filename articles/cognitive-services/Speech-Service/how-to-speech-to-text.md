@@ -8,14 +8,14 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 878a31992415b1f8688afcfb186fcd94ce2567b4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 26cecedfc3ad2d472b9686e25054fe08253cee77
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35364942"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068515"
 ---
 # <a name="use-speech-to-text-in-the-speech-service"></a>Usar a "Conversão de Fala em Texto" no serviço de Fala
 
@@ -23,16 +23,14 @@ Você pode usar a **Conversão de Fala em Texto** em seus aplicativos de duas ma
 
 | Método | DESCRIÇÃO |
 |-|-|
-| [SDK](speech-sdk.md) | Método mais simples para desenvolvedores em C/C++, C# e Java* |
+| [SDK](speech-sdk.md) | Método mais simples para desenvolvedores em C/C++, C# e Java |
 | [REST](rest-apis.md) | Reconhecer declarações curtas usando uma solicitação HTTP POST | 
-
-\* *O SDK do Java faz parte do [SDK dos Dispositivos de Fala](speech-devices-sdk.md).*
 
 ## <a name="using-the-sdk"></a>Usar o SDK
 
 O [SDK de Fala](speech-sdk.md) fornece a maneira mais simples de usar a **Conversão de Fala em Texto** em seu aplicativo com a funcionalidade completa.
 
-1. Crie um alocador de fala, fornecendo uma chave de assinatura do serviço de Fala ou um token de autorização. Neste ponto, você também pode configurar opções, como o idioma de reconhecimento ou um ponto de extremidade personalizado, para seus próprios modelos de reconhecimento de fala.
+1. Crie um alocador de fala, fornecendo uma chave de assinatura do serviço de Fala e [região](regions.md) ou um token de autorização. Neste ponto, você também pode configurar opções, como o idioma de reconhecimento ou um ponto de extremidade personalizado, para seus próprios modelos de reconhecimento de fala.
 
 2. Obter um reconhecedor do alocador. Há três tipos diferentes de reconhecedores disponíveis. Cada tipo de reconhecedor pode usar o microfone padrão do dispositivo, um fluxo de áudio ou áudio de um arquivo.
 
@@ -47,6 +45,8 @@ O [SDK de Fala](speech-sdk.md) fornece a maneira mais simples de usar a **Conver
 4. Associa eventos para operação assíncrona, se você quiser. Depois, o reconhecedor chama seus manipuladores de eventos quando houver resultados intermediários e finais. Caso contrário, o aplicativo receberá um resultado de transcrição final.
 
 5. Iniciar reconhecimento.
+   Para reconhecimento de único disparo, como comando ou reconhecimento de consulta, use `RecognizeAsync()`, que retorna o primeiro enunciado sendo reconhecido.
+   Para reconhecimento de execução longa, como transcrição, use `StartContinuousRecognitionAsync()` e vincule os eventos para resultados de reconhecimento assíncrono.
 
 ### <a name="sdk-samples"></a>Amostras do SDK
 
@@ -59,10 +59,11 @@ A API REST é a maneira mais simples de reconhecer a fala se você não estiver 
 > [!NOTE]
 > As declarações ficam limitadas a 15 segundos ou menos ao usar a API REST.
 
-
 Para saber mais sobre a API REST de **Conversão de Fala em Texto**, veja [APIs REST](rest-apis.md#speech-to-text). Para vê-los em ação, baixe os [exemplos de API REST](https://github.com/Azure-Samples/SpeechToText-REST) do GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-- [Como reconhecer fala no C#](quickstart-csharp-windows.md)
+- [Como reconhecer a fala em C++](quickstart-cpp-windows.md)
+- [Como reconhecer fala no C#](quickstart-csharp-dotnet-windows.md)
+- [Como reconhecer fala em Java](quickstart-java-android.md)

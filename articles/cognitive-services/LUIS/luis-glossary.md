@@ -2,19 +2,19 @@
 title: Glossário do serviço de API do LUIS (Reconhecimento vocal) | Microsoft Docs
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265380"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225499"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -72,7 +72,7 @@ No contexto do LUIS, um **domínio** é uma área de conhecimento. Seu domínio 
 
 ## <a name="endpoint"></a>Ponto de extremidade
 
-A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. É possível localizar o ponto de extremidade na página **[Publicar](publishapp.md)** do seu aplicativo, na tabela Recursos e Chaves ou é possível obter a URL de ponto de extremidade na API [Obter informações do aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+A URL do [ponto de extremidade LUIS](https://aka.ms/luis-endpoint-apis) é onde você envia consultas LUIS após o [aplicativo LUIS](#luis-app) ser criado e publicado. A URL de ponto de extremidade contém a região do aplicativo publicado, bem como a ID do aplicativo. É possível localizar o ponto de extremidade na página **[Publicar](luis-how-to-publish-app.md)** do seu aplicativo, na tabela Recursos e Chaves ou é possível obter a URL de ponto de extremidade na API [Obter informações do aplicativo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Um exemplo de ponto de extremidade tem a seguinte aparência:
 
@@ -82,7 +82,7 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 |--|--|
 |region| [região publicada](luis-reference-regions.md#publishing-regions) |
 |appID | ID do aplicativo LUIS |
-|subscriptionID | Chave de assinatura do LUIS criada no portal do Azure |
+|subscriptionID | Chave de ponto de extremidade (assinatura) de LUIS criada no portal do Azure |
 |q | utterance |
 |timezoneOffset| minutes|
 
@@ -92,15 +92,15 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 
 ## <a name="f-measure"></a>Medida F
 
-No [teste de lote][batch-testing], uma medida da precisão do teste.
+No [teste de lote](luis-interactive-test.md#batch-testing), uma medida da precisão do teste.
 
 ## <a name="false-negative"></a>Falso negativo (TN)
 
-No [teste de lote][batch-testing], os pontos de dados representam declarações nas quais seu aplicativo previa incorretamente a ausência da intenção/entidade de destino.
+No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a ausência de entidade/intenção de destino.
 
 ## <a name="false-positive"></a>Falso positivo Marcar como falso positivo(TP)
 
-No [teste de lote][batch-testing], os pontos de dados representam declarações nas quais seu aplicativo previa incorretamente a existência da intenção/entidade de destino.
+No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a existência de entidade/intenção de destino.
 
 ## <a name="features"></a>Recursos
 
@@ -135,10 +135,10 @@ Um [domínio predefinido](luis-how-to-use-prebuilt-domains.md) é um aplicativo 
 
 ## <a name="prebuilt-entity"></a>Entidade predefinida
 
-Uma [entidade predefinida](pre-builtentities.md) é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Opte por adicionar uma entidade predefinida ao seu aplicativo. 
+Uma [entidade predefinida](luis-prebuilt-entities.md) é um LUIS de entidade que fornece tipos comuns de informações, como número, URL e email. Opte por adicionar uma entidade predefinida ao seu aplicativo. 
 
 ## <a name="precision"></a>Precisão
-No [teste de lote][batch-testing], a precisão (também chamada de valor preditivo positivo) é a fração de declarações relevantes entre as declarações recuperadas.
+No [teste de lote](luis-interactive-test.md#batch-testing), a precisão (também chamada de valor preditivo positivo) é a fração de enunciados relevantes entre os enunciados recuperados.
 
 ## <a name="programmatic-key"></a>Chave programática
 
@@ -153,7 +153,7 @@ Publicar significa tornar uma [versão ativa](#active-version) do LUIS disponív
 A cota LUIS é a limitação do [nível de assinatura do Azure](https://aka.ms/luis-price-tier). A cota LUIS pode ser limitada por solicitações por segundo (HTTP Status 429) e solicitações totais em um mês (HTTP Status 403). 
 
 ## <a name="recall"></a>Recuperação
-No [teste de lote][batch-testing], a recuperação (também conhecida como sensibilidade), é a capacidade do LUIS de generalizar. 
+No [teste de lote](luis-interactive-test.md#batch-testing), recall (também conhecido como sensibilidade) é a capacidade de generalização do LUIS. 
 
 ## <a name="semantic-dictionary"></a>Dicionário semântico
 Um dicionário semântico é fornecido na página Entidade de lista e na página Lista de frases. O dicionário semântico fornece sugestões de palavras com base no escopo atual.
@@ -163,11 +163,11 @@ A Análise de sentimento fornece valores positivos ou negativos das declaraçõe
 
 ## <a name="speech-priming"></a>Preparação da fala
 
-A preparação da fala permite que seu serviço de fala seja preparado com seu modelo LUIS. Confira [Habilitar preparação da fala ](publishapp.md#enable-speech-priming).
+A preparação da fala permite que seu serviço de fala seja preparado com seu modelo LUIS. Confira [Habilitar preparação da fala ](luis-how-to-publish-app.md#enable-speech-priming).
 
 ## <a name="spelling-correction"></a>Correção ortográfica
 
-Na página Publicar, habilite a [Verificação Ortográfica do Bing](publishapp.md#enable-bing-spell-checker) para corrigir palavras com ortografia incorreta nas declarações antes da previsão. 
+Na página Publicar, habilite a [Verificação Ortográfica do Bing](luis-how-to-publish-app.md#enable-bing-spell-checker) para corrigir palavras com ortografia incorreta nas declarações antes da previsão. 
 
 ## <a name="starter-key"></a>Chave de início
 
@@ -175,11 +175,11 @@ O mesmo que [chave programática](#programmatic-key), renomeada para Chave de cr
 
 ## <a name="subscription-key"></a>Chave de assinatura
 
-A chave de assinatura é a chave associada ao serviço LUIS [criado no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de assinatura, ela deverá ser usada para quaisquer solicitações de ponto de extremidade, em vez da chave de criação. É possível ver sua chave de assinatura atual dentro da URL de ponto de extremidade na parte inferior da página [**Publicar Aplicativo** no](publishapp.md) site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**. 
+A chave de assinatura é a chave de **ponto de extremidade** associada ao serviço de LUIS [criado no Azure](luis-how-to-azure-subscription.md). Essa chave não é a [chave de criação](#programmatic-key). Se você tiver uma chave de ponto de extremidade, ela deverá ser usada para qualquer solicitação de ponto de extremidade, em vez da chave de criação. É possível ver a chave de ponto de extremidade atual dentro da URL do ponto de extremidade na parte inferior da página [**Publicar Aplicativo** no ](luis-how-to-publish-app.md) site do [LUIS](luis-reference-regions.md). É o valor do par nome/valor de **subscription-key**. 
 
 ## <a name="test"></a>Testar
 
-[Testar](interactive-test.md#test-your-app) um aplicativo LUIS significa passar uma declaração para o LUIS e exibir os resultados JSON.
+[Testar](luis-interactive-test.md#test-your-app) um aplicativo LUIS significa passar uma declaração para o LUIS e exibir os resultados JSON.
 
 ## <a name="timezoneoffset"></a>Diferença de fuso horário
 
@@ -196,11 +196,11 @@ Treinamento é o processo de ensinar ao LUIS as alterações na [versão ativa](
 
 ## <a name="true-negative"></a>Negativo verdadeiro (TN)
 
-No [teste de lote][batch-testing], os pontos de dados representam declarações nas quais seu aplicativo previa corretamente a ausência da intenção/entidade de destino.
+No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu corretamente a ausência de entidade/intenção de destino.
 
 ## <a name="true-positive"></a>Positivo verdadeiro (TP)
 
-No [teste de lote][batch-testing], os pontos de dados representam declarações nas quais seu aplicativo previa corretamente a existência da intenção/entidade de destino.
+No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu corretamente a existência de entidade/intenção de destino.
 
 ## <a name="utterance"></a>Declaração
 
@@ -209,5 +209,3 @@ Uma declaração é a frase de linguagem natural como "reservar 2 passagens para
 ## <a name="version"></a>Versão
 
 Uma [versão](luis-how-to-manage-versions.md) do LUIS é um modelo de dados específico associado à ID do aplicativo LUIS e ao ponto de extremidade publicado. Todo aplicativo LUIS tem pelo menos uma versão.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

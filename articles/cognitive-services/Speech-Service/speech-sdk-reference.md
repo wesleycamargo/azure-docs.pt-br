@@ -10,28 +10,21 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e0037cc8701c88325c3d55f6b3ab0eccf2fbd28
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ee7cc2db7ad6e2914d3916ad1aa578a9746e287
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364252"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072224"
 ---
 # <a name="speech-sdk-reference"></a>Referência de SDK de Fala
 
-O Software Development Kit (SDK) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso para **Conversão de fala em texto** e **Tradução de fala**. A Conversão de texto em fala emprega chamadas da [REST] (https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) POST via HTTP.
+O Software Development Kit (SDK) de Fala fornece o acesso de aplicativos às funções do serviço de Fala, tornando mais fácil desenvolver um software habilitado para fala. Atualmente, os SDKs fornecem acesso a **Conversão de Fala em Texto**, **Tradução de Fala** e **Reconhecimento de Intenção**.
 
-A tabela a seguir descreve os sistemas operacionais e linguagens de programação com suporte no momento.
-
-|Linguagem de programação|Plataforma|Referência de API|
-|-|-|-|
-|C#|Windows|[Browse](https://aka.ms/csspeech/csharpref)
-|C/C++|Windows, Linux|[Browse](https://aka.ms/csspeech/cppref)
-|Java\*|Dispositivos|[Browse](https://aka.ms/csspeech/javaref)
-
-\* *O SDK de Java é parte do [SDK dos Dispositivos de Fala](speech-devices-sdk.md).*
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Experimente o serviço de Fala gratuitamente](get-started.md)
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala no C#](quickstart-csharp-windows.md)
+* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)

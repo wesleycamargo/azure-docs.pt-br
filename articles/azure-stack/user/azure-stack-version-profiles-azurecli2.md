@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866851"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436702"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure 2.0 no Azure Stack
 
@@ -38,7 +38,7 @@ Você deve ver a versão da CLI do Azure e outras bibliotecas dependentes instal
 
 1. Obter o certificado de raiz da autoridade de certificação do Azure Stack da [seu operador do Azure Stack](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) e confiar nele. Para confiar no certificado de raiz da autoridade de certificação do Azure Stack, acrescente-o para o certificado existente do Python.
 
-2. Localize o certificado em seu computador. O local pode variar, dependendo de onde você instalou o Python. Você precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Você pode usar o seguinte comando do Python a partir do prompt do bash:
+1. Localize o certificado em seu computador. O local pode variar, dependendo de onde você instalou o Python. Você precisará ter [pip](https://pip.pypa.io) e o [certifi](https://pypi.org/project/certifi/) módulo instalado. Você pode usar o seguinte comando do Python a partir do prompt do bash:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ Se você estiver executando a CLI de um computador **fora** o ambiente do Azure 
 
 1. Você deve configurar [conectividade VPN para o Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Copie o certificado PEM que você obteve do operador do Azure Stack e anote o local do arquivo (PATH_TO_PEM_FILE).
+1. Copie o certificado PEM que você obteve do operador do Azure Stack e anote o local do arquivo (PATH_TO_PEM_FILE).
 
-3. Execute os seguintes comandos, dependendo do final em um sistema de operacional da estação de trabalho seu desenvolvimento.
+1. Execute os seguintes comandos, dependendo do final em um sistema de operacional da estação de trabalho seu desenvolvimento.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Use as seguintes etapas para se conectar ao Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. Defina o ambiente ativo, usando os comandos a seguir.
+1. Defina o ambiente ativo, usando os comandos a seguir.
 
    a. Para o *nuvem administrativa* ambiente, use:
 
@@ -156,14 +156,14 @@ Use as seguintes etapas para se conectar ao Azure Stack:
         -n AzureStackUser
       ```
 
-3. Atualize a configuração do seu ambiente para usar o perfil de versão de API específico do Azure Stack. Para atualizar a configuração, execute o seguinte comando:
+1. Atualize a configuração do seu ambiente para usar o perfil de versão de API específico do Azure Stack. Para atualizar a configuração, execute o seguinte comando:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Entre seu ambiente do Azure Stack usando o `az login` comando. Você pode entrar no ambiente do Azure Stack como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Entre seu ambiente do Azure Stack usando o `az login` comando. Você pode entrar no ambiente do Azure Stack como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Entrar como um *usuário*: você pode especificar o nome de usuário e senha diretamente dentro de `az login` de comando ou autenticar usando um navegador. Você precisa fazer o último se sua conta tiver a autenticação multifator habilitada.
 

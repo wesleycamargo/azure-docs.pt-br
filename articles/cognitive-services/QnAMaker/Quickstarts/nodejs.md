@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 79723a914fd41b0197b4d59a6a83304e233d3f64
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301529"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868167"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Início rápido para API de QnA Maker da Microsoft com Node.js 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ O código a seguir cria uma nova base de dados conhecimento, usando o método [C
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -207,7 +207,7 @@ create_kb (path, content, function (result) {
 
 **Criar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -246,7 +246,7 @@ O código a seguir atualiza uma base de dados de conhecimento existente, usando 
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -407,7 +407,7 @@ update_kb (path, content, function (result) {
 
 **Atualizar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -447,7 +447,7 @@ O código a seguir publica uma base de dados de conhecimento existente, usando o
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -541,7 +541,7 @@ publish_kb (path, '', function (result) {
 
 **Publicar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -559,7 +559,7 @@ O código a seguir substitui o conteúdo da base de dados de conhecimento especi
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -674,7 +674,7 @@ replace_kb (path, content, function (result) {
 
 **Substituir resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -692,7 +692,7 @@ O código a seguir baixa o conteúdo da base de dados de conhecimento especifica
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -780,7 +780,7 @@ get_qna (path, function (result) {
 
 **Baixar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -924,7 +924,7 @@ get_answers (method, content, function (result) {
 
 **Obter resposta da pergunta**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -954,7 +954,7 @@ O código a seguir obtém informações sobre a base de dados de conhecimento es
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1039,7 +1039,7 @@ get_kb (path, function (result) {
 
 **Obter resposta dos detalhes da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1069,7 +1069,7 @@ O código a seguir obtém informações sobre todas as bases de dados de conheci
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1151,7 +1151,7 @@ get_kbs (path, function (result) {
 
 **Obter bases de dados de conhecimento para resposta do usuário**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1197,7 +1197,7 @@ O código a seguir exclui a base de dados de conhecimento especificada, usando o
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1291,7 +1291,7 @@ delete_kb (path, '', function (result) {
 
 **Excluir resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1309,7 +1309,7 @@ O código a seguir obtém as chaves do ponto de extremidade atual, usando o mét
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1391,7 +1391,7 @@ get_keys (path, function (result) {
 
 **Obter resposta de chaves do ponto de extremidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1410,7 +1410,7 @@ O código a seguir gera novamente as chaves do ponto de extremidade atual, usand
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1517,7 +1517,7 @@ refresh_keys (path, content, function (result) {
 
 **Atualizar resposta de chaves do ponto de extremidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1536,7 +1536,7 @@ O código a seguir obtém as alterações de palavras atuais, usando o método [
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1618,7 +1618,7 @@ get_alterations (path, function (result) {
 
 **Obter resposta de alterações de palavras**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1643,7 +1643,7 @@ O código a seguir substitui as alterações de palavras atuais, usando o métod
 
 1. Crie um novo projeto Node.js no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```nodejs
@@ -1747,7 +1747,7 @@ put_alterations (path, content, function (result) {
 
 **Substituir resposta de alterações de palavras**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {

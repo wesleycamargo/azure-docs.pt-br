@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364801"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858452"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (Node.js)
 
@@ -34,12 +34,16 @@ Para concluir este início rápido, você precisa de:
 Para chamar o ponto de extremidade da Pesquisa Personalizada do Bing, siga estas etapas:
 
 1. Crie uma pasta para o código.
+
 2. Em um prompt de comando ou terminal, navegue até a pasta que você acabou de criar.
+
 3. Instale o módulo do nó de **solicitação**:
     <pre>
     npm install request
     </pre>
+    
 4. Crie o arquivo BingCustomSearch.js e copie o seguinte código para ele.
+
 5. Substitua **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** com a chave e ID de configuração (consulte a etapa 1).
 
     ``` javascript

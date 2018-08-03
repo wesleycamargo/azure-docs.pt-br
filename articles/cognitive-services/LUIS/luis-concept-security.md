@@ -2,25 +2,25 @@
 title: Entender o acesso a aplicativos LUIS – Azure | Microsoft Docs
 description: Saiba como acessar a criação do LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 44380e12e6d095e8d40675af0b6b2fddc5e4c4e9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264260"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223772"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acesso de criação e do usuário de ponto de extremidade
 O acesso de criação está disponível para proprietários e colaboradores. Para um aplicativo privado, o acesso de ponto de extremidade está disponível para proprietários e colaboradores. Para um aplicativo público, o acesso de ponto de extremidade está disponível a todos que têm sua conta LUIS e que tem a ID do aplicativo público. 
 
 ## <a name="access-to-authoring"></a>Acesso à criação
-O acesso ao aplicativo do site do [LUIS][LUIS] ou às [APIs de criação](https://aka.ms/luis-authoring-apis) é controlado pelo proprietário do aplicativo. 
+O acesso ao aplicativo do site do [LUIS](luis-reference-regions.md#luis-website) ou às [APIs de criação](https://aka.ms/luis-authoring-apis) é controlado pelo proprietário do aplicativo. 
 
 O proprietário e todos os colaboradores têm acesso para criar o aplicativo. 
 
@@ -33,7 +33,7 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |Tornar um aplicativo público|Quando um aplicativo for público, qualquer pessoa com uma chave de criação ou de ponto de extremidade poderá consultá-lo.|
 |Modificar modelo|
 |Publicar|
-|Examinar declarações de ponto de extremidade para [aprendizado ativo](label-suggested-utterances.md)|
+|Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endoint-utt.md)|
 |Treinar|
 
 ## <a name="access-to-endpoint"></a>Acesso ao ponto de extremidade
@@ -50,7 +50,7 @@ O ponto de extremidade de um aplicativo privado está disponível para o seguint
 |--|--|--|
 |Chave de criação do proprietário| Até 1000 ocorrências de ponto de extremidade|
 |Chaves de criação dos colaboradores| Até 1000 ocorrências de ponto de extremidade|
-|Chaves de ponto de extremidade adicionadas da página **[Publicar](publishapp.md)**|O proprietário e os colaboradores podem adicionar chaves de ponto de extremidade|
+|Chaves de ponto de extremidade adicionadas da página **[Publicar](luis-how-to-publish-app.md)**|O proprietário e os colaboradores podem adicionar chaves de ponto de extremidade|
 
 Outras chaves de criação ou de ponto de extremidade **não** têm acesso.
 
@@ -61,6 +61,8 @@ Um usuário que não é proprietário ou colaborador só poderá acessar um apli
 
 ## <a name="microsoft-user-accounts"></a>Contas de usuário Microsoft
 Autores e colaboradores podem adicionar chaves ao LUIS na página de publicação. A conta de usuário Microsoft que cria a chave LUIS no portal do Azure precisa do proprietário do aplicativo ou de um colaborador de aplicativo. 
+
+Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
 
 <!--
 ### Individual consent
@@ -78,5 +80,3 @@ O LUIS concluiu com sucesso a auditoria ISO 27001:2013 e ISO 27018:2014 com ZERO
 ## <a name="next-steps"></a>Próximas etapas
 
 Confira [Melhores práticas](luis-concept-best-practices.md) para saber como usar intenções e entidades para obter as melhores previsões.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

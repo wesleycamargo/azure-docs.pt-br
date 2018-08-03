@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364523"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008103"
 ---
 # <a name="what-is-bing-entity-search"></a>O que é a Pesquisa de Entidade do Bing?
 
@@ -45,6 +45,8 @@ Para obter uma solicitação de exemplo, confira [Fazendo sua primeira solicita�
 ## <a name="the-response"></a>A resposta
 
 A resposta contém um objeto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse). Se o Bing encontrar uma entidade ou um lugar relevante, o objeto incluirá o campo `entities`, o campo `places` ou ambos. Caso contrário, o objeto de resposta não incluirá nenhum dos campos.
+> [!NOTE]
+> As respostas de entidade dão suporte a vários mercados, mas a resposta de Locais dá suporte somente a locais de negócios dos EUA. 
 
 O campo `entities` é um objeto [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) que contém uma lista de objetos [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) (confira o campo `value`). A lista pode conter uma única entidade dominante, várias entidades de desambiguidade ou ambas. 
 
@@ -189,6 +191,8 @@ Os lugares incluem restaurantes, hotéis ou empresas locais. O campo [entityPres
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> As respostas de entidade dão suporte a vários mercados, mas a resposta de Locais dá suporte somente a locais de negócios dos EUA. 
 
 Consultas de entidade com reconhecimento de local como *restaurante próximo ao meu local* exigem o local do usuário para fornecer resultados precisos. As solicitações sempre devem usar os cabeçalhos X-Search-Location e X-MSEdge-ClientIP para especificar o local do usuário. Se o Bing considerar que a consulta pode se beneficiar do local do usuário, ele definirá o campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext) como **true**. 
 
@@ -237,7 +241,7 @@ Um resultado de local inclui o nome, o endereço, o número de telefone e a URL 
 
 As respostas da API de Entidade do Bing contêm informações pertencentes a terceiros. Você é responsável por garantir o uso apropriado, por exemplo, respeitando qualquer licença Creative Commons da qual sua experiência do usuário pode depender.
 
-Se uma resposta ou um resultado incluir os campos `contractualRules`, `attributions` ou `provider`, você precisará atribuir os dados. Se a resposta não incluir nenhum desses campos, nenhuma atribuição será necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, você precisará usar as regras contratuais para atribuir os dados.
+Se uma resposta ou um resultado incluir os campos `contractualRules`, `attributions` ou `provider`, os dados precisarão ser atribuídos. Se a resposta não incluir nenhum desses campos, nenhuma atribuição será necessária. Se a resposta incluir o campo `contractualRules` e os campos `attributions` e/ou `provider`, você precisará usar as regras contratuais para atribuir os dados.
 
 O exemplo a seguir mostra uma entidade que inclui uma regra contratual MediaAttribution e uma Image que inclui um campo `provider`. A regra MediaAttribution identifica a imagem como o destino da regra e, portanto, você ignorará o campo `provider` da imagem e, em vez disso, usará a regra MediaAttribution para fornecer a atribuição.  
 
@@ -311,7 +315,7 @@ Veja a seguir um exemplo que inclui regras `LinkAttribution` e `TextAttribution`
 
 ### <a name="media-attribution"></a>Atribuição de mídia
 
-Se a entidade incluir uma imagem e você exibi-la, você precisará fornecer um link clickthrough para o site do provedor. Se a entidade incluir uma regra [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution), use a URL da regra para criar o link clickthrough. Caso contrário, use a URL incluída no campo `provider` da imagem para criar o link clickthrough.
+Se a entidade incluir uma imagem e você exibi-la, você precisará fornecer um link clickthrough para o site do provedor. Se a entidade incluir uma regra [MediaAttribution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mediaattribution), use a URL da regra para criar o link para clicar. Caso contrário, use a URL incluída no campo `provider` da imagem para criar o link para clicar.
 
 Veja a seguir um exemplo que inclui o campo `provider` e as regras contratuais de uma imagem. Como o exemplo inclui a regra contratual, ignore o campo `provider` da imagem e aplique a regra `MediaAttribution`.
 

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363788"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049874"
 ---
 # <a name="moderate-text-using-net"></a>Moderar texto usando .NET
 
@@ -26,7 +26,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 
 Este artigo pressupõe que você já esteja familiarizado com o Visual Studio e o C#.
 
-## <a name="sign-up-for-content-moderator-services"></a>Inscreva-se nos serviços do Content Moderator
+## <a name="sign-up-for-content-moderator-services"></a>Inscrever-se nos serviços do Content Moderator
 
 Antes de usar os serviços do Content Moderator por meio da API REST ou o SDK, você precisa de uma chave de assinatura.
 Consulte o [Início Rápido](quick-start.md) para saber como você pode obter a chave.
@@ -49,9 +49,9 @@ Instale os seguintes pacotes NuGet:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Atualizar as instruções using do programa
+### <a name="update-the-programs-using-statements"></a>Atualizar as instruções de uso do programa
 
-Modificar as instruções using do programa.
+Modifique as instruções de uso do programa.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -63,7 +63,7 @@ Modificar as instruções using do programa.
     using System.Threading;
 
 
-### <a name="initialize-application-specific-settings"></a>Inicializar as configurações específicas do aplicativo
+### <a name="initialize-application-specific-settings"></a>Inicialize as configurações específicas do aplicativo
 
 Adicione os seguintes campos estáticos à classe **Program** em Program.cs.
 
@@ -117,11 +117,11 @@ Adicione o código a seguir ao método **Main**.
     }
 
 > [!NOTE]
-> Sua chave do serviço Content Moderator tem um limite de taxa solicitações por segundo (RPS) e, se você exceder o limite, o SDK gera uma exceção com um código de erro 429.
+> A chave de serviço do Content Moderator tem um limite de taxa RPS (solicitações por segundo) e, se o limite exceder, o SDK lançará uma exceção com um código de erro 429.
 >
-> Uma chave de camada gratuita tem um limite de taxa RPS.
+> Ao usar uma chave de camada gratuita, a taxa de solicitações é limitada a uma solicitação por segundo.
 
-## <a name="run-the-program-and-review-the-output"></a>Execute o programa e analise a saída
+## <a name="run-the-program-and-review-the-output"></a>Executar o programa e analisar a saída
 
 A saída de exemplo para o programa, como gravada no arquivo de log, é:
 
@@ -211,4 +211,4 @@ A saída de exemplo para o programa, como gravada no arquivo de log, é:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Baixar a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido do Content Moderator para .NET e começar a integração.
+[Fazer o download da a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido do Content Moderator para .NET e começar a integração.

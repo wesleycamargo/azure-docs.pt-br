@@ -2,19 +2,19 @@
 title: Testar seu aplicativo LUIS em lote – Azure | Microsoft Docs
 description: Use o teste de lote do LUIS (Reconhecimento vocal) para localizar declarações com intenções e entidades incorretas.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265506"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223574"
 ---
 # <a name="batch-testing"></a>Teste de lote
  O teste de lote é um teste abrangente em seu modelo treinado atual para medir seu desempenho no LUIS. 
@@ -26,7 +26,7 @@ ms.locfileid: "36265506"
 
     ![Link de teste de lote](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. Selecione **Importar conjunto de dados**. A caixa de diálogo **Importar novo conjunto de dados** é exibida. Selecione **Escolher arquivo** e localize o arquivo [JSON](luis-concept-batch-test.md#batch-file-format) que contenha *no máximo 1.000* declarações para serem testadas.
+2. Selecione **Importar conjunto de dados**. A caixa de diálogo **Importar novo conjunto de dados** é exibida. Selecione **Escolher Arquivo** e localize um arquivo JSON com o [formato JSON](luis-concept-batch-test.md#batch-file-format) correto que contenha *no máximo 1.000* enunciados para testar.
 
     ![Importar arquivo de conjunto de dados](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265506"
 4. Selecione **Concluído**. O arquivo de conjunto de dados é adicionado.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>Executar, renomear, exportar ou excluir o conjunto de dados
-Para executar, renomear, exportar ou excluir o conjunto de dados, use as reticências (**...**) ao final da linha do conjunto de dados.
+Para executar, renomear, exportar ou excluir o conjunto de dados, use o botão de reticências (***...***) no final da linha do conjunto de dados.
 
 ![Ações do conjunto de dados](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -77,13 +77,6 @@ Para filtrar o gráfico por uma intenção ou entidade específica, selecione a 
  
 ![Resultado do teste de lote visualizado](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>Exibir dados de declaração de ponto único
 No gráfico, passe o mouse sobre um ponto de dados para ver a pontuação de certeza de sua previsão. Selecione um ponto de dados para recuperar sua declaração correspondente na lista de declarações na parte inferior da página. 
 
@@ -107,16 +100,7 @@ As duas seções do gráfico em verde corresponderam à previsão esperada.
 
 Se o teste indica que seu aplicativo LUIS não reconhece as intenções e entidades corretas, é possível trabalhar para melhorar o desempenho do seu aplicativo LUIS rotulando mais declarações ou adicionando recursos. 
 
-* [Declarações sugeridas de rótulo com o LUIS](Label-Suggested-Utterances.md) 
+* [Declarações sugeridas de rótulo com o LUIS](luis-how-to-review-endoint-utt.md) 
 * [Usar recursos para melhorar o desempenho do aplicativo LUIS](luis-how-to-add-features.md) 
 * [Noções básicas sobre o teste de lote com esse tutorial](luis-tutorial-batch-testing.md)
 * [Aprenda conceitos de teste de lote](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

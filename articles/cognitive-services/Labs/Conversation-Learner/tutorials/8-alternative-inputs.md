@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2214436b193932e5b3b80c190f7754a0436b7ed8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364264"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171010"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Como usar entradas alternativas
 
 Este tutorial mostra como usar o campo “entradas alternativas” para a entrada do usuário na interface de ensino.
+
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Requisitos
 Este tutorial exige que o bot de tutorial geral esteja em execução
@@ -31,9 +35,9 @@ Este tutorial exige que o bot de tutorial geral esteja em execução
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-the-application"></a>Criar o aplicativo
+### <a name="create-the-model"></a>Criar o modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em Nome, digite AlternativeInputs. Em seguida, clique em Criar.
 
 ### <a name="create-an-entity"></a>Criar uma entidade
@@ -75,7 +79,7 @@ Agora você tem três ações.
 3. Clique duas vezes em "denver" e selecione a cidade.
     - Isso a marca como uma entidade de cidade.
 5. Clique em Ações de Pontuação
-    - Observe que denver agora está presente na entidade city. 
+    - 'denver' agora está presente na entidade da cidade. 
 6. Selecione "O clima em $city é provavelmente ensolarado".
 7. Clique em Ensino Concluído.
 
@@ -88,7 +92,7 @@ Adicione outro exemplo de diálogo:
 3. Clique duas vezes em "seattle" e selecione a cidade.
     - Isso a marca como uma entidade de cidade.
 5. Clique em Ações de Pontuação
-    - Observe que seattle agora está presente na entidade city. 
+    - 'seattle' agora está presente na entidade da cidade. 
 6. Selecione "O clima em $city é provavelmente ensolarado".
 7. Clique em Ensino Concluído.
 
@@ -97,7 +101,7 @@ Vamos ver o que acontece se o usuário diz algo semanticamente semelhante ao aci
 1. Clique em Nova Ação, depois Novo Diálogo de Treinamento.
 2. Digite “ajuda”.
 3. Clique em Ações de Pontuação.
-    - Observe que as pontuações para as duas respostas possíveis são muito parecidas. Isso informa que o modelo está confuso sobre o limite entre as duas ações.
+    - As classificações para as duas respostas potenciais são muito próximas. Isso informa que o modelo está confuso sobre o limite entre as duas ações.
 6. Clique em Abandonar Ensino e Confirmar.
 
 ![](../media/tutorial8_closescores.png)
@@ -117,7 +121,7 @@ Nesse caso, ajudaria adicionar entradas alternativas para os diálogos. Você po
 
 2. Agora clique em "como está o tempo em seattle".
     1. Em Adicionar entrada alterativa, digite “previsão para seattle”.
-    2. Clique duas vezes em "seattle" e selecione a cidade. Observe que as entidades para entradas alternativas devem estar presentes e ter o mesmo conjunto de entidades. Não há problema se o conteúdo das entidades for diferente.
+    2. Clique duas vezes em "seattle" e selecione a cidade. As entidades de entradas alternativas devem estar presentes e ter o mesmo conjunto de entidades. Não há problema se o conteúdo das entidades for diferente.
     3. Em Adicionar entrada alternativa, digite “hoje vai chover em denver”.
     4. Clique em "denver" e selecione cidade.
     5. clique em Enviar Alterações e Concluído.
@@ -134,7 +138,7 @@ Vamos adicionar entradas alternativas para o primeiro diálogo:
 4. Clique para selecionar “denver” no painel esquerdo:
     1. Em Adicionar entrada alterativa, digite “para denver”.
     2. Insira “previsão para austin”.
-        - Observe que a frase inteira é realçada. Clique na frase, em seguida, no x vermelho. Depois selecione austin e clique em cidade.
+        - A frase completa é realçada. Clique na frase, em seguida, no x vermelho. Depois selecione austin e clique em cidade.
         - Clique em Enviar Alterações
     1. Clique em Concluído para que o modelo seja treinado novamente.
 
@@ -145,7 +149,7 @@ Vamos experimentar as variações:
 1. Clique em Nova Caixa de Diálogo de Treinamento.
 2. Digite “quais são os seus recursos”.
 3. Clique em Ações de Pontuação.
-    - Observe que as pontuações agora são mais decisivas na próxima ação que indica a certeza do modelo.
+    - As classificações serão mais decisivas na próxima ação que indicará a certeza do modelo.
 2. Selecione “Tente perguntar sobre o tempo”.
 6. Clique em Ensino Concluído
 

@@ -2,19 +2,19 @@
 title: Noções básicas sobre o controle de versão no LUIS – Azure | Microsoft Docs
 description: Saiba como usar versões para gerenciar alterações no LUIS (Reconhecimento vocal)
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266066"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225720"
 ---
 # <a name="versions"></a>Versões
 Crie modelos diferentes do mesmo aplicativo com [versões](luis-how-to-manage-versions.md). 
@@ -26,7 +26,7 @@ A ID da versão é composta de caracteres, dígitos ou '.' e não pode ser maior
 A versão inicial (0.1) é a versão ativa padrão. 
 
 ## <a name="active-version"></a>Versão ativa
-[Definir uma versão](luis-how-to-manage-versions.md#set-active-version) como a ativa significa que ela é editada e testada no site do [LUIS][LUIS] no momento. Defina uma versão como ativa para acessar seus dados, fazer atualizações, além de testá-la e publicá-la.
+[Definir uma versão](luis-how-to-manage-versions.md#set-active-version) como a ativa, significa que atualmente ela é editada e testada no site do [LUIS](luis-reference-regions.md). Defina uma versão como ativa para acessar seus dados, fazer atualizações, além de testá-la e publicá-la.
 
 O nome da versão ativa no momento é exibido no painel superior esquerdo depois do nome do aplicativo. 
 
@@ -52,7 +52,7 @@ Para fazer backup do aplicativo LUIS, exporte cada versão na página **[Configu
 É possível excluir todas as versões, exceto a versão ativa, da lista de versões na página Configurações. 
 
 ## <a name="version-availability-at-the-endpoint"></a>Disponibilidade da versão no ponto de extremidade
-Versões treinadas não estão automaticamente disponíveis no [ponto de extremidade](luis-glossary.md#endpoint) do seu aplicativo. É necessário [publicar](PublishApp.md) ou republicar uma versão para que ela esteja disponível no ponto de extremidade do seu aplicativo. É possível publicar em **Preparo** e em **Produção**, fornecendo até duas versões do aplicativo disponível no ponto de extremidade. Se precisar de mais versões do aplicativo disponível em um ponto de extremidade, você deverá exportar a versão e importar novamente a um novo aplicativo. O novo aplicativo tem uma ID do aplicativo diferente.
+Versões treinadas não estão automaticamente disponíveis no [ponto de extremidade](luis-glossary.md#endpoint) do seu aplicativo. É necessário [publicar](luis-how-to-publish-app.md) ou republicar uma versão para que ela esteja disponível no ponto de extremidade do seu aplicativo. É possível publicar em **Preparo** e em **Produção**, fornecendo até duas versões do aplicativo disponível no ponto de extremidade. Se precisar de mais versões do aplicativo disponível em um ponto de extremidade, você deverá exportar a versão e importar novamente a um novo aplicativo. O novo aplicativo tem uma ID do aplicativo diferente.
 
 ## <a name="collaborators"></a>Colaboradores
 O proprietário e todos os [colaboradores](luis-how-to-collaborate.md) têm acesso completo a todas as versões do aplicativo.
@@ -62,5 +62,3 @@ O proprietário e todos os [colaboradores](luis-how-to-collaborate.md) têm aces
 Veja como adicionar o [controle de versão](luis-how-to-manage-versions.md) na página de configurações do aplicativo. 
 
 Saiba como criar [intenções](luis-concept-intent.md) no modelo.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364477"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006522"
 ---
 # <a name="what-is-bing-visual-search-api"></a>O que é a API da Pesquisa Visual do Bing?
 
@@ -71,7 +71,7 @@ Se você enviar uma URL ou um token de imagem à Pesquisa Visual, inclua o objet
 }
 ```
 
-O objeto `imageInfo` precisa incluir o campo `url` ou `imageInsightsToken`, mas não ambos. Defina o campo `url` com a URL de uma imagem acessível pela Internet. O tamanho máximo de imagem compatível é 1 MB.
+O objeto `imageInfo` deve incluir o campo `url` ou `imageInsightsToken` mas não ambos. Defina o campo `url` com a URL de uma imagem acessível pela Internet. O tamanho máximo de imagem compatível é 1 MB.
 
 O `imageInsightsToken` precisa ser definido como um token de insights. Para obter um token de insights, chame a API de Imagem do Bing. A resposta contém uma lista de objetos `Image`. Cada objeto `Image` contém um campo `imageInsightsToken`, que contém o token.
 
@@ -95,10 +95,10 @@ As solicitações precisam ser enviadas como apenas solicitações HTTP POST.
 
 Veja a seguir os parâmetros de consulta que devem ser especificados pela solicitação. No mínimo, você deve incluir o parâmetro de consulta `mkt`.
 
-|NOME|Valor|type|Obrigatório|  
+|NOME|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|  
 |<a name="cc" />cc|O código de dois caracteres do país do qual os resultados são obtidos.<br /><br /> Se você definir esse parâmetro, também precisará especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing usa o primeiro idioma compatível encontrado na lista de idiomas e combina o idioma com o código do país especificado para determinar o mercado do qual os resultados são retornados. Se a lista de idiomas não incluir um idioma compatível, o Bing encontrará o idioma e o mercado mais próximos que dão suporte à solicitação. Ou ele pode usar um mercado agregado ou padrão para os resultados, em vez daquele especificado.<br /><br /> Você deverá usar esse parâmetro de consulta e o parâmetro de consulta `Accept-Language` somente se especificar vários idiomas; caso contrário, use os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Esse parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos – não especifique ambos.|Cadeia de caracteres|Não |  
-|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br /> **OBSERVAÇÃO:** você é incentivado a sempre especificar o mercado se conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos – não especifique ambos.|Cadeia de caracteres|sim|  
+|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br /> **OBSERVAÇÃO:** é recomendável sempre especificar o mercado, se conhecido. A especificação do mercado ajuda o Bing a encaminhar a solicitação e retornar uma resposta apropriada e ideal.<br /><br /> Esse parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos – não especifique ambos.|Cadeia de caracteres|SIM|  
 |<a name="safesearch" />Pesquisa Segura|Um filtro usado para filtrar o conteúdo para adulto. Veja a seguir os possíveis valores de filtro que não diferenciam maiúsculas de minúsculas.<br /><ul><li>Desativado – retorna páginas da Web com texto ou imagens para adulto.<br /><br/></li><li>Moderado – retorna páginas da Web com texto para adulto, mas não imagens para adulto.<br /><br/></li><li>Estrito – não retorna páginas da Web com texto ou imagens para adulto.</li></ul><br /> O padrão é Moderado.<br /><br /> **OBSERVAÇÃO:** se a solicitação for proveniente de um mercado cuja política de conteúdo para adulto do Bing exija que `safeSearch` seja definido como Estrito, o Bing ignorará o valor `safeSearch` e usará Estrito.<br/><br/>**OBSERVAÇÃO:** se você usar o operador de consulta `site:`, há a possibilidade de que a resposta possa trazer um conteúdo para adulto, seja qual for a definição do parâmetro de consulta `safeSearch`. Só use `site:` se estiver ciente do conteúdo do site e se o cenário der suporte à possibilidade de conteúdo para adulto. |Cadeia de caracteres|Não |  
 |<a name="setlang" />setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|Cadeia de caracteres|Não | 
 
@@ -110,7 +110,7 @@ Veja a seguir os cabeçalhos que devem ser especificados pela solicitação. Os 
 |Cabeçalho|DESCRIÇÃO|  
 |------------|-----------------|  
 |<a name="acceptlanguage" />Accept-Language|Cabeçalho de solicitação opcional.<br /><br /> Uma lista delimitada por vírgula de idiomas a serem usados para as cadeias de caracteres de interface do usuário. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, confira [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Esse cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos – não especifique ambos.<br /><br /> Se você definir esse cabeçalho, também deverá especificar o parâmetro de consulta [cc](#cc). Para determinar o mercado para o qual retornar os resultados, o Bing usa o primeiro idioma compatível suporte encontrado na lista e combina-o com o valor de parâmetro `cc`. Se a lista não inclui um idioma compatível, o Bing encontra o idioma e o mercado mais próximos que dão suporte à solicitação ou usa um mercado padrão ou agregado para os resultados. Para determinar o mercado usado pelo Bing, confira o cabeçalho BingAPIs-Market.<br /><br /> Use esse cabeçalho e o parâmetro de consulta `cc` somente se você especificar vários idiomas. Caso contrário, use os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|  
-|<a name="contenttype" />Content-Type|Cabeçalho de solicitação obrigatório.<br /><br />Precisa ser definido como multipart/form-data e incluir um parâmetro de limite (por exemplo, multipart/form-data; boundary=\<boundary string\>). Para obter mais detalhes, confira [Tipos de formulário de conteúdo](#content-form-types).
+|<a name="contenttype" />Content-Type|Cabeçalho de solicitação obrigatório.<br /><br />Precisa ser definido como multipart/form-data e incluir um parâmetro de limite (por exemplo, multipart/form-data; boundary=\<boundary string\>). Para obter mais informações, consulte [Tipos de formulário de conteúdo](#content-form-types).
 |<a name="market" />BingAPIs-Market|Cabeçalho de resposta.<br /><br /> O mercado usado pela solicitação. O formulário é \<languageCode\>-\<countryCode\>. Por exemplo, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Cabeçalho de resposta.<br /><br /> A ID da entrada de log que contém os detalhes da solicitação. Quando ocorrer um erro, capture essa ID. Se você não conseguir determinar e resolver o problema, inclua essa ID juntamente com outras informações fornecidas à equipe de Suporte.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Cabeçalho de solicitação obrigatório.<br /><br /> A chave de assinatura que você recebeu quando se inscreveu nesse serviço nos [Serviços Cognitivos](https://www.microsoft.com/cognitive-services/).|  
@@ -131,7 +131,7 @@ Veja a seguir os cabeçalhos que devem ser especificados pela solicitação. Os 
 Todas as solicitações precisam incluir o cabeçalho Content-Type. O cabeçalho precisa ser definido como multipart/form-data; boundary=\<boundary string\>, em que \<boundary string\> é uma cadeia de caracteres exclusiva e opaca que identifica o limite dos dados de formulário. Por exemplo, boundary=boundary_1234-abcd.
 
 
-Se você enviar uma URL ou um token de imagem à Pesquisa Visual, inclua os dados de formulário mostrados a seguir no corpo do POST. Os dados de formulário precisam incluir o cabeçalho Content-Disposition e seu parâmetro `name` precisa ser definido como "knowledgeRequest". Para obter detalhes sobre o objeto `imageInfo`, confira [A solicitação](#the-request).
+Se você enviar uma URL ou um token de imagem à Pesquisa Visual, inclua os dados de formulário mostrados a seguir no corpo do POST. Os dados de formulário devem incluir o cabeçalho Conteúdo-Disposição e o parâmetro `name` deve ser definido como "knowledgeRequest." Para obter detalhes sobre o objeto `imageInfo`, consulte [A solicitação](#the-request).
 
 
 ```
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Se você fizer upload de uma imagem local, inclua no corpo do POST os dados de formulário mostrados a seguir. Os dados de formulário precisam incluir o cabeçalho Content-Disposition. Seu parâmetro `name` precisa ser definido como "image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O cabeçalho Content-Type pode ser definido como qualquer tipo MIME de imagem geralmente usado. O conteúdo do formulário é o binário da imagem. O tamanho máximo de imagem que você pode fazer upload é 1 MB. 
+Se você fizer upload de uma imagem local, inclua no corpo do POST os dados de formulário mostrados a seguir. Os dados de formulário precisam incluir o cabeçalho Content-Disposition. Seu parâmetro `name` precisa ser definido como "image" e o parâmetro `filename` pode ser definido como qualquer cadeia de caracteres. O cabeçalho Content-Type pode ser definido como qualquer tipo MIME de imagem geralmente usado. O conteúdo do formulário é o binário da imagem. O tamanho máximo de imagem que você pode fazer upload é 1 MB. A maior da largura ou altura deve ser de 1.500 pixels ou menos.
 
 
 ```
@@ -311,7 +311,7 @@ Se a imagem contiver um texto reconhecido pelo serviço, uma das marcas conterá
     }
 ```
 
-Como o campo `displayName` da marcação contém ##TextRecognition, não o use como um título de categoria na experiência do usuário. Isso serve para qualquer nome de exibição que comece com ##. Em vez disso, use o nome de exibição da ação.
+Como o campo `displayName` da marcação contém ##TextRecognition, não utilize-o como um título de categoria na experiência do usuário. Isso serve para qualquer nome de exibição que comece com ##. Em vez disso, use o nome de exibição da ação.
 
 
 O reconhecimento de texto também pode reconhecer as informações de contato em cartões de visita, como números de telefone e endereços de email. A caixa delimitadora identifica o local das informações de contato no cartão. 
@@ -400,7 +400,7 @@ O reconhecimento de texto também pode reconhecer as informações de contato em
     }
 ```
 
-Se a imagem contiver uma entidade reconhecida como uma pessoa, um lugar ou uma coisa, uma das marcas poderá incluir um insight de Entity. As entidades também podem incluir desafios, conforme mostrado no seguinte exemplo:
+Se a imagem contiver uma entidade reconhecida como uma pessoa, um lugar ou uma coisa, uma das marcas poderá incluir um insight de Entity. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Se a imagem contiver uma entidade reconhecida como uma pessoa, um lugar ou uma c
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }

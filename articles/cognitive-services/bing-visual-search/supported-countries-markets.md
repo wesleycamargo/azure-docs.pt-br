@@ -1,7 +1,7 @@
 ---
-title: Países e idiomas compatíveis na API de Pesquisa Visual do Bing | Microsoft Docs
+title: Países/regiões e idiomas com suporte para API de Pesquisa Visual do Bing | Microsoft Docs
 titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Descubra quais países e idiomas são compatíveis com a API de Pesquisa Visual do Bing.
+description: Descubra quais países regiões e idiomas têm suporte para API de Pesquisa Visual do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: rosh
@@ -10,20 +10,20 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 4723d028cc22caf8be3eb294b52506ec112cbab5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 068459f4959bf3f8daea8fe949ec324879ee260c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364271"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001221"
 ---
-# <a name="bing-visual-search-countries-and-languages"></a>Países e idiomas da Pesquisa Visual do Bing
+# <a name="bing-visual-search-countriesregions-and-languages"></a>Países/regiões e idiomas da Pesquisa Visual do Bing
 
-A API de Pesquisa Visual do Bing dá suporte a mais de trinta países, muitos com mais de um idioma. Cada solicitação deve incluir o país e o idioma de preferência do usuário. O conhecimento do mercado do usuário ajuda o Bing a retornar resultados apropriados. Se você não especificar um país e um idioma, o Bing se esforçará para determinar o país e o idioma do usuário. Como os resultados podem conter links para o Bing, o conhecimento do país e do idioma poderá fornecer uma experiência do usuário preferencial localizada do Bing, caso o usuário clique nos links do Bing.
+A API de Pesquisa Visual do Bing dá suporte a mais de trinta países/regiões, muitos com mais de um idioma. Cada solicitação deve incluir o país/região e idioma de preferência do usuário. O conhecimento do mercado do usuário ajuda o Bing a retornar resultados apropriados. Se você não especificar um país/região e um idioma, o Bing se esforçará para determinar o país/região e o idioma do usuário. Como os resultados podem conter links para o Bing, o conhecimento do país/região e do idioma poderá fornecer uma experiência do usuário preferencial localizada do Bing, caso o usuário clique nos links do Bing.
 
-Para especificar o país e o idioma, defina o parâmetro de consulta `mkt` (mercado) com um código da tabela **Mercados** abaixo. O mercado especifica um país e um idioma. Se o usuário preferir ver e exibir o texto em outro idioma, defina o parâmetro de consulta `setLang` com o código de idioma apropriado.
+Para especificar o país/região e o idioma, defina o parâmetro de consulta `mkt` (mercado) com um código da tabela **Mercados** abaixo. O mercado especifica um país/região e um idioma. Se o usuário preferir ver e exibir o texto em outro idioma, defina o parâmetro de consulta `setLang` com o código de idioma apropriado.
 
-Como alternativa, você pode especificar o país usando o parâmetro de consulta `cc`. Se você especificar um país, também precisará especificar um ou mais códigos de idioma usando o cabeçalho HTTP `Accept-Language`. Os idiomas compatíveis variam conforme o país; eles são fornecidos para cada país na tabela Mercados.
+Como alternativa, é possível especificar o país/região usando o parâmetro de consulta `cc`. Se você especificar um país/região, também será necessário especificar um ou mais códigos de idiomas usando o cabeçalho HTTP `Accept-Language`. Os idiomas com suporte variam por país/região e são fornecidos para cada país na tabela Mercados.
 
 
 
@@ -36,7 +36,7 @@ Como alternativa, você pode especificar o país usando o parâmetro de consulta
 
 ## <a name="countries"></a>Países
 
-|País|Código|
+|País/Região|Código|
 |-------|----|
 |Argentina|AR|
 |Austrália|AU|
@@ -78,7 +78,7 @@ Como alternativa, você pode especificar o país usando o parâmetro de consulta
 
 ## <a name="markets"></a>Mercados
 
-|País|Linguagem|Código de mercado|
+|País/Região|Linguagem|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|

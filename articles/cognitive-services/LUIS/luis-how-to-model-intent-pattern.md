@@ -3,19 +3,19 @@ title: Adicionar modelos padrão em aplicativos LUIS | Microsoft Docs
 titleSuffix: Azure
 description: Saiba como adicionar modelos padrão em aplicativos LUIS (Reconhecimento Vocal) para aumentar a precisão da previsão.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35364982"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222589"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar Padrões para aumentar a precisão da previsão
 Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use o [conceito](luis-concept-patterns.md) de Padrões para aumentar a precisão da previsão de declarações que revelam um padrão na ordem e na escolha de palavras. Os Padrões usam [entidades](luis-concept-entity-types.md), e a funções que elas têm de extrair dados usando uma sintaxe de padrão específica. 
@@ -57,7 +57,7 @@ A pesquisa permite que você encontre padrões que contenham um determinado text
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>Editar um padrão
-1. Para editar um padrão, selecione o ícone de reticências (...) na extremidade direita da linha desse padrão, e selecione **Editar**. 
+1. Para editar um padrão, selecione o botão de reticências (***...***) no lado direito da linha daquele padrão e, em seguida, selecione **Editar**. 
 
     ![Captura de tela do item de menu Editar na linha do padrão](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ Para reatribuir vários padrões a uma intenção diferente, marque a caixa de s
 
 ## <a name="delete-a-single-pattern"></a>Excluir um único padrão
 
-1. Para excluir um padrão, selecione o ícone de reticências (...) na extremidade direita da linha desse padrão, e selecione **Excluir**. 
+1. Para excluir um padrão, selecione o botão de reticências (***...***) no lado direito da linha daquele padrão e, em seguida, selecione **Excluir**. 
 
     ![Captura de tela de Excluir declaração](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ O filtro é removido e todos os padrões aparecem.
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>Adicionar padrão de declaração existente na página de intenção ou de entidade
 Você pode criar um padrão de uma declaração existente na página **Intenção** ou **Entidade**. Todas as declarações em qualquer página de intenção ou entidade são exibidas em uma lista, na qual a coluna à direita fornece acesso às opções no nível da declaração, como **Editar**, **Excluir** e **Adicionar como padrão**.
 
-1. Na linha selecionada da declaração, selecione os três pontos (...) à direita da declaração e selecione **Adicionar como padrão**.
+1. Na linha selecionada do enunciado, selecione o botão de reticências (***...***) à direita do enunciado e selecione **Adicionar como padrão**.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "Captura de tela da tabela de declarações com Adicionar padrão realçado no menu de opções")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
@@ -132,7 +132,7 @@ Você pode criar um padrão de uma declaração existente na página **Intençã
     ![Captura de tela da filtragem de padrões por entidade](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>Treinar seu aplicativo após alterar o modelo com os padrões
-Depois de adicionar, editar, remover ou reatribuir um padrão, [treine](luis-how-to-train.md) e [publique](PublishApp.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
+Depois de adicionar, editar, remover ou reatribuir um padrão, [treine](luis-how-to-train.md) e [publique](luis-how-to-publish-app.md) seu aplicativo para que as suas alterações afetem as consultas de ponto de extremidade. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

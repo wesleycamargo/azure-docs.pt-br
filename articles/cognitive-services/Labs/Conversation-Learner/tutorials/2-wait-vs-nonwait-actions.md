@@ -1,7 +1,7 @@
 ---
-title: Como usar as ações de espera e não espera com um aplicativo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft| Microsoft Docs
+title: Como usar as ações de espera e não espera com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft| Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar as ações de espera e não espera com o aplicativo de Aprendiz de Conversa.
+description: Saiba como usar as ações de espera e não espera com o modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb2cbd55b6c8be51213095926bb592169613d1fc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364206"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173077"
 ---
 # <a name="wait-and-non-wait-actions"></a>Ações de espera e não espera
 
 Este tutorial mostra a diferença entre as ações de espera e as ações de não espera no Aprendiz de Conversa.
 
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 2](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+
 ## <a name="requirements"></a>Requisitos
-Este tutorial requer que o bot tutorial geral esteja em execução
+Este tutorial exige que o bot de tutorial geral esteja em execução
 
     npm run tutorial-general
 
@@ -33,9 +37,9 @@ Este tutorial requer que o bot tutorial geral esteja em execução
 
 ## <a name="steps"></a>Etapas
 
-### <a name="create-a-new-app"></a>Criar um novo aplicativo
+### <a name="create-a-new-model"></a>Criar um novo modelo
 
-1. Na Interface do Usuário da Web, clique em Novo Aplicativo
+1. Na interface do usuário da Web, clique em Novo Modelo
 2. Em nome, insira WaitNonWait. Em seguida, clique em Criar.
 
 ### <a name="create-the-first-wait-action"></a>Criar a primeira ação de Espera
@@ -43,7 +47,7 @@ Este tutorial requer que o bot tutorial geral esteja em execução
 1. Clique em Ações e, em seguida, em Nova Ação.
 2. Em Resposta, insira "Qual animal você quer?".
     - Esta é uma ação de Espera, portanto, deixe a caixa Aguardar Resposta marcada.
-3. clique em Concluído.
+3. Clique em Criar.
 
 ### <a name="create-a-non-wait-action"></a>Criar uma ação de Não Espera
 
@@ -68,14 +72,15 @@ Este tutorial requer que o bot tutorial geral esteja em execução
 3. Clique em Pontuar Ações e selecione "Qual animal você quer?".
 4. Inserir 'vaca'
 5. Clique em Pontuar Ações e selecione "Vacas fazem muuu".
-    - Observe que o bot não esperará pela entrada e tomará a próxima ação.
+    - O bot não esperará pela entrada e tomará a próxima ação.
 2. Selecione "Qual animal você quer?".
 3. Inserir 'pato'
 5. Clique em Pontuar Ações e selecione "patos fazem quack".
 
 ![](../media/tutorial2_dialogs.PNG)
 
-Observe a sequência das respostas do bot com relação às ações de espera e de não espera.
+> [!NOTE]
+> A sequência das respostas do bot com relação às ações de espera e de não espera.
 
 ## <a name="next-steps"></a>Próximas etapas
 

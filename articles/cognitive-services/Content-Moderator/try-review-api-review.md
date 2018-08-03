@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: e9faf595e65ba4475a743e4cb45919fd30fbd6e8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 214695ed3e23d1f501d6d4691104b3f8a91f6efc
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363417"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866501"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Criar análises a partir do console de API
 
-Use as [operações de análise](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) da API de Análise para criar análises de imagem ou texto para moderação humana. Moderadores humanos usam o a ferramenta de análise para revisar o conteúdo. Use essa operação com base em sua lógica de negócios de pós-moderação. Use-o depois de você ter verificado seu conteúdo usando qualquer API de imagem ou texto do Content Moderator ou outras APIs de Serviços Cognitivos. 
+Use as [operações de análise](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) da API de Análise para criar análises de imagem ou texto para moderação humana. Moderadores humanos usam a Ferramenta de Análise para analisar o conteúdo. Use essa operação com base em sua lógica de negócios de pós-moderação. Use-o depois de você ter verificado seu conteúdo usando qualquer API de imagem ou texto do Content Moderator ou outras APIs de Serviços Cognitivos. 
 
 Depois que um moderador humano revisa as marcas atribuídas automaticamente e os dados de previsão e envia uma decisão de moderação final, a API de Análise envia todas as informações para o ponto de extremidade de API.
 

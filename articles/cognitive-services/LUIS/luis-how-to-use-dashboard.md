@@ -2,19 +2,19 @@
 title: Painel do aplicativo para aplicativos do LUIS | Microsoft Docs
 description: Saiba mais sobre o painel do aplicativo, uma ferramenta de relatório visualizado que permite monitorar seus aplicativos em uma visão rápida.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35364817"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224493"
 ---
 # <a name="application-dashboard"></a>Painel do aplicativo
 O painel do aplicativo permite que você monitore seu aplicativo em uma visão rápida. O **Painel** é exibido quando você abre um aplicativo clicando no nome do aplicativo na página **Meus Aplicativos** e selecione **Painel** no painel superior. 
@@ -69,7 +69,7 @@ Para selecionar um período para ser exibido no gráfico:
 2. Selecione um período da lista e clique na seta Voltar ![Seta Voltar](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) para exibir o gráfico.
 
 ### <a name="key-usage"></a>Uso de chave
-O número de ocorrências consumidas da chave de assinatura do aplicativo. Para obter mais informações sobre as chaves de assinatura, consulte [Chaves no LUIS](luis-concept-keys.md). 
+O número de acessos consumidos a partir da chave de ponto de extremidade do aplicativo. Para obter mais informações sobre chaves de ponto de extremidade, consulte [Chaves no LUIS](luis-concept-keys.md). 
   
 ## <a name="intent-breakdown"></a>Divisão de intenções
 A **Divisão de intenções** exibe uma divisão de intenções com base nas declarações rotuladas ou ocorrências do ponto de extremidade. Este gráfico de resumo mostra a importância relativa de cada intenção no aplicativo. Quando você passa o ponteiro do mouse sobre uma fatia, verá o nome da intenção e a porcentagem que ela representa da contagem total das ocorrências rotuladas de declarações/pontos de extremidade. 

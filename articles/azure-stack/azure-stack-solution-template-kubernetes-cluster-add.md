@@ -1,6 +1,6 @@
 ---
-title: Adicionar um Cluster Kubernetes a pilha do Azure Marketplace | Microsoft Docs
-description: Saiba como adicionar um Kubernetes Cluster a pilha do Azure Marketplace.
+title: Adicionar um Cluster Kubernetes para o Azure Stack Marketplace | Microsoft Docs
+description: Saiba como adicionar um Kubernetes Cluster no Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,128 +14,128 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0ba0e1f3d9e0f1cbb6ba4109a21fc29dc41df5fc
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603446"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442710"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Adicionar um Cluster Kubernetes a pilha do Azure Marketplace
+# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Adicionar um Cluster Kubernetes para o Azure Stack Marketplace
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 > [!note]  
-> O Kubernetes de serviços de contêiner do Azure (ACS) na pilha do Azure está em visualização privada. Para solicitar acesso ao item Kubernetes Marketplace necessário para executar as instruções neste artigo, [enviar uma solicitação para obter acesso](https://aka.ms/azsk8).
+> O Kubernetes de serviços de contêiner do Azure (ACS) no Azure Stack está em visualização particular. Para solicitar acesso para o item do Marketplace de Kubernetes necessário para executar as instruções neste artigo [enviar uma solicitação para obter acesso](https://aka.ms/azsk8).
 
 Você pode oferecer um Kubernetes Cluster como um item do Marketplace para seus usuários. Os usuários podem implantar Kubernetes em uma única operação coordenada.
 
-O seguinte artigo examinar usando um modelo do Gerenciador de recursos do Azure para implantar e provisionar os recursos para um cluster de Kubernetes autônomo. Antes de começar, verifique as configurações de locatário do Azure global e a pilha do Azure. Colete as informações necessárias sobre a pilha do Azure. Adicione recursos necessários para seu locatário e a pilha do Azure Marketplace. O cluster depende de um servidor do Ubuntu, script personalizado e os itens de Kubernetes Cluster no marketplace.
+O seguinte artigo examinar usando um modelo do Azure Resource Manager para implantar e provisionar os recursos para um cluster de Kubernetes autônomo. Antes de começar, verifique suas configurações de locatário do Azure global e o Azure Stack. Colete as informações necessárias sobre o Azure Stack. Adicione recursos necessários para seu locatário e o Azure Stack Marketplace. O cluster depende de um servidor do Ubuntu, script personalizado e os itens do Kubernetes Cluster no marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Criar um plano, uma oferta e uma assinatura
 
-Crie um plano, uma oferta e uma assinatura para o item do Marketplace de Cluster Kubernetes. Você também pode usar um plano existente e oferecem.
+Crie um plano, uma oferta e uma assinatura para o item do Marketplace de Cluster do Kubernetes. Você também pode usar um plano existente e oferecem.
 
-1. Entrar para o [do portal de administração.](https://adminportal.local.azurestack.external)
+1. Entrar para o [portal de administração.](https://adminportal.local.azurestack.external)
 
-2. Crie um plano que o plano base. Para obter instruções, consulte [criar um plano na pilha do Azure](azure-stack-create-plan.md).
+1. Crie um plano que o plano base. Para obter instruções, consulte [criar um plano no Azure Stack](azure-stack-create-plan.md).
 
-3. Crie uma oferta. Para obter instruções, consulte [criar uma oferta na pilha do Azure](azure-stack-create-offer.md).
+1. Crie uma oferta. Para obter instruções, consulte [criar uma oferta no Azure Stack](azure-stack-create-offer.md).
 
-4. Selecione **oferece**e localize a oferta que você criou.
+1. Selecione **oferece**e localize a oferta que você criou.
 
-5. Selecione **visão geral** na folha da oferta.
+1. Selecione **visão geral** na folha da oferta.
 
-6. Selecione **alterar o estado**. Selecione **público**.
+1. Selecione **alterar estado**. Selecione **público**.
 
-7. Selecione **+ novo** > **oferece e planos de** > **assinatura** para criar uma nova assinatura.
+1. Selecione **+ novo** > **planos e oferece** > **assinatura** para criar uma nova assinatura.
 
-    a. Insira um **exibir nome**.
+    a. Insira um **nome de exibição**.
 
-    b. Insira um **usuário**. Use a conta do AD do Azure associada ao seu locatário.
+    b. Insira um **usuário**. Use conta do Azure AD associada ao locatário.
 
     c. **Descrição do provedor**
 
-    d. Definir o **locatário de diretório** ao locatário do AD do Azure para a pilha do Azure. 
+    d. Defina a **locatário do diretório** ao locatário do Azure AD para o Azure Stack. 
 
     e. Selecione **oferecem**. Selecione o nome da oferta que você criou. Anote a ID da assinatura.
 
 ## <a name="add-an-ubuntu-server-image"></a>Adicionar uma imagem de servidor do Ubuntu
 
-Adicione a imagem a seguir Ubuntu Server Marketplace:
+Adicione a seguinte imagem do Ubuntu Server no Marketplace:
 
-1. Entrar para o [do portal de administração](https://adminportal.local.azurestack.external).
+1. Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
 
-2. Selecione **mais serviços** > **Marketplace gerenciamento**.
+1. Selecione **mais serviços** > **Marketplace gerenciamento**.
 
-3. Selecione **+ adicionar do Azure**.
+1. Selecione **+ adicionar do Azure**.
 
-4. Digite `UbuntuServer`.
+1. Digite `UbuntuServer`.
 
-5. Selecione o servidor com o seguinte perfil:
-    - **Publicador**: canônico
+1. Selecione o servidor com o seguinte perfil:
+    - **Publicador**: Canonical
     - **Oferecer**: UbuntuServer
-    - **SKU**: 16.04 LTS
+    - **SKU**: 16.04-LTS
     - **Versão**: 16.04.201802220
 
     > [!Note]  
-    > Mais de uma versão do Ubuntu Server 16.04 LTS pode ser listada. Você precisará adicionar a versão correspondente. O Kubernetes Cluster requer a versão exata do item.
+    > Pode ser listada mais de uma versão do Ubuntu Server 16.04 LTS. Você precisará adicionar a versão que corresponde ao. O Kubernetes Cluster requer a versão exata do item.
 
-6. Selecione **baixar.**
+1. Selecione **baixar.**
 
 ## <a name="add-a-custom-script-for-linux"></a>Adicionar um script personalizado para Linux
 
 Adicione o Cluster Kubernetes do Marketplace:
 
-1. Abra o [do portal de administração](https://adminportal.local.azurestack.external).
+1. Abra o [portal de administração](https://adminportal.local.azurestack.external).
 
-2. Selecione **mais serviços** > **Marketplace gerenciamento**.
+1. Selecione **mais serviços** > **Marketplace gerenciamento**.
 
-3. Selecione **+ adicionar do Azure**.
+1. Selecione **+ adicionar do Azure**.
 
-4. Digite `Custom Script for Linux`.
+1. Digite `Custom Script for Linux`.
 
-5. Selecione o script com o seguinte perfil:
+1. Selecione o script com o seguinte perfil:
     - **Oferecer**: Script personalizado para Linux 2.0
     - **Versão**: 2.0.3
     - **Publicador**: Microsoft Corp
 
     > [!Note]  
-    > Mais de uma versão do Script personalizado para Linux pode ser listada. Você precisará adicionar a versão correspondente. O Kubernetes Cluster requer a versão exata do item.
+    > Mais de uma versão de Script personalizado para Linux pode ser listada. Você precisará adicionar a versão que corresponde ao. O Kubernetes Cluster requer a versão exata do item.
 
-6. Selecione **baixar.**
+1. Selecione **baixar.**
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Adicionar o Kubernetes Cluster Marketplace
+## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Adicionar o Kubernetes Cluster no Marketplace
 
-1. Abra o [do portal de administração](https://adminportal.local.azurestack.external).
+1. Abra o [portal de administração](https://adminportal.local.azurestack.external).
 
-2. Selecione **mais serviços** > **Marketplace gerenciamento**.
+1. Selecione **mais serviços** > **Marketplace gerenciamento**.
 
-3. Selecione **+ adicionar do Azure**.
+1. Selecione **+ adicionar do Azure**.
 
-4. Digite `Kubernetes Cluster`.
+1. Digite `Kubernetes Cluster`.
 
-5. Selecione `Kubernetes Cluster`.
+1. Selecione `Kubernetes Cluster`.
 
-6. Selecione **baixar.**
+1. Selecione **baixar.**
 
     > [!note]  
-    > Ele pode levar cinco minutos para o item do marketplace aparecer no Marketplace.
+    > Ele pode levar cinco minutos para que o item do marketplace aparecer no Marketplace.
 
-    ![Cluster Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Cluster do Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes-cluster"></a>Atualizar ou remover o Kubernetes Cluster 
 
-Ao atualizar o item Kubernetes Cluster, você precisará remover o item que está no Marketplace. Em seguida, você pode seguir as instruções neste artigo para adicionar o Kubernetes Cluster Marketplace.
+Ao atualizar o item de Cluster do Kubernetes, você precisará remover o item que está no Marketplace. Em seguida, você pode seguir as instruções neste artigo para adicionar o Kubernetes Cluster no Marketplace.
 
-Para remover o item Kubernetes Cluster:
+Para remover o item de Cluster do Kubernetes:
 
-1. Observe o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.1.0`
+1. Anote o nome do item atual, como `Microsoft.AzureStackKubernetesCluster.0.1.0`
 
-2. Conecte-se a pilha do Azure com o PowerShell.
+1. Conecte-se ao Azure Stack com o PowerShell.
 
-3. Use o seguinte cmdlet do PowerShell para remover o item:
+1. Use o seguinte cmdlet do PowerShell para remover o item:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
@@ -145,8 +145,8 @@ Para remover o item Kubernetes Cluster:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Implantar um Cluster de Kubernetes a pilha do Azure](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Implantar um Cluster Kubernetes no Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 
-[Visão geral da oferta de serviços na pilha do Azure](azure-stack-offer-services-overview.md)
+[Visão geral da oferta de serviços no Azure Stack](azure-stack-offer-services-overview.md)

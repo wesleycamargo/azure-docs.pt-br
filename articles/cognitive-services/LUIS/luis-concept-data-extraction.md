@@ -2,19 +2,19 @@
 title: Noções básicas sobre conceitos de extração de dados no LUIS – Azure | Microsoft Docs
 description: Saiba quais tipos de dados podem ser extraídos do LUIS (Reconhecimento vocal)
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265245"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225675"
 ---
 # <a name="data-extraction"></a>Extração de dados
 O LUIS oferece a capacidade de obter informações de declarações de idioma natural de um usuário. As informações são extraídas de forma que possam ser usadas por um programa, aplicativo ou chatbot para executar uma ação.
@@ -26,9 +26,9 @@ O LUIS fornece os dados do [ponto de extremidade](luis-glossary.md#endpoint) pub
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-O `appID` estará disponível na página **Configurações** do seu aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar sua chave de criação/de início gratuita enquanto você estiver aprendendo a usar o LUIS, é importante alterar a chave de assinatura para uma chave compatível com o [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
+O `appID` estará disponível na página **Configurações** do seu aplicativo LUIS, assim como parte da URL (após `/apps/`) quando você estiver editando esse aplicativo LUIS. A `subscription-key` é a chave do ponto de extremidade usada para consultar seu aplicativo. Embora seja possível usar a chave início/criação gratuita enquanto estiver treinando o LUIS, é importante alterar a chave de ponto de extremidade para uma chave que dê suporte ao [uso esperado do LUIS](luis-boundaries.md#key-limits). A unidade `timezoneOffset` é de minutos.
 
-A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL de ponto de extremidade é encontrada na página **Publicar** do site do [LUIS][LUIS]. 
+A **resposta HTTPS** contém todas as informações de intenção e de entidade que o LUIS pode determinar com base no modelo publicado atual do ponto de extremidade de preparo ou de produção. A URL do ponto de extremidade é encontrada na no site do [LUIS](luis-reference-regions.md), na página **Publicar**. 
 
 ## <a name="data-from-intents"></a>Dados de intenções
 Os dados primários são o **nome da intenção** da pontuação mais alta. Usando o `MyStore` [início rápido](luis-quickstart-intents-only.md), a resposta do ponto de extremidade é:
@@ -194,14 +194,14 @@ Os dados retornados do ponto de extremidade incluem o nome da entidade e o nome 
 
 |Objeto de dados|Pai|Filho|Valor|
 |--|--|--|--|--|
-|Entidade hierárquica|Local padrão|ToLocation|"paris"|
+|Entidade hierárquica|Localização|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Dados da entidade composta
 Entidades [compostas](luis-concept-entity-types.md) são de aprendizado de máquina e podem incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de `number` e `Location::ToLocation` predefinidos com a seguinte declaração:
 
 `book 2 tickets to paris`
 
-Observe que `2`, o número e `paris`, o ToLocation tem palavras entre eles que não fazem parte de nenhuma entidade. O sublinhado verde, usado em uma declaração rotulada no site do [LUIS][LUIS], indica uma entidade composta.
+Observe que `2`, o número e `paris`, o ToLocation tem palavras entre eles que não fazem parte de nenhuma entidade. O sublinhado verde, usado em um enunciado rotulado no site do [LUIS](luis-reference-regions.md), indica uma entidade composta.
 
 ![Entidade composta](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ Entidades de [expressão regular](luis-concept-entity-types.md) são descobertas
 Obter nomes de uma declaração é difícil, porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo de qual tipo de nome você está extraindo, você tem várias opções. Elas não são regras, são diretrizes. 
 
 ### <a name="names-of-people"></a>Nomes de pessoas
-Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Os nomes de pessoas podem ter um formato pequeno dependendo do idioma e da cultura. Use uma entidade hierárquica com nomes e sobrenomes como filhos ou uma entidade simples com funções de nome e sobrenome. Certifique-se de dar exemplos que usam o nome e o sobrenome em diferentes partes da declaração, em declarações de comprimentos diferentes e declarações entre todas as intenções, incluindo a intenção None. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
 
 ### <a name="names-of-places"></a>Nomes de locais
-Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Nomes de local são definidos e conhecidos, como cidades, municípios, estados, províncias e países. Se seu aplicativo usar um conjunto conhecido de locais, considere a entidade de lista. Se você precisar localizar todos os nomes de locais, crie uma entidade simples e forneça uma variedade de exemplos. Adicione uma lista de frase de nomes de local para reforçar qual é a aparência de nomes de local em seu aplicativo. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
-Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](label-suggested-utterances.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
+Alguns aplicativos precisam poder encontrar nomes novos e emergentes, como produtos ou empresas. Esse é o tipo mais difícil de extração de dados. Comece com uma entidade simples e adicione uma lista de frases. [Examine](luis-how-to-review-endoint-utt.md) declarações de ponto de extremidade regularmente para rotular nomes que não foram previstos corretamente. 
 
 ## <a name="pattern-roles-data"></a>Dados de funções de padrão
 Funções são diferenças contextuais de entidades. 
@@ -710,5 +710,3 @@ O ponto de extremidade LUIS pode descobrir os mesmos dados em diferentes entidad
 ## <a name="next-steps"></a>Próximas etapas
 
 Confira [Adicionar entidades](luis-how-to-add-entities.md) para saber como adicionar entidades ao seu aplicativo LUIS.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

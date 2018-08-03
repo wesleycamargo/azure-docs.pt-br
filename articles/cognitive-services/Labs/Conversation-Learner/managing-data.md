@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d42f903559a1e07b42ded33972be4b552f21b5e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9de4377857188a8cf483321654fb857e428c7f5
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364216"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171632"
 ---
 # <a name="managing-user-data"></a>Gerenciar dados de usuário
 
@@ -27,7 +27,7 @@ Por padrão, o serviço de nuvem Aprendiz de Conversa registra as interações e
 
 ## <a name="how-to-disable-logging"></a>Como desabilitar o registro em log
 
-Você pode controlar se as conversas com os usuários finais ficam na página “Configurações” para o seu aplicativo Aprendiz de Conversa.  Há uma caixa de seleção para “Registrar conversas em log conversas”.  Ao desmarcar esta caixa as conversas com os usuários finais não serão registradas.
+Você pode controlar se as conversas com os usuários finais ficam na página “Configurações” para o modelo de Aprendiz de Conversa.  Há uma caixa de seleção para “Registrar conversas em log conversas”.  Ao desmarcar esta caixa as conversas com os usuários finais não serão registradas.
 
 ## <a name="what-is-logged"></a>O que é registrado 
 
@@ -81,9 +81,10 @@ Para obter os dados brutos para um diálogo registrado em log, você pode usar e
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Onde `<appId>` é o GUID para este aplicativo de Aprendiz de Conversa, e `<logDialgoId>` é a ID do diálogo registrado em log que você deseja recuperar.  
+Onde `<appId>` é o GUID para esse modelo de Aprendiz de Conversa e `<logDialgoId>` é a ID do diálogo registrado em log que você quer recuperar.  
 
-Observe que os diálogos registrados em log podem ser editadas pelo desenvolvedor e, em seguida, armazenados diálogos para treinamento.  Quando isso for feito, o Aprendiz de Conversa armazena a ID do diálogo registrado em log de “origem” com o diálogo de treinamento.  Além disso, um diálogo de treinamento pode ser “ramificado” na interface do usuário; se um diálogo de treinamento tem uma ID de diálogo registrado de origem associada, então ramificações do diálogo de treinamento serão marcadas com a mesma ID do diálogo registrado em log.
+> [!NOTE]
+> Diálogos registrados em log podem ser editados pelo desenvolvedor e armazenadas como diálogos de treinamento.  Quando isso for feito, o Aprendiz de Conversa armazena a ID do diálogo registrado em log de “origem” com o diálogo de treinamento.  Além disso, um diálogo de treinamento pode ser “ramificado” na interface do usuário; se um diálogo de treinamento tem uma ID de diálogo registrado de origem associada, então ramificações do diálogo de treinamento serão marcadas com a mesma ID do diálogo registrado em log.
 
 Para obter todos diálogo de treinamento derivados de um diálogo registrado em log, siga estas etapas.
 
@@ -93,7 +94,7 @@ Primeiramente, recupere todas os diálogos de treinamento:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialogs
 ```
 
-Onde `<appId>` é o GUID para este aplicativo de Aprendiz de Conversa.  
+Onde `<appId>` é o GUID para esse modelo de Aprendiz de Conversa.  
 
 Isso retorna todos os diálogos de treinamento.  Pesquisar nesta lista pelo `sourceLogDialogId` associado e observe o `trainDialogId` associado. 
 
@@ -103,7 +104,7 @@ Para um único diálogo de treinamento por ID:
 GET https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Onde `<appId>` é o GUID para este aplicativo de Aprendiz de Conversa, e `<trainDialogId>` é a ID do diálogo de treinamento que você deseja recuperar.  
+Onde `<appId>` é o GUID para esse modelo de Aprendiz de Conversa e `<trainDialogId>` é a ID do diálogo de treinamento que você quer recuperar.  
 
 ## <a name="how-to-delete-a-logged-dialog"></a>Como excluir um diálogo registrado em log
 
@@ -113,7 +114,7 @@ Se você quiser excluir um diálogo registrado em log dada a sua ID, você pode 
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/logdialog/<logDialogId>
 ```
 
-Onde `<appId>` é o GUID para este aplicativo de Aprendiz de Conversa, e `<logDialogId>` é a ID do diálogo registrado em log que você deseja excluir. 
+Onde `<appId>` é o GUID para esse modelo de Aprendiz de Conversa e `<logDialogId>` é a ID do diálogo de log que você quer excluir. 
 
 Se você quiser excluir um diálogo de treinamento dada a sua ID, você pode usar essa chamada HTTP:
 
@@ -121,4 +122,4 @@ Se você quiser excluir um diálogo de treinamento dada a sua ID, você pode usa
 DELETE https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/app/<appId>/traindialog/<trainDialogId>
 ```
 
-Onde `<appId>` é o GUID para este aplicativo de Aprendiz de Conversa, e `<trainDialogId>` é a ID do diálogo de treinamento que você deseja excluir. 
+Onde `<appId>` é o GUID para esse modelo de Aprendiz de Conversa e `<trainDialogId>` é a ID do diálogo de treinamento que você quer excluir. 

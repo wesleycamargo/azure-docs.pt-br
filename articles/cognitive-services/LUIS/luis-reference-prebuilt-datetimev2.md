@@ -3,19 +3,19 @@ title: Referência de entidades de datetimeV2 predefinidas de LUIS – Azure | M
 titleSuffix: Azure
 description: Este artigo contém informações sobre a entidade predefinida de datetimeV2 em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321568"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236764"
 ---
 # <a name="datetimev2-entity"></a>Entidade DatetimeV2
 
@@ -190,7 +190,7 @@ O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o enuncia
   ]
 ```
 ## <a name="ambiguous-time"></a>Horário ambíguo
-A matriz de valores terá dois elementos de tempo se o tempo ou o intervalo de tempo for ambíguo. Quando há uma hora ambígua, os valores têm horas tanto A.M. quanto P.M .
+A matriz de valores terá dois elementos de tempo se o tempo ou o intervalo de tempo for ambíguo. Quando há um tempo ambíguo, os valores têm ambos A.M. e P.M. como horários.
 
 ## <a name="time-range-resolution-example"></a>Exemplo de resolução de intervalo de tempo
 
@@ -219,7 +219,7 @@ O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o enuncia
 
 ## <a name="deprecated-prebuilt-datetime"></a>Datetime predefinido preterido
 
-A entidade predefinida `datetime` é preterida e substituída por [`datetimeV2`](#builtindatetimev2). 
+A entidade pré-compilada `datetime` é reprovada e substituída por **datetimeV2**. 
 
 Para substituir `datetime` por `datetimeV2` em seu aplicativo LUIS, conclua as seguintes etapas:
 

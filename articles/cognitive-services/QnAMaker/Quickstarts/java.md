@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 36d8e5a1d9f86da94fbdbe4ff01e93ba32ce6af6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301454"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868391"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Início rápido para API de QnA Maker da Microsoft com Java 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ O código a seguir cria uma nova base de dados conhecimento, usando o método [C
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -261,7 +261,7 @@ public class CreateKB {
 
 **Criar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -300,7 +300,7 @@ O código a seguir atualiza uma base de dados de conhecimento existente, usando 
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -570,7 +570,7 @@ public class UpdateKB {
 
 **Atualizar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -610,7 +610,7 @@ O código a seguir publica uma base de dados de conhecimento existente, usando o
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -721,7 +721,7 @@ public class PublishKB {
 
 **Publicar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -739,7 +739,7 @@ O código a seguir substitui o conteúdo da base de dados de conhecimento especi
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -891,7 +891,7 @@ public class ReplaceKB {
 
 **Substituir resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -909,7 +909,7 @@ O código a seguir baixa o conteúdo da base de dados de conhecimento especifica
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1010,7 +1010,7 @@ public class GetQnA {
 
 **Baixar resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1055,7 +1055,7 @@ O código a seguir obtém respostas para uma pergunta usando a base de dados de 
 1. Adicione o código fornecido abaixo.
 1. Substitua o valor `host` pelo nome do site da assinatura do QnA Maker. Para obter mais informações, consulte [Criar um serviço do QnA Maker](../How-To/set-up-qnamaker-service-azure.md).
 1. Substitua o valor `endpoint_key` por uma chave de ponto de extremidade válida para a assinatura. Observe que isso não é o mesmo que a chave de assinatura. É possível obter as chaves de ponto de extremidade usando o método [Obter chaves do ponto de extremidade](#GetKeys).
-1. Substitua o valor `kb` pela ID da base de dados de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
+1. Substitua o valor `kb` pela ID da base de conhecimento que você quer consultar. Observe que essa base de dados de conhecimento já deve ter sido publicada usando o método [Publicar](#Publish).
 1. Execute o programa.
 
 ```java
@@ -1166,7 +1166,7 @@ public class GetAnswers {
 
 **Obter resposta da pergunta**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1196,7 +1196,7 @@ O código a seguir obtém informações sobre a base de dados de conhecimento es
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1293,7 +1293,7 @@ public class GetKB {
 
 **Obter resposta dos detalhes da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1323,7 +1323,7 @@ O código a seguir obtém informações sobre todas as bases de dados de conheci
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1417,7 +1417,7 @@ public class GetKBsByUser {
 
 **Obter bases de dados de conhecimento para resposta do usuário**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1463,7 +1463,7 @@ O código a seguir exclui a base de dados de conhecimento especificada, usando o
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1566,7 +1566,7 @@ public class DeleteKB {
 
 **Excluir resposta da base de dados de conhecimento**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1584,7 +1584,7 @@ O código a seguir obtém as chaves do ponto de extremidade atual, usando o mét
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1678,7 +1678,7 @@ public class GetEndpointKeys {
 
 **Obter resposta de chaves do ponto de extremidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1697,7 +1697,7 @@ O código a seguir gera novamente as chaves do ponto de extremidade atual, usand
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1842,7 +1842,7 @@ public class RefreshKeys {
 
 **Atualizar resposta de chaves do ponto de extremidade**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1861,7 +1861,7 @@ O código a seguir obtém as alterações de palavras atuais, usando o método [
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -1955,7 +1955,7 @@ public class GetAlterations {
 
 **Obter resposta de alterações de palavras**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {
@@ -1980,7 +1980,7 @@ O código a seguir substitui as alterações de palavras atuais, usando o métod
 
 1. Crie um novo projeto Java no IDE favorito.
 2. Adicione o código fornecido abaixo.
-3. Substitua o valor `key` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `key` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```java
@@ -2112,7 +2112,7 @@ public class PutAlterations {
 
 **Substituir resposta de alterações de palavras**
 
-Uma resposta com êxito é retornada em JSON, conforme mostrado no exemplo a seguir: 
+Uma resposta com êxito é retornada em JSON, conforme mostrado no seguinte exemplo: 
 
 ```json
 {

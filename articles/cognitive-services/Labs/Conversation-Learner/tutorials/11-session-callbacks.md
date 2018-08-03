@@ -1,7 +1,7 @@
 ---
-title: Como usar retornos de chamada da sessão com um aplicativo Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
+title: Como usar retornos de chamada da sessão com um modelo de Aprendiz de Conversa - Serviços Cognitivos da Microsoft | Microsoft Docs
 titleSuffix: Azure
-description: Saiba como usar retornos de chamada da sessão com um aplicativo Aprendiz de Conversa.
+description: Saiba como usar retornos de chamada da sessão com um modelo de Aprendiz de Conversa.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f8970620c1f0f87ccae13d031092a048144ffb19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0f51b232470e4e4da3f25d40d025dd3b09dd1204
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364230"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171908"
 ---
-# <a name="how-to-use-session-callbacks-with-a-conversation-learner-application"></a>Como usar retornos de chamada da sessão com um aplicativo Aprendiz de Conversa
+# <a name="how-to-use-session-callbacks-with-a-conversation-learner-model"></a>Como usar retornos de chamada da sessão com um modelo de Aprendiz de Conversa
 
 Este tutorial ilustra os retornos de chamada onSessionStart e onSessionEnd.
 
+## <a name="video"></a>Vídeo
+
+[![Versão prévia do Tutorial 11](http://aka.ms/cl-tutorial-11-preview)](http://aka.ms/blis-tutorial-11)
+
 ## <a name="requirements"></a>Requisitos
-O tutorial requer que o bot "tutorialSessionCallbacks.ts" esteja em execução.
+Este tutorial requer que o bot `tutorialSessionCallbacks` esteja em execução.
 
     npm run tutorial-session-callbacks
 
@@ -35,19 +39,19 @@ Se houver longas interrupções, o bot irá para a próxima sessão.  Iniciar um
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista Aplicativos, clique em Tutorial-11-SessionCallbacks. 
+Na lista Modelo, clique em Tutorial-11-SessionCallbacks. 
 
 ### <a name="entities"></a>Entidades
 
-Definimos quatro entidades no aplicativo.
+Quatro entidades são definidas no modelo.
 
 ![](../media/tutorial11_entities.PNG)
 
-Algo a notar é que BotName é uma Entidade de Programação.  Isso será definido pelo bot na hora de início da sessão.
+Algo a notar é que BotName é uma Entidade de Programação.  Essa entidade será definida pelo bot no horário de início da sessão.
 
 ### <a name="actions"></a>Ações
 
-Criamos quatro ações. 
+Quatro ações são definidas no modelo.
 
 ![](../media/tutorial11_actions.PNG)
 
@@ -70,7 +74,7 @@ O código para os métodos de retorno de chamada está no arquivo c:\<installedp
 Ambos os métodos são opcionais.
 
 - OnSessionStartCallback: este método define a entidade BotName.
-- OnSessionEndCallback: você pode especificar que deseja limpar. Isso limpará todas as entidades, exceto o nome de usuário e o telefone.
+- OnSessionEndCallback: é possível especificar o que você quer preservar. Isso limpará todas as entidades, exceto o nome de usuário e o telefone.
 
 ### <a name="try-the-bot"></a>Experimentar o bot
 
