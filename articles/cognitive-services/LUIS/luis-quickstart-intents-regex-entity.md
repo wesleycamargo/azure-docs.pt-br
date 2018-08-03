@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238328"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358250"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutorial: 3. Adicionar entidade de expressão regular
 Neste tutorial, você criará um aplicativo que demonstra como extrair dados formatados de forma consistente a partir de um enunciado usando a entidade de **Expressão Regular**.
@@ -28,7 +28,7 @@ Neste tutorial, você criará um aplicativo que demonstra como extrair dados for
 > * Treinar e publicar o aplicativo
 > * Consulte ponto de extremidade do aplicativo para ver a resposta JSON do LUIS
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
 Caso não tenha o aplicativo de recursos humanos do tutorial de [entidades predefinidas](luis-tutorial-prebuilt-intents-entities.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website) do repositório Github de [exemplos do LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
@@ -67,11 +67,7 @@ O LUIS cria tokens do enunciado quando a expressão é adicionada a uma intenç�
 
 1. Verifique se o seu aplicativo de recursos humanos está na seção **Compilar** do LUIS. Você pode alterar essa seção selecionando **Compilar** na barra de menus da parte superior direita. 
 
-    [ ![Captura de tela do aplicativo de LUIS com Compilar realçado na barra de navegação superior direita](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
-
 2. Selecione **Criar nova intenção**. 
-
-    [ ![Captura de tela da página Intenções com o botão Criar nova intenção realçado](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
 
 3. Insira `FindForm` na caixa de diálogo pop-up, depois selecione **Concluído**. 
 
@@ -96,14 +92,12 @@ O LUIS cria tokens do enunciado quando a expressão é adicionada a uma intenç�
 
     O aplicativo tem o número da entidade predefinida adicionado do tutorial anterior, portanto, cada número de formulário está marcado. Isso pode ser suficiente para seu aplicativo cliente, mas o número não será rotulado com o tipo de número. Criar uma nova entidade com um nome apropriado permite que o aplicativo cliente processe a entidade adequadamente ao ser retornado do LUIS.
 
-## <a name="create-a-hrf-number-regular-expression-entity"></a>Criar uma entidade de expressão regular HRF-número 
+## <a name="create-an-hrf-number-regular-expression-entity"></a>Criar uma entidade de expressão regular com número HRF 
 Crie uma entidade de expressão regular para informar ao LUIS o que é um formato HRF-número nas etapas a seguir:
 
 1. Selecione **Entidades** no painel esquerdo.
 
 2. Selecione o botão **Criar nova entidade** na página Entidades. 
-
-    [ ![Captura de tela da página Entidades com o botão Criar nova entidade realçado](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
 3. Na caixa de diálogo pop-up, insira o novo nome de entidade `HRF-number`, selecione **RegEx** como o tipo de entidade, insira `hrf-[0-9]{6}` como o Regex e, depois, selecione **Concluído**.
 
@@ -127,22 +121,12 @@ Uma entidade de expressão regular não exige treinamento, mas a nova intenção
     ![Imagem da barra de notificação de sucesso](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
-Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precisa publicar o aplicativo. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-    ![Captura de tela de FindKnowledgeBase com o botão de navegação Publicar realçado na parte superior](./media/luis-quickstart-intents-regex-entity/publish-button.png)
-
-2. Selecione o Slot de produção e o botão **Publicar**.
-
-    ![Captura de tela da página Publicar com o botão Publicar ao slot de produção realçado](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
-
-3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Consultar o ponto de extremidade com um enunciado diferente
-1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
 
-    ![Captura de tela da página Publicar com a URL de ponto de extremidade realçada](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá até o final da URL no endereço e insira `When were HRF-123456 and hrf-234567 published in the last year?`. O último parâmetro de querystring é `q`, o enunciado **consulta**. Esse enunciado não é igual a nenhum dos enunciados rotulados, portanto, ele é um bom teste e deve retornar a intenção `FindForm` com os números de formulário de `HRF-123456` e `hrf-234567`.
 
