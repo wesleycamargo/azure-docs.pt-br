@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222665"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399564"
 ---
 # <a name="collaborating"></a>Colaborando
 
@@ -25,7 +25,7 @@ Uma conta LUIS está associada uma única conta do [Microsoft Live](https://logi
 
 Uma conta LUIS pode ter muitos aplicativos LUIS.
 
-Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-account-settings.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
+Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para saber mais sobre as contas de usuário do Active Directory. 
 
 ## <a name="luis-app-owner"></a>Proprietário do aplicativo LUIS
 A conta que cria um aplicativo é o proprietário. Cada aplicativo tem um único proprietário. O proprietário está listado nas **[Configurações](luis-how-to-collaborate.md)** do aplicativo. Esta é a conta que pode excluir o aplicativo. Esta também é a conta que recebe o email quando a cota do ponto de extremidade atinge 75% do limite mensal. 

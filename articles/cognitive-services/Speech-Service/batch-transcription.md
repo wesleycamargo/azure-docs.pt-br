@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054816"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346431"
 ---
 # <a name="batch-transcription"></a>Transcrição de lote
 
@@ -40,7 +40,7 @@ WAV |  Estéreo  |
 
 Para transmissões de áudio estéreo, a transcrição em lote dividirá os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra a saída de um canal.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,16 +53,16 @@ Para transmissões de áudio estéreo, a transcrição em lote dividirá os cana
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> A API de transcrição em lote está usando um serviço REST para solicitar transcrições, seus status e resultados associados. É baseado em .NET e não tem dependências externas. A próxima seção descreve como ela é usada.
+> A API de transcrição em lote está usando um serviço REST para solicitar transcrições, seus status e resultados associados. A API pode ser usada em qualquer idioma. A próxima seção descreve como ela é usada.
 
 ## <a name="authorization-token"></a>Token de autorização
 
 Assim como todos os recursos do Unified Speech Service, o usuário precisa criar uma chave de assinatura no [Portal do Azure](https://portal.azure.com). Além disso, uma chave de API precisa ser adquirida no portal de fala. As etapas para gerar uma chave de API:
 
-1. Faça o login emhttps://customspeech.ai.
+1. Faça o login em https://customspeech.ai.
 
 2. Clique em Assinaturas.
 
@@ -77,7 +77,24 @@ Assim como todos os recursos do Unified Speech Service, o usuário precisa criar
 
 ## <a name="sample-code"></a>Exemplo de código
 
-Fazendo uso da API é bastante simples. O código de amostra abaixo precisa ser personalizado com uma chave de assinatura e uma chave de API.
+Fazendo uso da API é bastante simples. É necessário que o código de exemplo abaixo seja personalizado com uma chave de assinatura e uma chave de API que, por sua vez, permitirão que o desenvolvedor obtenha um token de portador, como mostra o trecho de código a seguir:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Quando o token for obtido, o desenvolvedor deverá especificar Uri de SAS apontando para o arquivo de áudio que requer a transcrição. O restante do código simplesmente percorre o status e exibe os resultados.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ Fazendo uso da API é bastante simples. O código de amostra abaixo precisa ser 
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -139,7 +156,7 @@ Fazendo uso da API é bastante simples. O código de amostra abaixo precisa ser 
 > A chave de assinatura mencionada no snippet de código acima é a chave do recurso Speech (Preview) que você cria no portal do Azure. As chaves obtidas do recurso Custom Speech Service não funcionarão.
 
 
-Observe a configuração assíncrona para postar o status de transcrição de áudio e recebimento. O cliente criado é um cliente NET Http. Existe um método `PostTranscriptions`para enviar os detalhes do arquivo de áudio e um método`GetTranscriptions` para receber os resultados. `PostTranscriptions`retorna um identificador e o método`GetTranscriptions` está usando esse identificador para criar um identificador para obter o status de transcrição.
+Observe a configuração assíncrona para postar o status de transcrição de áudio e recebimento. O cliente criado é um cliente Http .NET. Existe um método `PostTranscriptions`para enviar os detalhes do arquivo de áudio e um método`GetTranscriptions` para receber os resultados. `PostTranscriptions`retorna um identificador e o método`GetTranscriptions` está usando esse identificador para criar um identificador para obter o status de transcrição.
 
 O código de amostra atual não especifica nenhum modelo personalizado. O serviço usará os modelos de linha de base para transcrever o (s) arquivo (s). Se o usuário desejar especificar os modelos, pode-se passar o mesmo método para os modelIDs para o modelo acústico e de linguagem. 
 
@@ -161,4 +178,4 @@ O exemplo exibido aqui está no [GitHub](https://github.com/PanosPeriorellis/Spe
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha sua assinatura de avaliação de fala](https://azure.microsoft.com/try/cognitive-services/)
+* [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)

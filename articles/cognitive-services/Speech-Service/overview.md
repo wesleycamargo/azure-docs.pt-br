@@ -1,21 +1,20 @@
 ---
-title: O que é o serviço de Fala (versão prévia)? | Microsoft Docs
+title: O que é o serviço de Fala (versão prévia)?
 description: 'O serviço de Fala, parte dos Serviços Cognitivos da Microsoft, une vários serviços de fala do Azure que estavam disponíveis anteriormente de forma separada: Fala do Bing (que inclui o reconhecimento de fala e a conversão de texto em fala), Fala Personalizada e Tradução de Fala.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fc6ef4ccbe6e392b991bd375afcc63a54f58db02
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989328"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285452"
 ---
 # <a name="what-is-the-speech-service-preview"></a>O que é o serviço de Fala (versão prévia)?
 

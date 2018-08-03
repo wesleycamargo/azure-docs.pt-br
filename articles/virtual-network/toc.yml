@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: Configurar PTR para Seleção de Faixa de SMTP
           href: create-ptr-for-smtp-service.md
+        - name: Solução de problemas da lista de verificação de soluções de virtualização
+          href: virtual-network-troubleshoot-nva.md
     - name: Clássico
       items:
         - name: Criar e gerenciar uma rede virtual

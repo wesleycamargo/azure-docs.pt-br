@@ -47,8 +47,34 @@
   items:
     - name: CLI do Azure
       href: cli-samples.md
+      items:
+        - name: Criar um tópico personalizado
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Inscrever-se em uma assinatura do Azure
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Inscrever-se no armazenamento de Blobs
+          href: scripts/event-grid-cli-blob.md
+        - name: Inscrever-se em um tópico personalizado
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Inscrever-se em um grupo de recursos
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Inscrever-se e filtrar eventos para o grupo de recursos
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Criar um tópico personalizado
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Inscrever-se em uma assinatura do Azure
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Inscrever-se no armazenamento de Blobs
+          href: scripts/event-grid-powershell-blob.md
+        - name: Inscrever-se em um tópico personalizado
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Inscrever-se em um grupo de recursos
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Inscrever-se e filtrar eventos para o grupo de recursos
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Modelos do Gerenciador de Recursos
       href: template-samples.md
     - name: Exemplos de código
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Receber eventos em um ponto de extremidade HTTP
       href: receive-events.md
-    - name: Gerenciar entrega de eventos
+    - name: Mensagens mortas e tentar novamente
       href: manage-event-delivery.md
     - name: Monitorize as entregas de eventos
       href: monitor-event-delivery.md

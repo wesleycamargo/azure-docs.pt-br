@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Documentação de API do Serviço de fala
+- name: Documentação do SDK e Serviço de Fala
   href: index.yml
 - name: Visão geral
   items:
     - name: Cenários de fala
       href: speech-scenarios.md
-    - name: O que é Serviço de fala?
-      href: overview.md
       expanded: true
+    - name: Serviço de Fala
+      href: overview.md
     - name: SDK de fala
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
@@ -107,7 +107,7 @@
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: Conceitos
   items:
-    - name: Conversão de Fala em Texto
+    - name: Conversão de fala em texto
       href: speech-to-text.md
       displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: Texto em fala

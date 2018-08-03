@@ -102,11 +102,13 @@
 ### [Exibir todos os grupos](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Adicionar grupo de acesso a aplicativos SaaS](users-groups-roles/groups-saasapps.md)
 ### [Restaurar um grupo excluído do Office 365](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Gerenciar configurações de grupo](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Criar regras avançadas
-#### [portal do Azure](users-groups-roles/groups-dynamic-membership.md)
+### [Gerenciar configurações de grupo](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Configurar grupos de autoatendimento](users-groups-roles/groups-self-service-management.md)
-### [Solucionar problemas](users-groups-roles/groups-troubleshooting.md)
+### Grupos dinâmicos
+#### [Criar um grupo dinâmico](users-groups-roles/groups-create-rule.md)
+#### [Sintaxe da regra e propriedades](users-groups-roles/groups-dynamic-membership.md)
+#### [Alterar tipo de associação ao grupo](users-groups-roles/groups-change-type.md)
+#### [Solucionar problemas](users-groups-roles/groups-troubleshooting.md)
 
 ## [Gerenciar relatórios](active-directory-reporting-azure-portal.md)
 ### [Atividade de entrada](active-directory-reporting-activity-sign-ins.md)
