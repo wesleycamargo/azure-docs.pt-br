@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090768"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362653"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Solucionar problemas no Azure Data Box Disk (versão prévia)
 
 Este artigo se aplica ao Microsoft Azure Data Box que está executando a versão prévia. Este artigo descreve alguns dos fluxos de trabalho complexos e tarefas de gerenciamento que podem ser executadas na Data Box e Data Box Disk. 
 
-É possível gerenciar o Data Box usando a interface do usuário do serviço Data Box (conhecida como interface do usuário do portal) e a interface de usuário da Web local do dispositivo. O Data Box Disk só podem ser gerenciado por meio do Portal do Azure. Este artigo se concentra nas tarefas que você pode executar usando o Portal do Azure. Use o Portal do Azure para gerenciar pedidos, gerenciar dispositivos e acompanhar o status do pedido, conforme ele progride no estágio do terminal.
+Você pode gerenciar o Disco do Data Box pelo portal do Azure. Este artigo se concentra nas tarefas que você pode executar usando o portal do Azure. Use o Portal do Azure para gerenciar pedidos, gerenciar dispositivos e acompanhar o status do pedido, conforme ele progride para a conclusão.
 
 Este artigo inclui os seguintes tutoriais:
 

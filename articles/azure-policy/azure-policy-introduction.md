@@ -4,17 +4,17 @@ description: A Política do Azure é um serviço no Azure que você pode usar pa
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249854"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364421"
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -126,11 +126,11 @@ Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada d
 | Escopo | Definições de Política | 250 |
 | Escopo | Definições de iniciativa | 100 |
 | Locatário | Definições de iniciativa | 1000 |
-| Escopo | Atribuição de política | 100 |
+| Escopo | Atribuições de Política/Iniciativa | 100 |
 | Definição de política | parâmetros | 20 |
 | Definição de iniciativa | Políticas | 100 |
 | Definição de iniciativa | parâmetros | 100 |
-| Atribuição de política | Exclusões (notScopes) | 100 |
+| Atribuições de Política/Iniciativa | Exclusões (notScopes) | 100 |
 | Regra de política | Condicionais aninhadas | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Recomendações para o gerenciamento de políticas
@@ -156,5 +156,5 @@ Agora que você tem uma visão geral da Política do Azure e de alguns dos princ
 - [Atribuir uma definição de política](assign-policy-definition.md)
 - [Atribuir uma definição de política usando a CLI do Azure](assign-policy-definition-cli.md)
 - [Atribuir uma definição de política usando o PowerShell](assign-policy-definition-ps.md)
-- Revise o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md)
+- Examine o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md)
 - Assista a [Reger seu ambiente do Azure com o Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9

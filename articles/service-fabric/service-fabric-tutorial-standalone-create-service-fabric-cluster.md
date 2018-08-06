@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 36d65abb26435581f3e6c9c4a9fc46bb3dd538ce
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344148"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362763"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalar e criar o cluster do Service Fabric
 
@@ -63,7 +63,7 @@ Depois de atualizar os nós, eles são exibidos da seguinte maneira:
 
 Em seguida, você precisa atualizar algumas das propriedades.  Na linha 34, você precisa modificar a cadeia de conexão para o armazenamento de diagnóstico que deverá se parecer assim `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
-Por fim, na seção `nodeTypes` da configuração adicione uma nova seção para mapear as portas efêmeras que serão usadas pelo Windows.  O arquivo de configuração deve estar semelhante ao seguinte:
+Por fim, na seção `nodeTypes` da configuração adicione uma nova seção para mapear as portas efêmeras que serão usadas pelo Windows.  O arquivo de configuração deve parecer com o seguinte:
 
 ```json
 "applicationPorts": {

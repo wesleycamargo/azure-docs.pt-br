@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145302"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358939"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -88,6 +88,9 @@ Primeiro, crie um grupo de recursos para conter os recursos necessários à impl
     O firewall estará nessa sub-rede e o nome da sub-rede **precisa** ser AzureFirewallSubnet.
 11. Em **Intervalo de endereços**, digite **10.0.1.0/24**.
 12. Use as outras configurações padrão e clique em **Criar**.
+
+> [!NOTE]
+> O tamanho mínimo da sub-rede AzureFirewallSubnet é /25.
 
 ### <a name="create-additional-subnets"></a>Criar sub-redes adicionais
 
@@ -172,6 +175,9 @@ Use as informações na tabela a seguir para definir as **Configurações** da m
 4. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e clique no firewall **Test-FW01**.
 6. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
 
+> [!NOTE]
+> O endereço IP público deve ser do tipo SKU Standard.
+
 [//]: # (Lembre-se de anotar o IP privado para o firewall.)
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
@@ -233,7 +239,7 @@ Para a sub-rede **Workload-SN**, configure a rota de saída padrão para atraves
 4. Em **Ação**, selecione **Permitir**.
 
 6. Em **Regras**, digite **AllowDNS** como **Nome**.
-8. Em **Protocolo**, selecione **TCP**.
+8. Em **Protocolo**, selecione **UDP**.
 9. Em **Endereços de Origem**, digite **10.0.2.0/24**.
 10. Em Endereço de destino, digite **209.244.0.3,209.244.0.4**
 11. Em **Portas de Destino**, digite **53**.

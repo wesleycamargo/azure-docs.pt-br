@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063418"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324299"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: executar um trabalho de Spark no Azure Databricks usando o portal do Azure
 
@@ -29,15 +29,16 @@ Como parte do trabalho do Spark, você analisa dados de uma assinatura de canal 
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - [Criar uma conta do Azure Data Lake Storage Gen2](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Por enquanto deixe de lado a configuração da conta de armazenamento
 
-Durante este tutorial você precisa ter acesso ao nome da conta do armazenamento e à chave de acesso. Entre no portal do Azure, selecione **Todos os serviços** e filtre pelo *armazenamento*. Selecione **Contas de armazenamento** e localize a conta criada para este tutorial.
-
-Na **Visão geral** copie o nome da conta de armazenamento para um editor de texto. Em seguida, selecione **Chaves de acesso** e copie o valor de **key1** para o seu editor de texto já que ambos os valores são necessários para comandos posteriormente.
+> [!IMPORTANT]
+> Durante este tutorial você precisa ter acesso ao nome da conta do armazenamento e à chave de acesso. Entre no portal do Azure, selecione **Todos os serviços** e filtre pelo *armazenamento*. Selecione **Contas de armazenamento** e localize a conta criada para este tutorial.
+>
+> Na **Visão geral**, copie o **nome** da conta de armazenamento para um editor de texto. Em seguida, selecione **Chaves de acesso** e copie o valor de **key1** no seu editor de texto, já que ambos os valores serão necessários para comandos posteriormente.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar um espaço de trabalho do Azure Databricks
 
@@ -105,7 +106,7 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azur
 
     Selecione **Criar**.
 
-4. Insira o código a seguir na primeira célula, substituindo os valores de espaço reservado pelo nome da conta, chave e um nome para o seu sistema de arquivos.
+4. No código a seguir, substitua os textos **ACCOUNT_NAME** e **ACCOUNT_KEY** pelos valores que você anotou no início deste início rápido. Além disso, substitua o texto **FILE_SYSTEM_NAME** pelo nome que você gostaria que seu sistema de arquivos tivesse. Em seguida, insira o código na primeira célula.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho do Azur
 
 Antes de iniciar esta seção, você deve concluir os pré-requisitos a seguir:
 
-* Baixar **small_radio_json.json** [do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Carregue o arquivo JSON de exemplo usando **AzCopy versão 10** na conta de armazenamento de Blobs do Azure e o sistema de arquivos criado:
+Insira o código a seguir em uma célula do bloco de anotações:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy versão 10 só está disponível para clientes da versão prévia.
+Na célula, pressione `Shift` + `Enter` para executar o código.
+
+Agora, em uma nova célula abaixo dessa, insira o código a seguir (substitua **FILE_SYSTEM** e **ACCOUNT_NAME** pelos mesmos valores que você usou anteriormente:
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Na célula, pressione `Shift` + `Enter` para executar o código.
 
 ## <a name="run-a-spark-sql-job"></a>Executar um trabalho SQL do Spark
 
