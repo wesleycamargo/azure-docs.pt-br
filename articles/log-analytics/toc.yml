@@ -9,9 +9,9 @@
   items:
     - name: Coletar – VMs do Azure
       href: log-analytics-quick-collect-azurevm.md
-    - name: Coletar - Computador Linux
+    - name: Coletar - Computador Linux híbrido
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Coletar - Computador Windows
+    - name: Coletar - Computador Windows híbrido
       href: log-analytics-quick-collect-windows-computer.md
 - name: Tutoriais
   items:
