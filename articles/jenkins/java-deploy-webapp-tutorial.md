@@ -1,22 +1,19 @@
 ---
-title: Usar o Jenkins para implantar seus aplicativos Web no Azure | Microsoft Docs
+title: Usar o Jenkins para implantar seus aplicativos Web no Azure
 description: Configure a integração contínua do GitHub ao Serviço de Aplicativo do Azure em seus aplicativos Web Java usando o Jenkins e o Docker.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope: ''
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
-ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852992"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389935"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e implantação contínuas ao Serviço de Aplicativo do Azure com o Jenkins
 
@@ -74,11 +71,11 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
     ![Fork do GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
 1. No console Web do Jenkins, selecione **Novo Item**, dê a ele o nome **MyJavaApp**, selecione **Projeto Freestyle** e, em seguida, selecione **OK**.   
     ![Novo projeto Freestyle do Jenkins](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. Na seção **Geral**, selecione o projeto do **GitHub** e insira a URL do repositório bifurcado, como https://github.com/raisa/gs-spring-boot-docker
-3. Na seção **Gerenciamento de código-fonte**, selecione **Git**, insira a URL `.git` do repositório bifurcado, como https://github.com/raisa/gs-spring-boot-docker.git
+2. Na seção **Geral**, selecione o **projeto do GitHub** e insira a URL do repositório bifurcado, como https://github.com/raisa/gs-spring-boot-docker
+3. Na seção **Gerenciamento de código-fonte**, selecione **Git** e insira a URL `.git` do repositório bifurcado, como https://github.com/raisa/gs-spring-boot-docker.git
 4. Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**.
 5. Na seção **Compilar**, selecione **Adicionar etapa de build** e escolha **Invocar destinos de nível superior do Maven**. Insira `package` no campo **Metas**.
-6. Selecione **Salvar**. Teste o trabalho selecionando **Compilar Agora** na página do projeto.
+6. Clique em **Salvar**. Teste o trabalho selecionando **Compilar Agora** na página do projeto.
 
 ## <a name="configure-azure-app-service"></a>Configurar o Serviço de Aplicativo do Azure 
 
@@ -180,9 +177,12 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
     ```
 3. Um novo build será iniciado no Jenkins, disparado pela nova confirmação no branch `master` do repositório. Depois que ele for concluído, recarregue o aplicativo no Azure.     
       ![Exibir o aplicativo implantado no Azure](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+
+Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Usar VMs do Azure como agentes de build](/azure/jenkins/jenkins-azure-vm-agents)
-- [Gerenciar recursos em trabalhos e pipelines com a CLI do Azure](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Usar VMs do Azure como agentes de build](/azure/jenkins/jenkins-azure-vm-agents)
