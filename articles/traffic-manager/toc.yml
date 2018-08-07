@@ -7,7 +7,7 @@
 - name: Início rápido
   items:
     - name: Criar um perfil do Gerenciador de Tráfego
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Tutoriais
   items:
     - name: Rotear o tráfego com base na localização geográfica do ponto de extremidade
