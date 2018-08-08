@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075123"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358240"
 ---
 # <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 A Malha do Microsoft Azure Service Fabric é um serviço totalmente gerenciado que permite aos desenvolvedores implantar aplicativos de microsserviços sem gerenciar máquinas virtuais, armazenamento ou rede. Monitoramento e diagnóstico para a malha de Service Fabric é categorizado em três principais tipos de dados de diagnóstico:
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> Você pode usar o comando "az mesh servicereplica" para obter o nome da réplica. Nomes de réplica estão incrementando números de 0.*
+> Você pode usar o comando "az mesh service-replica" para obter o nome da réplica. Nomes de réplica estão incrementando números de 0.*
 
 Aqui é com o que isso se parece para ver os logs do contêiner do aplicativo de votação VotingWeb.Code:
 

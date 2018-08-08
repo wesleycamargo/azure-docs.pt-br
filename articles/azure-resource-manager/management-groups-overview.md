@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466636"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358762"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
 Se sua organização tiver muitas assinaturas, talvez seja necessária uma maneira de gerenciar com eficiência o acesso, as políticas e a conformidade dessas assinaturas. Os grupos de gerenciamento do Azure fornecem um nível de escopo acima das assinaturas. Você organiza assinaturas em contêineres chamados "grupos de gerenciamento" e aplica as condições de governança aos grupos de gerenciamento. Todas as assinaturas dentro de um grupo de gerenciamento herdam automaticamente as condições aplicadas ao grupo de gerenciamento. Os grupos de gerenciamento fornecem gerenciamento de nível empresarial em larga escala, independentemente do tipo de assinaturas que você possa ter.
-
-O recurso do grupo de gerenciamento está disponível em uma visualização pública. Para começar a usar os grupos de gerenciamento, entre no [portal do Azure](https://portal.azure.com) e pesquise **Grupos de Gerenciamento** na seção **Todos os Serviços**.
 
 Por exemplo, aplique políticas a um grupo de gerenciamento que limite as regiões disponíveis para a criação de VM (máquina virtual). Essa política seria aplicada a todos os grupos de gerenciamento, assinaturas e recursos nesse grupo de gerenciamento, permitindo que as VMs fossem criadas nessa região.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hierarquia de grupos de gerenciamento e assinaturas
 
 É possível compilar uma estrutura flexível de grupos de gerenciamento e assinaturas para organizar seus recursos em uma hierarquia para políticas unificadas e gerenciamento de acesso.
-O diagrama a seguir mostra uma hierarquia de exemplo que consiste em grupos de gerenciamento e assinaturas organizados por departamentos.
+O diagrama a seguir mostra um exemplo de criação de uma hierarquia para governança usando grupos de gerenciamento.
 
 ![árvore](media/management-groups/MG_overview.png)
 
-Ao criar uma hierarquia agrupada por departamentos, atribua funções de [RBAC (Controle de Acesso Baseado em Função) do Azure](../role-based-access-control/overview.md) que *herdam* dos departamentos nesse grupo de gerenciamento. Ao usar grupos de gerenciamento, você pode reduzir sua carga de trabalho e reduzir o risco de erro, apenas tendo que atribuir a função uma vez.
+Ao criar uma hierarquia como este exemplo, você pode aplicar uma política, por exemplo, locais de VMs limitados à Região Oeste dos EUA no grupo “Grupo de gerenciamento de equipe de infraestrutura” para habilitar políticas internas de conformidade e segurança. Essa política herdará as assinaturas do EA nesse grupo de gerenciamento e será aplicada a todas as VMs nessas assinaturas. Como essa política herda do grupo de gerenciamento para as assinaturas, essa política de segurança não pode ser alterada pelo recurso ou pelo proprietário da assinatura, permitindo uma governança aprimorada.
+
+Outro cenário em que você usaria grupos de gerenciamento é fornecer acesso de usuário a várias assinaturas.  Ao mover várias assinaturas nesse grupo de gerenciamento, você pode criar uma atribuição de RBAC no grupo de gerenciamento, que herdará esse acesso a todas as assinaturas.  Sem a necessidade de fazer script de atribuições de RBAC em várias assinaturas, uma atribuição no grupo de gerenciamento pode permitir que os usuários tenham acesso a tudo o que precisam.
 
 ### <a name="important-facts-about-management-groups"></a>Fatos importantes sobre os grupos de gerenciamento
 
@@ -43,20 +43,7 @@ Ao criar uma hierarquia agrupada por departamentos, atribua funções de [RBAC (
   - Esse limite não inclui o nível Raiz nem o nível da assinatura.
 - Cada grupo de gerenciamento e assinatura pode dar suporte a apenas um pai.
 - Cada grupo de gerenciamento pode ter vários elementos filhos.
-- Todas as assinaturas e todos os grupos de gerenciamento estão contidos em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o grupo de gerenciamento raiz](#important-facts-about-the-root-management-group) para obter as exceções durante a Versão Prévia.
-
-### <a name="preview-subscription-visibility-limitation"></a>Limitação de visibilidade de assinatura na versão prévia
-
-Atualmente, há uma limitação na versão prévia em que não é possível visualizar as assinaturas às quais você tenha acesso herdado. O acesso é herdado para a assinatura, mas o Azure Resource Manager ainda não é capaz de reconhecer o acesso de herança.  
-
-O uso da API REST para obter informações sobre a assinatura retorna detalhes do acesso que você tem, mas no Portal do Azure e no Azure Powershell as assinaturas não são exibidas.
-
-Esse item está sendo trabalhado e será resolvido antes que os grupos de gerenciamento sejam anunciados como "Disponibilidade Geral".  
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Limitação do CSP (Provedor de Soluções na Nuvem) durante a Versão Prévia
-
-Há uma limitação atual para Parceiros CSP (Provedor de Soluções na Nuvem), na qual eles não podem criar nem gerenciar os grupos de gerenciamento de seus clientes no diretório do cliente.  
-Esse item está sendo trabalhado e será resolvido antes que os grupos de gerenciamento sejam anunciados como "Disponibilidade Geral".
+- Todas as assinaturas e todos os grupos de gerenciamento estão contidos em uma única hierarquia em cada diretório. Confira [Fatos importantes sobre o Grupo de gerenciamento raiz](#important-facts-about-the-root-management-group) para obter as exceções durante a Versão Prévia.
 
 ## <a name="root-management-group-for-each-directory"></a>Grupo de gerenciamento raiz para cada diretório
 
@@ -76,9 +63,9 @@ Cada diretório recebe um único grupo de gerenciamento de nível superior chama
   - Ninguém recebeu o acesso padrão ao grupo de gerenciamento raiz. Os Administradores Globais do Diretório são os únicos usuários que podem se elevar para obter acesso.  Depois de terem acesso, os administradores de diretório podem atribuir qualquer função RBAC a outros usuários para gerenciamento.  
 
 >[!NOTE]
->Se o diretório começou a usar o serviço de grupos de gerenciamento antes de 25/6/2018, o diretório pode não estar configurado com todas as assinaturas na hierarquia. A equipe do grupo de gerenciamento está atualizando retroativamente cada diretório que começou a usar os grupos de gerenciamento na Versão Prévia Pública antes dessa data, durante o mês de julho de 2018. Todas as assinaturas dos diretórios se tornarão filho no grupo de gerenciamento raiz anterior.  
+>Se o diretório começou a usar o serviço de grupos de gerenciamento antes de 25/6/2018, o diretório pode não estar configurado com todas as assinaturas na hierarquia. A equipe do grupo de gerenciamento está atualizando retroativamente cada diretório que começou a usar grupos de gerenciamento no Public Preview antes dessa data em julho/agosto de 2018. Todas as assinaturas dos diretórios se tornarão filho no grupo de gerenciamento raiz anterior.  
 >
->Em caso de dúvidas sobre esse processo retroativo, contate: managementgroups@microsoft.com  
+>Em caso de dúvidas sobre esse processo retroativo, contate managementgroups@microsoft.com  
   
 ## <a name="initial-setup-of-management-groups"></a>Configuração inicial dos grupos de gerenciamento
 
@@ -97,9 +84,13 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Proprietário                       | X      | X      | X    | X      | X             |               | X     |
 |Colaborador                 | X      | X      | X    | X      |               |               | X     |
+|Colaborador de MG*             | X      | X      | X    | X      |               |               | X     |
 |Leitor                      |        |        |      |        |               |               | X     |
+|MG leitor*                  |        |        |      |        |               |               | X     |
 |Colaborador da política de recurso |        |        |      |        |               | X             |       |
 |Administrador de Acesso do Usuário   |        |        |      |        | X             |               |       |
+
+*: O MG Contributor e o MG Reader só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e definição de função RBAC personalizada
 

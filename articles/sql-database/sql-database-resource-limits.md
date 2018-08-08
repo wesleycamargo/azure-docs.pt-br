@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236917"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412103"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Visão geral dos Limites de recursos do Banco de Dados SQL do Azure 
 
@@ -28,10 +28,12 @@ Este artigo fornece uma visão geral do recurso de banco de dados SQL limita e f
 | Número padrão de servidores por assinatura por região | 20 |
 | Número máximo padrão de servidores por assinatura por região | 200 |
 | DTU / cota de eDTU por servidor | 54.000 |
+| cota de vCore por servidor | 540 |
+| Pools de máx por servidor | limitado pelo número de DTUs ou vCores |
 |||
 
 > [!NOTE]
-> Para obter mais cota DTU/eDTU ou mais servidores que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor. 
+> Para obter mais cotas DTU / eDTU, vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor. 
 
 > [!IMPORTANT]
 > Conforme o número de bancos de dados vai se aproximando do limite por servidor, pode ocorrer o seguinte:
@@ -56,6 +58,7 @@ Ao encontrar uma utilização alta de espaço, as opções de atenuação inclue
 
 - Aumentar o tamanho máximo do banco de dados ou pool elástico ou adicione mais armazenamento. Consulte [limites de recursos do banco de dados individual em escala](sql-database-single-database-scale.md) e [limites de recursos do pool elástico](sql-database-elastic-pool-scale.md).
 - Se o banco de dados estiver em um pool elástico, o banco de dados poderá ser movido para fora do pool, de modo que seu espaço de armazenamento não seja compartilhado com outros bancos de dados.
+- Encolher um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no banco de dados SQL do Azure](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Sessões e trabalhos (solicitações) 
 

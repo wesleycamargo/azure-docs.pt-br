@@ -4,22 +4,20 @@ description: Integração e build contínuo para seu aplicativo do Linux do Serv
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972241"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390169"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Usar o Jenkins para criar e implantar seus aplicativos do Linux
 Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
@@ -325,6 +323,10 @@ Para ambientes de desenvolvimento e teste, você pode configurar as credenciais 
 11. Em **Configuração de Aplicativo**, configure os campos **Nome do Aplicativo**, **Tipo de Aplicativo** e **Caminho para o Manifesto do Aplicativo** (relativo).
     ![Ação de pós-compilação do Jenkins no Service Fabric – configurar as credenciais do Azure](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Clique em **Verificar Configuração**. Quando a verificação tiver êxito, clique em **Salvar**. O pipeline de trabalho do Jenkins agora está totalmente configurado. Continue nas [Próximas etapas](#next-steps) a fim de testar a implantação.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+
+Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 
 ## <a name="next-steps"></a>Próximas etapas
 O GitHub e o Jenkins agora estão configurados. Considere fazer alguma alteração de exemplo no projeto `reliable-services-actor-sample/Actors/ActorCounter` na sua bifurcação do repositório, https://github.com/Azure-Samples/service-fabric-java-getting-started. Envie as alterações à ramificação `master` remota (ou a qualquer ramificação configurada para o trabalho) por push. Isso dispara o trabalho do Jenkins, `MyJob`, que você configurou. Ele busca as alterações do GitHub, compila-as e implanta o aplicativo no cluster especificado nas ações pós-compilação.  

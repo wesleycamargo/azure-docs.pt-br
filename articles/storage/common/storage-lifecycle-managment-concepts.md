@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752785"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413120"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciar ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -70,7 +70,7 @@ Se o recurso for aprovado e registrado corretamente, você deverá receber o est
 
 ## <a name="add-or-remove-policies"></a>Adicionar ou remover políticas 
 
-Você pode adicionar, editar ou remover uma política usando o portal do Azure, o [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), APIs REST ou ferramentas de cliente nas seguintes linguagens de programação: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0) e [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Você pode adicionar, editar ou remover uma política usando o Portal do Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [APIs REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou ferramentas cliente nos seguintes idiomas: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -133,7 +133,7 @@ Os parâmetros necessários dentro de uma regra são:
 
 ## <a name="rules"></a>Regras
 
-Cada definição de regra inclui um conjunto de filtros e um conjunto de ações. A regra de exemplo a seguir modifica a camada para blobs de bloco base com o prefixo `foo`. Na política, essas regras são definidas como:
+Cada definição de regra inclui um conjunto de filtros e um conjunto de ações. A regra de exemplo a seguir modifica a camada para blobs de bloco base com o prefixo `container1/foo`. Na política, essas regras são definidas como:
 
 - Blob de camada para armazenamento esporádico 30 dias após a última modificação
 - Blob de camada para armazenamento de arquivos 90 dias após a última modificação
@@ -150,7 +150,7 @@ Cada definição de regra inclui um conjunto de filtros e um conjunto de ações
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
-          "prefixMatch": [ "foo" ]
+          "prefixMatch": [ "container1/foo" ]
         },
         "actions": {
           "baseBlob": {
@@ -177,8 +177,8 @@ Durante a versão prévia, os filtros válidos incluem:
 
 | Nome do filtro | Tipo do filtro | Observações | Obrigatório |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enumeração predefinidos. | Para a versão prévia, há suporte apenas para `blockBlob`. | sim |
-| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. | Se não estiver definida, essa regra se aplicará a todos os blobs na conta. | Não  |
+| blobTypes   | Uma matriz de valores de enumeração predefinidos. | Para a versão prévia, há suporte apenas para `blockBlob`. | SIM |
+| prefixMatch | Uma matriz de cadeias de caracteres para prefixos a serem correspondidos. Uma cadeia de caracteres de prefixo deve começar com um nome de contêiner. Por exemplo, se todos os blobs no "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." devem ser correspondentes para uma regra, o prefixo é "mycontainer/mydir". | Se não estiver definida, essa regra se aplicará a todos os blobs na conta. | Não  |
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -207,7 +207,7 @@ Os exemplos a seguir demonstram como tratar cenários comuns com as regras de po
 
 ### <a name="move-aging-data-to-a-cooler-tier"></a>Mover dados antigos para uma camada mais fria
 
-O exemplo a seguir demonstra como fazer a transição de blobs de bloco prefixados com `foo` ou `bar`. A política faz a transição de blobs que não foram modificados há mais de 30 dias para o armazenamento esporádico e de blobs não modificados há mais de 90 dias para a camada de arquivos:
+O exemplo a seguir demonstra como fazer a transição de blobs de bloco prefixados com `container1/foo` ou `container2/bar`. A política faz a transição de blobs que não foram modificados há mais de 30 dias para o armazenamento esporádico e de blobs não modificados há mais de 90 dias para a camada de arquivos:
 
 ```json
 {
@@ -220,7 +220,7 @@ O exemplo a seguir demonstra como fazer a transição de blobs de bloco prefixad
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "foo", "bar" ]
+            "prefixMatch": [ "container1/foo", "container2/bar" ]
           },
           "actions": {
             "baseBlob": {
@@ -236,7 +236,7 @@ O exemplo a seguir demonstra como fazer a transição de blobs de bloco prefixad
 
 ### <a name="archive-data-at-ingest"></a>Arquivar dados em ingestão 
 
-Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados após serem armazenados. É melhor arquivar esses dados imediatamente assim que eles são ingeridos. A política de ciclo de vida a seguir é configurada para arquivar dados no ato da ingestão. Este exemplo faz a transição de blobs de blocos na conta de armazenamento com o prefixo `archive` imediatamente para uma camada de arquivos. A transição imediata é realizada agindo sobre os blobs 0 dias após a hora da última modificação:
+Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados após serem armazenados. É melhor arquivar esses dados imediatamente assim que eles são ingeridos. A política de ciclo de vida a seguir é configurada para arquivar dados no ato da ingestão. Este exemplo faz a transição de blocos de blocos na conta de armazenamento do contêiner `archivecontainer` imediatamente para uma camada de arquivamento. A transição imediata é realizada agindo sobre os blobs 0 dias após a hora da última modificação:
 
 ```json
 {
@@ -249,7 +249,7 @@ Alguns dados permanecem ociosos na nuvem e raramente, ou nunca, são acessados a
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archive" ]
+            "prefixMatch": [ "archivecontainer" ]
           },
           "actions": {
             "baseBlob": { 
@@ -292,7 +292,7 @@ Espera-se que alguns dados expirem dias ou meses após a criação para reduzir 
 
 ### <a name="delete-old-snapshots"></a>Excluir instantâneos antigos
 
-Para dados que são modificados e acessados regularmente durante seu ciclo de vida, instantâneos geralmente são usados para controlar versões mais antigas dos dados. Você pode criar uma política que exclui os instantâneos antigos com base na idade do instantâneo. A idade de instantâneo é determinada avaliando-se a hora de criação do instantâneo. Essa regra de política exclui instantâneos de blob de blocos com o prefixo `activeData` que têm 90 dias ou mais após a criação do instantâneo.
+Para dados que são modificados e acessados regularmente durante seu ciclo de vida, instantâneos geralmente são usados para controlar versões mais antigas dos dados. Você pode criar uma política que exclui os instantâneos antigos com base na idade do instantâneo. A idade de instantâneo é determinada avaliando-se a hora de criação do instantâneo. Esta regra de política exclui instantâneos blobs de blocos no contêiner `activedata` com 90 dias ou mais após a criação do instantâneo.
 
 ```json
 {
@@ -305,7 +305,7 @@ Para dados que são modificados e acessados regularmente durante seu ciclo de vi
         {
           "filters": {
             "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activeData" ]
+            "prefixMatch": [ "activedata" ]
           },
           "actions": {            
             "snapshot": {

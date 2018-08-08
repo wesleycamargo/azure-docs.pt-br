@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448727"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399933"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 
@@ -46,10 +46,8 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de acesso condicional](#conditional-access-administrator)**: os usuários com essa função têm a capacidade de gerenciar configurações de acesso condicional do Azure Active Directory.
   > [!NOTE]
-  > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser Administrador Global.
+  > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
   
-* **[Administrador de Serviços Dynamics 365/Administrador de Serviços CRM](#crm-service-administrator)**: os usuários com essa função têm permissões globais no Microsoft CRM Online quando o serviço está presente, além da capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [usar a função de administrador de serviço para gerenciar seu locatário](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Administradores do Dispositivo](#device-administrators)**: os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
 * **[Leitores de Diretório](#directory-readers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/active-directory-integrating-applications.md). Ele não deve ser atribuído a nenhum usuário.
@@ -57,6 +55,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Contas de Sincronização de Diretório](#directory-synchronization-accounts)**: não use. Essa função é automaticamente atribuída ao serviço do Azure AD Connect e não tem intenção ou suporte para outros usos.
 
 * **[Gravadores de Diretório](#directory-writers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/active-directory-integrating-applications.md). Ele não deve ser atribuído a nenhum usuário.
+
+* **[ Administrador de serviço do Dynamics 365 / CRM Service Administrator](#dynamics-365-service-administrator)**: os usuários com essa função têm permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerenciar tickets de suporte e monitorar a saúde do serviço. Mais informações em [usar a função de administrador de serviço para gerenciar seu locatário](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Administrador de serviços do Exchange](#exchange-service-administrator)**: os usuários com essa função têm permissões globais no Microsoft Exchange Online quando o serviço está presente. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Pode criar e gerenciar todos os aspectos de registros de aplicativo e aplicativo
 Pode gerenciar todos os aspectos do Azure AD e dos serviços da Microsoft que usam identidades do Azure AD. Na API do Graph da Microsoft, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador da Empresa". É "Administrador Global" no [portal do Azure](https://portal.azure.com).
 
   > [!NOTE]
-  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Essa função tem permissões adicionais fora do Azure Active Directory. Consulte a descrição da função acima para obter mais informações.
   >
   >
@@ -357,27 +352,6 @@ Pode gerenciar os recursos de acesso condicional.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Atualize as propriedades padrão em ConditionalAccessPolicys no Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Atualize a propriedade ConditionalAccessPolicys.Owners no Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>Administrador de serviços do CRM
-Pode gerenciar todos os aspectos do produto Dynamics 365.
-
-  > [!NOTE]
-  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Consulte a descrição da função acima para obter mais informações.
-  >
-  >
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Leia a propriedade Organizations.TrustedCAsForPasswordlessAuth no Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Criar e excluir todos os recursos, e ler e atualizar propriedades padrão no Controle de Acesso do Azure. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Ler e configurar a Integridade de Serviço do Office 365. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Criar e gerenciar tíquetes de suporte do Office 365. |
-| microsoft.crm/AllEntities/AllActions | Gerencie todos os aspectos do Dynamics 365. |
-
 ### <a name="device-administrators"></a>Administradores de Dispositivo
 Os membros dessa função são adicionados ao grupo Administradores local em dispositivos que ingressaram no AD do Azure.
 
@@ -389,13 +363,8 @@ Os membros dessa função são adicionados ao grupo Administradores local em dis
 | **Ações** | **Descrição** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Leitor de Diretório
-Pode ler informações básicas do diretório. Solucionar problemas de acesso a aplicativos
-
-  > [!NOTE]
-  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
+### <a name="directory-readers"></a>Leitores de Diretório
+Pode ler informações básicas do diretório. Solucionar problemas de acesso a aplicativos.
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -449,11 +418,6 @@ Pode ler informações básicas do diretório. Solucionar problemas de acesso a 
 ### <a name="directory-synchronization-accounts"></a>Contas de sincronização de diretório
 Apenas usado pelo serviço do Azure AD Connect.
 
-  > [!NOTE]
-  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Criar Políticas no Azure Active Directory. |
@@ -483,11 +447,6 @@ Apenas usado pelo serviço do Azure AD Connect.
 ### <a name="directory-writer"></a>Gravador de diretório
 Pode ler e gravar informações básicas do diretório. Solucionar problemas de acesso a aplicativos
 
-  > [!NOTE]
-  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.directory/DirectorySetting/Create | Criar DirectorySettings no Azure Active Directory. |
@@ -507,6 +466,27 @@ Pode ler e gravar informações básicas do diretório. Solucionar problemas de 
 | microsoft.aad.directory/User/Update | Atualize as propriedades padrão em Usuários no Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Atualizar a propriedade Users.AppRoleAssignments no Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Atualizar a propriedade Users.Manager no Azure Active Directory. |
+
+### <a name="dynamics-365-service-administrator"></a>Administrador de serviços do Dynamics 365
+Pode gerenciar todos os aspectos do produto Dynamics 365.
+
+  > [!NOTE]
+  > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Consulte a descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Leia a propriedade Organizations.TrustedCAsForPasswordlessAuth no Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Criar e excluir todos os recursos, e ler e atualizar propriedades padrão no Controle de Acesso do Azure. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Ler e configurar a Integridade de Serviço do Office 365. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Criar e gerenciar tíquetes de suporte do Office 365. |
+| microsoft.crm/AllEntities/AllActions | Gerencie todos os aspectos do Dynamics 365. |
 
 ### <a name="exchange-service-administrator"></a>Administrador de serviços do Exchange
 Pode gerenciar todos os aspectos do produto Exchange.
@@ -783,6 +763,25 @@ Pode gerenciar atribuições de função do AD do Azure
 | microsoft.aad.directory/DirectoryRole/Update | Atualize as propriedades padrão em DirectoryRoles no Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Gerencie todos os aspectos do serviço de Gerenciamento de Funções Privilegiadas. |
 
+### <a name="reports-reader"></a>Leitor de Relatórios
+Pode ler relatórios de entrada e de auditoria.
+
+  > [!NOTE]
+  > Essa função herda permissões adicionais da função de Leitores de Diretório.
+  >
+  >
+
+  > [!NOTE]
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Consulte a descrição da função acima para obter mais informações.
+  >
+  >
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Ler Relatórios do Azure AD. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Ler e configurar a Integridade de Serviço do Office 365. |
+| microsoft.office365.usagereports/AllEntities/Read | Leia os relatórios de uso do Office 365. |
+
 ### <a name="security-administrator"></a>Administrador de segurança
 Pode ler relatórios e informações de segurança
 
@@ -810,25 +809,6 @@ Pode ler relatórios e informações de segurança
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Leia todos os aspectos de Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
 | microsoft.protectioncenter/AllEntities/Update | Gerenciar Centro de Proteção do Office 365. |
-
-### <a name="reports-reader"></a>Leitor de Relatórios
-Pode ler relatórios de entrada e de auditoria.
-
-  > [!NOTE]
-  > Essa função herda permissões adicionais da função de Leitores de Diretório.
-  >
-  >
-
-  > [!NOTE]
-  > Essa função tem permissões adicionais fora do Azure Active Directory. Consulte a descrição da função acima para obter mais informações.
-  >
-  >
-
-| **Ações** | **Descrição** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Ler Relatórios do Azure AD. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Ler e configurar a Integridade de Serviço do Office 365. |
-| microsoft.office365.usagereports/AllEntities/Read | Leia os relatórios de uso do Office 365. |
 
 ### <a name="security-reader"></a>Leitor de segurança
 Pode ler relatórios e informações de segurança no Azure AD e no Office 365.

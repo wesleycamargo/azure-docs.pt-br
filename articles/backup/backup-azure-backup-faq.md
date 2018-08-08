@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backup e recuperação de desastre; serviço de backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605817"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412944"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo responde às perguntas frequentes sobre componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -33,8 +33,11 @@ Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se v
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar dados de um servidor de outro servidor ao restaurar os dados?<br/>
 Todos os servidores registrados no mesmo cofre poderão recuperar os dados do backup feito por outros servidores *que usem a mesma senha*. Se houver servidores cujos dados de backup que você deseja isolar de outros servidores em sua organização, use uma senha designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Posso "migrar" meus dados de backup ou cofre entre assinaturas? <br/>
-Nº O cofre é criado no nível da assinatura e não pode ser reatribuído a outra assinatura depois de criado.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>Posso migrar meu cofre entre assinaturas? <br/>
+Não. O cofre é criado em um nível de assinatura e não pode ser transferido para outra assinatura.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Pode migrar dados de backup para outro cofre? <br/>
+Não. Os dados de backup armazenados em um cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Os cofres dos Serviços de Recuperação se baseiam no Resource Manager. Os cofres de Backup ainda têm suporte? <br/>
 Os cofres de Backup foram convertidos em cofres dos Serviços de Recuperação. Se você não converteu o cofre de Backup em um cofre dos Serviços de Recuperação, o cofre de Backup terá sido convertido em um cofre dos Serviços de Recuperação para você. 
@@ -60,7 +63,7 @@ Sim. Você pode usar o Servidor de Backup do Azure para fazer backup do VMware v
 Sim.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>Posso registrar meu Servidor DPM para diversos cofres? <br/>
-Nº Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
+Não. Um servidor DPM ou MABS pode ser registrado para apenas um cofre.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Há suporte para qual versão do System Center Data Protection Manager?
 
@@ -74,11 +77,11 @@ Sim. No entanto, para usar o Backup do Microsoft Center Data Protection Manager 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Pode usar o DPM para fazer backup de aplicativos na pilha do Azure?
 
-Nº Embora você possa usar o Backup do Azure para proteger a pilha do Azure, Backup do Azure não oferece atualmente suporte usando o DPM para fazer backup de aplicativos na pilha do Azure.
+Não. Embora você possa usar o Backup do Azure para proteger a pilha do Azure, Backup do Azure não oferece atualmente suporte usando o DPM para fazer backup de aplicativos na pilha do Azure.
 
 ## <a name="how-azure-backup-works"></a>Como funciona o Backup do Azure
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Se eu cancelar um trabalho de backup depois de iniciado, os dados de backup transferidos serão excluídos? <br/>
-Nº Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
+Não. Todos os dados transferidos para o cofre, antes do cancelamento do trabalho de backup, permanecem no cofre. O Backup do Azure usa um mecanismo de ponto de verificação para, ocasionalmente, adicionar pontos de verificação aos dados de backup durante o backup. Como há pontos de verificação nos dados de backup, o próximo processo de backup pode validar a integridade dos arquivos. O próximo trabalho de backup será incremental para os dados cujo backup foi realizado anteriormente. Os backups incrementais transferem apenas dados novos ou alterados, que equivalem à melhor utilização da largura de banda.
 
 Se você cancelar um trabalho de backup para uma VM do Azure, os dados transferidos serão ignorados. O próximo trabalho de backup transfere dados incrementais do último trabalho de backup bem-sucedido.
 
@@ -147,7 +150,7 @@ Não, o DPM e o Windows Server/cliente Windows têm políticas de retenção di�
 Sim, a estrutura de retenção de Backup do Azure permite que você tenha total flexibilidade na definição da política de retenção de acordo com suas necessidades.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Posso “agendar um backup” às 18h e especificar “políticas de retenção” em um momento diferente?<br/>
-Nº As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à meia-noite e às 18h. <br/>
+Não. As políticas de retenção só podem ser aplicadas em pontos de backup. Na imagem a seguir, a política de retenção é especificada para backups realizados à meia-noite e às 18h. <br/>
 
 ![Retenção e agendamento de Backup](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -165,7 +168,7 @@ Você pode criar até 9999 pontos de recuperação por instância protegida. Uma
 Não há limite para o número de recuperações do Backup do Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>Ao restaurar dados, eu pago pelo tráfego de saída do Azure? <br/>
-Nº As suas recuperações são gratuitas e você não é cobrado pelo tráfego de saída.
+Não. As suas recuperações são gratuitas e você não é cobrado pelo tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero minha política de backup?
 Quando uma nova política for aplicada, a agenda e a retenção da nova política serão seguidas. Se a retenção for estendida, os pontos de recuperação existentes serão marcados para mantê-los de acordo com a nova política. Se a retenção for reduzida, eles serão marcados para remoção no próximo trabalho de limpeza e subsequentemente excluídos.

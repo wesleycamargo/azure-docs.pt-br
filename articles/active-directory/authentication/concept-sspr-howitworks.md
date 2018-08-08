@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248212"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413096"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Como funciona: Redefinição de senha de autoatendimento do Azure AD
 
@@ -50,6 +50,7 @@ Leia as etapas abaixo para saber mais sobre a lógica por trás da página de re
        * Se os métodos de autenticação não estiverem configurados, o usuário é aconselhado a entrar em contato com o administrador para redefinir sua senha.
      * Se a política exigir dois métodos, ela garantirá que o usuário tenha os dados apropriados definidos para pelo menos dois dos métodos de autenticação habilitados pela política do administrador.
        * Se os métodos de autenticação não estiverem configurados, o usuário é aconselhado a entrar em contato com o administrador para redefinir sua senha.
+     * Se uma função de administrador do Azure for atribuída ao usuário, a diretiva de senha de duas portas será imposta. Mais informações sobre essa política podem ser encontradas na seção [Diferenças da política de redefinição do administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Verifica se a senha do usuário é gerenciada no local (federado, autenticação de passagem ou sincronizada com hash de senha).
      * Se o write-back estiver implantado e a senha do usuário for gerenciada localmente, o usuário poderá continuar a autenticação e a redefinição de sua senha.
      * Se o write-back não estiver implantado e a senha do usuário for gerenciada localmente, o usuário deverá contatar o administrador para redefinir sua senha.
@@ -68,6 +69,9 @@ Se a SSPR estiver habilitada, você deve selecionar pelo menos uma das seguintes
 
 Os usuários só podem redefinir sua senha se tiverem dados presentes nos métodos de autenticação que o administrador habilitou.
 
+> [!WARNING]
+> Contas atribuídas a funções de administrador do Azure será necessárias para usar métodos conforme definido na seção [diferenças de política de redefinição de administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
+
 ![Autenticação][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Quantidade necessária de métodos de autenticação
@@ -80,13 +84,16 @@ Se um usuário não tiver os métodos mínimos necessários registrados, ele ver
 
 #### <a name="mobile-app-and-sspr-preview"></a>Aplicativo para dispositivos móveis e SSPR (visualização)
 
-Ao usar um aplicativo para dispositivos móveis, como o aplicativo Microsoft Authenticator, como um método para redefinição de senha, os usuários devem estar cientes do seguinte. Para redefinição de senha de autoatendimento, quando apenas um método é necessário para redefinir o código de verificação, a única opção disponível para os usuários. Quando dois métodos forem necessários, os usuários poderão redefinir usando notificação **SEJA** **OU** código de verificação, além de qualquer outro método ativado.
+Ao usar um aplicativo para dispositivos móveis, como o aplicativo Microsoft Authenticator, como um método de redefinição de senha, você deve estar ciente do seguinte:
+
+* Quando os administradores exigem que um método seja usado para redefinir uma senha, o código de verificação é a única opção disponível.
+* Quando os administradores exigem dois métodos a ser usado para redefinir uma senha, os usuários são capazes de usar **um** notificação **ou** habilitado de código de verificação além de quaisquer outros métodos.
 
 | Número de métodos necessários para redefinir | Um | Dois |
 | :---: | :---: | :---: |
 | Recursos de aplicativos para dispositivos móveis disponíveis | Código | Código ou notificação |
 
-Os usuários não terão a opção de registrar seu aplicativo móvel ao se registrarem para redefinição de senha de autoatendimento. Em vez disso, os usuários podem registrar seu aplicativo móvel em aka.ms/mfasetup ou na visualização de registro de informações de segurança em aka.ms/setupsecurityinfo. 
+Usuários não têm a opção de registrar seu aplicativo móvel ao se registrar para redefinição de senha de autoatendimento do [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Os usuários podem registrar seu aplicativo móvel em [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou na nova visualização do registro de informações de segurança em[https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Alterar métodos de autenticação
 

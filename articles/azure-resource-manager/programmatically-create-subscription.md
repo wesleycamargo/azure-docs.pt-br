@@ -2,8 +2,8 @@
 title: Criar programaticamente assinaturas do Azure Enterprise | Microsoft Docs
 description: Aprenda a criar programaticamente assinaturas adicionais do Azure Enterprise ou Enterprise Dev/Test.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: df66ba1ec2c855a24731387210b0127892f5796f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234777"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358337"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure Enterprise (versão prévia)
 
@@ -26,11 +26,13 @@ Como um cliente do Azure em [Contrato Enterprise (EA)](https://azure.microsoft.c
 
 Quando você cria uma assinatura do Azure por meio dessa API, essa assinatura é governada pelo contrato sob o qual você obteve serviços do Microsoft Azure da Microsoft ou de um revendedor autorizado. Para saber mais, confira [Informações Legais do Microsoft Azure](https://azure.microsoft.com/support/legal/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Sua conta deve ser de Proprietário de Conta em um registro de EA do Azure. Se não for, peça ao seu administrador de registro para [adicioná-lo como um proprietário de conta usando o portal EA](https://ea.azure.com/helpdocs/addNewAccount) (log de entrada necessário). Siga as instruções no email de convite que você recebe para criar manualmente uma assinatura inicial. Confirme a propriedade da conta e criar manualmente uma assinatura de EA inicial antes de prosseguir para a próxima etapa. Apenas adicionar a conta ao registro não é suficiente.
+Você deve ter uma função de Proprietário ou Colaborador na Conta de Inscrição na qual deseja criar inscrições. Há duas maneiras de obter essas funções:
 
-* Se você quiser usar uma entidade de serviço para criar a assinatura de EA, [conceda a essa entidade de serviço a capacidade de criar assinaturas](grant-access-to-create-subscription.md).
+* Seu Administrador de Inscrição pode [fazer de você um Proprietário da Conta](https://ea.azure.com/helpdocs/addNewAccount) (é necessário fazer login), o que faz de você um Proprietário da Conta de Inscrição. Siga as instruções no email de convite que você recebe para criar manualmente uma assinatura inicial. Confirme a propriedade da conta e criar manualmente uma assinatura de EA inicial antes de prosseguir para a próxima etapa. Apenas adicionar a conta ao registro não é suficiente.
+
+* Um proprietário existente da conta de inscrição pode [conceder acesso a você](grant-access-to-create-subscription.md). Da mesma forma, se você quiser usar uma entidade de serviço para criar a assinatura do EA, você deve [conceder a essa entidade de serviço a capacidade de criar assinaturas](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Localize as contas às quais você tem acesso
 
@@ -149,10 +151,10 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome do elemento  | Obrigatório | type   | DESCRIÇÃO                                                                                               |
+| Nome do elemento  | Obrigatório | Tipo   | DESCRIÇÃO                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | Não       | Cadeia de caracteres | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offerType`   | sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `offerType`   | SIM      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
 | `owners`      | Não        | Cadeia de caracteres | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 
 Em resposta, você obtém um objeto `subscriptionOperation` para monitoramento. Quando terminar a criação de assinatura, o objeto `subscriptionOperation` retornaria um objeto `subscriptionLink`, que tem a ID da assinatura.
@@ -161,17 +163,17 @@ Em resposta, você obtém um objeto `subscriptionOperation` para monitoramento. 
 
 Para usar este módulo de visualização, instale-o executando `Install-Module AzureRM.Subscription -AllowPrerelease` primeiro. Para certificar-se de que `-AllowPrerelease` funciona, instale uma versão recente do PowerShellGet do [Módulo Get do PowerShellGet](/powershell/gallery/installing-psget).
 
-Use o [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) juntamente com a `enrollmentAccount` ID do bojeto como o parâmetro `EnrollmentAccountObjectId` para criar uma nova assinatura. 
+Use o [New-AzureRmSubscription](/powershell/module/azurerm.subscription) juntamente com a `enrollmentAccount` ID do bojeto como o parâmetro `EnrollmentAccountObjectId` para criar uma nova assinatura. 
 
 ```azurepowershell-interactive
 New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
-| Nome do elemento  | Obrigatório | type   | DESCRIÇÃO                                                                                               |
+| Nome do elemento  | Obrigatório | Tipo   | DESCRIÇÃO                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Não       | Cadeia de caracteres | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `OfferType`   | sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `Get-AzureRmEnrollmentAccount`. |
+| `OfferType`   | SIM      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `EnrollmentAccountObjectId`      | SIM       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Não        | Cadeia de caracteres | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `OwnerSignInName`    | Não        | Cadeia de caracteres | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `OwnerObjectId`.|
 | `OwnerApplicationId` | Não        | Cadeia de caracteres | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro, em vez de `OwnerObjectId`.| 
@@ -188,11 +190,11 @@ Use o [criar conta az](/cli/azure/ext/subscription/account?view=azure-cli-latest
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome do elemento  | Obrigatório | type   | DESCRIÇÃO                                                                                               |
+| Nome do elemento  | Obrigatório | Tipo   | DESCRIÇÃO                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Não       | Cadeia de caracteres | O nome de exibição da assinatura. Se não for especificado, será definido como o nome da oferta, como "Microsoft Azure Enterprise".                                 |
-| `offer-type`   | sim      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | sim       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `az billing enrollment-account list`. |
+| `offer-type`   | SIM      | Cadeia de caracteres | A oferta da assinatura. As duas opções para EA são [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso de produção) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (desenvolvimento/teste, precisa ser [ativado usando o portal EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
+| `enrollment-account-object-id`      | SIM       | Cadeia de caracteres | A ID de Objeto da conta do registro que a assinatura é criada e cobrada. Esse valor é um GUID que você obteve de `az billing enrollment-account list`. |
 | `owner-object-id`      | Não        | Cadeia de caracteres | A ID de objeto de qualquer usuário que você deseja adicionar como um proprietário de RBAC na assinatura quando ela é criada.  |
 | `owner-upn`    | Não        | Cadeia de caracteres | O endereço de e-mail de qualquer usuário que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`.|
 | `owner-spn` | Não        | Cadeia de caracteres | O ID do aplicativo de qualquer serviço principal que você gostaria de adicionar como um Proprietário RBAC na assinatura quando ela é criada. Você pode usar este parâmetro em vez de `owner-object-id`.| 
@@ -207,10 +209,10 @@ Para ver uma lista completa de todos os parâmetros, consulte [criar conta az](/
 - Há um limite de 50 assinaturas por conta. Depois disso, as assinaturas só podem ser criadas usando o Centro de Contas.
 - Precisa ter pelo menos um EA ou EA desenvolvimento/teste assinaturas sob a conta, o que significa que o Proprietário da Conta tenha se inscrito manualmente pelo menos uma vez.
 - Os usuários que não são Proprietários da Conta, mas foram adicionados a uma conta de registro por meio do RBAC, não podem criar assinaturas usando o Centro de Contas.
-- Você não pode selecionar o locatário para a assinatura a ser criada. A assinatura é sempre criada no locatário inicial do Proprietário da Conta. Para mover a assinatura para um locatário diferente, consulte [alterar o locatário da assinatura](..\active-directory\active-directory-how-subscriptions-associated-directory.md).
+- Você não pode selecionar o locatário para a assinatura a ser criada. A assinatura é sempre criada no locatário inicial do Proprietário da Conta. Para mover a assinatura para um locatário diferente, consulte [alterar o locatário da assinatura](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter um exemplo sobre como criar assinaturas usando .NET, consulte [código de exemplo no GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Agora que você criou uma assinatura, conceda essa capacidade a outros usuários e entidades de serviço. Para saber mais, veja [Conceder acesso para criar assinaturas do Azure Enterprise (versão prévia)](grant-access-to-create-subscription.md).
-* Para saber mais sobre grupos grandes de gerenciamento de assinaturas usando Grupos de Gerenciamento, consulte [Organize seus recursos com Grupos de Gerenciamento do Azure](management-groups-overview.md)
+* Para saber mais sobre como gerenciar grandes números de assinaturas usando grupos de gerenciamento, consulte [Organize seus recursos com grupos de gerenciamento do Azure](management-groups-overview.md)

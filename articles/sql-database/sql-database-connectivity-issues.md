@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113487"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398930"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
@@ -181,21 +181,25 @@ Para obter mais informações sobre a configuração de portas e endereços IP, 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Conexão: ADO.NET 4.6.1
-Caso o programa use classes do ADO.NET, como **System.Data.SqlClient.SqlConnection**, para se conectar ao Banco de Dados SQL, recomendamos que você use o .NET Framework versão 4.6.1 ou posterior.
+### <a name="connection-adonet-462-or-later"></a>Conexão: ADO.NET 4.6.2 ou posterior
+Se seu programa usa classes do ADO.NET como **System.Data.SqlClient.SqlConnection** para se conectar ao Banco de Dados SQL, recomendamos que você use o .NET Framework versão 4.6.2 ou posterior.
 
-ADO.NET 4.6.1:
+Começando com o ADO.NET 4.6.2:
+
+- A tentativa de abrir a conexão para ser repetida imediatamente para bancos de dados SQL do Azure, melhorando assim o desempenho de aplicativos habilitados para nuvem.
+
+Começando com o ADO.NET 4.6.1:
 
 * Para o Banco de Dados SQL, há mais confiabilidade quando você abre uma conexão usando o método **SqlConnection.Open**. O método **Open** agora incorpora mecanismos de repetição de melhor esforço em resposta a falhas transitórias para determinados erros dentro do período de tempo limite da conexão.
 * O pool de conexão é compatível, o que inclui uma verificação eficiente se o objeto de conexão oferecido ao programa esteja funcionando.
 
-Quando você usa um objeto de conexão de um pool, recomendamos que o programa feche temporariamente a conexão quando não estiver em uso imediato. Não é caro reabrir uma conexão, mas criar uma nova conexão é.
+Quando você usa um objeto de conexão de um pool de conexão, é recomendável que seu programa Feche temporariamente a conexão quando não for imediatamente em uso. Não é caro reabrir uma conexão, mas criar uma nova conexão é.
 
-Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade para o ADO.NET mais recente. Desde novembro de 2015, você pode [baixar o ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Se você estiver usando o ADO.NET 4.0 ou anterior, recomendaremos fazer upgrade para o ADO.NET mais recente. A partir de agosto de 2018, você pode [baixar o ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnostics
+## <a name="diagnostics"></a>Diagnósticos
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
 ### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: testar se os utilitários podem se conectar

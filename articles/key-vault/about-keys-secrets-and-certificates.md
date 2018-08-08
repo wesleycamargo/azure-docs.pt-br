@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972393"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359182"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.
@@ -117,15 +117,36 @@ Em que:
 
 As chaves de criptografia no Cofre de Chaves do Azure são representadas como objetos de chave da Web JSON [JWK]. As especificações JWK/JWA base também são estendidas para permitir tipos de chave exclusivos para a implementação do Cofre de Chaves do Azure, por exemplo, a importação de chaves no Cofre de Chaves do Azure usando o empacotamento específico (Thales) de fornecedor do HSM para habilitar um transporte seguro de chaves, que só pode ser usados nos HSMs do Cofre de Chaves do Azure.  
 
-A versão inicial do Cofre de Chaves do Azure oferece suporte somente a chaves RSA. As versões futuras podem dar suporte a outros tipos de chave, como curva elíptica e simétrica.  
-
--   **RSA**: uma chave RSA de 2048 bits. Esta é uma chave "soft", que é processada no software pelo Cofre de Chaves, mas é armazenada criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA existente ou solicitar que o Cofre de Chaves do Azure gere uma.  
--   **RSA-HSM**: uma chave RSA que é processada em um HSM. As chaves RSA-HSM são protegidas em um dos mundos de segurança HSM do Cofre de Chaves do Azure (há um mundo de segurança por localização geográfica para manter o isolamento). Os clientes podem importar uma chave RSA, no formato soft ou por meio da exportação de um dispositivo do HSM compatível, ou solicitar que o Cofre de chaves do Azure gere uma. Esse tipo de chave adiciona o atributo T para o JWK obter para transportar o material de chave do HSM.  
+- **Teclas "soft"**: uma chave processada no software pelo Key Vault, mas criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave RSA ou EC existente ou solicitar que o Cofre de Chaves do Azure gere um.
+- **Teclas "Hard"**: uma chave processada em um HSM (Hardware Security Module). Essas chaves são protegidas em um dos Mundos de Segurança do HSM do Cofre de Chaves do Azure (existe um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, seja em formato flexível ou exportando de um dispositivo HSM compatível, ou solicitar que o Cofre da Chave do Azure gere um. Esse tipo de chave adiciona o atributo T para o JWK obter para transportar o material de chave do HSM.
 
      Para obter mais informações sobre fronteiras geográficas, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+O Cofre de Chaves do Azure suporta apenas as chaves RSA e Curva Elíptica; versões futuras podem suportar outros tipos de chaves, como simétricas.
+
+-   **EC**: chave de curva elíptica "Soft".
+-   **EC-HSM**: chave de curva elíptica de "Rígida".
+-   **RSA**: chave "Soft" RSA.
+-   **RSA-HSM**: chave "Hard" RSA.
+
+O Cofre de Chaves do Azure oferece suporte a chaves RSA de tamanhos 2048, 3072 e 4096 e chaves de Curva Elíptica do tipo P-256, P-384, P-521 e P-256K.
+
+### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
+
+Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> Algoritmos EC
+ Os seguintes identificadores de algoritmo são suportados com chaves EC e EC-HSM no Cofre de Chaves do Azure. 
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** - resumos de ECDSA para SHA-256 e as chaves criadas com a curva p-256. Esse algoritmo é descrito em [RFC7518].
+-   **ES256K** - resumos de ECDSA para SHA-256 e as chaves criadas com curva P-256_K. Este algoritmo está pendente de padronização.
+-   **ES384** - resumos de ECDSA para SHA-384 e as chaves criadas com a curva p-384. Esse algoritmo é descrito em [RFC7518].
+-   **ES512** - ECDSA para SHA-512 resumos e as chaves criadas com a curva p-521. Esse algoritmo é descrito em [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> Algoritmos RSA  
- Os seguintes identificadores de algoritmo são compatíveis com chaves RSA no Cofre de Chaves do Azure.  
+ Os seguintes identificadores de algoritmo são suportados com chaves RSA e RSA-HSM no Cofre de Chaves do Azure.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, CRIPTOGRAFAR/DESCRIPTOGRAFAR
 
@@ -138,25 +159,6 @@ A versão inicial do Cofre de Chaves do Azure oferece suporte somente a chaves R
 -   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-384 e deve ter 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-512 e deve ter 64 bytes de comprimento.  
 -   **RSNULL** - consulte [RFC2437], um caso de uso especializado para permitir determinados cenários TLS.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> Algoritmos RSA-HSM  
-Os seguintes identificadores de algoritmo são compatíveis com chaves RSA-HSM no Cofre de Chaves do Azure.  
-
-### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
-
-Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>WRAP/UNWRAP, CRIPTOGRAFAR/DESCRIPTOGRAFAR
-
--   **RSA1_5** - criptografia de chave RSAES-PKCS1-V1_5 [RFC3447]  
--   **RSA-OAEP** - RSAES usando Preenchimento de Criptografia Assimétrica Ideal (OAEP) [RFC3447], com os parâmetros padrão especificados por RFC 3447 na seção 2.1. Esses parâmetros padrão estão usando uma função de hash de SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
-
- #### <a name="signverify"></a>SIGN/VERIFY  
-
--   **RS256** - RSASSA-PKCS-v1_5 usando SHA-256. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-256 e deve ter 32 bytes de comprimento.  
--   **RS384** - RSASSA-PKCS-v1_5 usando SHA-384. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-384 e deve ter 48 bytes de comprimento.  
--   **RS512** - RSASSA-PKCS-v1_5 usando SHA-512. O valor do resumo fornecido pelo aplicativo deve ser calculado usando SHA-512 e deve ter 64 bytes de comprimento.  
--   RSNULL: consulte [RFC2437], um caso de uso especializado para permitir determinados cenários TLS.  
 
 ###  <a name="BKMK_KeyOperations"></a> Operações de chave
 

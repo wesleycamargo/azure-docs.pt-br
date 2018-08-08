@@ -7,17 +7,21 @@ manager: carmonm
 keywords: backup de vms, backup de máquinas virtuais
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/23/2018
+ms.date: 7/31/2018
 ms.author: markgal
-ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606079"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390748"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
-Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/).
+Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-arm-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-arm-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/). 
+
+> [!NOTE]
+> Este artigo é para uso com discos gerenciados e não gerenciados. Se você usa discos não gerenciados, há recomendações de conta de armazenamento. Se você usar [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), você não precisa se preocupar sobre problemas de utilização de recurso ou desempenho. Azure otimiza a utilização de armazenamento para você.
+>
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Como o Azure faz backup de máquinas virtuais?
 Quando o serviço de Backup do Azure inicia um trabalho de backup no horário agendado, o serviço dispara a extensão de backup para obter um instantâneo pontual. O serviço de Backup do Azure usa a extensão _VMSnapshot_ no Windows e a extensão _VMSnapshotLinux_ no Linux. A extensão é instalada durante o primeiro backup de VM. Para instalar a extensão, a VM deve estar em execução. Se a VM não estiver em execução, o serviço de Backup criará um instantâneo do armazenamento subjacente (já que nenhuma gravação de aplicativo ocorre enquanto a VM está parada).
@@ -32,8 +36,7 @@ Quando a transferência de dados é concluída, o instantâneo é removido e um 
 
 > [!NOTE]
 > 1. Durante o processo de backup, o Backup do Azure não inclui o disco temporário conectado à máquina virtual. Para obter mais informações, consulte o blog sobre [armazenamento temporário](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. O Backup do Azure gera um instantâneo de nível de armazenamento e o transfere para o cofre, não altere as chaves da conta de armazenamento até que o trabalho de backup seja concluído.
-> 3. Para VMs premium, o Backup do Azure copia o instantâneo para a conta de armazenamento. Isso serve para garantir que o serviço de Backup use IOPS suficientes para transferir dados para o cofre. Essa cópia adicional de armazenamento é cobrada de acordo com o tamanho alocado de VM. 
+> 2. O Backup do Azure obtém um instantâneo no nível de armazenamento e transfere esse instantâneo para o Vault. Não altere as chaves da conta de armazenamento até que o trabalho de backup seja concluído.
 >
 
 ### <a name="data-consistency"></a>Consistência de dados
@@ -64,22 +67,14 @@ Esta tabela explica os tipos de consistência e as condições sob as quais elas
 ## <a name="performance-and-resource-utilization"></a>Desempenho e utilização de recursos
 Assim como o software de backup que é implantado localmente, você deve se planejar em termos das necessidades de utilização de recursos e capacidade ao fazer o backup de VMs no Azure. Os [Limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits) definem como estruturar as implantações de VM para obter o máximo de desempenho com o mínimo de impacto na execução de cargas de trabalho.
 
-Preste atenção aos seguintes limites de Armazenamento do Azure durante o planejamento de desempenho de backup:
-
-* Egresso máximo por conta de armazenamento
-* Taxa de solicitação total por conta de armazenamento
-
-### <a name="storage-account-limits"></a>Limites da conta de armazenamento
-Dados de backup copiados de uma conta de armazenamento são adicionados às operações de entrada/saída por segundo (IOPS) e entrada (ou taxa de transferência) da conta de armazenamento. Ao mesmo tempo, as máquinas virtuais também consomem IOPS e taxa de transferência. A meta é garantir que o tráfego de backup e da máquina virtual não exceda os limites da conta de armazenamento.
-
 ### <a name="number-of-disks"></a>Número de discos
 O processo de backup tenta concluir um trabalho de backup o mais rápido possível. Dessa forma, ele consome o mínimo de recursos possível. No entanto, todas as operações de E/S são limitadas pela *Taxa de transferência de destino para blob único*, que tem um limite de 60 MB por segundo. Na tentativa de maximizar sua velocidade, o processo de backup tenta fazer backup de cada um dos discos da VM *em paralelo*. Se uma VM tiver quatro discos, o serviço tentará fazer backup dos quatro discos em paralelo. O **número de discos** de backup é o fator mais importante para determinar o tráfego de backup da conta de armazenamento.
 
 ### <a name="backup-schedule"></a>Agendamento de backup
-Um fator adicional que afeta o desempenho é o **agendamento de backup**. Se configurar as políticas para que seja feito backup de todas as VMs ao mesmo tempo, você terá agendado um congestionamento no tráfego. O processo de backup tentará fazer backup de todos os discos em paralelo. Para reduzir o tráfego de backup de uma conta de armazenamento, faça backup de VMs diferentes em um momento diferente do dia, sem sobreposição.
+Um fator adicional que afeta o desempenho é o **agendamento de backup**. Se configurar as políticas para que seja feito backup de todas as VMs ao mesmo tempo, você terá agendado um congestionamento no tráfego. O processo de backup tentará fazer backup de todos os discos em paralelo. Para reduzir o tráfego de backup, faça backup de VMs diferentes em horários diferentes do dia, sem sobreposição.
 
 ## <a name="capacity-planning"></a>planejamento de capacidade
-Reunindo os fatores anteriores, você precisa planejar as necessidades de uso da conta de armazenamento. Baixe a [planilha do Excel de planejamento de capacidade de backup da VM](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver o impacto do disco rígido e as opções de agendamento de backup.
+Baixe a [planilha do Excel de planejamento de capacidade de backup da VM](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) para ver o impacto do disco rígido e as opções de agendamento de backup.
 
 ### <a name="backup-throughput"></a>Taxa de transferência de backup
 Para cada disco cujo backup está sendo feito, o Backup do Azure lê os blocos no disco e armazena somente os dados alterados (backup incremental). A tabela a seguir mostra os valores médios da taxa de transferência do serviço de Backup. Ao usar os dados a seguir, é possível estimar o tempo necessário para fazer backup de um disco de um tamanho específico.
@@ -94,28 +89,34 @@ Embora a maioria do tempo de backup seja gasto na leitura e cópia de dados, out
 
 * Tempo necessário para [instalar ou atualizar a extensão de backup](backup-azure-arm-vms.md).
 * Hora do instantâneo, que é o tempo levado para disparar um instantâneo. Os instantâneos são disparados próximo ao horário de backup agendado.
-* Tempo de espera da fila. Quando o serviço de backup estiver processando backups de vários clientes, a cópia de dados de backup do instantâneo para o cofre do backup ou dos Serviços de Recuperação poderá não ser iniciada imediatamente. Em períodos de pico de carga, a espera pode se alongar a até oito horas devido ao número de backups sendo processados. No entanto, o tempo total de backup da VM é inferior a 24 horas para políticas de backup diárias. <br>
-**Isso permanece válido apenas para backups de incremento e não para o primeiro backup. O primeiro backup é proporcional e pode ser maior do que 24 horas dependendo do tamanho dos dados e do backup de hora ser realizado.**
+* Tempo de espera da fila. Como o serviço Backup processa trabalhos de vários clientes ao mesmo tempo, os dados de instantâneos podem não ser imediatamente copiados para a área segura do Recovery Services. Nos horários de pico, pode levar até oito horas para que os backups sejam processados. No entanto, o tempo total de backup da VM é inferior a 24 horas para políticas de backup diárias.
+O tempo total de backup de menos de 24 horas é válido para backups incrementais, mas pode não ser para o primeiro backup. O primeiro tempo de backup é proporcional e pode ser maior que 24 horas, dependendo do tamanho dos dados e quando o backup é realizado.
 * Tempo de transferência de dados, o tempo necessário para o serviço de backup computar as alterações incrementais do backup anterior e transferir essas alterações para o armazenamento de cofre.
 
-### <a name="why-am-i-observing-longer12-hours-backup-time"></a>Por que eu estou observando tempos de backup mais longos (mais de 12 horas)?
-O backup consiste em duas fases: criação de instantâneos e transferência dos instantâneos para o cofre. O serviço de Backup otimiza o armazenamento. Ao transferir os dados de instantâneo para um cofre, o serviço transfere apenas as alterações incrementais do instantâneo anterior.  Para determinar as alterações incrementais, o serviço calcula a soma de verificação dos blocos. Se um bloco é alterado, o bloco é identificado como um bloco a ser enviado para o cofre. O serviço realiza então uma busca mais detalhada em cada um dos blocos identificados, procurando oportunidades para minimizar os dados a serem transferidos. Depois de avaliar todos os blocos alterados, o serviço une as alterações e as envia para o cofre. Em alguns aplicativos herdados, gravações pequenas e fragmentadas não são ideais para armazenamento. Se o instantâneo contém várias gravações pequenas e fragmentadas, o serviço gasta mais tempo no processamento dos dados gravados pelos aplicativos. O bloco de gravação do aplicativo recomendado do Azure, para aplicativos executados dentro da VM, é de, no mínimo, 8 KB. Se o aplicativo usar um bloco inferior a 8 KB, o desempenho do backup será afetado. Para obter ajuda com o ajuste do aplicativo para melhorar o desempenho do backup, consulte [Ajustando aplicativos para o desempenho ideal com o armazenamento do Azure](../virtual-machines/windows/premium-storage-performance.md). Embora o artigo sobre desempenho do backup use exemplos do armazenamento Premium, as diretrizes são aplicáveis a discos de armazenamento Standard.
+### <a name="why-are-backup-times-longer-than-12-hours"></a>Por que são mais de 12 horas de tempos de backup?
+
+O backup consiste em duas fases: criação de instantâneos e transferência dos instantâneos para o cofre. O serviço de Backup otimiza o armazenamento. Ao transferir os dados de instantâneo para um cofre, o serviço transfere apenas as alterações incrementais do instantâneo anterior.  Para determinar as alterações incrementais, o serviço calcula a soma de verificação dos blocos. Se um bloco é alterado, o bloco é identificado como um bloco a ser enviado para o cofre. O serviço realiza então uma busca mais detalhada em cada um dos blocos identificados, procurando oportunidades para minimizar os dados a serem transferidos. Depois de avaliar todos os blocos alterados, o serviço une as alterações e as envia para o cofre. Em alguns aplicativos herdados, gravações pequenas e fragmentadas não são ideais para armazenamento. Se o instantâneo contém várias gravações pequenas e fragmentadas, o serviço gasta mais tempo no processamento dos dados gravados pelos aplicativos. Para aplicativos executados dentro da VM, o bloco de gravações de aplicativos recomendados mínimo é de 8 KB. Se o aplicativo usar um bloco inferior a 8 KB, o desempenho do backup será afetado. Para obter ajuda com o ajuste do aplicativo para melhorar o desempenho do backup, consulte [Ajustando aplicativos para o desempenho ideal com o armazenamento do Azure](../virtual-machines/windows/premium-storage-performance.md). Embora o artigo sobre desempenho do backup use exemplos do armazenamento Premium, as diretrizes são aplicáveis a discos de armazenamento Standard.
 
 ## <a name="total-restore-time"></a>Tempo total de restauração
-Uma operação de restauração consiste em duas subtarefas principais: a cópia de dados do cofre para a conta de armazenamento do cliente escolhida e a criação da máquina virtual. A cópia de dados do cofre depende do local em que os backups estão armazenados internamente no Azure e do local em que a conta de armazenamento do cliente está armazenada. O tempo necessário para copiar os dados depende de:
+
+Uma operação de restauração consiste em duas tarefas principais: copiar dados do cofre para a conta de armazenamento do cliente escolhida e criar a máquina virtual. O tempo necessário para copiar dados do cofre depende de onde os backups estão armazenados no Azure e do local da conta de armazenamento do cliente. O tempo necessário para copiar os dados depende de:
 * Tempo de espera de fila – como o serviço processa trabalhos de restauração de vários clientes ao mesmo tempo, as solicitações de restauração são colocadas em uma fila.
 * Tempo de cópia de dados – Os dados são copiados primeiro do cofre para a conta de armazenamento do cliente. O tempo de restauração depende de IOPS e serviço de Backup do Azure da taxa de transferência obtida na conta de armazenamento do cliente selecionado. Para reduzir o tempo de cópia durante o processo de restauração, selecione uma conta de armazenamento não carregada com outras leituras e gravações de aplicativo.
 
 ## <a name="best-practices"></a>Práticas recomendadas
-É recomendável seguir essas práticas ao configurar backups de máquinas virtuais:
+É recomendável seguir essas práticas ao configurar backups de máquinas virtuais com discos não gerenciados:
+
+> [!Note]
+> As seguintes práticas que recomendam alterar ou gerenciar contas de armazenamento se aplicam apenas a VMs com discos não gerenciados. Se você usar discos gerenciados, o Azure cuida de todas as atividades de gerenciamento que envolvem o armazenamento.
+> 
 
 * Não agende mais de 10 VMs clássicas do mesmo serviço de nuvem para fazer backup ao mesmo tempo. Se você quiser fazer backup de várias VMs do mesmo serviço de nuvem, distribua os horários de início de backup em uma hora.
-* Não agende mais de 40 VMs para fazer backup ao mesmo tempo.
+* Não agende mais de 100 VMs para fazer backup ao mesmo tempo, de um único cofre. 
 * Agende os backups de VM fora do horário de pico. Dessa forma, o serviço de Backup usa o IOPS para transferir dados da conta de armazenamento do cliente para o cofre.
 * Certifique-se de que uma política seja aplicada às VMs distribuídas entre diferentes contas de armazenamento. Sugerimos que não mais do que 20 discos de uma única conta de armazenamento sejam protegidos pelo mesmo agendamento de backup. Se você tiver mais de 20 discos em uma conta de armazenamento, distribua as VMs por várias políticas para obter o IOPS necessário durante a fase de transferência do processo de backup.
 * Não restaure uma VM em execução no armazenamento Premium para a mesma conta de armazenamento. Se o processo de operação de restauração coincidir com a operação de backup, ele reduzirá o IOPS disponível para backup.
 * Para backup de VM Premium na pilha de backup de VM V1 é recomendável que você aloque apenas 50% do espaço de conta de armazenamento total, para que o serviço de Backup do Azure possa copiar o instantâneo para a conta de armazenamento e transferir dados desse local copiado na conta de armazenamento para o cofre.
-* Verifique se essa versão do python em VMs do Linux habilitado para backup é 2.7
+* Certifique-se de que as VMs do Linux estejam ativadas para backup, tenham a versão 2.7 ou superior do Python.
 
 ## <a name="data-encryption"></a>Criptografia de dados
 O Backup do Azure não criptografa os dados como parte do processo de backup. No entanto, você pode criptografar os dados dentro da VM e fazer backup dos dados protegidos diretamente (leia mais sobre [backup de dados criptografados](backup-azure-vms-encryption.md)).
@@ -125,14 +126,14 @@ As máquinas virtuais do Azure submetidas a backup por meio do Backup do Azure e
 
 O preço para o backup de VMs não se baseia no tamanho máximo com suporte para cada disco de dados anexado à máquina virtual. O preço baseia-se nos dados reais armazenados no disco de dados. Da mesma forma, a cobrança do armazenamento de backup é baseada na quantidade de dados armazenados no Backup do Azure, que é a soma dos dados reais em cada ponto de recuperação.
 
-Por exemplo, considere uma máquina virtual de tamanho A2 Standard que tem dois discos de dados adicionais com um tamanho máximo de 1 TB cada. A seguinte tabela fornece os dados reais armazenados em cada um desses discos:
+Por exemplo, leve uma máquina virtual A2 de tamanho padrão que tenha dois discos de dados adicionais com um tamanho máximo de 4 TB cada. A seguinte tabela fornece os dados reais armazenados em cada um desses discos:
 
 | Tipo de disco | Tamanho máx. | Dados reais presentes |
 | --------- | -------- | ----------- |
-| Disco do sistema operacional |1023 GB |17 GB |
+| Disco do sistema operacional |4095 GB |17 GB |
 | Disco local/disco temporário |135 GB |5 GB (não incluído no backup) |
-| Disco de dados 1 |1023 GB |30 GB |
-| Disco de dados 2 |1023 GB |0 GB |
+| Disco de dados 1 |4095 GB |30 GB |
+| Disco de dados 2 |4095 GB |0 GB |
 
 Neste caso, o tamanho real da máquina virtual é de 17 GB + 30 GB + 0 GB = 47 GB. Esse tamanho de Instância Protegida (47 GB) se torna a base para a fatura mensal. Conforme aumenta a quantidade de dados na máquina virtual, o tamanho da Instância Protegida usada para cobrança também será alterado de acordo.
 

@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902292"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358974"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Backup do SAP HANA com base em instantâneos de armazenamento
 
@@ -77,7 +77,7 @@ O artigo declara:
 
 _&quot;É altamente recomendável para confirmar ou abandonar um instantâneo de armazenamento assim que possível após ele ter sido criado. Enquanto o instantâneo de armazenamento está sendo preparado ou criado, os dados relevantes de instantâneo estão congelados. Enquanto os dados relevantes de instantâneo permanecem congelados, alterações ainda podem ser feitas no banco de dados. Essas alterações não fará com que os dados de instantâneo relevantes congelados a ser alterado. Em vez disso, as alterações são gravadas para posições na área de dados que são separadas do instantâneo do armazenamento. As alterações também são gravadas no log. No entanto, mais os dados relevantes de instantâneo são mantidos congelados, mais o volume de dados pode crescer.&quot;_
 
-O Backup do Azure cuida da consistência do sistema de arquivos por meio de extensões de VM do Azure. Essas extensões não são autônomos disponíveis e funcionam somente em conjunto com o serviço de Backup do Azure. No entanto, ainda é um requisito fornecer scripts para criar e excluir um instantâneo do SAP HANA para assegurar a consistência do aplicativo.
+O Backup do Azure cuida da consistência do sistema de arquivos por meio de extensões de VM do Azure. Essas extensões não são autônomos disponíveis e funcionam somente em conjunto com o serviço de Backup do Azure. No entanto, ainda é um requisito fornecer scripts para criar e excluir um instantâneo do SAP HANA para garantir a consistência do aplicativo.
 
 O Backup do Azure tem quatro fases principais:
 
@@ -89,11 +89,11 @@ O Backup do Azure tem quatro fases principais:
 Para obter detalhes de onde copiar esses scripts e detalhes de como o Backup do Azure funciona exatamente, confira os seguintes artigos:
 
 - [Planejar sua infraestrutura de backup de VM no Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Backup consistente com o aplicativo de VMs Linux do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Backup consistente de aplicativos de VMs Linux do Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
 
 
 
-Neste momento, a Microsoft ainda não publicou scripts de preparação e scripts pós-instantâneo para o SAP HANA. Você, como cliente ou integrador de sistemas precisaria criar esses scripts e configurar o procedimento com base na documentação mencionada acima.
+Neste momento, a Microsoft ainda não publicou scripts de preparação e scripts pós-instantâneo para o SAP HANA. Você, como cliente ou integrador de sistema precisaria criar esses scripts e configurar o procedimento com base na documentação mencionada acima.
 
 
 ## <a name="restore-from-application-consistent-backup-against-a-vm"></a>Restaurar do backup consistente com o aplicativo em relação a uma VM

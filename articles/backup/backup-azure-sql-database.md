@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249073"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364369"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -258,7 +258,7 @@ Quando você usa a ferramenta **Descobrir Bancos de Dados**, o Backup do Azure e
 
     ![Selecionar a VM e o banco de dados](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Configurar backup para o banco de dados do SQL Server 
+## <a name="configure-backup-for-sql-server-databases"></a>Configurar backup para o banco de dados do SQL Server
 
 O Backup do Azure fornece serviços de gerenciamento para proteger seus bancos de dados do SQL Server e gerenciar trabalhos de backup. As funções de gerenciamento e monitoramentos dependem de seu cofre de Serviços de Recuperação. 
 
@@ -317,6 +317,9 @@ Para configurar a proteção para o banco de dados SQL:
 
 8. Na caixa de listagem suspensa **Escolher política de backup**, escolha uma política de backup e, em seguida, selecione **OK**. Para obter informações sobre como criar uma política de backup, veja [Definir uma política de backup](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Durante a visualização, é possível editar políticas de Backup. Se você quiser uma política diferente do que está disponível na lista, você deve criar essa política. Para saber mais sobre como criar uma nova política de backup, veja a seção [Definir uma política de backup](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Escolha uma política de backup na lista](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     No menu **Política de backup**, na caixa de listagem suspensa **Escolher política de backup**, você pode: 
@@ -345,21 +348,28 @@ Uma política de backup define uma matriz de quando os backups são obtidos e po
 * Backup diferencial: um backup diferencial é baseado no backup de dados completo anterior mais recente. Um backup diferencial captura apenas os dados que foram alterados desde o backup completo. No máximo, você pode acionar um backup diferencial por dia. Você não pode configurar um backup completo e um backup diferencial no mesmo dia.
 * Backup de log de transações: um backup de log permite a restauração pontual até um determinado segundo. No máximo, você pode configurar backups de log de transações a cada 15 minutos.
 
-A política é criada no nível do cofre de Serviços de Recuperação. Vários cofres podem usar a mesma política de backup, mas você deve aplicar a política de backup a cada cofre. Ao criar uma política de backup, o backup completo diário é o padrão. Você poderá adicionar um backup diferencial, mas somente se configurar backups completos para que ocorram semanalmente. O procedimento a seguir explica como criar uma política de backup para uma instância do SQL Server em uma máquina virtual do Azure.
+A política é criada no nível do cofre de Serviços de Recuperação. Vários cofres podem usar a mesma política de backup, mas você deve aplicar a política de backup a cada cofre. Ao criar uma política de backup, o backup completo diário é o padrão. Você poderá adicionar um backup diferencial, mas somente se configurar backups completos para que ocorram semanalmente. O procedimento a seguir explica como criar uma política de backup para uma instância do SQL Server em uma máquina virtual do Azure. 
 
+> [!NOTE]
+> Na versão prévia, é possível editar políticas de Backup. Em vez disso, você deve criar uma nova política com os detalhes desejados.  
+ 
 Para criar uma política de backup:
 
-1. No menu **Política de backup**, na caixa de listagem suspensa **Escolher política de backup**, selecione **Criar novo**.
+1. No cofre de Serviços de Recuperação do Microsoft Azure que protege o banco de dados SQL, clique em **Políticas de Backup**e, em seguida, clique em **Adicionar**. 
 
-   ![Criar uma nova política de backup](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Abra a caixa de diálogo Criar nova política de backup](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    O menu **Política de backup** mostra os campos necessários para uma nova política de backup do SQL Server.
+   O menu **Adicionar** é exibido.
 
-   ![Novos campos de política de backup](./media/backup-azure-sql-database/blank-new-policy.png)
+2. No menu **Adicionar**, clique em **SQL Server na VM do Azure**.
 
-2. Na caixa **Nome da política**, insira um nome.
+   ![Escolha um tipo de política para a nova política de backup](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Um backup completo é obrigatório. Aceite os valores padrão para o backup completo ou clique em **Backup Completo** para editar a política.
+   Selecionar SQL Server na VM do Azure define o tipo de política e abre o menu de política de Backup. O menu **Política de backup** mostra os campos necessários para uma nova política de backup do SQL Server.
+
+3. Em **Nome da política**, insira um nome para a nova política.
+
+4. Um backup completo é obrigatório, não é possível desativar a opção **Backup completo**. Clique em **Backup completo** para exibir e editar a política. Mesmo se você não alterar a política de Backup, você deve exibir os detalhes da política.
 
     ![Novos campos de política de backup](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Para criar uma política de backup:
 
    ![Configuração de intervalo semanal](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Por padrão, todas as opções de **Intervalo de Retenção** são selecionadas: diário, semanal, mensal e anual. Desmarque os limites de intervalo de retenção indesejados. Defina os intervalos a usar. No menu de **política de Backup Completo**, clique em **OK** para aceitar as configurações.
+5. Por padrão, todas as opções de **Intervalo de Retenção** são selecionadas: diário, semanal, mensal e anual. Desmarque os limites de intervalo de retenção indesejados. Defina os intervalos a usar. No menu de **política de Backup Completo**, clique em **OK** para aceitar as configurações.
 
    ![Configuração de intervalo do período de retenção](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Os pontos de recuperação são marcados para retenção com base em seu intervalo de retenção. Por exemplo, se você selecionar um backup completo diário, apenas um backup completo será disparado a cada dia. O backup para um dia específico é marcado e mantido com base no intervalo de retenção semanal e sua configuração de retenção semanal. Os intervalos de retenção mensal e anual comportam-se de maneira semelhante.
 
-5. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**. O menu **Política de Backup Diferencial** é aberto. 
+6. Para adicionar uma política de backup diferencial, selecione **Backup Diferencial**. O menu **Política de Backup Diferencial** é aberto. 
 
    ![Abrir o menu de política de backup diferencial](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ Para criar uma política de backup:
 
     Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
 
-6. Para adicionar uma política de backup de log transacional, selecione **Backup de Log**. O menu **Backup de Log** é aberto.
+7. Para adicionar uma política de backup de log transacional, selecione **Backup de Log**. O menu **Backup de Log** é aberto.
 
     No menu de **Backup de Log**, selecione **Habilitar** e defina os controles de retenção e frequência. Os Backups de log podem ocorrer a cada 15 minutos e podem ser mantidos por 35 dias. Selecione **OK** para salvar a política e retornar para o menu principal da **Política de backup**.
 
    ![Editar a política de backup de log](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. No menu **Política de backup**, escolha se deseja habilitar a **Compactação de Backup SQL**. A compactação está desabilitada por padrão.
+8. No menu **Política de backup**, escolha se deseja habilitar a **Compactação de Backup SQL**. A compactação está desabilitada por padrão.
 
     No back-end, o Backup do Azure usa compactação de backup nativo do SQL.
 
-8. Depois de concluir as edições à política de backup, selecione **OK**. 
+9. Depois de concluir as edições à política de backup, selecione **OK**. 
 
    ![Aceitar a nova política de backup](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Restaurar um Banco de Dados SQL
-
 O Backup do Azure fornece funcionalidade para restaurar bancos de dados individuais para uma data ou hora específica (até um determinado segundo) usando backups de log de transações. O Backup do Azure determina automaticamente o backup diferencial completo adequado e a cadeia de backups de log necessários para restaurar os dados com base nos tempos de restauração.
 
 Você também pode selecionar um backup completo ou diferencial específico para restaurar para um ponto de recuperação específico em vez de um momento específico.
- > [!Note]
- > Antes de disparar uma restauração de banco de dados "mestre", inicie a instância do SQL Server no modo de usuário único com a opção de inicialização `-m AzureWorkloadBackup`. O argumento para a opção `-m` é o nome do cliente. Apenas esse cliente tem permissão para abrir a conexão. Para todos os bancos de dados do sistema (modelo, mestre, msdb), interrompa o serviço SQL Agent antes de disparar a restauração. Feche os aplicativos que podem tentar roubar uma conexão com um desses bancos de dados.
->
 
-Para restaurar um banco de dados:
+### <a name="pre-requisite-before-triggering-a-restore"></a>Pré-requisito antes de disparar uma restauração
+
+1. Você pode restaurar o banco de dados para uma instância de um SQL Server na mesma região do Azure. O servidor de destino precisa ser registrado no mesmo cofre dos Serviços de Recuperação que a fonte.  
+2. Para restaurar um banco de dados criptografado TDE para outro SQL Server, primeiro restaure o certificado para o servidor de destino, siga as etapas documentadas [aqui](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Antes de disparar uma restauração de banco de dados "mestre", inicie a instância do SQL Server no modo de usuário único com a opção de inicialização `-m AzureWorkloadBackup`. O argumento para a opção `-m` é o nome do cliente. Apenas esse cliente tem permissão para abrir a conexão. Para todos os bancos de dados do sistema (modelo, mestre, msdb), interrompa o serviço SQL Agent antes de disparar a restauração. Feche os aplicativos que podem tentar roubar uma conexão com um desses bancos de dados.
+
+### <a name="steps-to-restore-a-database"></a>Etapas para restaurar um banco de dados:
 
 1. Abra o cofre de Serviços de Recuperação registrado com a máquina virtual SQL.
 

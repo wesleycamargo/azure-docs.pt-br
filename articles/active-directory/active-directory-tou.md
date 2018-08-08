@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136648"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398947"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso do Azure AD.
@@ -138,6 +138,42 @@ Os usuários podem analisar e ver os Termos de uso aceitos usando o procedimento
 
 1. A partir daí, você pode analisar os Termos de uso aceitos. 
 
+## <a name="edit-terms-of-use-details"></a>Editar os termos de detalhes de uso
+Você pode editar alguns detalhes dos termos de uso, mas não é possível modificar um documento existente. O procedimento a seguir descreve como editar os detalhes.
+
+1. Entre no Azure e navegue até **Termos de uso** em [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecione os termos de uso que você deseja editar.
+
+1. Clique em **editar termos**.
+
+1. Em termos de edição do painel de uso, altere o nome, nome de exibição ou exigir que os usuários expandam os valores.
+
+    ![Adicionar Termos de Uso](media/active-directory-tou/edit-tou.png)
+
+1. Clique em **Salvar** para salvar as alterações.
+
+    Depois de salvar suas alterações, os usuários terão aceitem novamente os novos termos.
+
+## <a name="add-a-terms-of-use-language"></a>Adicionar termos de uso de linguagem
+O procedimento a seguir descreve como adicionar um idioma dos Termos de Uso.
+
+1. Entre no Azure e navegue até **Termos de uso** em [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecione os termos de uso que você deseja editar.
+
+1. No painel de detalhes, clique no **idiomas** guia.
+
+    ![Adicionar Termos de Uso](media/active-directory-tou/languages-tou.png)
+
+1. Clique em **Adicionar idioma**.
+
+1. Em termos do painel de linguagem do uso de Add, carregar o PDF localizado e selecione o idioma.
+
+    ![Adicionar Termos de Uso](media/active-directory-tou/language-add-tou.png)
+
+1. Clique em **adicionar** para adicionar o idioma.
+
 ## <a name="delete-terms-of-use"></a>Excluir Termos de uso
 Você pode excluir Termos de uso antigos usando o procedimento a seguir.
 
@@ -169,31 +205,34 @@ As políticas de acesso condicional entram em vigor imediatamente. Quando isso a
 **P: como fazer para ver quando/se um usuário aceitou os Termos de uso?**</br>
 R: Em termos de uso de folha, clique no número em **Aceito**. Também é possível exibir ou pesquisar a atividade de aceitação nos logs de auditoria do Azure AD. Para obter mais informações, consulte [Exibir relatório de quem aceitou e recusou](#view-who-has-accepted-and-declined) e [Exibir logs de auditoria do Azure AD](#view-azure-ad-audit-logs).
  
-**P: Por quanto tempo as informações ficam armazenadas?**</br>
+**P: por quanto tempo as informações ficam armazenadas?**</br>
 R: As contagens de usuário no relatório de Termos de uso e quem aceitou/recusou são armazenadas durante a vigência dos Termos de uso. Os logs de auditoria do Azure AD são armazenados por 30 dias.
 
 **P: Por que vejo um número diferente de consentimentos no relatório de Termos de uso em comparação com os logs de auditoria do Azure AD?**</br>
 R: O relatório de Termos de uso é armazenado durante o período de vigência desses Termos de uso, enquanto os logs de auditoria do Azure AD são armazenados por 30 dias. Além disso, o relatório Termos de uso exibe apenas o estado de consentimento atual dos usuários. Por exemplo, se um usuário recusar e aceitar, o relatório de Termos de uso mostrará apenas a aceitação desse usuário. Se você precisar ver o histórico, poderá usar os logs de auditoria do Azure AD.
 
-**P: Se eu alterar os Termos dos termos de uso, será necessário que os usuários aceitem novamente?**</br>
-R: Sim, o administrador pode alterar os Termos de Uso e isso exige que os usuários aceitem novamente os novos termos.
+**P: Se eu editar os detalhes de um Termos de uso, ele exige que os usuários aceitem novamente?**</br>
+R: Sim, se um administrador editar os detalhes para termos de uso, ele exige que os usuários aceitem novamente os novos termos.
+
+**P: posso atualizar uma existente de condições de uso de documento?**</br>
+R: atualmente, é possível atualizar uma existente de condições de uso de documento. Para alterar os termos de uso de documento, você terá que criar novos termos de uso de instância.
 
 **P: Se os hiperlinks estiverem no documento PDF dos Termos de uso, os usuários finais poderão clicar neles?**</br>
 R: O PDF é renderizado por padrão como JPEG, portanto, os hiperlinks não são clicáveis. Os usuários têm a opção de selecionar **Você está tendo problemas para exibir? Clique aqui**, que renderiza o PDF nativamente onde os hiperlinks têm suporte.
 
-**P: Os Termos de uso possuem suporte para vários idiomas?**</br>
+**P: os Termos de uso possuem suporte para vários idiomas?**</br>
 R: Sim.  Atualmente, há 18 idiomas diferentes que um administrador pode configurar para um mesmo documento de Termos de uso. 
 
-**P: Quando os Termos de uso são disparados?**</br>
-R: Os Termos de uso são disparados no momento em que o usuário faz o logon.
+**P: quando os Termos de uso são disparados?**</br>
+R: os Termos de uso são disparados no momento em que o usuário faz o logon.
 
-**P: Em quais aplicativos posso empregar os Termos de uso?**</br>
+**P: em quais aplicativos posso empregar os Termos de uso?**</br>
 R: Você pode criar uma política de acesso condicional nos aplicativos empresariais usando autenticação moderna.  Para obter mais informações, consulte [aplicativos empresariais](./manage-apps/view-applications-portal.md).
 
-**P: Posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**</br>
-R: Sim, criando várias políticas de acesso condicional, direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve concordar com os Termos de uso um por um.
+**P: posso adicionar vários Termos de uso para determinado usuário ou aplicativo?**</br>
+R: sim, criando várias políticas de acesso condicional, direcionadas a esses grupos ou aplicativos. Se um usuário estiver no escopo de vários Termos de uso, ele deve concordar com os Termos de uso um por um.
  
-**P: O que acontece se um usuário recusar os Termos de uso?**</br>
+**P: o que acontece se um usuário recusar os Termos de uso?**</br>
 R: O usuário é impedido de acessar o aplicativo. O usuário precisa entrar novamente e concordar com os termos para obter acesso.
  
 **P: É possível recusar os Termos de Uso que já foram aceitos?**</br>

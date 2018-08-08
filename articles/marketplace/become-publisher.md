@@ -3,8 +3,8 @@ title: Tornar-se um Editor nas vitrines do Marketplace | Azure
 description: Este artigo descreve como tornar-se um editor no Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172306"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412008"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Torne-se um editor do Marketplace de nuvem
 
@@ -103,8 +103,8 @@ Depois de ter concluído o registro no [Centro de Desenvolvimento](https://devel
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre as vitrines do marketplace: AppSource e o Azure Marketplace
-*   Determinar sua oferta para o marketplace
+* Saiba mais sobre as vitrines do mercado: [Comparando o AppSource e o Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Determinar o tipo de listagem para sua solução](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

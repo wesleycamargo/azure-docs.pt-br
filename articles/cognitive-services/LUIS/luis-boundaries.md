@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225271"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399824"
 ---
 # <a name="luis-boundaries"></a>Limites do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -31,7 +31,7 @@ O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-b
 | Lista explícita | 50 por aplicativo|
 | **[Hierárquico](./luis-concept-entity-types.md) |100 com até 10 filhos |
 | [Intenções][intents]|500 por aplicativo<br>O aplicativo [com base em expedição](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) tem 500 fontes de expedição correspondentes|
-| [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome canônico é o máximo de caracteres padrão* Sinônimos não têm restrição de comprimento. |
+| [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20 mil itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |
 | [Lista de frases][phrase-list]|10 listas de frases, 5 mil itens por lista|
@@ -41,6 +41,7 @@ O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-b
 | **[Simples](./luis-concept-entity-types.md)| 100 entidades|
 | [Declaração][utterances] | 500 caracteres|
 | [Declarações][utterances] | 15 mil por aplicativo|
+| [Versões](luis-concept-version.md)| nenhum limite |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
 
 *O máximo de caracteres padrão é 50 caracteres. 

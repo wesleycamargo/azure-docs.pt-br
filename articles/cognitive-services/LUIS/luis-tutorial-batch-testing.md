@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237801"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358339"
 ---
 # <a name="improve-app-with-batch-test"></a>Melhore o aplicativo com teste em lotes
 
@@ -31,9 +31,10 @@ Neste tutorial, você aprenderá como:
 * Corrigir erros 
 * Testar novamente o lote
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md#luis-website) para criar o seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
+
 Se você não tiver o aplicativo de Recursos Humanos do tutorial [analisar enunciados de ponto de extremidade](luis-tutorial-review-endpoint-utterances.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um novo aplicativo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `batchtest`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
@@ -41,6 +42,7 @@ Caso queira manter o aplicativo de recursos humanos original, clone a versão na
 Treine o aplicativo.
 
 ## <a name="purpose-of-batch-testing"></a>Finalidade do teste em lotes
+
 O teste em lotes permite que você valide o estado do modelo ativo e treinado com um conjunto conhecido de entidades e enunciados rotulados. No arquivo em lotes em formato JSON, adicione os enunciados e defina os rótulos de entidade que você precisa prever dentro do enunciado. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Ao usar um aplicativo diferente deste tutorial, certifique-se de *não* usar os enunciados de exemplo já adicionados a uma intenção. Para verificar os enunciados de teste em lotes em relação aos enunciados de exemplo, [exporte](luis-how-to-start-new-app.md#export-app) o aplicativo. Compare o enunciado de exemplo do aplicativo com os enunciados de teste em lotes. 
@@ -52,6 +54,7 @@ Requisitos para o teste em lotes:
 * Tipos de entidades permitidas: apenas entidades de aprendizado de máquina simples, hierárquica (somente pai) e composta. Teste em lotes é útil apenas para intenções e entidades de aprendizado de máquina.
 
 ## <a name="create-a-batch-file-with-utterances"></a>Crie um arquivo em lotes com enunciados
+
 1. Crie `HumanResources-jobs-batch.json` em um editor de texto como [VSCode](https://code.visualstudio.com/). 
 
 2. No arquivo em lotes em formato JSON, adicione enunciados com a **Intenção** que você quer que seja prevista no teste. 
@@ -62,15 +65,13 @@ Requisitos para o teste em lotes:
 
 1. Selecione **Testar** na barra de navegação superior. 
 
-    [ ![Captura de tela do aplicativo de LUIS com o teste realçado na barra de navegação superior direita](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. Selecione **Painel de teste do lote** no painel direito. 
 
-    [ ![Captura de tela do aplicativo de LUIS com painel de teste do Lote realçado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [![Captura de tela do aplicativo de LUIS com painel de teste do Lote realçado](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. Selecione **Importar conjunto de dados**.
 
-    [ ![Captura de tela do aplicativo de LUIS com o conjunto de dados de importação realçado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![Captura de tela do aplicativo de LUIS com o conjunto de dados de importação realçado](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. Escolha o local do sistema de arquivos do arquivo `HumanResources-jobs-batch.json`.
 
@@ -80,15 +81,14 @@ Requisitos para o teste em lotes:
 
 6. Selecione o botão **Executar**. Aguarde até que o teste seja concluído.
 
-    [ ![Captura de tela do aplicativo de LUIS com Executar realçado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Selecione **Ver resultados**.
 
 8. Examine os resultados no grafo e na legenda.
 
-    [ ![Captura de tela do aplicativo de LUIS com resultados de teste em lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    [![Captura de tela do aplicativo de LUIS com resultados de teste em lotes](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>Examinar resultados do lote
+
 O gráfico do lote exibe quatro quadrantes dos resultados. À direita do gráfico, há um filtro. Por padrão, o filtro é definido para a primeira intenção na lista. O filtro contém todas as intenções e apenas entidades simples, hierárquicas (somente pai) e compostas. Ao selecionar uma [seção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto dentro do gráfico, os enunciados associados são exibidos abaixo do gráfico. 
 
 Ao passar o mouse sobre o gráfico, um botão de rolagem do mouse pode ampliar ou reduzir a exibição no gráfico. Isso é útil quando há muitos pontos no gráfico agrupados em conjunto. 
@@ -96,6 +96,7 @@ Ao passar o mouse sobre o gráfico, um botão de rolagem do mouse pode ampliar o
 O gráfico está em quatro quadrantes, com duas das seções exibidas em vermelho. **Essas são as seções que devem ser privilegiadas**. 
 
 ### <a name="getjobinformation-test-results"></a>Resultados do teste de GetJobInformation
+
 Os resultados do teste de **GetJobInformation** exibidos no filtro mostram que 2 das quatro previsões tiveram êxito. Selecione o nome **Falso positivo** acima do quadrante superior direito para ver os enunciados abaixo do gráfico. 
 
 ![Enunciados de teste em lotes de LUIS](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ Observe que ambas as intenções possuem a mesma contagem de erros. Uma previsã
 Os enunciados que correspondem ao ponto principal na seção **Falso positivo** são `Can I apply for any database jobs with this resume?` e `Can I apply for any database jobs with this resume?`. Para o primeiro enunciado, a palavra `resume` foi usada apenas em **ApplyForJob**. Para o segundo enunciado, a palavra `apply` foi usada apenas na intenção **ApplyForJob**.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>Corrigir o aplicativo com base nos resultados do lote
+
 O objetivo desta seção é ter todos os enunciados corretamente previstos para **GetJobInformation**, corrigindo o aplicativo. 
 
 Uma correção aparentemente rápida seria adicionar esses enunciados de arquivos em lotes à intenção correta. Não é isso que você pretende fazer. Você quer que o LUIS preveja corretamente esses enunciados sem adicioná-los como exemplos. 
@@ -118,13 +120,10 @@ Também há a possibilidade de pensar em remover enunciados da intenção **Appl
 A primeira correção é adicionar mais enunciados à intenção **GetJobInformation**. A segunda correção é reduzir o peso das palavras como `resume` e `apply` da intenção **ApplyForJob**. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>Adicionar mais enunciados para **GetJobInformation**
+
 1. Feche o painel de teste em lotes, selecionando o botão **Testar** no painel de navegação superior. 
 
-    [ ![Captura de tela do LUIS com o botão Testar realçado](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. Selecione **GetJobInformation** na lista de intenções. 
-
-    [ ![Captura de tela do LUIS com o botão Testar realçado](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. Adicione mais enunciados que sejam variados por tamanho, escolha de palavras e disposição de palavras, certificando-se de incluir os termos `resume`, `c.v.` e `apply`:
 
@@ -151,6 +150,7 @@ A primeira correção é adicionar mais enunciados à intenção **GetJobInforma
 4. Treine o aplicativo selecionando **Treinar** no canto superior direito da navegação.
 
 ## <a name="verify-the-fix-worked"></a>Verificar se a correção funcionou
+
 Para verificar se os enunciados no teste em lotes estão previstos corretamente, execute o teste em lotes novamente.
 
 1. Selecione **Testar** na barra de navegação superior. Se os resultados do lote ainda estiverem abertos, selecione **Retornar à lista**.  
@@ -162,6 +162,7 @@ Para verificar se os enunciados no teste em lotes estão previstos corretamente,
     ![Captura de tela do LUIS com o botão de resultados do lote realçado](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>Criar arquivo em lotes com entidades 
+
 Para verificar entidades em um teste em lotes, as entidades precisam ser rotuladas no arquivo JSON em lote. Apenas as entidades de aprendizado de máquina são usadas: entidades simples, hierárquicas (somente pai) e compostas. Não adicione entidades que não sejam de aprendizado de máquina, pois sempre são localizadas por meio de expressões regulares ou por correspondências de texto explícitas.
 
 A variação de entidades para contagem total de palavras ([token](luis-glossary.md#token)) pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos à intenção com enunciados rotulados incluem vários comprimentos de entidade. 
@@ -177,7 +178,7 @@ O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralme
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>Executa o lote com entidades
 
 1. Selecione **Testar** na barra de navegação superior. 
@@ -192,11 +193,10 @@ O valor de uma entidade **Trabalho**, fornecido nos enunciados de teste, geralme
 
 6. Selecione o botão **Executar**. Aguarde até que o teste seja concluído.
 
-    [ ![Captura de tela do aplicativo de LUIS com Executar realçado](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. Selecione **Ver resultados**.
 
 ## <a name="review-entity-batch-results"></a>Examinar os resultados do lote da entidade
+
 O gráfico é aberto com todas as intenções corretamente previstas. Role para baixo no filtro do lado direito para localizar as previsões de entidade com erro. 
 
 1. Selecione a entidade **Trabalho** no filtro.
@@ -207,11 +207,12 @@ O gráfico é aberto com todas as intenções corretamente previstas. Role para 
 
 2. Selecione **Falso Negativo** no quadrante inferior esquerdo do gráfico. Em seguida, use o controle de combinação de teclas + E para alternar para a exibição de token. 
 
-    [ ![Exibição do token das previsões de entidade](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    [![Exibição do token das previsões de entidade](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
     Analisar os enunciados abaixo do gráfico revela um erro consistente quando o nome do trabalho inclui `SQL`. Ao analisar os enunciados de exemplo e a lista de frases de Trabalho, o SQL é usado apenas uma vez e apenas como parte de um nome de trabalho maior, `sql/oracle database administrator`.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>Corrigir o aplicativo com base nos resultados do lote de entidade
+
 Corrigir o aplicativo exige que o LUIS determine corretamente as variações de trabalhos do SQL. Há várias opções para essa correção. 
 
 * Adicione explicitamente mais exemplos de expressões, que usam SQL e rotulem essas palavras como uma entidade Trabalho. 
@@ -222,11 +223,12 @@ Essas tarefas são deixadas para você fazer.
 Adicionar um [padrão](luis-concept-patterns.md) antes que a entidade seja corretamente prevista não corrigirá o problema. Isso ocorre porque o padrão não corresponderá até que todas as entidades no padrão sejam detectadas. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>O que foi realizado com este tutorial?
+
 A precisão de previsão do aplicativo aumentou, localizando erros no lote e corrigindo o modelo. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione as reticências **...** à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
+Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione as reticências **...** à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

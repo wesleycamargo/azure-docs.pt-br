@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237590"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413851"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solucionar problemas de erros com runbooks
 
@@ -94,6 +94,26 @@ Se você tiver a autenticação multifator em sua conta do Azure, você não pod
 Para usar um certificado com os cmdlets do modelo de implantação clássico do Azure, consulte [criando e adicionando um certificado para gerenciar os serviços do Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Para usar uma entidade de serviço com os cmdlets do Azure Resource Manager, veja [criando entidades de serviço usando o portal do Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) e [autenticando uma entidade de serviço com o Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erros comuns ao trabalhar com runbooks
+
+### <a name="task-was-cancelled"></a>Cenário: O runbook falha com o erro: uma tarefa foi cancelada
+
+#### <a name="issue"></a>Problema
+
+Seu runbook falha com um erro semelhante ao exemplo a seguir:
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro pode ser causado por meio de módulos do Azure desatualizados.
+
+#### <a name="resolution"></a>Resolução
+
+Esse erro pode ser resolvido atualizando os módulos do Azure para a versão mais recente.
+
+Na sua conta de automação, clique em **módulos**e clique em **módulos do Azure atualização**. A atualização leva aproximadamente 15 minutos, uma vez concluídos executados novamente o runbook que estava falhando.
 
 ### <a name="not-recognized-as-cmdlet"></a>Cenário: o runbook falha devido a um cmdlet ausente
 

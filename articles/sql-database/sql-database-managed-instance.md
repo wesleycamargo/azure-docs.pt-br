@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ff571035c9360730546732205f34d75ace38fbff
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091986"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414309"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>O que é uma Instância Gerenciada (versão prévia)?
 
@@ -139,15 +139,16 @@ Camada de serviço Comercialmente Crítico desenvolvida para aplicativos com alt
 
 A lista a seguir apresenta as características principais da camada Comercialmente Crítico: 
 -   Projetada para aplicativos de negócios com requisitos de alta disponibilidade e desempenho mais alto 
--   Vem com o armazenamento SSD super-rápido (até 1 TB em Gen 4 e até 4 TB na Geração 5) - dá suporte a até 100 bancos de dados por instância 
+-   Vem com armazenamento SSD super rápido (até 1 TB no Gen 4 e até 4 TB no Gen 5)
+-   Dá suporte a até 100 bancos de dados por instância 
 
 |Recurso | DESCRIÇÃO|
 |---|---|
-| Número de vCores* | 8, 16, 24 (Geração 4)<br>8, 16, 24, 32, 40, 64, 80 (Geração 5)|
+| Número de vCores* | 8, 16, 24, 32 (Geração 4)<br>8, 16, 24, 32, 40, 64, 80 (Geração 5)|
 | Compilação/versão do SQL Server | SQL Server (mais recente disponível) |
 | Recursos adicionais | [OLTP in-memory](sql-database-in-memory.md)<br> 1 réplica somente leitura adicional ([expansão de leitura](sql-database-read-scale-out.md))
 | Tamanho mínimo de armazenamento | 32 GB |
-| Tamanho máximo de armazenamento | Geração 4: 1 TB (todos os tamanhos de vCore<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB para 40, 60, 80 vCores</ul>|
+| Tamanho máximo de armazenamento | Geração 4: 1 TB (todos os tamanhos de vCore<br> Geração 5:<ul><li>1 TB para 8, 16 vCores</li><li>2 TB para 24 vCores</li><li>4 TB for 32, 40, 64, 80 vCores</ul>|
 | Armazenamento máximo por banco de dados | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número de arquivos de dados (LINHAS) por banco de dados | Vários | 
 | Número de arquivos de log (LOG) por banco de dados | 1 | 

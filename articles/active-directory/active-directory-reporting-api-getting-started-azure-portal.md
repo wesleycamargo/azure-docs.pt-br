@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159672"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390663"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Introdução à API de relatórios do Microsoft Azure Active Directory
 
@@ -43,8 +43,6 @@ Para acessar a API de relatório, mesmo se estiver planejando acessar a API usan
 3. Conceder permissões
 4. Reunir definições de configuração
 
-
- 
 Para obter instruções detalhadas, consulte, [pré-requisitos para acessar a API de relatório do Microsoft Azure Active Directory](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>APIs com Microsoft Azure Graph
@@ -55,11 +53,11 @@ Você pode usar o [MSGraph explorer](https://developer.microsoft.com/en-us/graph
 
 ![Modificar a interface do usuário de permissões](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Recomendações 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Use certificados para acessar a API de relatórios do AD do Azure 
 
-Se você estiver planejando recuperar os dados de relatório sem a intervenção do usuário, considere usar a API de Relatórios do Microsoft Azure Active Directory com os certificados.
+Considere o uso da API de relatórios do Azure AD com certificados se você planeja recuperar dados de relatórios sem a intervenção do usuário.
 
-Para obter instruções detalhadas, consulte [obter dados usando a API de Relatórios do Microsoft Azure Active Directory com os certificados](active-directory-reporting-api-with-certificates.md).
+Para obter instruções detalhadas, consulte [Obter dados usando a API de relatórios do Azure AD com certificados](active-directory-reporting-api-with-certificates.md).
 
 
 ## <a name="explore"></a>Explorar
@@ -67,17 +65,13 @@ Para obter instruções detalhadas, consulte [obter dados usando a API de Relat�
 Tenha uma primeira impressão das APIs de relatórios
    
    - [Usar os exemplos para a API de auditoria](active-directory-reporting-api-audit-samples.md) 
- 
    - [Usar os exemplos para a API de relatório de atividade de entrada](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Personalizar  
+## <a name="next-steps"></a>Próximas etapas
 
-Crie sua própria solução 
-   
-   - [Usar a referência de API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Usar a referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Solucionar problemas de erros no relatório de API do Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 

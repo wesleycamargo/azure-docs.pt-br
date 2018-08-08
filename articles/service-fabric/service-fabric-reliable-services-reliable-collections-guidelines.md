@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72091d592475e41f254ef7c3882e3d3fee0c491b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211133"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389524"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -49,6 +49,7 @@ Eis aqui algumas coisas que se deve manter em mente:
 * As operações de leitura no secundário podem ler versões que não são confirmadas por quorum.
   Isso significa que uma versão dos dados que é lida por meio de um único secundário pode ter um progresso falso.
   As leituras do Primário são sempre estáveis: elas nunca podem ter um progresso falso.
+* Segurança/privacidade dos dados persistidos pelo seu aplicativo em uma coleção confiável é a sua decisão e estão sujeitas às proteções fornecidas pelo seu gerenciamento de armazenamento; OU SEJA Criptografia de disco do sistema operacional pode ser usada para proteger seus dados em repouso.  
 
 ### <a name="next-steps"></a>Próximas etapas
 * [Trabalhando com Reliable Collections](service-fabric-work-with-reliable-collections.md)

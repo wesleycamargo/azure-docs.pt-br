@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d842b1af74c1b276f367e0ff15703880f7560aa
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224779"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390612"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure Active Directory
 
@@ -230,9 +230,7 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Obter dados usando a API de Relatório do Azure Active Directory com certificados](active-directory-reporting-api-with-certificates.md).
-
-- [Tenha uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Crie sua própria solução](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Obter dados usando a API de Relatório do Azure Active Directory com certificados](active-directory-reporting-api-with-certificates.md)
+* [Tenha uma primeira impressão das APIs de relatórios](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Referência da API de auditoria](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Referência da API de relatório de atividade de entrada](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

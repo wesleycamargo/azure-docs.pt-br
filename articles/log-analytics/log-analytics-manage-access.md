@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3b4e0f978cc7d23d0157b78fd2dff27096d2768b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: cb927c0bad69bb3b5b3001e4ba19b11acd1eb316
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133185"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389962"
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
-Para gerenciar o acesso ao Log Analytics, você executa várias tarefas administrativas relacionadas aos espaços de trabalho. Este artigo fornece conselhos de práticas recomendados e os procedimentos para gerenciar espaços de trabalho. Um espaço de trabalho é essencialmente um contêiner que inclui informações da conta e informações de configuração simples para a conta. Você ou outros membros de sua organização podem usar vários espaços de trabalho para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
+Para gerenciar o acesso ao Log Analytics, você executa várias tarefas administrativas relacionadas aos espaços de trabalho. Este artigo fornece conselhos e procedimentos para gerenciar espaços de trabalho. Um espaço de trabalho é essencialmente um contêiner que inclui informações da conta e informações de configuração simples para a conta. Você ou outros membros de sua organização podem usar vários espaços de trabalho para gerenciar diferentes conjuntos de dados que são coletados de todos ou de partes da sua infraestrutura de TI.
 
 Para criar um espaço de trabalho, você precisa:
 
@@ -44,31 +44,33 @@ Hoje, um espaço de trabalho fornece:
 * Isolamento de dados para definir direitos de acesso de usuário diferente
 * Escopo para a configuração de configurações, como a limitação de dados e retenção
 
-Do ponto de vista de consumo, é recomendável criar o menor número possível de espaços de trabalho. Isso torna a administração e consulta experiências mais fácil e mais rápido. Porém, com base nas características anteriores, pode ser útil criar vários espaços de trabalho se:
+Do ponto de vista do consumo, recomendamos que você crie o menor número de espaços de trabalho possível. Isso torna a administração e a consulta mais fácil e rápida. Porém, com base nas características anteriores, pode ser útil criar vários espaços de trabalho se:
 
 * Você é uma empresa global e precisa de dados armazenados em regiões específicas por motivos de soberania de dados ou conformidade.
 * Você usa o Azure e deseja evitar encargos de transferência de dados de saída com um espaço de trabalho na mesma região que os recursos do Azure que ele gerencia.
-* Você deseja alocar os encargos para diferentes departamentos ou grupos de negócios com base no uso. Quando você cria um espaço de trabalho para cada departamento ou grupo de negócios em sua própria assinatura do Azure.
+* Você deseja alocar cobranças a diferentes departamentos ou grupos de negócios com base em seu uso, criando uma área de trabalho para cada departamento ou grupo de negócios em sua própria assinatura do Azure.
 * Você é um provedor de serviço gerenciado e precisa para manter os dados do Log Analytics para cada cliente que você gerencia isolados dos de outros clientes.
-* Você gerencia vários clientes e deseja que cada cliente/departamento/grupo de negócios veja seus próprios dados, mas não os dados de outras pessoas.
+* Você gerencia vários clientes e deseja que cada cliente / departamento / grupo de negócios veja seus próprios dados, mas não os dados de outras pessoas.
 
 Ao usar agentes do Windows para coletar dados, você pode [configurar cada agente para relatar para um ou mais espaços de trabalho](log-analytics-windows-agents.md).
 
 Se você estiver usando o System Center Operations Manager, cada grupo de gerenciamento do Operations Manager poderá ser conectado a apenas um espaço de trabalho. Você pode instalar o Microsoft Monitoring Agent em computadores gerenciados pelo Operations Manager e fazer o agente relatar ao Operations Manager e a um espaço de trabalho do Log Analytics diferente.
 
-### <a name="workspace-information"></a>Informações do espaço de trabalho
+## <a name="workspace-information"></a>Informações do espaço de trabalho
 
 Você pode exibir detalhes sobre o espaço de trabalho no portal do Azure. 
 
-#### <a name="view-workspace-information-in-the-azure-portal"></a>Exibir informações do espaço de trabalho no portal do Azure
+1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com).
 
-1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com) usando a sua assinatura do Azure.
-2. No menu **Hub**, clique em **Mais serviços** e, na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Log Analytics**.  
-    ![Hub do Azure](./media/log-analytics-manage-access/hub.png)  
-3. Na folha de assinaturas do Log Analytics, selecione um espaço de trabalho.
-4. A folha de espaço de trabalho exibe detalhes sobre o espaço de trabalho e links para obter informações adicionais.  
-    ![detalhes do espaço de trabalho](./media/log-analytics-manage-access/workspace-details.png)  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.  
 
+    ![Portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)  
+
+3. No painel de inscrições do Log Analytics, selecione um espaço de trabalho.
+
+4. A página do espaço de trabalho exibe detalhes sobre os primeiros passos, configurações e links para informações adicionais.  
+
+    ![detalhes do espaço de trabalho](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Gerenciar contas e usuários
 Cada espaço de trabalho pode ter várias contas associadas e cada conta pode ter acesso a vários espaços de trabalho. O acesso é gerenciado via [acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md). Esses direitos de acesso se aplicam no portal do Azure e sobre o acesso de API.
@@ -97,7 +99,7 @@ Os membros da função *Leitor do Log Analytics* podem:
 
 A função de leitor do Log Analytics inclui as seguintes ações do Azure:
 
-| type    | Permissão | DESCRIÇÃO |
+| Tipo    | Permissão | DESCRIÇÃO |
 | ------- | ---------- | ----------- |
 | Ação | `*/read`   | Capacidade de exibir todos os recursos do Azure e a configuração do recurso. Inclui exibir: <br> Status de extensão da máquina virtual <br> Configuração do diagnóstico do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos |
 | Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Capacidade de execução de consultas de Pesquisa de Logs v2 |
@@ -150,23 +152,25 @@ Recomendamos que você execute atribuições no nível do recurso (espaço de tr
 Todos os espaços de trabalho criados depois de 26 de setembro de 2016 devem ser vinculados a uma assinatura do Azure no momento da criação. Os espaços de trabalho criados antes dessa data devem ser vinculados a um espaço de trabalho quando você entra. Quando você cria o espaço de trabalho no Portal do Azure ou vincula seu espaço de trabalho a uma assinatura do Azure, o Azure Active Directory é vinculado à sua conta organizacional.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>Para vincular um espaço de trabalho a uma assinatura do Azure no portal do Azure
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
-2. Procure pelo **Log Analytics** e selecione-o.
-3. Você vê sua lista de espaços de trabalho existentes. Clique em **Adicionar**.  
-   ![lista de espaços de trabalho](./media/log-analytics-manage-access/manage-access-link-azure01.png)
-4. No **Espaço de Trabalho do OMS**, clique em **ou no link existente**.  
-   ![link existente](./media/log-analytics-manage-access/manage-access-link-azure02.png)
-5. Clique em **Definir configurações obrigatórias**.  
-   ![configure required settings](./media/log-analytics-manage-access/manage-access-link-azure03.png)
-6. Você vê a lista de espaços de trabalho que ainda não estão vinculados à sua conta do Azure. Selecione um espaço de trabalho.  
-   ![selecionar espaços de trabalho](./media/log-analytics-manage-access/manage-access-link-azure04.png)
-7. Se necessário, você pode alterar os valores para os seguintes itens:
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.  
+
+2. No painel de inscrições do Log Analytics, clique em **Adicionar**.  
+
+    ![lista de espaços de trabalho](./media/log-analytics-manage-access/workspace-link-existing-01.png)
+
+3. No painel **da área de trabalho de Log Analytics**, clique em **Vincular existente**.  
+
+4. Clique em **Definir configurações obrigatórias**.  
+
+5. Você vê a lista de espaços de trabalho que ainda não estão vinculados à sua conta do Azure. Selecione o espaço de trabalho.  
+   
+6. Se necessário, você pode alterar os valores para os seguintes itens:
    * Assinatura
    * Grupo de recursos
    * Local padrão
-   * Tipo de preço   
-     ![alterar valores](./media/log-analytics-manage-access/manage-access-link-azure05.png)
-8. Clique em **OK**. O espaço de trabalho agora está vinculado à sua conta do Azure.
+   * Tipo de preço  
+
+7. Clique em **OK**. O espaço de trabalho agora está vinculado à sua conta do Azure.
 
 > [!NOTE]
 > Caso você não veja o espaço de trabalho que deseja vincular, sua assinatura do Azure não tem acesso ao espaço de trabalho criado usando o portal do OMS.  Para conceder acesso a essa conta no portal do OMS, consulte [adicionar um usuário a um espaço de trabalho](#add-a-user-to-an-existing-workspace).
@@ -184,6 +188,7 @@ Quando você adquire uma assinatura do OMS, os direitos são adicionados ao Ente
 Para garantir que o uso de um espaço de trabalho seja aplicado aos seus direitos da assinatura do OMS, você precisa:
 
 1. Criar o espaço de trabalho em uma assinatura do Azure que faz parte do Enterprise Agreement que inclui a assinatura do OMS
+
 2. Selecione o plano *OMS* para o espaço de trabalho
 
 > [!NOTE]
@@ -191,7 +196,7 @@ Para garantir que o uso de um espaço de trabalho seja aplicado aos seus direito
 >
 >
 
-Os direitos de assinatura do OMS não são visíveis no portal do Azure ou do OMS. Você pode ver os direitos e o uso no Portal Enterprise.  
+Os direitos de assinatura do OMS não são visíveis no portal do Azure. Você pode ver os direitos e o uso no Portal Enterprise.  
 
 Se você precisar alterar a assinatura do Azure vinculada ao seu espaço de trabalho, poderá usar o cmdlet do Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) .
 
@@ -203,14 +208,12 @@ Se você tiver um compromisso monetário do Azure no registro corporativo ao qua
 Se você precisar alterar a assinatura do Azure vinculada ao seu espaço de trabalho, poderá usar o cmdlet do Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) .  
 
 ### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Alterar um espaço de trabalho para um tipo de preço pago no Portal do Azure
-1. Faça logon no [Portal do Azure](http://portal.azure.com).
-2. Procure pelo **Log Analytics** e selecione-o.
-3. Você vê sua lista de espaços de trabalho existentes. Selecione um espaço de trabalho.  
-4. Na folha do espaço de trabalho, em **Geral**, clique em **Tipo de preço**.  
-5. Em **Tipo de preço**, clique em selecionar um tipo de preço e clique em **Selecionar**.  
-    ![selecionar plano](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. Ao atualizar sua exibição do Portal do Azure, você vê o **Tipo de preço** atualizado para o tipo selecionado.  
-    ![plano atualizado](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+1. No portal do Azure, no painel de inscrições do Log Analytics, selecione um espaço de trabalho.
+
+2. No painel de espaço de trabalho, sob **gerais**, selecione **tipo de preço**.  
+
+3. Sob **tipo de preço**, selecione um tipo de preço e, em seguida, clique em **selecione**.  
+    ![Selecionado o plano de preços](./media/log-analytics-manage-access/workspace-pricing-tier-info.png)
 
 > [!NOTE]
 > Se o seu espaço de trabalho está vinculado a uma conta de automação, antes de poder selecionar o tipo de preços *Autônomo (por GB)*, deve excluir quaisquer soluções de **Automação e Controle** e desvincular a conta de Automação. Na folha do espaço de trabalho, em **geral**, clique em **soluções** para ver e excluir soluções. Para desvincular a conta de automação, clique no nome da conta de automação na folha **Tipo de preços**.
@@ -222,32 +225,18 @@ Se você precisar alterar a assinatura do Azure vinculada ao seu espaço de trab
 Para alterar o tipo de preço usando o portal do OMS, você deve ter uma assinatura do Azure.
 
 1. No portal do OMS, clique no bloco **Configurações**.
+
 2. Clique na guia **Contas**, em seguida, clique na guia **Plano de Assinatura e Dados do Azure**.
+
 3. Clique no tipo de preço que você deseja usar.
+
 4. Clique em **Salvar**.  
-   ![planos de assinatura e dados](./media/log-analytics-manage-access/subscription-tab.png)
+
+    ![planos de assinatura e seus dados](./media/log-analytics-manage-access/subscription-tab.png)
 
 Seu novo plano de dados é exibido na faixa de opções do portal do OMS, na parte superior da página da Web.
 
 ![faixa de opções do OMS](./media/log-analytics-manage-access/data-plan-changed.png)
-
-
-## <a name="change-how-long-log-analytics-stores-data"></a>Alterar o tempo que o Log Analytics leva para armazenar dados
-
-No tipo de preço Gratuito, o Log Analytics disponibiliza os últimos sete dias de dados.
-No tipo de preço Standard, o Log Analytics disponibiliza os últimos 30 dias de dados.
-No tipo de preço Premium, o Log Analytics disponibiliza os últimos 365 dias de dados.
-Nos tipos de preço Autônomo e OMS, o Log Analytics disponibiliza por padrão os últimos 31 dias de dados.
-
-Quando você usa os tipos de preço OMS e Autônomo, pode manter até dois anos de dados (730 dias). Dados armazenados por mais tempo do que o padrão de 31 dias acarreta um custo por retenção de dados. Para obter mais informações sobre preços, consulte [encargos excedentes](https://azure.microsoft.com/pricing/details/log-analytics/).
-
-Para alterar o período de tempo de retenção de dados, consulte [Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics](log-analytics-manage-cost-storage.md).
-
-
-## <a name="delete-a-log-analytics-workspace"></a>Excluir um espaço de trabalho do Log Analytics
-Quando você exclui um espaço de trabalho do Log Analytics, todos os dados relacionados ao espaço de trabalho são excluídos do serviço Log Analytics em até 30 dias.
-
-Se você for um administrador e houver vários usuários associados ao espaço de trabalho, a associação entre os usuários e o espaço de trabalho será interrompida. Se os usuários estiverem associados a outros espaços de trabalho, eles poderão continuar usando o Log Analytics com esses outros espaços. No entanto, se eles não estiverem associados a outros espaços de trabalho, precisarão criar um espaço de trabalho para usar o serviço. Para excluir um espaço de trabalho, consulte [Excluir um espaço de trabalho do Azure Log Analytics](log-analytics-manage-del-workspace.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Consulte [Coletar dados de computadores em seu ambiente com o Log Analytics](log-analytics-concept-hybrid.md) para coletar dados de computadores em seu data center ou em outro ambiente de nuvem.

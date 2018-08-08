@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 9633a7df1cb72f3e9e5ee79be0c332565e7e8f2a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054095"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358844"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introdução aos Serviços ML e recursos R de código aberto no HDInsight
 
@@ -106,7 +106,7 @@ Se você escolher essa opção, será preciso converter qualquer objeto de model
 
 ### <a name="score-on-premises"></a>Pontuação local
 
-Para pontuar no local após criar o modelo, você pode serializar o modelo em R, baixá-lo, desserializá-lo e usá-lo para pontuação de novos dados. Você pode pontuar novos dados usando a abordagem descrita anteriormente em [Pontuação no HDInsight](#scoring-in-hdinsight) ou [usando o DeployR](https://deployr.revolutionanalytics.com/).
+Para pontuar no local após criar o modelo, você pode serializar o modelo em R, baixá-lo, desserializá-lo e usá-lo para pontuação de novos dados. Você pode marcar novos dados usando a abordagem descrita anteriormente em [Scoring no HDInsight](#scoring-in-hdinsight) ou usando [serviços da Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Manter o cluster
 

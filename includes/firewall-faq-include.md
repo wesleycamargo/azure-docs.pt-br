@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163490"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361413"
 ---
 ### <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -66,7 +66,7 @@ O Firewall do Azure é integrado ao Azure Monitor para exibir e analisar logs do
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>Como o Firewall do Azure funciona em relação ao existente, como NVAs no marketplace?
 
-O Firewall do Azure é um serviço de firewall básico que pode atender a determinados cenários de cliente. Esperamos que os clientes tenham uma combinação de NVAs de terceiros e o Firewall do Azure e trabalhem com os nossos parceiros em várias oportunidades melhores juntas. 
+O Firewall do Azure é um serviço de firewall básico que pode atender a determinados cenários de cliente. Espera-se que você terá uma mistura de NVAs de terceiros e o Firewall do Azure. Trabalhar melhor juntos é uma prioridade principal.
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Qual é a diferença entre o WAF do Gateway de Aplicativo e o Firewall do Azure?
 
@@ -74,7 +74,7 @@ O WAF (Firewall de Aplicativo Web) é um recurso do Gateway de Aplicativo que fo
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>Qual é a diferença entre NSGs (Grupos de Segurança de Rede) e o Firewall do Azure?
 
-O serviço do Firewall do Azure complementa a nossa funcionalidade existente do Grupo de Segurança de Rede e, junto com ela, fornece maior segurança de rede de defesa em profundidade. Os NSGs fornecem filtragem de tráfego de camada de rede distribuída para limitar o tráfego para recursos em redes virtuais em cada assinatura.  O Firewall do Azure é um firewall como serviço de rede centralizado totalmente com estado, fornecendo proteção no nível da rede e do aplicativo em diferentes assinaturas e VNets (redes virtuais). 
+O serviço do Firewall do Azure complementa a funcionalidade do Grupo de Segurança de Rede e, junto com ela, fornece maior segurança de rede de defesa em profundidade. Os NSGs fornecem filtragem de tráfego de camada de rede distribuída para limitar o tráfego para recursos em redes virtuais em cada assinatura.  O Firewall do Azure é um firewall como serviço de rede centralizado totalmente com estado, fornecendo proteção no nível da rede e do aplicativo em diferentes assinaturas e VNets (redes virtuais). 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Firewall do Azure com meus pontos de extremidade de serviço?
 
@@ -84,4 +84,5 @@ Para obter acesso seguro aos serviços de PaaS, recomendamos Pontos de Extremida
 
 * O Firewall do Azure tem um limite flexível de 1000 TB/firewall/mês. 
 * O Firewall do Azure que está sendo executado em uma VNET central está sujeito às limitações de emparelhamento VNET: máx. de 50 VNETs de spoke.  
-* O Firewall do Azure não pode funcionar com emparelhamento global, assim, os clientes devem ter pelo menos uma implantação do Firewall por região.
+* O Firewall do Azure não funciona com emparelhamento global, assim, os clientes devem ter pelo menos uma implantação do firewall por região.
+* O firewall do Azure dá suporte a 10 mil aplicativos e as regras de rede 10 k.

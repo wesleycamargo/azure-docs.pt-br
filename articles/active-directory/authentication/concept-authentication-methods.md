@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248337"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414517"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -198,3 +198,5 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 [Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
 
 [Ativar a autenticação de vários fatores do Azure para sua organização](howto-mfa-getstarted.md)
+
+[Documentação de configuração do método de autenticação do usuário final](https://aka.ms/securityinfoguide)

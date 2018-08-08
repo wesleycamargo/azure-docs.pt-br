@@ -2,24 +2,19 @@
 title: Criar e usar uma SAS (Assinatura de Acesso Compartilhado) com o Armazenamento de Blobs do Azure | Microsoft Docs
 description: Este tutorial mostra como criar assinaturas de acesso compartilhado para uso com o Armazenamento de Blobs e como consumi-las em seus aplicativos cliente.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23056791"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400119"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Assinaturas de Acesso Compartilhado, Parte 2: criar e usar uma SAS com o Armazenamento de Blobs
 
@@ -72,7 +67,7 @@ Edite o arquivo app.config para que ele contenha um parâmetro de configuração
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Gerar um URI de assinatura de acesso compartilhado para um contêiner
 Em primeiro lugar, adicionaremos um método para gerar uma assinatura de acesso compartilhado em um novo contêiner. Nesse caso, a assinatura não está associada a uma política de acesso armazenado, portanto, ela transporta no URI as informações que indicam sua hora de expiração e as permissões concedidas por ela.
 
-Primeiro, adicione código ao método **Main()** para autenticar o acesso à sua conta de armazenamento e criar um novo contêiner:
+Primeiro, adicione o código ao método **Main ()** para autorizar o acesso à sua conta de armazenamento e criar um novo contêiner:
 
 ```csharp
 static void Main(string[] args)

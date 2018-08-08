@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444252"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399083"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
@@ -45,7 +45,7 @@ Nas próximas seções, você apenderá as etapas necessárias para configurar a
    |ID do banco de dados  |  Forneça um nome exclusivo para identificar o banco de dados. O banco de dados é um contêiner lógico de uma ou mais coleções. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter /, \\, #, ?, ou um espaço à direita. |
    |ID da coleção  | Forneça um nome exclusivo para identificar a coleção. As IDs de coleção têm os mesmos requisitos de caracteres que os nomes de banco de dados. |
    |Capacidade de armazenamento   | Esse valor representa a capacidade de armazenamento do banco de dados. Ao provisionar a produtividade para uma coleção individual, a capacidade de armazenamento pode ser **fixa (10 GB)** ou **ilimitada**. A capacidade de armazenamento ilimitada exige que você defina uma chave de partição para seus dados.  |
-   |Throughput   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  Para capacidade de armazenamento fixa, a produtividade mínima é 400 unidades de solicitação por segundo (RU/s); para capacidade de armazenamento ilimitado, a produtividade mínima é definida como 1000 RU/s.|
+   |Produtividade   | Cada coleção e banco de dados podem ter a produtividade em unidades de solicitação por segundo.  Para capacidade de armazenamento fixa, a produtividade mínima é 400 unidades de solicitação por segundo (RU/s); para capacidade de armazenamento ilimitado, a produtividade mínima é definida como 1000 RU/s.|
 
 6. Depois de inserir valores para esses campos, selecione **OK** para salvar as configurações.  
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Definir a taxa de transferência para um conjunto de contêineres ou no nível do banco de dados
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Definir taxa de transferência para um conjunto de contêineres no nível do banco de dados
 
 Segue um trecho de código para provisionar 100.000 unidades de solicitação por segundo em um conjunto de contêineres usando SDK do .NET da API do SQL:
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Obter a taxa de transferência com o uso comando GetLastRequestStatistics da API do MongoDB
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
+
+A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
+
+![Métricas do portal da API MongoDB][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
+Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará a solicitação com um `16500`código de erro - `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a> Obter cobrança de solicitação usando APIs do MongoDB Comando GetLastRequest Statistics
 
 A API MongoDB dá suporte a um comando personalizado *getLastRequestStatistics*, para recuperar o encargo de solicitação para operações determinadas.
 
@@ -254,14 +263,19 @@ Um método para estimar a quantidade de produtividade reservada exigida pelo apl
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Obter a taxa de transferência usando métricas de do portal API do MongoDB
+## <a id="RequestchargeGraphAPI"></a>Obter o encargo de solicitação para contas da API do Gremlin 
 
-A maneira mais simples de obter uma boa estimativa de encargos da unidade de solicitação para o banco de dados de API MongoDB é usar as métricas do [Portal do Azure](https://portal.azure.com). Com os gráficos *Número de solicitações* e *Custo da Solicitação*, você pode obter uma estimativa de quantas unidades de solicitação cada operação está consumindo, e quantas unidades de solicitação elas consomem com relação às outras operações.
+Aqui está um exemplo sobre como obter o encargo de solicitação para contas da API Gremlin usando a biblioteca Gremlin.Net. 
 
-![Métricas do portal da API MongoDB][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Exceder os limites de taxa de transferência reservados na API MongoDB
-Aplicativos que excedem a taxa de transferência para um contêiner ou um conjunto de contêineres serão limitados até que a taxa fique abaixo do nível da taxa de transferência provisionado. Quando ocorrer uma limitação, o back-end terminará a solicitação com um `16500`código de erro - `Too Many Requests`. Por padrão, a API MongoDB tentará novamente até 10 vezes antes de retornar um `Too Many Requests` código de erro. Se você estiver recebendo muitos códigos de erro `Too Many Requests` códigos de erro, considere adicionar uma repetição de lógico em suas rotinas de manuseio de erro do aplicativo ou [ aumentar a taxa e transferência provisionada para o contêiner](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Além do método acima, você também pode usar o cabeçalho "x-ms-total-request-charge" para cálculos de unidades de solicitação.
+
 
 ## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
 
