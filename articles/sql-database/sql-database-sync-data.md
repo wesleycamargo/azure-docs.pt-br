@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069362"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283617"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -117,7 +117,9 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 
 -   Uma tabela não pode uma coluna de identidade que não seja a chave primária.
 
--   Uma chave primária não pode ter os dados de data e hora de tipo.
+-   Uma chave primária não pode ter os seguintes tipos de dados: sql_variant, binário, varbinary, imagem e xml. 
+
+-   Tenha cuidado ao usar os seguintes tipos de dados como uma chave primária, porque a precisão com suporte é apenas para o segundo: time, datatime, datetime2 e datetimeoffset.
 
 -   Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter os caracteres imprimíveis ponto (.), colchete esquerdo ([) ou colchete direito (]).
 
@@ -131,7 +133,7 @@ Provisionamento e desprovisionamento durante a criação do grupo de sincroniza�
 
 -   XMLSchemaCollection (suporte para XML)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>Não há suporte para os tipos de coluna
 

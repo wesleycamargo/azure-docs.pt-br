@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2bce3a11d3f9b88b9e6e054e022ddbf1a5573453
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578255"
 documentType: LandingData
 title: Documentação do Azure Data Factory
 metadata:
@@ -11,14 +17,8 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/08/2017
+  ms.date: 08/06/2018
   ms.author: douglasl
-  ms.openlocfilehash: 624b2f0968776115f35698710cdc930a9a824922
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37047193"
 abstract:
   description: Saiba mais sobre como usar o Data Factory, um serviço de integração de dados na nuvem, para criar armazenamento de dados, serviços de processamento e de movimentação em pipelines de dados automatizados. Os tutoriais e outras documentações mostram como configurar e gerenciar pipelines de dados, bem como mover e transformar dados para análise. <p>Se você estiver usando V1 do serviço do Data Factory, confira <a href=/azure/data-factory/v1/data-factory-introduction>documentação V1.</a></p>
   aside:
@@ -27,14 +27,14 @@ abstract:
       height: 110
       src: media/index/video.png
       width: 250
-    title: Criar visualmente pipelines para o Azure Data Factory (19:31)
-    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    title: 'Novos recursos para a integração moderna de dados na nuvem (1: 19:22)'
+    href: https://channel9.msdn.com/Events/Build/2018/BRK2204/player
     width: 250
 sections:
 - title: Guia de início rápido de 5 minutos
   items:
   - type: paragraph
-    text: 'Saiba como criar um data factory usando:'
+    text: 'Saiba como criar um pipeline do Data Factory para mover e processar dados com um dos seguintes inícios rápidos:'
   - type: list
     style: icon48
     items:
@@ -71,16 +71,16 @@ sections:
   - type: paragraph
     text: 'Saiba como criar e monitorar um data factory:'
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: Implantar pacotes do SSIS no Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
     - html: Copiar dados na nuvem - <a href="/azure/data-factory/tutorial-copy-data-tool">ferramenta Copiar Dados</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
     - html: Copiar dados locais para a cloud - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">Ferramenta Copiar Dados | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
     - html: Copiar dados em massa - <a href="/azure/data-factory/tutorial-bulk-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
     - html: Copiar dados incrementalmente - <a href="/azure/data-factory/tutorial-incremental-copy-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
     - html: Transformar dados na nuvem com o Spark - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
     - html: Transformar dados na rede virtual - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-    - html: Fluxo de controle - <a href="/azure/data-factory/tutorial-control-flow-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: Adicionar ramificação e encadeamento - <a href="/azure/data-factory/tutorial-control-flow-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: Executar pacotes do SSIS no Azure - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">IU do Data Factory</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
 - title: Exemplos
   items:
   - type: paragraph

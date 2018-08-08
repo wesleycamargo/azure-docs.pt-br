@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Solucionar problemas
       items:
+        - name: Desabilitar o registro convergente
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: SSP de solução de problemas
           href: active-directory-passwords-troubleshoot.md
         - name: PERGUNTAS FREQUENTES SOBRE O SSPR

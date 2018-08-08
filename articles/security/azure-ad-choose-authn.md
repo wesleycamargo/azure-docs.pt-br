@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: d0d72694fe2d88e257a8684dc37a250bc0ad7f3f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acf18c4624373dff8994a1996e9082770b90270
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970982"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283680"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida do Azure Active Directory 
 
@@ -106,9 +106,9 @@ Veja [como implementar a sincronização de hash de senha](https://docs.microsof
 
     Há outro benefício em implantar a sincronização de hash de senha, além da autenticação de passagem. Ela funciona como um método de autenticação de backup quando o método de autenticação primário não está mais disponível.
 
-* **Considerações**. Você pode usar a sincronização de hash de senha como um método de autenticação de backup a para autenticação de passagem, e os agentes não podem validar as credenciais de um usuário. Em seguida, o failover para a sincronização de hash de senha não ocorre automaticamente. Mude para o método de logon manualmente usando o Azure AD Connect. 
+* **Considerações**. É possível usar a sincronização de hash de senha como um método de autenticação de backup a para autenticação de passagem quando os agentes não puderem validar as credenciais de um usuário devido a uma falha local significativa. Failover para sincronização de hash de senha não acontece automaticamente e você deve usar o Azure AD Connect para alternar o método de entrada manualmente. 
 
-    A autenticação de passagem dá suporte apenas a aplicativos de nuvem que usam a autenticação moderna e protocolos específicos do Exchange Online. Alguns protocolos são ActiveSync, POP3 e IMAP4. Por exemplo, o Microsoft Office 2013 e posterior dá suporte à autenticação moderna, ao contrário das versões anteriores. Para obter mais informações sobre o suporte ao aplicativo do Office, confira [Autenticação moderna atualizada do Office 365](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/). Para outras considerações sobre a Autenticação de Passagem, incluindo o suporte à ID Alternativa, confira as [perguntas frequentes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
+    Para outras considerações sobre a Autenticação de Passagem, incluindo o suporte à ID Alternativa, confira as [perguntas frequentes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq).
 
 Consulte a [implementação da autenticação de passagem](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication) para ver etapas de implantação.
 
@@ -161,9 +161,9 @@ Os diagramas a seguir descrevem os componentes da arquitetura de alto nível nec
 |Onde a autenticação ocorre?|Na nuvem|Na nuvem, após uma troca de verificação de senha segura com o agente de autenticação local|Configuração local|
 |Quais são os requisitos de servidor local além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores do AD FS<br><br>Dois ou mais servidores WAP na rede de perímetro/DMZ|
 |Quais são os requisitos de Internet e de redes locais, além do sistema de provisionamento?|Nenhum|[Acesso à Internet de saída](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start) dos servidores executando agentes de autenticação|[Acesso à Internet de entrada](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements) aos servidores WAP no perímetro<br><br>Acesso à rede de entrada aos servidores AD FS por meio dos servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
-|Há algum requisito de certificado SSL?|Não |Não|sim|
+|Há algum requisito de certificado SSL?|Não |Não|SIM|
 |Há alguma solução de monitoramento de integridade?|Não requerido|Status do agente fornecido pelo [Centro de administração do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
-|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|sim|
+|Usuários podem obter o logon único para recursos de nuvem de dispositivos que ingressaram no domínio dentro da rede da empresa?|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|Sim, com [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)|SIM|
 |Há suporte para quais tipos de entrada?|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[ID de logon alternativa](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|Nome Principal do Usuário + senha<br><br>Autenticação Integrada do Windows usando [SSO Contínuo](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[ID de logon alternativa](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|Nome Principal do Usuário + senha<br><br>sAMAccountName + senha<br><br>Autenticação Integrada do Windows<br><br>[Autenticação de certificado e cartão inteligente](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de logon alternativa](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Há suporte para o Windows Hello for Business?|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado com o Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modelo de confiança de chave](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifator?|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)|[MFA do Azure](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Servidor MFA do Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA de Terceiros](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|

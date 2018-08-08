@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004839"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283081"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager
 
-O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite que você [crie e adicione facilmente uma VM a um laboratório](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Isso funciona bem para criar uma VM por vez. No entanto, se o ambiente contiver várias VMs, cada VM deverá ser criada individualmente. Para cenários como um aplicativo Web com várias camadas ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs em uma única etapa. Usando os modelos do Azure Resource Manager, agora você pode definir a infraestrutura e a configuração de sua solução do Azure e implantar repetidamente várias VMs em um estado consistente. Esse recurso oferece os seguintes benefícios:
+O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite a você [adicionar uma VM de cada vez a um laboratório](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm) de maneira fácil. No entanto, se o ambiente contiver várias VMs, cada VM deverá ser criada individualmente. Para cenários como um aplicativo Web com várias camadas ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs em uma única etapa. Usando os modelos do Azure Resource Manager, agora você pode definir a infraestrutura e a configuração de sua solução do Azure e implantar repetidamente várias VMs em um estado consistente. Esse recurso oferece os seguintes benefícios:
 
 - Os modelos do Azure Resource Manager são carregados diretamente a partir de seu repositório de controle de origem (GitHub ou Git do Team Services).
 - Uma vez configurados, os usuários podem criar um ambiente selecionando um modelo do Azure Resource Manager no portal do Azure, assim como fazem com outros tipos de [VM básica](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Saiba mais sobre os muitos [benefícios de usar os modelos do Resource Manager](
 
 Como uma das práticas recomendadas com a infraestrutura como código e a configuração como código, os modelos de ambiente devem ser gerenciados no controle de origem. O Azure DevTest Labs segue essa prática e carrega todos os modelos do Azure Resource Manager diretamente a partir de seus repositórios GitHub ou VSTS Git. Como resultado, os modelos do Resource Manager podem ser usados em todo o ciclo de versão de inteiro, do ambiente de teste ao ambiente de produção.
 
+Verifique os modelos criados pela equipe do DevTest Labs no [repositório GitHub público](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Nesse repositório público, é possível exibir os modelos compartilhados por outras pessoas que você pode usar diretamente ou personalizá-los para atender às suas necessidades. Depois de criar o modelo, armazene-o neste repositório para compartilhá-lo com outras pessoas. Também é possível configurar seu próprio repositório Git com modelos que podem ser usados para configurar ambientes na nuvem. 
+
 Há algumas regras a seguir para organizar seus modelos do Azure Resource Manager em um repositório:
 
 - O arquivo de modelo mestre deve ser nomeado `azuredeploy.json`. 
@@ -50,18 +52,18 @@ Há algumas regras a seguir para organizar seus modelos do Azure Resource Manage
     ![Principais arquivos de modelo do Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Se você quiser usar os valores do parâmetro definidos em um arquivo de parâmetro, o arquivo de parâmetro deve ser nomeado `azuredeploy.parameters.json`.
-- Você pode usar os parâmetros `_artifactsLocation` e `_artifactsLocationSasToken` para construir o valor do URI parametersLink, permitindo ao DevTest Labs gerenciar automaticamente os modelos aninhados. Consulte [Como o Azure DevTest Labs facilita as implantações de modelo do Resource Manager para ambientes de teste](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) para obter mais informações.
+- Você pode usar os parâmetros `_artifactsLocation` e `_artifactsLocationSasToken` para construir o valor do URI parametersLink, permitindo ao DevTest Labs gerenciar automaticamente os modelos aninhados. Para obter mais informações, consulte [Como o Azure DevTest Labs facilita as implantações aninhadas de modelo do Resource Manager para ambientes de teste](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Os metadados podem ser definidos para especificar o nome de exibição do modelo e a descrição. Esses metadados devem estar em um arquivo denominado `metadata.json`. O arquivo de metadados de exemplo a seguir ilustra como especificar o nome de exibição e a descrição: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 As etapas a seguir irão orientá-lo na adição de um repositório ao seu laboratório usando o portal do Azure. 
 
@@ -144,13 +146,13 @@ Considere estas limitações ao usar um modelo do Resource Manager no DevTest La
 
    A única exceção para isso é que você **pode** fazer referência a uma rede virtual existente. 
 
-- Fórmulas não podem ser criadas de VMs do laboratório que foram criadas de um modelo do Resource Manager. 
+- Fórmulas não podem ser criadas a partir de VMs do laboratório que foram criadas a partir de um modelo do Resource Manager. 
 
-- Imagens personalizadas não podem ser criadas de VMs do laboratório que foram criadas de um modelo do Resource Manager. 
+- Imagens personalizadas não podem ser criadas a partir de VMs do laboratório que foram criadas a partir de um modelo do Resource Manager. 
 
 - A maioria das políticas não são avaliadas quando você implanta modelos do Resource Manager.
 
-   Por exemplo, você pode ter uma política de laboratório especificando que um usuário pode criar apenas cinco VMs. No entanto, se o usuário implanta um modelo do Resource Manager que cria dezenas de VMs, isso é permitido. As políticas que não são avaliadas incluem:
+   Por exemplo, você pode ter uma política de laboratório especificando que um usuário pode criar apenas cinco VMs. No entanto, um usuário pode implantar um modelo do Resource Manager que crie dezenas de VMs. As políticas que não são avaliadas incluem:
 
    - Número de VMs por usuário
    - Número de VMs premium por usuário do laboratório

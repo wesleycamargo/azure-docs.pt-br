@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Expansão por meio de programação
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: Dimensionar ou atualizar VMs com tipo de nó primário
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Escalar horizontalmente o Tipo de Nó do Conjunto de Dimensionamento de Máquinas Virtuais
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Atualizar
               href: service-fabric-cluster-upgrade.md
             - name: Definir controle de acesso

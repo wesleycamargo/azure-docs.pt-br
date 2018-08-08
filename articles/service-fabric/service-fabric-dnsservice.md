@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237172"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397519"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço do sistema opcional que pode ser habilitado no cluster para descobrir outros serviços usando o protocolo DNS. 
@@ -159,7 +159,7 @@ O exemplo a seguir define o nome DNS para um serviço com estado em `statefulsvc
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>Fazer consultas DNS em uma partição de serviço com estado
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Versão prévia] Realizar consultas DNS em uma partição de serviço com estado
 A partir do Service Fabric versão 6.3, o serviço DNS do Service Fabric dá suporte a consultas para partições de serviço.
 
 Para partições que serão usadas em consultas DNS, as restrições de nomenclatura a seguir se aplicam:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Problemas conhecidos
+* Para versões do Service Fabric 6.3 e superiores, há um problema com pesquisas de DNS para nomes de serviço que contenham um hífen no nome DNS. Para obter mais informações sobre esse problema, acompanhe o seguinte [Problema do GitHub](https://github.com/Azure/service-fabric-issues/issues/1197). Uma correção para isso será disponibilizada na próxima atualização 6.3. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a comunicação de serviço no cluster com [Conectar e comunicar-se com serviços](service-fabric-connect-and-communicate-with-services.md)

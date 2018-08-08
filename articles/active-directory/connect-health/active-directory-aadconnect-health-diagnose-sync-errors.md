@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831890"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282933"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -127,6 +127,12 @@ Com base nas respostas às perguntas anteriores, você verá o botão **Aplicar 
 
 Após as etapas anteriores, o usuário pode acessar o recurso original, que é um link para um objeto existente. O valor de **Diagnosticar status** na exibição de lista é atualizado para **Pending Sync**. O erro de sincronização será resolvido após a próxima sincronização. O Connect Health não mostrará mais o erro de sincronização resolvido na exibição de lista.
 
+## <a name="failures-and-error-messages"></a>Mensagens de erro e falhas
+**O usuário com atributo conflitante é excluído do Microsoft Azure Active Directory. Certifique-se de que o usuário é excluído forçadamente antes de tentar novamente.**  
+O usuário com atributo conflitante no Azure AD deve ser excluído antes de aplicar a correção. Confira [como excluir o usuário permanentemente no Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) antes de tentar novamente a correção. O usuário também será automaticamente excluído permanentemente após 30 dias no estado excluído flexível. 
+
+**Não há suporte para atualizar âncora de origem para usuário baseado em nuvem no locatário.**  
+O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 
 
 ## <a name="faq"></a>Perguntas frequentes
 **P.** O que acontece se a execução do **Apply Fix** falhar?  

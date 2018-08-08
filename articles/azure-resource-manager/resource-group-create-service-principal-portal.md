@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441566"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282231"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
 
-Quando você tiver um código que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory). Você pode atribuir as permissões necessárias para o aplicativo do AD. Essa abordagem é preferível executar o aplicativo com suas próprias credenciais, porque você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
+Quando você tiver um código que precisa acessar ou modificar os recursos, deverá configurar um aplicativo do Azure AD (Active Directory). Desse modo, será possível atribuir as permissões necessárias ao aplicativo do AD. Essa abordagem é preferível executar o aplicativo com suas próprias credenciais, porque você pode atribuir permissões para a identidade do aplicativo que são diferentes de suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer.
 
 Este artigo mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
@@ -156,7 +156,7 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
    ![escolher adicionar](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Selecione a função que deseja atribuir ao aplicativo. A imagem a seguir mostra a função **Leitor**.
+1. Selecione a função que deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações como **reiniciar**, **iniciar** e **parar** instâncias, será necessário selecionar a função **Colaborador**. A imagem a seguir mostra a função **Leitor**.
 
    ![escolher função](./media/resource-group-create-service-principal-portal/select-role.png)
 

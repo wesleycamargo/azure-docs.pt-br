@@ -12,20 +12,20 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d321e82560f7676f77ed9161c1bce0304b7d5914
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247674"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397100"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Como gerenciar conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT
 
-Este guia fornece diretrizes de alto nível para o design de aplicativos de dispositivos resilientes, aproveitando os recursos de conectividade e mensagens confiáveis dos SDKs do dispositivo IoT do Azure. O objetivo deste artigo é ajudar a responder às perguntas e lidar com esses cenários:
+Este guia fornece diretrizes de alto nível para o design de aplicativos de dispositivos resilientes, aproveitando os recursos de conectividade e mensagens confiáveis dos SDKs do dispositivo IoT do Azure. O objetivo deste artigo é ajudar a responder às perguntas e lidar com estes cenários:
 
-- gerenciar uma conexão de rede removida
-- gerenciar a comutação entre diferentes conexões de rede
-- gerenciar reconexão devido a erros de conexão transitória de serviço
+- Gerenciar uma conexão de rede removida
+- Gerenciar a comutação entre diferentes conexões de rede
+- Gerenciar a reconexão devido a erros transitórios de conexão do serviço
 
 Os detalhes da implementação podem variar de acordo com a linguagem; consulte a documentação da API vinculada ou o SDK específico para obter mais detalhes.
 
@@ -116,3 +116,4 @@ Para outras linguagens, revise a documentação de implementação a seguir.  Os
 - [Usar o dispositivo IoT SDK para C](.\iot-hub-device-sdk-c-intro.md)
 - [Desenvolver para dispositivos restritos](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [Desenvolver para dispositivos móveis](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [Solucionar problemas de desconexões de dispositivos](iot-hub-troubleshoot-connectivity.md)

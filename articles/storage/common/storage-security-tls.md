@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866518"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262510"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Habilitar TLS seguro para cliente de Armazenamento do Microsoft Azure
 
-Quando é necessário auditar os serviços usando o Armazenamento do Microsoft Azure com base nos últimos requisitos de conformidade e segurança, o SSL 1.0, 2.0, 3.0 e TLS 1.0 são reconhecidos como protocolos de comunicação não compatíveis.
-
-Foram localizados SSL 1.0, 2.0 e 3.0 vulneráveis. Eles foram proibidos pelo RFC. O TLS 1.0 torna-se não seguro por usar codificação de Bloco (DES CBC e RC2 CBC) e codificação de bloco de Fluxo (RC4) não seguras. O conselho PCI também recomendou a migração para versões superiores do TLS. Para obter mais detalhes, consulte [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Os protocolos TLS e SSL são protocolos criptográficos que fornecem segurança de comunicações em uma rede de computadores. Foram localizados SSL 1.0, 2.0 e 3.0 vulneráveis. Eles foram proibidos pelo RFC. O TLS 1.0 torna-se não seguro por usar codificação de Bloco (DES CBC e RC2 CBC) e codificação de bloco de Fluxo (RC4) não seguras. O conselho PCI também recomendou a migração para versões superiores do TLS. Para obter mais detalhes, consulte [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 O Armazenamento do Microsoft Azure encerrou o SSL 3.0 desde 2015 e usa o TLS 1.2 em pontos de extremidade HTTPs públicos, mas o TLS 1.0 e o TLS 1.1 ainda têm suporte para compatibilidade com versões anteriores.
 
-Para garantir uma conexão segura e compatível com o Armazenamento do Microsoft Azure, é necessário habilitar o TLS 1.2 no lado do cliente antes de enviar solicitações para operar o serviço Armazenamento do Microsoft Azure.
+Para garantir uma conexão segura e compatível com o Armazenamento do Microsoft Azure, é necessário habilitar o TLS 1.2 ou versão mais recente no lado do cliente antes de enviar solicitações para operar o serviço de armazenamento do Azure.
 
 ## <a name="enable-tls-12-in-net-client"></a>Habilitar TLS 1.2 no cliente .NET
 
@@ -86,4 +84,5 @@ A captura de tela a seguir é um exemplo para a verificação.
 ## <a name="see-also"></a>Consulte também
 
 * [Protocolo TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Conformidade com PCI no TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Habilitar TLS no cliente de Java](https://www.java.com/en/configure_crypto.html)

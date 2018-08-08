@@ -47,8 +47,6 @@
   items:
     - name: Exemplos de código do Azure
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
-    - name: Exemplos do GitHub
-      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Conceitos
   items:
     - name: Pesquisa cognitiva (Versão prévia)
@@ -73,6 +71,8 @@
           href: cognitive-search-create-custom-skill-example.md
         - name: Dicas de solução de problemas
           href: cognitive-search-concept-troubleshooting.md
+        - name: Links de documentação
+          href: cognitive-search-resources-documentation.md
     - name: Planejamento
       items:
         - name: Escolha uma faixa
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: Pesquisando dados
       items:
-        - name: Conceitos básicos da consulta
+        - name: Conceitos básicos
           href: search-query-overview.md
         - name: Gerenciador de pesquisa (portal)
           href: search-explorer.md
@@ -215,6 +215,10 @@
           href: search-traffic-analytics.md
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search
     - name: .NET (Gerenciamento)
@@ -250,35 +254,27 @@
           href: cognitive-search-skill-shaper.md
 - name: Recursos
   items:
-    - name: FAQ - Perguntas Frequentes
+    - name: Suporte da Comunidade do Azure
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
+    - name: Sites de demonstração
+      items:
+        - name: Demonstração de arquivos financeiros
+          href: 'http://wolterskluwereap.azurewebsites.net/'
+        - name: Demonstração de arquivos JFK
+          href: 'http://aka.ms/jfkfiles'
+        - name: Aplicativo de lista de trabalhos
+          href: 'http://aka.ms/azjobsdemo'
+        - name: Demonstração do analisador de pesquisa
+          href: 'http://alice.unearth.ai/'
+        - name: Casos de uso da pesquisa
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: Perguntas frequentes
       href: search-faq-frequently-asked-questions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Documentação da pesquisa cognitiva
-      href: cognitive-search-resources-documentation.md
-    - name: Curso e tutoriais
-      items:
-        - name: Vídeos e tutoriais
-          href: search-video-demo-tutorial-list.md
-        - name: Academia virtual
-          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
-    - name: Sites de demonstração
-      items:
-        - name: Demonstração do analisador de pesquisa
-          href: 'http://alice.unearth.ai/'
-        - name: Aplicativos de demonstração ao vivo
-          href: 'https://searchsamples.azurewebsites.net/'
-        - name: Aplicativo de lista de trabalhos
-          href: 'http://aka.ms/azjobsdemo'
-    - name: Parceiro e comunidade
-      items:
-        - name: Fórum do MSDN do Azure Search
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: Stack Overflow
-          href: 'http://stackoverflow.com/questions/tagged/azure-search'
-        - name: 'blog: modelar dados relacionais'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
-        - name: 'blog: faceta em vários níveis'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'
+    - name: vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

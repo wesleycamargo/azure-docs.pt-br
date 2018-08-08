@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 6d35e3cfefcefef0b4ff40364cbdab92d486b769
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5b9564dfe40f292d289ee9ed680e816771d0b0ed
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011454"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282867"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportar dados no Azure IoT Central
 
@@ -584,4 +584,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [gerenciar seus dispositivos](howto-manage-devices.md) no Device Explorer. 
+Agora que você aprendeu como exportar os dados, a seguir é apresentada a próxima etapa recomendada:
+
+> [!div class="nextstepaction"]
+> [Como visualizar os dados no Power BI](howto-connect-powerbi.md)

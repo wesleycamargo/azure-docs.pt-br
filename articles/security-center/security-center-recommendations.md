@@ -3,7 +3,7 @@ title: Gerenciando recomendações de segurança na Central de Segurança do Azu
 description: Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure e a cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006607"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367099"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerenciando recomendações de segurança na Central de Segurança do Azure
 Este documento mostra como usar as recomendações na Central de Segurança do Azure para ajudar a proteger os recursos do Azure.
@@ -95,7 +95,7 @@ Use a tabela a seguir como referência para ajudar a entender as recomendações
 | [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md) |Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
 | [Corrigir vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite que você veja as vulnerabilidades do sistema e dos aplicativos detectadas pela solução de avaliação de vulnerabilidade instalada na VM. |
 | [Habilitar a criptografia para a Conta de Armazenamento do Azure](security-center-enable-encryption-for-storage-account.md) | Recomenda a habilitação da Criptografia do Serviço de Armazenamento do Azure para dados em repouso. A SSE (Criptografia do Serviço de Armazenamento) funciona criptografando os dados quando eles são gravados no armazenamento do Azure e descriptografando-os antes da recuperação. Atualmente, a SSE está disponível somente para o serviço Blob do Azure e pode ser usada para blobs de blocos, blobs de páginas e blobs de acréscimo. Para saber mais, confira [Criptografia do Serviço de Armazenamento para dados em repouso](../storage/common/storage-service-encryption.md).</br>A SSE tem suporte apenas nas contas de armazenamento do Resource Manager. |
-| [Habilitar controles de aplicativos adaptáveis](security-center-adaptive-application.md) | Recomenda-se de que você aplique controles de aplicativo adaptáveis em suas VMs do Windows. Esse recurso está em versão prévia e está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. |
+| [Habilitar controles de aplicativos adaptáveis](security-center-adaptive-application.md) | Recomenda-se de que você aplique controles de aplicativo adaptáveis em suas VMs do Windows. Esse recurso está disponível na camada Standard da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança. |
 | O Serviço de Aplicativo deve ser acessível apenas por HTTPS | É recomendável que você limite o acesso do Serviço de Aplicativo apenas por HTTPS. |
 | Os soquetes da Web devem ser desabilitados para o aplicativo Web| É recomendável que você examine cuidadosamente o uso de soquetes da Web em aplicativos Web.  O protocolo de soquetes da Web é vulnerável a diferentes tipos de ameaças de segurança. |
 | Usar domínios personalizados para seu aplicativo Web | É recomendável o uso de domínios personalizados para proteger um aplicativo Web de ataques comuns como phishing e outros ataques relacionados a DNS. |

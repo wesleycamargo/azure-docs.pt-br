@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159282"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307901"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -158,7 +158,7 @@ Observe também que um ambiente de 64 bits requer um plano de serviço básico o
 
 Para obter mais informações, consulte [Configurar aplicativos web no Serviço de Aplicativo](web-sites-configure.md).
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>Por que minha solicitação atinge o tempo limite depois de 240 segundos?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Por que minha solicitação atinge o tempo limite após 230 segundos?
 
 O Azure Load Balancer tem uma configuração de tempo limite de ociosidade padrão de quatro minutos. Isso geralmente é um limite de tempo de resposta razoável para uma solicitação da web. Se seu aplicativo web requer o processamento em segundo plano, é recomendável usar o Azure WebJobs. O aplicativo web do Azure pode chamar WebJobs e ser notificado quando o processamento em segundo plano estiver concluído. Você pode escolher entre vários métodos para usar WebJobs, inclusive filas e gatilhos.
 

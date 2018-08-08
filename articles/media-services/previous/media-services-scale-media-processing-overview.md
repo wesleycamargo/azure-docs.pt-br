@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785845"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368624"
 ---
 # <a name="scaling-media-processing-overview"></a>Visão geral do dimensionamento do processamento de mídia
 Esta página fornece uma visão geral de como e por que dimensionar o processamento de mídia. 
@@ -35,7 +35,8 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 | Cenários | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Exemplo de uso indicado |Codificação de taxa de bits única. <br/>Arquivos com resoluções SD ou inferiores, não sensível ao tempo, de baixo custo. |Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Uso normal para codificação SD e HD. |Codificação de taxa de bits única e de taxa de bits múltipla.<br/>Vídeos com resolução Full HD e 4K. Codificação urgente com retorno mais rápido. |
-| Parâmetro de comparação |[Arquivo de entrada: 5 minutos de duração, 640x360p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>A codificação para um arquivo MP4 de taxa de bits única com a mesma resolução leva aproximadamente 11 minutos. |[Arquivo de entrada: 5 minutos de duração, 1280x720p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de 5 minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" levará cerca de 11,5 minutos. |[Arquivo de entrada: 5 minutos de duração, 1920x1080p a 29,97 quadros/segundo](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de 2,7 minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente 5,7 minutos. |
+| Parâmetro de comparação |A codificação para um arquivo MP4 de taxa de bits única com a mesma resolução leva aproximadamente 11 minutos. |A codificação com a predefinição "H264 Taxa de Bits Única 720p" leva cerca de 5 minutos.<br/><br/>A codificação com a predefinição "H264 Taxa de Bits Múltipla 720p" levará cerca de 11,5 minutos. |A codificação com a predefinição "H264 Taxa de Bits Única 1080p" leva cerca de 2,7 minutos.<br/><br/>A codificação com a predefinição "H264 Taxas de Bits Múltiplas 1080p" leva aproximadamente 5,7 minutos. |
+
 
 ## <a name="considerations"></a>Considerações
 > [!IMPORTANT]
@@ -43,7 +44,7 @@ A tabela a seguir o ajudará a tomar uma decisão ao escolher entre diferentes v
 > 
 > 
 
-* As Unidades Reservadas trabalham para paralelizar todo o processamento de mídia, incluindo trabalhos de indexação usando o Indexador de Mídia do Azure.  No entanto, ao contrário da codificação, a indexação de trabalhos não será processada mais rapidamente com unidades reservadas mais rápidas.
+* Para os trabalhos de Análise de Vídeo e Análise de Áudio que são disparados pelos Serviços de Mídia v3 ou pelo Video Indexer, é altamente recomendável o tipo de unidade S3.
 * Se estiver usando o pool compartilhado, ou seja, sem nenhuma unidade reservada, suas tarefas de codificação terão o mesmo desempenho do que com unidades reservadas S1. No entanto, não há nenhum limite superior para o tempo que as Tarefas podem gastar no estado na fila e, a qualquer momento específico, no máximo, apenas uma Tarefa será executada.
 
 ## <a name="billing"></a>Cobrança

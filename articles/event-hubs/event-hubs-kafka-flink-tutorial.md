@@ -1,5 +1,5 @@
 ---
-title: Usar o Apache Flink com Hubs de Eventos do Azure para o ecossistema Kafka | Microsoft Docs
+title: Usar o Apache Flink com Hubs de Eventos do Azure para o Apache Kafka | Microsoft Docs
 description: Conectar o Apache Flink a um hub de eventos habilitado para Kafka
 services: event-hubs
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: cb7ef0e9b6a612e3f4116cb626903770e4035368
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ce1665c3cfd58d0d5aa8e253b5db317505b1959e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301979"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284570"
 ---
-# <a name="apache-flink-with-event-hubs-for-the-kafka-ecosystem"></a>Apache Flink com Hubs de Eventos para o ecossistema Kafka
+# <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Usar o Apache Flink com Hubs de Eventos do Azure para o Apache Kafka
 
 Um dos principais benefícios do uso do Apache Kafka é o ecossistema de estruturas às quais ele pode se conectar. Os Hubs de Eventos habilitados para Kafka combinam a flexibilidade do Kafka com a escalabilidade, a consistência e o suporte do ecossistema do Azure.
 
-Este tutorial mostra como conectar o Apache Flink aos Hubs de Eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. O Hubs de Eventos do Azure para o ecossistema Kakfa é compatível com [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
+Este tutorial mostra como conectar o Apache Flink aos Hubs de Eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. Hubs de Eventos do Azure dá suporte para [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, é necessário atender aos seguintes pré-requisitos:
 
@@ -116,6 +116,6 @@ Confira [Guia de conector Kafka do Flink](https://ci.apache.org/projects/flink/f
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba sobre os Hubs de Evento](event-hubs-what-is-event-hubs.md)
-* [Saiba mais sobre os Hubs de Eventos para o Ecossistema Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Saiba mais sobre os Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para Hubs de Eventos habilitados para Kafka na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Saiba como transmitir em Hubs de Eventos habilitados para Kafka usando [aplicativos nativos do Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md).
