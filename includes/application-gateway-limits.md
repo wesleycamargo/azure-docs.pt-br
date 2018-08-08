@@ -1,7 +1,6 @@
 | Recurso | Limite padrão | Observação |
 | --- | --- | --- |
-| Gateway de Aplicativo
- |50 por assinatura | Máximo de 100 |
+| Gateway de Aplicativo |50 por assinatura | Máximo de 100 |
 | Configuração do IP de front-end |2 |1 pública e 1 privada |
 | Portas de front-end |20 | |
 | Pool de endereços de back-end |20 | |
@@ -16,6 +15,8 @@
 | Tempo limite máximo de solicitação |24 horas | |
 | Número de sites |20 |1 por ouvintes HTTP |
 | Mapas de URL por ouvinte |1 | |
+|Tamanho máximo da URL|8000|
 | Tamanho de carregamento de arquivo máximo Padrão |2 GB | |
 | Tamanho de carregamento de arquivo máximo WAF |100 MB| |
+|Limite de tamanho de corpo de WAF (sem arquivos)|128 KB|
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036744"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265057"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Declarações opcionais no Azure AD (versão prévia)
 
@@ -41,8 +41,8 @@ Uma das metas do [ponto de extremidade v2.0 do Azure AD](active-directory-appmod
 
 | Tipo de Conta | Ponto de extremidade V1.0                      | Ponto de extremidade V2.0  |
 |--------------|------------------------------------|----------------|
-| MSA          | N/D ‒ são os usados os tíquetes RPS | Suporte em breve |
-| AAD          | Com suporte                          | Com suporte      |
+| Conta pessoal da Microsoft  | N/D ‒ são os usados os tíquetes RPS | Suporte em breve |
+| Conta do AD do Azure          | Com suporte                          | Com suporte      |
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de declarações opcional padrão
 O conjunto de declarações opcionais disponíveis por padrão para uso pelos aplicativos é listado abaixo.  Para adicionar declarações opcionais personalizadas para o aplicativo, confira [Extensões de Diretório](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions), abaixo. 
@@ -214,7 +214,7 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 3.  Escolha a extensão **Azure AD** no painel de navegação esquerdo e clique em **Registros de Aplicativo**.
 4.  Localize o aplicativo para o qual você deseja configurar declarações opcionais na lista e clique nele.
 5.  Na página do aplicativo, clique em **Manifesto** para abrir o editor de manifesto embutido. 
-6.  Você pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para [Entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e formata automaticamente o manifesto quando é salvo. Novos elementos serão adicionados à propriedade `OptionalClaims`.
+6.  Você pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para [Entidade de aplicativo](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity)e formata automaticamente o manifesto quando é salvo. Novos elementos serão adicionados para o `OptionalClaims` propriedade.
 
       ```json
       "optionalClaims": 

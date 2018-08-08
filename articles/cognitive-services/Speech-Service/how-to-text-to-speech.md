@@ -1,27 +1,26 @@
 ---
-title: Usar Conversão de Texto em Fala usando serviços de Fala | Microsoft Docs
+title: Usar Conversão de Texto em Fala usando serviços de Fala
 description: Saiba como usar a Conversão de Texto em Fala no serviço de Fala.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213326"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281507"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Usar "Conversão de Texto em Fala" no serviço de Fala
 
 O serviço de Fala fornece a funcionalidade Conversão de Texto em Fala por meio de uma solicitação HTTP simples. Você escreve o texto a ser falado ao ponto de extremidade apropriado, e o serviço retorna um arquivo de áudio (`.wav`) que contém a fala sintetizada. Seu aplicativo pode usar este áudio como desejar.
 
-O corpo da solicitação de postagem para a Conversão de Texto em Fala pode ser texto sem formatação (ASCII ou UTF8) ou um documento [SSML](speech-synthesis-markup.md). Solicitações de texto sem formatação são faladas com uma voz padrão. Na maioria dos casos, você deseja usar um corpo SSML. A solicitação HTTP deve incluir um token de [autorização](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication). 
+O corpo da solicitação de postagem para a Conversão de Texto em Fala pode ser texto sem formatação (ASCII ou UTF8) ou um documento [SSML](speech-synthesis-markup.md). Solicitações de texto sem formatação são faladas com uma voz padrão. Na maioria dos casos, você deseja usar um corpo SSML. A solicitação HTTP deve incluir um token de [autorização](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication). 
 
 Os pontos de extremidade de Conversão de Texto em Fala regionais são mostrados aqui. Use o apropriado para sua assinatura.
 

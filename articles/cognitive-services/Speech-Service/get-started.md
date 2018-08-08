@@ -1,21 +1,20 @@
 ---
-title: Experimente o serviço de Fala gratuitamente | Microsoft Docs
+title: Experimente o serviço de Fala gratuitamente
 description: Descubra como você pode experimentar o serviço de Fala sem qualquer custo.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3feef04694336d9173b419285a96fcaef543e18f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35364945"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325200"
 ---
 # <a name="try-the-speech-service-for-free"></a>Experimente o serviço de Fala gratuitamente
 
@@ -130,10 +129,8 @@ Para adicionar um recurso do serviço de Fala à sua conta do Azure, execute est
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Faça o download de um SDK e de um código de exemplo para experimentar o serviço de Fala.
+Faça uma de nossas iniciações rápidas de 10 minutos ou confira nossas amostras de SDK.
 
 > [!div class="nextstepaction"]
-> [SDKs de Fala](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [Exemplo de código](samples.md)
+> [Início rápido: reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+> [Exemplos de SDK de fala](speech-sdk.md#get-the-samples)

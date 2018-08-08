@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346018"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309054"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -267,6 +267,8 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 |Pool elástico|O percentual de eDTU, eDTU usado, limite de eDTU, percentual de CPU, percentual de leitura de dados físicos, percentual de gravação de log, percentual de sessões, percentual de funcionários, armazenamento, percentual de armazenamento, limite de armazenamento, percentual de armazenamento XTP |
 |||
 
+### <a name="logs"></a>Logs
+
 ### <a name="query-store-runtime-statistics"></a>Estatísticas de tempo de execução do Repositório de consultas
 
 |Propriedade|Descrição|
@@ -460,6 +462,57 @@ Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.mic
 |resource_owner_type_s|Proprietário do bloqueio.|
 |blocked_process_filtered_s|XML de relatório de processo bloqueado.|
 |duration_d|Duração do bloqueio em microssegundos.|
+
+### <a name="deadlocks-dataset"></a>Conjunto de dados de deadlocks
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|ID do locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC] |Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: Deadlocks|
+|OperationName|Nome da operação. Sempre: Deadlocks|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados. |
+|ResourceId|URI de recurso.|
+|deadlock_xml_s|Relatório de deadlock XML.|
+
+### <a name="automatic-tuning-dataset"></a>Conjunto de dados de ajuste automático
+
+|Propriedade|Descrição|
+|---|---|
+|TenantId|ID do locatário.|
+|SourceSystem|Sempre: Azure|
+|TimeGenerated [UTC]|Carimbo de data/hora de quando o log foi gravado.|
+|Tipo|Sempre: AzureDiagnostics|
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT.SQL|
+|Categoria|Nome da categoria. Sempre: AutomaticTuning|
+|Recurso|Nome do recurso.|
+|ResourceType|Nome do tipo de recurso. Sempre: SERVIDORES/BANCOS DE DADOS|
+|SubscriptionId|GUID de assinatura ao qual o banco de dados pertence.|
+|ResourceGroup|Nome do grupo de recursos ao qual o banco de dados pertence.|
+|LogicalServerName_s|Nome do servidor ao qual o banco de dados pertence.|
+|LogicalDatabaseName_s|Nome do banco de dados.|
+|ElasticPoolName_s|Nome do pool elástico ao qual o banco de dados pertence, se houver.|
+|DatabaseName_s|Nome do banco de dados.|
+|ResourceId|URI de recurso.|
+|RecommendationHash_s|Hash exclusivo de recomendação de ajuste automático.|
+|OptionName_s|Opções de ajuste automático.|
+|Schema_s|Esquema de banco de dados.|
+|Table_s|Tabela afetada.|
+|IndexName_s|Nome do índice.|
+|IndexColumns_s|Nome da coluna.|
+|IncludedColumns_s|Colunas incluídas.|
+|EstimatedImpact_s|Estimado impacto recomendação de ajuste automático JSON.|
+|Event_s|Tipo de evento de ajuste automático.|
+|Timestamp_t|Última atualização de carimbo de hora.|
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de dados do Insights inteligentes
 Saiba mais sobre o [formato de log do Insights Inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md).

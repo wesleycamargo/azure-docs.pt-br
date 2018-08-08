@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214975"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308602"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: início rápido
 
@@ -45,7 +45,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
 ### <a name="in-your-on-premises-environment"></a>Em seu ambiente local
 
 1. Identifique um servidor que execute o Windows Server 2012 R2 ou posterior para executar o Azure AD Connect. Adicione o servidor à mesma floresta do Active Directory dos usuários cujas senhas você precisa validar.
-2. Instale a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado na etapa anterior. Se o Azure AD Connect já está em execução, verifique se a versão é a 1.1.644.0 ou posterior.
+2. Instale a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) no servidor identificado na etapa anterior. Se o Azure AD Connect já está em execução, verifique se a versão é a 1.1.750.0 ou posterior.
 
     >[!NOTE]
     >As versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 do Azure AD Connect têm um problema relacionado à sincronização de hash de senha. Se você _não_ pretende usar a sincronização de hash de senha em conjunto com a Autenticação de passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
@@ -73,7 +73,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
 Habilite a Autenticação de passagem por meio do [Azure AD Connect](active-directory-aadconnect.md).
 
 >[!IMPORTANT]
->É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É recomendável habilitá-las usando o servidor primário.
+>É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É altamente recomendável habilitá-la do servidor primário. Se você estiver configurando um servidor de preparo do Azure AD Connect no futuro, você **devem** continuar para escolher a autenticação de passagem como a opção de entrada; escolhendo outra opção será **desabilitar** Autenticação de passagem no locatário e substituir a configuração no servidor primário.
 
 Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](active-directory-aadconnect-get-started-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 

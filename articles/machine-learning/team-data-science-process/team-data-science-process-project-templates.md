@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838561"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308180"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planejamento de projetos do Processo de Ciência de Dados de Equipe
 
@@ -55,9 +56,13 @@ Se não tiver acesso ao Microsoft Project, uma planilha do Excel com os mesmos d
 
 Use esses modelos por sua conta e risco. Aplicam-se as [isenções de responsabilidade usuais](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
+## <a name="repository-template"></a>Modelo de repositório
+
+Use esta [repositório de modelos de projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para dar suporte à execução do projeto eficiente e colaboração. Esse repositório fornece um modelos de documento e a estrutura de diretório padronizados você pode usar para seu próprio projeto TDSP.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 [Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve como uma equipe de projetos executa um projeto de ciência de dados de modo sistemático, colaborativo e com controle de versão usando o Processo de Ciência de Dados da Equipe.
 
-Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles serão listados e vinculados a descrições em miniatura no tópico [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
+Também são fornecidas instruções passo a passo que demonstram todas as etapas do processo para **cenários específicos**. Eles estão listados e vinculados a descrições em miniatura no artigo [Instruções passo a passo de exemplo](walkthroughs.md). Eles ilustram como combinar a nuvem, as ferramentas locais e os serviços em um fluxo de trabalho ou pipeline para criar um aplicativo inteligente. 
 

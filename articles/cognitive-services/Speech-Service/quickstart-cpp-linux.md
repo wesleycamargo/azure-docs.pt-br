@@ -1,23 +1,24 @@
 ---
-title: 'Início Rápido: Reconhecer fala em C++ no Linux usando o SDK de Fala dos Serviços Cognitivos| Microsoft Docs'
+title: 'Início Rápido: Saiba como reconhecer fala em C++ no Linux usando o SDK de Fala dos Serviços Cognitivos'
 titleSuffix: Microsoft Cognitive Services
 description: Saiba como reconhecer fala em C++ no Linux usando o SDK de Fala dos Serviços Cognitivos
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: b5f5cdbe202b406c724a9f4f5787e566b432a66c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116139"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324771"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Linux usando o SDK de Fala
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprende como criar um aplicativo de console C++ no Linux (Ubuntu 16.04) usando o SDK de Fala dos Serviços Cognitivos para transcrever conversão de fala em texto.
 
@@ -133,4 +134,4 @@ Procure esse exemplo na pasta `quickstart/cpp-linux`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Visita a [página de exemplos](samples.md) para obter exemplos adicionais.
+* [Obtenha nossas amostras](speech-sdk.md#get-the-samples)

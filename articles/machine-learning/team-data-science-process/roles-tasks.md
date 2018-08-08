@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,32 +15,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 275c1d1dad9030da776900c4e2b97152c8d2d581
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839125"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308517"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Tarefas e funções do Processo de Ciência de Dados de Equipe
 
 O Processo de Ciência de Dados de Equipe é uma estrutura desenvolvida pela Microsoft que fornece uma metodologia estruturada para criar, com eficiência, soluções de análise preditiva e de aplicativos inteligentes. Esse artigo descreve as principais funções dos membros da equipe e das tarefas associadas que são realizadas por uma equipe de ciência de dados com a padronização nesse processo. 
 
-Essa introdução está vinculada a tutoriais que fornecem instruções sobre como configurar o ambiente de TDSP para todo o grupo de ciência de dados, equipes de ciência de dados e projetos. Fornecemos orientação detalhada usando o VSTS (Visual Studio Team Services) nos tutoriais como nossa ferramenta de planejamento agile e plataforma de hospedagem de código para gerenciar tarefas da equipe, controlar o acesso e gerenciar os repositórios. 
+Essa introdução está vinculada a tutoriais que fornecem instruções sobre como configurar o ambiente de TDSP para todo o grupo de ciência de dados, equipes de ciência de dados e projetos. Ele fornece orientação detalhada usando o Visual Studio Team Services (VSTS) nos tutoriais.  O VSTS fornece uma plataforma de hospedagem de código e uma ferramenta de planejamento ágil para gerenciar as tarefas da equipe, controlar o acesso e gerenciar os repositórios. 
 
-Você também poderá usar essas informações para implementar o TDSP em sua própria ferramenta de planejamento agile e hospedagem de código. 
+Você pode usar essas informações para implementar o TDSP em sua própria ferramenta de hospedagem de código e planejamento ágil. 
 
 ## <a name="structures-of-data-science-groups-and-teams"></a>Estruturas de equipes e grupos de ciência de dados
+
 As funções de ciência de dados em empresas geralmente podem ser organizadas na seguinte hierarquia:
 
 1. ***Grupos de ciência de dados***
 
 2. ***Equipes de ciência de dados nos grupos***
 
-Em tal estrutura haverá líderes de grupo e equipe. Normalmente, um projeto de ciência de dados é feito por uma equipe de ciência de dados, que pode ser composta por líderes de projeto (para tarefas de governança e gerenciamento de projeto) e cientistas ou engenheiros de dados (colaboradores individuais/equipe técnica) que executarão a ciência de dados e a engenharia de dados do projeto. Antes da execução, a configuração e a governança são feitas pelos líderes de grupo, equipe ou projeto.
+Em tal estrutura, há líderes de grupo e equipe. Normalmente, um projeto de ciência de dados é feito por uma equipe de ciência de dados, que pode ser composta por líderes de projeto (para tarefas de governança e gerenciamento de projeto) e cientistas ou engenheiros de dados (colaboradores individuais/equipe técnica) que executarão a ciência de dados e a engenharia de dados do projeto. Antes da execução, a configuração e a governança são feitas pelos líderes de grupo, equipe ou projeto.
 
 ## <a name="definition-of-four-tdsp-roles"></a>Definição de quatro funções de TDSP
-Com a suposição acima, especificamos quatro funções distintas para nossa equipe:
+Com a suposição acima, há quatro funções distintas para o pessoal da equipe:
 
 1. ***Gerente de grupo***. O gerente de grupo é o gerente de toda a unidade de ciência de dados em uma empresa. Uma unidade de ciência de dados pode ter várias equipes, cada uma trabalhando em vários projetos de ciência de dados em áreas comerciais distintas. Um gerente de grupo pode delegar suas tarefas a um substituto, mas as tarefas associadas à função não são alteradas.
 
@@ -50,7 +52,8 @@ Com a suposição acima, especificamos quatro funções distintas para nossa equ
 4. ***Colaborador individual do projeto***. Cientista de dados, analista de negócios, engenheiro de dados, arquiteto, etc. Um colaborador individual do projeto executa um projeto de ciência de dados. 
 
 
-**[AZURE.NOTE]**: dependendo da estrutura de uma empresa, uma única pessoa pode executar mais de uma função OU pode haver mais de uma pessoa trabalhando em uma função. Com frequência, isso pode ser o caso em pequenas empresas ou empresas com um pequeno número de funcionários em sua organização de ciência de dados.
+> [!NOTE]
+> Dependendo da estrutura de uma empresa, uma única pessoa pode desempenhar mais de uma função OU pode haver mais de uma pessoa trabalhando em uma função. Com frequência, isso pode ser o caso em pequenas empresas ou empresas com um pequeno número de funcionários em sua organização de ciência de dados.
 
 ## <a name="tasks-to-be-completed-by-four-personnel"></a>Tarefas a serem concluídas pelos quatro funcionários
 
@@ -60,9 +63,10 @@ A figura a seguir descreve as tarefas de nível superior para os funcionários p
 
 Esse esquema e a seguinte estrutura de tópicos de tarefas mais detalhada que são atribuídos a cada função no TDSP devem ajudá-lo a escolher o tutorial apropriado com base em suas responsabilidades na organização.
 
->[AZURE.NOTE] Nas instruções a seguir, mostramos as etapas de como configurar um ambiente de TDSP e realizar outras tarefas de ciência de dados no VSTS (Visual Studio Team Services). Podemos especificar como executar essas tarefas com o VSTS, pois é o que estamos usando para implementar o TDSP na Microsoft. O VSTS facilita a colaboração integrando o gerenciamento de itens de trabalho que acompanha tarefas e um serviço de hospedagem de código usado para compartilhar utilitários, organizar versões e fornecer segurança baseada em função. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo de sua plataforma, alguns recursos que utilizamos do VSTS podem não estar disponíveis. 
+> [!NOTE]
+> As instruções a seguir mostram etapas de como configurar um ambiente TDSP e concluir outras tarefas de ciência de dados no Visual Studio Team Services (VSTS). Podemos especificar como executar essas tarefas com o VSTS, pois é o que estamos usando para implementar o TDSP na Microsoft. O VSTS facilita a colaboração integrando o gerenciamento de itens de trabalho que acompanha tarefas e um serviço de hospedagem de código usado para compartilhar utilitários, organizar versões e fornecer segurança baseada em função. É possível escolher outras plataformas, se preferir, para implementar as tarefas descritas pelo TDSP. Mas, dependendo da sua plataforma, alguns recursos aproveitados do VSTS podem não estar disponíveis. 
 >
->Também usamos a [DSVM (Máquina Virtual de ciência de Dados)](http://aka.ms/dsvm) na nuvem do Azure como a área de trabalho de análise com várias ferramentas de ciência de dados populares pré-configuradas e integradas a vários softwares da Microsoft e serviços do Azure. Você pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
+>As instruções aqui também usam o [Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) na nuvem do Azure como a área de trabalho analítica com várias ferramentas de dados da ciência populare pré-configuradas e integradas a vários softwares da Microsoft e serviços do Azure. Você pode usar a DSVM ou qualquer outro ambiente de desenvolvimento para implementar o TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Tarefas do Gerente de Grupo
@@ -70,8 +74,11 @@ Esse esquema e a seguinte estrutura de tópicos de tarefas mais detalhada que s�
 As seguintes tarefas são concluídas pelo gerente de grupo (ou um administrador de sistema TDSP designado) para adotar o TDSP:
 
 - Criar uma **conta de grupo** em uma plataforma de hospedagem de código (como Github, Git, VSTS ou outros)
-- Criar um **repositório de modelos de projeto** na conta de grupo e propagá-lo do repositório de modelos de projeto desenvolvido pela equipe de TDSP da Microsoft. O repositório de modelos de projeto do TDSP da Microsoft fornece uma **estrutura de diretórios padronizada** incluindo diretórios de dados, código e documentos e fornece um conjunto de **modelos de documento padronizados** para orientar um processo de ciência de dados eficiente. 
-- Criar um **repositório do utilitário** e propagá-lo do repositório do utilitário desenvolvido pela equipe de TDSP da Microsoft. O repositório de utilitário de TDSP da Microsoft fornece um conjunto de utilitários úteis para fazer o trabalho de um cientista de dados de modo mais eficiente, incluindo utilitários para exploração interativa de dados, análise e relatórios e para modelagem de linha de base e relatórios.
+- Criar um **repositório de modelos de projeto** na conta de grupo e propagá-lo do repositório de modelos de projeto desenvolvido pela equipe de TDSP da Microsoft. O repositório de modelos de projeto TDSP da Microsoft 
+    - fornece uma **estrutura de diretórios padronizada** incluindo diretórios para dados, código e documentos, 
+    - Fornece um conjunto de **modelos de documento padronizados** para orientar um processo de ciência de dados eficiente. 
+- Criar um **repositório do utilitário** e propagá-lo do repositório do utilitário desenvolvido pela equipe de TDSP da Microsoft. O repositório de utilitários TDSP da Microsoft fornece 
+    - um conjunto de utilitários úteis para fazer o trabalho de um cientista de dados mais eficientes, incluindo utilitários para exploração interativa de dados, análise e emissão de relatórios e para modelagem e relatório da linha de base.
 - Configurar a **política de controle de segurança** desses dois repositórios na conta de grupo.  
 
 Para obter instruções passo a passo, consulte [Tarefas do gerente de grupo para uma equipe de ciência de dados](group-manager-tasks.md). 
@@ -132,9 +139,13 @@ O fluxo de trabalho inclui as etapas que podem ser agrupadas em três atividades
 
 Para obter instruções passo a passo no fluxo de trabalho de execução de projeto, consulte [Execução de projetos de ciência de dados](project-execution.md).
 
+## <a name="project-structure"></a>Estrutura do projeto
+
+Use este [repositório de modelos de projetos](https://github.com/Azure/Azure-TDSP-ProjectTemplate) para oferecer suporte à execução e colaboração eficientes do projeto. Esse repositório fornece um modelos de documento e a estrutura de diretório padronizados você pode usar para seu próprio projeto TDSP.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Aqui estão os links para as descrições mais detalhadas das funções e tarefas definidas pelo Processo de Ciência de Dados da Equipe:
+Explore as descrições mais detalhadas das funções e tarefas definidas pelo processo de ciência de dados de equipe:
 
 - [Group Manager tasks for a data science team](group-manager-tasks.md) (Tarefas do gerente de grupo para uma equipe de ciência de dados)
 - [Team Lead tasks for a data science team](team-lead-tasks.md) (Tarefas do líder de equipe para uma equipe de ciência de dados)

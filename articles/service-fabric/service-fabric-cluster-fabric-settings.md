@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238940"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309146"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -59,11 +59,11 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|cadeia de caracteres, o padrão é "None"|estático| Isso não valida o certificado do servidor; suceder o pedido. Consulte config ServiceCertificateThumbprints para a lista separada por vírgula de impressões digitais dos certificados remotos nos quais o proxy reverso pode confiar. Refira a configuração ServiceCommonNameAndIssuer para o nome da assunto e impressão digital do emissor dos certificados remotos que o proxy reverso pode confiar. |
+|ApplicationCertificateValidationPolicy|cadeia de caracteres, o padrão é "None"|estático| Isso não valida o certificado do servidor; suceder o pedido. Consulte config ServiceCertificateThumbprints para a lista separada por vírgula de impressões digitais dos certificados remotos nos quais o proxy reverso pode confiar. Refira a configuração ServiceCommonNameAndIssuer para o nome da assunto e impressão digital do emissor dos certificados remotos que o proxy reverso pode confiar. Para obter mais informações, consulte [Inverter conexão segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, o padrão é 16384 |Dinâmico| Fornece o tamanho da parte em bytes usado para ler o corpo. |
 |CrlCheckingFlag|uint, o padrão é 0x40000000 |Dinâmico| Sinalizadores para validação de cadeia de certificados de serviço/aplicativo, por exemplo, verificação da CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY Configurar para 0 desabilita a verificação de CRL A lista completa de valores com suporte é documentada por dwFlags de CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tempo em segundos. O padrão é 120 |Dinâmico|Especifique o intervalo de tempo em segundos.  Fornece o tempo limite da solicitação padrão para as solicitações de http que estão sendo processadas no gateway de aplicativo http. |
-|ForwardClientCertificate|bool, o padrão é FALSE|Dinâmico|Quando configurado como false, o proxy reverso não solicitará o certificado do cliente.Quando definido como true, o proxy reverso solicitará o certificado do cliente durante o handshake SSL e encaminhará a cadeia de caracteres de formato PEM com codificação base64 para o serviço em um cabeçalho chamado X-Client -Certificado.O serviço pode falhar na solicitação com o código de status apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá que o serviço manipule o caso. O proxy reverso atuará como uma camada transparente.|
+|ForwardClientCertificate|bool, o padrão é FALSE|Dinâmico|Quando configurado como false, o proxy reverso não solicitará o certificado do cliente.Quando definido como true, o proxy reverso solicitará o certificado do cliente durante o handshake SSL e encaminhará a cadeia de caracteres de formato PEM com codificação base64 para o serviço em um cabeçalho chamado X-Client -Certificado.O serviço pode falhar na solicitação com o código de status apropriado após inspecionar os dados do certificado. Se isso for verdade e o cliente não apresentar um certificado, o proxy reverso encaminhará um cabeçalho vazio e permitirá que o serviço manipule o caso. O proxy reverso atuará como uma camada transparente. Para obter mais informações, consulte [configurar a autenticação de certificado de cliente](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |cadeia de caracteres, o padrão é "None" |estático| Indica o tipo de credenciais de segurança para usar nos ponto de extremidade do gateway do aplicativo Os valores válidos são “None/ X509. |
 |GatewayX509CertificateFindType |cadeia de caracteres, o padrão é "FindByThumbprint" |Dinâmico| Indica como pesquisar o certificado no repositório especificado pelo valor GatewayX509CertificateStoreName com suporte: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | cadeia de caracteres, o padrão é "" |Dinâmico| Valor do filtro de pesquisa usado para localizar o certificado de gateway de aplicativo http. Esse certificado é configurado no ponto de extremidade https e também pode ser usado para verificar a identidade do aplicativo, se necessário, para os serviços. FindValue é pesquisado primeiro; se ele não existir, FindValueSecondary será pesquisado. |
@@ -75,13 +75,13 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |NumberOfParallelOperations | Uint, o padrão é 5000 |estático|Número de leituras a serem postadas na fila de servidor http. Isso controla o número de solicitações simultâneas que podem ser atendidas pelo HttpGateway. |
 |RemoveServiceResponseHeaders|Cadeia de caracteres, o padrão é "Date; Servidor"|estático|Lista de cabeçalhos de resposta separados por vírgula/ponto e vírgula que serão removidos da resposta do serviço antes de encaminhá-la ao cliente. Se isso estiver definido como cadeia de caracteres vazia, passe todos os cabeçalhos retornados pelo serviço no estado em que se encontram. ou seja não sobrescreva Date e Server |
 |ResolveServiceBackoffInterval |Tempo em segundos, o padrão é 5 |Dinâmico|Especifique o intervalo de tempo em segundos.  Fornece o intervalo de retirada padrão antes de tentar uma operação de serviço de resolução falido novamente. |
-|SecureOnlyMode|bool, o padrão é FALSE|Dinâmico| SecureOnlyMode: true: o proxy reverso só encaminhará para serviços que publicam pontos de extremidade seguros. false: o proxy reverso pode encaminhar solicitações para pontos de extremidade seguros/não seguros.  |
-|ServiceCertificateThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|A lista separada por vírgulas das impressões digitais dos certificados remotos em que o proxy reverso pode confiar.  |
+|SecureOnlyMode|bool, o padrão é FALSE|Dinâmico| SecureOnlyMode: true: o proxy reverso só encaminhará para serviços que publicam pontos de extremidade seguros. false: o proxy reverso pode encaminhar solicitações para pontos de extremidade seguros/não seguros. Para obter mais informações, consulte [reverter a lógica de seleção de ponto de extremidade de proxy](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|ServiceCertificateThumbprints|cadeia de caracteres, o padrão é ""|Dinâmico|A lista separada por vírgulas das impressões digitais dos certificados remotos em que o proxy reverso pode confiar. Para obter mais informações, consulte [Inverter conexão segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| Nome do assunto e impressão digital do emissor dos certificados remotos em que o proxy reverso pode confiar.|
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| Nome do assunto e impressão digital do emissor dos certificados remotos em que o proxy reverso pode confiar. Para obter mais informações, consulte [Inverter conexão segura de proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
@@ -624,7 +624,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados tem autorizados para operações de cliente do administrador. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto dos certificados de cliente do administrador deve estar na lista. |
 
 ## <a name="securityclientaccess"></a>Security/ClientAccess
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
@@ -730,7 +730,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="securityclientx509names"></a>Security/AdminClientX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados autorizados a operações do cliente. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto de certificados de cliente deve estar na lista.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
@@ -740,7 +740,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Nome" é de nome comum de assunto ou DnsName de certificados X509 autorizados para operações de cluster. Para um determinado "Nome", "Valor" é uma lista separada por vírgula de impressões digitais de certificado para fixação de emissor, se não estiver vazia, o emissor direto de certificados de cluster deve estar na lista.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
@@ -750,7 +750,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, o padrão é None|Dinâmico| |
+|PropertyGroup|X509NameMap, o padrão é None|Dinâmico|Esta é uma lista de par de "Nome" e "Valor". Cada "Name" é do nome comum da entidade ou DnsName do X509 certificados tem autorizados para operações de servidor. Para um determinado "nome", "Valor" é uma lista de separada por vírgulas das impressões digitais de certificado para o emissor fixação, se não estiver vazio, o emissor direto dos certificados de servidor deve estar na lista.|
 
 ## <a name="setup"></a>Configuração
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou descrição resumida** |

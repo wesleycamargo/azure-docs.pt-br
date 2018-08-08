@@ -1,21 +1,20 @@
 ---
-title: Sobre Conversão de Fala em Texto | Microsoft Docs
+title: Sobre Conversão de fala em texto
 description: Uma visão geral dos recursos da API de Conversão de Fala em Texto.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069920"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325329"
 ---
 # <a name="about-the-speech-to-text-api"></a>Sobre a API de Conversão de Fala em Texto
 
@@ -51,4 +50,5 @@ Alguns recursos de API de **Conversão de Fala em Texto** não estão disponíve
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+* [Início Rápido: Como reconhecer fala no C#](quickstart-csharp-dotnet-windows.md)
+* [Como reconhecer intenções da fala no C#](how-to-recognize-intents-from-speech-csharp.md)

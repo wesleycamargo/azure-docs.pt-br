@@ -1,21 +1,20 @@
 ---
-title: Como gravar amostras de voz para criar uma voz personalizada | Microsoft Docs
+title: Como gravar amostras de voz para criar uma voz personalizada
 titleSuffix: Microsoft Cognitive Services
 description: Construa uma voz personalizada com qualidade de produção, preparando um script robusto, contratando bons talentos de voz e gravando profissionalmente.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1afab3b7c128abdf97c3a16fc493935bab5cfd4c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072258"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284159"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como gravar amostras de voz para uma voz personalizada
 

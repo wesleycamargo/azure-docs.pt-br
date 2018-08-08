@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035387"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325295"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (x64)
 
@@ -54,7 +54,7 @@ sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get upgrade
 ```
 
-## <a name="install-the-container-runtime"></a>Instale o tempo de execução do contêiner 
+## <a name="install-the-container-runtime"></a>Instalar o tempo de execução de contêiner 
 
 O Azure IoT Edge depende de um tempo de execução de contêiner [compatível com OCI][lnk-oci]. Para cenários de produção, é altamente recomendável utilizar o mecanismo [baseado em Moby][lnk-moby] fornecido abaixo. É o único mecanismo de contêiner oficialmente com suporte do Azure IoT Edge. Imagens de contêiner do docker CE/EE são compatíveis com o tempo de execução Moby.
 
@@ -64,10 +64,15 @@ Atualize o apt-get.
 sudo apt-get update
 ```
 
-Instale o mecanismo Moby e a interface de linha de comando (CLI). A CLI é útil para desenvolvimento, mas é opcional para implantações de produção.*
+Instale o mecanismo de Moby. 
 
 ```bash
 sudo apt-get install moby-engine
+```
+
+Instale a interface de linha de comando Moby (CLI). A CLI é útil para desenvolvimento, mas é opcional para implantações de produção.
+
+```bash
 sudo apt-get install moby-cli
 ```
 
@@ -126,7 +131,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 
-Se você tiver usado as etapas de **configuração manual** na seção anterior, o tempo de execução do IoT Edge deve ser provisionado e estar em execução no seu dispositivo com êxito. Se tiver usado as etapas de **configuração automática**, você precisará concluir algumas etapas adicionais para que o tempo de execução possa registrar seu dispositivo no hub IoT em seu nome. Para as próximas etapas, consulte [Criar e provisionar um dispositivo de borda do TPM simulado em uma máquina virtual Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
+Se você tiver usado as etapas de **configuração manual** na seção anterior, o tempo de execução do IoT Edge deve ser provisionado e em execução no seu dispositivo com êxito. Se tiver usado as etapas de **configuração automática**, você precisará concluir algumas etapas adicionais para que o tempo de execução possa registrar seu dispositivo no hub IoT em seu nome. Para as próximas etapas, consulte [Criar e provisionar um dispositivo de borda do TPM simulado em uma máquina virtual Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
 Você pode verificar o status do Daemon de borda IoT usando:
 
@@ -148,7 +153,7 @@ sudo iotedge list
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver tendo problemas com o tempo de execução de borda instalado corretamente, check-out de [solução de problemas][lnk-trouble] página.
+Se você estiver tendo problemas com o tempo de execução do Edge instalado corretamente, confira a página de [solução de problemas][lnk-trouble].
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md

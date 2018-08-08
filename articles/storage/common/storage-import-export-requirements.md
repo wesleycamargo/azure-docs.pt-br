@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188666"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308047"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -30,13 +30,12 @@ Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguinte
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Contas de armazenamento com suporte
 
-O serviço de Importação/Exportação do Azure dá suporte às seguintes contas de armazenamento do Azure.
-- Clássico
+Serviço de importação/exportação do Azure suporta as seguintes [contas de armazenamento do Azure](storage-account-options.md).
+- Contas de armazenamento de v1 de uso gerais (implantações clássicas ou do Azure Resource Manager)
 - Contas de Armazenamento de Blobs
-- Contas de armazenamento v1 de uso geral. 
+- Contas de armazenamento de v2 de uso gerais
 
 Cada trabalho pode ser usado para transferir dados para apenas uma conta de armazenamento, ou por meio dela. Em outras palavras, um único trabalho de importação/exportação não pode estender-se por várias contas de armazenamento. Para obter informações sobre como criar uma nova conta de armazenamento, consulte [Como criar uma conta de armazenamento](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Cada trabalho pode ser usado para transferir dados para apenas uma conta de arma
 Os tipos de armazenamento na lista a seguir têm suporte com o serviço de Importação/Exportação do Azure.
 
 
-|Trabalho  |Armazenamento  |Com suporte  |Sem suporte  |
+|Trabalho  |Serviço de Armazenamento |Com suporte  |Sem suporte  |
 |---------|---------|---------|---------|
-|Importar     |  Armazenamento de Blobs do Azure. <br>Blobs de blocos, blobs de páginas com suporte. <br> Arquivos do Azure com suporte.       |         |
-|Exportação     |   Armazenamento de Blobs do Azure. <br>Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte.       | Arquivos do Azure sem suporte.        |
+|Importar     |  Armazenamento de Blobs do Azure <br><br> Armazenamento de arquivos do Azure       | Blobs de página e Blobs de bloco com suporte <br><br> Arquivos com suporte          |
+|Exportação     |   Armazenamento de Blobs do Azure       | Blobs de blocos, blobs de páginas e blobs de acréscimo com suporte         | Arquivos do Azure sem suporte
 
 
 ## <a name="supported-hardware"></a>Hardware com suporte 

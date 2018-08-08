@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447312"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309019"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Referência de token
 
@@ -72,7 +72,7 @@ Observe que as declarações em tokens de ID não são retornadas em uma ordem e
 
 | NOME | Declaração | Valor de exemplo | DESCRIÇÃO |
 | --- | --- | --- | --- |
-| Público-alvo |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma declaração de audiência identifica o destinatário pretendido do token. Para o Azure AD B2C, o público-alvo é a ID de aplicativo de seu aplicativo, conforme atribuída a ele no portal de registro do aplicativo. O aplicativo deve validar esse valor e rejeitar o token, caso ele não corresponda. |
+| Público-alvo |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Uma declaração de audiência identifica o destinatário pretendido do token. Para o Azure AD B2C, o público-alvo é a ID de aplicativo de seu aplicativo, conforme atribuída a ele no portal de registro do aplicativo. O aplicativo deve validar esse valor e rejeitar o token, caso ele não corresponda. Público-alvo é sinônimo de recurso. |
 | Emissor |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Essa declaração identifica o STS (serviço de token de segurança) que constrói e retorna o token. Também identifica o diretório do Azure AD no qual o usuário foi autenticado. O aplicativo deve validar a declaração do emissor para garantir que o token venha do ponto de extremidade Azure Active Directory v2.0. |
 | Emitido em |`iat` |`1438535543` |Essa declaração é a hora em que o token foi emitido, representada na época. |
 | Hora de expiração |`exp` |`1438539443` |A declaração de hora de expiração é a hora em que o token se torna inválido, representada na época. O aplicativo deve usar essa declaração para verificar a validade do tempo de vida do token. |

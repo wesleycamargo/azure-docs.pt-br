@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714877"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345184"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para aplicativos Web do Azure
 
@@ -27,7 +27,7 @@ Domínios do Serviço de Aplicativo (versão prévia) são domínios de nível s
 
 Este artigo é para o Serviço de Aplicativo do Azure (aplicativos Web, aplicativos de API, aplicativos móveis, aplicativos lógicos). Para a VM do Azure ou Armazenamento do Azure, consulte [Atribuir o domínio do Serviço de Aplicativo para a VM Azure ou o Armazenamento do Azure](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -77,6 +77,9 @@ Quando você receber a notificação a seguir, a operação de escala terá sido
 ![Confirmação da operação de escala](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>Comprar o domínio
+
+### <a name="pricing-information"></a>Informações sobre preços
+Para obter informações sobre preços nos Domínios do Serviço de Aplicativo do Azure, visite a [página Preço de Serviço do Aplicativo](https://azure.microsoft.com/pricing/details/app-service/windows/) e role para baixo até o Domínio do Serviço de Aplicativo.
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 Abra o [portal do Azure](https://portal.azure.com/) e entre com sua conta do Azure.

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224880"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262941"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitar o Enterprise State Roaming no Active Directory do Azure
 Enterprise State Roaming está disponível para qualquer organização com uma licença Azure AD Premium ou Enterprise Mobility + Security (EMS). Para saber mais sobre como obter uma assinatura do Azure AD, confira a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -56,7 +56,7 @@ Siga estas etapas para exibir um relatório de status de sincronização de disp
 
 1. Entre no [Centro de administração do Azure AD](https://aad.portal.azure.com/).
 
-2. Selecione **Azure Active Directory** &gt; **Usuários e grupos** &gt; **Todos os usuários**.
+2. Selecione **Azure Active Directory** &gt; **usuários** &gt; **todos os usuários**.
 
 3. Selecione o usuário e, em seguida, selecione **Dispositivos**.
 

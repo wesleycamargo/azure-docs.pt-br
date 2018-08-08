@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052759"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325346"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB usando o Azure Data Factory
 
@@ -51,8 +51,8 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Cosmos DB:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **CosmosDb**. | sim |
-| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB. Observe que você precisa especificar as informações de banco de dados na cadeia de conexão como no exemplo abaixo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |sim |
+| Tipo | A propriedade type deve ser definida como: **CosmosDb**. | SIM |
+| connectionString |Especifique as informações necessárias para se conectar ao banco de dados do Azure Cosmos DB. Observe que você precisa especificar as informações de banco de dados na cadeia de conexão como no exemplo abaixo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |SIM |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
@@ -84,8 +84,8 @@ Para copiar dados de/para o Azure Cosmos DB, defina a propriedade type do conjun
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **DocumentDbCollection** |sim |
-| collectionName |Nome da coleção de documentos do Cosmos DB. |sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **DocumentDbCollection** |SIM |
+| collectionName |Nome da coleção de documentos do Cosmos DB. |SIM |
 
 **Exemplo:**
 
@@ -122,7 +122,7 @@ Para copiar dados do Azure Cosmos DB, defina o tipo de fonte na atividade de có
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **DocumentDbCollectionSource** |sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **DocumentDbCollectionSource** |SIM |
 | query |Especifique a consulta do Cosmos DB para ler dados.<br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não  <br/><br/>Se não for especificada, a instrução SQL executada será: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractere especial para indicar que o documento está aninhado e como nivelar o conjunto de resultados.<br/><br/>Por exemplo, se uma consulta do Cosmos DB retornar um resultado aninhado `"Name": {"First": "John"}`, a atividade de cópia identificará o nome da coluna como "Name.First" com o valor "John" quando o nestedSeparator for um ponto. |Não (o padrão é o ponto `.`) |
 
@@ -164,7 +164,9 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de coletor na atividade 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **DocumentDbCollectionSink** |sim |
+| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **DocumentDbCollectionSink** |SIM |
+| writeBehavior |Descrevem como gravar dados no Cosmos DB. Os valores permitidos são: `insert` e `upsert`.<br/>O comportamento de **upsert** é substituir o documento se já existir um documento com o mesmo id; caso contrário, insira-o. Nota O ADF gerará automaticamente um ID para o documento, se não estiver especificado no documento original ou no mapeamento de coluna, o que significa que você precisa garantir que o documento tenha um "id" para que o backup funcione conforme o esperado. |Não, o padrão é inserir |
+| writeBatchSize | Data Factory use [o executor em massa do Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para gravar dados no Cosmos DB. "writeBatchSize" Controla o tamanho dos documentos que fornecemos para a biblioteca de cada vez. Você pode tentar aumentar writeBatchSize para melhorar o desempenho. |Não  |
 | nestingSeparator |Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>Por exemplo, `Name.First` na estrutura do conjunto de dados de saída gera a seguinte estrutura JSON no documento do Cosmos DB:`"Name": {"First": "[value maps to this column from source]"}` quando o nestedSeparator é um ponto. |Não (o padrão é o ponto `.`) |
 
 **Exemplo:**
@@ -191,7 +193,8 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de coletor na atividade 
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

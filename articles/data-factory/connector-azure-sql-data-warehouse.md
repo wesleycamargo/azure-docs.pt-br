@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051620"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326166"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -59,8 +59,8 @@ As seguintes propriedades são suportadas para um serviço vinculado do Data War
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como  **AzureSqlDW**. | sim |
-| connectionString | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. Marque esse campo como  **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | sim |
+| Tipo | A propriedade type deve ser definida como  **AzureSqlDW**. | SIM |
+| connectionString | Especifique as informações necessárias para conectar-se à instância do Azure SQL Data Warehouse para a propriedade  **connectionString**. Marque esse campo como **SecureString** para armazená-lo com segurança no Data Factory ou [referencie um segredo armazenado no Cofre de Chaves do Azure](store-credentials-in-key-vault.md). | SIM |
 | servicePrincipalId | Especifique a ID do cliente do aplicativo. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | servicePrincipalKey | Especifique a chave do aplicativo. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
 | locatário | Especifique as informações de locatário (domínio nome ou ID do Locatário) em que o aplicativo reside. É possível recuperá-lo focalizando o canto superior direito do portal do Azure. | Sim, quando você usa a autenticação do Azure AD com uma entidade de serviço. |
@@ -160,7 +160,7 @@ Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, s
 
 1. **Crie um grupo no AD do Azure.** Faça da fábrica MSI um membro do grupo.
 
-    a. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua fábrica de dados. Copie o ID da IDENTIDADE DO SERVIÇO.
+    a. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
 
     b. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
     ```powershell
@@ -213,8 +213,8 @@ Para copiar dados de ou para o SQL Data Warehouse do Azure, defina a propriedade
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como  **AzureSqlDWTable**. | sim |
-| tableName | O nome da tabela ou exibição na instância do Azure SQL Data Warehouse à qual o serviço vinculado se refere. | sim |
+| Tipo | A propriedade **tipo** do conjunto de dados deve ser definida como  **AzureSqlDWTable**. | SIM |
+| tableName | O nome da tabela ou exibição na instância do Azure SQL Data Warehouse à qual o serviço vinculado se refere. | SIM |
 
 #### <a name="dataset-properties-example"></a>Exemplo de propriedades do conjunto de dados
 
@@ -245,7 +245,7 @@ Para copiar dados do SQL Data Warehouse do Azure, defina a propriedade **tipo** 
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **SqlDWSource**. | sim |
+| Tipo | A propriedade **tipo** da origem da Atividade de Cópia deve ser configurada para **SqlDWSource**. | SIM |
 | SqlReaderQuery | Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. | Não  |
 | sqlReaderStoredProcedureName | O nome do procedimento armazenado que lê dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. | Não  |
 | storedProcedureParameters | Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome ou valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não  |
@@ -349,7 +349,7 @@ Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor e
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | sim |
+| Tipo | A propriedade **tipo** do coletor de Atividade de Cópia deve ser definida como **SqlDWSink**. | SIM |
 | allowPolyBase | Indica se deve usar o PolyBase, quando aplicável, em vez do mecanismo BULKINSERT. <br/><br/> Recomendamos que você carregue dados no SQL Data Warehouse usando o PolyBase. Consulte o [Use PolyBase para carregar dados na seção do Azure SQL Data Warehouse ](#use-polybase-to-load-data-into-azure-sql-data-warehouse)para restrições e detalhes.<br/><br/>Os valores permitidos são **True** e **False** (padrão).  | Não  |
 | polyBaseSettings | Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. | Não  |
 | rejectValue | Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção Argumentos de [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Os valores permitidos são 0 (padrão), 1, 2 etc. |Não  |
@@ -357,7 +357,7 @@ Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor e
 | rejectSampleValue | Determina o número de linhas a serem recuperadas antes que o PolyBase recalcule a porcentagem de linhas rejeitadas.<br/><br/>Os valores permitidos são 1, 2 etc. | Sim, se o **rejectType** for  **porcentagem**. |
 | useTypeDefault | Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são **True** e **False** (padrão). | Não  |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge **writeBatchSize** . Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **inteiro** (número de linhas). | Não. O padrão é 10000. |
-| writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar. Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **intervalo de tempo**. Exemplo: "00:30:00" (30 minutos). | Não  |
+| writeBatchTimeout | Tempo de espera para a operação de inserção em lote ser concluída antes de expirar. Aplica-se apenas quando o PolyBase não é usado.<br/><br/>O valor permitido é **timespan**. Exemplo: "00:30:00" (30 minutos). | Não  |
 | preCopyScript | Especifique uma consulta SQL para que a Atividade de Cópia seja executada antes de gravar dados no Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregados. | Não  | (#repeatability-during-copy). | Uma instrução de consulta. | Não  |
 
 #### <a name="sql-data-warehouse-sink-example"></a>Exemplo de coletor do SQL Data Warehouse
@@ -401,9 +401,9 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 2. O **tipo de conjunto de dados de entrada** é **AzureBlob** ou  **AzureDataLakeStoreFile**. O tipo de formato em `type`propriedades é **OrcFormat**, **ParquetFormat** ou **TextFormat**, com as seguintes configurações:
 
    1. `rowDelimiter` deve ser **\n**.
-   2. `nullValue` é definido como **cadeia de caracteres vazia** ("") ou `treatEmptyAsNull` é definido como **true**.
+   2. `nullValue`é definido como **cadeia de caracteres vazia** ("") ou como padrão, e `treatEmptyAsNull` não é definido como falso.
    3. `encodingName`está definido como **utf-8**, que é o valor padrão.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, e `skipLineCount` não especificado.
+   4. `escapeChar`, `quoteChar` e `skipLineCount` não são especificadas. O suporte do PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
    5. `compression` pode ser **sem compactação**, **GZip** ou **Deflate**.
 
     ```json
@@ -414,7 +414,8 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
            "columnDelimiter": "<any delimiter>",
            "rowDelimiter": "\n",
            "nullValue": "",
-           "encodingName": "utf-8"
+           "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
        },
        "compression": {
            "type": "GZip",
@@ -422,9 +423,6 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
        }
     },
     ```
-
-3. Não há `skipHeaderLineCount`configuração em**BlobSource** ou **AzureDataLakeStore** para Atividade de Cópia no pipeline.
-4. Não há nenhuma `sliceIdentifierColumnName` configuração em **SqlDWSink** para Atividade de Cópia no pipeline. O PolyBase garante que todos os dados sejam atualizados ou que nada seja atualizado em uma única execução. Para obter **repetibilidade**, use `sqlWriterCleanupScript`.
 
 ```json
 "activities":[
@@ -561,7 +559,7 @@ Quando você copia dados de ou para o Azure SQL Data Warehouse, os seguintes map
 | Decimal | Decimal |
 | Atributo FILESTREAM (varbinary(max)) | Byte[] |
 | Float | Duplo |
-| imagem | Byte[] |
+| image | Byte[] |
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |

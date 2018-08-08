@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092062"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308806"
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -90,7 +90,7 @@ Sim, você pode selecionar independentemente o nível de computação que o apli
 Você pode configurar a retenção de backup para PITR entre 7 e 35 dias. O armazenamento de backups será cobrado separadamente com base no consumo real de armazenamento, se exceder o valor de armazenamento igual ao tamanho máximo dos dados. Na versão prévia, por padrão, o período de retenção PITR é definido como 7 dias. Em muitos casos, o tamanho máximo dos dados é suficiente para armazenar 7 dias de backups.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Por que você permite a seleção da geração de hardware para computação?
-Nossa meta é permitir flexibilidade máxima para que você possa escolher uma configuração de desempenho que corresponda às necessidades do aplicativo. A tabela acima mostra as diferenças entre a Ger 4 e Ger 5. Em particular, o hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Gen5 permite que você amplie recursos de computação muito maiores. Queremos tornar essas diferenças transparentes para que você possa atingir a relação preço/desempenho ideal para o aplicativo.
+Nossa meta é permitir flexibilidade máxima para que você possa escolher uma configuração de desempenho que corresponda às necessidades do aplicativo. Hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Gen5 permite que você amplie recursos de computação muito maiores. Para obter mais informações, consulte [modelo de compra de vCore](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>É necessário colocar meu aplicativo offline para converter de um banco de dados baseado em DTU em uma camada de serviço baseada em vCore? 
 As novas camadas de serviço oferecem um método de conversão online simples, semelhante ao processo existente de atualização de bancos de dados da camada de serviço Standard para Premium e vice-versa. Esta conversão pode ser iniciada usando o portal do Azure, o PowerShell, a CLI do Azure, o T-SQL ou a API REST. Consulte [Gerenciar bancos de dados individuais](sql-database-single-database-scale.md) e [Gerenciar pools elásticos](sql-database-elastic-pool.md).

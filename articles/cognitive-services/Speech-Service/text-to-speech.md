@@ -1,21 +1,20 @@
 ---
-title: Sobre Conversão de Texto em Fala | Microsoft Docs
+title: Sobre o texto em fala
 description: Uma visão geral dos recursos de Conversão de Texto em Fala.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257939"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324248"
 ---
 # <a name="about-the-text-to-speech-api"></a>API de Conversão de Texto em Fala
 
@@ -42,4 +41,4 @@ Se você quiser uma voz exclusiva para o aplicativo, é possível criar [fontes 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+* [Veja como sintetizador de fala por meio da API REST](how-to-text-to-speech.md)

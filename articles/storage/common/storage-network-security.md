@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 52d904e7a7e8e5d520d2abd799ef0ae7e99b9894
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7c0675f78f11bf1e493683fa474cce20c2b2a288
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192869"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326108"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar Redes Virtuais e firewalls do Armazenamento do Microsoft Azure
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -99,7 +99,7 @@ Ao habilitar um [Ponto de Extremidade de Serviço](/azure/virtual-network/virtua
 Cada conta de armazenamento pode dar suporte a até 100 regras de rede virtual que podem ser combinadas com [regras de rede IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiões de rede virtual disponíveis
-Em geral, os Pontos de Extremidade de Serviço funcionam entre redes virtuais e instâncias de serviço na mesma região do Azure.  Quando os Pontos de Extremidade de Serviço são usados com o Armazenamento do Azure, esse escopo é expandido para incluir a [região emparelhada](/azure/best-practices-availability-paired-regions).  Isso permite a continuidade durante um failover regional, bem como o acesso ininterrupto a instâncias de RA-GRS (armazenamento com redundância geográfica somente leitura).  As regras de rede que concedem acesso de uma rede virtual para uma conta de armazenamento também concedem acesso a qualquer instância de RA-GRS.
+Em geral, os Pontos de Extremidade de Serviço funcionam entre redes virtuais e instâncias de serviço na mesma região do Azure.  Quando os Pontos de Extremidade de Serviço são usados com o Armazenamento do Azure, esse escopo é expandido para incluir a [região emparelhada](/azure/best-practices-availability-paired-regions).  Isso permite a continuidade durante um failover regional, bem como acesso contínuo a instâncias de armazenamento geo-redundante somente leitura (RA-GRS).  As regras de rede que concedem acesso de uma rede virtual para uma conta de armazenamento também concedem acesso a qualquer instância de RA-GRS.
 
 Ao planejar a recuperação de desastre durante uma interrupção regional, você deve provisionar as redes virtuais na região emparelhada com antecedência. Os Pontos de Extremidade de Serviço para Armazenamento do Azure devem ser habilitados e as regras de rede que concedem acesso dessas redes virtuais alternativas devem ser aplicadas às suas contas de armazenamento com redundância geográfica.
 

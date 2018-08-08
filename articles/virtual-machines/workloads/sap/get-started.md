@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/19/2018
+ms.date: 07/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbcd2ccb90b2c8b1b478e83fa7e55c46891f126b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 81b510c2dc5d65af5e8a7f2b6b78f45f3bdced68
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172391"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344344"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Usar o Azure para hospedar e executar cenários de carga de trabalho do SAP
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -304,6 +304,13 @@ O Azure tem ofertas de Máquina Virtual do Azure nativa que estão sempre cresce
 A exclusividade do Azure para SAP HANA é uma oferta exclusiva que distingue o Azure da concorrência. Para habilitar a hospedagem de cenários SAP com maior demanda de recursos de CPU e de memória que envolvem o SAP HANA, o Azure oferece o uso do hardware bare-metal dedicado ao cliente com a finalidade de executar implantações do SAP HANA que requerem até 20 TB (escala horizontal de 60 TB) de memória para S/4HANA ou outra carga de trabalho do SAP HANA. Essa solução exclusiva do Azure do SAP HANA no Azure (Instâncias Grandes) permite que você execute o SAP HANA em um hardware bare-metal dedicado com a camada de aplicativo SAP ou camada de middleware de carga de trabalho hospedada em Máquinas Virtuais do Azure nativas. Esta solução está documentada em vários documentos na seção "SAP HANA no Azure (Instâncias Grandes)".   
 
 Hospedar cenários de carga de trabalho do SAP no Azure também pode criar requisitos de integração de identidade e logon único usando o Azure Active Directory para diferentes componentes SAP e ofertas SaaS ou PaaS do SAP. Uma lista de tais cenários de integração e de logon único com entidades SAP e do AAD (Azure Active Directory) é descrita e documentada na seção "Integração de Identidade do AAD SAP e Logon Único".
+
+## <a name="latest-changes"></a>Últimas alterações
+
+Documentação em torno de escala horizontal do SAP HANA no Azure VM M128s foi adicionada para:
+
+- [Configurações de infraestrutura do SAP HANA e operações no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Disponibilidade do SAP HANA em uma região do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA no SAP HANA no Azure (Instâncias Grandes)

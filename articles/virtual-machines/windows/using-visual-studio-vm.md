@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: ce587fcbc3bcbea129db1d3d9d0fb60cebdf8e0e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2c8cd5cb837787db7bd6cb0d76bdf734b7d7bc0f
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972359"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285367"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Usar o Visual Studio executando em uma máquina virtual (VM) do Azure pré-configurada é a maneira mais fácil e rápida de partir do nada para um ambiente de desenvolvimento atualizado. As imagens do sistema com diferentes configurações do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -33,7 +33,7 @@ Imagens para as principais versões mais recentes, Visual Studio 2017 e Visual S
 | Versão de lançamento                                              | Edições                     |     Versão do produto     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
 | Visual Studio 2017 - Última (versão 15.7)                    |    Enterprise, Community     |      Versão 15.7.5     |
-| Visual Studio 2017: última versão prévia (Versão 15.8, Versão Prévia 4) |    Enterprise, Community     |      Versão 15.8.4     |
+| Visual Studio 2017: última versão prévia (Versão 15.8, Versão Prévia 5) |    Enterprise, Community     |      Versão 15.8.5     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versão 15.0.15    |
 |   Visual Studio 2015: Última (Atualização 3)                      |    Enterprise, Community     |  Versão 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             Nenhum             | (Expirado para manutenção) |

@@ -1,21 +1,20 @@
 ---
-title: Sobre Tradução de Fala | Microsoft Docs
+title: Sobre tradução de fala
 description: Uma visão geral das funcionalidades de Tradução de Fala
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7d653a17212c727d65820382e22196d62af086e9
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069186"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324401"
 ---
 # <a name="about-the-speech-translation-api"></a>Sobre a API de Tradução de Fala
 
@@ -43,4 +42,4 @@ As diferenças entre os modelos são internas ao mecanismo de tradução. Os usu
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha sua assinatura de avaliação de Fala](https://azure.microsoft.com/try/cognitive-services/)
-* [Veja como reconhecer fala em C#](quickstart-csharp-dotnet-windows.md)
+* [Veja como a tradução de fala em C#](how-to-translate-speech-csharp.md)

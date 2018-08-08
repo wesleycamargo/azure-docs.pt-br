@@ -1,23 +1,24 @@
 ---
-title: 'Início rápido: Reconhecer fala em C# em .NET Framework no Windows usando SDK de Fala de Serviços Cognitivos | Microsoft Docs'
+title: 'Início Rápido: Saiba como reconhecer fala em C# no Framework no Windows usando SDK de Fala dos Serviços Cognitivos'
 titleSuffix: Microsoft Cognitive Services
 description: Saiba como reconhecer fala em C# no .NET Framework no Windows usando SDK de Fala dos Serviços Cognitivos
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259020"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325183"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em C# no .NET Framework no Windows usando SDK de Fala
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá a criar um aplicativo de console C# para .NET Framework no Windows usando SDK de Fala dos Serviços Cognitivos para transcrever conversão de fala em texto.
 O aplicativo é compilado com o [Pacote NuGet do SDK de Fala dos Serviços Cognitivos da Microsoft](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
@@ -104,6 +105,6 @@ Procure esse exemplo na pasta `quickstart/csharp-dotnet-windows`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Traduzir discurso](how-to-translate-speech.md)
+- [Traduzir discurso](how-to-translate-speech-csharp.md)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)

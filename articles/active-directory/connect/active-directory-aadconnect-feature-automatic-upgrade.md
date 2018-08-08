@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089954"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263939"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esse recurso foi introduzido com a build [1.1.105.0 (lançada em fevereiro de 2016)](active-directory-aadconnect-version-history.md#111050).  Esse recurso foi atualizado na [build 1.1.561](active-directory-aadconnect-version-history.md#115610) e agora dá suporte a cenários adicionais que anteriormente não tinham suporte.
@@ -95,8 +95,8 @@ Esta é uma lista das mensagens mais comuns que você encontrará. Ela não list
 | UpgradeNotSupportedInvalidPersistedState |A instalação não é uma configuração Express ou uma atualização de DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Você tem mais de 100 mil objetos no metaverso. |
 | UpgradeNotSupportedMultiForestSetup |Você está se conectando a mais de uma floresta. A instalação expressa se conecta somente a uma floresta. |
-| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |
-| UpgradeNotSupportedNonMsolAccount |A [conta do Conector AD](active-directory-aadconnect-accounts-permissions.md#active-directory-account) não é mais a conta MSOL_ padrão. |
+| UpgradeNotSupportedNonLocalDbInstall |Você não está usando um banco de dados SQL Server Express LocalDB. |d
+| UpgradeNotSupportedNonMsolAccount |O [conta do conector do AD DS](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) não é mais a conta do msol _ padrão. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Ao configurar o AAD Connect, você escolheu *Não configurar* ao selecionar o método de entrada. | 
 | UpgradeNotSupportedPtaSignInMethod | Você selecionou Autenticação de passagem como o método de entrada. |
 | UpgradeNotSupportedStagingModeEnabled |O servidor está definido como em [modo de preparo](active-directory-aadconnectsync-operations.md#staging-mode). |

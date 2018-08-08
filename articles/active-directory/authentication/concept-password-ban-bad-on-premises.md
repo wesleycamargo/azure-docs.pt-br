@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158797"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308469"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Versão prévia: impor proteção por senha do Azure AD ao Windows Server Active Directory
 
@@ -37,6 +37,7 @@ Há três componentes de software que formam a proteção por senha do Azure AD:
 ## <a name="requirements"></a>Requisitos
 
 * Todas os computadores nos quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem estar executando o Windows Server 2012 ou posterior.
+* Todas as máquinas nas quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem ter o tempo de execução Universal C instalado. Preferencialmente, isso é feito pela aplicação de patch totalmente a máquina por meio do Windows Update. Caso contrário, um pacote de atualização específicas do sistema operacional apropriado pode ser instalado - consulte [atualização para o tempo de execução C Universal no Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospeda o serviço de proxy de proteção por senha do Azure AD.
 * Qualquer domínio do Active Directory que esteja executando o software de serviço do agente DC deve usar DFSR para replicação sysvol.
 * Uma conta de administrador global para registrar o serviço de proxy de proteção por senha do Azure AD com o Azure AD.
@@ -48,7 +49,7 @@ Os benefícios da lista global de senhas proibidas aplicam-se a todos os usuári
 
 A lista de senhas proibidas personalizada requer licenças do Azure AD Basic.
 
-A proteção por senha do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium. 
+A proteção por senha do Azure AD para o Windows Server Active Directory requer licenças do Azure AD Premium.
 
 Informações adicionais sobre licenciamento, incluindo custos, podem ser encontradas no [site de preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Há dois instaladores necessários para a proteção por senha do Azure AD que p
 * Não é necessária conectividade com a Internet dos controladores de domínio. Os computadores que executam o serviço de proxy de proteção por senha do Azure AD são os únicos computadores que exigem conectividade com a Internet.
 * Nenhuma porta de rede é aberta em controladores de domínio.
 * Nenhuma alteração de esquema do Active Directory é necessária.
-   * O software usa o contêiner do Active Directory existente e os objetos de esquema serviceConnectionPoint.
+* O software usa o contêiner do Active Directory existente e os objetos de esquema serviceConnectionPoint.
 * Não há requisitos mínimos de Domínio do Active Directory ou nível Funcional da Floresta (DFL\FFL).
 * O software não cria nem exige nenhuma conta nos domínios do Active Directory que ele protege.
 * A implantação incremental tem suporte com a compensação de que a política de senha somente é aplicada quando o agente do controlador de domínio é instalado.

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161823"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308868"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Visualizar: implantar a proteção de senha do Azure AD
 
@@ -56,7 +56,7 @@ Há dois instaladores necessários para a proteção de senha do Azure AD que po
 
 1. Escolha um ou mais servidores para hospedar o serviço proxy de proteção por senha do Azure AD.
    * Cada um desses serviços pode fornecer apenas diretivas de senha para uma única floresta, e a máquina do host deve estar associada ao domínio a um domínio (raiz e filho são igualmente suportados) nessa floresta. Para que o serviço de proxy de proteção de senha do Azure AD cumpra sua missão, deve haver conectividade de rede entre pelo menos um DC em cada domínio da floresta e a máquina host do Proxy de proteção de senha do Azure AD.
-   * É suportado para instalar e executar o serviço proxy de proteção por senha do Azure AD em um controlador de domínio para fins de teste, mas requer conectividade com a Internet.
+   * Há suporte para instalar e executar o serviço de proxy de proteção de senha do Azure AD em um controlador de domínio para o controlador de domínio, mas fins de teste em seguida, ele requer conectividade com a internet.
 
    > [!NOTE]
    > A visualização pública suporta no máximo dois (2) servidores proxy por floresta.
@@ -110,6 +110,9 @@ Há dois instaladores necessários para a proteção de senha do Azure AD que po
 
    > [!NOTE]
    > O registro da floresta do Active Directory deve ser uma etapa única durante a vida útil da floresta. Os agentes do controlador de domínio em execução na floresta executarão automaticamente qualquer outra manutenção necessária a partir deste ponto. Depois de ter sido bem-sucedida para uma determinada floresta, invocações adicionais de `Register-AzureADPasswordProtectionForest` continuam sendo bem-sucedidas, mas são desnecessárias.
+
+   > [!NOTE]
+   > Para que `Register-AzureADPasswordProtectionForest` tenham êxito pelo menos um Windows Server 2012 ou domínio posterior controlador deve estar disponível no domínio do servidor proxy. No entanto, não há exigência de que o software do agente DC seja instalado em qualquer controlador de domínio antes dessa etapa.
 
 6. Opcional: Configure o serviço proxy de proteção por senha do Azure AD para escutar em uma porta específica.
    * O RPC sobre TCP é usado pelo software DC Agent de proteção por senha do AD do Azure nos controladores de domínio para se comunicar com o serviço proxy de proteção por senha do Azure AD. Por padrão, o serviço Proxy de diretiva de senha de proteção de senha do Azure AD escuta em qualquer ponto de extremidade RPC dinâmico disponível. Se necessário, devido a topologia de rede ou requisitos de firewall, o serviço pode ser configurado para escutar em uma porta TCP específica.

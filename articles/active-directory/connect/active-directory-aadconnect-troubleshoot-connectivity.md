@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295389"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263224"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Solucionar problemas de conectividade com o Azure AD Connect
 Esse artigo explica como funciona a conectividade entre o Azure AD Connect e o AD do Azure e como solucionar problemas de conectividade. Esses problemas são mais prováveis de serem vistos em um ambiente com um servidor proxy.
@@ -52,7 +52,7 @@ Dessas URLs, a tabela a seguir é o mínimo absoluto para oferecer a capacidade 
 | \*.microsoftonline.com |HTTPS/443 |Usado para configurar o diretório do Azure AD e importar/exportar dados. |
 
 ## <a name="errors-in-the-wizard"></a>Erros no assistente
-O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao Azure AD** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Se houver um problema, provavelmente ele aparecerá já na página **Conectar ao Azure AD** do assistente, uma vez que a configuração do proxy é global.
+O assistente de instalação está usando dois contextos de segurança diferentes. Na página **Conectar-se ao Azure AD** utiliza o usuário conectado no momento. Na página **Configurar** o assistente muda para a [conta que executa o serviço no mecanismo de sincronização](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). Se houver um problema, provavelmente ele aparecerá já na página **Conectar ao Azure AD** do assistente, uma vez que a configuração do proxy é global.
 
 Estes são os problemas mais comuns que você encontrará no assistente de instalação.
 
@@ -161,28 +161,28 @@ Problemas de configuração de rede ou proxy. Não é possível acessar a rede. 
 ### <a name="user-password-expired"></a>A senha do usuário expirou
 Suas credenciais expiraram. Altere a sua senha.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-Problema desconhecido.
+### <a name="authorization-failure"></a>Falha de autorização
+Falha ao autorizar o usuário para executar a ação no Azure AD.
 
 ### <a name="authentication-cancelled"></a>Autenticação cancelada
 O desafio da autenticação multifator (MFA) foi cancelado.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>Conectar-se ao MS Online falhou
 A autenticação foi bem-sucedida, mas o PowerShell do Azure AD tem um problema de autenticação.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-A autenticação foi bem-sucedida. Você não é um administrador global.
+### <a name="azure-ad-global-admin-role-needed"></a>Função de Administrador Global do Azure AD necessária
+O usuário foi autenticado com êxito. No entanto o usuário não está atribuído a função de administrador global. Isso é [como você pode atribuir a função de administrador global](../users-groups-roles/directory-assign-admin-roles.md) ao usuário. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management habilitado
 A autenticação foi bem-sucedida. O gerenciamento de identidades com privilégios foi habilitado e atualmente você não é um administrador global. Para saber mais, confira [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>Informações da empresa não está disponíveis
 A autenticação foi bem-sucedida. Não foi possível recuperar as informações da empresa do Azure AD.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>Informações de domínio não está disponíveis
 A autenticação foi bem-sucedida. Não foi possível recuperar informações de domínio do Azure AD.
 
-### <a name="unexpected-exception"></a>Exceção inesperada
+### <a name="unspecified-authentication-failure"></a>Falha de autenticação não especificado
 Mostrada como um erro inesperado no assistente de instalação. Poderá ocorrer se você usar uma **conta da Microsoft** em vez de uma conta **corporativa ou de estudante**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Etapas para solucionar problemas de versões anteriores.

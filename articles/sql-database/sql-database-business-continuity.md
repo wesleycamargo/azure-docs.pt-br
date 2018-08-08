@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092283"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263139"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ A tabela a seguir compara o ERT e o RPO para cada camada de serviço para os tr�
 | --- | --- | --- | --- |--- |--- |
 | Recuperação Pontual do backup |Qualquer ponto de restauração dentro de 7 dias |Qualquer ponto de restauração dentro de 35 dias |Qualquer ponto de restauração dentro de 35 dias |Qualquer ponto de restauração dentro do período configurado (até 35 dias)|Qualquer ponto de restauração dentro do período configurado (até 35 dias)|
 | Restauração geográfica de backups replicados geograficamente |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h |ERT < 12h, RPO < 1h|ERT < 12h, RPO < 1h|
-| Restaurar Cofre de Backup do Azure |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana|ERT < 12h, RPO < 1 semana|
+| Restaurar da retenção de longo prazo do SQL |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana |ERT < 12h, RPO < 1 semana|ERT < 12h, RPO < 1 semana|
 | Replicação geográfica ativa |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Use a recuperação pontual para recuperar um banco de dados
@@ -102,7 +102,7 @@ Para obter mais informações e as etapas detalhadas para restaurar um banco de 
 
 ### <a name="restore-backups-from-long-term-retention"></a>Restaurar backups de retenção de longo prazo
 
-Se a perda de dados ocorreu fora do período de retenção atual para backups automatizados e o banco de dados está configurado para retenção de longo prazo, será possível restaurar de um backup completo no armazenamento LTR para um novo banco de dados. Nesse ponto, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários do banco de dados restaurado para o original. Se precisar recuperar uma versão antiga do banco de dados antes de uma grande atualização do aplicativo, atender a uma solicitação de auditores ou a uma sentença judicial, você pode criar um banco de dados usando um backup completo salvo no Cofre de Backup do Azure.  Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
+Se a perda de dados ocorreu fora do período de retenção atual para backups automatizados e seu banco de dados está configurado para retenção de longo prazo usando o armazenamento de blobs do Azure, você pode restaurar de um backup completo no armazenamento de blob do Azure para um novo banco de dados. Nesse ponto, você poderá substituir o banco de dados original pelo banco de dados restaurado ou copiar os dados necessários do banco de dados restaurado para o original. Se você precisar recuperar uma versão antiga do banco de dados antes de uma grande atualização do aplicativo, atender uma solicitação de auditores ou judicial, que você pode criar um banco de dados usando um backup completo salvo no armazenamento de BLOBs do Azure.  Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Recuperar um banco de dados para outra região de uma interrupção no centro de dados regionais do Azure
 <!-- Explain this scenario -->

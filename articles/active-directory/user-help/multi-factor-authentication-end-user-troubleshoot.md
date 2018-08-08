@@ -1,23 +1,23 @@
 ---
-title: Solucionar problemas de verificação em duas etapas - Azure AD | Microsoft Docs
+title: Solucionar problemas da verificação em duas etapas - Azure Active Directory | Microsoft Docs
 description: Fornece instruções para os usuários sobre o que fazer se ele tiver um problema com autenticação multifator do Azure e a verificação em duas etapas.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090370"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346516"
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 
@@ -42,7 +42,7 @@ Há vários motivos por que talvez você precise usar um método de verificaçã
 
 ## <a name="sign-in-using-another-verification-method"></a>Conecte-se usando outro método de verificação
 
-1. Entre em sua conta normalmente e escolha o **entre de outra forma** no link a página **verificação em duas etapas**.
+1. faça login em sua conta normalmente e escolha o link **Fazer login de outra maneira** na página **Verificação em duas etapas**.
 
     ![Alterar o método de verificação de entrada](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 

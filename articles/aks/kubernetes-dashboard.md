@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091131"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307918"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Acesse o painel do Kubernetes com o AKS (Serviço de Kubernetes do Azure)
 
@@ -38,12 +38,14 @@ Este comando cria um proxy entre o sistema de desenvolvimento e a API do Kuberne
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados para RBAC
 
-Se o cluster do AKS usa RBAC, um *ClusterRoleBinding* deve ser criado antes de poder acessar o painel corretamente. Para criar uma associação, use o comando [kubectl criar clusterrolebinding] [ kubectl-create-clusterrolebinding] conforme mostrado no exemplo a seguir. 
+Se o cluster do AKS usa RBAC, um *ClusterRoleBinding* deve ser criado antes de poder acessar o painel corretamente. Por padrão, o painel do Kubernetes é implantado com um mínimo de acesso de leitura e exibe os erros de acesso do RBAC. O painel do Kubernetes não oferece suporte a credenciais fornecidas pelo usuário para determinar o nível de acesso, em vez disso, ele usa as funções concedidas à conta de serviço. Um administrador de cluster pode optar por conceder acesso adicional para o *painel do kubernetes* conta de serviço, no entanto, isso pode ser um vetor para elevação de privilégios. Você também pode integrar a autenticação do Active Directory para fornecer um nível mais granular de acesso.
+
+Para criar uma associação, use o comando [kubectl criar clusterrolebinding] [ kubectl-create-clusterrolebinding] conforme mostrado no exemplo a seguir. 
 
 > [!WARNING]
 > Essa associação de exemplo não se aplica a todos os componentes de autenticação adicional e pode levar a uso inseguro. O painel do Kubernetes está aberto para qualquer pessoa com acesso à URL. Não expor publicamente o painel do Kubernetes.
 >
-> Você pode usar mecanismos, como os tokens de portador ou um nome de usuário e senha para controlar quem pode acessar o painel e quais permissões eles têm. Isso permite um uso mais seguro do painel. Para obter mais informações sobre como usar os métodos de autenticação diferentes, consulte o wiki do painel do Kubernetes em [controles de acesso][dashboard-authentication].
+> Para obter mais informações sobre como usar os métodos de autenticação diferentes, consulte o wiki do painel do Kubernetes em [controles de acesso][dashboard-authentication].
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

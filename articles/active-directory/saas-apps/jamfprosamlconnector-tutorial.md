@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046922"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: integração do Azure Active Directory ao Jamf Pro
 
@@ -139,7 +139,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Role para baixo até **IDENTITY PROVIDER** na seção **Logon Único** e execute as seguintes etapas:
+10. Na página **Single Sign-On**, execute as seguintes etapas:
+
+    ![O Jamf Pro único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Selecione **Jamf Pro Server** para ativar o acesso ao Single Sign-On.
+
+    b. Ao selecionar **Permitir desvio para todos os usuários**, os usuários não serão redirecionados para a página de login do Provedor de identidade para autenticação, mas poderão efetuar login no Jamf Pro diretamente. Quando um usuário tenta acessar o Jamf Pro por meio do Provedor de Identidade, ocorre a autenticação e autorização de SSO iniciada pelo IdP.
+
+    c. Selecione a opção **NameID** para **MAPEAMENTO DE USUÁRIO: SAML**. Por padrão, essa configuração é definida como **NameID**, mas você pode definir um atributo personalizado.
+
+    d. Selecione **E-mail** para **MAPEAMENTO DO USUÁRIO: JAMF PRO**. O Jamf Pro mapeia atributos SAML enviados pelo IdP das seguintes maneiras: por usuários e por grupos. Quando um usuário tenta acessar o Jamf Pro, por padrão, o Jamf Pro obtém informações sobre o usuário do Provedor de Identidade e o associa às contas de usuário do Jamf Pro. Se a conta de usuário recebida não existir no Jamf Pro, ocorrerá a correspondência do nome do grupo.
+
+    e. Cole o valor `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` no **nome do grupo de atributo** caixa de texto.
+ 
+11. Na mesma página rolagem para baixo até **provedor de identidade** sob o **Single Sign-On** seção e execute as seguintes etapas:
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -149,10 +163,10 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     c. Selecione **URL de metadados** como uma opção do menu suspenso **IDENTITY PROVIDER METADATA SOURCE** e, na caixa de texto a seguir, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do portal do Azure.
 
-    d. Copie o valor da **ID da Entidade** e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Domínio e URLs do Jamf Pro** no portal do Azure.
+    d. Copie o valor **ID da entidade** e cole-o na caixa de texto **Identifier (Entity ID)** na seção **Jamf Pro Domain e URLs** no portal do Azure.
 
     >[!NOTE]
-    > Aqui `aadsso` está a parte de subdomínio (que é para fins de referência). Use esse valor para completar a URL de entrada e a URL de resposta na seção **URLs e domínio do Pro Jamf** no portal do Azure.
+    > Aqui, o valor borrado é a parte do subdomínio. Use esse valor para concluir o URL de conexão e o URL de resposta na seção **Domínio e URLs Jamf Pro** no portal do Azure.
 
     e. Clique em **Salvar**.
 

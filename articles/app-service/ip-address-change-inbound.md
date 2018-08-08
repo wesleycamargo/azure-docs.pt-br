@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 31c0d8c43a1a7614ff1965853b8ce0a3997db6f4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343114"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343426"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Como se preparar para uma alteração de endereço IP de entrada
 
@@ -40,6 +40,8 @@ O novo endereço IP de entrada que está sendo fornecido para o aplicativo está
 2.  No menu de navegação à esquerda, selecione **Serviços de Aplicativos**.
 
 3.  Selecione o aplicativo do Serviço de Aplicativo na lista.
+
+4.  Se o aplicativo é um aplicativo de funções, consulte [aplicativo de funções endereço IP de entrada](../azure-functions/ip-addresses.md#function-app-inbound-ip-address).
 
 4.  No cabeçalho **Configurações**, clique em **Propriedades** no painel de navegação esquerdo e localize a seção rotulada como **Endereço IP Virtual**.
 

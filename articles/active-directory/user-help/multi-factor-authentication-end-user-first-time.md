@@ -1,27 +1,24 @@
 ---
-title: Configurar problemas de verificação em duas etapas - Azure AD | Microsoft Docs
+title: Configurar a verificação em duas etapas - o Azure Active Directory | Microsoft Docs
 description: Quando sua empresa configura a Autenticação Multifator do Azure, será solicitado que você se inscreva na verificação em duas etapas. Saiba como configurá-la.
-services: multi-factor-authentication
+services: active-directory
 keywords: como usar o directory do azure, active directory na nuvem, tutorial do active directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 1d0c60dedcb5eefb4ab9167b40c06c3616790719
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058518"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343722"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -42,7 +39,7 @@ Se você não vir uma tela assim ao entrar, siga as instruções em [Gerenciar a
 
 A primeira pergunta no processo de registro é como você deseja que entremos em contato com você. Examine as opções na tabela e use os links para ir até as etapas de configuração para cada método.
 
-| Método de contato | DESCRIÇÃO |
+| Método de contato | Descrição |
 | --- | --- |
 | [Aplicativo móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações para verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.<br>- **Use o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na interface de entrada.<br>O aplicativo Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Chamada telefônica ou SMS de celular](#use-your-mobile-phone-as-the-contact-method) |- **Chamada telefônica** faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar.<br>- **SMS** envia para o usuário uma mensagem de texto contendo um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada. |
@@ -76,7 +73,7 @@ Usar esse método requer que você instale um aplicativo autenticador em seu tel
 ### <a name="add-an-account-manually"></a>Adicionar uma conta manualmente
 Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de usar o leitor QR, siga estas etapas.
 
-1. Selecione o botão **Inserir conta manualmente** .  
+1. Selecione o botão **Inserir conta manualmente**.  
 2. Insira o código e a URL que são fornecidos na mesma página que mostra o código de barras. Essas informações são inseridas nas caixas **Código** e **URL** no aplicativo móvel.
 
     ![Configuração](./media/multi-factor-authentication-end-user-first-time/barcode2.png)

@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092147"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285292"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integração do aplicativo SaaS com o Azure Active Directory
 
@@ -264,7 +264,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/tutorial-list/active-directory-saas-imagineerwebVision-tutorial.png)| [Imagineer WebVision](imagineerwebVision-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-impacriskmanager-tutorial.png)| [IMPAC Risk Manager](impacriskmanager-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-infogix-tutorial.png)| [Infogix Data3Sixty regem](infogix-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Gerenciamento de informações Infor Retail â](inforretailinformationmanagement-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-inforretailinformationmanagement-tutorial.png)| [Informações de varejo â gerenciamento de informações](inforretailinformationmanagement-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-inkling-tutorial.png)| [Inkling](inkling-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-innotas-tutorial.png)| [Innotas](innotas-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-innovationhub-tutorial.png)| [Hub de inovação](innovationhub-tutorial.md)|
@@ -330,7 +330,7 @@ Para obter a lista abrangente de aplicativos SaaS que foram pré-integrados ao A
 | ![Logotipo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [LINE WORKS](worksmobile-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn Elevate](linkedinelevate-tutorial.md)|[LinkedIn Elevate – Provisionamento de Usuário](linkedinelevate-provisioning-tutorial.md)|
-| ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning – Provisionamento de Usuário](linkedinlearning-provisioning-tutorial.md)|
+| ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator – Provisionamento de Usuário](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![Logotipo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![Logotipo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

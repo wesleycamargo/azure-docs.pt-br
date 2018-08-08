@@ -1,27 +1,24 @@
 ---
-title: Gerenciar as configurações de verificação em duas etapas - Microsoft Azure Active Directory | Microsoft Docs
+title: Gerenciar configurações de verificação em duas etapas – Azure Active Directory | Microsoft Docs
 description: Gerencie como usar Autenticação Multifator do Azure incluindo alterar suas informações de contato ou configurar seus dispositivos.
-services: multi-factor-authentication
+services: active-directory
 keywords: autenticação multifator do cliente, problema de autenticação, ID de correlação
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: ff48cb2cee5387f5dd5e0b89966a11fb76379337
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057598"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345082"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
 Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.

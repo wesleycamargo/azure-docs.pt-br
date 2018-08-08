@@ -4,17 +4,17 @@ description: Usar a extensão do IoT para CLI 2.0 do Azure para registrar um nov
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6935dfe5b32364e402017cd3005ab17969ce1ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034218"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325489"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Registrar um novo dispositivo do Azure IoT Edge com CLI 2.0 do Azure
 
@@ -24,7 +24,7 @@ A [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)
 
 Este artigo descreve como registrar um novo dispositivo do IoT Edge usando a CLI 2.0 do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-using-cli.md) na assinatura do Azure. 
 * [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. A versão 2.0 da CLI do Azure deve ser 2.0.24 ou superior. Use `az –-version` para validar. Esta versão dá suporte aos comandos da extensão az e introduz a estrutura de comandos Knack. 
@@ -63,7 +63,7 @@ Quando estiver pronto para configurar o dispositivo, você precisará da cadeia 
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-O parâmetro da id do dispositivo diferencia maiúsculas de minúsculas. 
+O parâmetro da id do dispositivo diferencia maiúsculas de minúsculas. Não copie as aspas em torno da cadeia de caracteres de conexão. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

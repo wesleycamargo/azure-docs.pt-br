@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213224"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285350"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Logon Único Contínuo do Azure Active Directory
 
@@ -30,12 +30,12 @@ O SSO Contínuo do Azure AD (Logon Único Contínuo do Azure Active Directory) c
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md).
+O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-hash-synchronization.md) ou de [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md). O SSO contínuo _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
 
 ![Logon Único Contínuo](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo _não_ é aplicável aos Serviços de Federação do Active Directory (AD FS).
+>O SSO contínuo precisa no dispositivo do usuário para ser **ingressado no domínio**, mas não necessário para o dispositivo esteja [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Principais benefícios
 
@@ -76,7 +76,9 @@ O SSO Contínuo pode ser combinado com o método de entrada de [Sincronização 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [**Início Rápido** ](active-directory-aadconnect-sso-quick-start.md) – colocar o SSO Contínuo do Azure AD em funcionamento.
+- [**Plano de Implantação**](https://aka.ms/AuthenticationDeploymentPlan) - Plano de implantação passo a passo.
 - [**Aprofundamento técnico**](active-directory-aadconnect-sso-how-it-works.md) – entenda como esse recurso funciona.
 - [**Perguntas frequentes**](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
+

@@ -7,16 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831009"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295140"
 ---
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>Criar cluster DSVM e Spark HDI como destinos de computação
 
@@ -150,7 +150,7 @@ $ az vm start -g <resource group name> -n <vm name>
 ```
 
 ## <a name="expand-the-dsvm-os-disk"></a>Expandir o disco do SO da DSVM
-O Ubuntu DSVM vem com um disco de sistema operacional de 50 GB e um disco de dados de 100 GB. O Docker armazena suas imagens do disco de dados conforme mais espaço estiver disponível nesse local. Quando usado como destino de computação para o Azure ML, esse disco pode ser usado pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. Você pode precisar aumentar o tamanho do disco (como 200 GB) para evitar o erro de "disco cheio" quando estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
+O Ubuntu DSVM vem com um disco de sistema operacional de 50 GB e um disco de dados de 100 GB. O Docker armazena suas imagens do disco de dados conforme mais espaço estiver disponível nesse local. Quando usado como destino de computação para o Azure ML, esse disco pode ser usado pelo mecanismo do Docker puxando imagens do Docker e criando camadas de conda sobre ele. Talvez seja necessário expandir o disco para um tamanho maior (por exemplo, 200 GB) para evitar o erro de "disco cheio" enquanto estiver no meio de uma execução. Consulte [Como expandir os discos rígidos virtuais em uma VM Linux com a CLI do Azure](../../virtual-machines/linux/expand-disks.md) para saber como fazer isso facilmente na azure-cli. 
 
 ## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Criar um Apache Spark para cluster Azure HDInsight no portal do Azure
 

@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224579"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358096"
 ---
 # <a name="prediction-score"></a>Pontuação de previsão
 Uma pontuação de previsão indica o grau de confiança que o LUIS tem para resultados de previsão. 
@@ -36,6 +36,8 @@ Quando um enunciado resulta em uma classificação de baixa confiança, o LUIS d
 Toda previsão de declaração retorna uma intenção com maior pontuação. Essa é uma comparação numérica de pontuações de previsão. As duas maiores pontuações podem ter uma diferença muito pequena entre elas. O LUIS não indica essa proximidade, exceto retornando pontuações.  
 
 Se estiver preocupado com a proximidade das maiores pontuações, você deverá retornar a pontuação de todas as intenções. É possível adicionar declarações às duas intenções que indicam suas diferenças com a escolha e a organização de palavras ou é possível ter o aplicativo que chama o LUIS, como um chatbot, e fazer escolhas programáticas sobre como manipular as duas principais intenções. 
+
+Duas tentativas, que são pontuadas muito perto podem inverter devido ao treinamento não determinístico. A pontuação superior poderia se tornar a parte superior da segunda e a segunda pontuação superior poderia se tornar a primeira pontuação superior. Para evitar isso, adicione as declarações de exemplo para cada uma das duas principais intenções para essa expressão com a opção do palavra e o contexto que diferencia as duas tentativas. As duas intenções devem ter aproximadamente o mesmo número de declarações de exemplo. Um princípio de separação para evitar a inversão devido ao treinamento, é uma diferença de 15% em pontuações.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Retornar pontuação de previsão para todas as intenções
 Um resultado do ponto de extremidade ou do teste pode incluir todas as intenções. Essa configuração é definida no [ponto de extremidade](https://aka.ms/v1-endpoint-api-docs) com o par nome/valor da cadeia de caracteres de consulta `verbose=true`. 

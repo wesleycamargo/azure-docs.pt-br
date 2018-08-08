@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259112"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325380"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -49,7 +49,7 @@ Verifique se os seguintes pré-requisitos estão em vigor:
     
 * **Habilitar autenticação moderna**: você precisa habilitar [autenticação moderna](https://aka.ms/modernauthga) em seu locatário para que esse recurso funcione.
 
-* **Usar as versões mais recentes de clientes do Office 365**: para obter uma experiência de logon silenciosa com clientes do Office 365 (Outlook, Word, Excel e outros), você precisa da versão 16.0.8730.xxxx ou superior.
+* **Use as versões mais recentes dos clientes do Office 365**: para obter uma experiência de logon silencioso com clientes do Office 365 (Outlook, Word, Excel e outros), seus usuários precisam usar as versões 16.0.8730.xxxx ou acima.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
@@ -80,6 +80,9 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 4. Verifique se o recurso **Logon único contínuo** aparece como **Habilitado**.
 
 ![Portal do Azure: painel do Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> O SSO perfeito cria uma conta de computador chamada `AZUREADSSOACC` (que representa o Azure AD) em seu Active Directory (AD) local em cada floresta do AD. Esta conta de computador é necessária para o recurso funcionar. Mova a conta do computador `AZUREADSSOACC` para uma UO (unidade organizacional) em que outras contas de computador são armazenadas para garantir que ela seja gerenciada da mesma maneira e não seja excluída.
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
@@ -194,7 +197,7 @@ O SSO Contínuo não funciona no modo de navegação particular em navegadores F
 
 Para testar o recurso para um usuário específico, verifique se todas as seguintes condições estão em vigor:
   - O usuário entra em um dispositivo corporativo.
-  - O dispositivo está associado ao domínio do Active Directory.
+  - O dispositivo está associado ao domínio do Active Directory. O dispositivo _não_ precisa ser [ingressado no Azure AD](../active-directory-azureadjoin-overview.md).
   - O dispositivo tem uma conexão direta com seu DC (controlador de domínio), seja na rede corporativa com ou sem fio ou por meio de uma conexão de acesso remoto, como uma conexão VPN.
   - Você [distribuiu o recurso](##step-3-roll-out-the-feature) a esse usuário por meio da Política de Grupo.
 

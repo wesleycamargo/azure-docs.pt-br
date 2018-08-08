@@ -1,20 +1,19 @@
 ---
-title: Regiões de serviço de fala | Microsoft Docs
+title: Fala de regiões de serviço
 description: Referência para regiões do serviço de fala.
 services: cognitive-services
 author: mahilleb-msft
-manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 082002b25b02e1e496221f4686d0e636630dd438
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071412"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324384"
 ---
 # <a name="regions-of-the-speech-service"></a>Regiões do serviço de Fala
 
@@ -32,6 +31,8 @@ Consulte [APIs REST](rest-apis.md) para obter mais detalhes.
 
 No [SDK de fala](speech-sdk.md), as regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription) no SDK de Fala para C#).
 
+### <a name="regions-for-speech-recognition-and-translation"></a>Regiões para o reconhecimento de fala e tradução
+
 A tabela abaixo lista as regiões disponíveis para **reconhecimento de fala** e **tradução**:
 
 Região| Valor para o parâmetro de região no SDK de fala
@@ -39,6 +40,8 @@ Região| Valor para o parâmetro de região no SDK de fala
 Oeste dos EUA| `westus`
 Ásia Oriental| `eastasia`
 Norte da Europa| `northeurope`
+
+### <a name="regions-for-intent-recognition"></a>Amostra para reconhecimento de intenção
 
 As regiões disponíveis para **reconhecimento de intenção** por meio do SDK de Fala estão listadas na [página da região do serviço](/azure/cognitive-services/luis/luis-reference-regions).
 Para cada região de publicação listada, o parâmetro da região do SDK de Fala correspondente é determinado como a primeira parte do nome de domínio do ponto de extremidade.

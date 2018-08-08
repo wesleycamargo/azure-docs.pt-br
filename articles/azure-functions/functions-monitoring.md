@@ -2,7 +2,7 @@
 title: Monitorar Azure Functions
 description: Saiba como usar o Azure Application Insights com o Azure Functions para monitorar a execução da função.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,12 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344048"
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -58,7 +59,7 @@ Você pode configurar essa conexão no [Portal do Azure](https://portal.azure.co
 
 3. Insira as outras informações necessárias.
 
-1. Clique em **Criar**.
+1. Selecione **Criar**.
 
 A próxima etapa é [desabilitar o registro em log interno](#disable-built-in-logging).
 
@@ -222,7 +223,7 @@ O arquivo *host.json* configura quanto registro em log um aplicativo de função
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +233,7 @@ O arquivo *host.json* configura quanto registro em log um aplicativo de função
 Este exemplo configura as seguintes regras:
 
 1. Para logs com a categoria "Host.Results" ou "Função", envie apenas o nível `Error` e acima ao Application Insights. Os logs para o nível `Warning` e abaixo são ignorados.
-2. Para logs com a categoria de Host. Agregador, envie somente o nível `Information` e acima ao Application Insights. Os logs para o nível `Debug` e abaixo são ignorados.
+2. Para logs com a categoria Host.Aggregator, envie todos os logs para o Application Insights. O `Trace` nível de log é o mesmo que o que chamo de alguns agentes `Verbose`, mas usar `Trace` no *host. JSON* arquivo.
 3. Para todos os outros logs, envie somente o nível `Information` e acima ao Application Insights.
 
 O valor de categoria em *host.json* controla o registro em log para todas as categorias que começam com o mesmo valor. Por exemplo, "Host" em *host.json* controla o registro em log para "Host.General", "Host.Executor", "Host.Results" e assim por diante.
@@ -558,7 +559,7 @@ Para a CLI do Azure 2.0, use os comandos a seguir para entrar, escolha sua assin
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 Para o Azure PowerShell, use os comandos a seguir para adicionar sua conta do Azure, escolha sua assinatura e transmita os arquivos de log:

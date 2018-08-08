@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ddcb985c370baf224d451aa6c1ec9b796e0140de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 01b571beba012ae0a1fa27d03f5e0e5454f62aa5
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561397"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324948"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Maio de 2018 
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em maio de 2018. 
@@ -127,3 +127,25 @@ The ORDER BY clause is invalid in views, CREATE TABLE AS SELECT, INSERT SELECT, 
 
 ## <a name="set-parseonly-on-query-status-behavior-change"></a>Status de consulta SET PARSEONLY ON (Alteração de comportamento)
 Usar a sintaxe `SET PARSEONLY ON` permite que um usuário com o mecanismo do SQL Data Warehouse examine a sintaxe de cada instrução T-SQL e retorne mensagens de erro sem compilar ou executar a instrução. Anteriormente, na exibição do sistema [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql), o status para essas instruções permaneceria no estado `Running`. A exibição `sys.dm_pdw_exec_requests` agora irá retornar o status como `Complete`.
+
+## <a name="next-steps"></a>Próximas etapas
+Agora que você conhece um pouco do SQL Data Warehouse, aprenda como [criar um SQL Data Warehouse][create a SQL Data Warehouse] rapidamente. Se você ainda não conhece o Azure, poderá achar o [Glossário do Azure][Azure glossary] útil à medida que encontrar nova terminologia. Ou, dê uma olhada em alguns desses outros Recursos do SQL Data Warehouse.  
+
+* [Histórias de sucesso de clientes]
+* [Blogs]
+* [Solicitações de recursos]
+* [Vídeos]
+* [Blogs da Equipe Consultoria para Clientes]
+* [Fórum Stack Overflow]
+* [Twitter]
+
+
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Blogs da Equipe Consultoria para Clientes]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Histórias de sucesso de clientes]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Solicitações de recursos]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
