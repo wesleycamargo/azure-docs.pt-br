@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: e7c4ba0103bf9c1023ce20f3350ef549f5e873e8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b50e317fc8a94a5cd8ddd19dbe24d4f9125fedc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224694"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432986"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Tutorial: integração do Azure Active Directory com o Fuze
 
@@ -33,7 +33,7 @@ A integração do Fuze com o Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Fuze, são necessários os seguintes itens:
 
@@ -55,7 +55,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Fuze da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 
 ## <a name="adding-fuze-from-the-gallery"></a>Adicionando o Fuze da galeria
@@ -67,19 +67,19 @@ Para configurar a integração do Fuze com o Azure AD, é necessário adicionar 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Fuze**.
+1. Na caixa de pesquisa, digite **Fuze**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/tutorial_fuze_000.png)
 
-5. No painel de resultados, selecione **Fuze** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Fuze** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/tutorial_fuze_0001.png)
 
@@ -94,10 +94,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o Fuze, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Fuze](#creating-a-fuze-test-user)** – para ter um equivalente de Brenda Fernandes no Fuze que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Fuze](#creating-a-fuze-test-user)** – para ter um equivalente de Brenda Fernandes no Fuze que esteja vinculado à representação dela no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -109,25 +109,25 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/fuze-tutorial/tutorial_fuze_01.png)
 
-3. Na seção **URLs e Domínio do Fuze**, siga as etapas abaixo:
+1. Na seção **URLs e Domínio do Fuze**, siga as etapas abaixo:
 
     ![Configurar o logon único](./media/fuze-tutorial/tutorial_fuze_020.png)
     
     Na caixa de texto **URL de Logon**, digite a URL de logon como: `https://www.thinkingphones.com/jetspeed/portal/`
 
-4.  Clique no botão **Salvar** .
+1.  Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/fuze-tutorial/tutorial_general_400.png)
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **XML de metadados** e, em seguida, salve o arquivo xml em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **XML de metadados** e, em seguida, salve o arquivo xml em seu computador.
 
     ![Configurar o logon único](./media/fuze-tutorial/tutorial_fuze_05.png) 
 
-6. Para configurar o logon único no lado do **Fuze**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte Fuze](https://www.fuze.com/support). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Fuze**, é necessário enviar o **XML de metadados** baixado para a [equipe de suporte Fuze](https://www.fuze.com/support). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -141,15 +141,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/fuze-tutorial/create_aaduser_04.png) 
 
@@ -178,23 +178,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Fuze**.
+1. Na lista de aplicativos, selecione **Fuze**.
 
     ![Configurar o logon único](./media/fuze-tutorial/tutorial_fuze_50.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único

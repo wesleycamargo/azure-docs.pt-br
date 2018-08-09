@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c15894f8cd559a08a1d75e2ac29cc0da0fc9e963
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226571"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435753"
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Integrar o Azure Active Directory ao Box
 
@@ -34,7 +34,7 @@ Ao integrar o Azure AD ao Box, você obtém os seguintes benefícios:
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, consulte [O que é o acesso de aplicativos e o logon único com o Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Box, você precisará dos seguintes itens:
 
@@ -55,7 +55,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Box da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="add-box-from-the-gallery"></a>Adicionar o Box da galeria
 Para configurar a integração do Azure AD ao Box, adicione o Box da galeria à sua lista de aplicativos SaaS gerenciados, da seguinte maneira:
@@ -64,15 +64,15 @@ Para configurar a integração do Azure AD ao Box, adicione o Box da galeria à 
 
     ![O botão Azure Active Directory][1]
 
-2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
+1. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
     ![A janela “Aplicativos empresariais”][2]
     
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da janela.
+1. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da janela.
 
     ![O botão “Novo aplicativo”][3]
 
-4. Na caixa de pesquisa, digite **Box**, selecione **Box** na lista de resultados e, em seguida, selecione **Adicionar**.
+1. Na caixa de pesquisa, digite **Box**, selecione **Box** na lista de resultados e, em seguida, selecione **Adicionar**.
 
     ![Box na lista de resultados](./media/box-tutorial/tutorial_box_search.png)
 ### <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
@@ -93,11 +93,11 @@ Habilite o logon único do Azure AD no portal do Azure e configure o logon únic
 
     ![O link “Logon único”][4]
 
-2. Na janela **Logon único**, na caixa **Modo Logon único**, selecione **Logon baseado em SAML**.
+1. Na janela **Logon único**, na caixa **Modo Logon único**, selecione **Logon baseado em SAML**.
  
     ![A janela “Logon único”](./media/box-tutorial/tutorial_box_samlbase.png)
 
-3. Em **Domínio e URLs do Box**, faça o seguinte:
+1. Em **Domínio e URLs do Box**, faça o seguinte:
 
     ![Informações de logon único de "Domínio e URLs do Box"](./media/box-tutorial/url3.png)
 
@@ -108,15 +108,15 @@ Habilite o logon único do Azure AD no portal do Azure e configure o logon únic
     > [!NOTE] 
     > Os valores anteriores não são reais. Atualize-os com a URL de logon e o identificador reais. Para obter os valores, entre em contato com a [equipe de suporte do Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). 
 
-4. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados** e salve o arquivo de metadados no computador.
+1. Em **Certificado de Autenticação SAML**, selecione **XML de Metadados** e salve o arquivo de metadados no computador.
 
     ![O link de download do Certificado](./media/box-tutorial/tutorial_box_certificate.png) 
 
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/box-tutorial/tutorial_general_400.png)
     
-6. Para configurar o SSO para seu aplicativo, siga o procedimento em [Configurar SSO por conta própria](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
+1. Para configurar o SSO para seu aplicativo, siga o procedimento em [Configurar SSO por conta própria](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
 
 > [!NOTE] 
 > Se não for possível habilitar as configurações de SSO para a conta do Box, talvez seja necessário entrar em contato com a [equipe de suporte ao cliente do Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) e fornecer o arquivo XML baixado.
@@ -135,17 +135,17 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![O link do Azure Active Directory](./media/box-tutorial/create_aaduser_01.png)
 
-2. Para exibir uma lista de usuários atuais, selecione **Usuários e grupos** > **Todos os usuários**.
+1. Para exibir uma lista de usuários atuais, selecione **Usuários e grupos** > **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/box-tutorial/create_aaduser_02.png)
 
-3. Na parte superior da janela **Todos os usuários**, selecione **Adicionar**.
+1. Na parte superior da janela **Todos os usuários**, selecione **Adicionar**.
 
     ![O botão Adicionar](./media/box-tutorial/create_aaduser_03.png)
 
     A janela **Usuário** abre.
 
-4. Na janela **Usuário**, faça o seguinte:
+1. Na janela **Usuário**, faça o seguinte:
 
     ![A janela de usuário](./media/box-tutorial/create_aaduser_04.png)
 
@@ -171,23 +171,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Os links “Aplicativos empresariais” e “Todos os aplicativos”][201] 
 
-2. Na lista de **Aplicativos**, selecione **Box**.
+1. Na lista de **Aplicativos**, selecione **Box**.
 
     ![O link de Box](./media/box-tutorial/tutorial_box_app.png)  
 
-3. No painel esquerdo, selecione **Usuários e grupos**.
+1. No painel esquerdo, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+1. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Na janela **Usuários e grupos**, na lista **Usuários**, selecione **Britta Simon**.
+1. Na janela **Usuários e grupos**, na lista **Usuários**, selecione **Britta Simon**.
 
-6. Escolha o botão **Selecionar**.
+1. Escolha o botão **Selecionar**.
 
-7. Na janela **Adicionar Atribuição**, selecione **Atribuir**.
+1. Na janela **Adicionar Atribuição**, selecione **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

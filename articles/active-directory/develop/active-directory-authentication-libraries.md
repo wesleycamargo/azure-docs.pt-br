@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: a01db6a0bebb670d0e30a4962ede6b12bba8e84e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 33a9be83f7f79989ac09c3e7593a86ecb6c87507
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751234"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579183"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Bibliotecas de Autenticação do Active Directory do Azure
 
@@ -83,6 +83,6 @@ Nesse cenário, um desenvolvedor tem um aplicativo Web em execução num servido
 
 ## <a name="see-also"></a>Veja também
 
-- [Guia do desenvolvedor do Active Directory do Azure](active-directory-developers-guide.md)
-- [Cenários de autenticação do Active Directory do Azure](active-directory-authentication-scenarios.md)
-- [Exemplos de código do Active Directory do Azure](active-directory-code-samples.md)
+- [Guia do desenvolvedor do Active Directory do Azure](azure-ad-developers-guide.md)
+- [Cenários de autenticação do Active Directory do Azure](authentication-scenarios.md)
+- [Exemplos de código do Active Directory do Azure](sample-v1-code.md)

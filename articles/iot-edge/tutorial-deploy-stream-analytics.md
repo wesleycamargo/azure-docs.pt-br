@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413868"
+ms.locfileid: "39435675"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Stream Analytics como um módulo do IoT Edge (versão prévia)
 
@@ -60,7 +60,7 @@ Uma conta de Armazenamento do Azure é necessária em trabalhos do Azure Stream 
 
 1. No portal do Azure, vá para **Criar um recurso**, insira **Conta de armazenamento** na caixa de pesquisa e selecione **Conta de armazenamento - blob, arquivo, tabela, fila**.
 
-2. No painel **Criar conta de armazenamento**, insira um nome para sua conta de armazenamento, selecione o mesmo local em que o Hub IoT está armazenado, selecione o mesmo grupo de recursos do Hub IoT e, em seguida, selecione **Criar**. Anote o nome para usá-lo mais tarde.
+1. No painel **Criar conta de armazenamento**, insira um nome para sua conta de armazenamento, selecione o mesmo local em que o Hub IoT está armazenado, selecione o mesmo grupo de recursos do Hub IoT e, em seguida, selecione **Criar**. Anote o nome para usá-lo mais tarde.
 
     ![Criar uma conta de armazenamento][1]
 
@@ -69,40 +69,40 @@ Uma conta de Armazenamento do Azure é necessária em trabalhos do Azure Stream 
 
 1. No portal do Azure, vá para **Criar um recurso** > **Internet das Coisas** e selecione **Trabalho do Stream Analytics**.
 
-2. No painel **Novo Trabalho do Stream Analytics**, faça o seguinte:
+1. No painel **Novo Trabalho do Stream Analytics**, faça o seguinte:
 
    1. Na caixa **Nome do trabalho**, digite um nome de trabalho.
    
-   2. Use o mesmo **Grupo de recursos** e **Local** do hub IoT. 
+   1. Use o mesmo **Grupo de recursos** e **Local** do hub IoT. 
 
       > [!NOTE]
       > Atualmente, os trabalhos do Azure Stream Analytics no IoT Edge não têm suporte na região Oeste dos EUA 2. 
 
-   3. Em **Ambiente de hospedagem**, selecione **Edge**.
+   1. Em **Ambiente de hospedagem**, selecione **Edge**.
     
-3. Selecione **Criar**.
+1. Selecione **Criar**.
 
-4. No trabalho criado, em **Topologia do Trabalho**, abra **Entradas**.
+1. No trabalho criado, em **Topologia do Trabalho**, abra **Entradas**.
 
    ![Entrada do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-5. Selecione **Adicionar entrada de fluxo** e, em seguida, **Hub do Edge**.
+1. Selecione **Adicionar entrada de fluxo** e, em seguida, **Hub do Edge**.
 
-6. No painel **Nova entrada**, insira **temperatura** como o alias de entrada. 
+1. No painel **Nova entrada**, insira **temperatura** como o alias de entrada. 
 
-7. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-8. Em **Topologia do Trabalho**, abra **Saídas**.
+1. Em **Topologia do Trabalho**, abra **Saídas**.
 
    ![Saída do Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-9. Selecione **Adicionar** e, em seguida, **Hub do Edge**.
+1. Selecione **Adicionar** e, em seguida, **Hub do Edge**.
 
-10. No painel **Nova saída**, insira **alerta** como o alias de saída. 
+1. No painel **Nova saída**, insira **alerta** como o alias de saída. 
 
-11. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-12. Em **Topologia de Trabalho**, selecione **Consulta**e substitua o texto padrão pela consulta abaixo que cria um alerta quando a temperatura média da máquina em uma janela de 30 segundos atinge 70 graus:
+1. Em **Topologia de Trabalho**, selecione **Consulta**e substitua o texto padrão pela consulta abaixo que cria um alerta quando a temperatura média da máquina em uma janela de 30 segundos atinge 70 graus:
 
     ```sql
     SELECT  
@@ -115,15 +115,15 @@ Uma conta de Armazenamento do Azure é necessária em trabalhos do Azure Stream 
     HAVING Avg(machine.temperature) > 70
     ```
 
-13. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-14. Em **Configurar**, selecione **Configurações do IoT Edge**.
+1. Em **Configurar**, selecione **Configurações do IoT Edge**.
 
-15. Escolha a **conta de armazenamento** no menu suspenso.
+1. Escolha a **conta de armazenamento** no menu suspenso.
 
-16. No campo **Contêiner**, selecione **Criar novo** e forneça um nome para o contêiner de armazenamento. 
+1. No campo **Contêiner**, selecione **Criar novo** e forneça um nome para o contêiner de armazenamento. 
 
-17. Clique em **Salvar**. 
+1. Clique em **Salvar**. 
 
 
 ## <a name="deploy-the-job"></a>Implantar o trabalho
@@ -132,25 +132,25 @@ Agora você está pronto para implantar o trabalho do Azure Stream Analytics em 
 
 1. No portal do Azure, em seu hub IoT, vá para **IoT Edge** e abra a página de detalhes do dispositivo IoT Edge.
 
-2. Selecione **Definir módulos**.  
+1. Selecione **Definir módulos**.  
 
    Se você implantou o módulo tempSensor neste dispositivo, talvez ele seja automaticamente preenchido. Se não existir, adicione o módulo fazendo o seguinte:
 
    1. Clique em **Adicionar** e selecione **Módulo do IoT Edge**.
-   2. Como nome, digite **tempSensor**.
-   3. Como URI da imagem, insira **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
-   4. Deixe as outras configurações inalteradas.
-   5. Clique em **Salvar**.
+   1. Como nome, digite **tempSensor**.
+   1. Como URI da imagem, insira **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
+   1. Deixe as outras configurações inalteradas.
+   1. Clique em **Salvar**.
 
-3. Adicione o trabalho de Edge do Azure Stream Analytics com as seguintes etapas:
+1. Adicione o trabalho de Edge do Azure Stream Analytics com as seguintes etapas:
 
    1. Clique em **Adicionar** e selecione **Módulo do Azure Stream Analytics**.
-   2. Selecione sua assinatura e o trabalho de Edge do Azure Stream Analytics que você criou. 
-   3. Clique em **Salvar**.
+   1. Selecione sua assinatura e o trabalho de Edge do Azure Stream Analytics que você criou. 
+   1. Clique em **Salvar**.
 
-4. Selecione **Avançar**.
+1. Selecione **Avançar**.
 
-5. Substitua o valor padrão em **Rotas** pelo código a seguir. Atualize _{moduleName}_ com o nome do módulo do Azure Stream Analytics. O módulo deve ter o mesmo nome que o trabalho usado como base. 
+1. Substitua o valor padrão em **Rotas** pelo código a seguir. Atualize _{moduleName}_ com o nome do módulo do Azure Stream Analytics. O módulo deve ter o mesmo nome que o trabalho usado como base. 
 
     ```json
     {
@@ -163,11 +163,11 @@ Agora você está pronto para implantar o trabalho do Azure Stream Analytics em 
     }
     ```
 
-6. Selecione **Avançar**.
+1. Selecione **Avançar**.
 
-7. Na etapa **Revisar Implantação**, selecione **Enviar**.
+1. Na etapa **Revisar Implantação**, selecione **Enviar**.
 
-8. Volte para a página de detalhes do dispositivo e selecione **Atualizar**.  
+1. Volte para a página de detalhes do dispositivo e selecione **Atualizar**.  
 
     Você deverá ver o novo módulo do Stream Analytics executado juntamente com o módulo agente do IoT Edge e o hub do IoT Edge.
 
@@ -185,7 +185,7 @@ Agora você pode acessar o dispositivo do IoT Edge para verificar a interação 
 <!--
    ![Docker output][8]
 -->
-2. Exibir todos os logs do sistema e dados de métricas. Use o nome do módulo do Stream Analytics:
+1. Exibir todos os logs do sistema e dados de métricas. Use o nome do módulo do Stream Analytics:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -210,7 +210,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 Para excluir apenas o Hub IoT, execute o comando abaixo usando seu nome de hub e do grupo de recursos:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
@@ -218,14 +218,14 @@ Para excluir o grupo de recursos inteiro por nome:
 
 1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
+1. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
 
-3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
+1. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
 
 <!--
    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+1. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

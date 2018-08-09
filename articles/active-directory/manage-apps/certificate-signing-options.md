@@ -17,12 +17,12 @@ ms.date: 09/07/2017
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d5921b9b74bfa7e32cc8dc2f9fdc5f93d4027abb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e86c7e82203e2ecd571d5ce5e450999704218e33
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366494"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579156"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>As opções avançadas de assinatura de certificado no token SAML para aplicativos da galeria no Azure Active Directory
 Atualmente, o Azure Active Directory (AD do Azure) oferece suporte a milhares de aplicativos pré-integrados na Galeria de aplicativo do Azure Active Directory. Esse número inclui mais de 500 aplicativos que dão suporte ao logon único usando o protocolo SAML 2.0. Quando um usuário é autenticado em um aplicativo por meio do Azure AD usando SAML, o Azure AD envia um token ao aplicativo (por um HTTP POST). Em seguida, o aplicativo é validado e usa o token para conectar o usuário em vez de solicitar um nome de usuário e a senha. Esses tokens SAML são assinados com o certificado exclusivo que é gerado no Azure AD e por algorítimos padrão específicos.
@@ -62,6 +62,6 @@ O Azure AD dá suporte a dois algoritmos de assinatura para assinar resposta SAM
 ## <a name="next-steps"></a>Próximas etapas
 * [Índice de artigos para gerenciamento de aplicativos no Azure Active Directory](../active-directory-apps-index.md)
 * [Configurando logon único para aplicativos que não estão na galeria de aplicativo do Active Directory do Azure](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Solução de problemas de logon único baseado em SAML](../develop/active-directory-saml-debugging.md)
+* [Solução de problemas de logon único baseado em SAML](../develop/howto-v1-debug-saml-sso-issues.md)
 
 

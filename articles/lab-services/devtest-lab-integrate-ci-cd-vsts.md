@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635499"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438776"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs em seu pipeline de integração contínua e entrega do VSTS
 Você pode usar a extensão *Tarefas do Azure DevTest Labs* instalada no VSTS (Visual Studio Team Services) para integrar facilmente seu pipeline de build e lançamento de CI/CD ao Azure DevTest Labs. A extensão instala três tarefas: 
@@ -91,10 +91,10 @@ Esta seção descreve como criar o modelo do Azure Resource Manager que você us
 Para criar uma definição da versão, faça o seguinte:
 
 1. Na guia **Versões** do hub **Build e Versão**, selecione o botão com sinal de adição (+).
-2. Na janela **Criar definição da versão**, selecione o modelo **Vazio** e selecione **Avançar**.
-3. Selecione **Escolher Depois** e selecione **Criar** para criar uma nova definição da versão com um ambiente padrão e nenhum artefato vinculado.
-4. Para abrir o menu de atalho, na nova definição da versão, selecione as reticências (...) ao lado do nome do ambiente e, em seguida, selecione **Configurar variáveis**. 
-5. Na janela **Configurar – ambiente**, para as variáveis usadas nas tarefas de definição da versão, insira os seguintes valores:
+1. Na janela **Criar definição da versão**, selecione o modelo **Vazio** e selecione **Avançar**.
+1. Selecione **Escolher Depois** e selecione **Criar** para criar uma nova definição da versão com um ambiente padrão e nenhum artefato vinculado.
+1. Para abrir o menu de atalho, na nova definição da versão, selecione as reticências (...) ao lado do nome do ambiente e, em seguida, selecione **Configurar variáveis**. 
+1. Na janela **Configurar – ambiente**, para as variáveis usadas nas tarefas de definição da versão, insira os seguintes valores:
 
    a. Para **vmName**, insira o nome que você atribuiu à VM quando criou o modelo do Resource Manager no Portal do Azure.
 
@@ -107,7 +107,7 @@ Para criar uma definição da versão, faça o seguinte:
 A próxima etapa da implantação é criar a VM para usar como a "imagem dourada" para implantações subsequentes. Você cria a VM em sua instância do Azure DevTest Lab usando a tarefa que foi desenvolvida especialmente para essa finalidade. 
 
 1. Na definição da versão, selecione **Adicionar tarefas**.
-2. Na guia **Implantar**, adicione uma tarefa *Criar VM do Azure DevTest Labs*. Configure as tarefas da seguinte forma:
+1. Na guia **Implantar**, adicione uma tarefa *Criar VM do Azure DevTest Labs*. Configure as tarefas da seguinte forma:
 
    > [!NOTE]
    > Para criar a VM a ser usada para implantações subsequentes, consulte [Tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -134,8 +134,8 @@ A próxima etapa da implantação é criar a VM para usar como a "imagem dourada
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. Execute o script que você criou anteriormente para coletar os detalhes da VM do DevTest Labs. 
-4. Na definição da versão, selecione **Adicionar tarefas** e, na guia **Implantar**, adicione uma tarefa do *Azure PowerShell*. Configure as tarefas da seguinte forma:
+1. Execute o script que você criou anteriormente para coletar os detalhes da VM do DevTest Labs. 
+1. Na definição da versão, selecione **Adicionar tarefas** e, na guia **Implantar**, adicione uma tarefa do *Azure PowerShell*. Configure as tarefas da seguinte forma:
 
    > [!NOTE]
    > Para obter os detalhes da VM do DevTest Labs, consulte [Implantar: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) e execute o script.
@@ -156,7 +156,7 @@ A próxima etapa da implantação é criar a VM para usar como a "imagem dourada
       ```
     O script coleta os valores necessários e os armazena em variáveis de ambiente na definição da versão para que você possa fazer referência a eles facilmente nas etapas subsequentes.
 
-5. Implante seu aplicativo para a nova VM do DevTest Labs. As tarefas que você normalmente usa para implantar o aplicativo são *Cópia de arquivo do Azure* e *PowerShell em computadores de destino*.
+1. Implante seu aplicativo para a nova VM do DevTest Labs. As tarefas que você normalmente usa para implantar o aplicativo são *Cópia de arquivo do Azure* e *PowerShell em computadores de destino*.
    As informações sobre a VM necessárias para os parâmetros dessas tarefas estão armazenadas em três variáveis de configuração chamadas **labVmRgName**, **labVMIpAddress** e **labVMFqdn** na definição da versão. Se você quiser apenas experimentar com a criação de uma VM do DevTest Labs e uma imagem personalizada, sem implantar um aplicativo nela, poderá ignorar essa etapa.
 
 ### <a name="create-an-image"></a>Criar uma imagem
@@ -164,7 +164,7 @@ A próxima etapa da implantação é criar a VM para usar como a "imagem dourada
 A próxima etapa é criar uma imagem da VM recém-implantada em sua instância do Azure DevTest Labs. Você pode usar a imagem para criar cópias da VM sob demanda sempre que desejar executar uma tarefa de desenvolvimento ou executar alguns testes. 
 
 1. Na definição da versão, selecione **Adicionar tarefas**.
-2. Na guia **Implantar**, adicione uma tarefa **Criar Imagem Personalizada do Azure DevTest Labs**. Configure-o da seguinte maneira:
+1. Na guia **Implantar**, adicione uma tarefa **Criar Imagem Personalizada do Azure DevTest Labs**. Configure-o da seguinte maneira:
 
    > [!NOTE]
    > Para criar a imagem, consulte [Tarefas do Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -194,8 +194,8 @@ A última etapa é excluir a VM que você implantou em sua instância do Azure D
  
    b. Para **ID da VM do Laboratório de Origem**, se você alterou o nome padrão da variável de ambiente que foi populada automaticamente com a ID da VM do Laboratório por uma tarefa anterior, edite-o aqui. O valor padrão é **$(labVMId)**.
 
-2. Insira um nome para a definição da versão e, em seguida, salve-a.
-3. Crie uma nova versão, selecione o build mais recente e implante-o no único ambiente na definição.
+1. Insira um nome para a definição da versão e, em seguida, salve-a.
+1. Crie uma nova versão, selecione o build mais recente e implante-o no único ambiente na definição.
 
 Em cada etapa, atualize a exibição da instância do DevTest Labs no Portal do Azure para exibir a VM e a imagem sendo criadas e a VM sendo excluída novamente.
 

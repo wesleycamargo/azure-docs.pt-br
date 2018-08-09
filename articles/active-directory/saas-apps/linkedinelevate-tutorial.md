@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f0d7b2a46cf99c6e1f772a91ed07f7ca91d77a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f8f12263ca71b8e88033484bc03fc4cff9e25bc8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227727"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435206"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Elevate
 
@@ -33,7 +33,7 @@ A integração do LinkedIn Elevate com o Azure AD oferece os seguintes benefíci
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o LinkedIn Elevate, são necessários os seguintes itens:
 
@@ -53,7 +53,7 @@ Neste tutorial, você testará o logon único do Azure AD em um ambiente de test
 O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LinkedIn da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-linkedin-elevate-from-the-gallery"></a>Adicionando o LinkedIn da galeria
 Para configurar a integração do LinkedIn Elevate ao Azure AD, é necessário adicionar o LinkedIn Elevate por meio da galeria à lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do LinkedIn Elevate ao Azure AD, é necessário a
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
 
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **LinkedIn Elevate**. No painel de resultados, clique em **LinkedIn Elevate** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **LinkedIn Elevate**. No painel de resultados, clique em **LinkedIn Elevate** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_000.png)
 
@@ -86,10 +86,10 @@ Essa relação de vínculo é estabelecida por meio da atribuição do valor de 
 Para configurar e testar o logon único do Azure AD com o LinkedIn Elevate, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do LinkedIn Elevate](#creating-a-linkedin-elevate-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do LinkedIn Elevate](#creating-a-linkedin-elevate-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -101,21 +101,21 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial-linkedin_01.png)
 
-3. Em uma janela diferente do navegador da Web, faça logon em seu locatário do LinkedIn Elevate como um administrador.
+1. Em uma janela diferente do navegador da Web, faça logon em seu locatário do LinkedIn Elevate como um administrador.
 
-4. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Elevar – Elevar teste do AAD** na lista suspensa.
+1. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Elevar – Elevar teste do AAD** na lista suspensa.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Clique em **OU Clique aqui para carregar e copiar campos individuais do formulário** e copie a **ID da entidade** e **URL ACS (acesso do consumidor de declaração)**
+1. Clique em **OU Clique aqui para carregar e copiar campos individuais do formulário** e copie a **ID da entidade** e **URL ACS (acesso do consumidor de declaração)**
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_03.png)
 
-6. No Portal do Azure, em **Domínio e URLs do LinkedIn Elevate**, siga as etapas abaixo para configurar o SSO no modo **iniciado pelo IdP**
+1. No Portal do Azure, em **Domínio e URLs do LinkedIn Elevate**, siga as etapas abaixo para configurar o SSO no modo **iniciado pelo IdP**
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_01.png)
 
@@ -123,17 +123,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     b. Na caixa de texto **URL de resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
-7. Se você desejar configurar o SSO em **Iniciado pelo SP**, clique na opção Mostrar configurações avançadas de URL na seção de configuração e configure o logon na URL com o seguinte padrão:
+1. Se você desejar configurar o SSO em **Iniciado pelo SP**, clique na opção Mostrar configurações avançadas de URL na seção de configuração e configure o logon na URL com o seguinte padrão:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
 
-8. Seu aplicativo LinkedIn Elevate espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **identificador de usuário** é **user.userprincipalname**, mas o LinkedIn Elevate espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
+1. Seu aplicativo LinkedIn Elevate espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo disso. O valor padrão do **identificador de usuário** é **user.userprincipalname**, mas o LinkedIn Elevate espera que isso seja mapeado com o endereço de email do usuário. Para que você possa usar o atributo **user. mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/updateusermail.png)
 
-9. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos. É necessário adicionar outra declaração denominada **departamento** e o valor deve ser mapeado para **user.department**.
+1. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos. É necessário adicionar outra declaração denominada **departamento** e o valor deve ser mapeado para **user.department**.
 
     | Nome do atributo | Valor do atributo |
     | --- | --- |
@@ -149,19 +149,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
       c. Altere o nome do atributo **emailaddress** para **email**.
 
-10. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_certificate.png) 
 
-11. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_general_400.png)
 
-12. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você acabou de baixar no portal do Azure clicando na opção Carregar arquivo XML.
+1. Vá para a seção **Configurações de administração do LinkedIn**. Carregue o arquivo XML que você acabou de baixar no portal do Azure clicando na opção Carregar arquivo XML.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
-13. Clique em **Ativar** para habilitar o SSO. O status do SSO será alterado de **Não conectado** para **Conectado**
+1. Clique em **Ativar** para habilitar o SSO. O status do SSO será alterado de **Não conectado** para **Conectado**
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -176,15 +176,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinelevate-tutorial/create_aaduser_04.png) 
 
@@ -214,23 +214,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201]
 
-2. Na lista de aplicativos, selecione **LinkedIn Elevate**.
+1. Na lista de aplicativos, selecione **LinkedIn Elevate**.
 
     ![Configurar o logon único](./media/linkedinelevate-tutorial/tutorial-linkedinElevate_0001.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

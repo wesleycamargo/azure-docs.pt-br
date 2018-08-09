@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: b841210121cb2091b4c4130d3353a3ab85467d4b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a685b5702aa9f74f3e0abf2a06774a30ac0d996f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211376"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Active Directory do Azure com o Thoughtworks Mingle
 
@@ -34,7 +34,7 @@ A integração do Thoughtworks Mingle ao Azure AD oferece os seguintes benefíci
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Thoughtworks Mingle, você precisará dos seguintes itens:
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Thoughtworks Mingle da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-thoughtworks-mingle-from-the-gallery"></a>Adicionar o Thoughtworks Mingle da galeria
 Para configurar a integração do Thoughtworks Mingle ao Azure AD, você precisa adicionar o Thoughtworks Mingle da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Thoughtworks Mingle ao Azure AD, você precisa
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Thoughtworks Mingle**, selecione **Thoughtworks Mingle** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Thoughtworks Mingle**, selecione **Thoughtworks Mingle** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![ThoughtWorks Mingle na lista de resultados](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_addfromgallery.png)
 
@@ -86,10 +86,10 @@ No Thoughtworks Mingle, atribua o valor do **nome de usuário** no Azure AD como
 Para configurar e testar o logon único do Azure AD com o Thoughtworks Mingle, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Workrite](#create-a-thoughtworks-mingle-test-user)** – para ter um equivalente de Brenda Fernandes no Thoughtworks Mingle vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Workrite](#create-a-thoughtworks-mingle-test-user)** – para ter um equivalente de Brenda Fernandes no Thoughtworks Mingle vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -101,11 +101,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_samlbase.png)
 
-3. Na seção **Domínio e URLs do Thoughtworks Mingle**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Thoughtworks Mingle**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Thoughtworks Mingle](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_url.png)
 
@@ -114,21 +114,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Thoughtworks Mingle](https://support.thoughtworks.com/hc/categories/201743486-Mingle-Community-Support) para obter o valor. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/thoughtworks-mingle-tutorial/tutorial_general_400.png)
 
-6. Faça logon em seu site de empresa do **Thoughtworks Mingle** como administrador.
+1. Faça logon em seu site de empresa do **Thoughtworks Mingle** como administrador.
 
-7. Clique na guia **Administrador** e em **Config. de SSO**.
+1. Clique na guia **Administrador** e em **Config. de SSO**.
    
     ![Guia Administrador](./media/thoughtworks-mingle-tutorial/ic785157.png "Configuração de SSO")
 
-8. Na seção **Config. de SSO** , realize as seguintes etapas:
+1. Na seção **Config. de SSO** , realize as seguintes etapas:
    
     ![Configuração de SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuração de SSO")
     
@@ -151,15 +151,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/thoughtworks-mingle-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/thoughtworks-mingle-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![O botão Adicionar](./media/thoughtworks-mingle-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![A caixa de diálogo Usuário](./media/thoughtworks-mingle-tutorial/create_aaduser_04.png) 
 
@@ -179,19 +179,19 @@ Para usuários do Azure AD conseguirem entrar, eles devem ser provisionados para
 
 1. Faça logon em seu site de empresa Thoughtworks Mingle como um administrador.
 
-2. Clique em **Perfil**.
+1. Clique em **Perfil**.
    
     ![Seu primeiro projeto](./media/thoughtworks-mingle-tutorial/ic785160.png "Seu primeiro projeto")
 
-3. Clique na guia **Administrador** e em **Usuários**.
+1. Clique na guia **Administrador** e em **Usuários**.
    
     ![Usuários](./media/thoughtworks-mingle-tutorial/ic785161.png "Usuários")
 
-4. Clique em **Novo Usuário**.
+1. Clique em **Novo Usuário**.
    
     ![Novo Usuário](./media/thoughtworks-mingle-tutorial/ic785162.png "Novo Usuário")
 
-5. Na página do diálogo **Novo Usuário** , realize as seguintes etapas:
+1. Na página do diálogo **Novo Usuário** , realize as seguintes etapas:
    
     ![Caixa de diálogo Novo Usuário](./media/thoughtworks-mingle-tutorial/ic785163.png "Novo Usuário")  
  
@@ -217,23 +217,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Thoughtworks Mingle**.
+1. Na lista de aplicativos, selecione **Thoughtworks Mingle**.
 
     ![O link do Thoughtworks Mingle na lista de Aplicativos](./media/thoughtworks-mingle-tutorial/tutorial_thoughtworksmingle_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

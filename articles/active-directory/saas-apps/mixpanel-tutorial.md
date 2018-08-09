@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ebbd6efaa2acccebcfdafa5ccd7c945b588d763b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9ec0b27defdc4c859415e78e1cb6e43f5ed0b208
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046511"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435070"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Active Directory do Azure com o Mixpanel
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Mixpanel da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mixpanel-from-the-gallery"></a>Adição do Mixpanel da galeria
 Para configurar a integração do Mixpanel ao Azure AD, você precisará adicionar o Mixpanel à sua lista de aplicativos SaaS gerenciados a partir da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do Mixpanel ao Azure AD, você precisará adicion
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Mixpanel**.
+1. Na caixa de pesquisa, digite **Mixpanel**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/tutorial_mixpanel_search.png)
 
-5. No painel de resultados, selecione **Mixpanel** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Mixpanel** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/tutorial_mixpanel_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Mixpanel, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Mixpanel, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Mixpanel](#creating-a-mixpanel-test-user)**: para ter um equivalente de Brenda Fernandes no Mixpanel que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Mixpanel](#creating-a-mixpanel-test-user)**: para ter um equivalente de Brenda Fernandes no Mixpanel que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
 
-3. Na seção **Domínio e URLs do Mixpanel**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Mixpanel**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_mixpanel_url.png)
 
@@ -117,37 +117,37 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     > [!NOTE] 
     > Registre-se em [https://mixpanel.com/register/](https://mixpanel.com/register/) para configurar suas credenciais de logon e entre em contato com a [equipe de suporte do Mixpanel](mailto:support@mixpanel.com) para habilitar as configurações de SSO para seu locatário. Você também poderá obter o valor da URL de Entrada, se for necessário, da equipe de suporte do Mixpanel. 
  
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Mixpanel**, clique em **Configurar Mixpanel** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Mixpanel**, clique em **Configurar Mixpanel** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_mixpanel_configure.png) 
 
-7. Em uma janela diferente do navegador, faça logon no aplicativo Mixpanel como administrador.
+1. Em uma janela diferente do navegador, faça logon no aplicativo Mixpanel como administrador.
 
-8. Na parte inferior da página, clique no ícone de **engrenagem** no canto esquerdo. 
+1. Na parte inferior da página, clique no ícone de **engrenagem** no canto esquerdo. 
    
     ![Logon único do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_06.png) 
 
-9. Clique na guia **Segurança de acesso** e clique em **Alterar configurações**.
+1. Clique na guia **Segurança de acesso** e clique em **Alterar configurações**.
    
     ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
-10. Na página de diálogo **Alterar seu certificado**, clique em **Escolher arquivo** para carregar o certificado baixado e, em seguida, clique em **AVANÇAR**.
+1. Na página de diálogo **Alterar seu certificado**, clique em **Escolher arquivo** para carregar o certificado baixado e, em seguida, clique em **AVANÇAR**.
    
     ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
-11.  Na caixa de texto da URL de autenticação na página de diálogo **Alterar a URL de autenticação**, cole o valor de **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure e, em seguida, clique em **AVANÇAR**.
+1.  Na caixa de texto da URL de autenticação na página de diálogo **Alterar a URL de autenticação**, cole o valor de **URL de Serviço de Logon Único do SAML** que você copiou do Portal do Azure e, em seguida, clique em **AVANÇAR**.
    
    ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
-12. Clique em **Concluído**.
+1. Clique em **Concluído**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,15 +163,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/mixpanel-tutorial/create_aaduser_04.png) 
 
@@ -189,15 +189,15 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Mixpan
 
 1. Faça logon em seu site de empresa do Mixpanel como administrador.
 
-2. Na parte inferior da página, clique no pequeno botão de engrenagem no canto esquerdo para abrir a janela **Configurações** .
+1. Na parte inferior da página, clique no pequeno botão de engrenagem no canto esquerdo para abrir a janela **Configurações** .
 
-3. Clique na guia **Equipe** .
+1. Clique na guia **Equipe** .
 
-4. Na caixa de texto **membro da equipe** , digite o endereço de email de Brenda no Azure.
+1. Na caixa de texto **membro da equipe** , digite o endereço de email de Brenda no Azure.
    
     ![Configurações do Mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
-5. Clique em **Convidar**. 
+1. Clique em **Convidar**. 
 
 > [!Note]
 > O usuário receberá um email para configurar o perfil.
@@ -214,23 +214,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Mixpanel**.
+1. Na lista de aplicativos, selecione **Mixpanel**.
 
     ![Configurar o logon único](./media/mixpanel-tutorial/tutorial_mixpanel_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114670"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493014"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Protegendo bancos de dados de PaaS no Azure
 
@@ -42,7 +42,7 @@ Os bancos de dados SQL do Azure podem ser configurados para usar um dos dois tip
 
 - A **Autenticação do Azure Active Directory** usa identidades gerenciadas pelo Azure Active Directory e que tem suporte para domínios gerenciados e integrados. Para usar a Autenticação do Azure Active Directory, você deve criar outro administrador de servidor chamado “admin do Azure AD”, que tenha permissão para administrar usuários e grupos do Azure AD. Este administrador também pode executar todas as operações executadas por um administrador de servidor comum.
 
-A [autenticação do Azure Active Directory](../active-directory/develop/active-directory-authentication-scenarios.md) é um mecanismo de conexão com o Banco de Dados SQL do Azure e o SQL Data Warehouse usando identidades no Azure AD (Active Directory). O Azure AD fornece uma alternativa para a autenticação do SQL Server para que você possa parar a proliferação de identidades de usuário entre os servidores de banco de dados. A autenticação do Azure AD permite que você gerencie centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.  
+A [autenticação do Azure Active Directory](../active-directory/develop/authentication-scenarios.md) é um mecanismo de conexão com o Banco de Dados SQL do Azure e o SQL Data Warehouse usando identidades no Azure AD (Active Directory). O Azure AD fornece uma alternativa para a autenticação do SQL Server para que você possa parar a proliferação de identidades de usuário entre os servidores de banco de dados. A autenticação do Azure AD permite que você gerencie centralmente as identidades de usuários do banco de dados e outros serviços da Microsoft em uma única localização central. O gerenciamento central de IDs fornece um único local para gerenciar os usuários do banco de dados e simplifica o gerenciamento de permissões.  
 
 Os benefícios de usar a autenticação do Azure AD em vez da autenticação do SQL incluem:
 

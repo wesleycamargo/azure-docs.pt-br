@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325448"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596045"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para aquisição de token 
 
@@ -44,7 +44,7 @@ Se você planeja usar os exemplos do Azure PowerShell neste artigo, instale a ve
 
 ## <a name="overview"></a>Visão geral
 
-Um aplicativo cliente pode solicitar uma identidade de serviço gerenciado [token de acesso somente de aplicativo](../develop/active-directory-dev-glossary.md#access-token) para acessar um determinado recurso. O token é [com base na entidade de serviço da MSI](overview.md#how-does-it-work). Sendo assim, o cliente não precisa se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/active-directory-protocols-oauth-service-to-service.md).
+Um aplicativo cliente pode solicitar uma identidade de serviço gerenciado [token de acesso somente de aplicativo](../develop/developer-glossary.md#access-token) para acessar um determinado recurso. O token é [com base na entidade de serviço da MSI](overview.md#how-does-it-work). Sendo assim, o cliente não precisa se registrar para obter um token de acesso em sua própria entidade de serviço. O token é adequado para uso como um token de portador em [chamadas de serviço a serviço que exigem credenciais de cliente](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

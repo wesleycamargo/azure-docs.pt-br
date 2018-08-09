@@ -2,24 +2,18 @@
 title: Ofertas de conformidade do Armazenamento do Azure | Microsoft Docs
 description: Resumo das ofertas de conformidade no Armazenamento do Azure
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 06/27/2018
 ms.author: fryu
-ms.openlocfilehash: ad09fd406cca1fe9c0abea6c31e7aebffb60868c
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.component: common
+ms.openlocfilehash: 1a3a2e9e1f19ab2746156de7b07d1ae6146ba4c1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869965"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524239"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade do Armazenamento do Azure
 
@@ -67,7 +61,7 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/compliance/hipaa)
 * [HITRUST](https://www.microsoft.com/en-us/trustcenter/Compliance/HITRUST)
 * [MARS-E](https://www.microsoft.com/en-us/trustcenter/compliance/mars-e)
-* [MAS + ABS (Singapura)](https://aka.ms/AzureCompliance)
+* [MAS + ABS (Cingapura)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/en-us/trustcenter/compliance/mpaa)
 * [NEN-7510 (Países Baixos)](https://www.microsoft.com/en-us/trustcenter/compliance/nen-7510)
 * [Kit de ferramentas do NHS IG (Reino Unido)](https://www.microsoft.com/en-us/trustcenter/Compliance/NHS)
@@ -87,10 +81,10 @@ Encontre abaixo as ofertas de conformidade do Armazenamento do Azure para garant
 * [Cláusulas de modelo da UE](https://www.microsoft.com/en-us/trustcenter/compliance/eu-model-clauses)
 * [Blindagem de privacidade UE-EUA](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (China)](https://www.trustcenter.cn/compliance/default.html#GB18030)
-* [RGPD (UE)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
+* [GDPR (UE)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
 * [IT Grundschutz Workbook (Alemanha)](https://www.microsoft.com/en-us/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Espanha)](https://aka.ms/AzureCompliance)
-* [MTCS (Singapura)](https://www.microsoft.com/en-us/trustcenter/compliance/mtcs)
+* [MTCS (Cingapura)](https://www.microsoft.com/en-us/trustcenter/compliance/mtcs)
 * [My Number (Japão)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
 * [NZ CC Framework (Nova Zelândia)](https://www.microsoft.com/en-us/trustcenter/compliance/nzcc)
 * [PASF (Reino Unido)](https://aka.ms/AzureCompliance)

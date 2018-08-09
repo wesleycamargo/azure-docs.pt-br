@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 4b842f9a00587e8a9771e6ca92806c09e711e6db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345773"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495257"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Tutorial: 4. Adicionar listar de entidades
 Neste tutorial, crie um aplicativo que demonstra como obter dados que correspondam a uma lista predefinida. 
@@ -134,15 +134,8 @@ Agora que a intenção **MoveEmployee** tem enunciados, LUIS precisa entender o 
     |Número do seguro social|234-56-7891|
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
-O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) até que seja treinado. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Train** (Treinar).
-
-    ![Treinar o aplicativo](./media/luis-quickstart-intent-and-list-entity/train-button.png)
-
-2. O treinamento é concluído quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
-
-    ![Treinamento bem-sucedido](./media/luis-quickstart-intent-and-list-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 
@@ -278,7 +271,8 @@ Agora seu chatbot tem informações suficientes para determinar a ação primár
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados da entidade para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Aplicativos Mu** no menu superior esquerdo. Selecione as reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: realizar operações de extração, transformação e carregamento (ETL) usando o Hive no HDInsight - Azure | Microsoft Docs'
+title: 'Tutorial: Realizar operações de extração, transformação e carregamento (ETL) usando o Hive no HDInsight - Azure '
 description: Saiba como extrair dados de um conjunto de dados CSV brutos, transformá-los usando o Hive no HDInsight e, em seguida, carregar os dados transformados no banco de dados SQL do Azure usando Sqoop.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7a6868eb0df815562e4c9c6929876116a5dccbac
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098222"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599305"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutorial: extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
@@ -44,7 +39,7 @@ A ilustração a seguir mostra o fluxo do aplicativo de ETL típico.
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster Hadoop baseado em Linux no HDInsight**. Confira [Introdução ao uso do Hadoop no HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) para obter as etapas da criação de um novo cluster HDInsight baseado em Linux.
 
@@ -245,7 +240,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     1>
     ```
 
-4. Ao prompt `1>` , insira o seguinte:
+4. Ao prompt `1>`, insira o seguinte:
 
     ```hiveql
     CREATE TABLE [dbo].[delays](
@@ -272,7 +267,7 @@ Se você já tem um Banco de Dados SQL, deverá obter o nome do servidor. Para l
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. Enter `exit` at the `1>` .
+5. Enter `exit` at the `1>`.
 
 ## <a name="export-data-to-sql-database-using-sqoop"></a>Exportar dados para o banco de dados SQL usando Sqoop
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127584"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436719"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -44,9 +44,9 @@ A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução
 
 | **Fonte conectada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | sim | A solução coleta informações de DNS dos agentes do Windows. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | SIM | A solução coleta informações de DNS dos agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não  | A solução não coleta informações de DNS dos agentes diretos do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessário ter uma conexão direta do agente do Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite. |
+| [Grupo de gerenciamento do System Center Operations Manager](log-analytics-om-agents.md) | SIM | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessário ter uma conexão direta do agente do Operations Manager com o Operations Management Suite. Os dados são encaminhados do grupo de gerenciamento para o repositório do Operations Management Suite. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | O armazenamento do Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da coleta de dados
@@ -133,11 +133,11 @@ As informações ajudam você a identificar:
 
 1. Encontre a zona que é autoritativa para o nome que o cliente está tentando atualizar.
 
-2. Use a solução para verificar as informações de inventário dessa zona.
+1. Use a solução para verificar as informações de inventário dessa zona.
 
-3. Verifique se a atualização dinâmica para a zona está habilitada.
+1. Verifique se a atualização dinâmica para a zona está habilitada.
 
-4. Verifique se a zona está configurada para atualização dinâmica segura ou não.
+1. Verifique se a zona está configurada para atualização dinâmica segura ou não.
 
     ![folha Registros de DNS Dinâmico](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -177,7 +177,7 @@ Na página Pesquisa de Logs, é possível criar uma consulta. Você pode filtrar
 
     c. Para exibir os dados de logs das alterações de configuração, selecione **ConfigurationChange** como o filtro **Subtipo** no controle de faceta à esquerda. É exibida uma tabela que lista os eventos de alteração de configuração do período selecionado.
 
-2. Na **caixa de consulta de pesquisa**, digite `DnsInventory` para exibir todos os dados relacionados ao inventário DNS dos servidores DNS gerenciados pela solução. Os resultados listam os dados de log dos servidores DNS, das zonas DNS e dos registros de recursos.
+1. Na **caixa de consulta de pesquisa**, digite `DnsInventory` para exibir todos os dados relacionados ao inventário DNS dos servidores DNS gerenciados pela solução. Os resultados listam os dados de log dos servidores DNS, das zonas DNS e dos registros de recursos.
 
     ![Pesquisa de logs de DnsInventory](./media/log-analytics-dns/log-search-dnsinventory.png)
 

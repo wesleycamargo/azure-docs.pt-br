@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 9811be78bd6260b17c462c077ed299dff8309b83
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: af2c997f0842da751eb93f0788a7402fc7d144ae
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048500"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas-lms"></a>Tutorial: Integração do Azure Active Directory ao Canvas LMS
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Canvas por meio da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-canvas-from-the-gallery"></a>Adicionando o Canvas por meio da galeria
 Para configurar a integração do Canvas ao Azure AD, você precisa adicionar o Canvas à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do Canvas ao Azure AD, você precisa adicionar o 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Canvas**.
+1. Na caixa de pesquisa, digite **Canvas**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/tutorial_canvaslms_search.png)
 
-5. No painel de resultados, selecione **Canvas** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Canvas** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/tutorial_canvaslms_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Canvas, atribua o valor do **nome de usuário** no Azure AD como o valor do *
 Para configurar e testar o logon único do Azure AD com o Canvas, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Canvas](#creating-a-canvas-test-user)** – para ter um equivalente de Brenda Fernandes no Canvas que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Canvas](#creating-a-canvas-test-user)** – para ter um equivalente de Brenda Fernandes no Canvas que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_canvaslms_samlbase.png)
 
-3. Na seção **Domínio e URLs do Canvas**, realize as seguintes etapas:
+1. Na seção **Domínio e URLs do Canvas**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_canvaslms_url.png)
 
@@ -119,29 +119,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Canvas](https://community.canvaslms.com/community/help) para obter esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
+1. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
 
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_canvaslms_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Canvas**, clique em **Configurar o Canvas** para abrir a janela **Configurar logon**. Copie a **URL de Alteração de Senha, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Canvas**, clique em **Configurar o Canvas** para abrir a janela **Configurar logon**. Copie a **URL de Alteração de Senha, a URL de Saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_canvaslms_configure.png) 
  
-7. Em outra janela do navegador da Web, faça logon em seu site de empresa do Canvas como administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do Canvas como administrador.
 
-8. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
+1. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
    
     ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-9. No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Config. do SAML**.
+1. No painel de navegação à esquerda, selecione **Autenticação** e clique em **Adicionar Nova Config. do SAML**.
    
     ![Autenticação](./media/canvas-lms-tutorial/IC775991.png "Autenticação")
 
-10. Na página de integração atual, execute as seguintes etapas:
+1. Na página de integração atual, execute as seguintes etapas:
    
     ![Integração Atual](./media/canvas-lms-tutorial/IC775992.png "integração Atual")
 
@@ -175,15 +175,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/canvas-lms-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ No caso do Canvas, o provisionamento de usuário é uma tarefa manual.
 
 1. Faça logon em seu locatário do **Canvas** .
 
-2. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
+1. Vá para **Cursos \> Contas Gerenciadas \> Microsoft**.
    
    ![Canvas](./media/canvas-lms-tutorial/IC775990.png "Canvas")
 
-3. Clique em **Usuários**.
+1. Clique em **Usuários**.
    
    ![Usuários](./media/canvas-lms-tutorial/IC775995.png "Usuários")
 
-4. Clique em **Adicionar Novo Usuário**.
+1. Clique em **Adicionar Novo Usuário**.
    
    ![Usuários](./media/canvas-lms-tutorial/IC775996.png "Usuários")
 
-5. Na página da caixa de diálogo Adicionar um Novo Usuário, execute as seguintes etapas:
+1. Na página da caixa de diálogo Adicionar um Novo Usuário, execute as seguintes etapas:
    
    ![Adicionar Usuário](./media/canvas-lms-tutorial/IC775997.png "Adicionar Usuário")
    
@@ -246,23 +246,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Canvas**.
+1. Na lista de aplicativos, selecione **Canvas**.
 
     ![Configurar o logon único](./media/canvas-lms-tutorial/tutorial_canvaslms_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

@@ -2,24 +2,18 @@
 title: Mover grandes quantidades dados do/para armazenamento em nuvem no Azure | Microsoft Docs
 description: Uma visão geral dos diferentes métodos para mover dados para dentro e para fora do Armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: common
+ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984588"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525528"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movendo dados para dentro e para fora do Armazenamento do Azure
 Se você quiser mover dados locais para o Armazenamento do Azure (ou vice-versa), há várias maneiras de fazer isso. A melhor abordagem para você dependerá do seu cenário. Este artigo fornece uma visão geral rápida de diferentes cenários e ofertas apropriadas para cada um.

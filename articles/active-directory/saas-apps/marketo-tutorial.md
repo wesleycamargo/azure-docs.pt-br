@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e7ff12938ea66bc218f71018247e70f0ebc1400d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bd647601249e22942596e78b66d0322857f3eaa4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226802"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory com o Marketo
 
@@ -33,7 +33,7 @@ A integração do Marketo ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Marketo, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Marketo da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-marketo-from-the-gallery"></a>Adicionar o Marketo da galeria
 Para configurar a integração do Marketo ao Azure AD, você precisará adicionar o Marketo da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Marketo ao Azure AD, você precisará adiciona
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Marketo**.
+1. Na caixa de pesquisa, digite **Marketo**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/tutorial_marketo_search.png)
 
-5. No painel de resultados, selecione **Marketo** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Marketo** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/tutorial_marketo_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Marketo, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 Para configurar e testar o logon único do Azure AD com o Marketo, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Marketo](#creating-a-marketo-test-user)** – para ter um equivalente de Brenda Fernandes no Marketo que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Marketo](#creating-a-marketo-test-user)** – para ter um equivalente de Brenda Fernandes no Marketo que esteja vinculado à representação dela no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_samlbase.png)
 
-3. Na seção **Domínio e URLs do Marketo**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Marketo**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_url.png)
 
@@ -119,19 +119,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Marketo](http://investors.marketo.com/contactus.cfm) para obter esses valores.
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Marketo**, clique em **Configurar Marketo** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Marketo**, clique em **Configurar Marketo** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_configure.png) 
 
-7. Para obter a Id do Munchkin do aplicativo, faça logon no Marketo usando credenciais de administrador e execute as seguintes ações:
+1. Para obter a Id do Munchkin do aplicativo, faça logon no Marketo usando credenciais de administrador e execute as seguintes ações:
    
     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
@@ -147,7 +147,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_12.png) 
 
-8. Para configurar o SSO no aplicativo, siga estas etapas:
+1. Para configurar o SSO no aplicativo, siga estas etapas:
    
     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
@@ -188,7 +188,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_10.png)
 
-9. Para habilitar o SSO para usuários, conclua as seguintes ações:
+1. Para habilitar o SSO para usuários, conclua as seguintes ações:
    
     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
@@ -219,15 +219,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/marketo-tutorial/create_aaduser_04.png) 
 
@@ -245,19 +245,19 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
 
 1. Faça logon usando credenciais de administrador de aplicativo do Marketo.
 
-2. Clique no botão **Admin** no painel de navegação superior.
+1. Clique no botão **Admin** no painel de navegação superior.
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_06.png) 
 
-3. Navegue até o menu **Segurança** e clique em **Usuários e Funções**
+1. Navegue até o menu **Segurança** e clique em **Usuários e Funções**
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_19.png)  
 
-4. Clique no link **Convidar Novo Usuário** na guia Usuários
+1. Clique no link **Convidar Novo Usuário** na guia Usuários
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_15.png) 
 
-5. No assistente para Convidar Novo Usuário, preencha as informações a seguir
+1. No assistente para Convidar Novo Usuário, preencha as informações a seguir
    
     a. Insira o endereço de **Email** do usuário na caixa de texto
    
@@ -269,14 +269,14 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
    
     d. Clique em **Avançar**
 
-6. Na guia **Permissões**, selecione **userRoles** e clique em **Avançar**
+1. Na guia **Permissões**, selecione **userRoles** e clique em **Avançar**
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_17.png)
-7. Clique no botão **Enviar** para enviar o convite de usuário
+1. Clique no botão **Enviar** para enviar o convite de usuário
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_18.png)
 
-8. Os usuários receberão a notificação de email e precisarão clicar no link e alterar a senha para ativar a conta. 
+1. Os usuários receberão a notificação de email e precisarão clicar no link e alterar a senha para ativar a conta. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -290,23 +290,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Marketo**.
+1. Na lista de aplicativos, selecione **Marketo**.
 
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

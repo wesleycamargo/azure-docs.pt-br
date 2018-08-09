@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: cdc883adb321d4efffd1580bdb730f998f9b5b47
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 45dbf350bc874d48b077ba8f7d67819eff741df2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051890"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>Tutorial: Integração do Active Directory do Azure com o Lucidchart
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Lucidchart da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-lucidchart-from-the-gallery"></a>Adicionar o Lucidchart da galeria
 Para configurar a integração do Lucidchart ao Azure AD, você precisará adicionar o Lucidchart da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Lucidchart ao Azure AD, você precisará adici
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Lucidchart**.
+1. Na caixa de pesquisa, digite **Lucidchart**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/tutorial_lucidchart_search.png)
 
-5. No painel de resultados, selecione **Lucidchart** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Lucidchart** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/tutorial_lucidchart_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Lucidchart, atribua o valor do **nome de usuário** no Azure AD como o valor 
 Para configurar e testar o logon único do Azure AD com o Lucidchart, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Lucidchart](#creating-a-lucidchart-test-user)** – para ter um equivalente de Brenda Fernandes no Lucidchart que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Lucidchart](#creating-a-lucidchart-test-user)** – para ter um equivalente de Brenda Fernandes no Lucidchart que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,35 +104,35 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/lucidchart-tutorial/tutorial_lucidchart_samlbase.png)
 
-3. Na seção **Domínio e URLs do Lucidchart**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Lucidchart**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/lucidchart-tutorial/tutorial_lucidchart_url.png)
 
     Na caixa de texto **URL de Logon**, digite uma URL como: `https://chart2.office.lucidchart.com/saml/sso/azure`
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![Configurar o logon único](./media/lucidchart-tutorial/tutorial_lucidchart_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/lucidchart-tutorial/tutorial_general_400.png)
 
-6. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Lucidchart como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Lucidchart como administrador.
 
-7. No menu na parte superior, clique em **Equipe**.
+1. No menu na parte superior, clique em **Equipe**.
    
     ![Equipe](./media/lucidchart-tutorial/ic791190.png "Equipe")
 
-8. Clique em **Aplicativos \> Gerenciar SAML**.
+1. Clique em **Aplicativos \> Gerenciar SAML**.
    
     ![Gerenciar SAML](./media/lucidchart-tutorial/ic791191.png "Gerenciar SAML")
 
-9. Na página do diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
+1. Na página do diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
    
     a. Selecione **Habilitar Autenticação SAML** e clique em **Opcional**.
 
@@ -164,15 +164,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/lucidchart-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Lucidchart**.
+1. Na lista de aplicativos, selecione **Lucidchart**.
 
     ![Configurar o logon único](./media/lucidchart-tutorial/tutorial_lucidchart_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

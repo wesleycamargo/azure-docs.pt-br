@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040697"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Tutorial: Integração do Azure Active Directory ao Tangoe Command Premium Mobile
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Tangoe Command Premium Mobile da galeria
-2. Configurar e testar logon único do Azure AD
+1. Configurar e testar logon único do Azure AD
 
 ## <a name="add-tangoe-command-premium-mobile-from-the-gallery"></a>Adicionar o Tangoe Command Premium Mobile da galeria
 Para configurar a integração do Tangoe Command Premium Mobile ao Azure AD, você precisará adicionar o Tangoe Command Premium Mobile da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Tangoe Command Premium Mobile ao Azure AD, voc
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Tangoe Command Premium Mobile**, selecione **Tangoe Command Premium Mobile** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Tangoe Command Premium Mobile**, selecione **Tangoe Command Premium Mobile** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Adicionar o Tangoe Command Premium Mobile da galeria ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
@@ -86,10 +86,10 @@ No Tangoe Command Premium Mobile, atribua o valor do **nome de usuário** no Azu
 Para configurar e testar o logon único do Azure AD com o Tangoe Command Premium Mobile, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Tangoe Command Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)** – para ter um equivalente de Brenda Fernandes no Tangoe Command Premium Mobile vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Tangoe Command Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)** – para ter um equivalente de Brenda Fernandes no Tangoe Command Premium Mobile vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -101,11 +101,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Logon único baseado em SAML](./media/tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
-3. Na seção **Domínio e URLs do Tangoe Command Premium Mobile**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Tangoe Command Premium Mobile**, execute as seguintes etapas:
 
     ![Domínio e URLs do Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
@@ -116,19 +116,19 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) para obter esses valores. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![Seção Certificado de Autenticação SAML](./media/tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar](./media/tangoe-tutorial/tutorial_general_400.png)
     
-6. Na seção **Configuração do Tangoe Command Premium Mobile**, clique em **Configurar o Tangoe Command Premium Mobile** para abrir a janela **Configurar o logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Tangoe Command Premium Mobile**, clique em **Configurar o Tangoe Command Premium Mobile** para abrir a janela **Configurar o logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Seção Configuração do Tangoe Command Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Para que o SSO seja configurado para seu aplicativo, contate sua [equipe de suporte ao cliente do Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) e forneça o seguinte:
+1. Para que o SSO seja configurado para seu aplicativo, contate sua [equipe de suporte ao cliente do Tangoe Command Premium Mobile](https://www.tangoe.com/contact-us/) e forneça o seguinte:
 
    - O arquivo de metadados baixado
    - A **ID da entidade SAML**
@@ -150,15 +150,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/tangoe-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Usuários e grupos -> Todos os usuários](./media/tangoe-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Adicionar usuário](./media/tangoe-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Página da caixa de diálogo do usuário](./media/tangoe-tutorial/create_aaduser_04.png) 
 
@@ -188,23 +188,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Tangoe Command Premium Mobile**.
+1. Na lista de aplicativos, escolha **Tangoe Command Premium Mobile**.
 
     ![Tangoe Command Premium Mobile na lista de aplicativos](./media/tangoe-tutorial/tutorial_tangoe_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

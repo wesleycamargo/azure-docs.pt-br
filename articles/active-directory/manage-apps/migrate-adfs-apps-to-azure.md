@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: feb90f599a07275584cc300b371e8159d47e2ced
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364335"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577489"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrar aplicativos locais do AD FS para o Azure 
 
@@ -124,7 +124,7 @@ A tabela a seguir descreve os principais elementos de configuração de IdP para
 |IdP </br>saída </br>URL|URL de logoff do IdP da perspectiva do aplicativo (para onde o usuário é redirecionado ao escolher "sair" do aplicativo).|Para o AD FS, a URL de saída é a mesma da URL de entrada, ou a mesma URL com "wa=wsignout1.0" acrescentado. Por exemplo: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|O valor correspondente para o Azure AD depende de o aplicativo ser capaz de dar suporte a logoff SAML 2.0.</br></br>Se o aplicativo dá suporte à saída SAML, o valor segue o padrão em que o valor {tenant-id} é substituído pela ID de locatário. Ele é encontrado no portal do Azure, em  **Azure Active Directory** > **Propriedades**, como **ID de diretório**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Se o aplicativo não dá suporte a saída SAML: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |A criptografia do token </br>assinando </br>certificado|Certificado cuja chave privada o IdP usa para assinar tokens emitidos. Ele verifica se o token veio do mesmo IdP em que o aplicativo está configurado para confiar.|Encontre o certificado de autenticação de token do AD FS no Gerenciamento do AD FS, em **Certificados**.|No Azure AD, você pode encontrar o certificado de autenticação de tokens no portal do Azure nas propriedades **Logon único** do aplicativo, no cabeçalho **Certificado de Autenticação SAML**. Lá, você pode baixar o certificado para carregar no aplicativo.</br></br> Se o aplicativo tiver mais de um certificado, você pode encontrá-los no arquivo XML de metadados de federação.|
 |Identificador/</br>“emissor”|Identificador do IdP da perspectiva do aplicativo (às vezes chamado de "ID do Emissor").</br></br>No token SAML, o valor é exibido como o elemento **Emissor**.|O identificador para o AD FS normalmente é o identificador do serviço de federação no Gerenciamento do AD FS em **Serviço** > **Editar Propriedades do Serviço de Federação**. Por exemplo: http&#58;//fs.contoso.com/adfs/services/trust|O valor correspondente do Azure AD segue o padrão em que o valor {tenant-id} é substituído pela ID de locatário. Ela é encontrada no portal do Azure, em **Azure Active Directory** > **Propriedades** como **ID de diretório**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federação </br>metadata|Local dos metadados de federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)|Localize a URL de metadados de federação do AD FS no Gerenciamento do AD FS em **Serviço** > **Pontos de Extremidade** > **Metadados**  >  **Tipo: Metadados de Federação**. Por exemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor {TenantDomainName} é substituído pelo nome do locatário no formato "contoso.onmicrosoft.com". </br></br>Para saber mais, confira [Metadados de federação](../develop/active-directory-federation-metadata.md).
+|IdP </br>federação </br>metadata|Local dos metadados de federação disponíveis publicamente do IdP. (Alguns aplicativos usam metadados de federação como uma alternativa à configuração de URLs, identificadores e certificados de autenticação de token pelo administrador individualmente.)|Localize a URL de metadados de federação do AD FS no Gerenciamento do AD FS em **Serviço** > **Pontos de Extremidade** > **Metadados**  >  **Tipo: Metadados de Federação**. Por exemplo: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|O valor correspondente do Azure AD segue o padrão https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. O valor {TenantDomainName} é substituído pelo nome do locatário no formato "contoso.onmicrosoft.com". </br></br>Para saber mais, confira [Metadados de federação](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="migrating-saas-apps"></a>Migrando aplicativos SaaS
 A migração de aplicativos SaaS do AD FS ou de outro provedor de identidade para o Azure AD é um processo manual atualmente. Para obter orientações específicas para o aplicativo, [confira a lista de tutoriais sobre a integração de aplicativos SaaS encontrados no Marketplace](../saas-apps/tutorial-list.md).

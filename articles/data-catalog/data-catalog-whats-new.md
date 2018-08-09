@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859996"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577055"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
@@ -27,7 +27,7 @@ As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamen
 Em novembro de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
 
 * Suporte para vincular diretamente termos específicos do glossário de negócios no portal do Catálogo de Dados. Os usuários podem copiar os links do glossário de negócios e incorporá-los em documentos, emails, relatórios ou outros locais para vincular a definição dos termos do glossário.
-* Suporte para as entidades de serviço do Azure Active Directory. Os administradores do Catálogo de Dados podem autorizar aos aplicativos do cliente, que usam as entidades de serviço, acessar o catálogo e podem conceder a esses aplicativos permissões específicas, exatamente como podem conceder permissões aos usuários e grupos de segurança. Para obter mais informações, consulte [Objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Suporte para as entidades de serviço do Azure Active Directory. Os administradores do Catálogo de Dados podem autorizar aos aplicativos do cliente, que usam as entidades de serviço, acessar o catálogo e podem conceder a esses aplicativos permissões específicas, exatamente como podem conceder permissões aos usuários e grupos de segurança. Para obter mais informações, consulte [Objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Suporte para a autenticação do Azure Active Directory ao conectar as fontes de dados do Banco de Dados SQL do Azure e Azure SQL Data Warehouse usando a ferramenta de registro da fonte de dados do Catálogo de Dados. Para obter mais informações, consulte [Usar a Autenticação do Azure Active Directory para a autenticação no Banco de Dados SQL ou SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

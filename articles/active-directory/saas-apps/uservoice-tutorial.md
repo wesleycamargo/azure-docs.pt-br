@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ead383ef0967fcaf67f3157f0a51104126ad618
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f69955cb3e5419659e358e738c28f214fb7015b7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045403"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>Tutorial: Integração do Azure Active Directory com o UserVoice
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar UserVoice pela galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-uservoice-from-the-gallery"></a>Adicionar UserVoice pela galeria
 Para configurar a integração do UserVoice com o Azure AD, você precisará adicionar o UserVoice à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -64,15 +64,15 @@ Para configurar a integração do UserVoice com o Azure AD, você precisará adi
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **UserVoice**, selecione **UserVoice** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **UserVoice**, selecione **UserVoice** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![UserVoice na lista de resultados](./media/uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No UserVoice, atribua o valor do **nome de usuário** no Azure AD como o valor d
 Para configurar e testar o logon único do AD do Azure com o UserVoice, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do UserVoice](#create-a-uservoice-test-user)** – para ter um equivalente de Brenda Fernandes no UserVoice que esteja vinculado à representação de usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do UserVoice](#create-a-uservoice-test-user)** – para ter um equivalente de Brenda Fernandes no UserVoice que esteja vinculado à representação de usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/uservoice-tutorial/tutorial_uservoice_samlbase.png)
 
-3. Na seção **URLs e Domínio do UserVoice**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do UserVoice**, execute as seguintes etapas:
 
     ![Informações de logon único de URLs e Domínio do UserVoice](./media/uservoice-tutorial/tutorial_uservoice_url.png)
 
@@ -117,29 +117,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do UserVoice](https://www.uservoice.com/) para obter esses valores.
 
-4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
+1. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
 
     ![O link de download do Certificado](./media/uservoice-tutorial/tutorial_uservoice_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/uservoice-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do UserVoice**, clique em **Configurar UserVoice** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do UserVoice**, clique em **Configurar UserVoice** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configuração do UserVoice](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
 
-7. Em uma janela diferente do navegador da Web, faça logon no site corporativo do UserVoice como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site corporativo do UserVoice como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **Configurações** e, em seguida, selecione o **portal da Web** no menu.
+1. Na barra de ferramentas na parte superior, clique em **Configurações** e, em seguida, selecione o **portal da Web** no menu.
    
     ![Seção Configurações no lado do aplicativo](./media/uservoice-tutorial/ic777519.png "Configurações")
 
-9. Na guia **Portal da Web**, na seção **Autenticação de usuário**, clique em **Editar** para abrir a página do diálogo **Editar Autenticação de Usuário**.
+1. Na guia **Portal da Web**, na seção **Autenticação de usuário**, clique em **Editar** para abrir a página do diálogo **Editar Autenticação de Usuário**.
    
     ![Guia Portal da Web](./media/uservoice-tutorial/ic777520.png "Portal da Web")
 
-10. Na página do diálogo **Editar Autenticação de Usuário** , realize as seguintes etapas:
+1. Na página do diálogo **Editar Autenticação de Usuário** , realize as seguintes etapas:
    
     ![Editar autenticação de usuário](./media/uservoice-tutorial/ic777521.png "Editar autenticação de usuário")
    
@@ -169,15 +169,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/uservoice-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/uservoice-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/uservoice-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/uservoice-tutorial/create_aaduser_04.png)
 
@@ -196,21 +196,21 @@ Para permitir que os usuários do Azure AD façam logon no UserVoice, eles devem
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>Para provisionar uma conta de usuário, execute as seguintes etapas:
 1. Faça logon no seu locatário **UserVoice** .
 
-2. Vá para **Configurações**.
+1. Vá para **Configurações**.
    
     ![Configurações](./media/uservoice-tutorial/ic777811.png "Configurações")
 
-3. Clique em **Geral**.
+1. Clique em **Geral**.
 
-4. Clique em **Agentes e permissões**.
+1. Clique em **Agentes e permissões**.
    
     ![Agentes e permissões](./media/uservoice-tutorial/ic777812.png "Agentes e permissões")
 
-5. Clique em **Adicionar administradores**.
+1. Clique em **Adicionar administradores**.
    
     ![Adicionar administradores](./media/uservoice-tutorial/ic777813.png "Adicionar administradores")
 
-6. No diálogo **Convidar administradores** , realize as seguintes etapas:
+1. No diálogo **Convidar administradores** , realize as seguintes etapas:
    
     ![Convidar administradores](./media/uservoice-tutorial/ic777814.png "Convidar administradores")
    
@@ -233,23 +233,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **UserVoice**.
+1. Na lista de aplicativos, selecione **UserVoice**.
 
     ![O link do UserVoice na lista de Aplicativos](./media/uservoice-tutorial/tutorial_uservoice_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

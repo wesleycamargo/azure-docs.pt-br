@@ -17,21 +17,21 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316952"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577223"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
 Há duas representações de aplicativos no Azure Microsoft AD: 
-* [Objetos de aplicativo](active-directory-application-objects.md#application-object) – embora haja [exceções](#notes-and-exceptions), objetos de aplicativos podem ser considerados a definição de um aplicativo.
-* [Entidades de serviço](active-directory-application-objects.md#service-principal-object) – podem ser considerados uma instância de um aplicativo. Geralmente, as entidades de serviço fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de serviço nos diretórios.
+* [Objetos de aplicativo](app-objects-and-service-principals.md#application-object) – embora haja [exceções](#notes-and-exceptions), objetos de aplicativos podem ser considerados a definição de um aplicativo.
+* [Entidades de serviço](app-objects-and-service-principals.md#service-principal-object) – podem ser considerados uma instância de um aplicativo. Geralmente, as entidades de serviço fazem referência a um objeto de aplicativo e um objeto de aplicativo pode ser referenciado por várias entidades de serviço nos diretórios.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicativo e de onde originam-se?
-Você pode gerenciar [objetos de aplicativo](active-directory-application-objects.md#application-object) no portal do Azure por meio da experiência de [Registros de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Objetos de aplicativo descrevem o aplicativo para o Microsoft Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo baseado nas configurações. O objeto de aplicativo somente existirá no diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos itens a seguir (assim como informações adicionais não mencionadas aqui):
+Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [Registros de Aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade). Objetos de aplicativo descrevem o aplicativo para o Microsoft Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo baseado nas configurações. O objeto de aplicativo somente existirá no diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos itens a seguir (assim como informações adicionais não mencionadas aqui):
 * Nome, logotipo e editor
 * URLs de resposta
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
@@ -50,7 +50,7 @@ Objetos de aplicativo podem ser criados através de vários caminhos, incluindo:
 * Muitos outras, incluindo várias experiências de desenvolvedor no Azure e em experiências de explorador de APIs em centros de desenvolvedores
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Quais são as entidades de serviço e de onde originam-se?
-Você pode gerenciar [entidades de serviço](active-directory-application-objects.md#service-principal-object) no portal do Azure por meio da experiência de [Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Entidades de serviço controlam um aplicativo que se conecta ao Azure AD e podem ser consideradas a instância do aplicativo em seu diretório. Para qualquer aplicativo, é possível ter no máximo um objeto de aplicativo (que é registrado em um diretório "base") e um ou mais objetos de entidade de serviço que representam instâncias do aplicativo em todos os diretórios nos quais atuam. 
+Você pode gerenciar [entidades de serviço](app-objects-and-service-principals.md#service-principal-object) no portal do Azure por meio da experiência de [Aplicativos Empresariais](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/). Entidades de serviço controlam um aplicativo que se conecta ao Azure AD e podem ser consideradas a instância do aplicativo em seu diretório. Para qualquer aplicativo, é possível ter no máximo um objeto de aplicativo (que é registrado em um diretório "base") e um ou mais objetos de entidade de serviço que representam instâncias do aplicativo em todos os diretórios nos quais atuam. 
 
 A entidade de serviço pode incluir:
 

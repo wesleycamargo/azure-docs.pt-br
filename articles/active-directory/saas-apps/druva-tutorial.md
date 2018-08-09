@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e536663669cadc0352a52c7f4f24ed9669661d2d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042972"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: integração do Azure Active Directory com o Druva
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Druva da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-druva-from-the-gallery"></a>Adicionar o Druva da galeria
 Para configurar a integração do Druva com o Azure AD, você precisará adicionar o Druva da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Druva com o Azure AD, você precisará adicion
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Druva**, selecione **Druva** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Druva**, selecione **Druva** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Druva na lista de resultados](./media/druva-tutorial/tutorial_druva_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Druva, atribua o valor do **nome de usuário** no Azure AD como o valor do **
 Para configurar e testar o logon único do Azure AD com o Druva, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Druva](#create-a-druva-test-user)** – para ter um equivalente de Brenda Fernandes no Druva vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Druva](#create-a-druva-test-user)** – para ter um equivalente de Brenda Fernandes no Druva vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,31 +102,31 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Na seção **Domínio e URLs do Druva**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs do Druva**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar o logon único](./media/druva-tutorial/tutorial_druva_url.png)
 
     Na caixa de texto **Identificador**, digite o valor da cadeia de caracteres: `druva-cloud`
     
-4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
+1. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
     ![Configurar o logon único](./media/druva-tutorial/tutorial_druva_url1.png)
     
     Na caixa de texto **URL de Logon**, digite a URL: `https://cloud.druva.com/home`
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![O link de download do Certificado](./media/druva-tutorial/tutorial_druva_certificate.png) 
 
-6. Seu aplicativo Druva espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **Atributos do Token SAML**. 
+1. Seu aplicativo Druva espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **Atributos do Token SAML**. 
 
     ![Configurar o logon único](./media/druva-tutorial/tutorial_druva_attribute.png)
 
-7. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
+1. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
 
     | Nome do atributo      | Valor do atributo      |
     | ------------------- | -------------------- |
@@ -144,21 +144,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     d. Clique em **OK**.    
 
-8. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/druva-tutorial/tutorial_general_400.png)
 
-9. Na seção **Configuração do Druva**, clique em **Configurar o Druva** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Druva**, clique em **Configurar o Druva** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/druva-tutorial/tutorial_druva_configure.png) 
 
-10. Em outra janela do navegador da Web, faça logon em seu site de empresa do Druva como administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do Druva como administrador.
 
-11. Vá para **Gerenciar \> Configurações**.
+1. Vá para **Gerenciar \> Configurações**.
 
     ![Configurações](./media/druva-tutorial/ic795091.png "Configurações")
 
-12. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
+1. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
 
     ![Configurações de Logon Único](./media/druva-tutorial/ic795092.png "Configurações de Logon Único")
     
@@ -170,11 +170,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
      
     d. Para abrir a página **Configurações**, clique em **Salvar**.
 
-13. Na página **Configurações**, clique em **Gerar Token de SSO**.
+1. Na página **Configurações**, clique em **Gerar Token de SSO**.
 
     ![Configurações](./media/druva-tutorial/ic795093.png "Configurações")
 
-14. No diálogo **Token de Autenticação de Logon Único** , realize as seguintes etapas:
+1. No diálogo **Token de Autenticação de Logon Único** , realize as seguintes etapas:
 
     ![Token SSO](./media/druva-tutorial/ic795094.png "Token SSO")
     
@@ -198,15 +198,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/druva-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/druva-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/druva-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/druva-tutorial/create_aaduser_04.png)
 
@@ -226,15 +226,15 @@ Para permitir que os usuários do Azure AD façam logon no Druva, eles devem est
 
 1. Faça logon em seu site de empresa do **Druva** como administrador.
 
-2. Vá para **Gerenciar \> Usuários**.
+1. Vá para **Gerenciar \> Usuários**.
    
    ![Gerenciar Usuários](./media/druva-tutorial/ic795097.png "Gerenciar Usuários")
 
-3. Clique em **Criar Novo**.
+1. Clique em **Criar Novo**.
    
    ![Gerenciar Usuários](./media/druva-tutorial/ic795098.png "Gerenciar Usuários")
 
-4. Na caixa de diálogo Criar Novo Usuário, execute as seguintes etapas:
+1. Na caixa de diálogo Criar Novo Usuário, execute as seguintes etapas:
    
    ![Criar Novo Usuário](./media/druva-tutorial/ic795099.png "Criar Novo Usuário")
    
@@ -259,23 +259,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Druva**.
+1. Na lista de aplicativos, selecione **Druva**.
 
     ![O link do Druva na lista de Aplicativos](./media/druva-tutorial/tutorial_druva_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

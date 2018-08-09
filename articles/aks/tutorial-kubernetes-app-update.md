@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2fcb2f5041b97b7e267f55340bf0cb0b8d2f457b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100905"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449376"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: atualizar um aplicativo no Serviço de Kubernetes do Azure (AKS)
 
@@ -76,7 +76,7 @@ Navegue até http://localhost:8080 para ver o aplicativo atualizado.
 
 Marque a imagem `azure-vote-front` com o loginServer do registro de contêiner.
 
-Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#az_acr_list).
+Obter o nome do servidor de logon com o comando [az acr list](/cli/azure/acr#az-acr-list).
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -178,4 +178,4 @@ Avance para o próximo tutorial para saber mais sobre como fazer upgrade do Kube
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login

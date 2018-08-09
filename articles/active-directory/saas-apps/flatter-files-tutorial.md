@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 4ae5c9834352bd2413075e87c79e27a9a3c354b9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b0660e14b858cc77026ea008fcf122c79e656c13
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047636"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Active Directory do Azure ao Flatter Files
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Flatter Files da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-flatter-files-from-the-gallery"></a>Adicionando Flatter Files da galeria
 Para configurar a integração do Flatter Files ao AD do Azure, você precisará adicionar o Flatter Files da galeria à sua lista de aplicativos de SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Flatter Files ao AD do Azure, você precisará
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Flatter Files**.
+1. Na caixa de pesquisa, digite **Flatter Files**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/tutorial_flatterfiles_search.png)
 
-5. No painel de resultados, selecione **Flatter Files** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Flatter Files** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/tutorial_flatterfiles_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Flatter Files, atribua o valor do **nome de usuário** no Azure AD como o val
 Para configurar e testar o logon único do AD do Azure com o Flatter Files, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Flatter Files](#creating-a-flatter-files-test-user)** – para ter um equivalente de Brenda Fernandes no Flatter Files que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Flatter Files](#creating-a-flatter-files-test-user)** – para ter um equivalente de Brenda Fernandes no Flatter Files que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,33 +104,33 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatterfiles_samlbase.png)
 
-3. Na seção **URLs e Domínio do Flatter Files**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está integrado ao Azure.
+1. Na seção **URLs e Domínio do Flatter Files**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está integrado ao Azure.
 
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatterfiles_url.png)
  
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatterfiles_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Flatter Files**, clique em **Configurar Flatter Files** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Flatter Files**, clique em **Configurar Flatter Files** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatterfiles_configure.png) 
 
-7. Faça logon no aplicativo Flatter Files como administrador.
+1. Faça logon no aplicativo Flatter Files como administrador.
 
-8. Clique em **PAINEL**. 
+1. Clique em **PAINEL**. 
    
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
-9. Clique em **Configurações** e execute as etapas a seguir na guia **Empresa**: 
+1. Clique em **Configurações** e execute as etapas a seguir na guia **Empresa**: 
    
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
@@ -138,7 +138,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     b. Clique em **Configurar SAML**.
 
-8. No diálogo **Configuração de SAML** , execute as seguintes etapas: 
+1. No diálogo **Configuração de SAML** , execute as seguintes etapas: 
    
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
@@ -168,15 +168,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/flatter-files-tutorial/create_aaduser_04.png) 
 
@@ -196,13 +196,13 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Flatte
 
 1. Faça logon no site da empresa **Flatter Files** como administrador.
 
-2. No painel de navegação à esquerda, clique em **Configurações** e, em seguida, clique na guia **Usuários**.
+1. No painel de navegação à esquerda, clique em **Configurações** e, em seguida, clique na guia **Usuários**.
    
     ![Criar um usuário do Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_09.png)
 
-3. Clique em **Adicionar Usuário**. 
+1. Clique em **Adicionar Usuário**. 
 
-4. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
+1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
    
     ![Criar um usuário do Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
@@ -227,23 +227,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Flatter Files**.
+1. Na lista de aplicativos, escolha **Flatter Files**.
 
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatterfiles_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

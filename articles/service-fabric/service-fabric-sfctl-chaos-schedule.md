@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0d09338f71d71d07ab0e037d4736cfaa1f3cff85
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763917"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492233"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Obter e definir a agenda do caos.
@@ -29,12 +29,18 @@ Obter e definir a agenda do caos.
 |Comando|DESCRIÇÃO|
 | --- | --- |
 | get | Obter a Agenda de Caos define quando e como executar o Caos. |
-| set | Defina a Agenda de Caos a ser usada pelo Caos. |
+| set | Definir a Agenda de Caos a ser usada pelo Caos. |
 
 ## <a name="sfctl-chaos-schedule-get"></a>obter agenda do sfctl chaos
 Obter a Agenda de Caos define quando e como executar o Caos.
 
 Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e como executar o Caos.
+
+### <a name="arguments"></a>Argumentos
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -42,8 +48,8 @@ Obtém a versão da Agenda de Caos em uso e Agenda de Caos que define quando e c
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-chaos-schedule-set"></a>definir agenda do sfctl chaos
@@ -59,6 +65,7 @@ Defina a Agenda de Caos atualmente em uso pelo Caos. O Caos agendará automatica
 | --expiry-date-utc | Data e hora de quando parar de usar a Agenda para agendar o Caos.  Padrão\: 9999-12-31T23\:59\:59.999Z. |
 | --jobs | Lista codificada JSON de ChaosScheduleJobs representando quando executar o Caos e com quais parâmetros executar o Caos. |
 | --start-date-utc | Data e hora de quando iniciar o uso da Agenda para agendar o Caos.  Padrão\: 1601-01-01T00\:00\:00.000Z. |
+| --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | --versão | Número de versão da Agenda. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -67,8 +74,8 @@ Defina a Agenda de Caos atualmente em uso pelo Caos. O Caos agendará automatica
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para saber mais e obter exemplos. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ### <a name="examples"></a>Exemplos

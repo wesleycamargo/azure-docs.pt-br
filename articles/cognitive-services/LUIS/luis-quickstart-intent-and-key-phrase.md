@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282731"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494303"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>Tutorial: 8. Adicionar entidade KeyPhrase 
 Neste tutorial, use um aplicativo que demonstra como extrair os principais assuntos dos enunciados.
@@ -71,15 +71,8 @@ Adicione a entidade predefinida keyPhrase para extrair o assunto dos enunciados.
     [ ![Captura de tela da intenção Utilities.Confirm com keyPhrases rotuladas no enunciado](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
-A nova versão `keyphrase` do aplicativo precisa ser treinada.  
 
-1. No canto superior direito do site do LUIS, selecione o botão **Train** (Treinar).
-
-    ![Treinar o aplicativo](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. O treinamento é concluído quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
-
-    ![Treinamento bem-sucedido](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicar o aplicativo para o ponto de extremidade
 
@@ -190,7 +183,8 @@ Seu chatbot agora tem informações suficientes para determinar a próxima etapa
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados de keyPhrase do enunciado para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Selecione **Meus aplicativos** no menu superior esquerdo. Selecione o botão de reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

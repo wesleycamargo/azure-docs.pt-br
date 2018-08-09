@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237036"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434951"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatize a replicação de alterações de esquema no Azure SQL Data Sync
 
@@ -23,9 +23,9 @@ Sincronização de dados SQL permite aos usuários sincronizar dados entre banco
 
 Este artigo apresenta uma solução para replicar automaticamente as alterações de esquema para todos os pontos de extremidade de sincronização de dados SQL.
 1. Esta solução usa um gatilho DDL para controlar as alterações de esquema.
-2. O gatilho insere os comandos de alteração de esquema em uma tabela de controle.
-3. A tabela de controle é sincronizada com todos os pontos de extremidade usando o serviço de Sincronização de Dados.
-4. Os gatilhos DML após a inserção são usados para aplicar as alterações de esquema nos outros pontos de extremidade.
+1. O gatilho insere os comandos de alteração de esquema em uma tabela de controle.
+1. A tabela de controle é sincronizada com todos os pontos de extremidade usando o serviço de Sincronização de Dados.
+1. Os gatilhos DML após a inserção são usados para aplicar as alterações de esquema nos outros pontos de extremidade.
 
 Este artigo usa ALTER TABLE como um exemplo de uma alteração de esquema, mas essa solução também funciona para outros tipos de alterações de esquema.
 
@@ -136,31 +136,31 @@ Depois que as alterações de esquema são replicadas para todos os pontos de ex
 
 1.  Alterar o esquema.
 
-2.  Evite qualquer alteração de dados em que as novas colunas envolvidas até que você concluiu a etapa que cria o gatilho.
+1.  Evite qualquer alteração de dados em que as novas colunas envolvidas até que você concluiu a etapa que cria o gatilho.
 
-3.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos de extremidade.
+1.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos de extremidade.
 
-4.  Atualize o esquema de banco de dados e adicionar a nova coluna para o esquema de sincronização.
+1.  Atualize o esquema de banco de dados e adicionar a nova coluna para o esquema de sincronização.
 
-5.  Dados na nova coluna são sincronizados durante a próxima operação de sincronização.
+1.  Dados na nova coluna são sincronizados durante a próxima operação de sincronização.
 
 #### <a name="remove-columns"></a>Remover colunas
 
 1.  Remova as colunas do esquema de sincronização. A sincronização de dados interrompe a sincronização de dados nessas colunas.
 
-2.  Alterar o esquema.
+1.  Alterar o esquema.
 
-3.  Atualize o esquema do banco de dados.
+1.  Atualize o esquema do banco de dados.
 
 #### <a name="update-data-types"></a>Atualizar tipos de dados
 
 1.  Alterar o esquema.
 
-2.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos de extremidade.
+1.  Aguarde até que as alterações de esquema são aplicadas a todos os pontos de extremidade.
 
-3.  Atualize o esquema do banco de dados.
+1.  Atualize o esquema do banco de dados.
 
-4.  Se os tipos de dados novos e antigos não são totalmente compatíveis - por exemplo, se você alterar de `int` para `bigint` -sincronização pode falhar antes que as etapas para criar os gatilhos são concluídas. Sincronização bem-sucedida após uma nova tentativa.
+1.  Se os tipos de dados novos e antigos não são totalmente compatíveis - por exemplo, se você alterar de `int` para `bigint` -sincronização pode falhar antes que as etapas para criar os gatilhos são concluídas. Sincronização bem-sucedida após uma nova tentativa.
 
 #### <a name="rename-columns-or-tables"></a>Renomear colunas ou tabelas
 
@@ -176,25 +176,25 @@ A lógica de replicação descrita neste artigo para de funcionar em algumas sit
 
 1.  Desabilitar um gatilho DDL e evitar qualquer alteração de esquema adicional até que o problema seja corrigido.
 
-2.  No banco de dados do terminal em que o problema está ocorrendo, desative o gatilho AFTER INSERT no nó de extremidade no qual a alteração do esquema não pode ser feita. Esta ação permite que o comando de mudança de esquema seja sincronizado.
+1.  No banco de dados do terminal em que o problema está ocorrendo, desative o gatilho AFTER INSERT no nó de extremidade no qual a alteração do esquema não pode ser feita. Esta ação permite que o comando de mudança de esquema seja sincronizado.
 
-3.  Acione a sincronização para sincronizar a tabela de controle de alterações do esquema.
+1.  Acione a sincronização para sincronizar a tabela de controle de alterações do esquema.
 
-4.  No banco de dados de terminal em que o problema está ocorrendo, consulte a tabela de histórico de alterações de esquema para obter o ID do último comando de mudança de esquema aplicado.
+1.  No banco de dados de terminal em que o problema está ocorrendo, consulte a tabela de histórico de alterações de esquema para obter o ID do último comando de mudança de esquema aplicado.
 
-5.  Consulte a tabela para listar todos os comandos com uma ID maior que o valor de ID recuperado na etapa anterior de controle de alterações de esquema.
+1.  Consulte a tabela para listar todos os comandos com uma ID maior que o valor de ID recuperado na etapa anterior de controle de alterações de esquema.
 
     a.  Ignore os comandos que não podem ser executados no banco de dados do ponto de extremidade. Você precisa lidar com a inconsistência de esquema. Reverta as alterações do esquema original se a inconsistência afetar seu aplicativo.
 
     b.  Aplica manualmente os comandos que devem ser aplicados.
 
-6.  Atualizar a tabela de histórico de alteração de esquema e definir a última ID aplicada para o valor correto.
+1.  Atualizar a tabela de histórico de alteração de esquema e definir a última ID aplicada para o valor correto.
 
-7.  Verifique se o esquema é atualizado.
+1.  Verifique se o esquema é atualizado.
 
-8.  Reabilite o gatilho AFTER INSERT desabilitado na segunda etapa.
+1.  Reabilite o gatilho AFTER INSERT desabilitado na segunda etapa.
 
-9.  Reabilite o gatilho DDL desativado na primeira etapa.
+1.  Reabilite o gatilho DDL desativado na primeira etapa.
 
 Se você quiser limpar os registros na tabela de rastreamento de alteração de esquema, use DELETE em vez do TRUNCATE. Nunca propagar novamente a coluna de identidade na tabela de alterações de esquema usando DBCC CHECKIDENT. Você pode criar tabelas de controle de alteração de esquema novo e atualize o nome da tabela no gatilho DDL se propagação é necessária.
 

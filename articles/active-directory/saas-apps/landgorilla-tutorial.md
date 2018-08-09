@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: a65c15991a4545cbd0dc9956069af3292c9859dd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6712ecbc81abdf4756cb72f4949f51d2ffca4142
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222559"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: integração do Azure Active Directory com o Land Gorilla Client
 
@@ -34,7 +34,7 @@ A integração do Land Gorilla Client ao Azure AD oferece os seguintes benefíci
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Land Gorilla Client, são necessários os seguintes itens:
 
@@ -56,7 +56,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Land Gorilla Client da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 
 ## <a name="adding-land-gorilla-client-from-the-gallery"></a>Adicionando Land Gorilla Client da galeria
@@ -68,19 +68,19 @@ Para configurar a integração do Land Gorilla Client com o Azure AD, é necess�
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Land Gorilla Client**.
+1. Na caixa de pesquisa, digite **Land Gorilla Client**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/tutorial_landgorilla_search.png)
 
-5. No painel de resultados, selecione **Land Gorilla Client** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Land Gorilla Client** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/tutorial_landgorilla_addfromgallery.png)
 
@@ -95,10 +95,10 @@ Essa relação de vínculo é estabelecida por meio da atribuição do valor do 
 Para configurar e testar o logon único do Azure AD com o Land Gorilla Client, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criando um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o grupo limitado.
-3. **[Criando um usuário de teste do Land Gorilla](#creating-a-land-gorilla-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criando um usuário de teste do Azure AD](#creating-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o grupo limitado.
+1. **[Criando um usuário de teste do Land Gorilla](#creating-a-land-gorilla-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -110,11 +110,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/landgorilla-tutorial/tutorial_landgorilla_samlbase.png)
 
-3. Na seção **URLs e Domínio do Land Gorilla Client**, siga as etapas abaixo:
+1. Na seção **URLs e Domínio do Land Gorilla Client**, siga as etapas abaixo:
 
     ![Configurar o logon único](./media/landgorilla-tutorial/tutorial_landgorilla_url_02.png)
 
@@ -137,15 +137,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal de Gerenci
     > [!NOTE] 
     > Observe que esses não são os valores reais. Você precisa atualizar esses valores com o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [equipe Land Gorilla Client](https://www.landgorilla.com/support/) para obter esses valores. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
     ![Configurar o logon único](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/landgorilla-tutorial/tutorial_general_400.png) 
 
-6. Para concluir a configuração de SSO para seu aplicativo na extremidade do Land Gorilla, contate a [equipe de suporte Land Gorilla Client](https://www.landgorilla.com/support/) e forneça-as com o arquivo **XML de metadados** baixado.
+1. Para concluir a configuração de SSO para seu aplicativo na extremidade do Land Gorilla, contate a [equipe de suporte Land Gorilla Client](https://www.landgorilla.com/support/) e forneça-as com o arquivo **XML de metadados** baixado.
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
@@ -159,15 +159,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
@@ -195,23 +195,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Land Gorilla Client**.
+1. Na lista de aplicativos, selecione **Land Gorilla Client**.
 
     ![Configurar o logon único](./media/landgorilla-tutorial/tutorial_landgorilla_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 
 

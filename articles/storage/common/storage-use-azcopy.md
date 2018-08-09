@@ -2,24 +2,18 @@
 title: Copiar ou mover dados para o Armazenamento do Azure com o AzCopy no Windows | Microsoft Docs
 description: Use o utilitário AzCopy no Windows para mover ou copiar dados para ou de conteúdo de blob, tabela e arquivo. Copie dados para o Armazenamento do Azure de arquivos locais ou copie dados dentro na mesma conta ou entre contas de armazenamento. Migre facilmente seus dados para o Armazenamento do Azure.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.component: common
+ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757597"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39529023"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transferir dados com AzCopy no Windows
 O AzCopy é um utilitário de linha de comando projetado para copiar dados entre o armazenamento de Blobs, Arquivos e Tabelas do Microsoft Azure, usando comandos simples para um desempenho ideal. Você pode copiar dados entre um sistema de arquivos e uma conta de armazenamento, ou entre contas de armazenamento.  
@@ -29,7 +23,7 @@ Há duas versões do AzCopy que podem ser baixadas. AzCopy no Windows oferece op
 ## <a name="download-and-install-azcopy-on-windows"></a>Baixar e instalar o AzCopy no Windows
 
 ### <a name="latest-preview-version-v800"></a>Versão mais recente (v8.0.0)
-Baixe o [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopypr). Esta versão de visualização oferece melhorias significativas de desempenho e pacotes .NET Core na instalação.
+Baixe o [versão mais recente do AzCopy no Windows](https://aka.ms/downloadazcopypr). Esta versão de visualização oferece melhorias significativas de desempenho e pacotes .NET Core na instalação.
 
 #### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy em notas de versão de visualização 8.0 do Windows
 - Não há suporte para a versão mais recente do serviço de tabela. Se você usar o recurso de exportação de tabela, baixe a versão estável.
@@ -37,7 +31,7 @@ Baixe o [versão mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy
 - Melhorias significativas de desempenho para fazer o download de cenários
 
 ### <a name="latest-stable-version-v710"></a>Versão estável mais recente (v7.1.0)
-fazer download da [versão estável mais recente do AzCopy no Windows](http://aka.ms/downloadazcopy).
+fazer download da [versão estável mais recente do AzCopy no Windows](https://aka.ms/downloadazcopy).
 
 ### <a name="post-installation-step"></a>Etapas pós-instalação
 

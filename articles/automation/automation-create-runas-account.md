@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2b0f2b864c5c29e9804239d06afdf23708e52828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436962"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579605"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação de conta de Automação com contas Executar como 
 Você pode atualizar sua conta de Automação existente no portal do Azure ou usar o PowerShell se:
@@ -36,7 +36,7 @@ O processo cria os seguintes itens na sua conta de Automação.
 * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
 * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Se você optar por [usar o PowerShell para criar as contas Executar como](#create-run-as-account-using-powershell), esse processo requer:
 
 * O Windows 10 e Windows Server 2016 com módulos do Azure Resource Manager 3.4.1 e posterior. O script do PowerShell não oferece suporte a versões anteriores do Windows.
@@ -289,5 +289,5 @@ No Portal do Azure, selecione **Assinaturas** e escolha a assinatura de sua Cont
 Para adicionar a entidade de serviço a um grupo de recursos, selecione o grupo de recursos no Portal do Azure e selecione **IAM (Controle de acesso)**. Selecione **Adicionar**, isso abre a página **Adicionar permissões**. Para **Função**, selecione **Colaborador**. Na caixa de texto **Selecionar** digite o nome da entidade de serviço da conta Executar como e selecione-a na lista. Clique em **Salvar** para salvar as alterações. Faça isso para os grupos de recursos aos quais você deseja conceder acesso de entidade de serviço Executar como da Automação do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre os Entidades de Serviço, consulte [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
+* Para obter mais informações sobre os Entidades de Serviço, consulte [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md).
 * Para saber mais sobre certificados e serviços do Azure, consulte [Visão geral dos certificados para Serviços de Nuvem do Microsoft Azure](../cloud-services/cloud-services-certs-create.md).

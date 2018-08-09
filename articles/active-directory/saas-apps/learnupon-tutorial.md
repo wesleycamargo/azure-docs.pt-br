@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 3409545169208adc87eb63358082afc6c6d8d575
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 27d7949be97dc9f64f3c0855f4f7b936312bf7a8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042105"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Active Directory do Azure com o LearnUpon
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o LearnUpon da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-learnupon-from-the-gallery"></a>Adicionando o LearnUpon da galeria
 Para configurar a integração do LearnUpon ao AD do Azure, você precisará adicionar o LearnUpon da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do LearnUpon ao AD do Azure, você precisará adi
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **LearnUpon**.
+1. Na caixa de pesquisa, digite **LearnUpon**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/tutorial_learnupon_search.png)
 
-5. No painel de resultados, selecione **LearnUpon** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **LearnUpon** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/tutorial_learnupon_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No LearnUpon, atribua o valor do **nome de usuário** no Azure AD como o valor d
 Para configurar e testar o logon único do AD do Azure com o LearnUpon, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do LearnUpon](#creating-a-learnupon-test-user)** – para ter um equivalente de Brenda Fernandes no LearnUpon que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criar um usuário de teste do LearnUpon](#creating-a-learnupon-test-user)** – para ter um equivalente de Brenda Fernandes no LearnUpon que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_samlbase.png)
 
-3. Na seção **Domínio e URLs do LearnUpon**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do LearnUpon**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_url.png)
 
@@ -119,29 +119,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 
 
-4. Na seção **Certificado de Autenticação do SAML**, localize a **Impressão digital** - Isso será adicionado às suas configurações de SAML do LearnUpon.
+1. Na seção **Certificado de Autenticação do SAML**, localize a **Impressão digital** - Isso será adicionado às suas configurações de SAML do LearnUpon.
 
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do LearnUpon**, clique em **Configurar LearnUpon** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do LearnUpon**, clique em **Configurar LearnUpon** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_configure.png) 
 
-7. Abra outra instância do navegador e faça logon no LearnUpon com uma conta de administrador. 
+1. Abra outra instância do navegador e faça logon no LearnUpon com uma conta de administrador. 
 
-8. Clique na guia **Configurações** .
+1. Clique na guia **Configurações** .
    
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_06.png)
 
-9. Clique em **Logon Único - SAML** e em **Configurações Gerais** para definir configurações de SAML.
+1. Clique em **Logon Único - SAML** e em **Configurações Gerais** para definir configurações de SAML.
    
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_07.png) 
 
-10. Na seção **Configurações Gerais** , execute as seguintes etapas:
+1. Na seção **Configurações Gerais** , execute as seguintes etapas:
    
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_08.png)  
   
@@ -161,7 +161,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     h. Clique em **Gerenciar impressões digitais**e carregue a impressão digital do certificado baixado.
 
-11. Clique em **Configurações de Usuário**e execute as seguintes etapas:
+1. Clique em **Configurações de Usuário**e execute as seguintes etapas:
    
      ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
  
@@ -184,15 +184,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/learnupon-tutorial/create_aaduser_04.png) 
 
@@ -225,23 +225,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **LearnUpon**.
+1. Na lista de aplicativos, selecione **LearnUpon**.
 
     ![Configurar o logon único](./media/learnupon-tutorial/tutorial_learnupon_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

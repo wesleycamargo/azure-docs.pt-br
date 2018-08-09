@@ -3,19 +3,18 @@ title: Migrar dados locais para o Armazenamento do Azure usando o AzCopy | Micro
 description: Use o AzCopy para migrar dados para ou de conteúdo de blob, tabela e arquivo. Migre dados com facilidade do armazenamento local para o Armazenamento do Azure.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.component: common
+ms.openlocfilehash: f5b678f9936a6d405c06ff085a802fcd76328ebe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205316"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525647"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Migrar dados locais para o armazenamento em nuvem usando o AzCopy
 

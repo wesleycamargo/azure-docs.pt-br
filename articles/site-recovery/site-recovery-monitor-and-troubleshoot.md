@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216066"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578578"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorar e solucionar problemas do Site Recovery
 
@@ -88,7 +88,7 @@ A **Exibição de infraestrutura** mostra os componentes de infraestrutura envol
 - Uma linha vermelha com o ícone de erro de sobreposição indica a existência de um ou mais sintomas de erro que afetam a conectividade.
 -  Passe o ponteiro do mouse sobre o ícone de erro para mostrar o erro e o número de entidades afetadas. Clique no ícone de uma lista filtrada de entidades afetadas.
 
-    ![Exibição de infraestrutura do Site Recovery (cofre)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Modo de exibição de infraestrutura do Site Recovery (cofre)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>Dicas para monitorar a infraestrutura
 

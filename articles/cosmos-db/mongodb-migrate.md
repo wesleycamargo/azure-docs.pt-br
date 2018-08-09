@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100289"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435315"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Importar dados do MongoDB 
 
@@ -45,8 +45,8 @@ Este tutorial cobre as seguintes tarefas:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Localizar informações de cadeia de conexão (host, porta, nome de usuário e senha)
 
 1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, clique na entrada **Azure Cosmos DB**.
-2. No painel **Assinaturas**, selecione o nome da sua conta.
-3. No folha **Cadeia de Conexão**, clique em **Cadeia de Conexão**.
+1. No painel **Assinaturas**, selecione o nome da sua conta.
+1. No folha **Cadeia de Conexão**, clique em **Cadeia de Conexão**.
 
    O painel direito contém todas as informações necessárias para conectar-se à sua conta com êxito.
 
@@ -102,7 +102,7 @@ Exemplo:
         }
         ```
 
-2. Calcule a taxa de RU aproximada para gravação de um documento único:
+1. Calcule a taxa de RU aproximada para gravação de um documento único:
 
     a. Conecte-se ao seu banco de dados do MongoDB do Azure Cosmos DB a partir do MongoDB Shell. É possível localizar as instruções em [Conectar um aplicativo do MongoDB ao Azure Cosmos DB](connect-mongodb-account.md).
     
@@ -125,7 +125,7 @@ Exemplo:
         
     d. Tome nota da cobrança da solicitação.
     
-3. Determine a latência d computador para o serviço de nuvem do Azure Cosmos DB:
+1. Determine a latência d computador para o serviço de nuvem do Azure Cosmos DB:
     
     a. Habilite o log detalhado do MongoDB Shell utilizando esse comando: ```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ Exemplo:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Remova o documento inserido antes da migração para garantir que não haja documentos duplicados. É possível remover documentos utilizando esse comando: ```db.coll.remove({})```
+1. Remova o documento inserido antes da migração para garantir que não haja documentos duplicados. É possível remover documentos utilizando esse comando: ```db.coll.remove({})```
 
-5. Calcule os valores aproximados de *batchSize* e *numInsertionWorkers*:
+1. Calcule os valores aproximados de *batchSize* e *numInsertionWorkers*:
 
     * Para *batchSize*, divida as RUs provisionadas totais pelas RUs consumidas a partir do seu documento único, gravado na etapa 3.
     
@@ -157,7 +157,7 @@ Exemplo:
     
     *numInsertionWorkers = (10000 RUs x 0,1 s) / (24 x 10 RUs) = 4.1666*
 
-6. Execute o comando de migração final:
+1. Execute o comando de migração final:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

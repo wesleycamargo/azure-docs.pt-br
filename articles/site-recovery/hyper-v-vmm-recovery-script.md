@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917314"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426880"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
@@ -27,7 +27,7 @@ Este artigo descreve como criar um script do System Center VMM (Virtual Machine 
 
 Publique eventuais comentários ou perguntas no final deste artigo ou no [Fórum dos Serviços de Recuperação do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você pode usar scripts do PowerShell em seus planos de recuperação. Para poder ser acessado no plano de recuperação, você deve criar o script e colocá-lo na biblioteca do VMM. Leve em conta o seguinte enquanto você escreve o script:
 
@@ -52,9 +52,9 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
   
   1. Abra o Editor do Registro e vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  2. Altere o valor de **ScriptLibraryPath** para  **\\\libserver2.contoso.com\share\\**. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
+  1. Altere o valor de **ScriptLibraryPath** para  **\\\libserver2.contoso.com\share\\**. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
 
-  3. Teste o script usando uma conta de usuário com o mesmo nível de direitos de usuário da conta de serviço do VMM. O uso desses direitos de usuário verifica se os scripts autônomos testados são executados da mesma forma que são executados nos planos de recuperação. No servidor VMM, defina a política de execução a ser ignorada da seguinte maneira:
+  1. Teste o script usando uma conta de usuário com o mesmo nível de direitos de usuário da conta de serviço do VMM. O uso desses direitos de usuário verifica se os scripts autônomos testados são executados da mesma forma que são executados nos planos de recuperação. No servidor VMM, defina a política de execução a ser ignorada da seguinte maneira:
 
      a. Abra o console do **Windows PowerShell de 64 bits** como um administrador.
      
@@ -68,19 +68,19 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
 Se você tiver um site de origem do VMM, poderá criar um script no servidor do VMM. Em seguida, inclua o script em seu plano de recuperação.
 
 1. No compartilhamento de biblioteca, crie uma nova pasta. Por exemplo, \<nome do servidor do VMM > \MSSCVMMLibrary\RPScripts. Coloque a pasta nos servidores VMM de origem e de destino.
-2. Crie o script. Por exemplo, nomeie o script RPScript. Verifique se o script funciona conforme o esperado.
-3. Coloque o script na pasta \<NomeDoServidorVMM>\MSSCVMMLibrary nos servidores VMM de origem e de destino.
+1. Crie o script. Por exemplo, nomeie o script RPScript. Verifique se o script funciona conforme o esperado.
+1. Coloque o script na pasta \<NomeDoServidorVMM>\MSSCVMMLibrary nos servidores VMM de origem e de destino.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Adicionar o script a um plano de recuperação
 
 Depois que VMs ou grupos de replicação são adicionados a um plano de recuperação e este é criado, você pode adicionar o script ao grupo.
 
 1. Abra o plano de recuperação.
-2. Na lista**Etapa**, selecione um item. Em seguida, selecione **Script** ou **Ação Manual**.
-3. Especifique se você deseja adicionar o script ou a ação antes ou depois do item selecionado. Para mover a posição do script para cima ou para baixo, selecione os botões **Mover para cima** e **Mover para baixo**.
-4. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **Caminho do Script**, insira o caminho relativo para o compartilhamento. Por exemplo, digite **\RPScripts\RPScript.PS1**.
-5. Se você adicionar um runbook da Automação do Azure, especifique a conta da Automação em que o runbook está localizado. Em seguida, selecione o script de runbook do Azure que você deseja usar.
-6. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
+1. Na lista**Etapa**, selecione um item. Em seguida, selecione **Script** ou **Ação Manual**.
+1. Especifique se você deseja adicionar o script ou a ação antes ou depois do item selecionado. Para mover a posição do script para cima ou para baixo, selecione os botões **Mover para cima** e **Mover para baixo**.
+1. Se você adicionar um script do VMM, selecione **Failover no script do VMM**. Em **Caminho do Script**, insira o caminho relativo para o compartilhamento. Por exemplo, digite **\RPScripts\RPScript.PS1**.
+1. Se você adicionar um runbook da Automação do Azure, especifique a conta da Automação em que o runbook está localizado. Em seguida, selecione o script de runbook do Azure que você deseja usar.
+1. Faça um failover do plano de recuperação para garantir que o script funciona conforme esperado.
 
 
 ## <a name="next-steps"></a>Próximas etapas

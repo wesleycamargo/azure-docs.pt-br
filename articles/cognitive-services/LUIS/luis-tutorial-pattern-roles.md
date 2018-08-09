@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237818"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524137"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: melhorar o aplicativo com papéis padrão
 
@@ -27,10 +27,10 @@ Neste tutorial, use uma entidade simples com funções combinadas com padrões p
 * Criar padrão para declarações usando a entidade simples com funções
 * Como verificar aprimoramentos na previsão de padrões
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md) para criar o seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-Se você não tiver o aplicativo Recursos Humanos no tutorial [padrão](luis-tutorial-pattern.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para um novo aplicativo no site [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado é encontrado no repositório [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub.
+Se você não tiver o aplicativo Recursos Humanos no tutorial [padrão](luis-tutorial-pattern.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON para um novo aplicativo no site [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `roles`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -125,23 +125,16 @@ Rotular as entidades nessas etapas pode ser mais fácil se a entidade keyPhrase 
     Se você removeu a entidade keyPhrase, adicione-a novamente ao aplicativo agora.
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
-A nova tentativa e as declarações exigem o treinamento. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Train** (Treinar).
-
-2. O treinamento é concluído quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
-Para obter uma previsão do LUIS em um chatbot ou outro aplicativo, você precisa publicar o aplicativo. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Publish** (Publicar). 
-
-2. Selecione o Slot de produção e o botão **Publicar**.
-
-3. A publicação é concluída quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Consulta o ponto de extremidade sem padrão
-1. Na página **Publicar**, selecione o link do **ponto de extremidade** na parte inferior da página. Essa ação abre outra janela do navegador com a URL de ponto de extremidade na barra de endereços. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Vá até o final da URL no endereço e insira `Move Wayne Berry from Miami to Mount Vernon`. O último parâmetro de querystring é `q`, o enunciado **consulta**. 
 
@@ -388,7 +381,8 @@ As cidades, como os nomes das pessoas, são complicadas, pois podem ser qualquer
 A pontuação da intenção agora é muito maior e os nomes das funções são parte da resposta da entidade.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione as reticências (***...***) à direita do nome do aplicativo na lista de aplicativos, selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

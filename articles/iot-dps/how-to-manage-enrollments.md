@@ -1,19 +1,19 @@
 ---
 title: Gerenciar registros de dispositivo com o Portal do Azure | Microsoft Docs
 description: Como gerenciar registros de dispositivo para seu serviço DPS no Portal do Azure
-author: dsk-2015
-ms.author: dkshir
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/05/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b13f74e0c3df5090d1b1b2e0c48e3dc612821250
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5282ee0858c1226b2b743f42203e7b4af9eac6e6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628429"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524118"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Como gerenciar os registros de dispositivo com o Portal do Azure
 
@@ -29,8 +29,8 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     Você pode criar um grupo de registro no portal para um grupo de dispositivos usando as etapas a seguir:
 
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.  
-    2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
-    3. No serviço de provisionamento:  
+    1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.  
+    1. No serviço de provisionamento:  
        a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Grupos de Registros**.  
        b. Clique no botão **Adicionar** na parte superior.  
        c. Quando o painel "Adicionar Grupos de Registros" for exibido, insira as informações da entrada da lista de registro.  O **Nome de Grupo** é obrigatório. Selecione também "AC ou Intermediária" para **Tipo de certificado** e carregue o **Certificado principal** raiz para o grupo de dispositivos.  
@@ -44,8 +44,8 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
     Você pode criar um registro individual no portal usando as etapas a seguir:
 
     1. Faça logon no Portal do Azure e clique em **Todos os recursos** no menu à esquerda.
-    2. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
-    3. No serviço de provisionamento:  
+    1. Clique no serviço de provisionamento do dispositivo no qual você deseja registrar seu dispositivo na lista de recursos.
+    1. No serviço de provisionamento:  
        a. Clique em **Gerenciar registros** e, em seguida, selecione a guia **Registros Individuais**.  
        b. Clique no botão **Adicionar** na parte superior.   
        c. Quando o painel "Adicionar Registro" for exibido, insira as informações da entrada da lista de registro. Primeiro, selecione o **Mecanismo** de certificação para o dispositivo (X.509 ou TPM). A certificação X.509 exige upload do **Certificado principal** para o dispositivo. O TPM exige que você insira a **Chave de Atestado** e a **ID do Registro** para o dispositivo.  
@@ -57,9 +57,9 @@ Há duas maneiras em que você pode registrar seus dispositivos com o serviço d
 Você pode atualizar uma entrada de registro existente no portal usando as etapas a seguir:
 
 1. Abra o serviço de provisionamento do dispositivo no Portal do Azure e clique em **Gerenciar Registros**. 
-2. Navegue até a entrada de registro que você deseja modificar. Clique na entrada, que abre informações de resumo sobre o registro do dispositivo. 
-3. Nessa página, você pode modificar os itens que não sejam do tipo de segurança e credenciais, tais como o Hub IoT ao qual dispositivo deve ser vinculado, bem como a ID do dispositivo. Você também pode modificar o estado inicial do dispositivo gêmeo. 
-4. Depois de concluído, clique em **Salvar** para atualizar o registro do dispositivo. 
+1. Navegue até a entrada de registro que você deseja modificar. Clique na entrada, que abre informações de resumo sobre o registro do dispositivo. 
+1. Nessa página, você pode modificar os itens que não sejam do tipo de segurança e credenciais, tais como o Hub IoT ao qual dispositivo deve ser vinculado, bem como a ID do dispositivo. Você também pode modificar o estado inicial do dispositivo gêmeo. 
+1. Depois de concluído, clique em **Salvar** para atualizar o registro do dispositivo. 
 
     ![Atualizar registro no portal](./media/how-to-manage-enrollments/update-enrollment.png)
 
@@ -67,9 +67,9 @@ Você pode atualizar uma entrada de registro existente no portal usando as etapa
 Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub IoT, você poderá remover a entrada de registro relacionado no portal usando as etapas a seguir:
 
 1. Abra o serviço de provisionamento do dispositivo no Portal do Azure e clique em **Gerenciar Registros**. 
-2. Navegue até a entrada de registro que você deseja remover e selecione-a. 
-3. Clique no botão **Excluir** na parte superior e, em seguida, selecione **Sim** quando a confirmação for solicitada. 
-5. Depois que a ação for concluída, você verá sua entrada removida da lista de registros do dispositivo. 
+1. Navegue até a entrada de registro que você deseja remover e selecione-a. 
+1. Clique no botão **Excluir** na parte superior e, em seguida, selecione **Sim** quando a confirmação for solicitada. 
+1. Depois que a ação for concluída, você verá sua entrada removida da lista de registros do dispositivo. 
  
     ![Remover registro no portal](./media/how-to-manage-enrollments/remove-enrollment.png)
 

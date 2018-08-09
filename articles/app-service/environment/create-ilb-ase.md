@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347205"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436685"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Como criar e usar um balanceador de carga interno com um ambiente do Serviço de Aplicativo #
 
@@ -58,17 +58,17 @@ Para criar um ASE ILB:
 
 1. No Portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Ambiente do Serviço de Aplicativo** .
 
-2. Selecione sua assinatura.
+1. Selecione sua assinatura.
 
-3. Selecione ou crie um grupo de recursos.
+1. Selecione ou crie um grupo de recursos.
 
-4. Selecione ou crie uma VNet.
+1. Selecione ou crie uma VNet.
 
-5. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/24`, que tem 256 endereços e é compatível com um ASE com tamanho máximo e quaisquer necessidades de dimensionamento. 
+1. Ao selecionar uma VNet existente, você precisa criar uma sub-rede para manter o ASE. Lembre-se de definir um tamanho de sub-rede grande o suficiente para acomodar qualquer crescimento futuro do ASE. O tamanho recomendado é `/24`, que tem 256 endereços e é compatível com um ASE com tamanho máximo e quaisquer necessidades de dimensionamento. 
 
-6. Selecione **Rede Virtual/Local** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
+1. Selecione **Rede Virtual/Local** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
 
-7. Digite um nome de domínio. Esse domínio é usado para aplicativos criados neste ASE. Há algumas restrições. Ele não pode ser:
+1. Digite um nome de domínio. Esse domínio é usado para aplicativos criados neste ASE. Há algumas restrições. Ele não pode ser:
 
     * net   
 
@@ -88,7 +88,7 @@ Para criar um ASE ILB:
 
    Se você souber os nomes de domínio personalizados dos seus aplicativos, escolha um domínio para o ASE ILB que não seja conflitante com os nomes de domínio personalizados. Neste exemplo, você pode usar algo como *contoso-internal.com* para o domínio do seu ASE porque isso não entra em conflito com os nomes de domínio personalizados que terminam em *.contoso.com*.
 
-8. Selecione **OK** e, então, selecione **Criar**.
+1. Selecione **OK** e, então, selecione **Criar**.
 
     ![Criação de ASE][1]
 
@@ -105,19 +105,19 @@ Você pode criar um aplicativo em uma ASE ILB da mesma maneira que você cria um
 
 1. No portal do Azure, selecione **Criar um recurso** > **Web + Celular** > **Aplicativo Web**.
 
-2. Digite o nome do aplicativo.
+1. Digite o nome do aplicativo.
 
-3. Selecione a assinatura.
+1. Selecione a assinatura.
 
-4. Selecione ou crie um grupo de recursos.
+1. Selecione ou crie um grupo de recursos.
 
-5. Selecione seu SO. 
+1. Selecione seu SO. 
 
     * Se você quiser criar um aplicativo do Linux usando um contêiner de Docker personalizado, basta trazer seu próprio contêiner usando essas instruções [aqui][linuxapp]. 
 
-6. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
+1. Selecione ou crie um plano do Serviço de Aplicativo. Se você quiser criar um novo plano do Serviço de Aplicativo, selecione o seu ASE como o local. Selecione o pool de trabalhos no qual deseja criar o seu plano do Serviço de Aplicativo. Ao criar o plano do Serviço de Aplicativo, selecione o ASE como a localização e o pool de trabalhos. Ao especificar o nome do aplicativo, o domínio sob o nome do aplicativo é substituído pelo domínio do ASE.
 
-7. Selecione **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
+1. Selecione **Criar**. Se você deseja que o aplicativo seja exibido no painel, selecione a caixa de seleção **Fixar no painel**.
 
     ![Criação do plano do Serviço de Aplicativo][2]
 
@@ -156,27 +156,27 @@ Para carregar seus próprios certificados e testar o acesso:
 
 1. Depois que o ASE for criado, acesse a interface do usuário do ASE. Selecione **ASE** > **Configurações** > **Certificado ILB**.
 
-2. Para definir o certificado ILB, selecione o arquivo .pfx do certificado e digite a senha. Esta etapa leva algum tempo para processar. Será exibida uma mensagem informando que uma operação de carregamento está em andamento.
+1. Para definir o certificado ILB, selecione o arquivo .pfx do certificado e digite a senha. Esta etapa leva algum tempo para processar. Será exibida uma mensagem informando que uma operação de carregamento está em andamento.
 
-3. Obtenha o endereço do ILB para seu ASE. Selecione **ASE** > **Propriedades** > **Endereço IP Virtual**.
+1. Obtenha o endereço do ILB para seu ASE. Selecione **ASE** > **Propriedades** > **Endereço IP Virtual**.
 
-4. Depois de criar o ASE, crie um aplicativo Web nele.
+1. Depois de criar o ASE, crie um aplicativo Web nele.
 
-5. Se não tiver uma VM naquela VNet, crie uma.
+1. Se não tiver uma VM naquela VNet, crie uma.
 
     > [!NOTE] 
     > Não tente criar essa VM na mesma sub-rede que o ASE porque irá falhar ou causar problemas.
     >
 
-6. Defina o DNS para o domínio do ASE. Você pode usar um caractere curinga com o seu domínio no DNS. Para fazer alguns testes simples, edite o arquivo de hosts na sua VM para definir o nome do aplicativo Web para o endereço IP VIP:
+1. Defina o DNS para o domínio do ASE. Você pode usar um caractere curinga com o seu domínio no DNS. Para fazer alguns testes simples, edite o arquivo de hosts na sua VM para definir o nome do aplicativo Web para o endereço IP VIP:
 
     a. Se o ASE tiver o nome de domínio _.ilbase.com_ e você criar o aplicativo Web chamado _mytestapp_, ele será endereçado em _mytestapp.ilbase.com_. Em seguida, você definirá _mytestapp.ilbase.com_ para resolver o endereço do ILB. (No Windows, o arquivo dos hosts está em _C:\Windows\System32\drivers\etc\_.)
 
     b. Para testar a publicação de implantação da Web ou o acesso ao console avançado, crie um registro para _mytestapp.scm.ilbase.com_.
 
-7. Use um navegador nessa VM e acesse http://mytestapp.ilbase.com. (Ou acesse o nome do aplicativo Web, independente do nome que você escolheu, com o seu domínio.)
+1. Use um navegador nessa VM e acesse http://mytestapp.ilbase.com. (Ou acesse o nome do aplicativo Web, independente do nome que você escolheu, com o seu domínio.)
 
-8. Use um navegador nessa VM e acesse https://mytestapp.ilbase.com. Se você usar um certificado auto-assinado, aceite a falta de segurança.
+1. Use um navegador nessa VM e acesse https://mytestapp.ilbase.com. Se você usar um certificado auto-assinado, aceite a falta de segurança.
 
     O endereço IP do ILB está listado em **Endereços IP**. Essa lista também contém os endereços IP usados pelo VIP externo e para o tráfego de gerenciamento de entrada.
 

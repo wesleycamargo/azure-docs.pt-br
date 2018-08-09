@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/09/2017
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 1274143c2ae64574202b45969af43290e532fbfb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366106"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577542"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerenciar certificados para logon único federado no Azure Active Directory
 Este artigo aborda dúvidas comuns e informações relacionadas aos certificados que o Azure Active Directory (Azure AD) cria para estabelecer SSO (logon único) federado para seus aplicativos SaaS. Adicione aplicativos pela galeria de aplicativos do Azure AD ou usando um modelo de aplicativo inexistente na galeria. Configure o aplicativo usando a opção de SSO federada.
@@ -88,4 +88,4 @@ As etapas de renovação abaixo não devem resultar em nenhum tempo de inativida
 * [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](../saas-apps/tutorial-list.md)
 * [Índice de artigos para gerenciamento de aplicativos no Azure Active Directory](../active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](what-is-single-sign-on.md)
-* [Solução de problemas de logon único baseado em SAML](../develop/active-directory-saml-debugging.md)
+* [Solução de problemas de logon único baseado em SAML](../develop/howto-v1-debug-saml-sso-issues.md)

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5686266774603413fc255c53a0d1ad30f9baa8eb
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173853"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433435"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Implantar um aplicativo Web Python no Aplicativo Web para Contêineres
 
@@ -96,7 +96,7 @@ Depois que o envio por push de imagem for concluído, você está pronto para us
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-Crie um [aplicativo Web](../app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Substitua  *\<nome do aplicativo >* por um nome de aplicativo globalmente exclusivo e substitua  *\<dockerhub_id >* por sua ID de Hub do Docker.
+Crie um [aplicativo Web](../app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Substitua  *\<nome do aplicativo >* por um nome de aplicativo globalmente exclusivo e substitua  *\<dockerhub_id >* por sua ID de Hub do Docker.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -125,7 +125,7 @@ Se você carregou para um repositório privado anteriormente, você também prec
 
 Conforme especificado no _Dockerfile_, seu contêiner escuta na porta 8000. Para que o Serviço de Aplicativo roteie a solicitação para a porta certa, você precisa definir a configuração do aplicativo *WEBSITES_PORT*.
 
-No Cloud Shell, execute o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+No Cloud Shell, execute o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 
 ```azurecli-interactive

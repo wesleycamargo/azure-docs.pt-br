@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a0e3d6822c3aa79018482ec601a3f821f9fda254
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7dc2f13979bb0ea919a78b750160119198ee7d6d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Mozy Enterprise por meio da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-mozy-enterprise-from-the-gallery"></a>Adicionando o Mozy Enterprise por meio da galeria
 Para configurar a integração do Mozy Enterprise com o Azure AD, você precisará adicionar o Mozy Enterprise à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do Mozy Enterprise com o Azure AD, você precisar
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Mozy Enterprise**.
+1. Na caixa de pesquisa, digite **Mozy Enterprise**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_search.png)
 
-5. No painel de resultados, selecione **Mozy Enterprise** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Mozy Enterprise** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Mozy Enterprise, atribua o valor do **nome de usuário** no Azure AD como o v
 Para configurar e testar o logon único do Azure AD com o Mozy Enterprise, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Mozy Enterprise](#creating-a-mozy-enterprise-test-user)** – para ter um equivalente de Brenda Fernandes no Mozy Enterprise que está vinculado à representação desse usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criar um usuário de teste do Mozy Enterprise](#creating-a-mozy-enterprise-test-user)** – para ter um equivalente de Brenda Fernandes no Mozy Enterprise que está vinculado à representação desse usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_samlbase.png)
 
-3. Na seção **URLs e Domínio do Mozy Enterprise**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do Mozy Enterprise**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
 
@@ -117,25 +117,25 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Mozy Enterprise](http://support.mozy.com/) para obter esse valor.
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Mozy Enterprise**, clique em **Configurar Mozy Enterprise** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Mozy Enterprise**, clique em **Configurar Mozy Enterprise** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_configure.png) 
 
-7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Mozy Enterprise como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Mozy Enterprise como administrador.
 
-8. Na seção **Configuração**, clique em **Política de Autenticação**.
+1. Na seção **Configuração**, clique em **Política de Autenticação**.
    
    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777314.png "Política de autenticação")
 
-9. Na seção **Política de Autenticação** , realize as seguintes etapas:
+1. Na seção **Política de Autenticação** , realize as seguintes etapas:
    
    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de autenticação")
    
@@ -170,15 +170,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/mozy-enterprise-tutorial/create_aaduser_04.png) 
 
@@ -201,14 +201,14 @@ Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, e
 
 1. Faça logon em seu locatário do **Mozy Enterprise** .
 
-2. Clique em **Usuários** e em **Adicionar Novo Usuário**.
+1. Clique em **Usuários** e em **Adicionar Novo Usuário**.
    
    ![Usuários](./media/mozy-enterprise-tutorial/ic777317.png "Usuários")
    
    >[!NOTE]
    >A opção **Adicionar Novo Usuário** será exibida apenas se **Mozy** estiver selecionado como o provedor em **Política de autenticação**. Se a autenticação SAML for configurada, os usuários serão adicionados automaticamente em seu primeiro logon por meio do Logon único.
     
-3. Na caixa de diálogo novo usuário, execute as seguintes etapas:
+1. Na caixa de diálogo novo usuário, execute as seguintes etapas:
    
    ![Adicionar Usuários](./media/mozy-enterprise-tutorial/ic777318.png "Adicionar Usuários")
    
@@ -239,23 +239,23 @@ Nesta seção, você concederá a Brenda Fernandes acesso ao Mozy Enterprise par
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Mozy Enterprise**.
+1. Na lista de aplicativos, selecione **Mozy Enterprise**.
 
     ![Configurar o logon único](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

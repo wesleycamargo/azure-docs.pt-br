@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624654"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435145"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Use o Azure Data Lake Store Use para capturar dados de Hubs de Eventos
 
 Saiba como usar o Azure Data Lake Store para capturar dados recebidos pelos Hubs de Eventos do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -39,11 +39,11 @@ Nesta seção, você criará uma pasta dentro da conta na qual você deseja capt
 
     ![Data explorer do Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data explorer do Data Lake Store")
 
-2.  Clique em **Nova Pasta** e digite um nome para a pasta onde você deseja capturar os dados.
+1.  Clique em **Nova Pasta** e digite um nome para a pasta onde você deseja capturar os dados.
 
     ![Criar uma nova pasta no Data Lake Store](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Criar uma nova pasta no Data Lake Store")
 
-3. Atribua permissões na raiz do Data Lake Store. 
+1. Atribua permissões na raiz do Data Lake Store. 
 
     a. Clique em **Data Explorer**, selecione a raiz da conta do Data Lake Store e, em seguida, clique em **Acesso**.
 
@@ -64,7 +64,7 @@ Nesta seção, você criará uma pasta dentro da conta na qual você deseja capt
 
     Clique em **OK**.
 
-4. Atribua permissões para a pasta na conta do Data Lake Store onde você deseja capturar dados.
+1. Atribua permissões para a pasta na conta do Data Lake Store onde você deseja capturar dados.
 
     a. Clique em **Data Explorer**, selecione a pasta na conta do Data Lake Store e, em seguida, clique em **Acesso**.
 
@@ -86,11 +86,11 @@ Nesta seção, você criará uma pasta dentro da conta na qual você deseja capt
 
 Nesta seção, você criará um Hub de Eventos dentro de um namespace de Hubs de Eventos. Também configurará o Hub de Eventos para capturar os dados em uma conta do Azure Data Lake Store. Esta seção pressupõe que você já criou um namespace dos Hubs de Eventos.
 
-2. No painel **Visão Geral** do namespace de Hubs de Eventos, clique em **+ Hub de Eventos**.
+1. No painel **Visão Geral** do namespace de Hubs de Eventos, clique em **+ Hub de Eventos**.
 
     ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "Criar Hub de Eventos")
 
-3. Forneça os valores a seguir para configurar os Hubs de Eventos a fim de capturar dados no Data Lake Store.
+1. Forneça os valores a seguir para configurar os Hubs de Eventos a fim de capturar dados no Data Lake Store.
 
     ![Criar Hub de Eventos](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "Criar Hub de Eventos")
 
