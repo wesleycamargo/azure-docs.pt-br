@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 729644e350e3c0ad4a5ea695d24ddaf4164952fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6bcd1add3985112fe60aab22f1799e40ad8889b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213970"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
 
@@ -33,7 +33,7 @@ A integração do Promapp ao Azure AD proporciona os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Promapp, você precisa dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Promapp da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-promapp-from-the-gallery"></a>Adicionando Promapp da galeria
 Para configurar a integração do Promapp ao Azure AD, você precisa adicionar o Promapp por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Promapp ao Azure AD, você precisa adicionar o
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Promapp**.
+1. Na caixa de pesquisa, digite **Promapp**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/tutorial_promapp_search.png)
 
-5. No painel de resultados, selecione **Promapp** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Promapp** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/tutorial_promapp_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Promapp, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 Para configurar e testar o logon único do Azure AD com o Promapp, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Promapp](#creating-a-promapp-test-user)** – para ter um equivalente de Brenda Fernandes no Promapp que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Promapp](#creating-a-promapp-test-user)** – para ter um equivalente de Brenda Fernandes no Promapp que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. Na seção **Domínio e URLs Promapp**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs Promapp**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_url.png)
 
@@ -126,7 +126,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_url1.png)
 
@@ -135,29 +135,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Promapp](https://www.promapp.com/about-us/contact-us/) para obter esses valores.
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_general_400.png)
 
-7. Na seção **Configuração do Promapp**, clique em **Configurar o Promapp** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Promapp**, clique em **Configurar o Promapp** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_configure.png) 
 
-8. Faça logon no site da empresa Promapp como administrador. 
+1. Faça logon no site da empresa Promapp como administrador. 
 
-9. No menu na parte superior, clique em **Administrador**. 
+1. No menu na parte superior, clique em **Administrador**. 
    
     ![Logon Único do AD do Azure][12]
 
-10. Clique em **Configurar**. 
+1. Clique em **Configurar**. 
    
     ![Logon Único do AD do Azure][13]
 
-11. No diálogo **Segurança** , execute as seguintes etapas:
+1. No diálogo **Segurança** , execute as seguintes etapas:
    
     ![Logon Único do AD do Azure][14]
     
@@ -185,15 +185,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/promapp-tutorial/create_aaduser_04.png) 
 
@@ -221,23 +221,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Promapp**.
+1. Na lista de aplicativos, escolha **Promapp**.
 
     ![Configurar o logon único](./media/promapp-tutorial/tutorial_promapp_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

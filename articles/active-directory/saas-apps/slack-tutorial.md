@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5d16e633f29ca635a9b32118e699cb59d3896353
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221335"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421225"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Active Directory do Azure com o Slack
 
@@ -33,7 +33,7 @@ A integração do Slack ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Slack, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Slack da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-slack-from-the-gallery"></a>Adicionar o Slack da galeria
 Para configurar a integração do Slack ao Azure AD, você precisa adicionar o Slack por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Slack ao Azure AD, você precisa adicionar o S
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Slack**.
+1. Na caixa de pesquisa, digite **Slack**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/tutorial_slack_search.png)
 
-5. No painel de resultados, selecione **Slack** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Slack** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/tutorial_slack_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Slack, atribua o valor do **nome de usuário** no Azure AD como o valor do **
 Para configurar e testar o logon único do Azure AD com o Slack, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Slack](#creating-a-slack-test-user)** – para ter um equivalente de Brenda Fernandes no Slack que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Slack](#creating-a-slack-test-user)** – para ter um equivalente de Brenda Fernandes no Slack que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_samlbase.png)
 
-3. Na seção **URLs e Domínio do Slack**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do Slack**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_url.png)
 
@@ -119,14 +119,14 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > O valor não é real. Você precisa atualizar o valor com a URL de Logon real. Contate a [equipe de suporte do Slack](https://slack.com/help/contact) para obter o valor.
      
-4. O aplicativo Slack espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+1. O aplicativo Slack espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
     > Se você tiver usuários com **endereços de email**  atribuídos que não estejam em uma licença do Office365, a declaração **User.Email** não será exibida no token SAML. Nesses casos, é recomendável usar **user.userprincipalname** como o valor do atributo **User.Email** para mapear como **Identificador Exclusivo**.
 
-5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, selecione **user.mail** como **Identificador de Usuário** e, para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
+1. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, selecione **user.mail** como **Identificador de Usuário** e, para cada linha mostrada na tabela a seguir, execute as seguintes etapas:
     
     | Nome do atributo | Valor do atributo |
     | --- | --- |
@@ -147,29 +147,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique em **OK**
 
-6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_certificate.png)
 
-7. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/slack-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do Slack**, clique em **Configurar o Slack** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Slack**, clique em **Configurar o Slack** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_configure.png)
 
-9. Em outra janela do navegador da Web, faça logon em seu site de empresa do Slack como administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do Slack como administrador.
 
-10. Navegue até **Microsoft Azure AD** e depois em **Configurações de Equipe**.
+1. Navegue até **Microsoft Azure AD** e depois em **Configurações de Equipe**.
 
      ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_001.png)
 
-11. Na seção **Configurações de Equipe**, clique na guia **Autenticação** e em **Alterar Configurações**.
+1. Na seção **Configurações de Equipe**, clique na guia **Autenticação** e em **Alterar Configurações**.
 
     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_002.png)
 
-12. No diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
+1. No diálogo **Configurações de Autenticação SAML** , realize as seguintes etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/slack-tutorial/tutorial_slack_003.png)
 
@@ -194,15 +194,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/create_aaduser_03.png)
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/slack-tutorial/create_aaduser_04.png)
 
@@ -233,23 +233,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Slack**.
+1. Na lista de aplicativos, escolha **Slack**.
 
     ![Configurar o logon único](./media/slack-tutorial/tutorial_slack_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

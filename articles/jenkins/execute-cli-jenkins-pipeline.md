@@ -15,12 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 2b568bd22858a42178e2821e0e97a3b4ebdfccd5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28926923"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421297"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implantar o Serviço de Aplicativo do Azure com o Jenkins e a CLI do Azure
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure na [pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, você cria um pipeline de CI/CD em uma VM do Azure, incluindo como:
@@ -63,7 +63,7 @@ Uma credencial do Azure é necessária para executar a CLI do Azure.
 
 ## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Criar um Serviço de Aplicativo do Azure para implantar o aplicativo Web Java
 
-Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando a CLI de comando [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos. 
+Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando a CLI de comando [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -92,7 +92,7 @@ Quando o plano estiver pronto, a CLI do Azure mostra uma saída semelhante ao ex
 
 ### <a name="create-an-azure-web-app"></a>Criar um aplicativo Web do Azure
 
- Use a CLI de comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) para criar uma definição de aplicativo Web no `myAppServicePlan` Plano do Serviço de Aplicativo. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
+ Use a CLI de comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) para criar uma definição de aplicativo Web no `myAppServicePlan` Plano do Serviço de Aplicativo. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -122,7 +122,7 @@ Quando a definição do aplicativo Web tiver pronta, a CLI do Azure mostrará in
 
 ### <a name="configure-java"></a>Configurar o Java 
 
-Definir a configuração de tempo de execução Java que seu aplicativo precisa com o comando [az appservice web config update](/cli/azure/appservice/web/config#az_appservice_web_config_update).
+Definir a configuração de tempo de execução Java que seu aplicativo precisa com o comando [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update).
 
 O comando a seguir configura o aplicativo Web para ser executado em um JDK 8 Java recente e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

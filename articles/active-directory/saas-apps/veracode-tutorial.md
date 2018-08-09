@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 2dd273a1a0b5a5af65c4c40337975cb6f3f858ae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a295885d67e674e1cef7cbeb0480b8031d405a92
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049823"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integração do Active Directory do Azure com o Veracode
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Veracode da galeria
-2. Configurar e testar logon único do Azure AD
+1. Configurar e testar logon único do Azure AD
 
 ## <a name="add-veracode-from-the-gallery"></a>Adicionar o Veracode da galeria
 Para configurar a integração do Veracode ao Azure AD, você precisará adicionar o Veracode da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Veracode ao Azure AD, você precisará adicion
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Veracode**, selecione **Veracode** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Veracode**, selecione **Veracode** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Veracode na lista de resultados](./media/veracode-tutorial/tutorial_veracode_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Veracode, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Veracode, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Veracode](#create-a-veracode-test-user)** – para ter um equivalente de Brenda Fernandes no Veracode vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Veracode](#create-a-veracode-test-user)** – para ter um equivalente de Brenda Fernandes no Veracode vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,25 +102,25 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/veracode-tutorial/tutorial_veracode_samlbase.png)
 
-3. Na seção **URLs e Domínio do Veracode**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está pré-integrado ao Azure. 
+1. Na seção **URLs e Domínio do Veracode**, o usuário não precisa executar nenhuma etapa, já que o aplicativo já está pré-integrado ao Azure. 
 
     ![Configurar o logon único](./media/veracode-tutorial/tutorial_veracode_url.png)
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media/veracode-tutorial/tutorial_veracode_certificate.png) 
 
-5. O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Veracode com sua conta do AD do Azure usando a federação baseada no protocolo SAML.
+1. O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Veracode com sua conta do AD do Azure usando a federação baseada no protocolo SAML.
 
     Seu aplicativo Veracode espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **atributos de token SAML** . A captura de tela a seguir mostra um exemplo disso.
     
     ![Atributos](./media/veracode-tutorial/tutorial_veracode_attr.png "Atributos")
 
-6. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
+1. Para adicionar os mapeamentos de atributo necessários, execute as seguintes etapas:
 
     | Nome do atributo | Valor do atributo |
     |--- |--- |
@@ -140,23 +140,23 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     d. Clique em **OK**.
 
-7. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/veracode-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do Veracode**, clique em **Configurar o Veracode** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Veracode**, clique em **Configurar o Veracode** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
 
     ![Configuração do Veracode](./media/veracode-tutorial/tutorial_veracode_configure.png) 
 
-9. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Veracode como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Veracode como administrador.
 
-10. No menu na parte superior, clique em **Configurações** e em **Administrador**.
+1. No menu na parte superior, clique em **Configurações** e em **Administrador**.
    
     ![Administração](./media/veracode-tutorial/ic802911.png "Administração")
 
-11. Clique na guia **SAML** .
+1. Clique na guia **SAML** .
 
-12. Na seção **Configurações do SAML da Organização** , realize as seguintes etapas:
+1. Na seção **Configurações do SAML da Organização** , realize as seguintes etapas:
    
     ![Administração](./media/veracode-tutorial/ic802912.png "Administração")
    
@@ -166,7 +166,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     c. Selecione **Habilitar Autorregistro**.
 
-13. Na seção **Configurações de Autorregistro**, realize as seguintes etapas e clique em **Salvar**:
+1. Na seção **Configurações de Autorregistro**, realize as seguintes etapas e clique em **Salvar**:
    
     ![Administração](./media/veracode-tutorial/ic802913.png "Administração")
    
@@ -202,15 +202,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/veracode-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/veracode-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/veracode-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/veracode-tutorial/create_aaduser_04.png)
 
@@ -241,23 +241,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Veracode**.
+1. Na lista de aplicativos, selecione **Veracode**.
 
     ![O link do Veracode na lista de Aplicativos](./media/veracode-tutorial/tutorial_veracode_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

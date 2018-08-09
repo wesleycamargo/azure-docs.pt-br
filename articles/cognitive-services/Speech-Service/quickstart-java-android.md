@@ -1,23 +1,24 @@
 ---
-title: 'Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala dos Serviços Cognitivos | Microsoft Docs'
+title: 'Início Rápido: Saiba como reconhecer fala em Java no Android usando SDK de Fala dos Serviços Cognitivos'
 titleSuffix: Microsoft Cognitive Services
 description: Saiba como reconhecer fala em Java no Android usando SDK de Fala dos Serviços Cognitivos
 services: cognitive-services
 author: fmegen
-manager: wolfma
 ms.service: cognitive-services
 ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: fb52bc3fa398cbe5ba4cbea7c1908ee1fece876e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114695"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325118"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Java no Android usando SDK de Fala
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Neste artigo, você aprenderá como criar um aplicativo Java para Android usando SDK de Fala dos Serviços Cognitivos para transcrever conversão de fala em texto.
 O aplicativo é baseado no Pacote do Maven do SDK de Fala dos Serviços Cognitivos da Microsoft, versão 0.5.0, Android Studio 3.1.
@@ -158,4 +159,4 @@ Procure esse exemplo na pasta `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Visita a [página de exemplos](samples.md) para obter exemplos adicionais.
+* [Obtenha nossas amostras](speech-sdk.md#get-the-samples)

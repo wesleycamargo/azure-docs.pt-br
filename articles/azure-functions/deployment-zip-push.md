@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3ff02816cdd5641cdcd78a12206b80be6d518373
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699947"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423701"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Implantação por push do zip para o Azure Functions 
 Este artigo descreve como implantar seus arquivos de projeto de aplicativo de função para o Azure de um arquivo .zip (compactado). Você aprenderá a realizar uma implantação de envio por push, usando a CLI do Azure e usando as APIs REST. 
@@ -73,7 +73,7 @@ Você também pode baixar um arquivo .zip de um repositório do GitHub. Note que
 
 ## <a name="cli"></a>Implantar usando a CLI do Azure
 
-Você pode usar a CLI do Azure para disparar uma implantação de envio por push. Implante o arquivo .zip em seu aplicativo de funções usando o comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip). Para usar esse comando, você deve usar a CLI do Azure versão 2.0.21 ou posterior. Para ver qual versão do CLI do Azure que você está usando, use o comando `az --version`.
+Você pode usar a CLI do Azure para disparar uma implantação de envio por push. Implante o arquivo .zip em seu aplicativo de funções usando o comando [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Para usar esse comando, você deve usar a CLI do Azure versão 2.0.21 ou posterior. Para ver qual versão do CLI do Azure que você está usando, use o comando `az --version`.
 
 No comando a seguir, substitua o espaço reservado `<zip_file_path>` pelo caminho para o local do seu arquivo .zip. Além disso, substitua `<app_name>` com o nome exclusivo do seu aplicativo de funções. 
 

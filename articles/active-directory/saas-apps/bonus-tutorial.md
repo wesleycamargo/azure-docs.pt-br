@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308101"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422970"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: integração do Azure Active Directory ao Bonusly
 
@@ -34,7 +34,7 @@ A integração do Bonusly ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Bonusly, você precisará dos seguintes itens:
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Bonusly da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Adicionando o Bonusly da galeria
 Para configurar a integração do Bonusly ao Azure AD, você precisa adicionar o Bonusly da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Bonusly ao Azure AD, você precisa adicionar o
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Bonusly**, selecione **Bonusly** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Bonusly**, selecione **Bonusly** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Bonusly na lista de resultados](./media/bonus-tutorial/tutorial_bonusly_addfromgallery.png)
 
@@ -86,10 +86,10 @@ No Bonusly, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 Para configurar e testar o logon único do Azure AD com o Bonusly, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Bonusly](#create-a-bonusly-test-user)** – para ter um equivalente de Brenda Fernandes no Bonusly vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Bonusly](#create-a-bonusly-test-user)** – para ter um equivalente de Brenda Fernandes no Bonusly vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -101,11 +101,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/bonus-tutorial/tutorial_bonusly_samlbase.png)
 
-3. Na seção **Domínio e URLs do Bonusly**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Bonusly**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Bonusly](./media/bonus-tutorial/tutorial_bonusly_url.png)
 
@@ -114,26 +114,26 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > O valor não é real. Atualize o valor com a URL de Resposta real. Contate a [equipe de suporte do Bonusly](https://bonus.ly/contact) para obter o valor.
  
-4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
+1. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
 
     ![O link de download do Certificado](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/bonus-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Bonusly**, clique em **Configurar o Bonusly** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Bonusly**, clique em **Configurar o Bonusly** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configuração do Bonusly](./media/bonus-tutorial/tutorial_bonusly_configure.png) 
 
-7. Em outra janela do navegador, faça logon no seu locatário do **Bonusly**.
+1. Em outra janela do navegador, faça logon no seu locatário do **Bonusly**.
 
-8. Na barra de ferramentas na parte superior, clique em **Configurações** e selecione **Integrações e aplicativos**.
+1. Na barra de ferramentas na parte superior, clique em **Configurações** e selecione **Integrações e aplicativos**.
    
     ![Seção Social Bonusly](./media/bonus-tutorial/ic773686.png "Bonusly")
-9. Em **Logon Único**, selecione **SAML**.
+1. Em **Logon Único**, selecione **SAML**.
 
-10. Na página do diálogo **SAML** , realize as seguintes etapas:
+1. Na página do diálogo **SAML** , realize as seguintes etapas:
    
     ![Página de Diálogo Saml do Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
    
@@ -145,7 +145,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     d. Cole o valor da **Impressão digital** copiado do Portal do Azure na caixa de texto **Impressão Digital do Certificado**.
    
-11. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -162,15 +162,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/bonus-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/bonus-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![O botão Adicionar](./media/bonus-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![A caixa de diálogo Usuário](./media/bonus-tutorial/create_aaduser_04.png) 
 
@@ -194,23 +194,23 @@ Para permitir que os usuários do Azure AD façam logon no Bonusly, eles devem e
 
 1. Em uma janela do navegador da Web, faça logon no seu locatário do Bonusly.
 
-2. Clique em **Configurações**.
+1. Clique em **Configurações**.
  
     ![Configurações](./media/bonus-tutorial/ic781041.png "Configurações")
 
-3. Clique na guia **Usuários e bônus** .
+1. Clique na guia **Usuários e bônus** .
    
     ![Usuários e bônus](./media/bonus-tutorial/ic781042.png "Usuários e bônus")
 
-4. Clique em **Gerenciar Usuários**.
+1. Clique em **Gerenciar Usuários**.
    
     ![Gerenciar Usuários](./media/bonus-tutorial/ic781043.png "Gerenciar Usuários")
 
-5. Clique em **Adicionar Usuário**.
+1. Clique em **Adicionar Usuário**.
    
     ![Adicionar Usuário](./media/bonus-tutorial/ic781044.png "Adicionar Usuário")
 
-6. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
+1. No diálogo **Adicionar Usuário** , realize as seguintes etapas:
    
     ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar Usuário")  
 
@@ -238,23 +238,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha o **Bonusly**.
+1. Na lista de aplicativos, escolha o **Bonusly**.
 
     ![O link do Bonusly na lista de Aplicativos](./media/bonus-tutorial/tutorial_bonusly_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 46e222ffe40db186343250efc71e20d41adbc285
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203112"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424381"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Java e MySQL no Azure
 
@@ -44,7 +44,7 @@ Neste tutorial, você aprenderá como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Baixe e instale o Git](https://git-scm.com/)
 1. [Baixe e instale o Java JDK 7 ou superior](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -126,7 +126,7 @@ Nesta etapa, você criará uma instância [Banco de dados para MySQL](../mysql/q
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o seguinte comando [`az group create`](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual recursos relacionados do Azure, como aplicativos Web, bancos de dados e contas de armazenamento são implantados e gerenciados. 
+Crie um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) com o seguinte comando [`az group create`](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual recursos relacionados do Azure, como aplicativos Web, bancos de dados e contas de armazenamento são implantados e gerenciados. 
 
 O exemplo a seguir cria um grupo de recursos na região da Europa Setentrional:
 
@@ -138,7 +138,7 @@ Para ver quais possíveis valores você pode usar para `--location`, use o coman
 
 ### <a name="create-a-mysql-server"></a>Criar um servidor MySQL
 
-No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+No Cloud Shell, crie um servidor no Banco de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 No comando a seguir, substitua o espaço reservado  *\<mysql_server_name >* por um nome de servidor exclusivo,*\<admin_user>* por um nome de usuário e *\<admin_password>* por uma senha. Esse nome do servidor é usado como parte de seu ponto de extremidade do PostgreSQL (`https://<mysql_server_name>.mysql.database.azure.com`), portanto, ele precisa ser exclusivo entre todos os servidores no Azure.
 
@@ -174,7 +174,7 @@ Quando o servidor MySQL for criado, a CLI do Azure mostrará informações semel
 
 ### <a name="configure-server-firewall"></a>Configurar o firewall do servidor
 
-No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
+No Cloud Shell, crie uma regra de firewall para o servidor MySQL para permitir conexões de cliente usando o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -217,7 +217,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Implantar o exemplo no Serviço de Aplicativo do Azure
 
-Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando o comando da CLI do Azure [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos. 
+Crie um plano do Serviço de Aplicativo do Azure com o tipo de preço **GRÁTIS** usando o comando da CLI do Azure [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create). O plano do serviço de aplicativo define os recursos físicos usados para hospedar seus aplicativos. Todos os aplicativos atribuídos a um plano do serviço de aplicativo compartilham esses recursos, permitindo que você economize hospedando vários aplicativos. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -243,7 +243,7 @@ Quando o plano estiver pronto, a CLI do Azure mostra uma saída semelhante ao ex
 
 ### <a name="create-an-azure-web-app"></a>Criar um aplicativo Web do Azure
 
-No Cloud Shell, use o comando da CLI [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) para criar uma definição de aplicativo Web no Plano do Serviço de Aplicativo `myAppServicePlan`. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
+No Cloud Shell, use o comando da CLI [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) para criar uma definição de aplicativo Web no Plano do Serviço de Aplicativo `myAppServicePlan`. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -270,7 +270,7 @@ Quando a definição do aplicativo Web tiver pronta, a CLI do Azure mostrará in
 
 ### <a name="configure-java"></a>Configurar o Java 
 
-No Cloud Shell, defina a configuração de tempo de execução Java que seu aplicativo precisa com o comando [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
+No Cloud Shell, defina a configuração de tempo de execução Java que seu aplicativo precisa com o comando [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set).
 
 O comando a seguir configura o aplicativo Web para ser executado em um JDK 8 Java recente e [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Obter credenciais de implantação FTP 
 É possível implantar seu aplicativo no serviço de aplicativo do Azure de várias maneiras, incluindo FTP, Git local, GitHub, Visual Studio Team Services e BitBucket. Para este exemplo, o FTP para implantar o arquivo .WAR criado anteriormente no computador local para o Serviço de Aplicativo do Azure.
 
-Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) no Cloud Shell: 
+Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) no Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -413,7 +413,7 @@ Quando você atualiza o aplicativo, uma coluna **Hora da Criação** fica visív
 
 Enquanto o aplicativo Java é executado no Serviço de Aplicativo do Azure, é possível fazer com que os logs do console sejam encaminhados diretamente para seu terminal. Dessa forma, é possível obter as mesmas mensagens de diagnóstico para ajudá-lo a depurar erros de aplicativo.
 
-Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) no Cloud Shell.
+Para iniciar o streaming de log, use o comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) no Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

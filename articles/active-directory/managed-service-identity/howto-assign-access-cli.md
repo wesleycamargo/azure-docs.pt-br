@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2017
 ms.author: daveba
-ms.openlocfilehash: 947e0140c7943954be5eb285bb7ec514b74e9022
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a5da06eac7f4680282aad305f57cb9ca1c9d5730
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929635"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424425"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de MSI (Identidade de Serviço Gerenciado) a um recurso usando a CLI do Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "33929635"
 
 Depois de configurar um recurso do Azure com um MSI, você pode conceder o acesso de MSI a outro recurso, assim como qualquer entidade de segurança. Este exemplo mostra como conceder o acesso de uma máquina virtual do Azure ou MSI do conjunto de dimensionamento de máquinas virtuais a uma conta de Armazenamento do Azure usando a CLI do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -43,13 +43,13 @@ Para executar os exemplos de script da CLI, você tem três opções:
 
 Após habilitar a MSI em um recurso do Azure, como uma [máquina virtual do Azure](qs-configure-cli-windows-vm.md) ou [conjunto de dimensionamento de máquinas virtuais do Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az_login). Use uma conta associada à assinatura do Azure sob a qual deseja implantar a VM ou o conjunto de dimensionamento de máquinas virtuais:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure sob a qual deseja implantar a VM ou o conjunto de dimensionamento de máquinas virtuais:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Neste exemplo, fornecemos acesso de uma máquina virtual do Azure para uma conta de armazenamento. Primeiro, usamos a [lista de recursos az](/cli/azure/resource/#az_resource_list) para obter a entidade de serviço para a máquina virtual nomeada "myVM":
+2. Neste exemplo, fornecemos acesso de uma máquina virtual do Azure para uma conta de armazenamento. Primeiro, usamos a [lista de recursos az](/cli/azure/resource/#az-resource-list) para obter a entidade de serviço para a máquina virtual nomeada "myVM":
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -60,7 +60,7 @@ Após habilitar a MSI em um recurso do Azure, como uma [máquina virtual do Azur
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. Após obter a ID da entidade e serviço, use [criar atribuição de função az](/cli/azure/role/assignment#az_role_assignment_create) para que a máquina virtual ou o conjunto de dimensionamento de máquinas virtuais configurem o acesso do "Leitor" a uma conta de armazenamento nomeada "myStorageAcct":
+3. Após obter a ID da entidade e serviço, use [criar atribuição de função az](/cli/azure/role/assignment#az-role-assignment-create) para que a máquina virtual ou o conjunto de dimensionamento de máquinas virtuais configurem o acesso do "Leitor" a uma conta de armazenamento nomeada "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

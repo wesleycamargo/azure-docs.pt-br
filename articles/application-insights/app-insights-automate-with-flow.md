@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293762"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424544"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizar os processos do Azure Application Insights com o conector para o Microsoft Flow
 
@@ -35,19 +35,19 @@ Neste tutorial, você aprenderá a criar um fluxo que usa o algoritmo de cluster
 
 ### <a name="step-1-create-a-flow"></a>Etapa 1: Criar um fluxo
 1. Entre no [Microsoft Flow](http://flow.microsoft.com) e, em seguida, selecione **Meus Fluxos**.
-2. Clique em **Criar um fluxo em branco**.
+1. Clique em **Criar um fluxo em branco**.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>Etapa 2: Criar um gatilho para o fluxo
 1. Selecione **Agendamento** e, depois, **Agendamento – Recorrência**.
-2. Na caixa **frequência**, selecione **Dia** e, na caixa **Intervalo**, digite **1**.
+1. Na caixa **frequência**, selecione **Dia** e, na caixa **Intervalo**, digite **1**.
 
     ![Caixa de diálogo de gatilho do Microsoft Flow](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>Etapa 3: adicionar uma ação do Application Insights
 1. Clique na caixa **Nova etapa** e depois clique em **Adicionar uma ação**.
-2. Pesquise por **Azure Application Insights**.
-3. Clique em **Versão Prévia do Azure Application Insights – Visualizar a versão prévia da consulta do Analytics**.
+1. Pesquise por **Azure Application Insights**.
+1. Clique em **Versão Prévia do Azure Application Insights – Visualizar a versão prévia da consulta do Analytics**.
 
     ![Janela Executar consulta do Analytics](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -84,12 +84,12 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 ### <a name="step-6-configure-the-flow-to-send-email"></a>Etapa 6: Configurar o fluxo para enviar email
 
 1. Clique na caixa **Nova etapa** e depois clique em **Adicionar uma ação**.
-2. Pesquise por **Office 365 Outlook**.
-3. Clique em **Office 365 Outlook – Enviar um email**.
+1. Pesquise por **Office 365 Outlook**.
+1. Clique em **Office 365 Outlook – Enviar um email**.
 
     ![Janela de seleção do Office 365 Outlook](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. Na janela **Enviar um email**, faça o seguinte:
+1. Na janela **Enviar um email**, faça o seguinte:
 
    a. Digite o endereço de email do destinatário.
 
@@ -101,7 +101,7 @@ Quando criar suas próprias consultas, verifique se elas estão funcionando corr
 
     ![Configuração do Office 365 Outlook](./media/app-insights-automate-with-flow/flow5.png)
 
-5. No menu de conteúdo dinâmico, faça o seguinte:
+1. No menu de conteúdo dinâmico, faça o seguinte:
 
     a. Selecione o **Nome do Anexo**.
 

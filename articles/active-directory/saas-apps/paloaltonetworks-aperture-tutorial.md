@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 20292c06cf336a0245b5f5db6b1cb4894df0f1ae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7bb4782fa390ad2cc324a79a1f544c3db062c921
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051574"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421542"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: integração do Microsoft Azure Active Directory com o Palo Alto Networks – Aperture
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Palo Alto Networks – Aperture da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Adicionar o Palo Alto Networks – Aperture da galeria
 Para configurar a integração do Palo Alto Networks – Aperture com o Azure Active Directory, você precisará adicionar o Palo Alto Networks – Aperture da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Palo Alto Networks – Aperture com o Azure Ac
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Palo Alto Networks – Aperture**, selecione **Palo Alto Networks – Aperture** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Palo Alto Networks – Aperture**, selecione **Palo Alto Networks – Aperture** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Palo Alto Networks - Aperture na lista de resultados](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que o logon único funcione, o Azure Active Directory precisa saber qual us
 Para configurar e testar o logon único do Azure Active Directory com o Palo Alto Networks – Aperture, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Palo Alto Networks – Aperture](#create-a-palo-alto-networks---aperture-test-user)** – para ter um equivalente de Brenda Fernandes no Palo Alto Networks – Aperture vinculado à representação do usuário no Azure Active Directory.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Palo Alto Networks – Aperture](#create-a-palo-alto-networks---aperture-test-user)** – para ter um equivalente de Brenda Fernandes no Palo Alto Networks – Aperture vinculado à representação do usuário no Azure Active Directory.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -100,11 +100,11 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_samlbase.png)
 
-3. Na seção **Domínio e URLs do Palo Alto Networks - Aperture**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs do Palo Alto Networks - Aperture**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url.png)
 
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url1.png)
 
@@ -121,30 +121,30 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte ao cliente do Palo Alto Networks – Aperture](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/paloaltonetworks-aperture-tutorial/tutorial_general_400.png)
 
 
-7. Na seção **Configuração do Palo Alto Networks - Aperture**, clique em **Configure Palo Alto Networks - Aperture** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Palo Alto Networks - Aperture**, clique em **Configure Palo Alto Networks - Aperture** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Link de configuração](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_configure.png)
 
-8. Em outra janela do navegador da Web, entre no Palo Alto Networks - Aperture como Administrador.
+1. Em outra janela do navegador da Web, entre no Palo Alto Networks - Aperture como Administrador.
 
-9. Na barra de menu superior, clique em **CONFIGURAÇÕES**.
+1. Na barra de menu superior, clique em **CONFIGURAÇÕES**.
 
     ![Guia de configurações](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
 
-10. Navegue para a seção **APLICAÇÃO** e clique em **Autenticação** no lado esquerdo do menu.
+1. Navegue para a seção **APLICAÇÃO** e clique em **Autenticação** no lado esquerdo do menu.
 
     ![Guia de Autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
     
-11. Na página **Autenticação**, execute as seguintes etapas:
+1. Na página **Autenticação**, execute as seguintes etapas:
     
     ![Guia de autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
@@ -175,15 +175,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/paloaltonetworks-aperture-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/paloaltonetworks-aperture-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/paloaltonetworks-aperture-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/paloaltonetworks-aperture-tutorial/create_aaduser_04.png)
 
@@ -211,23 +211,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Palo Alto Networks – Aperture**.
+1. Na lista de aplicativos, selecione **Palo Alto Networks – Aperture**.
 
     ![O link Palo Alto Networks – Aperture na lista de Aplicativos](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

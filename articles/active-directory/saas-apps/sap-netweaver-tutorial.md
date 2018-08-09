@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 27bbf9053c27a5de791426d5da06f5ce35c7bfee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b773380a21e0c47a1e1519e592aa0ddd5e6388fa
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213202"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421943"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com o SAP NetWeaver
 
@@ -34,7 +34,7 @@ A integração do SAP NetWeaver ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao SAP NetWeaver, você precisa dos seguintes itens:
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar SAP NetWeaver da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-sap-netweaver-from-the-gallery"></a>Adicionar SAP NetWeaver da galeria
 Para configurar a integração do SAP NetWeaver ao Azure AD, você precisará adicionar o SAP NetWeaver da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,19 +64,19 @@ Para configurar a integração do SAP NetWeaver ao Azure AD, você precisará ad
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **SAP NetWeaver**.
+1. Na caixa de pesquisa, digite **SAP NetWeaver**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_search.png)
 
-5. No painel de resultados, selecione **SAP NetWeaver** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **SAP NetWeaver** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o SAP NetWeaver, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do SAP NetWeaver](#creating-an-sap-netweaver-test-user)** – para ter um equivalente de Brenda Fernandes no SAP NetWeaver que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do SAP NetWeaver](#creating-an-sap-netweaver-test-user)** – para ter um equivalente de Brenda Fernandes no SAP NetWeaver que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -105,11 +105,11 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_samlbase.png)
 
-3. Na seção **URLs e Domínio do SAP NetWeaver**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do SAP NetWeaver**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_url.png)
 
@@ -122,19 +122,19 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     > [!NOTE] 
     > Esses não são os valores reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [equipe de suporte do cliente SAP NetWeaver](https://www.sap.com/support.html) para obter esses valores. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_general_400.png)
     
-6. Na seção **Configuração do SAP NetWeaver**, clique em **Configurar SAP NetWeaver** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do SAP NetWeaver**, clique em **Configurar SAP NetWeaver** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_configure.png) 
 
-7. Para configurar o logon único no lado do **SAP NetWeaver**, é necessário enviar o **XML de Metadados** baixado e a **ID da Entidade SAML** para o [suporte do SAP NetWeaver](https://www.sap.com/support.html). 
+1. Para configurar o logon único no lado do **SAP NetWeaver**, é necessário enviar o **XML de Metadados** baixado e a **ID da Entidade SAML** para o [suporte do SAP NetWeaver](https://www.sap.com/support.html). 
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -151,15 +151,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/sap-netweaver-tutorial/create_aaduser_04.png) 
 
@@ -187,23 +187,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SAP NetWeaver**.
+1. Na lista de aplicativos, selecione **SAP NetWeaver**.
 
     ![Configurar o logon único](./media/sap-netweaver-tutorial/tutorial_sapnetweaver_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035706"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423881"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Criar alertas do log de atividades em notificações de serviço
 ## <a name="overview"></a>Visão geral
@@ -43,32 +43,32 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
     ![O serviço “Integridade do Serviço”](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. Na seção **Alertas**, selecione **Alertas de integridade**.
+1. Na seção **Alertas**, selecione **Alertas de integridade**.
 
     ![A guia “Alertas de integridade”](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. Selecione **Criar alerta de integridade do serviço** e preencha os campos.
+1. Selecione **Criar alerta de integridade do serviço** e preencha os campos.
 
     ![O comando “Criar alerta de integridade do serviço”](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Selecione a **Assinatura**, os **Serviços** e as **Regiões** sobre os quais você deseja ser alertado.
+1. Selecione a **Assinatura**, os **Serviços** e as **Regiões** sobre os quais você deseja ser alertado.
 
     ![A caixa de diálogo "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > Esta assinatura é usada para salvar o alerta do log de atividades. O recurso de alerta é implantado para essa assinatura e monitora os eventos no log de atividades para ele.
 
-5. Escolha os **Tipos de evento** sobre os quais você deseja ser alertado: *Problema de serviço*, *Manutenção planejada* e *Consultorias de integridade* 
+1. Escolha os **Tipos de evento** sobre os quais você deseja ser alertado: *Problema de serviço*, *Manutenção planejada* e *Consultorias de integridade* 
 
-6. Defina os detalhes do alerta inserindo um **Nome de regra de alerta** e uma **Descrição**.
+1. Defina os detalhes do alerta inserindo um **Nome de regra de alerta** e uma **Descrição**.
 
-7. Selecione o **Grupo de recursos** onde você deseja que o alerta seja salvo.
+1. Selecione o **Grupo de recursos** onde você deseja que o alerta seja salvo.
 
-8. Crie um grupo de ação selecionando **Novo grupo de ação**. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, insira um nome na caixa **Nome curto**. O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
+1. Crie um grupo de ação selecionando **Novo grupo de ação**. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, insira um nome na caixa **Nome curto**. O nome curto é referenciado nas notificações enviadas quando esse alerta é acionado.
 
     ![Criar um novo grupo de ações](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
+1. Defina uma lista de destinatários fornecendo os seguintes itens do destinatário:
 
     a. **Nome**: nome, alias ou identificador do destinatário.
 
@@ -76,7 +76,7 @@ Para saber mais sobre como configurar alertas de notificação de integridade do
 
     c. **Detalhes**: de acordo com o tipo de ação escolhido, insira um número de telefone, endereço de email, URI de webhook, etc.
 
-10. Selecione **OK** para criar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
+1. Selecione **OK** para criar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
 
 Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 
@@ -91,9 +91,9 @@ Saiba como [Configurar notificações de webhook para sistemas de gerenciamento 
 
 1. Siga as etapas 1 a 7 na seção anterior para criar a notificação de integridade do serviço. 
 
-2. Em **Definir grupo de ação**, clique no botão **Selecionar grupo de ação**. Selecione o grupo de ação apropriado.
+1. Em **Definir grupo de ação**, clique no botão **Selecionar grupo de ação**. Selecione o grupo de ação apropriado.
 
-3. Selecione **Adicionar** para adicionar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
+1. Selecione **Adicionar** para adicionar o grupo de ação e, em seguida, **Criar regra de alerta** para concluir o alerta.
 
 Em alguns minutos, o alerta estará ativo e começará a disparar com base nas condições especificadas durante a criação.
 

@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
 ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 08/02/2018
 ms.locfileid: "36265550"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Como inscrever-se na API de Tradução de Texto
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 - Não tem uma conta? É possível criar uma [conta gratuita](https://azure.microsoft.com/free/) para experimentar sem custo.
 - Já tem uma conta? [Entrar](https://ms.portal.azure.com/)

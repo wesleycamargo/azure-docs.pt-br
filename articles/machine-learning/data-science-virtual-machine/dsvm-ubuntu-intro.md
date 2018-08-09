@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179700"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422368"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Provisionar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -63,8 +63,8 @@ A Máquina Virtual de Ciência de Dados para Linux também contém ferramentas p
 Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
 
 1. Localizar, carregar e pré-processar dados
-2. Compilar e testar modelos
-3. Implantar os modelos para consumo em aplicativos inteligentes
+1. Compilar e testar modelos
+1. Implantar os modelos para consumo em aplicativos inteligentes
 
 Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e depois baixar, compilar e instalar essas versões.
 
@@ -75,15 +75,15 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
 A imagem do [CentOS](linux-dsvm-intro.md) também está disponível, com muitas das mesmas ferramentas que a imagem do Ubuntu. Uma imagem do [Windows](provision-vm.md) também está disponível.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados para Linux, você deve ter uma assinatura do Azure. Para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Criar sua Máquina Virtual de Ciência de Dados para Linux
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados para Linux:
 
 1. Navegue até a listagem de máquinas virtuais no [Portal do Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
-2. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
+1. Clique em **Criar** (na parte inferior) para abrir o assistente. ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. As seções a seguir fornecem as entradas para cada uma das etapas no assistente (enumeradas à direita da figura acima) que são usadas para criar a Máquina Virtual de Ciência de Dados da Microsoft. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
    
    a. **Noções básicas**:
    
@@ -118,8 +118,8 @@ O provisionamento deve levar cerca de 5 a 10 minutos. O status do provisionament
 
 É possível acessar a DSVM do Ubuntu usando três métodos:
 1. SSH para sessões de terminal
-2. X2Go para sessões gráficas
-3. JupyterHub e JupyterLab para notebooks Jupyter
+1. X2Go para sessões gráficas
+1. JupyterHub e JupyterLab para notebooks Jupyter
 
 ### <a name="ssh"></a>SSH
 
@@ -134,7 +134,7 @@ Após a criação da VM, você poderá entrar nela usando SSH. Use as credenciai
 A VM Linux já está provisionada com um servidor X2Go e pronta para aceitar conexões de cliente. Para se conectar à área de trabalho gráfica da VM do Linux, realize o seguinte procedimento em seu cliente:
 
 1. Baixe e instale o cliente X2Go para sua plataforma de cliente [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
-2. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
+1. Execute o cliente X2Go e selecione **Nova Sessão**. Ele abrirá uma janela de configuração com várias guias. Insira os seguintes parâmetros de configuração:
    * **Guia Sessão**:
      * **Host**: o nome do host ou endereço IP da sua VM de Ciência de Dados Linux.
      * **Logon**: nome de usuário na VM Linux.
@@ -416,16 +416,16 @@ Agora, uma interface gráfica é aberta com um conjunto de guias. Aqui estão as
 > 
 
 1. Clique em **Executar**.
-2. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Clique em **Sim** para carregar o exemplo.
-3. Clique na guia **Modelo** .
-4. Clique em **Executar** para compilar uma árvore de decisão.
-5. Clique em **Desenhar** para exibir a árvore de decisão.
-6. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
-7. Clique na guia **Avaliar** .
-8. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
-9. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
+1. Uma caixa de diálogo é exibida perguntando se você deseja usar o conjunto de dados meteorológicos de exemplo. Clique em **Sim** para carregar o exemplo.
+1. Clique na guia **Modelo** .
+1. Clique em **Executar** para compilar uma árvore de decisão.
+1. Clique em **Desenhar** para exibir a árvore de decisão.
+1. Clique no botão de opção **Floresta** e clique em **Executar** para compilar uma floresta aleatória.
+1. Clique na guia **Avaliar** .
+1. Clique no botão de opção **Risco** e em **Executar** para exibir duas gráficos de desempenho de Risco (Cumulativo).
+1. Clique a guia **Log** para mostrar o código R gerado das operações anteriores.
    (Devido a um bug na versão atual do Rattle, você precisa inserir um caractere *#* na frente de *Exportar este log...* no texto do log.)
-10. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
+1. Clique no botão **Exportar** para salvar o script de R chamado *weather_script.R* na pasta base.
 
 Você pode sair do Rattle e do R. Agora você pode modificar o script do R gerado ou usá-la como ele é para executá-lo em qualquer momento, para repetir tudo o que foi feito na interface do usuário do Rattle. Essa é uma maneira fácil, especialmente para iniciantes em R, de fazer análise e aprendizado de máquina rapidamente em uma interface gráfica e, ao mesmo tempo, gerar código em R automaticamente para modificar e/ou aprender.
 

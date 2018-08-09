@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301073"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Use a API de Visão Personalizada para compilar um projeto de detecção de objeto em C&#35; 
 Saiba como usar um aplicativo básico do Windows que usa a API da Pesquisa Visual Computacional para criar um projeto de detecção do objeto. Depois de criada, você poderá adicionar regiões marcadas, fazer upload de imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para criar seu próprio aplicativo para o Windows usando a API de Visão Personalizada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="get-the-custom-vision-sdk-and-samples"></a>Obter o SDK de Visão Personalizada e amostras
 Para compilar este exemplo, é necessário ter os Pacotes do NuGet do SDK de Visão Personalizada:

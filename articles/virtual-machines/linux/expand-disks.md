@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936880"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421181"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir discos rígidos virtuais em uma VM Linux com a CLI do Azure
 Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir um disco de dados existente. Este artigo fornece detalhes de como expandir discos gerenciados de uma VM Linux com a CLI do Azure 2.0. 
@@ -43,7 +43,7 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     > [!NOTE]
     > A VM deve ser desalocada para que o disco rígido virtual seja expandido. `az vm stop` não libera os recursos de computação. Para liberar os recursos de computação, use `az vm deallocate`.
 
-2. Veja uma lista de discos gerenciados em um grupo de recursos com [az disk list](/cli/azure/disk#az_disk_list). O exemplo a seguir exibe uma lista de discos gerenciados no grupo de recursos chamado *myResourceGroup*:
+1. Veja uma lista de discos gerenciados em um grupo de recursos com [az disk list](/cli/azure/disk#az_disk_list). O exemplo a seguir exibe uma lista de discos gerenciados no grupo de recursos chamado *myResourceGroup*:
 
     ```azurecli
     az disk list \
@@ -64,7 +64,7 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     > [!NOTE]
     > Ao expandir um disco gerenciado, o tamanho atualizado é mapeado para o tamanho de disco gerenciado mais próximo. Para obter uma tabela dos tamanhos de disco gerenciado e as camadas disponíveis, consulte [Visão geral do Azure Managed Disks – Preço e cobrança](../windows/managed-disks-overview.md#pricing-and-billing).
 
-3. Inicie a VM com [az vm start](/cli/azure/vm#az_vm_start). O exemplo a seguir inicia a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
+1. Inicie a VM com [az vm start](/cli/azure/vm#az_vm_start). O exemplo a seguir inicia a VM chamada *myVM* no grupo de recursos chamado *myResourceGroup*:
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -80,7 +80,7 @@ Para usar o disco expandido, é preciso expandir a partição subjacente e o sis
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
+1. Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
 
     a. Se já estiver montado, desmonte o disco:
 
@@ -121,25 +121,25 @@ Para usar o disco expandido, é preciso expandir a partição subjacente e o sis
 
     d. Para sair, digite `quit`
 
-3. Com a partição redimensionada, verifique a consistência da partição com `e2fsck`:
+1. Com a partição redimensionada, verifique a consistência da partição com `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. Agora redimensione o sistema de arquivos com `resize2fs`:
+1. Agora redimensione o sistema de arquivos com `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. Monte a partição no local desejado, como `/datadrive`:
+1. Monte a partição no local desejado, como `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A seguinte saída de exemplo mostra que a unidade de dados, */dev/sdc1*, agora tem 200 GB:
+1. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A seguinte saída de exemplo mostra que a unidade de dados, */dev/sdc1*, agora tem 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

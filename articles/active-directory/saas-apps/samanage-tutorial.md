@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: c90c0c2f831a622b54a56db5c9a3d4efb2f57eaa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118ab72c9afc13c5792f229f9c7bc61d226553d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041850"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420567"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Azure Active Directory ao Samanage
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Samanage da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-samanage-from-the-gallery"></a>Adição do Samanage da galeria
 Para configurar a integração do Samanage ao Azure AD, você precisa adicionar o Samanage na galeria à sua lista de aplicativos de SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Samanage ao Azure AD, você precisa adicionar 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Samanage**.
+1. Na caixa de pesquisa, digite **Samanage**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/tutorial_samanage_search.png)
 
-5. No painel de resultados, selecione **Samanage** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Samanage** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/tutorial_samanage_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Samanage, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Samanage, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Samanage](#creating-a-samanage-test-user)** – para ter um equivalente de Brenda Fernandes no Samanage que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Samanage](#creating-a-samanage-test-user)** – para ter um equivalente de Brenda Fernandes no Samanage que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_samanage_samlbase.png)
 
-3. Na seção **Domínio e URLs do Samanage**, realize as seguintes etapas:
+1. Na seção **Domínio e URLs do Samanage**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_samanage_url.png)
 
@@ -119,29 +119,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Logon e o Identificador reais, que são explicados adiante no tutorial. Para obter mais detalhes, contate a [equipe de suporte ao Cliente do Samanage](https://www.samanage.com/support).    
  
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_samanage_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Samanage**, clique em **Configurar o Samanage** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a ID da Entidade SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Samanage**, clique em **Configurar o Samanage** para abrir a janela **Configurar logon**. Copie a **URL de Saída e a ID da Entidade SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_samanage_configure.png) 
 
-7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Samanage como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Samanage como administrador.
 
-8. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
+1. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
     ![Painel](./media/samanage-tutorial/tutorial_samanage_001.png "Painel")
 
-9. Clique em **Logon Único**.
+1. Clique em **Logon Único**.
    
     ![Logon Único](./media/samanage-tutorial/tutorial_samanage_002.png "Logon Único")
 
-10. Navegue até a seção **Logon usando SAML** , execute as seguintes etapas:
+1. Navegue até a seção **Logon usando SAML** , execute as seguintes etapas:
    
     ![Logon usando SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Logon usando SAML")
  
@@ -175,15 +175,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/samanage-tutorial/create_aaduser_04.png) 
 
@@ -204,19 +204,19 @@ No caso do Samanage, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa Samanage como um administrador.
 
-2. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
+1. Clique em **Painel** e selecione **Configuração** no painel de navegação à esquerda.
    
     ![Configuração](./media/samanage-tutorial/tutorial_samanage_001.png "Configuração")
 
-3. Clique na guia **Usuários**
+1. Clique na guia **Usuários**
    
     ![Usuários](./media/samanage-tutorial/tutorial_samanage_006.png "Usuários")
 
-4. Clique em **Novo Usuário**.
+1. Clique em **Novo Usuário**.
    
     ![Novo Usuário](./media/samanage-tutorial/tutorial_samanage_007.png "Novo Usuário")
 
-5. Digite o **Nome** e o **Endereço de Email** de uma conta do Azure Active Directory que você deseja provisionar e clique em **Criar usuário**.
+1. Digite o **Nome** e o **Endereço de Email** de uma conta do Azure Active Directory que você deseja provisionar e clique em **Criar usuário**.
    
     ![Criar usuário](./media/samanage-tutorial/tutorial_samanage_008.png "Criar usuário")
    
@@ -235,23 +235,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Samanage**.
+1. Na lista de aplicativos, selecione **Samanage**.
 
     ![Configurar o logon único](./media/samanage-tutorial/tutorial_samanage_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
