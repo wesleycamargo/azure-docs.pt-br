@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262840"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620123"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Saiba mais sobre backups automáticos de Banco de Dados SQL
 
@@ -26,7 +26,7 @@ O Banco de Dados SQL cria automaticamente backups do banco de dados e usa o RA-G
 
 ## <a name="what-is-a-sql-database-backup"></a>O que é um backup de Banco de Dados SQL?
 
-O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](http://msdn.microsoft.com/library/ms175526.aspx) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos e os backups diferenciais geralmente ocorrem a cada 12 horas, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
+O Banco de Dados SQL usa tecnologia SQL Server para criar backups [completos](https://msdn.microsoft.com/library/ms186289.aspx), [diferenciais](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) e de [log de transações](https://msdn.microsoft.com/library/ms191429.aspx) para finalidades de PITR ( Recuperação Pontual). Os backups de log de transações geralmente ocorrem a cada 5 a 10 minutos e os backups diferenciais geralmente ocorrem a cada 12 horas, com a frequência baseada no nível de desempenho e na quantidade de atividade do banco de dados. Os backups de log de transações, com os backups completos e diferenciais, permitem restaurar um banco de dados para um ponto no tempo específico e para o mesmo servidor que hospeda o banco de dados. Quando você restaura um banco de dados, o serviço descobre quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
 
 Use esses backups para:

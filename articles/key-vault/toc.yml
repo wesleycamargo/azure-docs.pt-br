@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: Guias de instruções
   items:
-    - name: Gerenciar
-      items:
-        - name: Log do Azure Key Vault
-          href: key-vault-logging.md
-        - name: Acesso por trás de firewalls
-          href: key-vault-access-behind-firewall.md
-        - name: Disponibilidade e redundância
-          href: key-vault-disaster-recovery-guidance.md
-        - name: Alterar ID de locatário
-          href: key-vault-subscription-move-fix.md
-        - name: Criar e gerenciar usando a CLI do Azure
-          href: key-vault-manage-with-cli2.md
-        - name: Usar exclusão reversível do Key Vault com a CLI
-          href: key-vault-soft-delete-cli.md
-        - name: Usar exclusão reversível do Key Vault com o Azure PowerShell
-          href: key-vault-soft-delete-powershell.md
-        - name: Usar grupos para conceder acesso
-          href: key-vault-group-permissions-for-apps.md
-        - name: Proteger seu cofre de chaves
-          href: key-vault-secure-your-key-vault.md
-    - name: Automatizar
-      items:
-        - name: Automação do Azure
-          href: automation-manage-key-vault.md
+    - name: Log do Azure Key Vault
+      href: key-vault-logging.md
+    - name: Acesso por trás de firewalls
+      href: key-vault-access-behind-firewall.md
+    - name: Disponibilidade e redundância
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Alterar ID de locatário
+      href: key-vault-subscription-move-fix.md
+    - name: Criar e gerenciar usando a CLI do Azure
+      href: key-vault-manage-with-cli2.md
+    - name: Usar exclusão reversível do Key Vault com a CLI
+      href: key-vault-soft-delete-cli.md
+    - name: Usar exclusão reversível do Key Vault com o Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Usar grupos para conceder acesso
+      href: key-vault-group-permissions-for-apps.md
+    - name: Proteger seu cofre de chaves
+      href: key-vault-secure-your-key-vault.md
 - name: Referência
   items:
     - name: Azure PowerShell

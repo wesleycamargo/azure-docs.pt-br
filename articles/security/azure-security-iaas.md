@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723768"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618590"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Práticas recomendadas de segurança para as cargas de trabalho IaaS no Azure
 
@@ -106,7 +106,7 @@ Hospedar laboratórios ou sistemas de produção no Azure significa que os siste
 
 As tecnologias no Azure podem ajudá-lo a limitar o acesso a esses pontos de extremidade administrativos. No Azure, você pode usar os [NSGs](../virtual-network/security-overview.md) (grupos de segurança de rede). Quando você usa o Azure Resource Manager para a implantação, os NSGs limitam o acesso de todas as redes para apenas os pontos de extremidade de gerenciamento (RDP ou SSH). Quando você pensar em NSGs, considere as ACLs do roteador. Você pode usá-las para controlar totalmente a comunicação de rede entre os vários segmentos das redes do Azure. Isso é semelhante a criar redes em redes de perímetro ou outras redes isoladas. Elas não inspecionam o tráfego, mas ajudam na segmentação da rede.
 
-Uma maneira mais dinâmica de limitar o acesso às máquinas virtuais é usar a [administração Just-In-Time](../security-center/security-center-just-in-time.md) da Central de Segurança do Azure. A Central de segurança pode bloquear as VMs do Azure e fornece acesso quando necessário. O processo funciona com a permissão do acesso a um usuário que o solicitar depois de verificar se ele tem as permissões necessárias, com base no [RBAC](../role-based-access-control/role-assignments-portal.md) (Controle de Acesso Baseado em Função). Em seguida, a Central de Segurança do Azure criará os NSGs (Grupos de Segurança de Rede) necessários para permitir o tráfego de entrada.
+Uma maneira mais dinâmica de limitar o acesso às máquinas virtuais é usar a [administração Just-In-Time](../security-center/security-center-just-in-time.md) da Central de segurança do Azure. A Central de segurança pode bloquear as VMs do Azure e fornece acesso quando necessário. O processo funciona com a permissão do acesso a um usuário que o solicitar depois de verificar se ele tem as permissões necessárias, com base no [RBAC](../role-based-access-control/role-assignments-portal.md) (Controle de Acesso Baseado em Função). Em seguida, a Central de segurança do Azure criará os NSGs (Grupos de Segurança de Rede) necessários para permitir o tráfego de entrada.
 
 ### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[VPN site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 
@@ -188,7 +188,7 @@ Compare seus padrões de práticas recomendadas do setor, personalize-os e crie 
 
 Para ambientes hospedados separadamente do seu ambiente de produção, você pode usar uma extensão de antimalware para ajudar a proteger máquinas virtuais e serviços de nuvem. Ela se integra à [Central de segurança do Azure](../security-center/security-center-intro.md).
 
-O [Microsoft Antimalware](azure-security-antimalware.md) inclui recursos como a proteção em tempo real, verificação agendada, remediação de malware, atualizações de assinatura, atualizações do mecanismo, exemplos de relatório, coleta de eventos de exclusão e [suporte PowerShell](https://msdn.microsoft.com/library/dn771715.aspx).
+O [Microsoft Antimalware](azure-security-antimalware.md) inclui recursos como a proteção em tempo real, verificação agendada, remediação de malware, atualizações de assinatura, atualizações do mecanismo, exemplos de relatório, coleta de eventos de exclusão e [suporte PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
 
 ![Antimalware do Azure](./media/azure-security-iaas/azantimalware.png)
 

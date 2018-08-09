@@ -8,12 +8,12 @@ ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445153"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620793"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
@@ -219,7 +219,6 @@ Para obter mais informações sobre a Sincronização de Dados SQL, consulte:
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:  
     -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Para saber mais sobre Bancos de Dados SQL, confira:
 

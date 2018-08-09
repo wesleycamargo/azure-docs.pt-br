@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972461"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619083"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Para carregar uma VM ou um VHD existente da rede local para usá-lo como uma ima
 * Use *sysprep* no Windows ou *waagent -deprovision* no Linux para generalizar a VM – veja [Sysprep Technical Reference](https://technet.microsoft.com/library/cc766049.aspx) (Referência técnica do Sysprep) para Windows ou [Como capturar uma máquina virtual do Linux para usar como um modelo do Resource Manager][capture-image-linux-step-2-create-vm-image] para Linux
 * Carregar o VHD com o Powershell ou a CLI do Azure
 * (Opcional) Criar uma Imagem do Managed Disk a partir do VHD com o Powershell, CLI do Azure ou o portal do Azure
-* Implantar a VM com um modelo JSON referenciando o VHD da imagem conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json).
+* Implantar a VM com um modelo JSON referenciando o VHD da imagem conforme mostrado [neste modelo JSON de exemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) ou usando Managed Disks conforme mostrado [neste modelo JSON de exemplo](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Baixando VHDs ou Managed Disks no local
 A infraestrutura como serviço do Azure não é uma rua de mão única, em que você pode apenas carregar VHDs e sistemas SAP. Você também pode mover sistemas SAP do Azure de volta para o universo local.
@@ -1156,8 +1156,8 @@ Você também pode copiar VHDs entre assinaturas. Para obter mais informações,
 
 O fluxo básico da lógica de cmdlet do PS tem esta aparência:
 
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzureStorageContext* – consulte <https://msdn.microsoft.com/library/dn806380.aspx>
-* Crie um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzureStorageContext* – consulte <https://msdn.microsoft.com/library/dn806380.aspx>
+* Crie um contexto de conta de armazenamento para a conta de armazenamento de **origem** com *New-AzureStorageContext* – consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
+* Crie um contexto de conta de armazenamento para a conta de armazenamento de **destino** com *New-AzureStorageContext* – consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext>
 * Iniciar a cópia com
 
 ```powershell

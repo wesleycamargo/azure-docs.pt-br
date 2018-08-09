@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6aeb82ff1feb3521f3a09dc1b28186754568bb27
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442955"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620273"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Habilitar gerenciamento de assinaturas em seu locatário
 
@@ -29,7 +29,7 @@ Como administrador global do seu diretório, você pode não ter acesso padrão 
 
 Cada usuário atribuído à função de administrador global deve seguir as etapas abaixo para habilitar o gerenciamento de assinaturas. Depois que tiver habilitado o gerenciamento de assinaturas por conta própria, você poderá adicionar outros administradores globais que talvez precisem também de acesso aos recursos. Não há nenhuma configuração de diretório que habilita o acesso para todos os membros da função de administrador global.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
 Entre no Portal do Azure com uma conta que seja um membro qualificado ou ativo da função de administrador global. Se a conta for um administrador global qualificado, você deverá primeiro ativar a função antes de passar para a próxima etapa.
 

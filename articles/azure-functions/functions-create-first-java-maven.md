@@ -11,20 +11,19 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: df3c64938cfc5835fd9eb2f0bbed0135b611347f
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: a1ce9aa87d8f70d3d55daa3a8f46c6a7f706f78e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341514"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620725"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
-> [!NOTE] 
-> O Java para Azure Functions está atualmente na versão prévia.
+[!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
 Este guia de início rápido fornece orientação para a criação de um projeto de função [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) com o Maven, testá-lo localmente e implantá-lo no Azure Functions. Quando terminar, você terá um aplicativo de funções disparado por HTTP em execução no Azure.
 

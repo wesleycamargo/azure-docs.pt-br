@@ -1,20 +1,20 @@
 ---
 title: Introdução aos dispositivos gêmeos do Hub IoT do Azure (.NET/.NET) | Microsoft Docs
 description: Como usar dispositivos gêmeos do Hub IoT do Azure para adicionar marcas e usar uma consulta do Hub IoT. Use o SDK do dispositivo IoT do Azure para .NET para implementar o aplicativo de dispositivo simulado e o SDK do serviço IoT do Azure para .NET para implementar um aplicativo de serviço que adiciona as marcas e executa a consulta do Hub IoT.
-author: dsk-2015
+author: dominicbetts
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dkshir
-ms.openlocfilehash: 5048d5a04b5185efb97320d9f2227f78398e7713
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.author: dobett
+ms.openlocfilehash: 42ee18bab72b5f412e693e1fe462069a165f7e81
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185094"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620694"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Introdução aos dispositivos gêmeos (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]

@@ -17,12 +17,12 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: c03384f71787e4ab3ad3bd56e2355558e8d0155a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7375771d0a80073811149dc74b1c7fd3c17b478f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024647"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619983"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL
  
@@ -375,8 +375,6 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:
     -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](sql-database-sync-data-between-azure-onprem.md)
-
--   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Para saber mais sobre o Banco de Dados SQL, veja:
 
