@@ -49,7 +49,7 @@ Primeiro, na janela **Gerenciar Pacotes do NuGet**, selecione nuget.org como a *
 
 Em seguida, procure Newtonsoft.Json e Instalar. Se você for solicitado a revisar as alterações, clique em **OK**. Se aparecer os termos de licença EntityLinking, clique em **Aceito**.
 
-A Vinculação de Entidade agora está instalada como parte do seu aplicativo. Você pode confirmar isso verificando que a referência ** Microsoft.ProjectOxford.EntityLinking** está presente como parte do seu projeto no Gerenciador de Soluções.
+A Vinculação de Entidade agora está instalada como parte do seu aplicativo. Você pode confirmar isso verificando que a referência **Microsoft.ProjectOxford.EntityLinking** está presente como parte do seu projeto no Gerenciador de Soluções.
 
  ![Biblioteca do nuget incluído no projeto](./Images/NugetLibraryInProject.png)
  
