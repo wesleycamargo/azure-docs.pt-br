@@ -9,19 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7a13cafd3dcfb4637a5deae2c678c518019ad168
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832655"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450666"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão de carga de trabalho de servidor em terabytes de dados
 
@@ -44,12 +44,12 @@ Prever a carga de trabalho nos servidores é uma necessidade de negócios comum 
 Neste cenário, você vai se concentrar na previsão de carga de trabalho para cada computador (ou servidor). Mais especificamente, você usa os dados da sessão em cada servidor para prever a classe de carga de trabalho do servidor no futuro. Você classifica a carga de cada servidor em classes baixa, média e alta usando o Classificador Random Forest no [Apache Spark ML](https://spark.apache.org/docs/2.1.1/ml-guide.html). As técnicas de aprendizado de máquina e o fluxo de trabalho neste exemplo podem ser facilmente estendidas para outros problemas semelhantes. 
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](../service/quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
+* Uma cópia instalada do [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](../service/quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas macOS).
 * Uma máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu), preferencialmente na região Leste dos EUA, onde os dados se localizam. É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. 
 
@@ -101,7 +101,7 @@ Os dados usados neste exemplo são dados de carga de trabalho de servidor sintet
 
 O tamanho total dos dados é de aproximadamente 1 TB. Cada arquivo tem cerca de 1 a 3 GB e está no formato de arquivo CSV sem cabeçalho. Cada linha de dados representa a carga de uma transação em um servidor específico. As informações detalhadas do esquema de dados são as seguintes:
 
-Número da coluna | Nome do campo| type | DESCRIÇÃO |  
+Número da coluna | Nome do campo| Tipo | DESCRIÇÃO |  
 |------------|------|-------------|---------------|
 1  | `SessionStart` | DateTime |    Hora de início da sessão
 2  |`SessionEnd`    | DateTime | Hora de término da sessão
@@ -129,7 +129,7 @@ Observe que os tipos de dados esperados estão listados na tabela anterior. Devi
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do arquivo | type | DESCRIÇÃO |
+| Nome do arquivo | Tipo | DESCRIÇÃO |
 |-----------|------|-------------|
 | `Code` | Pasta | A pasta contém todo o código no exemplo. |
 | `Config` | Pasta | A pasta contém os arquivos de configuração. |
@@ -160,7 +160,7 @@ O código no [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-Big
 
 Você deve usar um contêiner para experimentação no conjunto de dados de um mês e outro para experimentação no conjunto de dados completo. Como os dados e os modelos são salvos como arquivo Parquet, cada arquivo é realmente uma pasta no contêiner que contém vários blobs. O contêiner resultante tem a seguinte aparência:
 
-| Nome do prefixo do blob | type | DESCRIÇÃO |
+| Nome do prefixo do blob | Tipo | DESCRIÇÃO |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modelo do scaler padrão para recursos numéricos. |
 | stringIndexModel | Parquet | Modelo do indexador de cadeia de caracteres para recursos não numéricos.|
@@ -186,7 +186,7 @@ O arquivo [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigD
 
 O primeiro argumento, `configFilename`, é um arquivo de configuração local em que você armazena as informações de armazenamento de blobs e especifica para onde carregar os dados. Por padrão, é o [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) e será usado na execução de dados de um mês. Também incluímos o [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), de que você precisa para usar na execução do conjunto de dados completo. O conteúdo na configuração é o seguinte: 
 
-| Campo | type | DESCRIÇÃO |
+| Campo | Tipo | DESCRIÇÃO |
 |-----------|------|-------------|
 | storageAccount | Cadeia de caracteres | Nome da conta de armazenamento do Microsoft Azure |
 | storageContainer | Cadeia de caracteres | Contêiner na conta de armazenamento do Microsoft Azure para armazenar resultados intermediários |

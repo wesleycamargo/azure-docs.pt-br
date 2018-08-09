@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f77fedddd84303ae489379a62a3b1845127b16b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25f8b09f31bd9eecc454444312ea02182a71a77a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051812"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Tutorial: Integração do Azure Active Directory com o Pantheon
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Pantheon da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-pantheon-from-the-gallery"></a>Adição do Pantheon da galeria
 Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar o Pantheon por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar 
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Pantheon**.
+1. Na caixa de pesquisa, digite **Pantheon**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/tutorial_pantheon_search.png)
 
-5. No painel de resultados, selecione **Pantheon** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Pantheon** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/tutorial_pantheon_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Pantheon, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Pantheon, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Pantheon](#creating-a-pantheon-test-user)** – para ter um equivalente de Brenda Fernandes no Pantheon que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Pantheon](#creating-a-pantheon-test-user)** – para ter um equivalente de Brenda Fernandes no Pantheon que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
 
-3. Na seção **URLs e Domínio do Pantheon**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do Pantheon**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_pantheon_url.png)
 
@@ -119,24 +119,24 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Pantheon](https://pantheon.io/docs/getting-support/) para obter esses valores.
 
-4. O aplicativo do Pantheon espera a asserção do SAML em um formato específico, o que exige a definição do valor do atributo UserIdentifier com o endereço de email do usuário. Por padrão, o Azure AD usa o UserPrincipalName para o atributo UserIdentifier. Porém, para uma integração bem-sucedida, você precisa ajustar esse valor para corresponder ao endereço de email do usuário. A integração funcionará apenas depois de concluir o mapeamento correto.
+1. O aplicativo do Pantheon espera a asserção do SAML em um formato específico, o que exige a definição do valor do atributo UserIdentifier com o endereço de email do usuário. Por padrão, o Azure AD usa o UserPrincipalName para o atributo UserIdentifier. Porém, para uma integração bem-sucedida, você precisa ajustar esse valor para corresponder ao endereço de email do usuário. A integração funcionará apenas depois de concluir o mapeamento correto.
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_attribute.png)    
 
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_general_400.png)
 
-7. Na seção **Configuração do Pantheon**, clique em **Configurar o Pantheon** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Pantheon**, clique em **Configurar o Pantheon** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
 
-8. Para configurar o logon único no lado do **Pantheon**, é necessário enviar o **Certificado** baixado e a **URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Pantheon](https://pantheon.io/docs/getting-support/).
+1. Para configurar o logon único no lado do **Pantheon**, é necessário enviar o **Certificado** baixado e a **URL do Serviço de Logon Único do SAML** para a [equipe de suporte do Pantheon](https://pantheon.io/docs/getting-support/).
 
      > [!Note]
      > Você também precisa fornecer as informações de Domínios de Email e a Hora em que deseja habilitar esta conexão. Você pode encontrar mais detalhes sobre isso [aqui](https://pantheon.io/docs/sso-organizations/)
@@ -155,15 +155,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/pantheon-tutorial/create_aaduser_04.png) 
 
@@ -184,17 +184,17 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Pantheon. 
 
 1. Faça logon no Pantheon com credenciais de administrador.
 
-2. Navegue até a página **Organização** do painel.
+1. Navegue até a página **Organização** do painel.
  
-3. Clique em **Pessoas**.
+1. Clique em **Pessoas**.
 
-4. Clique em **Adicionar usuário**.
+1. Clique em **Adicionar usuário**.
 
-5. Insira o endereço de email do usuário.
+1. Insira o endereço de email do usuário.
 
-6. Escolha a função do usuário.
+1. Escolha a função do usuário.
 
-7. Clique em **Adicionar usuário**.
+1. Clique em **Adicionar usuário**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -208,23 +208,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Pantheon**.
+1. Na lista de aplicativos, selecione **Pantheon**.
 
     ![Configurar o logon único](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

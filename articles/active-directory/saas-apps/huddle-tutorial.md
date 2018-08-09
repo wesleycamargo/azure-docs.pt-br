@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 8aec15cbd3094adeceb12574c47c8246825e4ece
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d67dbcef1b287ed9552d96338a2591b5f8319532
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043730"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Tutorial: integração do Active Directory do Azure ao Huddle
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Como adicionar o Huddle por meio da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-huddle-from-the-gallery"></a>Como adicionar o Huddle por meio da galeria
 Para configurar a integração do Huddle ao Azure AD, você precisará adicionar o Huddle por meio da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,19 +64,19 @@ Para configurar a integração do Huddle ao Azure AD, você precisará adicionar
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Huddle**.
+1. Na caixa de pesquisa, digite **Huddle**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/tutorial_huddle_search.png)
 
-5. No painel de resultados, selecione **Huddle** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Huddle** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
@@ -92,13 +92,13 @@ Para configurar e testar o logon único do Azure AD com o Huddle, você precisar
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
 
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
 
-3. **[Criar um usuário de teste do Huddle](#creating-a-huddle-test-user)**: para ter um equivalente de Brenda Fernandes no Huddle que esteja vinculado à representação do usuário no Azure AD.
+1. **[Criar um usuário de teste do Huddle](#creating-a-huddle-test-user)**: para ter um equivalente de Brenda Fernandes no Huddle que esteja vinculado à representação do usuário no Azure AD.
 
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
 
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -110,11 +110,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
-3. Na seção **URLs e Domínio do Huddle**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do Huddle**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_huddle_url.png)
 
@@ -123,19 +123,19 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente Huddle](https://huddle.zendesk.com). 
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_huddle_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Huddle**, clique em **Configurar Huddle** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.** 
+1. Na seção **Configuração do Huddle**, clique em **Configurar Huddle** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.** 
 
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_huddle_configure.png) 
     
-7. Para configurar o logon único no lado do Huddle, é necessário enviar o **Certificado** baixado, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Huddle](https://huddle.zendesk.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.  
+1. Para configurar o logon único no lado do Huddle, é necessário enviar o **Certificado** baixado, a **URL do Serviço de Logon Único SAML** e a **ID da Entidade SAML** para a [equipe de suporte do Huddle](https://huddle.zendesk.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.  
    
     >[!NOTE]
     > O logon único precisa ser habilitado pela equipe de suporte do Huddle. Assim que a configuração for concluída, você receberá uma notificação. 
@@ -157,15 +157,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/huddle-tutorial/create_aaduser_04.png) 
 
@@ -184,12 +184,12 @@ Para permitir que os usuários do Azure AD façam logon no Huddle, eles deverão
 **Para configurar o provisionamento de usuários, execute as seguintes etapas:**
 
 1. Faça logon em seu site de empresa do **Huddle** como administrador.
-2. Clique em **Espaço de trabalho**.
-3. Clique em **Pessoas \> Convidar Pessoas**.
+1. Clique em **Espaço de trabalho**.
+1. Clique em **Pessoas \> Convidar Pessoas**.
    
    ![Pessoas](./media/huddle-tutorial/IC787838.png "Pessoas")
 
-4. Na seção **Criar novo convite** , realize as seguintes etapas:
+1. Na seção **Criar novo convite** , realize as seguintes etapas:
    
    ![Novo Convite](./media/huddle-tutorial/IC787839.png "Novo Convite")
    
@@ -219,23 +219,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Huddle**.
+1. Na lista de aplicativos, selecione **Huddle**.
 
     ![Configurar o logon único](./media/huddle-tutorial/tutorial_huddle_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

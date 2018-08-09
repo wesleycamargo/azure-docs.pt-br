@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178861"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433782"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>Configurar alertas de integridade do serviço com o ServiceNow
 
@@ -26,27 +26,27 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>Criando uma API REST com script no ServiceNow
 1.  Verifique se você se inscreveu e entrou em sua conta do [ServiceNow](https://www.servicenow.com/).
 
-2.  Navegue para a seção **Serviços Web do Sistema** no ServiceNow e selecione **APIs REST com Script**.
+1.  Navegue para a seção **Serviços Web do Sistema** no ServiceNow e selecione **APIs REST com Script**.
 
     ![A seção “Serviço Web com Script” no ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Selecione **Novo** para criar um novo serviço REST com Script.
+1.  Selecione **Novo** para criar um novo serviço REST com Script.
  
     ![O botão “Nova API REST com Script” no ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  Adicione um **Nome** à API REST e defina a **ID de API** como `azureservicehealth`.
+1.  Adicione um **Nome** à API REST e defina a **ID de API** como `azureservicehealth`.
 
-5.  Selecione **Enviar**.
+1.  Selecione **Enviar**.
 
     ![As “Configurações de API REST” no ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  Selecione a API REST criada e, na guia **Recursos**, selecione **Novo**.
+1.  Selecione a API REST criada e, na guia **Recursos**, selecione **Novo**.
 
     ![A “Guia Recursos” no ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  **Nomeie** o novo recurso `event` e altere o **método HTTP** para `POST`.
+1.  **Nomeie** o novo recurso `event` e altere o **método HTTP** para `POST`.
 
-8.  Na seção **Script**, adicione o seguinte código JavaScript:
+1.  Na seção **Script**, adicione o seguinte código JavaScript:
 
     >[!NOTE]
     >É necessário atualizar os valores `<secret>`, `<group>` e `<email>` no script abaixo.
@@ -139,15 +139,15 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
     })(request, response);
     ```
 
-9.  Na guia Segurança, desmarque a opção **Exige autenticação** e selecione **Enviar**. Em vez disso, o `<secret>` definido protege essa API.
+1.  Na guia Segurança, desmarque a opção **Exige autenticação** e selecione **Enviar**. Em vez disso, o `<secret>` definido protege essa API.
 
     ![A caixa de seleção “Exige autenticação” no ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  De volta à seção APIs REST com Script, você deve encontrar o **Caminho Base da API** para a nova API REST:
+1.  De volta à seção APIs REST com Script, você deve encontrar o **Caminho Base da API** para a nova API REST:
 
      ![O “Caminho Base da API” no ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  A URL de Integração completa é semelhante a:
+1.  A URL de Integração completa é semelhante a:
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
@@ -156,7 +156,7 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 ### <a name="for-a-new-action-group"></a>Para um novo grupo de ação:
 1. Siga as etapas 1 a 8 [deste artigo](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) para criar um alerta com um novo grupo de ação.
 
-2. Defina na lista de **Ações**:
+1. Defina na lista de **Ações**:
 
     a. **Tipo de Ação:** *Webhook*
 
@@ -164,16 +164,16 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
     c. **Nome:** o nome, alias ou identificador do webhook.
 
-3. Selecione **Salvar** quando concluir a criação do alerta.
+1. Selecione **Salvar** quando concluir a criação do alerta.
 
 ### <a name="for-an-existing-action-group"></a>Para um grupo de ação existente:
 1. No [portal do Azure](https://portal.azure.com/), selecione **Monitor**.
 
-2. Na seção **Configurações**, selecione **Grupos de ação**.
+1. Na seção **Configurações**, selecione **Grupos de ação**.
 
-3. Encontre e selecione o grupo de ação que você deseja editar.
+1. Encontre e selecione o grupo de ação que você deseja editar.
 
-4. Adicione à lista de **Ações**:
+1. Adicione à lista de **Ações**:
 
     a. **Tipo de Ação:** *Webhook*
 
@@ -181,12 +181,12 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
     c. **Nome:** o nome, alias ou identificador do webhook.
 
-5. Selecione **Salvar** quando concluir a atualização do grupo de ação.
+1. Selecione **Salvar** quando concluir a atualização do grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testando a integração de webhook por meio de uma solicitação HTTP POST
 1. Crie o conteúdo de integridade do serviço que você deseja enviar. Encontre um conteúdo de webhook de integridade do serviço de exemplo em [Webhooks para alertas do log de atividades do Azure](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Crie uma solicitação HTTP POST, da seguinte maneira:
+1. Crie uma solicitação HTTP POST, da seguinte maneira:
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -195,9 +195,9 @@ Este artigo mostra como integrar os alertas de integridade do serviço do Azure 
 
     BODY        <service health payload>
     ```
-3. Você deverá receber uma resposta `200 OK` com a mensagem “Incidente criado”.
+1. Você deverá receber uma resposta `200 OK` com a mensagem “Incidente criado”.
 
-4. Acesse o [ServiceNow](https://www.servicenow.com/) para confirmar se a integração foi configurada com êxito.
+1. Acesse o [ServiceNow](https://www.servicenow.com/) para confirmar se a integração foi configurada com êxito.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [configurar notificações de webhook para sistemas de gerenciamento de problemas existentes](service-health-alert-webhook-guide.md).

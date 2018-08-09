@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265057"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597966"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Declarações opcionais no Azure AD (versão prévia)
 
@@ -33,7 +33,7 @@ Esse recurso é usado por desenvolvedores de aplicativos para especificar quais 
 > [!Note]
 > Atualmente, essa capacidade está em visualização pública. Esteja preparado para reverter ou remover quaisquer alterações. O recurso está disponível em qualquer assinatura do Azure AD durante a visualização pública. No entanto, quando o recurso for disponibilizado para todos, alguns aspectos dele poderão exigir uma assinatura do Azure AD Premium.
 
-Para obter a lista de declarações padrão e como elas são usadas nos tokens, confira [Noções básicas de tokens emitidos pelo Azure AD](active-directory-token-and-claims.md). 
+Para obter a lista de declarações padrão e como elas são usadas nos tokens, confira [Noções básicas de tokens emitidos pelo Azure AD](v1-id-and-access-tokens.md). 
 
 Uma das metas do [ponto de extremidade v2.0 do Azure AD](active-directory-appmodel-v2-overview.md) é obter tamanhos menores de token para garantir um ótimo desempenho pelos clientes.  Como resultado, várias declarações anteriormente incluídas em tokens de acesso e ID não estão mais presentes nos tokens v2.0 e devem ser solicitadas especificamente, por aplicativo.  
 
@@ -126,7 +126,7 @@ Esse objeto OptionalClaims faz com que o token de ID retornado ao cliente inclua
 
 ## <a name="configuring-optional-claims"></a>Como configurar as declarações opcionais
 
-Você pode configurar declarações opcionais para o aplicativo modificando o manifesto do aplicativo (veja o exemplo abaixo). Para saber mais, confira o [artigo Noções básicas sobre o manifesto do aplicativo Azure AD](active-directory-application-manifest.md).
+Você pode configurar declarações opcionais para o aplicativo modificando o manifesto do aplicativo (veja o exemplo abaixo). Para saber mais, confira o [artigo Noções básicas sobre o manifesto do aplicativo Azure AD](reference-app-manifest.md).
 
 **Esquema de exemplo:**
 
@@ -247,4 +247,4 @@ Há várias opções disponíveis para atualizar as propriedades na configuraç�
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
-* Saiba mais sobre as [declarações padrão](active-directory-token-and-claims.md) fornecidas pelo Azure AD. 
+* Saiba mais sobre as [declarações padrão](v1-id-and-access-tokens.md) fornecidas pelo Azure AD. 

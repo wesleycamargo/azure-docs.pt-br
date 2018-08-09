@@ -2,24 +2,18 @@
 title: Formato do arquivo de manifesto da Importação/Exportação do Azure | Microsoft Docs
 description: Saiba mais sobre o formato do arquivo de manifesto da unidade que descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e arquivo em uma unidade em um trabalho de importação ou exportação no serviço de Importação/Exportação.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059731"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525147"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Formato de arquivo de manifesto do serviço de Importação/Exportação do Azure
 O arquivo de manifesto da unidade descreve o mapeamento entre blobs no Armazenamento de Blobs do Azure e os arquivos na unidade que compõem um trabalho de importação ou exportação. Para uma operação de importação, o arquivo de manifesto é criado como parte do processo de preparação da unidade e é armazenado na unidade antes de ser enviado ao datacenter do Azure. Durante uma operação de exportação, o manifesto é criado e armazenado na unidade pelo serviço de Importação/Exportação do Azure.  
@@ -96,7 +90,7 @@ block-list ::=
 
 Os elementos de dados e os atributos do formato XML de manifesto da unidade são especificados na tabela a seguir.  
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Tipo|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`DriveManifest`|Elemento raiz|O elemento raiz do arquivo de manifesto. Todos os outros elementos no arquivo estão abaixo desse elemento.|  
 |`Version`|Atributo, cadeia de caracteres|A versão do arquivo de manifesto.|  
@@ -114,7 +108,7 @@ Os elementos de dados e os atributos do formato XML de manifesto da unidade são
 |`Blob/BlobPath`|Cadeia de caracteres|O URI relativo do blob, começando com o nome do contêiner. Se o blob estiver no contêiner raiz, ele deverá começar com `$root`.|  
 |`Blob/FilePath`|Cadeia de caracteres|Especifica o caminho relativo até o arquivo na unidade. Para trabalhos de exportação, o caminho do blob será usado para o caminho do arquivo, se for possível; *, por exemplo,*, `pictures/bob/wild/desert.jpg` serão exportados para `\pictures\bob\wild\desert.jpg`. No entanto, devido a limitações de nomes NTFS, um blob pode ser exportado para um arquivo com um caminho que não lembra o caminho do blob.|  
 |`Blob/ClientData`|Cadeia de caracteres|Opcional. Contém comentários do cliente. Esse valor não é interpretado pelo serviço de Importação/Exportação.|  
-|`Blob/Snapshot`|DateTime|Opcional para trabalhos de exportação. Especifica o identificador de instantâneo de um instantâneo de blob exportado.|  
+|`Blob/Snapshot`|Datetime|Opcional para trabalhos de exportação. Especifica o identificador de instantâneo de um instantâneo de blob exportado.|  
 |`Blob/Length`|Número inteiro|Especifica o comprimento total do blob em bytes. O valor pode ser de até 200 GB para um blob de blocos e de até 1 TB para um blob de páginas. Para um blob de páginas, esse valor deve ser um múltiplo de 512.|  
 |`Blob/ImportDisposition`|Cadeia de caracteres|Opcional para trabalhos de importação, omitida para trabalhos de exportação. Isso especifica como o serviço de Importação/Exportação deve tratar o caso para um trabalho de importação no qual já existe um blob com o mesmo nome. Se esse valor for omitido do manifesto de importação, o valor padrão será `rename`.<br /><br /> Os valores para esse elemento incluem:<br /><br /> -   `no-overwrite`: se já houver um blob de destino com o mesmo nome, a operação de importação ignorará a importação desse arquivo.<br />-   `overwrite`: qualquer blob de destino existente será substituído completamente pelo arquivo recém-importado.<br />-   `rename`: o novo blob será carregado com um nome modificado.<br /><br /> A regra de renomeação é a seguinte:<br /><br /> - Se o nome do blob não contiver um ponto, um novo nome será gerado anexando `(2)` ao nome original do blob; se esse novo nome também entrar em conflito com um nome de blob existente, `(3)` será anexado no lugar de `(2)`; e assim por diante.<br />- Se o nome do blob contiver um ponto, a parte após o último ponto será considerada o nome da extensão. Semelhante ao procedimento anterior, `(2)` é inserido antes do último ponto a fim de gerar um novo nome; se o novo nome ainda estiver em conflito com um nome de blob existente, o serviço tentará `(3)`, `(4)` e assim por diante, até que encontre um nome não conflitante.<br /><br /> Alguns exemplos:<br /><br /> O blob `BlobNameWithoutDot` será renomeado como:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> O blob `Seattle.jpg` será renomeado como:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
 |`PageRangeList`|Elemento XML aninhado|Obrigatório para um blob de páginas.<br /><br /> Para uma operação de importação, especifica uma lista de intervalos de bytes de um arquivo a ser importado. Cada intervalo de páginas é descrito por um deslocamento e comprimento no arquivo de origem que descreve o intervalo de páginas, junto com um hash MD5 da região. O atributo `Hash` de um intervalo de páginas é obrigatório. O serviço validará se o hash dos dados no blob corresponde ao hash MD5 calculado do intervalo de páginas. É possível usar qualquer quantidade de intervalos de páginas para descrever um arquivo para uma importação, com o tamanho total podendo chegar até 1 TB. Todos os intervalos de página devem ser ordenados por deslocamento, e não há permissão para sobreposições.<br /><br /> Para uma exportação operação, especifique um conjunto de intervalos de bytes de um blob que foi exportado para a unidade.<br /><br /> Os intervalos de página juntos podem cobrir apenas subintervalos de um blob ou arquivo.  A parte restante do arquivo não coberto por qualquer intervalo de página é esperada, e seu conteúdo pode ser indefinido.|  

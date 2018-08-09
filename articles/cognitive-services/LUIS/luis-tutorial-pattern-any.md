@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236995"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527357"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Tutorial: Aprimorar o aplicativo com a entidade pattern.any
 
@@ -26,10 +26,10 @@ Neste tutorial, use a entidade pattern.any para aumentar a previsão de entidade
 * Criar um padrão que usa a pattern.any
 * Como verificar melhorias na previsão
 
-Para este artigo, você precisa de uma conta gratuita de [LUIS](luis-reference-regions.md) para criar o seu aplicativo LUIS.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Antes de começar
-Caso não tenha o aplicativo de Recursos Humanos do tutorial das [funções de padrão](luis-tutorial-pattern-roles.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo para importar está localizado no repositório do GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
+Caso não tenha o aplicativo de Recursos Humanos do tutorial das [funções de padrão](luis-tutorial-pattern-roles.md), [importe](luis-how-to-start-new-app.md#import-new-app) o JSON em um aplicativo novo no site do [LUIS](luis-reference-regions.md#luis-website). O aplicativo a ser importado pode ser encontrado no repositório GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
 
 Caso queira manter o aplicativo de recursos humanos original, clone a versão na página [Configurações](luis-how-to-manage-versions.md#clone-a-version) e nomeie-a como `patt-any`. A clonagem é uma ótima maneira de testar vários recursos de LUIS sem afetar a versão original. 
 
@@ -106,8 +106,9 @@ A entidade Pattern.any extrai entidades de comprimento variável. Isso só funci
 
 4. Se você tiver removido a entidade keyPhrase, adicione-a de volta ao aplicativo. 
 
-5. Treine o aplicativo.
+## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
 
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Testar o novo padrão quanto à extração de dados de forma livre
 1. Selecione **Testar** na barra superior para abrir o painel de teste. 
@@ -123,7 +124,8 @@ A entidade Pattern.any extrai entidades de comprimento variável. Isso só funci
 4. Feche o painel de teste selecionando o botão **Testar** na navegação superior.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Selecione as reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

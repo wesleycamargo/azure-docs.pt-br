@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399117"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577316"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Expanda seus negócios no marketplace 
 Depois de publicar sua oferta no AppSource ou no Azure Marketplace, você pode usar sua listagem como uma barra de lançamento para atividades conjuntas de entrada no mercado (GTM) com a Microsoft. Direcionar o tráfego para sua oferta no Marketplace e estimular os leads do Marketplace, por exemplo, são ótimas maneiras de acelerar o crescimento de seus negócios. 
@@ -33,7 +33,7 @@ As tabelas nas próximas seções fornecem sugestões para a criação de oferta
 ### <a name="storefront-offer-details"></a>Detalhes da oferta vitrine
 | Configuração de vitrine | Melhor prática |
 |:--- |:--- |  
-| Nome da oferta | Forneça um título forte:<br>O nome do seu aplicativo deve comunicar o valor principal que seus clientes recebem. A inclusão de palavras-chave de pesquisa no título do aplicativo pode ajudar seu aplicativo a ter uma classificação mais alta nos resultados do mecanismo de pesquisa.<br><br>Siga um formato de título definido para consultar listagens de serviços:<br>[Nome da Oferta]: [Duração] [Tipo de Oferta] (por exemplo, *Contoso: Implementação de 2 Semanas*)<br><br>Cumprir as diretrizes de marca:<br>Siga as [Diretrizes sobre Marcas Registradas e Marcas da Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes sobre produtos específicas ao se referir às marcas registradas da Microsoft e aos nomes de softwares, produtos e serviços da Microsoft. |
+| Nome da oferta | Forneça um título forte:<br>O nome do seu aplicativo deve comunicar o valor principal que seus clientes recebem. A inclusão de palavras-chave de pesquisa no título do aplicativo pode ajudar seu aplicativo a ter uma classificação mais alta nos resultados do mecanismo de pesquisa.<br><br>Siga um formato de título definido para consultar listagens de serviços:<br>[Nome da Oferta]: [Duração] [Tipo de Oferta] (por exemplo, *Contoso: Implementação de 2 Semanas*)<br><br>Cumprir as diretrizes de marca:<br>Siga as [Diretrizes sobre Marcas Registradas e Marcas da Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) e outras diretrizes relevantes sobre produtos específicas ao se referir às marcas registradas da Microsoft e aos nomes de softwares, produtos e serviços da Microsoft. |
 | Descrição da oferta | Forneça uma descrição clara de oferta:<br>Descreva claramente a proposição de valor da sua oferta nas primeiras frases de sua descrição. Tenha em mente que as primeiras frases podem ser exibidas nos resultados da pesquisa. Não dependa de recursos e em funcionalidades para vender seu produto. Em vez disso, concentre-se no valor que você oferece. Use o vocabulário específico do setor ou palavras com base no benefício tanto quanto possível.<br><br>Os componentes principais da sua proposta de valor devem incluir informações sobre:<ul><li>Descrição do produto</li><li>Tipo de usuário que se beneficia com o produto</li><li>Necessidade do cliente ou problemáticos que trata o produto</li></ul> |
 
 ### <a name="storefront-listing-details"></a>Detalhes da vitrine listagem

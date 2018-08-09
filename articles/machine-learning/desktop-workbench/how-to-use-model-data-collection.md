@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 7a76322d70f6b54d65a4b751a7187425cb4be821
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5c1a884ebe6216c4e8099f2ada2182ccff68b63e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834535"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450326"
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Coletar dados de modelo usando a coleta de dados
 
@@ -56,7 +56,7 @@ Para usar a coleta de dados de modelo, faça as seguintes alterações ao seu ar
     from azureml.datacollector import ModelDataCollector
     ```
 
-2. Adicione as seguintes linhas de código à função `init()`:
+1. Adicione as seguintes linhas de código à função `init()`:
     
     ```python
     global inputs_dc, prediction_dc
@@ -64,7 +64,7 @@ Para usar a coleta de dados de modelo, faça as seguintes alterações ao seu ar
     prediction_dc = ModelDataCollector('model.pkl', identifier="prediction")
     ```
 
-3. Adicione as seguintes linhas de código à função `run(input_df)`:
+1. Adicione as seguintes linhas de código à função `run(input_df)`:
     
     ```python
     global inputs_dc, prediction_dc
@@ -74,13 +74,13 @@ Para usar a coleta de dados de modelo, faça as seguintes alterações ao seu ar
 
     Verifique se as variáveis `input_df` e `pred` (valor de previsão de `model.predict()`) estão inicializadas antes de chamar a função `collect()` nelas.
 
-4. Use o comando `az ml service create realtime` com a opção `--collect-model-data true` para criar um serviço Web em tempo real. Essa etapa faz com que os dados de modelo sejam coletados quando o serviço é executado.
+1. Use o comando `az ml service create realtime` com a opção `--collect-model-data true` para criar um serviço Web em tempo real. Essa etapa faz com que os dados de modelo sejam coletados quando o serviço é executado.
 
      ```batch
     c:\temp\myIris> az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
     ```
     
-5. Para testar a coleta de dados, execute o comando `az ml service run realtime`:
+1. Para testar a coleta de dados, execute o comando `az ml service run realtime`:
 
     ```
     C:\Temp\myIris> az ml service run realtime -i irisapp -d "ADD YOUR INPUT DATA HERE!!" 
@@ -90,15 +90,15 @@ Para usar a coleta de dados de modelo, faça as seguintes alterações ao seu ar
 Para exibir os dados coletados no armazenamento de blobs:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Todos os Serviços**.
-3. Na caixa de pesquisa, digite **Contas de armazenamento** e selecione a tecla Enter.
-4. Na folha de pesquisa **Contas de armazenamento**, selecione o recurso **Conta de armazenamento**. Para determinar sua conta de armazenamento, use as seguintes etapas:
+1. Selecione **Todos os Serviços**.
+1. Na caixa de pesquisa, digite **Contas de armazenamento** e selecione a tecla Enter.
+1. Na folha de pesquisa **Contas de armazenamento**, selecione o recurso **Conta de armazenamento**. Para determinar sua conta de armazenamento, use as seguintes etapas:
 
     a. Vá para o Azure Machine Learning Workbench, selecione o projeto em que você está trabalhando e abra o prompt de comando do menu **Arquivo**.
     
     b. Insira `az ml env show -v` e verifique o valor *storage_account*. Esse é o nome da sua conta de armazenamento.
 
-5. Selecione **Contêineres** no menu da folha de recursos e no contêiner chamado **modeldata**. Para ver o início da propagação dos dados para a conta de armazenamento, pode ser necessário aguardar até 10 minutos após a primeira solicitação de serviço Web. Os dados fluem para blobs com o seguinte caminho de contêiner:
+1. Selecione **Contêineres** no menu da folha de recursos e no contêiner chamado **modeldata**. Para ver o início da propagação dos dados para a conta de armazenamento, pode ser necessário aguardar até 10 minutos após a primeira solicitação de serviço Web. Os dados fluem para blobs com o seguinte caminho de contêiner:
 
     `/modeldata/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<day>/data.csv`
 

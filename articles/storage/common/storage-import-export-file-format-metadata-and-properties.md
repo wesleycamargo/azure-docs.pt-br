@@ -2,24 +2,18 @@
 title: Formato de arquivo de propriedades e metadados da Importação/Exportação do Azure | Microsoft Docs
 description: Saiba como especificar metadados e propriedades para um ou mais blobs que fazem parte de um trabalho de importação ou exportação.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059301"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526225"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Formato de arquivo de propriedades e metadados de serviço de Importação/Exportação do Azure
 É possível especificar metadados e propriedades para um ou mais blobs como parte de um trabalho de importação ou exportação. Para definir metadados ou propriedades para blobs criados como parte de um trabalho de importação, você fornece um arquivo de metadados ou de propriedades no disco rígido que contém os dados a serem importados. Para um trabalho de exportação, os metadados e as propriedades são gravados em um arquivo de metadados ou de propriedades incluído no disco rígido retornado para você.  
@@ -36,7 +30,7 @@ O formato de um arquivo de metadados é o seguinte:
 </Metadata>  
 ```
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Tipo|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Elemento raiz|O elemento raiz do arquivo de metadados.|  
 |`metadata-name`|Cadeia de caracteres|Opcional. O elemento XML especifica o nome dos metadados do blob e seu valor especifica o valor da configuração dos metadados.|  
@@ -58,7 +52,7 @@ O formato de um arquivo de propriedades é o seguinte:
 </Properties>  
 ```
   
-|Elemento XML|Tipo|Descrição|  
+|Elemento XML|Tipo|DESCRIÇÃO|  
 |-----------------|----------|-----------------|  
 |`Properties`|Elemento raiz|O elemento raiz do arquivo de propriedades.|  
 |`Last-Modified`|Cadeia de caracteres|Opcional. A hora da última modificação do blob. Somente para trabalhos de exportação.|  

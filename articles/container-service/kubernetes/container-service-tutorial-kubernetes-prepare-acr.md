@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164941"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429243"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
@@ -39,13 +39,13 @@ Este tutorial exige que você esteja executando a CLI do Azure versão 2.0.4 ou 
 
 Ao implantar um Registro de Contêiner do Azure, primeiro você precisa de um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Neste exemplo, criaremos um grupo de recursos `myResourceGroup` na região `westeurope`.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Neste exemplo, criaremos um grupo de recursos `myResourceGroup` na região `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Crie um Registro de Contêiner do Azure com o comando [az acr create](/cli/azure/acr#az_acr_create). O nome de um registro de contêiner **deve ser exclusivo**.
+Crie um Registro de Contêiner do Azure com o comando [az acr create](/cli/azure/acr#az-acr-create). O nome de um registro de contêiner **deve ser exclusivo**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -55,7 +55,7 @@ Durante o restante deste tutorial, utilizamos `<acrname>` como um espaço reserv
 
 ## <a name="container-registry-login"></a>Logon no registro de contêiner
 
-Use o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para fazer logon na instância do ACR. Você precisa fornecer o nome exclusivo fornecido para o registro de contêiner quando ele foi criado.
+Use o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) para fazer logon na instância do ACR. Você precisa fornecer o nome exclusivo fornecido para o registro de contêiner quando ele foi criado.
 
 ```azurecli
 az acr login --name <acrName>
@@ -124,7 +124,7 @@ Isso leva alguns minutos para ser concluído.
 
 ## <a name="list-images-in-registry"></a>Lista de imagens no registro
 
-Para retornar uma lista de imagens que foram enviadas por push ao Registro de Contêiner do Azure, use o comando [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Atualize o comando com o nome da instância do ACR.
+Para retornar uma lista de imagens que foram enviadas por push ao Registro de Contêiner do Azure, use o comando [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list). Atualize o comando com o nome da instância do ACR.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

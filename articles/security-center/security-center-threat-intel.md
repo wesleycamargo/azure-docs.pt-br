@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561357"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434183"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Inteligência contra Ameaças da Central de Segurança do Azure
 Este artigo ensina a usar a inteligência contra ameaças da Central de Segurança do Azure para tratar de problemas de segurança.
@@ -50,22 +50,22 @@ Para visualizar a inteligência contra ameaças atual do seu ambiente, você dev
 
 1. Abra o painel **Central de Segurança**.
 
-2. No painel esquerdo, em **Proteção de Ameaças**, selecione **Inteligência contra ameaças**. Um mapa é aberto.
+1. No painel esquerdo, em **Proteção de Ameaças**, selecione **Inteligência contra ameaças**. Um mapa é aberto.
 
     ![Mapa de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
+1. Na parte superior do mapa, selecione **Exibir a inteligência contra ameaças clássica**. O painel **Inteligência contra ameaças** é aberto.
 
     ![Painel Inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Se a coluna à direita mostra **ATUALIZAR PLANO**, esse espaço de trabalho está usando a assinatura gratuita. Atualize para Standard a fim de usar esse recurso. Se a coluna à direita mostra **REQUER ATUALIZAÇÃO**, atualize o [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) para usar esse recurso. Para saber mais sobre o plano de preço, leia Preços da Central de Segurança do Azure.
     >
-3. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
+1. Se você tem mais de um espaço de trabalho para investigar, priorize a investigação de acordo com a coluna **IP Mal-intencionado**. Ela mostra o número atual de IPs mal-intencionadas no espaço de trabalho. Selecione o espaço de trabalho que você deseja usar e o painel **Inteligência contra ameaças** será exibido.
 
     ![Informações de inteligência contra ameaças](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. O painel é dividido em quatro blocos:
+1. O painel é dividido em quatro blocos:
 
     a.  **Tipos de ameaça**. Resume os tipos de ameaça que foram detectados no espaço de trabalho selecionado.
 

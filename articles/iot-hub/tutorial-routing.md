@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700818"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434832"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
@@ -35,7 +35,7 @@ Neste tutorial, você executa as seguintes tarefas:
 > * ... na conta de armazenamento.
 > * ...na visualização do Power BI.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -80,13 +80,13 @@ As seções a seguir descrevem como executar essas etapas necessárias. Siga as 
 
     <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
 
-2. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
+1. Criar um Hub IoT na camada S1. Adicionar um grupo de consumidores ao Hub IoT. O grupo de consumidores é usado pelo Azure Stream Analytics ao recuperar dados.
 
-3. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
+1. Crie uma conta de armazenamento padrão V1 com replicação Standard_LRS.
 
-4. Criar um namespace do Barramento de Serviço e da fila. 
+1. Criar um namespace do Barramento de Serviço e da fila. 
 
-5. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
+1. Crie uma identidade de dispositivo para o dispositivo simulado que envia mensagens para o hub. Salve a chave para a fase de teste.
 
 ### <a name="azure-cli-instructions"></a>Instruções da CLI do Azure
 
@@ -265,15 +265,15 @@ Em seguida, crie uma identidade de dispositivo e salve sua chave para uso poster
 
 1. Abra o [portal do Azure](https://portal.azure.com) e faça logon na sua conta do Azure.
 
-2. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
+1. Clique em **grupos de recursos** e selecione o grupo de recursos. Este tutorial usa **ContosoResources**.
 
-3. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
+1. Na lista de recursos, clique em seu Hub IoT. Este tutorial usa **ContosoTestHub**. Selecione **dispositivos IoT** do painel de Hub.
 
-4. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
+1. Clique em **+ Adicionar**. No painel Adicionar dispositivo, preencha a ID do dispositivo. Este tutorial usa **Contoso-Test-Device**. Deixe em branco as chaves e verifique **Gerar chaves automaticamente**. Certifique-se de que **Conectar o dispositivo ao Hub IoT** está habilitado. Clique em **Salvar**.
 
    ![Captura de tela mostrando a tela adicionar dispositivo.](./media/tutorial-routing/add-device.png)
 
-5. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
+1. Agora que ela é criada, clique no dispositivo para ver as chaves geradas. Clique no ícone Copiar na chave primária e salve-o em algum lugar, como o bloco de notas para a fase de teste deste tutorial.
 
    ![Captura de tela mostrando os detalhes do dispositivo, incluindo as chaves.](./media/tutorial-routing/device-details.png)
 
@@ -303,7 +303,7 @@ Agora, configure o roteamento para a conta de armazenamento. Definir um ponto de
    
    Clique em **OK** para terminar de adicionar o ponto de extremidade.
    
-2. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para o contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
+1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para o contêiner de armazenamento que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
 
    **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **StorageRule**.
 
@@ -335,7 +335,7 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
 
    Clique em **OK** para salvar o ponto de extremidade. Depois que ele for concluído, feche o painel de pontos de extremidade. 
     
-2. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para a fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
+1. Clique em **Rotas** no seu Hub IoT. Você vai criar uma regra de roteamento que roteia mensagens para a fila do Barramento de Serviço que você acabou de adicionar como um ponto de extremidade. Clique em **+Adicionar**, na parte superior do painel de Rotas. Preencha os campos na tela. 
 
    **Nome**: insira um nome para a regra de roteamento. Este tutorial usa o **SBQueueRule**. 
 
@@ -373,17 +373,17 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
 
    Clique em **Criar**.
 
-4. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**), em seguida, selecionar o aplicativo lógico da lista de recursos. É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página do Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo lógico em branco +** e clique nele. 
+1. Agora vá para o aplicativo lógico. A maneira mais fácil de obter o aplicativo lógico é clicar em **Grupos de recursos**, selecionar o grupo de recursos (este tutorial usa **ContosoResources**), em seguida, selecionar o aplicativo lógico da lista de recursos. É exibida a página do Designer de Aplicativos Lógicos (talvez seja necessário rolar para a direita para ver a página inteira). Na página do Designer de Aplicativos Lógicos, role para baixo até ver o bloco que diz **Aplicativo lógico em branco +** e clique nele. 
 
-5. Uma lista de conectores é exibida. Selecione **Barramento de Serviço**. 
+1. Uma lista de conectores é exibida. Selecione **Barramento de Serviço**. 
 
    ![Captura de tela mostrando a lista de conectores.](./media/tutorial-routing/logic-app-connectors.png)
 
-6. Uma lista de gatilhos é exibida. Selecione **Barramento de Serviço - quando uma mensagem é recebida em uma fila (preenchimento automático)**. 
+1. Uma lista de gatilhos é exibida. Selecione **Barramento de Serviço - quando uma mensagem é recebida em uma fila (preenchimento automático)**. 
 
    ![Captura de tela mostrando a lista dos gatilhos para o Barramento de Serviço.](./media/tutorial-routing/logic-app-triggers.png)
 
-6. Na próxima tela, preencha o nome de Conexão. Este tutorial usa **ContosoConnection**. 
+1. Na próxima tela, preencha o nome de Conexão. Este tutorial usa **ContosoConnection**. 
 
    ![Captura de tela mostrando a configuração de conexão para a fila do Barramento de Serviço.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -391,21 +391,21 @@ Agora, configure o roteamento para a fila do Barramento de Serviço. Definir um 
    
    ![Captura de tela mostrando a configuração concluir a conexão.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-7. Na próxima tela, selecione o nome da fila (este tutorial usa **contososbqueue**) na lista suspensa. Você pode usar os padrões para o restante dos campos. 
+1. Na próxima tela, selecione o nome da fila (este tutorial usa **contososbqueue**) na lista suspensa. Você pode usar os padrões para o restante dos campos. 
 
    ![Captura de tela mostrando as opções de fila.](./media/tutorial-routing/logic-app-queue-options.png)
 
-7. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, clique em **+ Nova etapa** para adicionar uma etapa, em seguida, clique em **Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. Na tela de gatilhos, selecione **Outlook do Office 365 - enviar um email**.  
+1. Configure agora a ação para enviar um e-mail quando uma mensagem é recebida na fila. No Designer de Aplicativos Lógicos, clique em **+ Nova etapa** para adicionar uma etapa, em seguida, clique em **Adicionar uma ação**. No painel **Escolher uma ação**, localize e clique em **Outlook do Office 365**. Na tela de gatilhos, selecione **Outlook do Office 365 - enviar um email**.  
 
    ![Captura de tela mostrando as opções do Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-8. Em seguida, faça logon em sua conta do Office 365 para configurar a conexão. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
+1. Em seguida, faça logon em sua conta do Office 365 para configurar a conexão. Especifique os endereços de e-mail para os destinatários dos e-mails. Também especifique o assunto e digite a mensagem de que você gostaria que o destinatário visse no corpo da mensagem. Para testar, preencha seu próprio endereço de e-mail como o destinatário.
 
    Clique em **Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que você pode incluir. Selecione **Conteúdo** – ele incluirá a mensagem no e-mail. 
 
    ![Captura de tela mostrando as opções de e-mail para o aplicativo lógico.](./media/tutorial-routing/logic-app-send-email.png)
 
-9. Clique em **Salvar**. Em seguida, feche o Designer de Aplicativo Lógico.
+1. Clique em **Salvar**. Em seguida, feche o Designer de Aplicativo Lógico.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurar o Azure Stream Analytics
 
@@ -415,7 +415,7 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
 1. No [Portal do Azure](https://portal.azure.com), clique em **Criar um recurso** > **Internet das Coisas** > **Trabalho do Stream Analytics**.
 
-2. Insira as seguintes informações para o trabalho.
+1. Insira as seguintes informações para o trabalho.
 
    **Nome do trabalho**: o nome do trabalho. O nome deve ser globalmente exclusivo. Este tutorial usa **contosoJob**.
 
@@ -425,13 +425,13 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Captura de tela mostrando como criar o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-3. Clique em **Criar** para criar o trabalho. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois clique no trabalho do Stream Analytics na lista de recursos. 
+1. Clique em **Criar** para criar o trabalho. Para voltar ao trabalho, clique em **Grupos de recursos**. Este tutorial usa **ContosoResources**. Selecione o grupo de recursos, depois clique no trabalho do Stream Analytics na lista de recursos. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adicionar uma entrada ao trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Entradas**.
 
-2. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
+1. No painel de **Entradas**, clique em **Adicionar entrada de fluxo** e selecione o Hub IoT. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de entrada**: este tutorial usa **contosoinputs**.
 
@@ -449,13 +449,13 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    ![Captura de tela mostrando como configurar as entradas para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adicionar uma saída ao trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Saídas**.
 
-2. No painel **Saídas**, clique em **Adicionar** e, em seguida, selecione **Power BI**. Na tela que aparece, preencha os seguintes campos:
+1. No painel **Saídas**, clique em **Adicionar** e, em seguida, selecione **Power BI**. Na tela que aparece, preencha os seguintes campos:
 
    **Alias de saída**: o alias exclusivo para a saída. Este tutorial usa **contosooutputs**. 
 
@@ -465,25 +465,25 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    Aceite os padrões para o restante dos campos.
 
-3. Clique em **Autorizar** e entre na sua conta do Power BI.
+1. Clique em **Autorizar** e entre na sua conta do Power BI.
 
    ![Captura de tela mostrando como configurar as saídas para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-4. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurar a consulta do trabalho do Stream Analytics
 
 1. Em **Topologia do Trabalho**, clique em **Consulta**.
 
-2. Substitua `[YourInputAlias]` pelo alias de entrada do trabalho. Este tutorial usa **contosoinputs**.
+1. Substitua `[YourInputAlias]` pelo alias de entrada do trabalho. Este tutorial usa **contosoinputs**.
 
-3. Substitua `[YourOutputAlias]` pelo alias de saída do trabalho. Este tutorial usa **contosooutputs**.
+1. Substitua `[YourOutputAlias]` pelo alias de saída do trabalho. Este tutorial usa **contosooutputs**.
 
    ![Captura de tela mostrando como configurar a consulta para o trabalho do stream analytics.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-4. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-5. Feche o painel de consulta. Isso faz você voltar para a exibição dos recursos no Grupo de recursos. Clique no trabalho do Stream Analytics. Este tutorial o chama de **contosoJob**.
+1. Feche o painel de consulta. Isso faz você voltar para a exibição dos recursos no Grupo de recursos. Clique no trabalho do Stream Analytics. Este tutorial o chama de **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics
 
@@ -525,7 +525,7 @@ Se tudo estiver configurado corretamente, agora você verá os seguintes resulta
    * O Aplicativo Lógico recuperar a mensagem da fila de Barramento de Serviço está funcionando corretamente.
    * O conector de Aplicativo Lógico para o Outlook está funcionando corretamente. 
 
-2. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o Grupo de Recursos. Este tutorial usa **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs**, em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
+1. No [portal do Azure](https://portal.azure.com), clique em **Grupos de recursos**, selecione o Grupo de Recursos. Este tutorial usa **ContosoResources**. Selecione a conta de armazenamento, clique em **Blobs**, em seguida, selecione o contêiner. Este tutorial usa **contosoresults**. Você deve ver uma pasta, e você pode fazer drill down em diretórios até que você veja um ou mais arquivos. Abrir um desses arquivos; elas contêm as entradas roteadas para a conta de armazenamento. 
 
    ![Captura de tela mostrando os arquivos de resultado no armazenamento.](./media/tutorial-routing/results-in-storage.png)
 
@@ -539,17 +539,17 @@ Agora, com o aplicativo ainda em execução, configure a visualização do Power
 
 1. Entre na sua conta do [Power BI](https://powerbi.microsoft.com/).
 
-2. Vá para os **Espaços de trabalho** e selecione o espaço de trabalho que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Espaço de trabalho**. 
+1. Vá para os **Espaços de trabalho** e selecione o espaço de trabalho que você definiu quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **Meu Espaço de trabalho**. 
 
-3. Clique em **Conjuntos de dados**.
+1. Clique em **Conjuntos de dados**.
 
    Você deve ver o conjunto de dados relacionado que você especificou quando criou a saída para o trabalho do Stream Analytics. Este tutorial usa **contosodataset**. (Ele pode levar de 5 a 10 minutos para aparecer o conjunto de dados pela primeira vez.)
 
-4. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
+1. Em **AÇÕES**, clique no primeiro ícone para criar um relatório.
 
    ![Captura de tela mostrando o espaço de trabalho do Power BI com ícone de relatório e ações realçado.](./media/tutorial-routing/power-bi-actions.png)
 
-5. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
+1. Crie um gráfico de linhas para mostrar a temperatura em tempo real ao longo do tempo.
 
    a. Na página de criação de relatório, adicione um gráfico de linha, clicando no ícone de gráfico de linha.
 
@@ -563,11 +563,11 @@ Agora, com o aplicativo ainda em execução, configure a visualização do Power
 
    Um gráfico de linhas é criado. O eixo x exibe a data e a hora no fuso horário UTC. O eixo y mostra a temperatura do sensor.
 
-7. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x e **umidade** no eixo y.
+1. Crie outro gráfico de linhas para mostrar umidade em tempo real ao longo do tempo. Para configurar o segundo gráfico, siga as mesmas etapas acima e coloque **EventEnqueuedUtcTime** no eixo x e **umidade** no eixo y.
 
    ![Captura de tela mostrando o relatório do Power BI final com os dois gráficos.](./media/tutorial-routing/power-bi-report.png)
 
-8. Clique em **Salvar** para salvar o relatório.
+1. Clique em **Salvar** para salvar o relatório.
 
 Você deve ser capaz de visualizar dados em ambos os gráficos. Isso significa o seguinte:
 

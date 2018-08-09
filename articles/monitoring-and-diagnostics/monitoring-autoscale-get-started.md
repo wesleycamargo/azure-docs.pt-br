@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263639"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448961"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -24,9 +24,9 @@ O dimensionamento automático do Azure Monitor se aplica somente aos conjuntos d
 Você pode descobrir todos os recursos a que o dimensionamento automático se aplica no Azure Monitor. Use as etapas a seguir para obter uma explicação passo a passo:
 
 1. Abra o [Portal do Azure.][1]
-2. Clique no ícone do Azure Monitor no painel esquerdo.
+1. Clique no ícone do Azure Monitor no painel esquerdo.
   ![Abra o Azure Monitor][2]
-3. Clique em **Dimensionamento automático** para exibir todos os recursos para os quais o dimensionamento automático é aplicável, juntamente com o status atual.
+1. Clique em **Dimensionamento automático** para exibir todos os recursos para os quais o dimensionamento automático é aplicável, juntamente com o status atual.
   ![Descubra o dimensionamento automático no Azure Monitor][3]
 
 Você pode usar o painel de filtro na parte superior para reduzir o escopo da lista e selecionar recursos em um grupo de recursos específico, os tipos de recursos específicos ou um recurso específico.
@@ -42,11 +42,11 @@ Para cada recurso, você encontrará a contagem de instâncias atual e o status 
 Agora, vamos percorrer um passo a passo simples para criar sua primeira configuração de dimensionamento automático.
 
 1. Abra a folha **Dimensionamento Automático** no Azure Monitor e selecione um recurso que deseja dimensionar. (As etapas a seguir usam um plano do serviço de aplicativo associado a um aplicativo Web. Você pode [criar seu primeiro aplicativo Web ASP.NET no Azure em 5 minutos.][4])
-2. Observe que a contagem da instância atual é 1. Clique em **Habilitar dimensionamento automático**.
+1. Observe que a contagem da instância atual é 1. Clique em **Habilitar dimensionamento automático**.
   ![Configuração de dimensionamento para um novo aplicativo Web][5]
-3. Forneça um nome para a configuração de dimensionamento e clique em **Adicionar uma regra**. Observe as opções de regra de dimensionamento que são abertas como um painel de contexto no lado direito. Por padrão, ele define a opção de dimensionar sua contagem de instâncias em 1 se o percentual de CPU do recurso ultrapassar 70%. Deixe-o com seus valores padrão e clique em **Adicionar**.
+1. Forneça um nome para a configuração de dimensionamento e clique em **Adicionar uma regra**. Observe as opções de regra de dimensionamento que são abertas como um painel de contexto no lado direito. Por padrão, ele define a opção de dimensionar sua contagem de instâncias em 1 se o percentual de CPU do recurso ultrapassar 70%. Deixe-o com seus valores padrão e clique em **Adicionar**.
   ![Criar configuração dimensionamento para um aplicativo Web][6]
-4. Agora, você criou sua primeira regra de dimensionamento. Observe que o UX indica as práticas recomendadas e afirma que "É recomendável ter pelo menos uma escala na regra". Para fazer isso:
+1. Agora, você criou sua primeira regra de dimensionamento. Observe que o UX indica as práticas recomendadas e afirma que "É recomendável ter pelo menos uma escala na regra". Para fazer isso:
   
     a. Clique em **Adicionar uma Regra**. 
 
@@ -58,7 +58,7 @@ Agora, vamos percorrer um passo a passo simples para criar sua primeira configur
 
    Agora, você deve ter uma configuração de dimensionamento que expande/reduz com base no uso da CPU.
    ![Dimensionamento com base na CPU][8]
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 Parabéns! Você criou com êxito sua primeira configuração de dimensionamento para fazer o dimensionamento automático de seu aplicativo Web com base no uso da CPU.
 
@@ -70,18 +70,18 @@ Parabéns! Você criou com êxito sua primeira configuração de dimensionamento
 Além de dimensionar com base na CPU, você também pode definir seu dimensionamento de forma diferente em dias específicos da semana.
 
 1. Clique em **Adicionar uma condição de dimensionamento**.
-2. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
-3. Selecione **Repetir dias específicos** para o agendamento.
-4. Selecione os dias e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
+1. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
+1. Selecione **Repetir dias específicos** para o agendamento.
+1. Selecione os dias e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
 
 ![Condição de dimensionamento com base no agendamento][9]
 ### <a name="scale-differently-on-specific-dates"></a>Dimensionar de forma diferente em datas específicas
 Além de dimensionar com base na CPU, você também pode definir seu dimensionamento de forma diferente em datas específicas.
 
 1. Clique em **Adicionar uma condição de dimensionamento**.
-2. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
-3. Selecione **Especificar datas de início/término** para o agendamento.
-4. Selecione as datas e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
+1. A configuração do modo e das regras de dimensionamento é a mesma que a da condição padrão.
+1. Selecione **Especificar datas de início/término** para o agendamento.
+1. Selecione as datas e a hora de início/término em que a condição de dimensionamento deve ser aplicada.
 
 ![Condição de dimensionamento com base em datas][10]
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ecb0e87d45cc01b65c91ee4c5c9d29806999269
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047718"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Tutorial: Integração do Active Directory do Azure com EBSCO
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando EBSCO da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-ebsco-from-the-gallery"></a>Adicionando EBSCO da galeria
 Para configurar a integração de EBSCO no Azure AD, você precisa adicionar EBSCO da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração de EBSCO no Azure AD, você precisa adicionar EBS
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **EBSCO**, selecione **EBSCO** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **EBSCO**, selecione **EBSCO** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![EBSCO na lista de resultados](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que o logon único funcione, o Azure AD precisa saber qual usuário em EBSC
 Para configurar e testar o logon único do Azure AD com EBSCO, você precisa concluir os blocos de construção a seguir:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste EBSCO](#create-an-ebsco-test-user)** – você pode automatizar o provisionamento/a personalização de usuário de EBSCOhost. EBSCO oferece suporte ao provisionamento just in time do usuário.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste EBSCO](#create-an-ebsco-test-user)** – você pode automatizar o provisionamento/a personalização de usuário de EBSCOhost. EBSCO oferece suporte ao provisionamento just in time do usuário.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -100,17 +100,17 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
-3. Na seção **Domínio e URLs do EBSCO**, execute as etapas a seguir se deseja configurar o aplicativo em modo iniciado **IDP**:
+1. Na seção **Domínio e URLs do EBSCO**, execute as etapas a seguir se deseja configurar o aplicativo em modo iniciado **IDP**:
 
     ![Informações de logon único de domínio e URLs do EBSCO](./media/ebsco-tutorial/tutorial_ebsco_url.png)
 
     Na caixa de texto **Identificador**, digite uma URL: `pingsso.ebscohost.com`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de domínio e URLs do EBSCO](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
 
@@ -125,14 +125,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     o   **Profile** = Clientes podem personalizar o link para direcionar usuários a um perfil específico (dependendo do que adquirirem do EBSCO). Eles podem digitar uma ID de perfil específica. As IDs principais são eds (Serviço de descoberta de EBSCO) e ehost (bancos de dados do EBSOCOhost). Instruções para isso são fornecidas [aqui](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-5. O aplicativo EBSCO espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+1. O aplicativo EBSCO espera as asserções SAML em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
     
     ![Configurar o logon único](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > O atributo **nome** é obrigatório e está mapeado com **Identificador de usuário** no aplicativo EBSCO. Isso é adicionado por padrão, então você não precisa adicioná-lo manualmente.
     
-6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
+1. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo | Valor do atributo |
     | ---------------| --------------- |    
@@ -152,15 +152,15 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     
     d. Clique em **Ok**
 
-7. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/ebsco-tutorial/tutorial_ebsco_certificate.png) 
 
-8. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/ebsco-tutorial/tutorial_general_400.png)
     
-9. Para configurar o logon único no lado do **EBSCO**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EBSCO](mailto:sso@ebsco.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **EBSCO**, você precisa enviar o **XML de metadados** baixado para a [equipe de suporte do EBSCO](mailto:sso@ebsco.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,15 +177,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/ebsco-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/ebsco-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/ebsco-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/ebsco-tutorial/create_aaduser_04.png)
 
@@ -220,23 +220,23 @@ Nesta seção, você habilitará Brenda Fernandes para usar logon único do Azur
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **EBSCO**.
+1. Na lista de aplicativos, selecione **EBSCO**.
 
     ![O link EBSCO na Lista de aplicativos](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -245,15 +245,15 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 1. Quando você clicar no bloco EBSCO no Painel de acesso, você deve ser conectado automaticamente ao seu aplicativo EBSCO.
 Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](../user-help/active-directory-saas-access-panel-introduction.md).
 
-2. Depois que fizer logon no aplicativo, clique no botão **entrar** no canto superior direito.
+1. Depois que fizer logon no aplicativo, clique no botão **entrar** no canto superior direito.
 
     ![A entrada do EBSCO na Lista de aplicativos](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. Você receberá uma solicitação única para emparelhar o logon institucional/SAML com um **Vincular sua conta existente do MyEBSCOhost à sua conta institucional agora** OU **Criar uma nova conta de MyEBSCOhost e vinculá-la à sua conta institucional**. A conta é usada para personalização no aplicativo EBSCOhost. Selecione a opção **Criar uma nova conta** e você verá que o formulário de personalização é previamente concluído com os valores da resposta saml como mostrado na captura de tela abaixo. Clique em **'Continuar'** para salvar essa seleção.
+1. Você receberá uma solicitação única para emparelhar o logon institucional/SAML com um **Vincular sua conta existente do MyEBSCOhost à sua conta institucional agora** OU **Criar uma nova conta de MyEBSCOhost e vinculá-la à sua conta institucional**. A conta é usada para personalização no aplicativo EBSCOhost. Selecione a opção **Criar uma nova conta** e você verá que o formulário de personalização é previamente concluído com os valores da resposta saml como mostrado na captura de tela abaixo. Clique em **'Continuar'** para salvar essa seleção.
     
      ![O usuário EBSCO na Lista de aplicativos](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-4. Depois de concluir a configuração acima, limpe cookies/cache e faça logon novamente. Você não precisará entrar manualmente novamente, e as configurações de personalização serão lembradas
+1. Depois de concluir a configuração acima, limpe cookies/cache e faça logon novamente. Você não precisará entrar manualmente novamente, e as configurações de personalização serão lembradas
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

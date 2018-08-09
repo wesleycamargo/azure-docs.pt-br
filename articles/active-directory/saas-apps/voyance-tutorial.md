@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 8974bb30e77b0e1c725531410db873f258f4c20a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ce72fb75729574c9645025459b67fd3eab597bb1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228558"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutorial: Integração do Azure Active Directory com o Voyance
 
@@ -34,7 +34,7 @@ A integração do Voyance ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Voyance, você precisará dos seguintes itens:
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Voyance da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-voyance-from-the-gallery"></a>Adição do Voyance da galeria
 Para configurar a integração do Voyance ao Azure AD, você precisará adicionar o Voyance da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Voyance ao Azure AD, você precisará adiciona
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Voyance**, selecione **Voyance** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Voyance**, selecione **Voyance** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Voyance na lista de resultados](./media/voyance-tutorial/tutorial_voyance_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Voyance, atribua o valor do **nome de usuário** no Azure AD como o valor do 
 Para configurar e testar o logon único do Azure AD com o Voyance, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Voyance](#create-a-voyance-test-user)** – para ter um equivalente de Brenda Fernandes no Voyance vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Voyance](#create-a-voyance-test-user)** – para ter um equivalente de Brenda Fernandes no Voyance vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/voyance-tutorial/tutorial_voyance_samlbase.png)
 
-3. Na seção **Domínio e URLs do Voyance**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IdP**:
+1. Na seção **Domínio e URLs do Voyance**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IdP**:
 
     ![Informações de logon único de Domínio e URLs do Voyance para IdP](./media/voyance-tutorial/tutorial_voyance_url1.png)
 
@@ -114,7 +114,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.nyansa.com/saml/create/`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de Domínio e URLs do Voyance para SP](./media/voyance-tutorial/tutorial_voyance_url2.png)
 
@@ -123,37 +123,37 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte ao cliente do Voyance](mailto:support@nyansa.com) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![O link de download do Certificado](./media/voyance-tutorial/tutorial_voyance_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/voyance-tutorial/tutorial_general_400.png)
     
-7. Na seção **Configuração do Voyance**, clique em **Configurar o Voyance** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Voyance**, clique em **Configurar o Voyance** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do Voyance](./media/voyance-tutorial/tutorial_voyance_configure.png) 
 
-8. Em uma janela diferente do navegador da Web, faça logon em seu locatário do Voyance como um administrador.
+1. Em uma janela diferente do navegador da Web, faça logon em seu locatário do Voyance como um administrador.
 
-9. Vá para o canto superior direito da barra de navegação e clique no menu suspenso que indica "**Acme University**".
+1. Vá para o canto superior direito da barra de navegação e clique no menu suspenso que indica "**Acme University**".
     
     ![Configurar o logon único no lado do aplicativo – Acme University](./media/voyance-tutorial/tutorial_voyance_001.png) 
 
-10. Clique em "**Configurações de Administração**".
+1. Clique em "**Configurações de Administração**".
 
     ![Configurar o logon único no lado do aplicativo – Configurações do Administrador](./media/voyance-tutorial/tutorial_voyance_002.png)
 
-11. Clique na guia "**Acesso do Usuário**".
+1. Clique na guia "**Acesso do Usuário**".
 
     ![Configurar o logon único no lado do aplicativo – Acesso do Usuário](./media/voyance-tutorial/tutorial_voyance_003.png)
 
-12. Clique no botão "**SSO está desabilitado**" para configurar o Azure AD como um IdP que usa SAML 2.0.
+1. Clique no botão "**SSO está desabilitado**" para configurar o Azure AD como um IdP que usa SAML 2.0.
 
     ![Configurar o logon único no lado do aplicativo – SSO está desabilitado](./media/voyance-tutorial/tutorial_voyance_004.png)
 
-13. Acesse a seção **SAML v2** e execute as etapas a seguir:
+1. Acesse a seção **SAML v2** e execute as etapas a seguir:
 
     ![Configurar o logon único no lado do aplicativo – SAML v2](./media/voyance-tutorial/tutorial_voyance_005.png)
     
@@ -181,15 +181,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/voyance-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/voyance-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![O botão Adicionar](./media/voyance-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![A caixa de diálogo Usuário](./media/voyance-tutorial/create_aaduser_04.png) 
 
@@ -220,23 +220,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Voyance**.
+1. Na lista de aplicativos, selecione **Voyance**.
 
     ![O link do Voyance na lista de Aplicativos](./media/voyance-tutorial/tutorial_voyance_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

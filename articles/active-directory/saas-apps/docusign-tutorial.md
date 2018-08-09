@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8aef1edf4d7a02686db48d3e788e4f9493c398
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053335"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448478"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: integração do Active Directory do Azure com o DocuSign
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o DocuSign por meio da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionando o DocuSign por meio da galeria
 Para configurar a integração do DocuSign ao Azure AD, é necessário adicionar o DocuSign à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do DocuSign ao Azure AD, é necessário adicionar
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Docusign**.
+1. Na caixa de pesquisa, digite **Docusign**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/tutorial_docusign_search.png)
 
-5. No painel de resultados, selecione **DocuSign** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **DocuSign** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Essa relação de vínculo é estabelecida com a atribuição do valor do **nome
 Para configurar e testar o logon único do Azure AD com o DocuSign, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do DocuSign](#creating-a-docusign-test-user)** – para ter um equivalente de Brenda Fernandes no DocuSign que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do DocuSign](#creating-a-docusign-test-user)** – para ter um equivalente de Brenda Fernandes no DocuSign que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,40 +104,40 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo de certificado no computador.
 
     ![Configurar o logon único](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. Na seção **Configuração do DocuSign** do portal do Azure, clique em **Configurar o DocuSign** para abrir a janela Configurar logon. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do DocuSign** do portal do Azure, clique em **Configurar o DocuSign** para abrir a janela Configurar logon. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
     
     ![Configurar o logon único](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
-5. Em outra janela do navegador da Web, faça logon no **portal de administração do DocuSign** como administrador.
+1. Em outra janela do navegador da Web, faça logon no **portal de administração do DocuSign** como administrador.
 
-6. No menu de navegação à esquerda, clique em **Domínios**.
+1. No menu de navegação à esquerda, clique em **Domínios**.
    
     ![Configurando o logon único][51]
 
-7. No painel direito, clique em **Solicitar Domínio**.
+1. No painel direito, clique em **Solicitar Domínio**.
    
     ![Configurando o logon único][52]
 
-8. Na caixa de diálogo **Solicitar um domínio**, na caixa de texto **Nome de Domínio**, digite o domínio de sua empresa e clique em **Solicitar**. Verifique o domínio e confira se o status está ativo.
+1. Na caixa de diálogo **Solicitar um domínio**, na caixa de texto **Nome de Domínio**, digite o domínio de sua empresa e clique em **Solicitar**. Verifique o domínio e confira se o status está ativo.
    
     ![Configurando o logon único][53]
 
-9. No menu à esquerda, clique em **Provedores de Identidade**  
+1. No menu à esquerda, clique em **Provedores de Identidade**  
    
     ![Configurando o logon único][54]
-10. No painel direito, clique em **Adicionar Provedor de Identidade**. 
+1. No painel direito, clique em **Adicionar Provedor de Identidade**. 
    
     ![Configurando o logon único][55]
 
-11. Na página **Configurações do Provedor de Identidade** , execute as seguintes etapas:
+1. Na página **Configurações do Provedor de Identidade** , execute as seguintes etapas:
    
     ![Configurando o logon único][56]
 
@@ -155,24 +155,24 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     g. Em **Enviar solicitação de logoff por**, selecione **GET**.
 
-12. Na seção **Mapeamento de Atributo Personalizado** , escolha o campo que você deseja mapear com a Declaração do Azure AD. Neste exemplo, a declaração **emailaddress** é mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Esse é o nome de declaração padrão do Azure AD para a declaração de email. 
+1. Na seção **Mapeamento de Atributo Personalizado** , escolha o campo que você deseja mapear com a Declaração do Azure AD. Neste exemplo, a declaração **emailaddress** é mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Esse é o nome de declaração padrão do Azure AD para a declaração de email. 
    
     > [!NOTE]
     > Use o **Identificador de usuário** apropriado para mapear o usuário do Azure AD para o mapeamento de usuário do DocuSign. Selecione o campo adequado e insira o valor apropriado com base nas configurações de sua organização.
           
     ![Configurando o logon único][57]
 
-13. Na seção **Certificado do Provedor de Identidade**, clique em **Adicionar Certificado** e, depois, carregue o certificado baixado no portal do Azure AD.   
+1. Na seção **Certificado do Provedor de Identidade**, clique em **Adicionar Certificado** e, depois, carregue o certificado baixado no portal do Azure AD.   
    
     ![Configurando o logon único][58]
 
-14. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
-15. Na seção **Provedores de Identidade**, clique em **Ações** e em **Pontos de Extremidade**.   
+1. Na seção **Provedores de Identidade**, clique em **Ações** e em **Pontos de Extremidade**.   
    
     ![Configurando o logon único][59]
  
-16. Na seção **Exibir Pontos de Extremidade do SAML 2.0** do **portal de administração do DocuSign**, realize as seguintes etapas:
+1. Na seção **Exibir Pontos de Extremidade do SAML 2.0** do **portal de administração do DocuSign**, realize as seguintes etapas:
    
     ![Configurando o logon único][60]
    
@@ -184,7 +184,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
       
     c.  Clique em **Fechar**
     
-17. No portal do Azure, clique em **Salvar**.
+1. No portal do Azure, clique em **Salvar**.
     
     ![Configurar o logon único](./media/docusign-tutorial/tutorial_general_400.png)
 
@@ -202,15 +202,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
+1. Na parte superior da caixa de diálogo, clique em **Adicionar** para abrir a caixa de diálogo **Usuário**.
  
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/docusign-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **DocuSign**.
+1. Na lista de aplicativos, selecione **DocuSign**.
 
     ![Configurar o logon único](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

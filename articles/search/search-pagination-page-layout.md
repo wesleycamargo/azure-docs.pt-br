@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186871"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527062"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Como paginar os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como usar a API REST do Serviço de Azure Search para implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação.
@@ -102,7 +102,6 @@ Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/
 * [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
 * [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [Operações de documento.](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Vídeos e tutoriais sobre o Azure Search](search-video-demo-tutorial-list.md)
 * [Navegação facetada no Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->

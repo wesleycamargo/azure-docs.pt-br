@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: jeedes
-ms.openlocfilehash: b69e81b78e4bc3fd7493133f00c5cfbc03ae8743
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 95aada1303a807034d22689f71cea37696df4154
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043788"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o SSO do SAML para Bamboo da Resolution GmbH da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-saml-sso-for-bamboo-by-resolution-gmbh-from-the-gallery"></a>Adicionar o SSO do SAML para Bamboo da Resolution GmbH da galeria
 Para configurar a integração do SSO do SAML para Bamboo da Resolution GmbH no Azure AD, adicione o SSO do SAML para Bamboo da Resolution GmbH da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do SSO do SAML para Bamboo da Resolution GmbH no 
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **SSO do SAML para Bamboo da Resolution GmbH**, selecione **SSO do SAML para Bamboo da Resolution GmbH** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **SSO do SAML para Bamboo da Resolution GmbH**, selecione **SSO do SAML para Bamboo da Resolution GmbH** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![SSO do SAML para Bamboo da Resolution GmbH na lista de resultados](./media/bamboo-tutorial/tutorial_bamboo_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No SSO do SAML para Bamboo da Resolution GmbH, atribua o valor de **nome de usu�
 Para configurar e testar o logon único do Azure AD com o SSO de SAML para Bamboo da Resolution GmbH, conclua os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste de SSO do SAML para Bamboo da Resolution GmbH](#create-a-saml-sso-for-bamboo-by-resolution-gmbh-test-user)**  – para ter um equivalente de Brenda Fernandes no SSO do SAML para Bamboo da Resolution GmbH vinculado à representação do usuário do Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste de SSO do SAML para Bamboo da Resolution GmbH](#create-a-saml-sso-for-bamboo-by-resolution-gmbh-test-user)**  – para ter um equivalente de Brenda Fernandes no SSO do SAML para Bamboo da Resolution GmbH vinculado à representação do usuário do Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/bamboo-tutorial/tutorial_bamboo_samlbase.png)
 
-3. Na seção **Domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo IdP:
+1. Na seção **Domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo IdP:
 
     ![Informações de logon único de domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH](./media/bamboo-tutorial/tutorial_bamboo_url.png)
 
@@ -114,7 +114,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH](./media/bamboo-tutorial/tutorial_bamboo_url1.png)
 
@@ -123,29 +123,29 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte ao Cliente do SSO do SAML para Bamboo da Resolution GmbH](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bamboo/server/support) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/bamboo-tutorial/tutorial_bamboo_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/bamboo-tutorial/tutorial_general_400.png)
 
-7. Faça logon no site da empresa do SAML SSO para Bamboo da Resolution GmbH como administrador.
+1. Faça logon no site da empresa do SAML SSO para Bamboo da Resolution GmbH como administrador.
 
-8. No lado direito da barra de ferramentas principal, clique em **configurações** > **complementos**.
+1. No lado direito da barra de ferramentas principal, clique em **configurações** > **complementos**.
 
     ![As configurações](./media/bamboo-tutorial/tutorial_bamboo_setings.png)
 
-9. Vá para a seção SEGURANÇA, clique em **logon único do SAML** na barra de menus.
+1. Vá para a seção SEGURANÇA, clique em **logon único do SAML** na barra de menus.
 
     ![O Samlsingle](./media/bamboo-tutorial/tutorial_bamboo_samlsingle.png)
 
-10. Na **página de configuração do plug-in de logon único do SAML**, clique em **Adicionar idp**. 
+1. Na **página de configuração do plug-in de logon único do SAML**, clique em **Adicionar idp**. 
 
     ![Adicionar idp](./media/bamboo-tutorial/tutorial_bamboo_addidp.png)
 
-11. Na página **Escolher seu Provedor de Identidade SAML**, execute as seguintes etapas:
+1. Na página **Escolher seu Provedor de Identidade SAML**, execute as seguintes etapas:
 
     ![O provedor de identidade](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
@@ -157,17 +157,17 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique em **Próximo**.
 
-12. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
+1. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
 
     ![As configurações de identidade](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
 
-13.  Na página **importar metadados de Idp do SAML**, clique em **carregar arquivo** para carregar o arquivo **METADATA XML** que você fez o download do Portal do Azure.
+1.  Na página **importar metadados de Idp do SAML**, clique em **carregar arquivo** para carregar o arquivo **METADATA XML** que você fez o download do Portal do Azure.
 
     ![O idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
-14. Clique em **Próximo**.
+1. Clique em **Próximo**.
 
-15. Clique em **Salvar alterações**.
+1. Clique em **Salvar alterações**.
 
     ![Salvar](./media/bamboo-tutorial/tutorial_bamboo_save.png)
     
@@ -186,15 +186,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/bamboo-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/bamboo-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/bamboo-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/bamboo-tutorial/create_aaduser_04.png)
 
@@ -222,23 +222,23 @@ Nesta seção, habilite Britta Simon a usar o logon único do Azure concedendo a
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SSO do SAML para Bamboo da Resolution GmbH**.
+1. Na lista de aplicativos, selecione **SSO do SAML para Bamboo da Resolution GmbH**.
 
     ![O SSO do SAML para Bamboo da Resolution GmbH, link na lista de Aplicativos](./media/bamboo-tutorial/tutorial_bamboo_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126361"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429406"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Processar emails e anexos com o Aplicativo Lógico do Azure
 
@@ -48,7 +48,7 @@ Caso você não tenha uma assinatura do Azure, <a href="https://azure.microsoft.
 
 * Baixe e instale o <a href="https://storageexplorer.com/" target="_blank">Gerenciador de Armazenamento do Microsoft Azure</a> gratuito. Essa ferramenta ajuda a verificar se o contêiner de armazenamento está configurado corretamente.
 
-## <a name="sign-in-to-azure-portal"></a>Entrar no portal do Azure
+## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 
 Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a> com suas credenciais da conta do Azure.
 
@@ -82,7 +82,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Copie e salve a chave e o nome da conta de armazenamento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list). 
+   Para obter a chave de acesso da conta de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
 
 3. Crie um contêiner de armazenamento de blobs para os anexos de email.
    
@@ -100,7 +100,7 @@ Você pode salvar emails recebidos e anexos como blobs em um [contêiner de arma
 
       ![Contêiner de armazenamento concluído](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create). 
+   Para criar um contêiner de armazenamento, você também pode usar o [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) ou a [CLI do Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
 
 Em seguida, conecte o Gerenciador de Armazenamento à conta de armazenamento.
 

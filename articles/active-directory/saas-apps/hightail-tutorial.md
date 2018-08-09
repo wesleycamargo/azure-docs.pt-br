@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1151044d5c1002c808ae1214086aff5fad84a55e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319098"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: Integração do Azure Active Directory ao Hightail
 
@@ -32,7 +32,7 @@ A integração do Hightail ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Hightail, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Hightail a partir da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-hightail-from-the-gallery"></a>Adição do Hightail a partir da galeria
 Para configurar a integração do Hightail ao Azure AD, você precisará adicionar o Hightail da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -62,19 +62,19 @@ Para configurar a integração do Hightail ao Azure AD, você precisará adicion
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Hightail**.
+1. Na caixa de pesquisa, digite **Hightail**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/tutorial_hightail_search.png)
 
-5. No painel de resultados, selecione **Hightail** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Hightail** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/tutorial_hightail_addfromgallery.png)
 
@@ -88,10 +88,10 @@ No Hightail, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Hightail, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Como criar de um usuário de teste do Hightail](#creating-a-hightail-test-user)** – para ter um equivalente de Brenda Fernandes no Hightail que esteja vinculado de usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Como criar de um usuário de teste do Hightail](#creating-a-hightail-test-user)** – para ter um equivalente de Brenda Fernandes no Hightail que esteja vinculado de usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -103,11 +103,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. Na seção **Domínio e URLs do Hightail**, execute as seguintes etapas se quiser configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs do Hightail**, execute as seguintes etapas se quiser configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_url.png)
 
@@ -116,21 +116,21 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE]
     > O valor de URL de Resposta não é real. Você atualizará o valor da URL de Resposta com a URL de Resposta real, que é explicada no tutorial posteriormente.
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
     Na caixa de texto **URL de Logon**, digite a URL como: `https://www.hightail.com/loginSSO`
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. O aplicativo Hightail espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Gerencie os valores desses atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso. 
+1. O aplicativo Hightail espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Gerencie os valores desses atributos na guia **"Atributo"** do aplicativo. A captura de tela a seguir mostra um exemplo disso. 
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
-6. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
+1. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir:
     
     | Nome do atributo | Valor do atributo |
     | ------------------- | -------------------- |
@@ -153,28 +153,28 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     e. Clique em **OK**.
 
-7. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do Hightail**, clique em **Configurar Hightail** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Hightail**, clique em **Configurar Hightail** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
     >[!NOTE]
     >Antes de configurar o logon único no aplicativo Hightail, coloque seu domínio de email na lista de permissões com a equipe do Hightail para que todos os usuários que usam esse domínio possam utilizar a funcionalidade de Logon Único.
 
-9. Em outra janela do navegador, abra o portal de administração do **Hightail**.
+1. Em outra janela do navegador, abra o portal de administração do **Hightail**.
 
-10. Clique no **ícone de Usuário** no canto superior direito da página. 
+1. Clique no **ícone de Usuário** no canto superior direito da página. 
 
     ![Configurar o logon único](./media/hightail-tutorial/configure1.png)
 
-11. Clique na guia **Exibir Console de Administrador**.
+1. Clique na guia **Exibir Console de Administrador**.
 
     ![Configurar o logon único](./media/hightail-tutorial/configure2.png)
 
-12. No menu superior, clique na guia **SAML** e execute estas etapas:
+1. No menu superior, clique na guia **SAML** e execute estas etapas:
 
     ![Configurar o logon único](./media/hightail-tutorial/configure3.png)
 
@@ -197,15 +197,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/hightail-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Hightail**.
+1. Na lista de aplicativos, selecione **Hightail**.
 
     ![Configurar o logon único](./media/hightail-tutorial/tutorial_hightail_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
 
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

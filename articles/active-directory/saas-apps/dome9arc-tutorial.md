@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: c84f98da4d179aaee198fc489b9fc18650220b33
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 944f1b7ecc3fdc9f063d764a6deae49a68a24d77
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048259"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433520"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Tutorial: integração do Azure Active Directory com o Dome9 Arc
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. adicionar o Dome9 Arc da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-dome9-arc-from-the-gallery"></a>adicionar o Dome9 Arc da galeria
 Para configurar a integração do Dome9 Arc ao Azure Active Directory, será necessário adicionar o Dome9 Arc da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Dome9 Arc ao Azure Active Directory, será nec
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Dome9 Arc**, selecione **Dome9 Arc** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Dome9 Arc**, selecione **Dome9 Arc** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Dome9 Arc na lista de resultados](./media/dome9arc-tutorial/tutorial_dome9arc_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Dome9 Arc, atribua o valor do **nome de usuário** no Azure Active Directory 
 Para configurar e testar o logon único do Azure Active Directory com o Dome9 Arc, será necessário concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Dome9 Arc](#create-a-dome9-arc-test-user)** - para ter um equivalente de Brenda Fernandes no Dome9 Arc vinculado à representação do usuário no Azure Active Directory.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Dome9 Arc](#create-a-dome9-arc-test-user)** - para ter um equivalente de Brenda Fernandes no Dome9 Arc vinculado à representação do usuário no Azure Active Directory.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/dome9arc-tutorial/tutorial_dome9arc_samlbase.png)
 
-3. Na seção **Domínio e URLs do Dome9 Arc**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs do Dome9 Arc**, execute as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Informações de logon único de Domínio e URLs do Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url.png)
 
@@ -117,7 +117,7 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     > [!NOTE]
     > Você selecionará o valor do nome da empresa no portal de administração do dome9, que será explicado mais adiante no tutorial.
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de Domínio e URLs do Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_url1.png)
 
@@ -126,11 +126,11 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do Dome9 Arc](https://dome9.com/about/contact-us/) para obter esses valores. 
 
-5. O aplicativo Dome9 Arc Software espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+1. O aplicativo Dome9 Arc Software espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 
     ![Configurar logon único attb](./media/dome9arc-tutorial/tutorial_dome9arc_attribute.png)
 
-6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
+1. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo  | Valor do atributo | 
     | --------------- | --------------- | 
@@ -148,29 +148,29 @@ Nesta seção, você habilitará o logon único do Azure Active Directory no Por
     
     d. Clique em **OK**.
 
-7. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![O link de download do Certificado](./media/dome9arc-tutorial/tutorial_dome9arc_certificate.png) 
 
-8. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/dome9arc-tutorial/tutorial_general_400.png)
     
-9. Na seção **Configuração do Dome9 Arc**, clique em **Configurar Dome9 Arc** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Dome9 Arc**, clique em **Configurar Dome9 Arc** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configuração do Dome9 Arc](./media/dome9arc-tutorial/tutorial_dome9arc_configure.png) 
 
-10. Em uma janela do navegador da Web diferente, faça logon no seu site da empresa Dome9 Arc como administrador.
+1. Em uma janela do navegador da Web diferente, faça logon no seu site da empresa Dome9 Arc como administrador.
 
-11. Clique nas **Configurações de Perfil** no canto superior direito e depois em **Configurações de Conta**. 
+1. Clique nas **Configurações de Perfil** no canto superior direito e depois em **Configurações de Conta**. 
 
     ![Configuração do Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
 
-12. Navegue até **SSO** e, em seguida, clique em **HABILITAR**.
+1. Navegue até **SSO** e, em seguida, clique em **HABILITAR**.
 
     ![Configuração do Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
 
-13. Na seção de Configuração de SSO, execute as seguintes etapas:
+1. Na seção de Configuração de SSO, execute as seguintes etapas:
 
     ![Configuração do Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
 
@@ -199,15 +199,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/dome9arc-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/dome9arc-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/dome9arc-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/dome9arc-tutorial/create_aaduser_04.png)
 
@@ -230,15 +230,15 @@ Para habilitar que os usuários do Azure Active Directory façam logon no Dome9 
 
 1. Faça logon em seu site da empresa Dome9 Arc como administrador.
 
-2. Clique em **Usuários e Funções** e, em seguida, clique em **Usuários**.
+1. Clique em **Usuários e Funções** e, em seguida, clique em **Usuários**.
 
     ![Adicionar Funcionário](./media/dome9arc-tutorial/user1.png)
 
-3. Clique em **ADICIONAR USUÁRIO**.
+1. Clique em **ADICIONAR USUÁRIO**.
 
     ![Adicionar Funcionário](./media/dome9arc-tutorial/user2.png)
 
-4. Na seção **Criar Usuário** , realize as seguintes etapas:
+1. Na seção **Criar Usuário** , realize as seguintes etapas:
     
     ![Adicionar Funcionário](./media/dome9arc-tutorial/user3.png)
 
@@ -264,23 +264,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Dome9 Arc**.
+1. Na lista de aplicativos, escolha **Dome9 Arc**.
 
     ![O link do Dome9 Arc na lista de Aplicativos](./media/dome9arc-tutorial/tutorial_dome9arc_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098525"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429875"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Dimensionar pods Kubernetes e a infraestrutura do Kubernetes
 
@@ -115,7 +115,7 @@ Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de r
 
 ## <a name="scale-the-agents"></a>Dimensionar os agentes
 
-Se você criou o cluster Kubernetes usando comandos padrão no tutorial anterior, ele tem três nós de agente. Você pode ajustar o número de agentes manualmente se você planeja ter mais ou menos cargas de trabalho de contêiner no cluster. Use o comando [az acs scale](/cli/azure/acs#az_acs_scale) e especifique o número de agentes com o parâmetro `--new-agent-count`.
+Se você criou o cluster Kubernetes usando comandos padrão no tutorial anterior, ele tem três nós de agente. Você pode ajustar o número de agentes manualmente se você planeja ter mais ou menos cargas de trabalho de contêiner no cluster. Use o comando [az acs scale](/cli/azure/acs#az-acs-scale) e especifique o número de agentes com o parâmetro `--new-agent-count`.
 
 O exemplo a seguir aumenta o número de nós de agente para 4 no cluster Kubernetes chamado *myK8sCluster*. Esse comando leva alguns minutos para ser concluído.
 

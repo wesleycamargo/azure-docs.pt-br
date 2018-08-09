@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 60991f2780de86f0b15f64def6b1776316f974d4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055616"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Tutorial: integração do Azure Active Directory com o xMatters OnDemand
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o xMatters OnDemand da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-xmatters-ondemand-from-the-gallery"></a>Adicionar o xMatters OnDemand da galeria
 Para configurar a integração do xMatters OnDemand com o Azure AD, é necessário adicionar o xMatters OnDemand da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do xMatters OnDemand com o Azure AD, é necessár
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **xMatters OnDemand**.
+1. Na caixa de pesquisa, digite **xMatters OnDemand**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. No painel de resultados, selecione **xMatters OnDemand** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **xMatters OnDemand** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No xMatters OnDemand, atribua o valor do **nome de usuário** no Azure AD como o
 Para configurar e testar o logon único do Azure AD com o xMatters OnDemand, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)** – para ter um equivalente de Brenda Fernandes no xMatters OnDemand vinculado à representação de usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do xMatters OnDemand](#creating-a-xmatters-ondemand-test-user)** – para ter um equivalente de Brenda Fernandes no xMatters OnDemand vinculado à representação de usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
-3. Na seção **URLs e Domínio do xMatters OnDemand**, siga as etapas abaixo:
+1. Na seção **URLs e Domínio do xMatters OnDemand**, siga as etapas abaixo:
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
@@ -132,28 +132,28 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate [equipe de suporte do xMatters OnDemand](https://www.xmatters.com/company/contact-us/) para obter esses valores.
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado localmente como **c:\\XMatters OnDemand.cer**.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado localmente como **c:\\XMatters OnDemand.cer**.
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
 
     > [!IMPORTANT]
     > É necessário encaminhar o certificado para a [equipe de suporte do xMatters OnDemand](https://www.xmatters.com/company/contact-us/). O certificado precisa ser carregado pela equipe de suporte do xMatters antes de você finalizar a configuração de logon único. 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do xMatters OnDemand**, clique em **Configurar o xMatters OnDemand** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do xMatters OnDemand**, clique em **Configurar o xMatters OnDemand** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_configure.png) 
 
-7. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa XMatters OnDemand como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon em seu site de empresa XMatters OnDemand como administrador.
 
-8. Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empres**a na barra de navegação à esquerda.
+1. Na barra de ferramentas na parte superior, clique em **Administrador** e em **Detalhes da Empres**a na barra de navegação à esquerda.
 
     ![Admin](./media/xmatters-ondemand-tutorial/IC776795.png "Admin")
 
-9. Na página **Configuração do SAML** , realize as seguintes etapas:
+1. Na página **Configuração do SAML** , realize as seguintes etapas:
 
     ![Configuração SAML](./media/xmatters-ondemand-tutorial/IC776796.png "Configuração SAML")
 
@@ -180,15 +180,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
 
     ![Criação de um usuário de teste do AD do Azure](./media/xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
@@ -208,11 +208,11 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no xMatte
 
 1. Faça logon em seu locatário do **XMatters OnDemand** .
 
-2.  Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
+1.  Clique na guia **Usuários** e, em seguida, **Adicionar Usuário**.
 
     ![Usuários](./media/xmatters-ondemand-tutorial/IC781048.png "Usuários")
 
-3. Na seção **Adicionar um Usuário** , realize as seguintes etapas:
+1. Na seção **Adicionar um Usuário** , realize as seguintes etapas:
 
     ![Adicionar um Usuário](./media/xmatters-ondemand-tutorial/IC781049.png "Adicionar um Usuário")
 
@@ -240,23 +240,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **xMatters OnDemand**.
+1. Na lista de aplicativos, selecione **xMatters OnDemand**.
 
     ![Configurar o logon único](./media/xmatters-ondemand-tutorial/tutorial_xmattersondemand_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

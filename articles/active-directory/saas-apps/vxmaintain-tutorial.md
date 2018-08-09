@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055851"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Tutorial: integração do Azure Active Directory ao vxMaintain
 
@@ -65,19 +65,19 @@ Para adicionar o vxMaintain a partir da galeria, faça o seguinte:
 
     ![O botão Azure Active Directory][1]
 
-2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
+1. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
     ![O painel “Aplicativos empresariais”][2]
     
-3. Para adicionar um aplicativo, na caixa de diálogo **Todos os aplicativos**, selecione **Novo aplicativo**.
+1. Para adicionar um aplicativo, na caixa de diálogo **Todos os aplicativos**, selecione **Novo aplicativo**.
 
     ![O botão “Novo aplicativo”][3]
 
-4. Na caixa de pesquisa, digite **vxMaintain**.
+1. Na caixa de pesquisa, digite **vxMaintain**.
 
     ![A lista suspensa "Modo Logon Único"](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. Na lista de resultados, selecione **vxMaintain**e, em seguida, selecione **adicionar**.
+1. Na lista de resultados, selecione **vxMaintain**e, em seguida, selecione **adicionar**.
 
     ![O link do vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e confi
 
     ![O comando "Logon único"][4]
 
-2. Para habilitar o SSO, na lista suspensa **Modo de Logon Único**, selecione **Logon baseado em SAML**.
+1. Para habilitar o SSO, na lista suspensa **Modo de Logon Único**, selecione **Logon baseado em SAML**.
  
     ![O comando "Logon único baseado em SAML"](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. Em **Domínio e URLs do vxMaintain**, faça o seguinte:
+1. Em **Domínio e URLs do vxMaintain**, faça o seguinte:
 
     ![Seção Domínio e URLs do vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ Nesta seção, você pode habilitar o SSO do Azure AD no portal do Azure e confi
     > [!NOTE] 
     > Os valores anteriores não são reais. Atualize-os com o identificador e a URL de resposta reais. Para obter os valores, entre em contato com a [equipe de suporte do vxMaintain](https://www.hubspot.com/company/contact).
  
-4. Em **Certificado de Autenticação SAML**, selecione **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Em **Certificado de Autenticação SAML**, selecione **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![A seção “Certificado de Autenticação SAML”](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
     ![O botão Salvar](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. Para configurar o SSO do **vxMaintain**, envie o arquivo de **Metadados XML** baixado para [a equipe de suporte do vxMaintain](https://www.hubspot.com/company/contact).
+1. Para configurar o SSO do **vxMaintain**, envie o arquivo de **Metadados XML** baixado para [a equipe de suporte do vxMaintain](https://www.hubspot.com/company/contact).
 
 > [!TIP]
 > Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar o aplicativo na seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, depois, acesse a documentação inserida na seção **Configuração**. 
@@ -138,16 +138,16 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![Botão "Azure Active Directory"](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. Para exibir uma lista de usuários, vá para **Usuários e grupos** > **Todos os usuários**.
+1. Para exibir uma lista de usuários, vá para **Usuários e grupos** > **Todos os usuários**.
     
     ![O link “Todos os usuários”](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     A caixa de diálogo **Todos os usuários** é aberta. 
 
-3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
+1. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar**.
  
     ![O botão Adicionar](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. Na caixa de diálogo **Usuário**, faça o seguinte:
+1. Na caixa de diálogo **Usuário**, faça o seguinte:
  
     ![A caixa de diálogo Usuário](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -173,21 +173,21 @@ Nesta seção, você permitirá que o usuário de teste Brenda Fernandes use o S
 
     ![O link "Todos os aplicativos"][201] 
 
-2. Na lista de **Aplicativos**, selecione **vxMaintain**.
+1. Na lista de **Aplicativos**, selecione **vxMaintain**.
 
     ![O link do vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. No painel esquerdo, selecione **Usuários e grupos**.
+1. No painel esquerdo, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][202] 
 
-4. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
+1. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes** e, em seguida, selecione o botão **Selecionar**.
+1. Na caixa de diálogo **Usuários e grupos**, na lista **Usuários**, selecione **Brenda Fernandes** e, em seguida, selecione o botão **Selecionar**.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione **Atribuir**.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Testar o logon único do Azure AD
 

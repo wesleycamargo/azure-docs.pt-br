@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364538"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448434"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
 
@@ -53,15 +53,15 @@ Este é todo o ciclo de vida de integração e implementação contínuas que vo
 
 1.  Configure um data factory de desenvolvimento com VSTS no qual todos os desenvolvedores possam criar recursos de Data Factory como pipelines, conjuntos de dados e assim por diante.
 
-2.  Em seguida, os desenvolvedores podem modificar recursos como pipelines. À medida que fazem as modificações, eles podem selecionar **Depurar** para ver como o pipeline é executado com as alterações mais recentes.
+1.  Em seguida, os desenvolvedores podem modificar recursos como pipelines. À medida que fazem as modificações, eles podem selecionar **Depurar** para ver como o pipeline é executado com as alterações mais recentes.
 
-3.  Depois que os desenvolvedores estiverem satisfeitos com as alterações, eles poderão criar uma solicitação de pull em seu branch para o branch mestre (ou branch de colaboração) para que as alterações sejam revisadas por colegas.
+1.  Depois que os desenvolvedores estiverem satisfeitos com as alterações, eles poderão criar uma solicitação de pull em seu branch para o branch mestre (ou branch de colaboração) para que as alterações sejam revisadas por colegas.
 
-4.  Depois que as alterações estiverem no branch mestre, eles poderão publicar o factory de desenvolvimento selecionando **Publicar**.
+1.  Depois que as alterações estiverem no branch mestre, eles poderão publicar o factory de desenvolvimento selecionando **Publicar**.
 
-5.  Quando a equipe estiver pronta para promover alterações ao factory de teste e ao factory de produção, ela poderá exportar o modelo do Resource Manager do branch mestre ou de qualquer outro branch caso o branch mestre aceite o Data Factory de desenvolvimento dinâmico.
+1.  Quando a equipe estiver pronta para promover alterações ao factory de teste e ao factory de produção, ela poderá exportar o modelo do Resource Manager do branch mestre ou de qualquer outro branch caso o branch mestre aceite o Data Factory de desenvolvimento dinâmico.
 
-6.  O modelo do Resource Manager exportado pode ser implantado com arquivos de parâmetro diferentes para o factory de teste e o factory de produção.
+1.  O modelo do Resource Manager exportado pode ser implantado com arquivos de parâmetro diferentes para o factory de teste e o factory de produção.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatizar a integração contínua com versões do VSTS
 
@@ -81,19 +81,19 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
 1.  Vá para a página do VSTS no mesmo projeto configurado com o Data Factory.
 
-2.  Clique no menu superior **Build e versão** &gt; **Versões** &gt; **Criar definição de versão**.
+1.  Clique no menu superior **Build e versão** &gt; **Versões** &gt; **Criar definição de versão**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Selecione o modelo **Processo vazio**.
+1.  Selecione o modelo **Processo vazio**.
 
-4.  Insira o nome do seu ambiente.
+1.  Insira o nome do seu ambiente.
 
-5.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf_publish` como a branch padrão com a versão padrão mais recente.
+1.  Adicione um artefato de Git e selecione o mesmo repositório configurado com o Data Factory. Escolha `adf_publish` como a branch padrão com a versão padrão mais recente.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Adicione uma tarefa de Implantação do Azure Resource Manager:
+1.  Adicione uma tarefa de Implantação do Azure Resource Manager:
 
     a.  Crie a nova tarefa, procure **Implantação de Grupo de Recursos do Azure**e adicione-o.
 
@@ -109,9 +109,9 @@ Estas são as etapas para configurar uma versão do VSTS para que você possa au
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Salve a definição da versão.
+1.  Salve a definição da versão.
 
-9.  Crie uma nova versão dessa definição de versão.
+1.  Crie uma nova versão dessa definição de versão.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Há duas maneiras de lidar cos segredos:
 
     -   O arquivo de parâmetros também deve estar no branch de publicação.
 
-2.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
+1.  Adicione uma [tarefa do Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) antes da Implantação do Azure Resource Manager descrita na seção anterior:
 
     -   Selecione a guia **Tarefas** guia, crie uma nova tarefa, procure **Azure Key Vault** e adicione-o.
 
@@ -160,9 +160,9 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 
 1.  Na guia de Tarefas da versão do VSTS, procure **Azure Powershell** e adicione-o.
 
-2.  Escolha **Azure Resource Manager** como tipo de conexão e selecione sua assinatura.
+1.  Escolha **Azure Resource Manager** como tipo de conexão e selecione sua assinatura.
 
-3.  Escolha **Script Embutido** como tipo de script e, em seguida, forneça seu código. O exemplo abaixo interrompe os gatilhos:
+1.  Escolha **Script Embutido** como tipo de script e, em seguida, forneça seu código. O exemplo abaixo interrompe os gatilhos:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

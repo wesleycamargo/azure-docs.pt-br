@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b749d8a904bc40eba3346cc03d9274236380c80d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594029"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450286"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure
 A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máquina virtual) do Microsoft Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
@@ -45,8 +45,8 @@ A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máqui
 Fazer a ciência de dados envolve a iteração em uma sequência de tarefas:
 
 1. Localizar, carregar e pré-processar dados
-2. Compilar e testar modelos
-3. Implantar os modelos para consumo em aplicativos inteligentes
+1. Compilar e testar modelos
+1. Implantar os modelos para consumo em aplicativos inteligentes
 
 Cientistas de dados usam várias ferramentas para concluir essas tarefas. Pode ser muito demorado encontrar as versões apropriadas do software e baixar e instalá-las. A Máquina Virtual de Ciência de Dados da Microsoft pode facilitar essa carga fornecendo uma imagem pronta para uso que pode ser provisionada no Azure com todas as diversas ferramentas populares pré-instaladas e configuradas. 
 
@@ -57,7 +57,7 @@ Não há encargos de software para esta imagem da VM de ciência de dados. Você
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Outras versões da Máquina Virtual de Ciência de Dados
 Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md) também está disponível, com muitas ferramentas semelhantes, além de algumas estruturas de aprendizado aprofundado. Uma imagem do [CentOS](linux-dsvm-intro.md) também está disponível. Também oferecemos uma [edição do Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) da máquina virtual de ciência de dados, embora algumas ferramentas estejam disponíveis somente na edição do Windows Server 2016.  Caso contrário, este artigo também se aplicará à edição do Windows Server 2012.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de criar uma Máquina Virtual de Ciência de Dados da Microsoft, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](http://azure.com/free).
@@ -67,23 +67,23 @@ Antes de criar uma Máquina Virtual de Ciência de Dados da Microsoft, você dev
 Para criar uma instância da Máquina Virtual de Ciência de Dados da Microsoft, siga estas etapas:
 
 1. Navegue até a máquina virtual no [portal do Azure](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
-2. Selecione o botão **Criar** na parte inferior para ser levado para um assistente![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. O assistente usado para criar a Máquina Virtual de Ciência de Dados da Microsoft exige **entradas** para cada uma das **quatro etapas** enumeradas à direita desta figura. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
+1. Selecione o botão **Criar** na parte inferior para ser levado para um assistente![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. O assistente usado para criar a Máquina Virtual de Ciência de Dados da Microsoft exige **entradas** para cada uma das **quatro etapas** enumeradas à direita desta figura. Aqui estão as entradas necessárias para configurar cada uma das seguintes etapas:
    
    1. **Noções básicas**
       
       1. **Nome**: o nome do servidor de ciência de dados que você está criando.
-      2. **Tipo de disco da VM**: escolha entre o SSD ou o HD. Para a instância de GPU NC_v1 (baseado no NVidia Tesla K80), escolha **HDD** como o tipo de disco. 
-      3. **Nome de Usuário**: ID de logon da conta de administrador.
-      4. **Senha**: senha da conta de administrador.
-      5. **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
-      6. **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
-      7. **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
-   2. **Tamanho**: selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Você pode obter mais opções de tamanhos de VM selecionando “Exibir Tudo”.
-   3. **Configurações**:
+      1. **Tipo de disco da VM**: escolha entre o SSD ou o HD. Para a instância de GPU NC_v1 (baseado no NVidia Tesla K80), escolha **HDD** como o tipo de disco. 
+      1. **Nome de Usuário**: ID de logon da conta de administrador.
+      1. **Senha**: senha da conta de administrador.
+      1. **Assinatura**: se você tiver mais de uma assinatura, selecione aquela em que o computador será criado e cobrado.
+      1. **Grupo de Recursos**: é possível criar um novo grupo ou usar um existente.
+      1. **Local**: selecione o datacenter mais apropriado. Normalmente, é o datacenter que contém a maioria dos seus dados ou que está mais próximo de sua localização física para o acesso mais rápido à rede.
+   1. **Tamanho**: selecione um dos tipos de servidor que atenda aos seus requisitos funcionais e restrições de custo. Você pode obter mais opções de tamanhos de VM selecionando “Exibir Tudo”.
+   1. **Configurações**:
       
       1. **Usar Managed Disks**: escolha a opção Gerenciado se você quiser que o Azure gerencie os discos da VM.  Caso contrário, você precisará especificar uma conta de armazenamento nova ou existente. 
-      2. **Outros parâmetros**: normalmente, você simplesmente usa os valores padrão. Caso queira considerar o uso de valores não padrão, passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre o campo específico.
+      1. **Outros parâmetros**: normalmente, você simplesmente usa os valores padrão. Caso queira considerar o uso de valores não padrão, passe o ponteiro do mouse sobre o link informativo para obter ajuda sobre o campo específico.
     a. **Resumo**: verifique se todas as informações inseridas estão corretas e clique em **Criar**. **OBSERVAÇÃO**: a VM não tem encargos adicionais além dos de computação para o tamanho do servidor que você escolheu na etapa **Tamanho**. 
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Para o desenvolvimento com Python, as distribuições 2.7 e 3.6 do Anaconda Pyth
 > 
 > 
 
-O Anaconda Python 3.6 é instalado em C:\Anaconda e o Anaconda Python 2.7 é instalado em c:\Anaconda\envs\python2. Consulte a [documentação do PTVS](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) para obter as etapas detalhadas. 
+O Anaconda Python 3.6 é instalado em C:\Anaconda e o Anaconda Python 2.7 é instalado em c:\Anaconda\envs\python2. Consulte a [documentação do PTVS](/visualstudio/python/installing-python-interpreters.md) para obter as etapas detalhadas. 
 
 ### <a name="jupyter-notebook"></a>Bloco de anotações do Jupyter
 A distribuição do Anaconda também acompanha um notebook Jupyter, um ambiente de compartilhamento de código e de análise. Um servidor de notebook Jupyter foi previamente configurado com os kernels do Python 2.7, Python 3.x, PySpark, Julia e R. Há um ícone de área de trabalho chamado “Bloco de anotações do Jupyter” para inicializar o servidor do Jupyter e o navegador a fim de acessar o servidor do Notebook. 

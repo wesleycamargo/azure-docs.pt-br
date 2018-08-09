@@ -2,24 +2,18 @@
 title: Desenvolvimento para o Arquivos do Azure com C++ | Microsoft Docs
 description: Saiba como desenvolver aplicativos e serviços C++ que usam o Arquivos do Azure para armazenar dados de arquivo.
 services: storage
-documentationcenter: .net
 author: renashahmsft
-manager: aungoo
-editor: tamram
-ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: files
+ms.openlocfilehash: 4543784c1de85cf86f3dfa912a33641541e0373a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737564"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528995"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Desenvolvimento para o Arquivos do Azure com C++
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -37,7 +31,7 @@ Neste tutorial, você aprenderá a executar operações básicas no Arquivos do 
 * Crie uma assinatura de acesso compartilhado (chave SAS) para um arquivo que usa uma política de acesso compartilhado definida no compartilhamento.
 
 > [!Note]  
-> Como o Arquivos do Azure pode ser acessado via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do C++. Este artigo descreverá como criar aplicativos que usam o SDK do Armazenamento do Azure C++, que usa a [API REST de Arquivo](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) para se comunicar com o Arquivos do Azure.
+> Como o Arquivos do Azure pode ser acessado via SMB, é possível criar aplicativos simples que acessam o Compartilhamento de Arquivos do Azure usando as classes e funções padrão de E/S do C++. Este artigo descreverá como criar aplicativos que usam o SDK do Armazenamento do Azure C++, que usa a [API REST de Arquivo](https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api) para se comunicar com o Arquivos do Azure.
 
 ## <a name="create-a-c-application"></a>Criar um aplicativo em C++
 Para criar os exemplos, você precisará instalar a Biblioteca do Cliente de Armazenamento do Azure 2.4.0 para C++. Você também deverá ter criado uma conta de armazenamento do Azure.

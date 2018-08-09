@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128006"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432884"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Avaliar aplicativos do Service Fabric e microsserviços com o Portal do Azure
 
@@ -39,15 +39,15 @@ A solução de Service Fabric usa dados de Diagnóstico do Azure das suas VMs do
 Para começar a usar a solução, você precisa conectar seu cluster do Service Fabric a um espaço de trabalho do Log Analytics. Há três cenários a serem considerados:
 
 1. Se você não tiver implantado o cluster do Service Fabric, use as etapas em ***Deploy a Service Fabric Cluster connected to a Log Analytics workspace*** (Implantar um cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics) para implantar um novo cluster e configurá-lo para relatar para o Log Analytics.
-2. Se você precisar coletar contadores de desempenho de seus hosts para usar outras soluções de gerenciamento, como Segurança no Cluster do Service Fabric, siga as etapas em ***Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.***
-3. Se você já tiver implantado o cluster do Service Fabric e quiser conectá-lo ao Log Analytics, siga as etapas em ***Adding an existing storage account to Log Analytics*** (Adicionar uma conta de armazenamento existente para Log Analytics).
+1. Se você precisar coletar contadores de desempenho de seus hosts para usar outras soluções de gerenciamento, como Segurança no Cluster do Service Fabric, siga as etapas em ***Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics com a Extensão de VM instalada.***
+1. Se você já tiver implantado o cluster do Service Fabric e quiser conectá-lo ao Log Analytics, siga as etapas em ***Adding an existing storage account to Log Analytics*** (Adicionar uma conta de armazenamento existente para Log Analytics).
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implantar um Cluster do Service Fabric conectado a um espaço de trabalho do Log Analytics.
 O modelo faz o seguinte:
 
 1. implanta um cluster do Azure Service Fabric conectado a um espaço de trabalho do Log Analytics. Você tem a opção de criar um novo espaço de trabalho durante a implantação do modelo ou inserir o nome de um espaço de trabalho do Log Analytics já existente.
-2. adiciona a conta de armazenamento do diagnóstico ao espaço de trabalho do Log Analytics.
-3. habilita a solução do Service Fabric em seu espaço de trabalho do Log Analytics.
+1. adiciona a conta de armazenamento do diagnóstico ao espaço de trabalho do Log Analytics.
+1. habilita a solução do Service Fabric em seu espaço de trabalho do Log Analytics.
 
 [![Implantar no Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
@@ -66,9 +66,9 @@ Aceite os termos legais e clique em **Criar** para iniciar a implantação. Apó
 O modelo faz o seguinte:
 
 1. implanta um cluster do Azure Service Fabric conectado a um espaço de trabalho do Log Analytics. Você pode criar um novo espaço de trabalho ou usar um existente.
-2. adiciona as contas de armazenamento do diagnóstico ao espaço de trabalho do Log Analytics.
-3. habilita a solução do Service Fabric no espaço de trabalho do Log Analytics.
-4. Instala a extensão do agente de MMA em cada conjunto de dimensionamento de máquinas virtuais no cluster do Service Fabric. Com o agente de MMA instalado, é possível exibir métricas de desempenho sobre os nós.
+1. adiciona as contas de armazenamento do diagnóstico ao espaço de trabalho do Log Analytics.
+1. habilita a solução do Service Fabric no espaço de trabalho do Log Analytics.
+1. Instala a extensão do agente de MMA em cada conjunto de dimensionamento de máquinas virtuais no cluster do Service Fabric. Com o agente de MMA instalado, é possível exibir métricas de desempenho sobre os nós.
 
 [![Implantar no Azure](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 

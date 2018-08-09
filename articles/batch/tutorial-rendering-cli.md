@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 5cd4ce6b04f9257de13aad6e59eb772fbe2fa558
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8dfec4c30a9610d8f30ceea131ebd7d2e1d64aa1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789292"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432721"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Tutorial: renderizar uma cena com o Lote do Azure 
 
@@ -43,7 +43,7 @@ Se optar por instalar e usar a CLI localmente, este tutorial exigirá que você 
 
 Se você ainda não fez isso, crie um grupo de recursos, uma conta do Lote e uma conta de armazenamento vinculada em sua assinatura. 
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2*.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus2*.
 
 ```azurecli-interactive 
 az group create \
@@ -51,7 +51,7 @@ az group create \
     --location eastus2
 ```
 
-Crie uma conta de Armazenamento do Azure em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az_storage_account_create). Para este tutorial, você pode usar a conta de armazenamento para armazenar uma cena do 3ds Max de entrada e a saída renderizada.
+Crie uma conta de Armazenamento do Azure em seu grupo de recursos com o comando [az storage account create](/cli/azure/storage/account#az-storage-account-create). Para este tutorial, você pode usar a conta de armazenamento para armazenar uma cena do 3ds Max de entrada e a saída renderizada.
 
 ```azurecli-interactive
 az storage account create \
@@ -60,7 +60,7 @@ az storage account create \
     --location eastus2 \
     --sku Standard_LRS
 ```
-Criar uma conta do Lote com o comando [az batch account create](/cli/azure/batch/account#az_batch_account_create). O exemplo a seguir cria uma conta do Lote denominada *mybatchaccount* em *myResourceGroup* e vincula a conta de armazenamento que você criou.  
+Criar uma conta do Lote com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). O exemplo a seguir cria uma conta do Lote denominada *mybatchaccount* em *myResourceGroup* e vincula a conta de armazenamento que você criou.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -70,7 +70,7 @@ az batch account create \
     --location eastus2
 ```
 
-Para criar e gerenciar trabalhos e pools de computação, você precisa autenticar com o Lote. Faça logon na conta com o comando [az batch account login](/cli/azure/batch/account#az_batch_account_login). Depois que você fizer logon, seus comandos `az batch` usarão esse contexto de conta. O exemplo a seguir usa a autenticação de chave compartilhada, com base no nome da conta e na chave do Lote. O Lote também dá suporte à autenticação por meio do [Azure Active Directory](batch-aad-auth.md) para autenticar usuários individuais ou um aplicativo autônomo.
+Para criar e gerenciar trabalhos e pools de computação, você precisa autenticar com o Lote. Faça logon na conta com o comando [az batch account login](/cli/azure/batch/account#az-batch-account-login). Depois que você fizer logon, seus comandos `az batch` usarão esse contexto de conta. O exemplo a seguir usa a autenticação de chave compartilhada, com base no nome da conta e na chave do Lote. O Lote também dá suporte à autenticação por meio do [Azure Active Directory](batch-aad-auth.md) para autenticar usuários individuais ou um aplicativo autônomo.
 
 ```azurecli-interactive 
 az batch account login \
@@ -80,7 +80,7 @@ az batch account login \
 ```
 ## <a name="upload-a-scene-to-storage"></a>Carregar uma cena para armazenamento
 
-Para carregar a cena de entrada no armazenamento, você primeiro precisa acessar a conta de armazenamento e criar um contêiner de destino para os blobs. Para acessar a conta de armazenamento do Azure, exporte as variáveis de ambiente `AZURE_STORAGE_KEY` e `AZURE_STORAGE_ACCOUNT`. O primeiro comando do shell Bash usa o comando [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) para obter a primeira chave de conta. Depois de definir essas variáveis de ambiente, os comandos de armazenamento usarão esse contexto de conta.
+Para carregar a cena de entrada no armazenamento, você primeiro precisa acessar a conta de armazenamento e criar um contêiner de destino para os blobs. Para acessar a conta de armazenamento do Azure, exporte as variáveis de ambiente `AZURE_STORAGE_KEY` e `AZURE_STORAGE_ACCOUNT`. O primeiro comando do shell Bash usa o comando [az storage account keys list](/cli/azure/storage/account/keys#az-storage-account-keys-list) para obter a primeira chave de conta. Depois de definir essas variáveis de ambiente, os comandos de armazenamento usarão esse contexto de conta.
 
 ```azurecli-interactive
 export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorageaccount --resource-group myResourceGroup -o tsv --query [0].value)
@@ -88,7 +88,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-Agora, crie um contêiner de blob na conta de armazenamento para os arquivos da cena. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create) para criar um contêiner de blob denominado *scenefiles*, que permite acesso de leitura público.
+Agora, crie um contêiner de blob na conta de armazenamento para os arquivos da cena. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar um contêiner de blob denominado *scenefiles*, que permite acesso de leitura público.
 
 ```azurecli-interactive
 az storage container create \
@@ -102,7 +102,7 @@ Baixe a cena `MotionBlur-Dragon-Flying.max` do [GitHub](https://github.com/Azure
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
 ```
 
-Carregue o arquivo da cena do diretório de trabalho local para o contêiner de blob. O exemplo a seguir usa o comando [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch), que pode carregar vários arquivos:
+Carregue o arquivo da cena do diretório de trabalho local para o contêiner de blob. O exemplo a seguir usa o comando [az storage blob upload-batch](/cli/azure/storage/blob#az-storage-blob-upload-batch), que pode carregar vários arquivos:
 
 ```azurecli-interactive
 az storage blob upload-batch \
@@ -112,7 +112,7 @@ az storage blob upload-batch \
 
 ## <a name="create-a-rendering-pool"></a>Criar um pool de renderização
 
-Criar um pool do Lote para renderização usando o comando [az batch pool create](/cli/azure/batch/pool#az_batch_pool_create). Neste exemplo, você deve especificar as configurações do pool em um arquivo JSON. No shell atual, crie um nome de arquivo *mypool.json* e copie e cole o conteúdo a seguir. Verifique se todo o texto foi copiado corretamente. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
+Criar um pool do Lote para renderização usando o comando [az batch pool create](/cli/azure/batch/pool#az-batch-pool-create). Neste exemplo, você deve especificar as configurações do pool em um arquivo JSON. No shell atual, crie um nome de arquivo *mypool.json* e copie e cole o conteúdo a seguir. Verifique se todo o texto foi copiado corretamente. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/mypool.json).)
 
 
 ```json
@@ -148,7 +148,7 @@ Crie o pool passando o arquivo JSON para o comando `az batch pool create`:
 az batch pool create \
     --json-file mypool.json
 ``` 
-Leva alguns minutos para provisionar o pool. Para ver o status do pool, execute o comando [az batch pool show](/cli/azure/batch/pool#az_batch_pool_show). O seguinte comando obtém o estado de alocação do pool:
+Leva alguns minutos para provisionar o pool. Para ver o status do pool, execute o comando [az batch pool show](/cli/azure/batch/pool#az-batch-pool-show). O seguinte comando obtém o estado de alocação do pool:
 
 ```azurecli-interactive
 az batch pool show \
@@ -160,7 +160,7 @@ Continue as etapas a seguir para criar um trabalho e tarefas enquanto o estado d
 
 ## <a name="create-a-blob-container-for-output"></a>Criar um contêiner de blob para saída
 
-Nos exemplos neste tutorial, todas as tarefas no trabalho de renderização criam um arquivo de saída. Antes de agendar o trabalho, crie um contêiner de blob em sua conta de armazenamento como o destino dos arquivos de saída. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az_storage_container_create) para criar o contêiner *job-myrenderjob* com acesso de leitura público. 
+Nos exemplos neste tutorial, todas as tarefas no trabalho de renderização criam um arquivo de saída. Antes de agendar o trabalho, crie um contêiner de blob em sua conta de armazenamento como o destino dos arquivos de saída. O exemplo a seguir usa o comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) para criar o contêiner *job-myrenderjob* com acesso de leitura público. 
 
 ```azurecli-interactive
 az storage container create \
@@ -168,7 +168,7 @@ az storage container create \
     --name job-myrenderjob
 ```
 
-Para gravar arquivos de saída no contêiner, o Lote precisa usar um token SAS (assinatura de acesso compartilhado). Crie o token com o comando [az storage account generate-sas](/cli/azure/storage/account#az_storage_account_generate_sas). Este exemplo cria um token para gravar em qualquer contêiner de blob na conta, e o token expira em 15 de novembro de 2018:
+Para gravar arquivos de saída no contêiner, o Lote precisa usar um token SAS (assinatura de acesso compartilhado). Crie o token com o comando [az storage account generate-sas](/cli/azure/storage/account#az-storage-account-generate-sas). Este exemplo cria um token para gravar em qualquer contêiner de blob na conta, e o token expira em 15 de novembro de 2018:
 
 ```azurecli-interactive
 az storage account generate-sas \
@@ -188,7 +188,7 @@ se=2018-11-15&sp=rw&sv=2017-04-17&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### <a name="create-a-job"></a>Criar um trabalho
 
-Crie um trabalho de renderização para execução no pool usando o comando [az batch job create](/cli/azure/batch/job#az_batch_job_create). Inicialmente, o trabalho não tem nenhuma tarefa.
+Crie um trabalho de renderização para execução no pool usando o comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). Inicialmente, o trabalho não tem nenhuma tarefa.
 
 ```azurecli-interactive
 az batch job create \
@@ -198,7 +198,7 @@ az batch job create \
 
 ### <a name="create-a-task"></a>Cria uma tarefa
 
-Use o comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para criar uma tarefa de renderização no trabalho. Neste exemplo, você deve especificar as configurações da tarefa em um arquivo JSON. No shell atual, crie um arquivo chamado*myrendertask.json* e copie e cole o conteúdo a seguir. Verifique se todo o texto foi copiado corretamente. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
+Use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar uma tarefa de renderização no trabalho. Neste exemplo, você deve especificar as configurações da tarefa em um arquivo JSON. No shell atual, crie um arquivo chamado*myrendertask.json* e copie e cole o conteúdo a seguir. Verifique se todo o texto foi copiado corretamente. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).)
 
 A tarefa especifica um comando do 3ds Max para renderizar um único quadro da cena *MotionBlur DragonFlying.max*.
 
@@ -256,7 +256,7 @@ O Lote agenda a tarefa e ela é executada assim que um nó no pool fica disponí
 
 ### <a name="view-task-output"></a>Exibir saída de tarefa
 
-A tarefa leva alguns minutos para ser executada. Use o comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para exibir os detalhes sobre a tarefa.
+A tarefa leva alguns minutos para ser executada. Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir os detalhes sobre a tarefa.
 
 ```azurecli-interactive
 az batch task show \
@@ -264,7 +264,7 @@ az batch task show \
     --task-id myrendertask
 ```
 
-A tarefa gera *dragon0001.jpg* no nó de computação e o carrega no contêiner *job-myrenderjob* na conta de armazenamento. Para exibir a saída, baixe o arquivo do armazenamento para o computador local usando o comando [az storage blob download](/cli/azure/storage/blob#az_storage_blob_download).
+A tarefa gera *dragon0001.jpg* no nó de computação e o carrega no contêiner *job-myrenderjob* na conta de armazenamento. Para exibir a saída, baixe o arquivo do armazenamento para o computador local usando o comando [az storage blob download](/cli/azure/storage/blob#az-storage-blob-download).
 
 ```azurecli-interactive
 az storage blob download \
@@ -281,7 +281,7 @@ Abra *dragon.jpg* em seu computador. A imagem renderizada é semelhante à segui
 
 ## <a name="scale-the-pool"></a>Dimensionar o pool
 
-Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós, de acordo com as alterações na demanda. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az_batch_pool_resize) para aumentar o número de nós de baixa prioridade no pool para *6*:
+Agora, modifique o pool para se preparar para um trabalho de renderização maior, com vários quadros. O Lote fornece várias maneiras para dimensionar os recursos de computação, incluindo [dimensionamento automático](batch-automatic-scaling.md), que adiciona ou remove nós, de acordo com as alterações na demanda. Para este exemplo básico, use o comando [az batch pool resize](/cli/azure/batch/pool#az-batch-pool-resize) para aumentar o número de nós de baixa prioridade no pool para *6*:
 
 ```azurecli-interactive
 az batch pool resize --pool-id myrenderpool --target-dedicated-nodes 0 --target-low-priority-nodes 6
@@ -291,7 +291,7 @@ O pool leva alguns minutos para ser redimensionado. Durante esse processo, confi
 
 ## <a name="render-a-multiframe-scene"></a>Renderizar uma cena com vários quadros
 
-Como no exemplo de quadro único, use o comando [az batch task create](/cli/azure/batch/task#az_batch_task_create) para criar tarefas de renderização do trabalho chamado *myrenderjob*. Aqui, especifique as configurações da tarefa em um arquivo JSON chamado *myrendertask_multi.json*. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar um quadro da cena 3ds Max *MotionBlur DragonFlying.max*.
+Como no exemplo de quadro único, use o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar tarefas de renderização do trabalho chamado *myrenderjob*. Aqui, especifique as configurações da tarefa em um arquivo JSON chamado *myrendertask_multi.json*. (Você pode baixar o arquivo do [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Cada uma das seis tarefas especifica uma linha de comando Arnold para renderizar um quadro da cena 3ds Max *MotionBlur DragonFlying.max*.
 
 Crie um arquivo no shell atual denominado *myrendertask_multi.json*e copie e cole o conteúdo do arquivo baixado. Modifique os elementos `blobSource` e `containerURL` no arquivo JSON para incluir o nome da sua conta de armazenamento e seu token SAS. Não deixe de alterar as configurações para cada uma das seis tarefas. Salve o arquivo e execute o seguinte comando para enfileirar as tarefas:
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Exibir saída de tarefa
 
-A tarefa leva alguns minutos para ser executada. Use o comando [az batch task list](/cli/azure/batch/task#az_batch_task_list) para exibir o estado das tarefas. Por exemplo: 
+A tarefa leva alguns minutos para ser executada. Use o comando [az batch task list](/cli/azure/batch/task#az-batch-task-list) para exibir o estado das tarefas. Por exemplo: 
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Use o comando [az batch task show](/cli/azure/batch/task#az_batch_task_show) para exibir os detalhes de tarefas específicas. Por exemplo: 
+Use o comando [az batch task show](/cli/azure/batch/task#az-batch-task-show) para exibir os detalhes de tarefas específicas. Por exemplo: 
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-As tarefas geram arquivos de saída denominados *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e os carregam no contêiner *job-myrenderjob* na sua conta de armazenamento. Para exibir a saída, baixe os arquivos para uma pasta no seu computador local usando o comando [az storage blob download-batch](/cli/azure/storage/blob#az_storage_blob_download_batch). Por exemplo: 
+As tarefas geram arquivos de saída denominados *dragon0002.jpg* - *dragon0007.jpg* nos nós de computação e os carregam no contêiner *job-myrenderjob* na sua conta de armazenamento. Para exibir a saída, baixe os arquivos para uma pasta no seu computador local usando o comando [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch). Por exemplo: 
 
 ```azurecli-interactive
 az storage blob download-batch \
@@ -332,7 +332,7 @@ Abra um dos arquivos em seu computador. O quadro renderizado 6 é semelhante ao 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o pool e os recursos relacionados. Exclua os recursos da seguinte maneira:
+Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos, conta do Lote, pools e os recursos relacionados. Exclua os recursos da seguinte maneira:
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: fe1960fb07a7cb62246f0eefe9563d6ee2b13f5c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c1a1126026f3d2618a0669e4bd69a84cc1c6c54c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045889"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Confluence da Resolution GmbH
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SSO do SAML para Confluence da Resolution GmbH da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-saml-sso-for-confluence-by-resolution-gmbh-from-the-gallery"></a>Adicionando o SSO do SAML para Confluence da Resolution GmbH da galeria
 
@@ -64,19 +64,19 @@ Para configurar a integração do SSO do SAML para Confluence da Resolution GmbH
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **SSO do SAML para Confluence da Resolution GmbH**.
+1. Na caixa de pesquisa, digite **SSO do SAML para Confluence da Resolution GmbH**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_search.png)
 
-5. No painel resultados, selecione **SSO do SAML para Confluence da Resolution GmbH** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel resultados, selecione **SSO do SAML para Confluence da Resolution GmbH** e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_addfromgallery.png)
 
@@ -91,10 +91,10 @@ No SSO do SAML para Confluence da Resolution GmbH, atribua o valor de **nome de 
 Para configurar e testar o logon único do Azure AD com o SSO de SAML para Confluence da Resolution GmbH, conclua os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste de SSO do SAML para Confluence da Resolution GmbH](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  – para ter um equivalente de Brenda Fernandes no SSO do SAML para Confluence da Resolution GmbH vinculado à representação do usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criar um usuário de teste de SSO do SAML para Confluence da Resolution GmbH](#creating-a-saml-sso-for-confluence-by-resolution-gmbh-test-user)**  – para ter um equivalente de Brenda Fernandes no SSO do SAML para Confluence da Resolution GmbH vinculado à representação do usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -106,11 +106,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_samlbase.png)
 
-3. Na seção **Domínio e URLs do SSO do SAML para Confluence da Resolution GmbH**, se quiser configurar o aplicativo no modo iniciado **IDP**:
+1. Na seção **Domínio e URLs do SSO do SAML para Confluence da Resolution GmbH**, se quiser configurar o aplicativo no modo iniciado **IDP**:
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_1.png)
 
@@ -118,7 +118,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
-4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
+1. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_url_2.png)
 
@@ -127,55 +127,55 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com a [equipe de suporte ao Cliente do SSO do SAML para Confluence da Resolution GmbH](https://www.resolution.de/go/support) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_general_400.png)    
     
-7. Em uma janela diferente do navegador da Web, faça logon no **portal do administrador do SSO do SAML para Confluence da Resolution GmbH** como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no **portal do administrador do SSO do SAML para Confluence da Resolution GmbH** como administrador.
 
-8. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
+1. Passe o cursor do mouse sobre a engrenagem e clique em **Complementos**.
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon1.png)
 
-9. Você é redirecionado à página de Acesso de Administrador. Insira a Senha e clique no botão **Confirmar**.
+1. Você é redirecionado à página de Acesso de Administrador. Insira a Senha e clique no botão **Confirmar**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon2.png)
 
-10. Na guia **ATLASSIAN MARKETPLACE**, clique em **Localizar novos complementos**. 
+1. Na guia **ATLASSIAN MARKETPLACE**, clique em **Localizar novos complementos**. 
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon.png)
 
-11. Pesquise **SSO (Logon Único) do SAML para Confluence** e clique no botão **Instalar** para instalar o novo plug-in do SAML.
+1. Pesquise **SSO (Logon Único) do SAML para Confluence** e clique no botão **Instalar** para instalar o novo plug-in do SAML.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon7.png)
 
-12. A instalação do plug-in será iniciada. Clique em **fechar**
+1. A instalação do plug-in será iniciada. Clique em **fechar**
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon8.png)
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon9.png)
 
-13. Clique em **Gerenciar**.
+1.  Clique em **Gerenciar**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon10.png)
     
-14. Clique em **Configurar** para configurar o novo plug-in.
+1. Clique em **Configurar** para configurar o novo plug-in.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon11.png)
 
-15. Este novo plug-in também pode ser encontrado na guia **USUÁRIOS E SEGURANÇA**.
+1. Este novo plug-in também pode ser encontrado na guia **USUÁRIOS E SEGURANÇA**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon3.png)
     
-16. Em **Configuração de Plug-in de Logon Único do SAML**, clique no botão **Adicionar novo IdP** para definir as configurações do Provedor de Identidade.
+1. Em **Configuração de Plug-in de Logon Único do SAML**, clique no botão **Adicionar novo IdP** para definir as configurações do Provedor de Identidade.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon4.png)
 
-17. Na página **Escolher seu Provedor de Identidade SAML**, execute as seguintes etapas:
+1. Na página **Escolher seu Provedor de Identidade SAML**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5a.png)
  
@@ -187,11 +187,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     d. Clique em **Próximo**.
     
-18. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
+1. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5b.png)
 
-19. Na página **Importar metadados de IdP do SAML**, execute as seguintes etapas:
+1. Na página **Importar metadados de IdP do SAML**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5c.png)
 
@@ -203,19 +203,19 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     d. Clique no botão **Avançar**.
     
-20. Na página de **Transformação e atributo de ID de usuário**, clique no botão **Avançar**.
+1. Na página de **Transformação e atributo de ID de usuário**, clique no botão **Avançar**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5d.png)
     
-21. Na página **Criação e atualização de usuário**, clique em **Salvar e avançar** para salvar as configurações.   
+1. Na página **Criação e atualização de usuário**, clique em **Salvar e avançar** para salvar as configurações.    
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6a.png)
     
-22. Na página **Testar suas configurações**, clique em **Ignorar teste e configurar manualmente** para ignorar momentaneamente o teste do usuário. Isso será executado na próxima seção e requer algumas configurações no portal do Azure. 
+1. Na página **Testar suas configurações**, clique em **Ignorar teste e configurar manualmente** para ignorar momentaneamente o teste do usuário. Isso será executado na próxima seção e requer algumas configurações no portal do Azure. 
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6b.png)
     
-23. No diálogo que mostra **Ignorar o teste significa...**, clique em **OK**.
+1. No diálogo que mostra **Ignorar o teste significa...**, clique em **OK**.
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -233,15 +233,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/samlssoconfluence-tutorial/create_aaduser_04.png) 
 
@@ -262,11 +262,11 @@ No SSO do SAML para Confluence da Resolution GmbH, o provisionamento é uma tare
 
 1. Faça logon no site da empresa do SAML SSO para Confluence da Resolution GmbH como administrador.
 
-2. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
+1. Passe o cursor do mouse sobre a engrenagem e clique em **Gerenciamento de usuário**.
 
     ![Adicionar Funcionário](./media/samlssoconfluence-tutorial/user1.png) 
 
-3. Na seção usuários, clique na guia **Adicionar usuários**. Na página do diálogo **“Adicionar um usuário”**, realize as seguintes etapas:
+1. Na seção usuários, clique na guia **Adicionar usuários**. Na página do diálogo **“Adicionar um usuário”**, realize as seguintes etapas:
 
     ![Adicionar Funcionário](./media/samlssoconfluence-tutorial/user2.png) 
 
@@ -294,23 +294,23 @@ Nesta seção, habilite Brenda Fernandes a usar o logon único do Azure conceden
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SSO do SAML para Confluence da Resolution GmbH**.
+1. Na lista de aplicativos, selecione **SSO do SAML para Confluence da Resolution GmbH**.
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/tutorial_samlssoconfluence_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

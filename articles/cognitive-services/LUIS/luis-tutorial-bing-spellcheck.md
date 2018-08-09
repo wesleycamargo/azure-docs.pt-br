@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239144"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525215"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Corrigir palavras grafas incorretamente com a Verificação Ortográfica do Bing
 
@@ -64,7 +64,7 @@ A consulta do ponto de extremidade precisa que a chave seja passada nos parâmet
 
 A URL do ponto de extremidade tem vários valores que precisam ser passados corretamente. A API de Verificação Ortográfica do Bing v7 é apenas mais um. Você deve definir o parâmetro **spellCheck** como true e o valor de **bing-spell-check-subscription-key** para o valor da chave:
 
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Enviar declaração incorreta para o LUIS
 1. Em um navegador da Web, copie a cadeia de caracteres anterior e substitua `region`, `appId`, `luisKey` e `bingKey` por seus próprios valores. Use a região do ponto de extremidade, se for diferente da sua [região](luis-reference-regions.md) de publicação.

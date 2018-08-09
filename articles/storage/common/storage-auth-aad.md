@@ -3,17 +3,17 @@ title: Autentique o acesso ao Armazenamento do Azure usando o Active Directory d
 description: Autentique o acesso ao Armazenamento do Azure usando o Active Directory do Azure (Visualização).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
-ms.openlocfilehash: 9a0782b96b45d27c9b7e603959ecadf5b2632064
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: common
+ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737639"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525198"
 ---
 # <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Autentique o acesso ao Armazenamento do Azure usando o Active Directory do Azure (Visualização)
 
@@ -41,7 +41,7 @@ Tenha em mente os seguintes pontos sobre a pré-visualização:
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
-> Esta pré-visualização é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Azure AD para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Azure AD ainda não for suportada em seu cenário, continue usando os tokens de autorização ou chave compartilhada em seus aplicativos.
+> Esta pré-visualização é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Azure AD ainda não for suportada em seu cenário, continue usando os tokens de autorização ou chave compartilhada em seus aplicativos.
 >
 > Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
 >
@@ -57,4 +57,4 @@ CLI e do PowerShell do Azure agora oferecem suporte registro em log com uma iden
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter informações adicionais sobre a integração do Azure AD para Blobs e Filas do Azure, consulte a postagem de blog da equipe do Armazenamento do Azure, [ Anunciando a Visualização da Autenticação do Azure AD para o Armazenamento do Azure ](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+Para obter informações adicionais sobre a integração do Microsoft Azure Active Directory para Blobs e Filas do Azure, consulte a postagem de blog da equipe do Armazenamento do Microsoft Azure, [ Anunciando a Visualização da Autenticação do Azure AD para o Armazenamento do Azure ](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

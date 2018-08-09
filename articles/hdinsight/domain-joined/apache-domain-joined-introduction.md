@@ -2,22 +2,19 @@
 title: Uma introdução à segurança do Hadoop com clusters Azure HDInsight ingressados no domínio
 description: Saiba como os clusters Azure HDInsight ingressados no domínio dão suporte aos quatro pilares da segurança empresarial.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e697b0ffe7cde65cd47a2f1b1db5b544b6dc1d3c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112529"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595623"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>Uma introdução à segurança do Hadoop com clusters HDInsight ingressados no domínio
 

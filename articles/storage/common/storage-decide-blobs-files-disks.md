@@ -3,16 +3,17 @@ title: Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azur
 description: Saiba mais sobre as diferentes maneiras de armazenar e acessar dados no Azure para ajudá-lo a decidir qual tecnologia será usada.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528847"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Decidindo quando usar Blobs do Azure, Arquivos do Azure ou Discos do Azure
 
@@ -42,7 +43,7 @@ A tabela a seguir compara os Arquivos do Azure com os Blobs do Azure.
 |Diretórios|Namespace simples|Objetos do diretório verdadeiros|  
 |Diferenciação entre maiúsculas e minúsculas de nomes|Diferencia maiúsculas de minúsculas|Sem diferenciação entre maiúsculas e minúsculas, mas com preservação de maiúsculas e minúsculas|  
 |Capacity|Contêineres de até 500 TiB|Compartilhamentos de arquivos de 5 TiB|  
-|Throughput|Até 60 MiB/s por blob de blocos|Até 60 MiB/s por compartilhamento|  
+|Produtividade|Até 60 MiB/s por blob de blocos|Até 60 MiB/s por compartilhamento|  
 |Tamanho do objeto|Até aproximadamente 4,75 TiB por blob de blocos|Até 1 TiB por arquivo|  
 |Capacidade cobrada|Com base nos bytes gravados|Com base no tamanho do arquivo|  
 |Bibliotecas de cliente|Vários idiomas|Vários idiomas|  
@@ -57,14 +58,14 @@ A tabela a seguir compara os Arquivos do Azure com os Discos do Azure.
 |-|-|-|  
 |**Atributo**|**Discos do Azure**|**Arquivos do Azure**|  
 |Escopo|Exclusivo a uma única máquina virtual|Acesso compartilhado entre várias máquinas virtuais|  
-|Instantâneos e cópia|sim|Não |  
+|Instantâneos e cópia|SIM|SIM|  
 |Configuração|Conectado na inicialização da máquina virtual|Conectado após a inicialização da máquina virtual|  
 |Autenticação|Interno|Configurar com net use|  
 |Limpeza|Automático|Manual|  
 |Acesso com a REST|Não é possível acessar os arquivos no VHD|É possível acessar os arquivos armazenados em um compartilhamento|  
 |Tamanho máx.|Disco de 4 TiB|Compartilhamento de Arquivos de 5 TiB e arquivo de 1 TiB no compartilhamento|  
 |IOPS máximo de 8 KB|500 IOPS|1.000 IOPS|  
-|Throughput|Até 60 MiB/s por disco|Até 60 MiB/s por Compartilhamento de Arquivos|  
+|Produtividade|Até 60 MiB/s por disco|Até 60 MiB/s por Compartilhamento de Arquivos|  
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,24 +1,20 @@
 ---
 title: Exemplos do Armazenamento do Azure | Microsoft Docs
-description: "Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do Java."
+description: Exiba, baixe e execute exemplos de código e aplicativos para o Armazenamento do Azure. Descubra exemplos de introdução a blobs, filas, tabelas e arquivos usando as bibliotecas do cliente de armazenamento do Java.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528898"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 
@@ -205,14 +201,14 @@ Para visualizar a biblioteca completa de exemplos, vá para a biblioteca [Exempl
 
 Confira os guias a seguir se você estiver procurando por instruções sobre como instalar e começar a usar as Bibliotecas de cliente de armazenamento do Azure.
 
-* [Introdução ao Serviço Blob do Azure em Java](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Introdução ao Serviço Fila do Azure em Java](../storage-java-how-to-use-queue-storage.md)
+* [Introdução ao Serviço Blob do Azure em Java](../blobs/storage-quickstart-blobs-java.md)
+* [Introdução ao Serviço Fila do Azure em Java](../queues/storage-java-how-to-use-queue-storage.md)
 * [Introdução ao Serviço Tabela do Azure em Java](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Introdução ao Serviço Arquivo do Azure em Java](../storage-java-how-to-use-file-storage.md)
+* [Introdução ao Serviço Arquivo do Azure em Java](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre exemplos para outras linguagens:
 
-* .NET: [Exemplos de armazenamento do Azure usando .NET](../storage-samples-dotnet.md)
-* Todas as outras linguagens: [Exemplos de Armazenamento do Azure](../storage-samples.md)
+* .NET: [Exemplos de armazenamento do Azure usando .NET](storage-samples-dotnet.md)
+* Todas as outras linguagens: [Exemplos de Armazenamento do Azure](storage-samples.md)

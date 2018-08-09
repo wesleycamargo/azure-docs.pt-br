@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: markgal
-ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431140"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
@@ -37,36 +37,36 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
 * Selecionar o tipo de restauração, criar uma nova VM ou restaurar discos e especificar os parâmetros necessários. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selecionar um ponto de restauração para restauração
-1. Entre no [portal do Azure](http://portal.azure.com/).
+1. Entre no [Portal do Azure](http://portal.azure.com/).
 
-2. No menu do Azure, selecione **Procurar**. Na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
+1. No menu do Azure, selecione **Procurar**. Na lista de serviços, digite **Serviços de Recuperação**. A lista de serviços é ajustada de acordo com o que você digitar. Quando você vir a opção **cofres de Serviços de Recuperação**, selecione-a.
 
     ![Cofre dos Serviços de Recuperação](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     A lista de cofres na assinatura é exibida.
 
     ![Listar cofres de Serviços de Recuperação](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. Na lista, selecione o cofre associado à VM que deseja restaurar. Ao selecionar o cofre, o painel é aberto.
+1. Na lista, selecione o cofre associado à VM que deseja restaurar. Ao selecionar o cofre, o painel é aberto.
 
     ![Cofre dos Serviços de Recuperação selecionado](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. No painel do cofre, no bloco **Itens de Backup**, selecione **Máquinas Virtuais do Azure**.
+1. No painel do cofre, no bloco **Itens de Backup**, selecione **Máquinas Virtuais do Azure**.
 
     ![Painel do cofre](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
     A folha **Itens de Backup** é aberta e exibe a lista de VMs do Azure.
 
     ![Lista de VMs no cofre](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. Na lista, selecione uma VM para abrir o painel. O painel da VM é aberto na área de monitoramento, que contém o bloco **Pontos de restauração**.
+1. Na lista, selecione uma VM para abrir o painel. O painel da VM é aberto na área de monitoramento, que contém o bloco **Pontos de restauração**.
 
     ![Pontos de restauração](./media/backup-azure-arm-restore-vms/vm-blade.png)
-6. No menu do painel da VM, selecione **Restaurar**.
+1. No menu do painel da VM, selecione **Restaurar**.
 
     ![Botão Restaurar](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
     A folha **Restaurar** é aberta.
 
     ![Folha Restaurar](./media/backup-azure-arm-restore-vms/restore-blade.png)
-7. Na folha **Restaurar**, selecione **Ponto de restauração**. A folha **Selecionar ponto de restauração** é aberta.
+1. Na folha **Restaurar**, selecione **Ponto de restauração**. A folha **Selecionar ponto de restauração** é aberta.
 
     ![Folha Selecionar ponto de restauração](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -79,13 +79,13 @@ A restauração de uma VM ou de todos os discos do backup de VM envolve duas eta
      * Pontos de restauração consistentes de sistema de arquivos
      * Todos os pontos de restauração
 
-8. Escolha um ponto de restauração e clique em **OK**.
+1. Escolha um ponto de restauração e clique em **OK**.
 
     ![Opções de ponto de restauração](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
     A folha **Restaurar** mostra que o ponto de restauração foi definido.
 
-9. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
+1. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Escolha uma configuração de restauração de VM
 Após selecionar o ponto de restauração, escolha uma configuração de restauração de VM. Para configurar a VM restaurada, você pode usar o portal do Azure ou o PowerShell.
@@ -93,7 +93,7 @@ Após selecionar o ponto de restauração, escolha uma configuração de restaur
 1. Se ainda não estiver nela, vá até a folha **Restaurar**. Verifique se um [ponto de restauração está selecionado](#select-a-restore-point-for-restore) e selecione **Configuração de restauração**. A folha **Configuração de restauração** é aberta.
 
     ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. Na folha **Restaurar configuração**, você tem duas opções:
+1. Na folha **Restaurar configuração**, você tem duas opções:
 
    * **Criar máquina virtual**
 
@@ -127,7 +127,7 @@ O portal fornece uma opção de **Criação Rápida** para a VM restaurada. Para
     >
     >
 
-2. Na folha **Configuração de restauração**, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, selecione **Restaurar** para disparar a operação de restauração.
+1. Na folha **Configuração de restauração**, clique em **OK** para finalizar a configuração da restauração. Na folha **Restaurar**, selecione **Restaurar** para disparar a operação de restauração.
 
 ## <a name="restore-backed-up-disks"></a>Restaurar discos com backup
 Para personalizar a VM que você gostaria de criar de discos com backup diferentes dos que estão presentes na folha **Configuração de restauração**, selecione **Restaurar discos** como o valor para **Tipo de Restauração**. Essa opção solicita uma conta de armazenamento na qual discos de backups devem ser copiados. Ao escolher uma conta de armazenamento, selecione uma conta que compartilhe o mesmo local que o cofre dos Serviços de Recuperação. Não há suporte para contas de armazenamento com redundância de zona. Se não houver nenhuma conta de armazenamento no mesmo local que o cofre dos Serviços de Recuperação, você deverá criar uma antes de iniciar a operação de restauração. O tipo de replicação da conta de armazenamento é exibido entre parênteses.
@@ -156,9 +156,9 @@ Para exibir a operação durante seu processamento ou para exibi-la quando for c
     A lista de cofres na assinatura é exibida.
 
     ![Listar cofres de Serviços de Recuperação](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. Na lista, selecione o cofre associado à VM que restaurada. Ao selecionar o cofre, o painel é aberto.
+1. Na lista, selecione o cofre associado à VM que restaurada. Ao selecionar o cofre, o painel é aberto.
 
-3. No painel do cofre, no bloco **Trabalhos de Backup**, selecione **Máquinas virtuais do Azure** para exibir os trabalhos associados ao cofre.
+1. No painel do cofre, no bloco **Trabalhos de Backup**, selecione **Máquinas virtuais do Azure** para exibir os trabalhos associados ao cofre.
 
     ![Painel do cofre](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
@@ -178,15 +178,15 @@ Para obter o modelo que foi gerado como parte da opção de discos de restauraç
 
 1. Acesse os detalhes do trabalho de restauração correspondente ao trabalho.
 
-2. Na tela **Detalhes do Trabalho de Restauração**, selecione **Implantar Modelo** para iniciar a implantação de modelo. 
+1. Na tela **Detalhes do Trabalho de Restauração**, selecione **Implantar Modelo** para iniciar a implantação de modelo. 
 
      ![Detalhamento do trabalho de restauração](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
-3. Na folha **Implantar modelo** para a implantação personalizada, use a implantação de modelo para [editar e implantar o modelo](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou acrescentar mais personalizações [criando um modelo](../azure-resource-manager/resource-group-authoring-templates.md) antes de implantar. 
+1. Na folha **Implantar modelo** para a implantação personalizada, use a implantação de modelo para [editar e implantar o modelo](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template) ou acrescentar mais personalizações [criando um modelo](../azure-resource-manager/resource-group-authoring-templates.md) antes de implantar. 
 
    ![Carregar a implantação de modelo](./media/backup-azure-arm-restore-vms/loading-template.png)
    
-4. Depois de inserir os valores necessários, aceite os **Termos e Condições** e selecione **Comprar**.
+1. Depois de inserir os valores necessários, aceite os **Termos e Condições** e selecione **Comprar**.
 
    ![Enviar a implantação de modelo](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
@@ -233,7 +233,7 @@ Para recriar completamente as VMs após restaurar para o disco, siga estas etapa
 
 1. Restaure os discos de um cofre dos Serviços de Recuperação usando o [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm).
 
-2. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs/ múltiplos IPs reservados usando os cmdlets do PowerShell. Use-a para criar a VM com a configuração desejada:
+1. Crie a configuração da VM necessária para o balanceador de carga/múltiplos NICs/ múltiplos IPs reservados usando os cmdlets do PowerShell. Use-a para criar a VM com a configuração desejada:
 
    a. Criar uma VM no serviço de nuvem com um [balanceador de carga interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/).
 
