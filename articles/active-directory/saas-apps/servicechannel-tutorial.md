@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: a62a6b334fd58ce360d932cdc4a8f04f36e3232d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 1449dc365d318baff3084385b78b60533ac2c71a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302022"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: integração do Azure Active Directory com o ServiceChannel
 
@@ -33,7 +33,7 @@ A integração do ServiceChannel ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao ServiceChannel, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o ServiceChannel da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-servicechannel-from-the-gallery"></a>Adicionar o ServiceChannel da galeria
 Para configurar a integração do ServiceChannel ao Azure AD, você precisará adicionar o ServiceChannel à sua lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do ServiceChannel ao Azure AD, você precisará a
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **ServiceChannel**.
+1. Na caixa de pesquisa, digite **ServiceChannel**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/tutorial-servicechannel_000.png)
 
-5. No painel de resultados, selecione **ServiceChannel** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **ServiceChannel** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/tutorial-servicechannel_2.png)
 
@@ -89,10 +89,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o ServiceChannel, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do ServiceChannel](#creating-a-servicechannel-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do ServiceChannel](#creating-a-servicechannel-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial-servicechannel_01.png)
 
-3. Na seção **URLs e Domínio do ServiceChannel**, execute as seguintes etapas:
+1. Na seção **URLs e Domínio do ServiceChannel**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial-servicechannel_urls.png)
 
@@ -119,7 +119,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     > [!NOTE] 
     > Observe que esses não são os valores reais. Você precisa atualizar esses valores com o Identificador e a URL de Resposta reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Entre em contato com a [equipe de suporte do ServiceChannel](https://servicechannel.zendesk.com/hc/en-us) para obter esses valores.
 
-4. Seu aplicativo ServiceChannel espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. **NameIdentifier (identificador de usuário)** é única declaração obrigatória e o valor padrão é **user.userprincipalname**, mas o ServiceChannel espera que isso seja mapeada com **user.mail**. Se você planeja habilitar o provisionamento do usuário Just-In-Time, você deve adicionar as declarações a seguir conforme mostrado abaixo. A declaração **Função** precisa ser mapeada para **user.assignedroles**, que contém a função do usuário.  
+1. Seu aplicativo ServiceChannel espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. **NameIdentifier (identificador de usuário)** é única declaração obrigatória e o valor padrão é **user.userprincipalname**, mas o ServiceChannel espera que isso seja mapeada com **user.mail**. Se você planeja habilitar o provisionamento do usuário Just-In-Time, você deve adicionar as declarações a seguir conforme mostrado abaixo. A declaração **Função** precisa ser mapeada para **user.assignedroles**, que contém a função do usuário.  
 
     Você pode consultar o guia do ServiceChannel [aqui](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) para obter diretrizes sobre declarações.
     
@@ -128,7 +128,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     > [!NOTE] 
     > Confira [Gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md) para saber como configurar a **Função** no Azure AD.
 
-5. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos.
+1. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos.
 
     | Nome do atributo | Valor do atributo |
     | --- | --- |    
@@ -146,17 +146,17 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
     
     d. Clique em **Ok**
     
-6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial-servicechannel_05.png) 
 
-7. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do ServiceChannel**, clique em **Configurar o ServiceChannel** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da seção **Referência Rápida**.
+1. Na seção **Configuração do ServiceChannel**, clique em **Configurar o ServiceChannel** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da seção **Referência Rápida**.
 
-9. Para configurar o logon único no lado de **ServiceChannel**, você precisa enviar o **certificado (Base64)** baixado e a **ID da entidade SAML** para [equipe de suporte do ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado de **ServiceChannel**, você precisa enviar o **certificado (Base64)** baixado e a **ID da entidade SAML** para [equipe de suporte do ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). Isso será configurado para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
 O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
@@ -169,15 +169,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/servicechannel-tutorial/create_aaduser_04.png) 
 
@@ -205,23 +205,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **ServiceChannel**.
+1. Na lista de aplicativos, selecione **ServiceChannel**.
 
     ![Configurar o logon único](./media/servicechannel-tutorial/tutorial-servicechannel_app01.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

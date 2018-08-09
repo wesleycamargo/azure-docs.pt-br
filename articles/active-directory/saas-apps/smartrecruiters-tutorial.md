@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e7368a54945d3107f9eb8973c6aaa261da4c2154
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b248cd7d5d45e4f91bc97a5a29476f9bfa03089d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045284"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integração do Azure Active Directory com o SmartRecruiters
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando SmartRecruiters da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-smartrecruiters-from-the-gallery"></a>Adicionando SmartRecruiters da galeria
 Para configurar a integração do SmartRecruiters ao Azure AD, você precisará adicionar o SmartRecruiters da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do SmartRecruiters ao Azure AD, você precisará 
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **SmartRecruiters**, selecione **SmartRecruiters** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **SmartRecruiters**, selecione **SmartRecruiters** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![SmartRecruiters na lista de resultados](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No SmartRecruiters, atribua o valor do **nome de usuário** no Azure AD como o v
 Para configurar e testar o logon único do Azure AD com o SmartRecruiters, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do SmartRecruiters](#create-a-smartrecruiters-test-user)** – para ter um equivalente de Brenda Fernandes no SmartRecruiters vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do SmartRecruiters](#create-a-smartrecruiters-test-user)** – para ter um equivalente de Brenda Fernandes no SmartRecruiters vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_samlbase.png)
 
-3. Na seção **Domínio e URLs do SmartRecruiters**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio e URLs do SmartRecruiters**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Informações de logon único de URLs e Domínio do SmartRecruiters](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_url.png)
 
@@ -114,7 +114,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de URLs e Domínio do SmartRecruiters](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_url1.png)
 
@@ -123,33 +123,33 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Contate a [equipe de suporte do cliente SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o certificado no computador.
+1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o certificado no computador.
 
     ![O link de download do Certificado](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/smartrecruiters-tutorial/tutorial_general_400.png)
     
-7. Na seção **Configuração do SmartRecruiters**, clique em **Configurar o SmartRecruiters** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do SmartRecruiters**, clique em **Configurar o SmartRecruiters** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_configure.png) 
 
-8. Em outra janela do navegador da Web, faça logon em seu site de empresa do SmartRecruiters como um administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do SmartRecruiters como um administrador.
 
-9. Vá para **Configurações/Admin**.
+1. Vá para **Configurações/Admin**.
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/configure.png)
 
-10. Na seção **Configuração**, clique em **SSO Web**.
+1. Na seção **Configuração**, clique em **SSO Web**.
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/configure1.png)
 
-11. Mude **Habilitar SSO da Web**.
+1. Mude **Habilitar SSO da Web**.
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/configure2.png)
 
-12. Em **Configuração do Provedor de Identidade**, execute as seguintes etapas:
+1. Em **Configuração do Provedor de Identidade**, execute as seguintes etapas:
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
 
@@ -157,7 +157,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Abra **certificate(Base64)** que você baixou do portal do Azure e cole o valor na caixa de texto **certificado do Provedor de Identidade**.
 
-13. Clique em **Salvar configuração de SSO Web**.
+1. Clique em **Salvar configuração de SSO Web**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -174,15 +174,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/smartrecruiters-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/smartrecruiters-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/smartrecruiters-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/smartrecruiters-tutorial/create_aaduser_04.png)
 
@@ -210,23 +210,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SmartRecruiters**.
+1. Na lista de aplicativos, selecione **SmartRecruiters**.
 
     ![O link do SmartRecruiters na lista de Aplicativos](./media/smartrecruiters-tutorial/tutorial_smartrecruiters_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

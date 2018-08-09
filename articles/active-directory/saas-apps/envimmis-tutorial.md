@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 70066f1c29849b77c67710eb908ef2a340cdc45f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 96168dcb8400d2580d0b64257ceb861c1da3ff65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047653"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447278"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: integração do Microsoft Azure Active Directory ao Envi MMIS
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adição do Envi MMIS da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-envi-mmis-from-the-gallery"></a>Adição do Envi MMIS da galeria
 Para configurar a integração do Envi MMIS ao Microsft Azure Active Directory, você precisará adicionar o Envi MMIS da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Envi MMIS ao Microsft Azure Active Directory, 
 
     ![O botão Azure Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite  **Envi MMIS**, selecione  **Envi MMIS** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite  **Envi MMIS**, selecione  **Envi MMIS** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Envi MMIS na lista de resultados](./media/envimmis-tutorial/tutorial_envimmis_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Para que o logon único funcione, o Microsoft Azure Active Directory precisa sab
 Para configurar e testar o logon único do Microsoft Azure Active Directory com o Envi MMIS, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Envi MMIS](#create-an-envi-mmis-test-user)** – para ter um equivalente de Brenda Fernandes no Envi MMIS que esteja vinculado à representação de usuário do Microsoft Azure Active Directory.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Envi MMIS](#create-an-envi-mmis-test-user)** – para ter um equivalente de Brenda Fernandes no Envi MMIS que esteja vinculado à representação de usuário do Microsoft Azure Active Directory.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -100,11 +100,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Caixa de diálogo Logon único](./media/envimmis-tutorial/tutorial_envimmis_samlbase.png)
 
-3. Na seção **Domínio Envi MMIS e URLs do Evernote**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+1. Na seção **Domínio Envi MMIS e URLs do Evernote**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Informações de logon único de Domínio e URLs do Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url.png)
 
@@ -112,7 +112,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+1. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
 
     ![Informações de logon único de Domínio e URLs do Envi MMIS](./media/envimmis-tutorial/tutorial_envimmis_url1.png)
 
@@ -121,33 +121,33 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador real, a URL de Resposta e a URL de Entrada. Entre em contato com [equipe de suporte ao Cliente do Envi MMIS](mailto:support@ioscorp.com) para obter esses valores.
 
-5. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
     ![O link de download do Certificado](./media/envimmis-tutorial/tutorial_envimmis_certificate.png) 
 
-6. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/tutorial_general_400.png)
 
-7. Em outra janela do navegador da Web, faça logon em seu site de empresa do Envi MMIS como administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do Envi MMIS como administrador.
 
-8. Clique na guia **Meu Domínio**.
+1. Clique na guia **Meu Domínio**.
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure1.png)
 
-9. Clique em **Editar**.
+1. Clique em **Editar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure2.png)
 
-10. Selecione a caixa de seleção **Usar autenticação remota** e, em seguida, selecione **Redirecionamento HTTP** da lista suspensa **Tipo de Autenticação**.
+1. Selecione a caixa de seleção **Usar autenticação remota** e, em seguida, selecione **Redirecionamento HTTP** da lista suspensa **Tipo de Autenticação**.
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure3.png)
 
-11. Selecione a guia **Recursos** e, em seguida, clique em **Carregar Metadados**.
+1. Selecione a guia **Recursos** e, em seguida, clique em **Carregar Metadados**.
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure4.png)
 
-12. Na janela pop-up **Carregar Metadados**, realize as seguintes etapas:
+1. Na janela pop-up **Carregar Metadados**, realize as seguintes etapas:
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure5.png)
 
@@ -157,7 +157,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure Active Direct
 
     c. Clique em **OK**.
 
-13. Depois de carregar o arquivo de metadados baixado, os campos serão preenchidos automaticamente. Clique em **Atualizar**
+1. Depois de carregar o arquivo de metadados baixado, os campos serão preenchidos automaticamente. Clique em **Atualizar**
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure6.png)
 
@@ -173,15 +173,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/envimmis-tutorial/create_aaduser_01.png)
 
-2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/envimmis-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media/envimmis-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/envimmis-tutorial/create_aaduser_04.png)
 
@@ -202,15 +202,15 @@ No caso do Envi MMIS, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa do Envi MMIS como administrador.
 
-2. Clique na guia **Lista de Usuário**.
+1. Clique na guia **Lista de Usuário**.
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user1.png)
 
-3. Clique no botão **Adicionar Usuário**.
+1. Clique no botão **Adicionar Usuário**.
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user2.png)
 
-4. Na seção **Adicionar Usuário** , realize as seguintes etapas:
+1. Na seção **Adicionar Usuário** , realize as seguintes etapas:
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user3.png)
 
@@ -240,23 +240,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Envi MMIS**.
+1. Na lista de aplicativos, escolha **Envi MMIS**.
 
     ![O link do Envi MMIS na lista de Aplicativos](./media/envimmis-tutorial/tutorial_envimmis_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

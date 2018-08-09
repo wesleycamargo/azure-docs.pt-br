@@ -2,18 +2,18 @@
 title: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 description: Saiba mais sobre a biblioteca de cliente JavaScript do Azure Time Series Insights e seu respectivo modelo de programação.
 author: ashannon7
-manager: timlt
+manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
-ms.author: bryanla
-ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: anshan
+ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969921"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626987"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a:
 > * A biblioteca de cliente JavaScript do TSI.
 > * Como o aplicativo de exemplo usa a biblioteca para visualizar dados do TSI.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este tutorial usa o recurso de “Ferramentas para Desenvolvedores” (também conhecida como DevTools ou F12) encontrado na maioria dos navegadores da Web, como [Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/) e outros. Se você não ainda estiver familiarizado com este recurso, talvez queira explorá-lo em seu navegador antes de continuar.
 

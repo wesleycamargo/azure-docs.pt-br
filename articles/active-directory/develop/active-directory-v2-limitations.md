@@ -17,21 +17,21 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003951"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590742"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Devo usar o ponto de extremidade da v2.0?
 
-Ao criar aplicativos que se integram ao Azure AD (Azure Active Directory), você precisará decidir se os protocolos de autenticação e o ponto de extremidade v2.0 atendem às suas necessidades. O ponto de extremidade original do Azure AD ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que o v2.0. No entanto, o ponto de extremidade v2.0 [apresenta vantagens consideráveis](active-directory-v2-compare.md) para desenvolvedores.
+Ao criar aplicativos que se integram ao Azure AD (Azure Active Directory), você precisará decidir se os protocolos de autenticação e o ponto de extremidade v2.0 atendem às suas necessidades. O ponto de extremidade original do Azure AD ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que o v2.0. No entanto, o ponto de extremidade v2.0 [apresenta vantagens consideráveis](azure-ad-endpoint-comparison.md) para desenvolvedores.
 
 No momento, esta é uma recomendação simplificada para desenvolvedores:
 
 * Se você precisa dar suporte a contas pessoais da Microsoft em seu aplicativo, use o ponto de extremidade v2.0. Mas antes fazer isso, tenha certeza de que entende as limitações discutidas neste artigo.
-* Caso seu aplicativo precise apenas de suporte a contas corporativas ou de estudante da Microsoft, não use o ponto de extremidade v2.0. Em vez disso, consulte o [Guia do Desenvolvedor do Azure AD](active-directory-developers-guide.md).
+* Caso seu aplicativo precise apenas de suporte a contas corporativas ou de estudante da Microsoft, não use o ponto de extremidade v2.0. Em vez disso, consulte o [Guia do Desenvolvedor do Azure AD](azure-ad-developers-guide.md).
 
 O ponto de extremidade v2.0 evoluirá e eliminará as restrições listadas aqui, para que você precise usar apenas o ponto de extremidade v2.0. Enquanto isso, use este artigo para determinar se o ponto de extremidade v2.0 é adequado para você. Continuaremos a atualizar este artigo para refletir o estado atual do ponto de extremidade v2.0. Verifique novamente para reavaliar seus requisitos em relação aos recursos da v2.0.
 
@@ -39,11 +39,11 @@ Se você tiver um aplicativo do Azure AD existente que não use o ponto de extre
 
 ## <a name="restrictions-on-app-types"></a>Restrições de tipos de aplicativo
 
-No momento, os seguintes tipos de aplicativos atualmente não têm suporte do ponto de extremidade v2.0. Para obter uma descrição dos tipos de aplicativos com suporte, veja [Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory](active-directory-v2-flows.md).
+No momento, os seguintes tipos de aplicativos atualmente não têm suporte do ponto de extremidade v2.0. Para obter uma descrição dos tipos de aplicativos com suporte, veja [Tipos de aplicativo para o ponto de extremidade v2.0 do Azure Active Directory](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>APIs da Web autônomas
 
-Você pode usar o ponto de extremidade v2.0 para [criar uma API Web segura com OAuth 2.0](active-directory-v2-flows.md#web-apis). No entanto, essa API Web só pode receber tokens de um aplicativo que tenha a mesma ID do aplicativo. Você não pode acessar uma API Web de um cliente com uma ID de aplicativo diferente. O cliente não poderá solicitar nem obter permissões para sua API Web.
+Você pode usar o ponto de extremidade v2.0 para [criar uma API Web segura com OAuth 2.0](v2-app-types.md#web-apis). No entanto, essa API Web só pode receber tokens de um aplicativo que tenha a mesma ID do aplicativo. Você não pode acessar uma API Web de um cliente com uma ID de aplicativo diferente. O cliente não poderá solicitar nem obter permissões para sua API Web.
 
 Para ver como criar uma API Web que aceita tokens de um cliente com a mesma ID de Aplicativo, confira os exemplos de API Web do ponto de extremidade da v 2.0 na seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
 
@@ -91,16 +91,16 @@ Os dois últimos podem ser adicionados porque eles são subdomínios do primeiro
 
 Observe também que você pode ter apenas 20 URLs de resposta para um aplicativo específico.
 
-Para saber como registrar um aplicativo no Portal de Registro de Aplicativo, veja [Como registrar um aplicativo no ponto de extremidade v2.0](active-directory-v2-app-registration.md).
+Para saber como registrar um aplicativo no Portal de Registro de Aplicativo, veja [Como registrar um aplicativo no ponto de extremidade v2.0](quickstart-v2-register-an-app.md).
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Restrição de bibliotecas e SDKs
 
 Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado. Se deseja usar o ponto de extremidade v2.0 em um aplicativo de produção, você tem estas opções:
 
 * Se estiver criando um aplicativo Web, você poderá usar com segurança nosso middleware do servidor disponível da Microsoft para realizar a entrada e a validação de token. Isso inclui o middleware OWIN Open ID Connect para ASP.NET e o plug-in Passport do Node.js. Para obter exemplos de código que usam o middleware da Microsoft, veja a seção [Introdução](active-directory-appmodel-v2-overview.md#getting-started).
-* Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma das MSAL (Bibliotecas de Autenticação da Microsoft) de versão prévia. Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](active-directory-v2-libraries.md).
+* Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma das MSAL (Bibliotecas de Autenticação da Microsoft) de versão prévia. Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](reference-v2-libraries.md).
 * Para outras plataformas não abrangidas pelas bibliotecas da Microsoft, é possível fazer a integração com o ponto de extremidade v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect v2.0 [foram explicitamente documentados](active-directory-v2-protocols.md) para ajudar você a executar essa integração.
-* Por fim, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade v2.0. O protocolo v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista das implementações populares. Para saber mais, confira [Bibliotecas de autenticação e v2.0 do Azure Active Directory](active-directory-v2-libraries.md) e para obter a lista de bibliotecas de cliente de software livre e exemplos testados com o ponto de extremidade v2.0.
+* Por fim, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade v2.0. O protocolo v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista das implementações populares. Para saber mais, confira [Bibliotecas de autenticação e v2.0 do Azure Active Directory](reference-v2-libraries.md) e para obter a lista de bibliotecas de cliente de software livre e exemplos testados com o ponto de extremidade v2.0.
 
 ## <a name="restrictions-on-protocols"></a>Restrições quanto a protocolos
 

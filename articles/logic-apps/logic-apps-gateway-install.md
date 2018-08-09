@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145199"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503641"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para Aplicativo Lógico do Azure
 
@@ -84,7 +84,7 @@ Para obter informações sobre como usar o gateway com outros serviços, consult
   > [!TIP]
   > Caso você tenha se inscrito em uma oferta do Office 365 e não tenha fornecido seu email de trabalho real, o endereço de entrada pode ser semelhante a este exemplo: `username@domain.onmicrosoft.com` 
   >
-  > Se quiser usar uma conta da Microsoft que tenha uma [assinatura do Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), primeiro [crie um diretório (locatário) no Azure Active Directory](../active-directory/develop/active-directory-howto-tenant.md), ou use o diretório padrão, com a sua conta da Microsoft. 
+  > Se quiser usar uma conta da Microsoft que tenha uma [assinatura do Visual Studio Standard](https://visualstudio.microsoft.com/vs/pricing/), primeiro [crie um diretório (locatário) no Azure Active Directory](../active-directory/develop/quickstart-create-new-tenant.md), ou use o diretório padrão, com a sua conta da Microsoft. 
   > Adicione um usuário com uma senha ao diretório, em seguida, forneça o acesso a esse usuário à sua assinatura. 
   > Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
@@ -415,7 +415,7 @@ Para ajudá-lo a solucionar problemas, sempre comece coletando e examinando os l
 
 Aqui estão outros locais onde é possível encontrar vários logs:
 
-| Tipo de log | Localização | 
+| Tipo de log | Local padrão | 
 |----------|----------| 
 | **Logs do instalador** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **Logs de configuração** | C:\Users\<*username*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*yyyymmdd*>.<*number*>.log | 

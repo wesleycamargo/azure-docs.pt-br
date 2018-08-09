@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 1df301e197c90970aa1e73620f94f977ecd34ba0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046899"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Sales Navigator
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar LinkedIn Sales Navigator da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>Adicionar LinkedIn Sales Navigator da galeria
 Para configurar a integração do LinkedIn Sales Navigator com o Azure AD, é necessário adicionar o LinkedIn Sales Navigator da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do LinkedIn Sales Navigator com o Azure AD, é ne
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **LinkedIn Sales Navigator**.
+1. Na caixa de pesquisa, digite **LinkedIn Sales Navigator**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
 
-5. No painel de resultados, selecione **LinkedIn Sales Navigator** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **LinkedIn Sales Navigator** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o LinkedIn Sales Navigator, é necessário concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)** – para ter um equivalente de Brenda Fernandes no LinkedIn Sales Navigator que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criar um usuário de teste do LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)** – para ter um equivalente de Brenda Fernandes no LinkedIn Sales Navigator que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,21 +104,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, em **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, em **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
-3. Em uma janela diferente do navegador da Web, faça logon em seu site do **LinkedIn Sales Navigator** como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon em seu site do **LinkedIn Sales Navigator** como administrador.
 
-4. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Sales Navigator** na lista suspensa.
+1. Em **Centro de Contas**, clique em **Configurações Globais** em **Configurações**. Além disso, selecione **Sales Navigator** na lista suspensa.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Clique em **OU clique aqui para carregar e copiar campos individuais do formulário** e copie a **ID da Entidade** e a **URL ACS (acesso do consumidor de declaração)**.
+1. Clique em **OU clique aqui para carregar e copiar campos individuais do formulário** e copie a **ID da Entidade** e a **URL ACS (acesso do consumidor de declaração)**.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. No portal do Azure, em **Domínio e URLs do LinkedIn Sales Navigator**, siga as etapas abaixo se você desejar configurar o aplicativo em modo iniciado por **IDP**.
+1. No portal do Azure, em **Domínio e URLs do LinkedIn Sales Navigator**, siga as etapas abaixo se você desejar configurar o aplicativo em modo iniciado por **IDP**.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
@@ -126,17 +126,17 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     b. Na caixa de texto **URL de Resposta**, insira a **URL ACS (acesso do consumidor de declaração)** copiada do Portal do LinkedIn
 
-7. Marque **Mostrar configurações avançadas de URL** se quiser configurar o aplicativo no modo iniciado em **SP**.
+1. Marque **Mostrar configurações avançadas de URL** se quiser configurar o aplicativo no modo iniciado em **SP**.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
     Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
-8. Seu aplicativo **LinkedIn Sales Navigator** espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributos personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo. O valor padrão do **Identificador de Usuário** é **user.userprincipalname**, mas o LinkedIn Sales Navigator espera que isso seja mapeado com o endereço de email do usuário. Você pode usar o atributo **user.mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização. 
+1. Seu aplicativo **LinkedIn Sales Navigator** espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributos personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra um exemplo. O valor padrão do **Identificador de Usuário** é **user.userprincipalname**, mas o LinkedIn Sales Navigator espera que isso seja mapeado com o endereço de email do usuário. Você pode usar o atributo **user.mail** na lista ou usar o valor do atributo apropriado com base na configuração da sua organização. 
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos. O usuário precisa adicionar quatro declarações denominadas **email**, **departamento**, **nome** e **sobrenome** e o valor deve ser mapeado com **user.mail**, **user.department**, **user.givenname** e **user.surname** respectivamente
+1. Na seção **Atributos de Usuário**, clique em **Exibir e editar todos os outros atributos de usuário** e defina os atributos. O usuário precisa adicionar quatro declarações denominadas **email**, **departamento**, **nome** e **sobrenome** e o valor deve ser mapeado com **user.mail**, **user.department**, **user.givenname** e **user.surname** respectivamente
 
     | Nome do atributo | Valor do atributo |
     | --- | --- |    
@@ -159,7 +159,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     d. Clique em **Ok**
 
-10. Realize as seguintes etapas no atributo **name**-
+1. Realize as seguintes etapas no atributo **name**-
 
     a. Clique no atributo para abrir a janela **Editar Atributo**.
 
@@ -169,19 +169,19 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     c. Clique em **OK** para salvar a configuração.
 
-11. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-12. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-13. Vá para a seção **Configurações de administração do LinkedIn**. Clique em **Carregar arquivo XML** para carregar o arquivo XML de metadados que você baixou do Portal do Azure.
+1. Vá para a seção **Configurações de administração do LinkedIn**. Clique em **Carregar arquivo XML** para carregar o arquivo XML de metadados que você baixou do Portal do Azure.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-14. Clique em **Ativar** para habilitar o SSO. O status do SSO é alterado de **Não Conectado** para **Conectado**
+1. Clique em **Ativar** para habilitar o SSO. O status do SSO é alterado de **Não Conectado** para **Conectado**
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -201,15 +201,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
 
-2. Clicar em **Usuários e grupos** e **Todos os usuários**.
+1. Clicar em **Usuários e grupos** e **Todos os usuários**.
     
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
@@ -239,23 +239,23 @@ Nesta seção, ao conceder acesso ao LinkedIn Sales Navigator a Brenda Fernandes
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **LinkedIn Sales Navigator**.
+1. Na lista de aplicativos, selecione **LinkedIn Sales Navigator**.
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

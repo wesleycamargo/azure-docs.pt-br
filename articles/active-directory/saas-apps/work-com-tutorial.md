@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f51f9eff7a2ab0dd7ca466931f9de78355b917c0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050717"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Active Directory do Azure com o Work.com
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Work.com da galeria
-2. Configurar e testar logon único do Azure AD
+1. Configurar e testar logon único do Azure AD
 
 ## <a name="add-workcom-from-the-gallery"></a>Adicionar o Work.com da galeria
 Para configurar a integração do Work.com ao Azure AD, você precisará adicionar o Work.com da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Work.com ao Azure AD, você precisará adicion
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Work.com**, selecione **Work.com** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Work.com**, selecione **Work.com** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Adicionar da galeria](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
@@ -86,10 +86,10 @@ No Work.com, atribua o valor do **nome de usuário** no Azure AD como o valor do
 Para configurar e testar o logon único do Azure AD com o Work.com, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Work.com](#create-a-workcom-test-user)** – para ter um equivalente de Brenda Fernandes no Work.com vinculado à representação do usuário no Azure AD.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+1. **[Criar um usuário de teste do Work.com](#create-a-workcom-test-user)** – para ter um equivalente de Brenda Fernandes no Work.com vinculado à representação do usuário no Azure AD.
+1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. **[Testar o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Logon único baseado em SAML](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. Na seção **Domínio e URLs do Work.com**, siga as etapas a seguir:
+1. Na seção **Domínio e URLs do Work.com**, siga as etapas a seguir:
 
     ![Seção Domínio e URLs do Work.com](./media/work-com-tutorial/tutorial_work-com_url.png)
 
@@ -117,42 +117,42 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Work.com](https://help.salesforce.com/articleView?id=000159855&type=3) para obter esse valor. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Seção Certificado de Autenticação SAML](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Botão Salvar](./media/work-com-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Work.com**, clique em **Configurar o Work.com** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Work.com**, clique em **Configurar o Work.com** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Seção Configuração do Work.com](./media/work-com-tutorial/tutorial_work-com_configure.png) 
-7. Faça logon no seu locatário Work.com como administrador.
+1. Faça logon no seu locatário Work.com como administrador.
 
-8. Vá para **Configuração**.
+1. Vá para **Configuração**.
    
     ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
 
-9. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
+1. No painel de navegação à esquerda, na seção **Administrador**, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
    
     ![Meu Domínio](./media/work-com-tutorial/ic767825.png "Meu Domínio")
 
-10. Para confirmar se o domínio foi configurado corretamente, verifique se ele está em “**Etapa 4 Implantado nos Usuários**” e examine “**Minhas Configurações de Domínio**”.
+1. Para confirmar se o domínio foi configurado corretamente, verifique se ele está em “**Etapa 4 Implantado nos Usuários**” e examine “**Minhas Configurações de Domínio**”.
    
     ![Domínio Implantado no Usuário](./media/work-com-tutorial/ic784377.png "Domínio Implantado no Usuário")
 
-11. Faça logon no seu locatário Work.com.
+1. Faça logon no seu locatário Work.com.
 
-12. Vá para **Configuração**.
+1. Vá para **Configuração**.
     
     ![Configuração](./media/work-com-tutorial/ic794108.png "Configuração")
 
-13. Expanda o menu **Controles de Segurança** e clique em **Configurações de Logon Único**.
+1. Expanda o menu **Controles de Segurança** e clique em **Configurações de Logon Único**.
     
     ![Configurações de Logon Único](./media/work-com-tutorial/ic794113.png "Configurações de Logon Único")
 
-14. Na página do diálogo **Configurações de Logon Único** , realize as seguintes etapas:
+1. Na página do diálogo **Configurações de Logon Único** , realize as seguintes etapas:
     
     ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML habilitado")
     
@@ -160,7 +160,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     b. Clique em **Novo**.
 
-15. Na seção de **Configurações de Logon Único do SAML** , realize as seguintes etapas:
+1. Na seção de **Configurações de Logon Único do SAML** , realize as seguintes etapas:
     
     ![Configurações de Logon Único do SAML](./media/work-com-tutorial/ic794114.png "Configurações de Logon Único do SAML")
     
@@ -187,15 +187,15 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     j. Clique em **Salvar**.
 
-16. No painel de navegação à esquerda, no portal clássico do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
+1. No painel de navegação à esquerda, no portal clássico do Work.com, clique em **Gerenciamento de Domínio** para expandir a seção correspondente e clique em **Meu Domínio** para abrir a página **Meu Domínio**. 
     
     ![Meu Domínio](./media/work-com-tutorial/ic794115.png "Meu Domínio")
 
-17. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
+1. Na página **Meu Domínio**, na seção **Identidade Visual da Página de Logon**, clique em **Editar**.
     
     ![Identidade Visual da Página de Logon](./media/work-com-tutorial/ic767826.png "Identidade Visual da Página de Logon")
 
-14. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
+1. Na página **Identidade Visual da Página de Logon**, na seção **Serviço de Autenticação**, o nome das **Configurações de SSO do SAML** é exibido. Selecione-o e, em seguida, clique em **Salvar**.
     
     ![Identidade Visual da Página de Logon](./media/work-com-tutorial/ic784366.png "Identidade Visual da Página de Logon")
 
@@ -214,15 +214,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/work-com-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Usuários e grupos -> Todos os usuários](./media/work-com-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Adicionar](./media/work-com-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Página da caixa de diálogo do usuário](./media/work-com-tutorial/create_aaduser_04.png) 
 
@@ -240,18 +240,18 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 1. Faça logon no site da sua empresa do Work.com como um administrador.
 
-2. Vá para **Configuração**.
+1. Vá para **Configuração**.
    
     ![Configuração](./media/work-com-tutorial/IC794108.png "Configuração")
-3. Vá para **Gerenciar Usuários \> Usuários**.
+1. Vá para **Gerenciar Usuários \> Usuários**.
    
     ![Gerenciar Usuários](./media/work-com-tutorial/IC784369.png "Gerenciar Usuários")
 
-4. Clique em **Novo Usuário**.
+1. Clique em **Novo Usuário**.
    
     ![Todos os Usuários](./media/work-com-tutorial/IC794117.png "Todos os Usuários")
 
-5. Na seção Editar Usuários, execute as etapas a seguir nos atributos de uma conta do Azure AD válida que você deseja provisionar nas caixas de texto relacionadas:
+1. Na seção Editar Usuários, execute as etapas a seguir nos atributos de uma conta do Azure AD válida que você deseja provisionar nas caixas de texto relacionadas:
    
     ![Editar Usuário](./media/work-com-tutorial/ic794118.png "Editar Usuário")
    
@@ -288,23 +288,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Work.com**.
+1. Na lista de aplicativos, selecione **Work.com**.
 
     ![Work.com na lista do aplicativo](./media/work-com-tutorial/tutorial_work-com_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

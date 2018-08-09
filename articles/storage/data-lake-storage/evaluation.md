@@ -3,18 +3,17 @@ title: Diretrizes para clientes do Azure Data Lake Store Gen1 | Microsoft Docs
 description: A versão prévia do Azure Data Lake Store Gen2 oferece a funcionalidade de armazenamento de Blobs nativo, incluindo camada de dados, gerenciamento do ciclo de vida e segurança de rede aprimorada, além do sistema de arquivos Compatível com Hadoop disponível no Data Lake Store Gen1.
 services: storage
 author: roygara
-manager: twooley
 ms.topic: article
 ms.author: rogarana
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 786abbc10f21b137c328f10c5cbd20dce7653957
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d247c2e96a45f0f6fceb64d4f3f274549c83ea66
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034302"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522417"
 ---
 # <a name="guidance-for-azure-data-lake-storage-gen1-customers"></a>Diretrizes para clientes do Azure Data Lake Store Gen1
 

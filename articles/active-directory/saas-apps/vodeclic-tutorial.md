@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041085"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: integração do Microsoft Azure Active Directory com o Vodeclic
 
@@ -53,7 +53,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. adicionar o Vodeclic da Galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Adicionar o Vodeclic da Galeria
 Para configurar a integração do Vodeclic no Microsoft Azure AD, é necessário adicionar o Vodeclic da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,15 +64,15 @@ Para configurar a integração do Vodeclic no Microsoft Azure AD, é necessário
 
     ![O botão Azure Active Directory][1]
 
-2. Executar **Aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Executar **Aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
     
-3. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da caixa de diálogo.
+1. Para adicionar um novo aplicativo, selecione o botão **Novo aplicativo** na parte superior da caixa de diálogo.
 
     ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **Vodeclic**. Selecione **Vodeclic** do painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
+1. Na caixa de pesquisa, digite **Vodeclic**. Selecione **Vodeclic** do painel de resultados e, em seguida, selecione o botão **Adicionar** para adicionar o aplicativo.
 
     ![Vodeclic na lista de resultados](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ No Vodeclic, atribua ao **Username** o mesmo valor que o **nome de usuário** no
 Para configurar e testar o logon único do Microsoft Azure AD com o Vodeclic, você precisará concluir os seguintes blocos de construção:
 
 1. [Configurar o logon único do Microsoft Azure AD](#configure-azure-ad-single-sign-on) para habilitar seus usuários a usarem esse recurso.
-2. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user) para testar o logon único do Azure AD com Brenda Fernandes.
-3. [Criar um usuário de teste do Vodeclic](#create-a-vodeclic-test-user) para ter um equivalente de Brenda Fernandes no Vodeclic vinculado à representação do usuário no Microsoft Azure AD.
-4. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user) para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. [Testar o logon único](#test-single-sign-on) para verificar se a configuração funciona.
+1. [Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user) para testar o logon único do Azure AD com Brenda Fernandes.
+1. [Criar um usuário de teste do Vodeclic](#create-a-vodeclic-test-user) para ter um equivalente de Brenda Fernandes no Vodeclic vinculado à representação do usuário no Microsoft Azure AD.
+1. [Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user) para permitir que Brenda Fernandes use o logon único do Azure AD.
+1. [Testar o logon único](#test-single-sign-on) para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -102,11 +102,11 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, em **Modo de logon único**, selecione **Logon com base em SAML** para ativar o logon único.
+1. Na caixa de diálogo **Logon único**, em **Modo de logon único**, selecione **Logon com base em SAML** para ativar o logon único.
  
     ![Caixa de diálogo Logon único](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Caso queira configurar o aplicativo no modo iniciado pelo **IDP** na seção **Domínio e URLs do Vodeclic**, execute as seguintes etapas:
+1. Caso queira configurar o aplicativo no modo iniciado pelo **IDP** na seção **Domínio e URLs do Vodeclic**, execute as seguintes etapas:
 
     ![Informações de logon único de domínio e URLs do Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     b. Na caixa de **URL de Resposta**, digite uma URL com o seguinte padrão: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Se você quiser configurar o aplicativo no modo iniciado pelo **SP**, selecione a caixa de seleção **Mostrar configurações avançadas de URL** e execute a seguinte etapa:
+1. Se você quiser configurar o aplicativo no modo iniciado pelo **SP**, selecione a caixa de seleção **Mostrar configurações avançadas de URL** e execute a seguinte etapa:
 
     ![Informações de logon único de domínio e URLs do Vodeclic](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. Contate a [Equipe de suporte ao cliente do Vodeclic](mailto:hotline@vodeclic.com) para obter esses valores.
 
-5. Na seção **Certificado de Autenticação SAML**, selecione **XML de Metadados**. Em seguida, salve o arquivo de metadados no computador.
+1. Na seção **Certificado de Autenticação SAML**, selecione **XML de Metadados**. Em seguida, salve o arquivo de metadados no computador.
 
     ![O link de download do Certificado](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
     ![Botão Salvar em Configurar Logon Único](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Para configurar o logon único no lado do **Vodeclic**, envie o **Metadata XML** baixado para a [Equipe de suporte do Vodeclic](mailto:hotline@vodeclic.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Vodeclic**, envie o **Metadata XML** baixado para a [Equipe de suporte do Vodeclic](mailto:hotline@vodeclic.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com) enquanto você estiver configurando o aplicativo. Depois de adicionar esse aplicativo a partir da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e acesse a documentação inserida na seção **Configuração**, na parte inferior. Você pode ler mais sobre o recurso de documentação inserida na [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Para exibir uma lista de usuários, vá para **Usuários e grupos**. Selecione **Todos os usuários**.
+1. Para exibir uma lista de usuários, vá para **Usuários e grupos**. Selecione **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar** na parte superior da caixa de diálogo **Todos os usuários**.
+1. Para abrir a caixa de diálogo **Usuário**, selecione **Adicionar** na parte superior da caixa de diálogo **Todos os usuários**.
 
     ![O botão Adicionar](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **Vodeclic**.
+1. Na lista de aplicativos, escolha **Vodeclic**.
 
     ![O link do Vodeclic na lista de Aplicativos](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
+1. No menu à esquerda, selecione **Usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-4. Selecione o botão **Adicionar**. Em seguida, selecione **Usuários e grupos**, na caixa de diálogo **Adicionar Atribuição**.
+1. Selecione o botão **Adicionar**. Em seguida, selecione **Usuários e grupos**, na caixa de diálogo **Adicionar Atribuição**.
 
     ![O painel Adicionar Atribuição][203]
 
-5. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de **Usuários**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **Britta Simon** na lista de **Usuários**.
 
-6. Na caixa de diálogo **Usuários e grupos**, selecione o botão **Selecionar**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione o botão **Selecionar**.
 
-7. Na caixa de diálogo **Adicionar Atribuição**, selecione o botão **Atribuir**.
+1. Na caixa de diálogo **Adicionar Atribuição**, selecione o botão **Atribuir**.
     
 ### <a name="test-single-sign-on"></a>Testar logon único
 

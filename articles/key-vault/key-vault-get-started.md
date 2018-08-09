@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070344"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505706"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução ao Cofre da Chave do Azure
 Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o orienta quanto às seguintes atividades:
@@ -206,7 +206,7 @@ Para exibir o valor contido no segredo como texto sem formatação:
 Agora, seu cofre de chave e a chave ou o segredo estão prontos para serem usados pelos aplicativos. Você precisa autorizar os aplicativos a usá-los.  
 
 ## <a id="register"></a>Registrar um aplicativo com o Active Directory do Azure
-Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Não é específico ao Azure Key Vault. Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve analisar o artigo intitulado [Integrando aplicativos com o Active Directory do Azure](../active-directory/develop/active-directory-integrating-applications.md) ou [Usar o portal para criar um aplicativo do Azure Active Directory e entidade de serviço que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Não é específico ao Azure Key Vault. Para obter etapas detalhadas sobre como registrar um aplicativo com o Azure Active Directory, você deve analisar o artigo intitulado [Integrando aplicativos com o Active Directory do Azure](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [Usar o portal para criar um aplicativo do Azure Active Directory e entidade de serviço que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 
 > [!IMPORTANT]
 > Para concluir o tutorial, sua conta, o cofre e o aplicativo que você registrará nesta etapa devem todos estar no mesmo diretório do Azure.
@@ -233,7 +233,7 @@ Você deve selecionar o mesmo diretório que contém a assinatura do Azure com a
     >[!WARNING]
     Verifique se você escolheu **APLICATIVO WEB E/OU API WEB**, caso não, você não verá a opção **chaves** nas configurações.
 
-5. Selecione o botão **Criar** .
+5. Selecione o botão **Criar**.
 6. Ao concluir o registro do aplicativo, você pode ver a lista de aplicativos registrados. Encontre o aplicativo que você acabou de registrar e clique nele.
 7. Clique na folha do **Aplicativo registrado** e copie a **ID do Aplicativo**
 8. Clique em **Todas as configurações**

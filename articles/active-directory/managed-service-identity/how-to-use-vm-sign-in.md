@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901085"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590306"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para entrar 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Este artigo fornece exemplos de script do PowerShell e da CLI para se fazer logon usando uma entidade de serviço MSI e diretrizes sobre tópicos importantes, como o tratamento de erro.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -38,7 +38,7 @@ Se você planeja usar os exemplos do Azure PowerShell ou da CLI do Azure neste a
 
 ## <a name="overview"></a>Visão geral
 
-Uma MSI fornece um [objeto da entidade de serviço](../develop/active-directory-dev-glossary.md#service-principal-object), que é [criado após habilitar MSI](overview.md#how-does-it-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
+Uma MSI fornece um [objeto da entidade de serviço](../develop/developer-glossary.md#service-principal-object), que é [criado após habilitar MSI](overview.md#how-does-it-work) na VM. A entidade de serviço pode receber acesso aos recursos do Azure e pode ser usada como uma identidade pelos clientes de script/linha de comando para entrada e acesso aos recursos. Tradicionalmente, para acessar recursos protegidos em sua própria identidade, um cliente de script precisa:  
 
    - estar registrado e ter o consentimento do Azure AD como um aplicativo cliente Web/confidencial
    - entrar com sua entidade de serviço, usando as credenciais do aplicativo (que estão provavelmente inseridas no script)

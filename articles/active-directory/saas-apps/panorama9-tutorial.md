@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 7285ef4bea1dccb651360520bfe8bc4289d54f8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046032"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Tutorial: Integração do Active Directory do Azure com o Panorama9
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Panorama9 por meio da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-panorama9-from-the-gallery"></a>Adicionando o Panorama9 por meio da galeria
 Para configurar a integração do Panorama9 ao Azure AD, é necessário adicionar o Panorama9 à lista de aplicativos SaaS gerenciados por meio da galeria.
@@ -63,19 +63,19 @@ Para configurar a integração do Panorama9 ao Azure AD, é necessário adiciona
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Panorama9**.
+1. Na caixa de pesquisa, digite **Panorama9**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. No painel de resultados, selecione **Panorama9** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Panorama9** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
@@ -90,10 +90,10 @@ No Panorama9, atribua o valor do **nome de usuário** no Azure AD como o valor d
 Para configurar e testar o logon único do Azure AD com o Panorama9, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do Panorama9](#creating-a-panorama9-test-user)** – para ter um equivalente de Brenda Fernandes no Panorama9 que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do Panorama9](#creating-a-panorama9-test-user)** – para ter um equivalente de Brenda Fernandes no Panorama9 que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -105,11 +105,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_panorama9_samlbase.png)
 
-3. Na seção **Domínio e URLs do Panorama9**, realize as seguintes etapas:
+1. Na seção **Domínio e URLs do Panorama9**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_panorama9_url.png)
 
@@ -120,27 +120,27 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Panorama9](https://support.panorama9.com) para obter esses valores. 
  
-4. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
+1. Na seção **Certificado de Autenticação SAML**, copie o valor da **IMPRESSÃO DIGITAL** do certificado.
 
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Panorama9**, clique em **Configurar o Panorama9** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+1. Na seção **Configuração do Panorama9**, clique em **Configurar o Panorama9** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_panorama9_configure.png) 
 
-5. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Panorama9 como administrador.
+1. Em uma janela de navegador da Web diferente, faça logon no site de sua empresa do Panorama9 como administrador.
 
-6. Na barra de ferramentas na parte superior, clique em **Gerenciar** e em **Extensões**.
+1. Na barra de ferramentas na parte superior, clique em **Gerenciar** e em **Extensões**.
    
    ![Extensões](./media/panorama9-tutorial/ic790023.png "Extensões")
-7. No diálogo **Extensões**, clique em **Logon Único**.
+1. No diálogo **Extensões**, clique em **Logon Único**.
    
    ![Logon Único](./media/panorama9-tutorial/ic790024.png "Logon Único")
-8. Na seção **Configurações** , realize as seguintes etapas:
+1. Na seção **Configurações** , realize as seguintes etapas:
    
    ![Configurações](./media/panorama9-tutorial/ic790025.png "Configurações")
    
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
    
     b. Na caixa de texto **Impressão digital do certificado**, cole o valor da **Impressão Digital** do certificado copiado do portal do Azure.    
          
-9. Clique em **Salvar**.
+1. Clique em **Salvar**.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -165,15 +165,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/panorama9-tutorial/create_aaduser_04.png) 
 
@@ -195,17 +195,17 @@ No caso do Panorama9, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa do **Panorama9** como administrador.
 
-2. No menu na parte superior, clique em **Gerenciar** e em **Usuários**.
+1. No menu na parte superior, clique em **Gerenciar** e em **Usuários**.
    
   ![Usuários](./media/panorama9-tutorial/ic790027.png "Usuários")
 
-3. Na seção Usuários, clique em **+** para adicionar um novo usuário.
+1. Na seção Usuários, clique em **+** para adicionar um novo usuário.
 
  ![Usuários](./media/panorama9-tutorial/ic790028.png "Usuários")
 
-4. Acesse a seção Dados do usuário e digite o endereço de email de um usuário válido do Azure Active Directory que você deseja provisionar na caixa de texto **Email**.
+1. Acesse a seção Dados do usuário e digite o endereço de email de um usuário válido do Azure Active Directory que você deseja provisionar na caixa de texto **Email**.
 
-5. Acesse a seção Usuários e clique em **Salvar**.
+1. Acesse a seção Usuários e clique em **Salvar**.
    
 > [!NOTE]
     > O titular da conta do Azure Active Directory recebe um email e segue um link para confirmar sua conta antes que ela se torne ativa.
@@ -222,23 +222,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Panorama9**.
+1. Na lista de aplicativos, selecione **Panorama9**.
 
     ![Configurar o logon único](./media/panorama9-tutorial/tutorial_panorama9_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

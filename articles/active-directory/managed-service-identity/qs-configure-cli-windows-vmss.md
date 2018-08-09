@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: 36df9d00d41f3c092320fa88772b41c9a41c6d8e
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6474b34abeceb58c2eff9e7a2d2237ec47e61933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237274"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447516"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Configurar uma MSI (Identidade de Serviço Gerenciada) do conjunto de dimensionamento de máquinas virtuais usando CLI do Azure
 
@@ -55,19 +55,19 @@ Nesta seção, você aprenderá como habilitar e desabilitar a identidade atribu
 
 Para criar uma escala de máquina virtual definida com a identidade atribuída ao sistema ativada:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az_login). Use uma conta associada à assinatura do Azure, na qual você deseja implantar o conjunto de dimensionamento de máquinas virtuais:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure, na qual você deseja implantar o conjunto de dimensionamento de máquinas virtuais:
 
    ```azurecli-interactive
    az login
    ```
 
-2. Crie um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az_group_create). Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa:
+2. Crie um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para confinamento e implantação do conjunto de dimensionamento de máquinas virtuais e os recursos relacionados, usando [az group create](/cli/azure/group/#az-group-create). Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa:
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus
    ```
 
-3. Crie um conjunto de dimensionamento de máquinas virtuais usando [az vmss create](/cli/azure/vmss/#az_vmss_create) . O exemplo a seguir cria um conjunto de dimensionamento de máquina virtual chamado *myVMSS* com uma identidade designada pelo sistema, conforme solicitado pelo parâmetro `--assign-identity`. Os parâmetros `--admin-username` e `--admin-password` especificam o nome de usuário e a senha do usuário administrativo para a entrada na máquina virtual. Atualize esses valores como adequado ao seu ambiente: 
+3. Crie um conjunto de dimensionamento de máquinas virtuais usando [az vmss create](/cli/azure/vmss/#az-vmss-create) . O exemplo a seguir cria um conjunto de dimensionamento de máquina virtual chamado *myVMSS* com uma identidade designada pelo sistema, conforme solicitado pelo parâmetro `--assign-identity`. Os parâmetros `--admin-username` e `--admin-password` especificam o nome de usuário e a senha do usuário administrativo para a entrada na máquina virtual. Atualize esses valores como adequado ao seu ambiente: 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -77,13 +77,13 @@ Para criar uma escala de máquina virtual definida com a identidade atribuída a
 
 Se você precisar ativar a identidade atribuída ao sistema em um conjunto de dimensionamento de máquina virtual do Azure existente:
 
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az_login). Use uma conta associada à assinatura do Azure que contém o conjunto de dimensionamento de máquinas virtuais.
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta associada à assinatura do Azure que contém o conjunto de dimensionamento de máquinas virtuais.
 
    ```azurecli-interactive
    az login
    ```
 
-2. Use o comando [ az vmss identity assign ](/cli/azure/vmss/identity/#az_vmss_identity_assign) para ativar uma identidade designada pelo sistema para uma VM existente:
+2. Use o comando [ az vmss identity assign ](/cli/azure/vmss/identity/#az-vmss-identity-assign) para ativar uma identidade designada pelo sistema para uma VM existente:
 
    ```azurecli-interactive
    az vmss identity assign -g myResourceGroup -n myVMSS
@@ -106,7 +106,7 @@ Caso tenha um conjunto de dimensionamento de máquinas virtuais que não precise
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Para remover a extensão do MSI VM, use [identidade de vmss az remover](/cli/azure/vmss/identity/#az_vmss_remove_identity) comando para remover a identidade do sistema atribuído de um VMSS:
+Para remover a extensão do MSI VM, use [identidade de vmss az remover](/cli/azure/vmss/identity/#az-vmss-remove-identity) comando para remover a identidade do sistema atribuído de um VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -120,7 +120,7 @@ Nesta seção, você aprenderá como habilitar e remover uma identidade atribuí
 
 Esta seção orienta você na criação de um VMSS e na atribuição de uma identidade atribuída pelo usuário ao VMSS. Se você já tem um VMSS que deseja usar, pule esta seção e prossiga para a próxima.
 
-1. Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa. Crie um [ grupo de recursos ](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para contenção e implementação de sua identidade designada pelo usuário, usando [ az group create ](/cli/azure/group/#az_group_create). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
+1. Se você já tiver um grupo de recursos e quiser usá-lo, ignore esta etapa. Crie um [ grupo de recursos ](~/articles/azure-resource-manager/resource-group-overview.md#terminology) para contenção e implementação de sua identidade designada pelo usuário, usando [ az group create ](/cli/azure/group/#az-group-create). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<LOCATION>` pelos seus próprios valores. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -183,7 +183,7 @@ A resposta contém detalhes para a identidade atribuída pelo usuário criada, s
    }
    ```
 
-2. Atribua a identidade atribuída pelo usuário ao seu VMSS usando [ az vmss identity assign ](/cli/azure/vmss/identity#az_vm_assign_identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY ID>` será a propriedade `id` do recurso da identidade atribuída pelo usuário, conforme criada na etapa anterior:
+2. Atribua a identidade atribuída pelo usuário ao seu VMSS usando [ az vmss identity assign ](/cli/azure/vmss/identity#az-vm-assign-identity). Substitua os valores de parâmetro `<RESOURCE GROUP>` e `<VMSS NAME>` pelos seus próprios valores. O `<USER ASSIGNED IDENTITY ID>` será a propriedade `id` do recurso da identidade atribuída pelo usuário, conforme criada na etapa anterior:
 
     ```azurecli-interactive
     az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
@@ -197,7 +197,7 @@ Para remover uma identidade atribuída ao usuário de um conjunto de dimensionam
 az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 
-Se o conjunto de dimensionamento de máquinas virtuais não tiver uma identidade atribuída ao sistema e você quiser remover todas as identidades atribuídas ao usuário desse conjunto, use o seguinte comando:
+Se o seu conjunto de dimensionamento de máquinas virtuais não tiver uma identidade atribuída ao sistema e você quiser remover todas as identidades atribuídas ao usuário desse conjunto, use o seguinte comando:
 
 > [!NOTE]
 > O valor `none` diferencia maiúsculas de minúsculas. Deve estar em letras minúsculas.
@@ -206,7 +206,7 @@ Se o conjunto de dimensionamento de máquinas virtuais não tiver uma identidade
 az vmss update -n myVMSS -g myResourceGroup --set identity.type="none" identity.identityIds=null
 ```
 
-Se o conjunto de dimensionamento de máquinas virtuais tiver identidades atribuídas ao sistema e ao usuário, será possível remover todas as identidades atribuídas ao usuário, optando por usar somente as atribuídas ao sistema. Use o seguinte comando:
+Se o conjunto de dimensionamento de máquinas virtuais tiver identidades atribuídas ao sistema e ao usuário, será possível remover todas as identidades atribuídas ao usuário optando por usar somente as atribuídas ao sistema. Use o seguinte comando:
 
 ```azurecli-interactive
 az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null 

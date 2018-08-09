@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960161"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445736"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -69,29 +69,29 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 Para criar um cofre de Serviços de Recuperação:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu **Hub**, selecione **Procurar** e digite **Serviços de Recuperação**. Conforme você começa a digitar, sua entrada filtra a lista de recursos. Selecione **Cofres de Serviços de Recuperação**.
+1. No menu **Hub**, selecione **Procurar** e digite **Serviços de Recuperação**. Conforme você começa a digitar, sua entrada filtra a lista de recursos. Selecione **Cofres de Serviços de Recuperação**.
 
     ![Digitando na caixa e selecionando "Cofres de Serviços de Recuperação" nos resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     A lista de cofres de Serviços de Recuperação aparecerá.
-3. No menu **Cofres de Serviços de Recuperação**, selecione **Adicionar**.
+1. No menu **Cofres de Serviços de Recuperação**, selecione **Adicionar**.
 
     ![Criar Cofre de Serviços de Recuperação - etapa 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     O painel **Cofres de Serviços de Recuperação** é aberto. Ele solicita que você forneça informações para **Nome**, **Assinatura**, **Grupo de recursos** e **Localização**.
 
     ![Painel "Cofres de Serviços de Recuperação"](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
-5. Selecione **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou a sugerida). Só haverá múltiplas opções se sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
-6. Clique em **Grupo de recursos** para ver a lista disponível de grupos de recursos ou em **Novo** para criar um grupo de recursos. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
-7. Clique em **Localização** para selecionar a região geográfica do cofre. O cofre *deve* estar na mesma região que as máquinas virtuais que você deseja proteger.
+1. Em **Nome**, insira um nome amigável para identificar o cofre. O nome deve ser exclusivo para a assinatura do Azure. Digite um nome que contenha de 2 a 50 caracteres. Ele deve começar com uma letra e pode conter apenas letras, números e hifens.
+1. Selecione **Assinatura** para ver a lista de assinaturas disponíveis. Se você não tiver certeza sobre qual assinatura usar, utilize a assinatura padrão (ou a sugerida). Só haverá múltiplas opções se sua conta corporativa ou de estudante estiver associada a várias assinaturas do Azure.
+1. Clique em **Grupo de recursos** para ver a lista disponível de grupos de recursos ou em **Novo** para criar um grupo de recursos. Para obter informações completas sobre grupos de recursos, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+1. Clique em **Localização** para selecionar a região geográfica do cofre. O cofre *deve* estar na mesma região que as máquinas virtuais que você deseja proteger.
 
    > [!IMPORTANT]
    > Caso não saiba a localização da VM, feche a caixa de diálogo de criação do cofre e vá para a lista de máquinas virtuais no portal. Se você tem máquinas virtuais em várias regiões, é necessário criar um cofre de Serviços de Recuperação em cada região. Crie o cofre no primeiro local antes de ir para o próximo local. Não é necessário especificar contas de armazenamento para armazenar os dados de backup. O cofre de Serviços de Recuperação e o serviço de Backup do Azure lidam com isso automaticamente.
    >
    >
 
-8. Selecione **Criar**. Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita do portal. Depois que o cofre é criado, ele aparece na lista de cofres de Serviços de Recuperação. Se você não encontrar seu cofre, selecione **Atualizar**.
+1. Selecione **Criar**. Talvez demore um pouco para o cofre de Serviços de Recuperação ser criado. Monitore as notificações de status na área superior direita do portal. Depois que o cofre é criado, ele aparece na lista de cofres de Serviços de Recuperação. Se você não encontrar seu cofre, selecione **Atualizar**.
 
     ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ Para editar a configuração de replicação de armazenamento:
 
    ![Escolher seu cofre na lista de cofres de backup](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. No painel **Configurações**, use o controle deslizante vertical para rolar para baixo até a seção **Gerenciar** e selecione **Infraestrutura de Backup**. Na seção **Geral**, selecione **Configuração de Backup**. No painel **Configuração de Backup**, escolha a opção de replicação de armazenamento para o cofre. Por padrão, seu cofre tem armazenamento com redundância geográfica.
+1. No painel **Configurações**, use o controle deslizante vertical para rolar para baixo até a seção **Gerenciar** e selecione **Infraestrutura de Backup**. Na seção **Geral**, selecione **Configuração de Backup**. No painel **Configuração de Backup**, escolha a opção de replicação de armazenamento para o cofre. Por padrão, seu cofre tem armazenamento com redundância geográfica.
 
    ![Lista de cofres de backup](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup principal, continue usando o armazenamento com redundância geográfica. Se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup não primário, considere a escolha do armazenamento com redundância local. Leia mais sobre as opções de armazenamento na [Visão geral da replicação do Armazenamento do Azure](../storage/common/storage-redundancy.md).
 
-3. Se você alterar o tipo de replicação de armazenamento, selecione **Salvar**.
+1. Se você alterar o tipo de replicação de armazenamento, selecione **Salvar**.
     
 Depois de escolher a opção de armazenamento para o cofre, você estará pronto para associar a VM ao cofre. Para iniciar a associação, você deverá descobrir e registrar as máquinas virtuais do Azure.
 
@@ -135,20 +135,20 @@ Antes de registrar uma máquina virtual com um cofre dos Serviços de Recuperaç
       O painel **Configurações** e o painel do cofre para o cofre escolhido abrem.
 
       ![Painel Configurações e painel do cofre](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. No menu do painel do cofre, selecione **Backup**.
+1. No menu do painel do cofre, selecione **Backup**.
 
    ![Botão Backup](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    Os painéis **Backup** e **Meta de Backup** abrem.
 
-3. No painel **Meta de Backup**, defina **Onde sua carga de trabalho é executada?** como **Azure** e **O que você quer fazer de backup?** como **Máquina virtual**. Depois, selecione **OK**.
+1. No painel **Meta de Backup**, defina **Onde sua carga de trabalho é executada?** como **Azure** e **O que você quer fazer de backup?** como **Máquina virtual**. Depois, selecione **OK**.
 
    ![Painéis Backup e Meta de Backup](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    Esta etapa registra a extensão da VM com o cofre. O painel **Meta de Backup** fecha e o painel **Política de backup** abre.
 
    ![Painéis "Backup" e "Política de backup"](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. No painel **Política de backup**, selecione a política de backup que deseja aplicar ao cofre.
+1. No painel **Política de backup**, selecione a política de backup que deseja aplicar ao cofre.
 
    ![Selecionar a política de backup](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ Antes de registrar uma máquina virtual com um cofre dos Serviços de Recuperaç
     Selecione **OK** para associar a política de backup ao cofre.
 
    O painel **Política de backup** fecha e o painel **Selecionar máquinas virtuais** abre.
-5. No painel **Selecionar máquinas virtuais**, escolha as máquinas virtuais que serão associadas à política especificada e selecione **OK**.
+1. No painel **Selecionar máquinas virtuais**, escolha as máquinas virtuais que serão associadas à política especificada e selecione **OK**.
 
    ![Painel "Selecionar máquinas virtuais"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    A máquina virtual selecionada é validada. Se você não visualizar as máquinas virtuais esperadas, verifique se as máquinas virtuais estão na mesma região do Azure do cofre dos Serviços de Recuperação. Se ainda não for possível visualizar as máquinas virtuais, verifique se elas não estão protegidas com outro cofre. O painel do cofre mostra a região onde existe o cofre dos Serviços de Recuperação.
 
-6. Agora que você definiu todas as configurações para o cofre, no painel **Backup**, selecione **Habilitar backup**. Esta etapa implanta a política no cofre e nas VMs. Essa etapa não cria o ponto de recuperação inicial para a máquina virtual.
+1. Agora que você definiu todas as configurações para o cofre, no painel **Backup**, selecione **Habilitar backup**. Esta etapa implanta a política no cofre e nas VMs. Essa etapa não cria o ponto de recuperação inicial para a máquina virtual.
 
    ![Botão "Habilitar backup"](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ Para usar um proxy HTTP para se comunicar com a Internet pública, conclua as et
 Este procedimento define a configuração do servidor proxy para a conta do sistema local.
 
 1. Baixe o [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-2. Abra o Internet Explorer executando o seguinte comando em um prompt com privilégios elevados:
+1. Abra o Internet Explorer executando o seguinte comando em um prompt com privilégios elevados:
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. No Internet Explorer, acesse **Ferramentas** > **Opções de Internet** > **Conexões** > **Configurações de LAN**.
-4. Verifique as configurações de proxy para a conta do sistema. Defina o IP e a porta do proxy.
-5. Feche o Internet Explorer.
+1. No Internet Explorer, acesse **Ferramentas** > **Opções de Internet** > **Conexões** > **Configurações de LAN**.
+1. Verifique as configurações de proxy para a conta do sistema. Defina o IP e a porta do proxy.
+1. Feche o Internet Explorer.
 
 O script a seguir define uma configuração de proxy de todo o computador e a usa para todo o tráfego HTTP ou HTTPS de saída. Se você configurou um servidor proxy em uma conta de usuário atual (não uma conta do sistema local), use este script para aplicá-las à SYSTEMACCOUNT.
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>Etapa 2: Permitir conexões de entrada no servidor proxy
 1. No servidor proxy, abra o Firewall do Windows. A maneira mais fácil de acessar o firewall é pesquisar o **Firewall do Windows com Segurança Avançada**.
-2. Na caixa de diálogo **Firewall do Windows com Segurança Avançada**, clique com o botão direito do mouse em **Regras de Entrada** e selecione **Nova Regra**.
-3. No Assistente de Nova Regra de Entrada, na página **Tipo de Regra**, selecione a opção **Personalizado** e selecione **Avançar**.
-4. Na página **Programa**, selecione **Todos os Programas** e selecione **Avançar**.
-5. Na página **Protocolo e Portas**, insira as seguintes informações e selecione **Avançar**:
+1. Na caixa de diálogo **Firewall do Windows com Segurança Avançada**, clique com o botão direito do mouse em **Regras de Entrada** e selecione **Nova Regra**.
+1. No Assistente de Nova Regra de Entrada, na página **Tipo de Regra**, selecione a opção **Personalizado** e selecione **Avançar**.
+1. Na página **Programa**, selecione **Todos os Programas** e selecione **Avançar**.
+1. Na página **Protocolo e Portas**, insira as seguintes informações e selecione **Avançar**:
    * Para **Tipo de protocolo**, selecione **TCP**.
    * Para **Porta local**, selecione **Portas Específicas**. Na caixa a seguir, especifique o número da porta de proxy foi configurada.
    * Para **Porta remota**, selecione **Todas as Portas**.

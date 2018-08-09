@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 89cf9c9034c03b6ca51aca4bd2c4cd6edb8bcc13
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: abbf64fadfdd6dd194afe0fb498303ab18a9e069
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084222"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425335"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 Este tutorial fornece etapas para o provisionamento para o portal do Azure de um tempo de execução de integração (IR) do Azure-SSIS no Azure Data Factory. Em seguida, você pode usar o SQL Server Data Tools ou o SQL Server Management Studio para implantar e executar pacotes do SSIS (SQL Server Integration Services) neste tempo de execução no Azure. Para obter informações conceituais sobre IRs do SSIS do Azure, consulte [visão geral do Integration Runtime do Azure SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -45,12 +45,12 @@ Neste tutorial, você completa as seguintes etapas:
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Iniciar o navegador da Web **Microsoft Edge** ou **Google Chrome**. Atualmente, a interface do usuário do Data Factory tem suporte apenas nos navegadores da Web Microsoft Edge e Google Chrome. 
-2. Entre no [Portal do Azure](https://portal.azure.com/). 
-3. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
+1. Entre no [Portal do Azure](https://portal.azure.com/). 
+1. Selecione **Novo** no menu à esquerda, selecione **Dados + Análise**e, em seguida, selecione **Data Factory**. 
 
    ![Seleção de Data Factory no painel "Novo"](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
 
-4. Na página **Novo data factory**, insira **MyAzureSsisDataFactory** em **Nome**. 
+1. Na página **Novo data factory**, insira **MyAzureSsisDataFactory** em **Nome**. 
 
    ![Página de "Novo data factory"](./media/tutorial-create-azure-ssis-runtime-portal/new-azure-data-factory.png)
 
@@ -58,26 +58,26 @@ Neste tutorial, você completa as seguintes etapas:
 
    `Data factory name “MyAzureSsisDataFactory” is not available`
 
-5. Para **Assinatura**, selecione a assinatura do Azure na qual você deseja criar o data factory. 
-6. Para **Grupo de Recursos**, realize uma das seguintes etapas: 
+1. Para **Assinatura**, selecione a assinatura do Azure na qual você deseja criar o data factory. 
+1. Para **Grupo de Recursos**, realize uma das seguintes etapas: 
 
    - Selecione **Usar existente** e selecione um grupo de recursos existente na lista. 
    - Selecione **Criar novo**e insira o nome de um grupo de recursos. 
 
    Para saber mais sobre grupos de recursos, consulte [Usando grupos de recursos para gerenciar recursos do Azure](../azure-resource-manager/resource-group-overview.md). 
-7. Para **Versão**, selecione **V2 (Versão prévia)**. 
-8. Em **Local**, selecione uma localização para o data factory. A lista mostra somente os locais com suporte para a criação de data factories. 
-9. Selecione **Fixar no painel**. 
-10. Selecione **Criar**. 
-11. No painel, o bloco com o seguinte status é exibido **Implantando o Data Factory**: 
+1. Para **Versão**, selecione **V2 (Versão prévia)**. 
+1. Em **Local**, selecione uma localização para o data factory. A lista mostra somente os locais com suporte para a criação de data factories. 
+1. Selecione **Fixar no painel**. 
+1. Selecione **Criar**. 
+1. No painel, o bloco com o seguinte status é exibido **Implantando o Data Factory**: 
 
    ![Bloco "Implantando Data Factory"](media/tutorial-create-azure-ssis-runtime-portal/deploying-data-factory.png)
 
-12. Após a criação, a página do **Data Factory** será exibida. 
+1. Após a criação, a página do **Data Factory** será exibida. 
 
    ![Home page do data factory](./media/tutorial-create-azure-ssis-runtime-portal/data-factory-home-page.png)
 
-13. Selecione **Gerenciar e Monitorar** para abrir a interface do usuário (IU) do Data Factory em uma guia separada. 
+1. Selecione **Gerenciar e Monitorar** para abrir a interface do usuário (IU) do Data Factory em uma guia separada. 
 
 ## <a name="provision-an-azure-ssis-integration-runtime"></a>Provisionar um tempo de execução de integração do Azure-SSIS
 
@@ -85,7 +85,7 @@ Neste tutorial, você completa as seguintes etapas:
 
    ![Bloco "Configurar o bloco do Integration Runtime SSIS"](./media/tutorial-create-azure-ssis-runtime-portal/configure-ssis-integration-runtime-tile.png)
 
-2. Na página **Configurações Gerais** da **Instalação do Integration Runtime**, execute estas etapas: 
+1. Na página **Configurações Gerais** da **Instalação do Integration Runtime**, execute estas etapas: 
 
    ![Configurações gerais](./media/tutorial-create-azure-ssis-runtime-portal/general-settings.png)
 
@@ -105,7 +105,7 @@ Neste tutorial, você completa as seguintes etapas:
 
    h. Clique em **Próximo**. 
 
-3. Na página **Configurações de SQL**, execute as seguintes etapas: 
+1. Na página **Configurações de SQL**, execute as seguintes etapas: 
 
    ![Configurações do SQL](./media/tutorial-create-azure-ssis-runtime-portal/sql-settings.png)
 
@@ -125,7 +125,7 @@ Neste tutorial, você completa as seguintes etapas:
 
    h. Clique em **Conexão de teste** e, se tiver êxito, clique em **Próximo**. 
 
-4. Na página **Configurações avançadas**, conclua as etapas a seguir: 
+1. Na página **Configurações avançadas**, conclua as etapas a seguir: 
 
    ![Configurações avançadas](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -135,7 +135,7 @@ Neste tutorial, você completa as seguintes etapas:
 
    c. Na caixa de seleção **Selecionar uma rede virtual...**, selecione se você deseja ingressar o tempo de execução de integração para uma rede virtual. Se você usar o Banco de dados do Azure SQL com pontos de extremidade do serviço de rede virtual/Instância Gerenciada (Versão prévia) para hospedar o SSISDB ou precisar de acesso a dados locais, junte o Azure-SSIS IR a uma rede virtual. Confira [Criar Azure-SSIS IR em uma rede virtual](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). 
 
-5. Clique em **Concluir** para iniciar a criação do tempo de execução de integração. 
+1. Clique em **Concluir** para iniciar a criação do tempo de execução de integração. 
 
    > [!IMPORTANT]
    > Este processo leva aproximadamente de 20 a 30 minutos para ser concluído.
@@ -144,11 +144,11 @@ Neste tutorial, você completa as seguintes etapas:
    > 
    > Quando você provisiona uma instância de uma IR do Azure-SSI, o Azure Feature Pack para SSIS e o Acesso Redistribuível também são instalados. Esses componentes fornecem conectividade para arquivos do Excel e do Access e para várias fontes de dados do Azure, além das fontes de dados com suporte dos componentes internos. Também é possível instalar outros componentes. Para obter mais informações, confira [Configuração personalizada para o tempo de execução de integração do Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). 
 
-6. Na guia **Conexões**, alterne para **Tempos de Execução de Integração**, se necessário. Selecione **Atualizar** para atualizar o status. 
+1. Na guia **Conexões**, alterne para **Tempos de Execução de Integração**, se necessário. Selecione **Atualizar** para atualizar o status. 
 
    ![Status de criação, com o botão "Atualizar"](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-creation-status.png)
 
-7. Use os links na coluna **Ações** para parar/iniciar, editar ou excluir o tempo de execução de integração. Use o último link para exibir o código JSON para o tempo de execução de integração. Os botões editar e excluir são habilitados somente quando o IR é interrompido. 
+1. Use os links na coluna **Ações** para parar/iniciar, editar ou excluir o tempo de execução de integração. Use o último link para exibir o código JSON para o tempo de execução de integração. Os botões editar e excluir são habilitados somente quando o IR é interrompido. 
 
    ![Links na coluna "Ações"](./media/tutorial-create-azure-ssis-runtime-portal/azure-ssis-ir-actions.png) 
 
@@ -158,15 +158,15 @@ Neste tutorial, você completa as seguintes etapas:
 
    ![Seleções para exibir IRs existentes](./media/tutorial-create-azure-ssis-runtime-portal/view-azure-ssis-integration-runtimes.png)
 
-2. Selecione **Novo** para criar um novo IR do Azure SSIS. 
+1. Selecione **Novo** para criar um novo IR do Azure SSIS. 
 
    ![Tempo de execução de integração por meio do menu](./media/tutorial-create-azure-ssis-runtime-portal/edit-connections-new-integration-runtime-button.png)
 
-3. Na janela **Instalação do Integration Runtime**, selecione **Pacotes SSIS existentes de lift-and-shift para execução no Azure** e, em seguida, selecione **Avançar**. 
+1. Na janela **Instalação do Integration Runtime**, selecione **Pacotes SSIS existentes de lift-and-shift para execução no Azure** e, em seguida, selecione **Avançar**. 
 
    ![Especificar o tipo de tempo de execução de integração](./media/tutorial-create-azure-ssis-runtime-portal/integration-runtime-setup-options.png)
 
-4. Consulte a seção [Provisionar um tempo de execução de integração do Azure SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
+1. Consulte a seção [Provisionar um tempo de execução de integração do Azure SSIS](#provision-an-azure-ssis-integration-runtime) para conferir o restante das etapas de configuração de um IR do Azure-SSIS. 
 
 ## <a name="deploy-ssis-packages"></a>Implantar pacotes do SSIS
 Agora, use o SSDT (SQL Server Data Tools) ou o SSMS (SQL Server Management Studio) para implantar seus pacotes SSIS no Azure. Conecte-se ao servidor de Banco de Dados SQL do Azure que hospeda o catálogo SSIS (banco de dados SSISDB). O nome do servidor de Banco de Dados SQL do Azure está no formato `<servername>.database.windows.net`. 

@@ -2,24 +2,18 @@
 title: Gerenciar compartilhamentos de arquivos usando o Gerenciador de Armazenamento do Azure
 description: Aprenda como usar o Gerenciador de Armazenamento do Azure para gerenciar arquivos do Azure.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/27/2018
 ms.author: wgries
-ms.openlocfilehash: ea401099ce90248be0ecb99109b845ff9a91f70d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308490"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521187"
 ---
 # <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gerenciar compartilhamentos de arquivos com o Gerenciador de Armazenamento do Azure 
 [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem fácil de usar da Microsoft. Este artigo percorre os fundamentos de trabalhar com compartilhamentos de arquivos do Azure usando o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). O Gerenciador de Armazenamento é uma ferramenta para o cliente popular disponível para Windows, macOS e Linux. Você pode usar o Gerenciador de Armazenamento para gerenciar compartilhamentos de arquivo e outros recursos de armazenamento.

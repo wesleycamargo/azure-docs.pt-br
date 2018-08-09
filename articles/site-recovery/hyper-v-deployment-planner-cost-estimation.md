@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917465"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428523"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Relatório de estimativa de custo do Planejador de Implantações do Azure Site Recovery 
 
@@ -105,7 +105,7 @@ Para adicionar manualmente as máquinas virtuais:
 
 1. Selecione **Inserir linha** para inserir uma nova linha entre as linhas **Início** e **Término**.
 
-2. Preencha as colunas a seguir com base no tamanho aproximado da VM e no número de VMs que correspondem a essa configuração: 
+1. Preencha as colunas a seguir com base no tamanho aproximado da VM e no número de VMs que correspondem a essa configuração: 
 
     a. **Número de VMs**
 
@@ -125,9 +125,9 @@ Para adicionar manualmente as máquinas virtuais:
 
     i. **Benefício de Uso do Azure Híbrido**
 
-3. É possível aplicar o mesmo valor a todas as VMs na tabela selecionando **Aplicar a todos** para **Número de análises de recuperação de desastre em um ano**, **Duração de cada análise recuperação de desastre (Dias)**, **Redundância de dados** e **Benefício de Uso Híbrido do Azure**.
+1. É possível aplicar o mesmo valor a todas as VMs na tabela selecionando **Aplicar a todos** para **Número de análises de recuperação de desastre em um ano**, **Duração de cada análise recuperação de desastre (Dias)**, **Redundância de dados** e **Benefício de Uso Híbrido do Azure**.
 
-4. Selecione **Recalcular custo** para atualizar o custo.
+1. Selecione **Recalcular custo** para atualizar o custo.
 
 **Nome da VM**: o nome da VM.
 
@@ -173,7 +173,7 @@ O Planejador de Implantações do Site Recovery pode gerar o relatório de custo
 |CAD|Dólar canadense ($)||CHF|Franco suíço (chf)||DKK|Coroa dinamarquesa (kr)|
 |EUR|Euro (€)||GBP|Libra esterlina (£)||HKD|Dólar de Hong Kong (HK$)|
 |IDR|Rúpia da Indonésia (Rp)||INR|Rúpia (Índia) (₹)||JPY|Iene (Japão) (¥)|
-|KRW|Won coreano (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
+|KRW|Won (Coreia) (₩)||MXN|Peso mexicano (MXN$)||MYR|Ringgit malaio (RM$)|
 |NOK|Coroa norueguesa (kr)||NZD|Dólar neozelandês ($)||RUB|Rublo russo (руб)|
 |SAR|Rial saudita (SR)||SEK|Coroa sueca (kr)||TWD|Dólar taiwanês (NT$)|
 |TRY|Lira turca (TL)||USD| Dólar americano (US$)||ZAR|Rand da África do Sul (R)|

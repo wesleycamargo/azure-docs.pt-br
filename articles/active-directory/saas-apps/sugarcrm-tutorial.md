@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 99699161e8047932d27b4b124255701d13a4ec41
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1acaf5e530f5d5563901d8d498901ecc1bffecdb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutorial: integração do Azure Active Directory ao Sugar CRM
 
@@ -33,7 +33,7 @@ A integração do Sugar CRM ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Sugar CRM, você precisará dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Sugar CRM da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-sugar-crm-from-the-gallery"></a>Adicionar o Sugar CRM da galeria
 Para configurar a integração do Sugar CRM ao Azure AD, você precisará adicionar o Sugar CRM da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Sugar CRM ao Azure AD, você precisará adicio
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **SugarCRM**.
+1. Na caixa de pesquisa, digite **SugarCRM**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/tutorial_sugarcrm_search.png)
 
-5. No painel de resultados, selecione **Sugar CRM** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Sugar CRM** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No Sugar CRM, atribua o valor do **nome de usuário** no Azure AD como o valor d
 Para configurar e testar o logon único do Azure AD com o Sugar CRM, você precisará concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criar um usuário de teste do Sugar CRM](#creating-a-sugar-crm-test-user)** – para ter um equivalente de Brenda Fernandes no Sugar CRM que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criar um usuário de teste do Sugar CRM](#creating-a-sugar-crm-test-user)** – para ter um equivalente de Brenda Fernandes no Sugar CRM que esteja vinculado à representação do usuário no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_samlbase.png)
 
-3. Na seção **Domínio e URLs do Sugar CRM**, execute as seguintes etapas:
+1. Na seção **Domínio e URLs do Sugar CRM**, execute as seguintes etapas:
 
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
@@ -121,33 +121,33 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     > [!NOTE] 
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate [equipe de suporte ao cliente do Sugar CRM](https://support.sugarcrm.com/) para obter o valor. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Sugar CRM**, clique em **Configurar o Sugar CRM** para abrir a janela **Configurar o logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do Sugar CRM**, clique em **Configurar o Sugar CRM** para abrir a janela **Configurar o logon**. Copie a **URL de Saída e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_configure.png) 
 
-7. Em outra janela do navegador da Web, faça logon em seu site de empresa do SugarCRM como um administrador.
+1. Em outra janela do navegador da Web, faça logon em seu site de empresa do SugarCRM como um administrador.
 
-8. Vá para **Administrador**.
+1. Vá para **Administrador**.
    
     ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-9. Na seção **Administração**, clique em **Gerenciamento de Senhas**.
+1. Na seção **Administração**, clique em **Gerenciamento de Senhas**.
    
     ![Administração](./media/sugarcrm-tutorial/ic795889.png "Administração")
 
-10. Selecione **Habilitar Autenticação SAML**.
+1. Selecione **Habilitar Autenticação SAML**.
    
     ![Administração](./media/sugarcrm-tutorial/ic795890.png "Administração")
 
-11. Na seção **Autenticação SAML** , realize as seguintes etapas:
+1. Na seção **Autenticação SAML** , realize as seguintes etapas:
    
     ![Autenticação SAML](./media/sugarcrm-tutorial/ic795891.png "Autenticação SAML")  
  
@@ -174,15 +174,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/sugarcrm-tutorial/create_aaduser_04.png) 
 
@@ -204,27 +204,27 @@ No caso do SugarCRM, o provisionamento será uma tarefa manual.
 
 1. Faça logon em seu site de empresa do **SugarCRM** como administrador.
 
-2. Vá para **Administrador**.
+1. Vá para **Administrador**.
    
     ![Admin](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-3. Na seção **Administração**, clique em **Gerenciamento de Usuários**.
+1. Na seção **Administração**, clique em **Gerenciamento de Usuários**.
    
     ![Administração](./media/sugarcrm-tutorial/ic795893.png "Administração")
 
-4. Vá para **Usuários \> Criar Novo Usuário**.
+1. Vá para **Usuários \> Criar Novo Usuário**.
    
     ![Criar Novo Usuário](./media/sugarcrm-tutorial/ic795894.png "Criar Novo Usuário")
 
-5. Na guia **Perfil do Usuário** , realize as seguintes etapas:
+1. Na guia **Perfil do Usuário** , realize as seguintes etapas:
    
     ![Novo Usuário](./media/sugarcrm-tutorial/ic795895.png "Novo Usuário")
 
     a. Digite o **nome de usuário**, o **sobrenome** e o **endereço de email** de um usuário válido do Azure Active Directory nas caixas de texto relacionadas.
   
-6. Para **Status**, selecione **Ativo**.
+1. Para **Status**, selecione **Ativo**.
 
-7. Na guia Senha, execute as seguintes etapas:
+1. Na guia Senha, execute as seguintes etapas:
    
     ![Novo Usuário](./media/sugarcrm-tutorial/ic795896.png "Novo Usuário")
 
@@ -248,23 +248,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Sugar CRM**.
+1. Na lista de aplicativos, selecione **Sugar CRM**.
 
     ![Configurar o logon único](./media/sugarcrm-tutorial/tutorial_sugarcrm_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

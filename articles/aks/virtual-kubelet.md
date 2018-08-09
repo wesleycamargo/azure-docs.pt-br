@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952467"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443725"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usar o Virtual Kubelet com o serviço de Kubernetes do Azure (AKS)
 
@@ -77,9 +77,9 @@ Esses argumentos estão disponíveis para o comando `aks install-connector`.
 
 | Argumento: | DESCRIÇÃO | Obrigatório |
 |---|---|:---:|
-| `--connector-name` | Nome do conector ACI.| sim |
-| `--name` `-n` | Nome do cluster gerenciado. | sim |
-| `--resource-group` `-g` | Nome do grupo de recursos. | sim |
+| `--connector-name` | Nome do conector ACI.| SIM |
+| `--name` `-n` | Nome do cluster gerenciado. | SIM |
+| `--resource-group` `-g` | Nome do grupo de recursos. | SIM |
 | `--os-type` | Tipo de sistema operacional de instâncias de contêiner. Valores permitidos: Linux, Windows ou ambos. Padrão: Linux. | Não  |
 | `--aci-resource-group` | O grupo de recursos no qual criar os grupos de contêiner do ACI. | Não  |
 | `--location` `-l` | O local para criar os grupos de contêiner do ACI. | Não  |
@@ -204,7 +204,7 @@ Leia mais sobre o Virtual Kubelet no [projeto Virtual Kubelet do Github][vk-gith
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

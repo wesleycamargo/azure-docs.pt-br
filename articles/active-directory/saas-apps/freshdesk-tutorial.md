@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 064f122deb6e53a33048d3159941a8b4dc5d0a9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d0fbed347805a581fb66e0218290993817277214
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228883"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: integração do Azure Active Directory ao FreshDesk
 
@@ -34,7 +34,7 @@ A integração do FreshDesk ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao FreshDesk, você precisará dos seguintes itens:
 
@@ -53,7 +53,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o FreshDesk da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-freshdesk-from-the-gallery"></a>Adicionar o FreshDesk da galeria
 Para configurar a integração do FreshDesk ao Azure AD, você precisa adicionar o FreshDesk da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -64,19 +64,19 @@ Para configurar a integração do FreshDesk ao Azure AD, você precisa adicionar
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **FreshDesk**.
+1. Na caixa de pesquisa, digite **FreshDesk**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/tutorial_freshdesk_search.png)
 
-5. No painel de resultados, selecione **FreshDesk** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **FreshDesk** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
@@ -90,10 +90,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuá
 Para configurar e testar o logon único do Azure AD com o FreshDesk, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do FreshDesk](#creating-a-freshdesk-test-user)** – para ter um equivalente de Brenda Fernandes no FreshDesk que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do FreshDesk](#creating-a-freshdesk-test-user)** – para ter um equivalente de Brenda Fernandes no FreshDesk que esteja vinculado à representação dela no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -105,40 +105,40 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_freshdesk_samlbase.png)
 
-3. Na seção **Domínio e URLs do FreshDesk**, insira a **URL de logon** como: `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
+1. Na seção **Domínio e URLs do FreshDesk**, insira a **URL de logon** como: `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
 
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
     > [!NOTE] 
     > Observe que esse não é o valor real. Você precisa atualizar o valor com a URL de Entrada real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg).  
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o certificado em seu computador.
 
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_freshdesk_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do FreshDesk**, clique em **Configurar o FreshDesk** para abrir a janela Configurar logon. Copie a URL do serviço de logon único do SAML e a URL de logoff da seção de **Referência Rápida**.
+1. Na seção **Configuração do FreshDesk**, clique em **Configurar o FreshDesk** para abrir a janela Configurar logon. Copie a URL do serviço de logon único do SAML e a URL de logoff da seção de **Referência Rápida**.
 
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_freshdesk_configure.png)
 
-7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Freshdesk como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa do Freshdesk como administrador.
 
-8. No menu na parte superior, clique em **Administrador**.
+1. No menu na parte superior, clique em **Administrador**.
    
    ![Admin](./media/freshdesk-tutorial/IC776768.png "Admin")
 
-9. Na guia **Configurações Gerais**, clique em **Segurança**.
+1. Na guia **Configurações Gerais**, clique em **Segurança**.
    
    ![Segurança](./media/freshdesk-tutorial/IC776769.png "Segurança")
 
-10. Na seção **Segurança** , realize as seguintes etapas:
+1. Na seção **Segurança** , realize as seguintes etapas:
    
     ![Logon Único](./media/freshdesk-tutorial/IC776770.png "Logon Único")
    
@@ -169,15 +169,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/freshdesk-tutorial/create_aaduser_04.png) 
 
@@ -197,19 +197,19 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 **Para provisionar contas de usuário, execute as seguintes etapas:**
 
 1. Faça logon em seu locatário do **Freshdesk** .
-2. No menu na parte superior, clique em **Administrador**.
+1. No menu na parte superior, clique em **Administrador**.
    
    ![Admin](./media/freshdesk-tutorial/IC776772.png "Admin")
 
-3. Na guia **Configurações Gerais**, clique em **Agentes**.
+1. Na guia **Configurações Gerais**, clique em **Agentes**.
    
    ![Agentes](./media/freshdesk-tutorial/IC776773.png "Agentes")
 
-4. Clique em **Novo Agente**.
+1. Clique em **Novo Agente**.
    
     ![Novo Agente](./media/freshdesk-tutorial/IC776774.png "Novo Agente")
 
-5. Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
+1. Na caixa de diálogo Informações sobre o Agente, execute as seguintes etapas:
    
    ![Informações de Agente](./media/freshdesk-tutorial/IC776775.png "Informações de Agente")
    
@@ -242,23 +242,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, escolha **FreshDesk**.
+1. Na lista de aplicativos, escolha **FreshDesk**.
 
     ![Configurar o logon único](./media/freshdesk-tutorial/tutorial_freshdesk_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

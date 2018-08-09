@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fcef86a19a77581ff82b64173e2ac68b26ae708a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363442"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427560"
 ---
 # <a name="obtain-subscription-keys"></a>Obter chaves de assinatura
 Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você precisa vincular sua conta de usuário a uma assinatura do Azure. Estão disponíveis tipos de assinaturas gratuitas e pagas. Para obter informações sobre os tipos, consulte a [página de preços](https://www.microsoft.com/cognitive-services/en-us/pricing).
@@ -31,7 +31,7 @@ Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você p
         ![API de Serviços Cognitivos](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-subscription2.png)
 
     
-2. Preencha os campos obrigatórios a seguir:
+1. Preencha os campos obrigatórios a seguir:
 
       a. **Nome da conta**. Use um nome que funciona para você. Lembre-se desse nome para que você possa encontrar sua assinatura dos Serviços Cognitivos na lista de recursos.
 
@@ -45,7 +45,7 @@ Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você p
 
       ![Criação da conta dos Serviços Cognitivos](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-blade.png)
 
-3. Você deve encontrar um modo de exibição no painel ou um serviço com o nome da conta fornecido na sua lista de recursos. Quando você selecioná-la, você pode ver uma visão geral do serviço. Na lista à esquerda, em **Gerenciamento de Recursos**, selecione **Chaves**. Copie a **CHAVE 1**.
+1. Você deve encontrar um modo de exibição no painel ou um serviço com o nome da conta fornecido na sua lista de recursos. Quando você selecioná-la, você pode ver uma visão geral do serviço. Na lista à esquerda, em **Gerenciamento de Recursos**, selecione **Chaves**. Copie a **CHAVE 1**.
 
       Essa chave de assinatura é necessária nas etapas a seguir.
 
@@ -57,7 +57,7 @@ Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você p
 
       ![Visão geral da ID da assinatura](../../../media/cognitive-services/custom-speech-service/custom-speech-azure-cris-keys.png)
 
-4. Para inserir a chave de assinatura, na faixa de opções no canto superior direito, selecione sua conta de usuário. No menu suspenso, selecione **Assinaturas**.
+1. Para inserir a chave de assinatura, na faixa de opções no canto superior direito, selecione sua conta de usuário. No menu suspenso, selecione **Assinaturas**.
 
       ![Item de menu Assinaturas](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-selection.png)
 
@@ -65,7 +65,7 @@ Para começar a usar o Serviço de Fala Personalizada do Azure, primeiro você p
 
     ![Tabela de assinaturas](../../../media/cognitive-services/custom-speech-service/custom-speech-subscription-list.png)
 
-5. Selecione **Adicionar nova**. Insira um nome para a assinatura e a chave de assinatura. Ela pode ser uma **CHAVE 1** (chave primária) ou **CHAVE 2** (chave secundária) de sua assinatura.
+1. Selecione **Adicionar nova**. Insira um nome para a assinatura e a chave de assinatura. Ela pode ser uma **CHAVE 1** (chave primária) ou **CHAVE 2** (chave secundária) de sua assinatura.
 
       ![Nome da chave de assinatura](../../../media/cognitive-services/custom-speech-service/custom-speech-enter-subsciption.png)
 

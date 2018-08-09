@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098899"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440466"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Criar um cluster do Serviço de Kubernetes do Azure (AKS)
 
@@ -69,5 +69,5 @@ As opções a seguir estão disponíveis com o comando `az aks create`. Consulte
 Para obter instruções sobre como implantar um cluster do AKS com o Portal do Azure, veja o [Guia de início rápido do Portal do Azure][aks-portal-quickstart] do AKS (Serviço de Kubernetes do Azure).
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md

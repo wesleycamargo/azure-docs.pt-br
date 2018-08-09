@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 1a2661797ddae0cc3d5f53a1e40ce22f3728eb17
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c38623bba4c15add9abae289fae97af33be4f393
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210731"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443459"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configurar o Jive para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Jive e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Jive.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -61,15 +61,15 @@ Como parte desse procedimento, é necessário fornecer um token de segurança do
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado o Jive para logon único, pesquise a instância do Jive usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Jive** na galeria de aplicativos. Selecione o Jive nos resultados da pesquisa e adicione-o à lista de aplicativos.
+1. Se você já tiver configurado o Jive para logon único, pesquise a instância do Jive usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Jive** na galeria de aplicativos. Selecione o Jive nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione a instância do Jive e, depois, a guia **Provisionamento**.
+1. Selecione a instância do Jive e, depois, a guia **Provisionamento**.
 
-4. Defina o **Modo de Provisionamento** como **Automático**. 
+1. Defina o **Modo de Provisionamento** como **Automático**. 
 
     ![provisionamento](./media/jive-provisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
+1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
     a. Na caixa de texto **Nome do Usuário Administrador do Jive**, digite o nome da conta do Jive que tem o perfil do **Administrador de Sistema** atribuído no Jive.com.
    
@@ -81,19 +81,19 @@ Como parte desse procedimento, é necessário fornecer um token de segurança do
       > A URL de locatário do Jive é a URL usada por sua organização para fazer logon no Jive.  
       > Normalmente, a URL tem o seguinte formato: **www.\<organização\>.jive.com**.          
 
-6. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo Jive.
+1. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo Jive.
 
-7. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
+1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção abaixo.
 
-8. Clique em **Salvar.**
+1. Clique em **Salvar.**
 
-9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Jive.**
+1. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o Jive.**
 
-10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o Jive. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Jive em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o Jive. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do Jive em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-11. Para habilitar o serviço de provisionamento do Azure AD no Jive, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
+1. Para habilitar o serviço de provisionamento do Azure AD no Jive, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-12. Clique em **Salvar.**
+1. Clique em **Salvar.**
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Jive na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento no aplicativo Jive.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258789"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627518"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -40,7 +40,7 @@ As perguntas a seguir podem ser respondidas pelos relatórios existentes no [Por
 
 ## <a name="power-bi-content-pack"></a>Pacotes de conteúdo do Power BI
 
-Se você é um usuário do Power BI, há um pacote de conteúdo do Azure AD que inclui relatórios fáceis de usar para SSPR. Encontre mais informações sobre como usar e implantar o pacote de conteúdo no artigo [Como usar o pacote de conteúdo do Power BI do Azure Active Directory](../active-directory-reporting-power-bi-content-pack-how-to.md). Com o pacote de conteúdo, você pode criar seus próprios painéis e compartilhá-los com outras pessoas em sua organização.
+Se você é um usuário do Power BI, há um pacote de conteúdo do Azure AD que inclui relatórios fáceis de usar para SSPR. Encontre mais informações sobre como usar e implantar o pacote de conteúdo no artigo [Como usar o pacote de conteúdo do Power BI do Azure Active Directory](../reports-monitoring/howto-power-bi-content-pack.md). Com o pacote de conteúdo, você pode criar seus próprios painéis e compartilhá-los com outras pessoas em sua organização.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Como exibir relatórios de gerenciamento de senhas no portal do Azure
 

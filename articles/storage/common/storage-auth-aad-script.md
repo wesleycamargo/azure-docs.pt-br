@@ -3,17 +3,17 @@ title: Execute os comandos da CLI do Azure ou PowerShell sob uma identidade do M
 description: A CLI do Azure e o PowerShell oferecem suporte para registros com uma identidade do Microsoft Azure Active Directory para executar comandos em contêineres de Armazenamento do Microsoft Azure e filas e seus dados. Um token de acesso é fornecido para a sessão e usado para autorizar operações de chamada. Permissões dependem da função atribuída a identidade do Microsoft Azure Active Directory.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: tamram
-ms.openlocfilehash: 98af46707485d1ab49e7d8c6fb1729e6edc6b2ff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: common
+ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235858"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522478"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Use uma identidade do Microsoft Azure Active Directory para acessar o Armazenamento do Microsoft Azure com CLI ou PowerShell (visualização)
 

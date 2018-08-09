@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a6dbfbf071c0c760cb096d200cd39bfca3dfa2e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6ec5e0c2c3a83335dfcb7e3bcc048dd66494e94
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227897"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447794"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Área Restrita Salesforce para o provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser executadas na Área Restrita Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para a Área Restrita do Salesforce.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -61,49 +61,49 @@ O objetivo desta seção é descrever como habilitar o provisionamento de contas
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado a Área Restrita Salesforce para logon único, pesquise sua instância da Área Restrita Salesforce usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Área Restrita Salesforce** na galeria de aplicativos. Selecione a Área Restrita Salesforce nos resultados da pesquisa e adicione-o à lista de aplicativos.
+1. Se você já tiver configurado a Área Restrita Salesforce para logon único, pesquise sua instância da Área Restrita Salesforce usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **Área Restrita Salesforce** na galeria de aplicativos. Selecione a Área Restrita Salesforce nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione sua instância da Área Restrita Salesforce e selecione a guia **Provisionamento**.
+1. Selecione sua instância da Área Restrita Salesforce e selecione a guia **Provisionamento**.
 
-4. Defina o **Modo de Provisionamento** como **Automático**.
+1. Defina o **Modo de Provisionamento** como **Automático**.
 
     ![provisionamento](./media/salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
+1. Na seção **Credenciais de Administrador**, forneça as seguintes definições de configuração:
    
     a. Na caixa de texto **Nome de Usuário Administrador**, digite o nome da conta da Área Restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
    
     b. Na caixa de texto **Senha do Administrador**, digite a senha dessa conta.
 
-6. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
+1. Para obter o token de segurança da Área Restrita Salesforce, abra uma nova guia e entre na mesma conta do administrador da Área Restrita Salesforce. No canto superior direito da página, clique em seu nome e em **Configurações**.
 
      ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "Habilitar o provisionamento de usuário automático")
 
-7. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
+1. No painel de navegação esquerdo, clique em **Minhas Informações Pessoais** para expandir a seção correspondente e clique em **Redefinir Meu Token de Segurança**.
   
     ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "Habilitar o provisionamento de usuário automático")
 
-8. Na página **Redefinir Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
+1. Na página **Redefinir Token de Segurança**, clique no botão **Redefinir Token de Segurança**.
 
     ![Habilitar o provisionamento automático de usuário](./media/salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "Habilitar o provisionamento de usuário automático")
 
-9. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce Sandbox.com que contenha o novo token de segurança.
+1. Marque a caixa de entrada de email associada a essa conta de administrador. Procure um email do Salesforce Sandbox.com que contenha o novo token de segurança.
 
-10. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto**.
+1. Copie o token, vá até a janela do Azure AD e cole-o no campo **Token Secreto**.
 
-11. No portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Área Restrita Salesforce.
+1. No portal do Azure, clique em **Testar Conexão** para garantir que o Azure AD possa se conectar ao seu aplicativo Área Restrita Salesforce.
 
-12. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
+1. Insira o endereço de email de uma pessoa ou grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-13. Clique em **Salvar.**  
+1. Clique em **Salvar.**  
     
-14.  Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com a Área Restrita Salesforce.**
+1.  Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com a Área Restrita Salesforce.**
 
-15. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD para a Área Restrita Salesforce. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário na Área Restrita Salesforce para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+1. Na seção **Mapeamentos de Atributo**, revise os atributos de usuário que serão sincronizados do Azure AD para a Área Restrita Salesforce. Observe que os atributos selecionados como propriedades **Correspondentes** serão usados para corresponder as contas de usuário na Área Restrita Salesforce para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-16. Para habilitar o serviço de provisionamento do Azure AD para a Área Restrita Salesforce, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
+1. Para habilitar o serviço de provisionamento do Azure AD para a Área Restrita Salesforce, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-17. Clique em **Salvar.**
+1. Clique em **Salvar.**
 
 Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atribuídos à Área Restrita Salesforce na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Área Restrita Salesforce.
 

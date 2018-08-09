@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263517"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426611"
 ---
 # <a name="create-activity-log-alerts-classic"></a>Criar alertas do log de atividades (clássicos)
 
@@ -58,31 +58,31 @@ Para saber mais sobre as notificações de integridade do serviço, veja [Recebe
 1. No [portal](https://portal.azure.com), selecione **Monitor**.
 
     ![O serviço “Monitor”](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. Na seção **Log de atividades**, selecione **Alertas (clássicos)**.
+1. Na seção **Log de atividades**, selecione **Alertas (clássicos)**.
 
     ![A guia “Alertas”](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Selecione **Adicionar alerta do log de atividades** e preencha os campos.
+1. Selecione **Adicionar alerta do log de atividades** e preencha os campos.
 
-4. Insira um nome na caixa **Nome do log de atividades alerta** e selecione uma **Descrição**.
+1. Insira um nome na caixa **Nome do log de atividades alerta** e selecione uma **Descrição**.
 
     ![O comando "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é aquela na qual o grupo de ação é salvo. O recurso de alerta é implantado nessa assinatura e monitora os eventos do log de atividades dela.
+1. A caixa **Assinatura** é automaticamente preenchida com a sua assinatura atual. Esta assinatura é aquela na qual o grupo de ação é salvo. O recurso de alerta é implantado nessa assinatura e monitora os eventos do log de atividades dela.
 
     ![A caixa de diálogo "Adicionar alerta do log de atividades"](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Selecione o **Grupo de recursos** no qual o recurso de alerta é criado. Esse não é o grupo de recursos monitorado pelo alerta. Em vez disso, é o grupo de recursos onde se encontra o recurso de alerta.
+1. Selecione o **Grupo de recursos** no qual o recurso de alerta é criado. Esse não é o grupo de recursos monitorado pelo alerta. Em vez disso, é o grupo de recursos onde se encontra o recurso de alerta.
 
-7. Opcionalmente, selecione uma **Categoria de evento** para modificar os filtros adicionais que são mostrados. Para eventos administrativos, os filtros incluem **Grupo de recursos**, **Recurso**, **Ripo de recurso**, **Nome da operação**, **Nível**, **Status** e **Evento iniciado por**. Esses valores identificam quais eventos este alerta deverá monitorar.
+1. Opcionalmente, selecione uma **Categoria de evento** para modificar os filtros adicionais que são mostrados. Para eventos administrativos, os filtros incluem **Grupo de recursos**, **Recurso**, **Ripo de recurso**, **Nome da operação**, **Nível**, **Status** e **Evento iniciado por**. Esses valores identificam quais eventos este alerta deverá monitorar.
 
     >[!NOTE]
     >Você deve especificar pelo menos um dos critérios anteriores em seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
     >
     >
 
-8. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
+1. Insira um nome na caixa **Nome do grupo de ação** e, em seguida, digite um nome na caixa **Nome curto**. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 
-9.  Defina uma lista de ações fornecendo os seguintes dados da ação:
+1.  Defina uma lista de ações fornecendo os seguintes dados da ação:
 
     a. **Nome**: insira o nome, o alias ou o identificador da ação.
 
@@ -90,7 +90,7 @@ Para saber mais sobre as notificações de integridade do serviço, veja [Recebe
 
     c. **Detalhes**: de acordo com o tipo de ação escolhido, insira um número de telefone, um endereço de email ou um URI de webhook.
 
-10. Selecione **OK** para criar o alerta.
+1.  Selecione **OK** para criar o alerta.
 
 O alerta leva alguns minutos para se propagar totalmente e então se tornar ativo. Ele dispara quando novos eventos correspondem aos critérios do alerta.
 
@@ -104,9 +104,9 @@ Para saber mais, veja [Noções básicas sobre o esquema de webhook usado em ale
 ## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Criar um alerta em um evento do log de atividades para um grupo de ações existente usando o portal do Azure
 1. Siga as etapas 1 a 7 na seção anterior para criar o alerta do log de atividades.
 
-2. Em **Notificar via**, selecione o botão Grupo de ações **existente**. Selecione um grupo de ações existente na lista.
+1. Em **Notificar via**, selecione o botão Grupo de ações **existente**. Selecione um grupo de ações existente na lista.
 
-3. Selecione **OK** para criar o alerta.
+1. Selecione **OK** para criar o alerta.
 
 O alerta leva alguns minutos para se propagar totalmente e então se tornar ativo. Ele dispara quando novos eventos correspondem aos critérios do alerta.
 

@@ -4,23 +4,23 @@ description: Este artigo descreve como adicionar uma origem do evento que está 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330587"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627365"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem do evento do Hub IoT ao ambiente do Time Series Insights
 Este tutorial explica como usar o portal do Azure para adicionar uma origem do evento que leia de um Hub IoT para o ambiente do Time Series Insights.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - Crie um ambiente do Time Series Insights. Para saber mais, veja [Criar um ambiente do Azure Time Series Insights](time-series-insights-get-started.md) 
 - Crie um Hub IoT. Para saber mais sobre Hubs IoT, veja [Criar um hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md)
 - O Hub IoT precisa ter eventos de mensagem ativos enviados.
@@ -93,7 +93,7 @@ Para adicionar um novo grupo de consumidores ao Hub IoT, siga estas etapas:
 
 11. Selecione **Criar** para adicionar a nova origem do evento.
 
-   ![Clicar em Criar](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![Clique em Criar. ](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    Após a criação da origem de evento, a Análise de Séries Temporais iniciará automaticamente o fluxo de dados no seu ambiente.
 

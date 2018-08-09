@@ -4,24 +4,24 @@ description: Este artigo descreve como adicionar uma origem do evento que está 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce4bf1ab74e4203f0deb7b2984ffa6a66d5efd4a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330851"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627103"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem do evento do Hub de Eventos ao ambiente do Time Series Insights
 
 Este tutorial explica como usar o portal do Azure para adicionar uma origem do evento que leia de um Hub de Eventos para o ambiente do Time Series Insights.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 - Crie um ambiente do Time Series Insights. Para saber mais, veja [Criar um ambiente do Azure Time Series Insights](time-series-insights-get-started.md) 
 - Criar um Hub de Eventos. Para saber mais sobre os Hubs de Eventos, consulte [Criar um namespace do Hubs de Eventos e um hub de eventos usando o Portal do Azure](../event-hubs/event-hubs-create.md)
 - O Hub de Eventos precisa ter eventos de mensagem ativos enviados. Para saber mais, confira [Enviar eventos para Hubs de Eventos do Azure usando o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
@@ -98,7 +98,7 @@ Para adicionar um novo grupo de consumidores ao Hub de Eventos, execute estas et
 
 11. Selecione **Criar** para adicionar a nova origem do evento.
    
-   ![Clicar em Criar](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   ![Clique em Criar. ](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Após a criação da origem de evento, a Análise de Séries Temporais iniciará automaticamente o fluxo de dados no seu ambiente.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210791"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426897"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Tutorial: Configurar ServiceNow para o provisionamento automático de usuário com o Azure Active Directory
 
@@ -29,7 +29,7 @@ O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no Se
 > [!NOTE]
 > Este tutorial descreve um conector compilado na parte superior do Serviço de Provisionamento de Usuário do Microsoft Azure AD. Para detalhes importantes sobre o que esse serviço faz, como funciona e as perguntas frequentes, consulte [Automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao ServiceNow, você precisará dos seguintes itens:
 
@@ -68,15 +68,15 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
 1. No [Portal do Azure](https://portal.azure.com), navegue até a seção **Azure Active Directory > Aplicativos Empresariais > Todos os aplicativos**.
 
-2. Se você já tiver configurado o ServiceNow para logon único, pesquise a instância do ServiceNow usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **ServiceNow** na galeria de aplicativos. Selecione o ServiceNow nos resultados da pesquisa e adicione-o à lista de aplicativos.
+1. Se você já tiver configurado o ServiceNow para logon único, pesquise a instância do ServiceNow usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise **ServiceNow** na galeria de aplicativos. Selecione o ServiceNow nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-3. Selecione a instância do ServiceNow e, depois, a guia **Provisionamento**.
+1. Selecione a instância do ServiceNow e, depois, a guia **Provisionamento**.
 
-4. Defina o **Modo de Provisionamento** como **Automático**. 
+1. Defina o **Modo de Provisionamento** como **Automático**. 
 
     ![provisionamento](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. Na seção “Credenciais de Administrador”, realize as seguintes etapas:
+1. Na seção “Credenciais de Administrador”, realize as seguintes etapas:
    
     a. Na caixa de texto **Nome de Instância do ServiceNow** , digite o nome da instância do ServiceNow.
 
@@ -84,19 +84,19 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
     c. Na caixa de texto **Senha do Administrador do ServiceNow**, digite a senha do administrador.
 
-6. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo ServiceNow. Se a conexão falhar, verifique se a sua conta do ServiceNow tem permissões de Administrador de Equipe e repita a etapa **"Credenciais de Administrador"**.
+1. No portal do Azure, clique em **Testar conectividade** para garantir que o Azure AD pode se conectar ao aplicativo ServiceNow. Se a conexão falhar, verifique se a sua conta do ServiceNow tem permissões de Administrador de Equipe e repita a etapa **"Credenciais de Administrador"**.
 
-7. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
+1. Insira o endereço de email de uma pessoa ou um grupo que deve receber notificações de erro de provisionamento no campo **Email de Notificação** e marque a caixa de seleção.
 
-8. Clique em **Salvar.**
+1. Clique em **Salvar.**
 
-9. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ServiceNow.**
+1. Na seção Mapeamentos, selecione **Sincronizar Usuários do Azure Active Directory com o ServiceNow.**
 
-10. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o ServiceNow. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do ServiceNow em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
+1. Na seção **Mapeamentos de Atributo**, examine os atributos de usuário que são sincronizados do Azure AD para o ServiceNow. Os atributos selecionados como propriedades **Correspondentes** são usados para corresponder as contas de usuário do ServiceNow em operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
-11. Para habilitar o serviço de provisionamento do Azure AD no ServiceNow, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
+1. Para habilitar o serviço de provisionamento do Azure AD no ServiceNow, altere o **Status de Provisionamento** para **Ativado** na seção Configurações
 
-12. Clique em **Salvar.**
+1. Clique em **Salvar.**
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao ServiceNow na seção Usuários e Grupos. Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Use a seção **Detalhes de Sincronização** para monitorar o progresso e siga os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo ServiceNow.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: b69cc226ca5b4f48747b033e0da5e7f991be112e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915456"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426744"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de Atualização do Red Hat para as VMs Red Hat Enterprise do Linux sob demanda no Azure
  A RHUI ([Infraestrutura de Atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure)) permite que os provedores de nuvem, como o Azure, espelhem o conteúdo do repositório hospedado pelo Red Hat, criem repositórios personalizados com conteúdo específico ao Azure e o disponibilizem para as VMs do usuário final.
@@ -76,9 +76,9 @@ Se você estiver tendo problemas para se conectar ao RHUI do Azure de sua VM PAY
 
     b. No entanto, se ele estiver apontando para um local com o padrão a seguir, será necessária uma atualização da configuração: `mirrorlist.*cds[1-4].cloudapp.net`. Você está usando o instantâneo de VM antigo e precisa atualizá-lo o para que ele aponte para o novo RHUI do Azure.
 
-2. O acesso ao RHUI hospedado no Azure é limitado a VMs dentro dos [intervalos de IP do datacenter do Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. O acesso ao RHUI hospedado no Azure é limitado a VMs dentro dos [intervalos de IP do datacenter do Azure] (https://www.microsoft.com/download/details.aspx?id=41653).
  
-3. Se estiver usando a nova configuração, verifique se a VM se conecta do intervalo de IP do Azure e, se ainda não puder se conectar ao RHUI do Azure, registre um caso de suporte na Microsoft ou no Red Hat.
+1. Se estiver usando a nova configuração, verifique se a VM se conecta do intervalo de IP do Azure e, se ainda não puder se conectar ao RHUI do Azure, registre um caso de suporte na Microsoft ou no Red Hat.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Procedimento de atualização manual para usar os servidores do RHUI do Azure
 Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já tem a configuração correta para se conectar ao Azure RHUI. Para atualizar manualmente a configuração para usar os servidores de RHUI do Azure, conclua as seguintes etapas:
@@ -89,13 +89,13 @@ Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-2. Verifique a validade da chave baixada.
+1. Verifique a validade da chave baixada.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-3. Verifique a saída e, em seguida, verifique o `keyid` e o `user ID packet`.
+1. Verifique a saída e, em seguida, verifique o `keyid` e o `user ID packet`.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -119,14 +119,14 @@ Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
            data: [2047 bits]
    ```
 
-4. Instale a chave pública.
+1. Instale a chave pública.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-5. Baixar, verificar e instalar um cliente RPM (Gerenciador de Pacotes RPM).
+1. Baixar, verificar e instalar um cliente RPM (Gerenciador de Pacotes RPM).
     
     >[!NOTE]
     >As versões do pacote sofrem alterações. Se você se conectar manualmente ao RHUI do Azure, talvez encontre a última versão do pacote do cliente para cada família do RHEL provisionando a última imagem da galeria.
@@ -165,7 +165,7 @@ Esse procedimento é fornecido apenas para referência. Imagens RHEL PAYG já te
     sudo rpm -U azureclient.rpm
     ```
 
-6. Após a conclusão, verifique se você pode acessar o RHUI do Azure por meio da VM.
+1. Após a conclusão, verifique se você pode acessar o RHUI do Azure por meio da VM.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para criar uma VM do Red Hat Enterprise Linux por meio de uma imagem PAYG do Azure Marketplace e aproveitar o RHUI hospedado pelo Azure, acesse o [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 

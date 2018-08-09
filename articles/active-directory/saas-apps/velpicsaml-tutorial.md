@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: e7863d693a6c11e705990f9cfa2d1f54c75c7a91
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2ca95f6fd94036e86aae2059c05a3fbb0380005e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221301"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory ao Velpic SAML
 
@@ -33,7 +33,7 @@ A integração do Velpic SAML ao Azure AD proporciona os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao Velpic SAML, você precisa dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando Velpic SAML usando a galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-velpic-saml-from-the-gallery"></a>Adicionando Velpic SAML usando a galeria
 Para configurar a integração do Velpic SAML ao Azure AD, você precisa adicionar o Velpic SAML da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração do Velpic SAML ao Azure AD, você precisa adicion
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **Velpic SAML**.
+1. Na caixa de pesquisa, digite **Velpic SAML**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/tutorial_velpicsaml_search.png)
 
-5. No painel de resultados, selecione **Velpic SAML** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **Velpic SAML** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/tutorial_velpicsaml_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o Velpic SAML, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Velpic SAML](#creating-a-velpic-saml-test-user)** - para ter um equivalente de Brenda Fernandes no Velpic SAML que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criação de um usuário de teste do Velpic SAML](#creating-a-velpic-saml-test-user)** - para ter um equivalente de Brenda Fernandes no Velpic SAML que esteja vinculado à representação dela no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_velpicsaml_samlbase.png)
 
-3. Insira os detalhes na seção **Domínio e URLs do Velpic SAML**
+1. Insira os detalhes na seção **Domínio e URLs do Velpic SAML**
 
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_velpicsaml_url.png)
 
@@ -119,35 +119,35 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
     > [!NOTE]
     > Observe que a URL de Logon será fornecida pela equipe do Velpic SAML e o valor do Identificador estará disponível quando você configurar o Plug-in do SSO no lado do Velpic SAML. É preciso copiar esse valor na página do aplicativo Velpic SAML e colá-lo aqui.
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-5. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_general_400.png)
 
-6. Na seção Configuração do Velpic SAML, clique em Configurar o Velpic SAML para abrir a janela Configurar logon. Copie a ID da Entidade SAML da seção Referência Rápida.
+1. Na seção Configuração do Velpic SAML, clique em Configurar o Velpic SAML para abrir a janela Configurar logon. Copie a ID da Entidade SAML da seção Referência Rápida.
 
-7. Em uma janela diferente do navegador da Web, faça logon no site do Velpic SAML na sua empresa como administrador.
+1. Em uma janela diferente do navegador da Web, faça logon no site do Velpic SAML na sua empresa como administrador.
 
-8. Clique na guia **Gerenciar** e vá para a seção **Integração**, onde você pode clicar no botão **Plug-ins** para criar novo plug-in para Conectar.
+1. Clique na guia **Gerenciar** e vá para a seção **Integração**, onde você pode clicar no botão **Plug-ins** para criar novo plug-in para Conectar.
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_1.png)
 
-9. Clique no botão **"Adicionar plug-in"**.
+1. Clique no botão **"Adicionar plug-in"**.
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_2.png)
 
-10. Clique no bloco **SAML** na página Adicionar Plug-in.
+1. Clique no bloco **SAML** na página Adicionar Plug-in.
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_3.png)
 
-11. Insira o nome do novo plug-in SAML e clique no botão **"Adicionar"**.
+1. Insira o nome do novo plug-in SAML e clique no botão **"Adicionar"**.
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_4.png)
 
-12. Insira os detalhes da seguinte maneira:
+1. Insira os detalhes da seguinte maneira:
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_5.png)
 
@@ -174,15 +174,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/velpicsaml-tutorial/create_aaduser_04.png) 
 
@@ -204,7 +204,7 @@ Entre no site da empresa do seu Velpic SAML como um administrador e execute as s
 
     ![adicionar usuário](./media/velpicsaml-tutorial/velpic_7.png)
 
-2. Na página da caixa de diálogo **"Criar Novo Usuário"**, execute as etapas que se seguem.
+1. Na página da caixa de diálogo **"Criar Novo Usuário"**, execute as etapas que se seguem.
 
     ![usuário](./media/velpicsaml-tutorial/velpic_8.png)
     
@@ -232,23 +232,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Velpic SAML**.
+1. Na lista de aplicativos, selecione **Velpic SAML**.
 
     ![Configurar o logon único](./media/velpicsaml-tutorial/tutorial_velpicsaml_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 
@@ -258,7 +258,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_6.png)
 
-2. Clique no botão **"Fazer logon com Azure AD"** para entrar no Velpic usando sua conta do Azure AD.
+1. Clique no botão **"Fazer logon com Azure AD"** para entrar no Velpic usando sua conta do Azure AD.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

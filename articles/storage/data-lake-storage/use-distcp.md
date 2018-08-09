@@ -2,28 +2,24 @@
 title: Copiar dados no Azure Data Lake Store Gen2 usando Distcp Versão Prévia | Microsoft Docs
 description: Use a ferramenta Distcp para copiar dados do Data Lake Storage Gen2 Versão Prévia
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: seguler
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.devlang: na
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 073d81baca7e174872806301236f547329836c45
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113469"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522689"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>Usar Distcp para copiar dados entre Blobs do Armazenamento do Azure e Data Lake Storage Gen2 Versão Prévia
 
 Se você tem um cluster HDInsight com acesso ao Azure Data Lake Storag Gen2 Versão Prévia, use as ferramentas do ecossistema do Hadoop, como o [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html), **para e de** um armazenamento de cluster HDInsight (WASB) para uma conta do Data Lake Storage Gen2. Este artigo fornece instruções de como usar a ferramenta Distcp.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do Armazenamento do Azure com o recurso Azure Data Lake Storage (Versão Prévia) habilitado**. Para instruções sobre como criar uma, consulte [ Criar uma conta de armazenamento da versão prévia do Armazenamento do Azure Data Lake Gen2](quickstart-create-account.md)

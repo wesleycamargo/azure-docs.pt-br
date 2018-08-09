@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bcd4c654c2dc9812fe62dc07d5fb1170ef3fa38
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5c830df47ff212d2f4d93eb48001ce3a3e2207
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221488"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Active Directory do Azure com SD Elements
 
@@ -33,7 +33,7 @@ A integração do SD Elements ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do AD do Azure a SD Elements, você precisa dos seguintes itens:
 
@@ -52,7 +52,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando elementos SD da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-sd-elements-from-the-gallery"></a>Adicionando elementos SD da galeria
 Para configurar a integração de SD Elements ao Azure AD, você precisa adicionar SD Elements da galeria à sua lista de aplicativos de SaaS gerenciados.
@@ -63,19 +63,19 @@ Para configurar a integração de SD Elements ao Azure AD, você precisa adicion
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **SD Elements**.
+1. Na caixa de pesquisa, digite **SD Elements**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/tutorial_sdelements_search.png)
 
-5. No painel de resultados, selecione **SD Elements** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **SD Elements** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/tutorial_sdelements_addfromgallery.png)
 
@@ -89,10 +89,10 @@ No SD Elements, atribua o valor do **nome de usuário** no Azure AD como o valor
 Para configurar e testar o logon único do Azure AD com o SD Elements, é preciso concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste do SD Elements](#creating-a-sd-elements-test-user)** – para ter um equivalente de Brenda Fernandes no SD Elements que esteja vinculado à representação de usuário do Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste do SD Elements](#creating-a-sd-elements-test-user)** – para ter um equivalente de Brenda Fernandes no SD Elements que esteja vinculado à representação de usuário do Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -104,11 +104,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_samlbase.png)
 
-3. Na seção **Domínio e URLs do SD Elements**, realize as seguintes etapas:
+1. Na seção **Domínio e URLs do SD Elements**, realize as seguintes etapas:
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_url.png)
 
@@ -119,11 +119,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do SD Elements](mailto:support@sdelements.com) para obter esses valores.
 
-4. O aplicativo SD Elements espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Gerencie os valores desses atributos na guia “**Atributo de Usuário**” do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+1. O aplicativo SD Elements espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Gerencie os valores desses atributos na guia “**Atributo de Usuário**” do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_attribute.png)
 
-5. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir: 
+1. Na seção **Atributos do Usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML como mostra a imagem e execute as etapas a seguir: 
 
     | Nome do atributo | Valor do atributo |
     | --- | --- |
@@ -143,27 +143,27 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique em **OK**.
  
-6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_certificate.png) 
 
-7. Clique no botão **Salvar** .
+1. Clique no botão **Salvar** .
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do SD Elements**, clique em **Configurar o SD Elements** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
+1. Na seção **Configuração do SD Elements**, clique em **Configurar o SD Elements** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção Referência Rápida.**
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_configure.png)
 
-9. Para habilitar logon único, entre em contato com a [equipe de suporte do SD Elements](mailto:support@sdelements.com) e forneça a ela o arquivo de certificado baixado. 
+1. Para habilitar logon único, entre em contato com a [equipe de suporte do SD Elements](mailto:support@sdelements.com) e forneça a ela o arquivo de certificado baixado. 
 
-10. Em outra janela do navegador, faça logon no locatário do SD Elements como administrador.
+1. Em outra janela do navegador, faça logon no locatário do SD Elements como administrador.
 
-11. No menu na parte superior, clique em **Sistema** e, depois, em **Logon Único**. 
+1. No menu na parte superior, clique em **Sistema** e, depois, em **Logon Único**. 
    
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_09.png) 
 
-12. Na caixa de diálogo **Configurações de Logon Único** , execute as seguintes etapas:
+1. Na caixa de diálogo **Configurações de Logon Único** , execute as seguintes etapas:
    
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_10.png) 
    
@@ -190,15 +190,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/create_aaduser_01.png) 
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
+1. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/create_aaduser_02.png) 
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/sd-elements-tutorial/create_aaduser_04.png) 
 
@@ -218,15 +218,15 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no SD Ele
 
 1. Em uma janela de navegador da web, faça logon no site SD Elements da sua empresa como administrador.
 
-2. No menu na parte superior, clique em **Gerenciamento de Usuários** e, depois, em **Usuários**.
+1. No menu na parte superior, clique em **Gerenciamento de Usuários** e, depois, em **Usuários**.
    
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
-3. Clique em **Adicionar Novo Usuário**.
+1. Clique em **Adicionar Novo Usuário**.
    
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
  
-4. Na caixa de diálogo **Adicionar Novo Usuário**, realize as seguintes etapas:
+1. Na caixa de diálogo **Adicionar Novo Usuário**, realize as seguintes etapas:
    
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
@@ -252,23 +252,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **SD Elements**.
+1. Na lista de aplicativos, selecione **SD Elements**.
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sdelements_app.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 ### <a name="testing-single-sign-on"></a>Teste do logon único
 

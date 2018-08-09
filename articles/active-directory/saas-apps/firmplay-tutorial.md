@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: dacc133f1c6d15aa1fc886ab9086109951478929
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6e3d8a3951a42e448eff005b055b3cf5169179f1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219893"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integração do Azure Active Directory com FirmPlay - Employee Advocacy for Recruiting
 
@@ -33,7 +33,7 @@ Integrar o FirmPlay - Employee Advocacy for Recruiting com o Azure AD fornece os
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com FirmPlay - Employee Advocacy for Recruiting, você precisa dos seguintes itens:
 
@@ -55,7 +55,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o FirmPlay - Employee Advocacy for Recruiting a partir da galeria
-2. configurar e testar o logon único do AD do Azure
+1. configurar e testar o logon único do AD do Azure
 
 
 ## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>Adicionando o FirmPlay - Employee Advocacy for Recruiting a partir da galeria
@@ -67,19 +67,19 @@ Para configurar a integração do FirmPlay - Employee Advocacy for Recruiting no
 
     ![Active Directory][1]
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![APLICATIVOS][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+1. Clique em **adicionar** botão na parte superior da caixa de diálogo.
 
     ![APLICATIVOS][3]
 
-4. Na caixa de pesquisa, digite **FirmPlay - Employee Advocacy for Recruiting**.
+1. Na caixa de pesquisa, digite **FirmPlay - Employee Advocacy for Recruiting**.
 
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/tutorial_firmplay_001.png)
 
-5. No painel de resultados, selecione **FirmPlay - Employee Advocacy for Recruiting** e clique no botão **Adicionar** para adicionar o aplicativo.
+1. No painel de resultados, selecione **FirmPlay - Employee Advocacy for Recruiting** e clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
 
@@ -94,10 +94,10 @@ Essa relação de vínculo é estabelecida atribuindo o valor do **nome de usuá
 Para configurar e testar o logon único do Azure AD com o FirmPlay - Employee Advocacy for Recruiting, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
-3. **[Criando um usuário de teste FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - para ter um equivalente de Brenda Fernandes no FirmPlay vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** – para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Criando um usuário de teste FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)** - para ter um equivalente de Brenda Fernandes no FirmPlay vinculado à representação dela no Azure AD.
+1. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+1. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -109,44 +109,44 @@ Nesta seção, você habilitará o logon único do Azure AD no portal de Gerenci
 
     ![Configurar o logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+1. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
  
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_01.png)
 
-3. Na seção **Domínio e URLs do FirmPlay - Employee Advocacy for Recruiting** seção, na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:`https://<your-subdomain>.firmplay.com/`
+1. Na seção **Domínio e URLs do FirmPlay - Employee Advocacy for Recruiting** seção, na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:`https://<your-subdomain>.firmplay.com/`
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_02.png)
 
     > [!NOTE] 
     > Observe que esse não é o valor real. Você precisa atualizar esse valor com a URL de Entrada real. Entre em contato com a [equipe de suporte do FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para obter esse valor. 
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
+1. Na seção **Certificado de Autenticação SAML**, clique em **Criar novo certificado**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_03.png)     
 
-5. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
+1. Na caixa de diálogo **Criar um Novo Certificado**, clique no ícone de calendário e selecione uma **data de expiração**. Em seguida, clique no botão **Salvar**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_general_300.png)
 
-6. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
+1. Na seção **Certificado de Autenticação SAML**, selecione **Ativar o novo certificado** e clique no botão **Salvar**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_04.png)
 
-7. Na janela pop-up **Certificado de substituição**, clique em **OK**.
+1. Na janela pop-up **Certificado de substituição**, clique em **OK**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_general_400.png)
 
-8. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador. 
+1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador. 
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_05.png) 
 
-9. Na seção **Configuração do FirmPlay - Employee Advocacy for Recruiting**, clique em **Configurar FirmPlay - Employee Advocacy for Recruiting** para abrir a caixa de diálogo **Configurar logon**.
+1. Na seção **Configuração do FirmPlay - Employee Advocacy for Recruiting**, clique em **Configurar FirmPlay - Employee Advocacy for Recruiting** para abrir a caixa de diálogo **Configurar logon**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_06.png) 
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_07.png)
 
-10. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) e forneça o seguinte: 
+1. Para que o SSO seja configurado para seu aplicativo, entre em contato com a [equipe de suporte do FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) e forneça o seguinte: 
 
     • O **Arquivo de certificado** baixado
 
@@ -168,15 +168,15 @@ O objetivo desta seção é criar um usuário de teste no Portal de Gerenciament
 
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/create_aaduser_01.png) 
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
+1. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
     
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/create_aaduser_02.png) 
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
+1. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
  
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/create_aaduser_03.png) 
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
+1. Na página do diálogo **Usuário**, execute as seguintes etapas:
  
     ![Criação de um usuário de teste do AD do Azure](./media/firmplay-tutorial/create_aaduser_04.png) 
 
@@ -207,23 +207,23 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **FirmPlay - Employee Advocacy for Recruiting**.
+1. Na lista de aplicativos, selecione **FirmPlay - Employee Advocacy for Recruiting**.
 
     ![Configurar o logon único](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+1. No menu à esquerda, clique em **usuários e grupos**.
 
     ![Atribuir usuário][202] 
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![Atribuir usuário][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
 
 
