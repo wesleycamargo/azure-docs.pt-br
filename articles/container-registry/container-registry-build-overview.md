@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582623"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413572"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>Automatizar o sistema operacional e a aplicação de patch de estrutura com o Build do ACR
 
 Os contêineres fornecem novos níveis de virtualização, isolando as dependências de aplicativo e desenvolvedor dos requisitos de infraestrutura e operacionais. No entanto, o que sobra é a necessidade para tratar como a virtualização de aplicativos é corrigida.
 
-**Build do ACR**, um conjunto de recursos no Registro de Contêiner do Azure, fornece não só o recurso de build de imagem de contêiner nativo, mas também automatiza o [sistema operacional e a aplicação de patch de estrutura](#automate-os-and-framework-patching) para os contêineres do Docker.
+**O ACR Build** é um conjunto de recursos do Azure Container Registry. Ele fornece criação de imagens de contêiner baseada em nuvem para Linux, Windows e ARM e pode automatizar [o patch de sistema operacional e de estrutura](#automate-os-and-framework-patching) para seus contêineres do Docker.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,20 @@ Imagem de contêiner de gatilho é criada automaticamente quando o código é co
 
 O início do gerenciamento do ciclo de vida ocorre antes de os desenvolvedores confirmarem as primeiras linhas de código. O recurso [Quick Build](container-registry-tutorial-quick-build.md) do Build do ACR oferece uma experiência de desenvolvimento de loop interno local integrado, descarregando builds no Azure. Com Quick Builds, você pode verificar as definições de build automatizadas antes de confirmar seu código.
 
-Usando o formato `docker build` familiar, o comando [az acr build][az-acr-build] na CLI do Azure recebe um contexto local, envia-o para o serviço Build do ACR e, por padrão, envia a imagem interna para seu registro após a conclusão. O Build do ACR segue seus registros replicados geograficamente, permitindo que as equipes de desenvolvimento dispersas aproveitem o registro duplicado mais próximo. Durante a visualização, o build do ACR está disponível nas regiões Leste dos EUA e Europa Ocidental.
+Usando o familiar `docker build`formato, o [comando az acr build][az-acr-build] na CLI do Azure usa um **contexto** (o conjunto de arquivos para compilar), envia-o para o serviço ACR Build e, por padrão, envia a imagem incorporada ao seu registro após a conclusão.
+
+A tabela a seguir mostra alguns exemplos de locais de contexto suportados para o ACR Build:
+
+| Local do contexto | DESCRIÇÃO | Exemplo |
+| ---------------- | ----------- | ------- |
+| Sistema de arquivos local | Arquivos dentro de um diretório no sistema de arquivos local. | `/home/user/projects/myapp` |
+| Branch mestre do GitHub | Arquivos dentro da ramificação principal (ou outro padrão) de um repositório GitHub.  | `https://github.com/gituser/myapp-repo.git` |
+| Ramificação GitHub | Filial específica de um repositório GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| Solicitação de pull do GitHub | Solicitação de pull em um repositório GitHub. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório do GitHub. Exemplo mostra a combinação de especificação de PR e subpasta. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Tarball remoto | Arquivos em um arquivo compactado em um servidor remoto. | `http://remoteserver/myapp.tar.gz` |
+
+O ACR Build também segue seus registros replicados geograficamente, permitindo que as equipes de desenvolvimento dispersas aproveitem o registro replicado mais próximo.
 
 O Build do ACR foi projetado como um ciclo de vida de contêiner primitivo. Por exemplo, integre o Build do ACR à sua solução CI/CD. Executando [az login][az-login] com uma [entidade de serviço][az-login-service-principal], sua solução CI/CD pode enviar os comandos [az acr build] [ az-acr-build] para iniciar compilações da imagem.
 
@@ -49,7 +62,7 @@ Saiba como disparar builds na confirmação de código-fonte no segundo tutorial
 
 O poder do Build do ACR de realmente aprimorar seu pipeline de build de contêiner vem da sua capacidade de detectar uma atualização para uma imagem de base. Quando a imagem base atualizada é enviada para o registro, o Build do ACR pode criar automaticamente qualquer imagem de aplicativo com base nele.
 
-As imagens de contêiner podem ser amplamente categorizadas em imagens de *base* e imagens de *aplicativo*. Suas imagens de base normalmente incluem o sistema operacional e estruturas de aplicativo com base nos quais seu aplicativo é criado, em conjunto com outras personalizações. Essas imagens de base são normalmente baseadas em imagens públicas de upstream, por exemplo, [Alpine Linux][base-alpine] ou [Node.js][base-node]. Várias das suas imagens de aplicativo podem compartilhar uma imagem de base comum.
+As imagens de contêiner podem ser amplamente categorizadas em imagens de *base* e imagens de *aplicativo*. Suas imagens de base normalmente incluem o sistema operacional e estruturas de aplicativo com base nos quais seu aplicativo é criado, em conjunto com outras personalizações. Essas imagens básicas são elas próprias baseadas em imagens upstream públicas, por exemplo: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet] ou [Node.js][base-node]. Várias das suas imagens de aplicativo podem compartilhar uma imagem de base comum.
 
 Quando um sistema operacional ou uma imagem de estrutura de aplicativo é atualizado pelo mantenedor upstream, por exemplo, com um patch de segurança crítico de sistema operacional, você deverá também atualizar suas imagens de base para incluir a correção crítica. Cada imagem de aplicativo deve também ser reconstruída para incluir essas correções upstream agora incluídas em sua imagem de base.
 
@@ -58,7 +71,7 @@ Como o Build do ACR detecta dinamicamente as dependências de imagem base quando
 Saiba mais sobre o sistema operacional e a aplicação de patch de infraestrutura no terceiro tutorial do Build do ACR, [Automatizar builds de imagem na atualização da imagem de base com o Build do Registro de Contêiner do Azure](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Para a visualização inicial, a imagem de base atualiza os builds de gatilho somente quando as imagens de base e de aplicativo residem no mesmo registro de contêiner do Azure.
+> Para a visualização inicial, o acionador de atualizações de imagem de base é compilado apenas quando as imagens de base e de aplicativo residem no mesmo registro de contêiner do Azure ou em repositórios do Docker Hub acessíveis publicamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
