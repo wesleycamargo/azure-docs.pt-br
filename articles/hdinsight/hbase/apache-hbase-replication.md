@@ -1,23 +1,20 @@
 ---
-title: Configurar a replicação de cluster HBase nas redes virtuais do Azure | Microsoft Docs
+title: Configurar a replicação de cluster HBase nas redes virtuais do Azure
 description: Saiba como configurar a replicação de HBase de uma versão do HDInsight para outra para balanceamento de carga, alta disponibilidade, migração sem tempo de inatividade, atualizações e recuperação de desastre.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951102"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600298"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -42,7 +39,7 @@ Casos de uso de replicação de HBase para duas redes virtuais:
 
 É possível replicar clusters usando os scripts [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) do [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurar os ambientes
@@ -62,7 +59,7 @@ Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurar duas redes virtuais em duas regiões diferentes
 
-Para usar um modelo que cria duas redes virtuais em duas regiões diferentes e a conexão VPN entre as VNETs, selecione o botão **Implantar no Azure** a seguir. A definição de modelo está armazenada em um [Armazenamento de Blobs público](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
+Para usar um modelo que cria duas redes virtuais em duas regiões diferentes e a conexão VPN entre as VNETs, selecione o botão **Implantar no Azure** a seguir. A definição de modelo está armazenada em um [armazenamento de blobs público](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json).
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -72,7 +69,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | Oeste dos EUA |
+| Local padrão | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -89,7 +86,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Valor |
 |----------|-------|
-| Localização | Leste dos EUA |
+| Local padrão | Leste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
