@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: Limites de recursos
           href: sql-database-resource-limits.md
+        - name: Pagar antecipadamente por capacidade reservada
+          href: sql-database-reserved-capacity.md
     - name: Servidores lógicos
       items:
         - name: Criar e gerenciar

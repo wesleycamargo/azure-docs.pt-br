@@ -228,9 +228,9 @@
           href: metrics-vm-usage-rest.md
     - name: Gerenciar os custos
       items:
-        - name: Pagar antecipadamente pelas VMs - instâncias reservadas
+        - name: Pagar antecipadamente por VMs - reservas do Azure
           href: prepay-reserved-vm-instances.md
-        - name: O que são instâncias reservadas?
+        - name: O que são as reservas do Azure?
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: Flexibilidade do tamanho da instância
           href: reserved-vm-instance-size-flexibility.md

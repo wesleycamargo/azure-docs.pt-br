@@ -88,6 +88,8 @@
           href: iot-accelerators-time-series-insights.md
         - name: Analisar telemetria com Data Lake
           href: iot-accelerators-integrate-data-lake.md
+        - name: Configurar os controles de acesso baseado em função
+          href: iot-accelerators-remote-monitoring-rbac.md
     - name: Monitoramento remoto (versão anterior)
       items:
         - name: Quais são as soluções pré-configuradas?

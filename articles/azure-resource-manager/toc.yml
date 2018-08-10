@@ -32,6 +32,8 @@
       maintainContext: true
     - name: Modelos de consistência de nuvem
       href: templates-cloud-consistency.md
+    - name: Modos de implantação
+      href: deployment-modes.md
 - name: Como
   items:
     - name: Criar modelos
