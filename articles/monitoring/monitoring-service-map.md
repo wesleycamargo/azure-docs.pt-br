@@ -118,7 +118,7 @@ Quando **Todos os processos** estiver selecionado, o mapa incluirá todos os pro
 
 ![Todos os processos do Grupo de Computadores](media/monitoring-service-map/machine-groups-all.png)
 
-Se você alterar a exibição para mostrar apenas os **processos conectados por grupo** , o mapa será inoperante apenas para os processos e conexões diretamente conectados a outros computadores do grupo, criando uma exibição simplificada.
+Se você alterar a exibição para mostrar apenas os **processos conectados por grupo**, o mapa será inoperante apenas para os processos e conexões diretamente conectados a outros computadores do grupo, criando uma exibição simplificada.
 
 ![Processos filtrados do Grupo de Computadores](media/monitoring-service-map/machine-groups-filtered.png)
  
