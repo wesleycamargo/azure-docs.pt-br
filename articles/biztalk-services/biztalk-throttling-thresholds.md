@@ -33,7 +33,7 @@ A tabela a seguir lista os limites e origem da limitação:
 |  | Descrição | Limite baixo | Limite alto |
 | --- | --- | --- | --- |
 | Memória |% de memória total de sistema disponível/PageFileBytes. <p><p>O total de PageFileBytes disponível é aproximadamente 2 vezes a RAM do sistema. |60% |70% |
-| Processamento de mensagem |Número de processamento de mensagens simultaneamente |40 vezes o número de núcleos |100 vezes o número de núcleos |
+| Processamento de mensagem |Número de processamento de mensagens simultaneamente |40 * número de núcleos |100 * número de núcleos |
 
 Quando um limite alto é atingido, os Serviços BizTalk do Azure começam a ser limitados. A limitação é interrompida quando um limite baixo é atingido. Por exemplo, seu serviço estiver usando 65% da memória do sistema. Nesta situação, o serviço não sofre limitação. Seu serviço começa usando 70% da memória do sistema. Nessa situação, o serviço começa a ser limitado e continua até que o serviço use 60% da memória do sistema (limite baixo).
 

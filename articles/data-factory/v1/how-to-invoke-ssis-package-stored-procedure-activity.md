@@ -302,7 +302,7 @@ Nesta etapa, você cria um pipeline com uma atividade de procedimento armazenado
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorar a execução de pipeline
 
-2. Execute **Get-AzureRmDataFactorySlice** para obter detalhes sobre todas as fatias do conjunto de dados de saída**, que é o conjunto de dados de saída do pipeline.
+2. Execute **Get-AzureRmDataFactorySlice** para obter detalhes sobre todas as fatias do conjunto de dados de saída\*\*, que é o conjunto de dados de saída do pipeline.
 
     ```PowerShell
     Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
