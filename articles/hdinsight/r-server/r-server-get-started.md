@@ -1,32 +1,26 @@
 ---
-title: Introdução ML Services no HDInsight - Azure| Microsoft Docs
+title: Introdução aos Serviços de ML no HDInsight – Azure
 description: Saiba como criar um Apache Spark no cluster HDInsight que inclui ML Services e enviar um script R no cluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7965a91efe58102268f4d54275e7fa3fc4ff74d3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053425"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617778"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introdução ML Services no Azure HDInsight
 
 O Azure HDInsight permite criar um cluster do ML Services. Essa opção permite que scripts R usem o Spark e MapReduce para executar cálculos distribuídos. Neste artigo, você aprende a criar um cluster do ML Services do HDInsight e como executar um script R que demonstra o uso do Spark para cálculos R distribuídos.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Uma assinatura do Azure**: antes de começar este tutorial, você deve ter uma assinatura do Azure. Para obter mais informações, consulte [Obter uma avaliação gratuita do Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um cliente Secure Shell (SSH)**: um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).

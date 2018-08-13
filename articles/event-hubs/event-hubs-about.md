@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435340"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425802"
 ---
 # <a name="what-is-azure-event-hubs"></a>O que é Hub de Eventos do Azure?
 
@@ -38,25 +38,13 @@ Dados são valiosos apenas quando há uma maneira fácil de processar e obter an
 
 Os Hubs de Evento representam a "porta da frente" de um pipeline de evento, geralmente chamado de *ingestor de eventos* em arquiteturas da solução. Um ingestor de eventos é um componente ou serviço que fica entre os editores de eventos e consumidores de eventos para desacoplar a produção de uma transmissão de eventos do consumo desses eventos. Os Hubs de Eventos fornecem uma plataforma unificada de streaming com o buffer de retenção de tempo, desacoplando os produtores de eventos dos consumidores de evento. 
 
-## <a name="key-features"></a>Principais recursos
-
-Os Hubs de Eventos fornecem um recurso de manipulação de fluxo de mensagens, mas têm características que são diferentes das mensagens corporativas tradicionais. Os recursos de Hubs de Eventos são criados em torno de cenários de alta produtividade e de processamento de eventos. Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
-
-- **Produtores de eventos**: Uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
-- **Partições**: Cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens.
-- **Grupos de consumidores**: Uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham um modo de exibição separado do fluxo de eventos e leiam o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
-- **Unidades de produtividade**: Unidades de capacidade que controlam a capacidade de produtividade dos Hubs de Eventos.
-- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados.
-
-A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
-
-![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.png)
+As seções abaixo descrevem os principais recursos do serviço Hubs de Eventos do Azure: 
 
 ## <a name="fully-managed-paas"></a>PaaS totalmente gerenciado 
 
 Os Hubs de Eventos são um serviço gerenciado com pouquíssima configuração ou gerenciamento de sobrecarga, para que você se concentre em suas soluções de negócios. [Os Hubs de Eventos para ecossistemas do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) proporcionam a experiência de PaaS Kafka sem a necessidade de gerenciar, configurar ou executar seus clusters.
 
-## <a name="real-time-and-batching"></a>Envio em lote e em tempo real
+## <a name="support-for-real-time-and-batch-processing"></a>Suporte a processamento em lotes e em tempo real
 
 Ingerir, armazenar em buffer, armazenar e processar seu fluxo em tempo real para obter análises acionáveis. Os Hubs de Eventos usam um [modelo de consumidor particionado](event-hubs-features.md#partitions), permitindo que vários aplicativos processem o fluxo simultaneamente e permitindo que você controle a velocidade de processamento.
 
@@ -73,6 +61,21 @@ Com os Hubs de eventos, você pode iniciar com fluxos de dados em megabytes e au
 [Os Hubs de Eventos para ecossistemas do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) permitem que os clientes e aplicativos [Apache Kafka (1.0 e acima)](https://kafka.apache.org/) se comuniquem com os Hubs de Eventos sem a necessidade de gerenciar os clusters.
  
 Com uma enorme variedade disponível em várias [linguagens (.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs), você pode iniciar facilmente o processamento dos seus fluxos nos Hubs de Eventos. Todos as linguagens com suporte do cliente fornecem integração de baixo nível.
+
+## <a name="key-architecture-components"></a>Principais componentes da arquitetura
+
+Os Hubs de Eventos fornecem um recurso de manipulação de fluxo de mensagens, mas têm características que são diferentes das mensagens corporativas tradicionais. Os recursos de Hubs de Eventos são criados em torno de cenários de alta produtividade e de processamento de eventos. Os Hubs de Eventos contêm os seguintes [componentes principais](event-hubs-features.md):
+
+- **Produtores de eventos**: Uma entidade que envia dados para um hub de eventos. Os editores de eventos podem publicar eventos usando HTTPS ou AMQP 1.0 ou Apache Kafka (1.0 e acima)
+- **Partições**: Cada consumidor lê somente um subconjunto específico, ou partição, do fluxo de mensagens.
+- **Grupos de consumidores**: Uma exibição (estado, posição ou deslocamento) de todo um hub de eventos. Os grupos de consumidores permitem que vários aplicativos de consumo tenham um modo de exibição separado do fluxo de eventos e leiam o fluxo de forma independente em seu próprio ritmo e com seus próprios deslocamentos.
+- **Unidades de produtividade**: Unidades de capacidade que controlam a capacidade de produtividade dos Hubs de Eventos.
+- **Receptores de evento**: Qualquer entidade que leia dados de evento de um hub de eventos. Todos os consumidores de Hubs de Eventos se conectam por meio de sessão do AMQP 1.0, e os eventos são entregues por meio da sessão à medida que são disponibilizados.
+
+A figura a seguir mostra a arquitetura de processamento de fluxo dos Hubs de Eventos:
+
+![Hubs de Eventos](./media/event-hubs-about/event_hubs_architecture.png)
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

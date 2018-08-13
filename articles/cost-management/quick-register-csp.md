@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 08/06/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542025"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578051"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -43,13 +43,13 @@ Para obter mais informações, consulte [Conectar-se à API do Partner Center](h
 3. Na página **Gerenciamento de Custo**, clique em **Ir para Gerenciamento de Custo** para abrir a página de registro do Cloudyn em uma nova janela.
 4. Na página de registro de avaliação do portal do Cloudyn, digite o nome de sua empresa, selecione **Administrador do Microsoft CSP Partner Program** e, em seguida, clique em **Avançar**.  
 5. Insira uma **ID do Aplicativo**, **ID de Comércio**, **Chave secreta do aplicativo** e selecione o **Plano de Preços Padrão**. Caso não tenha as informações em mãos, entre no portal do Partner Center em [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) com sua conta principal de administrador e execute as seguintes etapas:
-  1. Acesse **Painel** > **Configurações de Conta** > **Gerenciamento de Aplicativo**.
+  1. Vá para **Painel**, clique no símbolo **Configurações**, clique em **Configurações de Parceiro**e clique em **Gerenciamento de Aplicativo**.
   2. Caso tenha criado anteriormente um Aplicativo Web, ignore esta etapa. Caso contrário, clique em **Adicionar novo aplicativo Web** na seção **Aplicativo Web**.
   3. Copie o GUID da **ID do Aplicativo** do aplicativo Web.
   4. Copie o GUID da **ID do comércio** do aplicativo Web.
   5. Selecione a duração da validade da chave como um ou dois anos, conforme necessário. Selecione **Adicionar chave** e, em seguida, copie e salve o valor da chave secreta.  
     ![CSP Partner Center](./media/quick-register-csp/csp-partner-center.png)
-  6. Volte para a página de registro e cole as informações.  
+  6. Volte para a página de registro do Cloudyn e cole as informações.  
       ![Credenciais da conta do CSP](./media/quick-register-csp/csp-reg.png)
 6. Concorde com os Termos de Uso e, em seguida, valide as informações. Clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Leva cerca de duas horas para que todos os seus dados de cobrança sejam adicionados ao Cloudyn.

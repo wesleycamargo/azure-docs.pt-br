@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a1e3b448faae79a7e3086e2e1d639c341f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dfbe931bbe5887e9c0545558c4d2b2565718dd0a
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611919"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578483"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
@@ -33,7 +33,7 @@ Este guia de início rápido transforma seu computador máquina virtual Linux em
 
 Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk-account] antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este início rápido usa um computador Linux como dispositivo do IoT Edge. Se você não tiver uma disponível para teste, siga as instruções em [Criar uma máquina virtual Linux no portal do Azure](../virtual-machines/linux/quick-create-portal.md). 
 * Você não precisa seguir as etapas para instalar e executar o servidor Web. Depois que você se conectar à sua máquina virtual, poderá parar.  
@@ -135,7 +135,7 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
    sudo systemctl restart iotedge
    ```
 
-5. Verifique se o Daemon de Segurança do Edge está em execução como um serviço do sistema.
+5. Verifique se o daemon de segurança do Edge está em execução como um serviço do sistema.
 
    ```bash
    sudo systemctl status iotedge
@@ -192,7 +192,7 @@ Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
 O módulo de sensor de temperatura poderá estar aguardando para se conectar ao Hub do Edge se a última linha que você vê no log for `Using transport Mqtt_Tcp_Only`. Tente eliminar o módulo e deixar que o agente do Edge o reinicie. Você pode encerrá-la com o comando `sudo docker stop tempSensor`.
 
-Você também pode exibir a telemetria que o dispositivo está enviando usando a [ferramenta exploradora do Hub IoT] [ lnk-iothub-explorer] ou a [extensão Kit de ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Também é possível exibir a telemetria que o dispositivo está enviando, usando a [Extensão do Kit de Ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -263,4 +263,3 @@ Este guia de início rápido é pré-requisito para todos os tutoriais do IoT Ed
 <!-- Links -->
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer

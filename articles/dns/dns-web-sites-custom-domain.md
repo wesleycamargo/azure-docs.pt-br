@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204935"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621106"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutorial: Criar registros DNS em um domínio personalizado para um aplicativo Web 
 
@@ -56,7 +56,7 @@ Após criar uma zona e delegá-la ao DNS do Azure, você pode criar registros pa
 
 ## <a name="create-an-a-record-and-txt-record"></a>Criar um registro A e um registro TXT
 
-Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribua “@” como um registro A para um endereço IPv4. @ normalmente representa o domínio raiz.
+Um registro A é usado para mapear um nome para seu endereço IP. No exemplo a seguir, atribua “\@” como um registro A usando o endereço IPv4 do aplicativo Web. \@ normalmente representa o domínio raiz.
 
 ### <a name="get-the-ipv4-address"></a>Obter o endereço IPv4
 

@@ -12,27 +12,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 09/28/2017
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df808078ffe6eedf8abaa32a94edaaf1355b7fc6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129897"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493689"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
-A CLI 2.0 do Azure é a nova experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. A CLI do Azure 2.0 é otimizada para gerenciar e administrar os recursos do Azure na linha de comando. Você pode usar a CLI do Azure para gerenciar suas contas do Lote do Azure e para gerenciar recursos como grupos, trabalhos e tarefas. Com a CLI do Azure, você pode criar scripts para diversas tarefas que você executa com as APIs do Lote, com o Portal do Azure e com cmdlets de PowerShell do Lote.
+A CLI do Azure 2.0 é a experiência de linha de comando do Azure para gerenciar recursos do Azure. Ela pode ser usada em Windows, Linux e macOS. A CLI do Azure 2.0 é otimizada para gerenciar e administrar os recursos do Azure na linha de comando. Você pode usar a CLI do Azure para gerenciar suas contas do Lote do Azure e para gerenciar recursos como grupos, trabalhos e tarefas. Com a CLI do Azure, você pode criar scripts para diversas tarefas que você executa com as APIs do Lote, com o Portal do Azure e com cmdlets de PowerShell do Lote.
 
 Este artigo fornece uma visão geral do uso da [CLI do Azure versão 2.0](https://docs.microsoft.com/cli/azure) com o Lote. Consulte [Introdução ao Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) para uma visão geral de como usar a CLI com o Azure.
 
-A Microsoft recomenda usar a versão mais recente da CLI do Azure, versão 2.0. Para saber mais sobre a versão 2.0, consulte [CLI do Azure 2.0 agora disponível](https://azure.microsoft.com/blog/announcing-general-availability-of-vm-storage-and-network-azure-cli-2-0/).
-
 ## <a name="set-up-the-azure-cli"></a>Configurar a CLI do Azure
 
-Para instalar a CLI do Azure, siga as etapas descritas em [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Você pode executar a CLI do Azure mais recente no [Azure Cloud Shell](../cloud-shell/overview.md). Para instalar a CLI do Azure localmente, siga as etapas descritas em [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Recomendamos que você atualize frequentemente sua instalação da CLI do Azure para aproveitar as atualizações e aprimoramentos do serviço.
@@ -67,10 +65,10 @@ Para usar a CLI do Azure com o Lote, você precisa fazer logon e autenticar. Sig
 
 Existem algumas maneiras diferentes de fazer logon no Azure, descritas detalhadamente em [Entrar com a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli):
 
-1. [Fazer logon interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in). Faça logon interativamente quando você estiver executando comandos da CLI do Azure na linha de comando.
-2. [Fazer logon com uma entidade de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal). Faça logon com uma entidade de serviço quando você estiver executando comandos da CLI do Azure de um script ou aplicativo.
+1. [Fazer logon interativamente](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Faça logon interativamente quando você estiver executando comandos da CLI do Azure na linha de comando.
+2. [Fazer logon com uma entidade de serviço](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Faça logon com uma entidade de serviço quando você estiver executando comandos da CLI do Azure de um script ou aplicativo.
 
-Para os fins deste artigo, vamos mostrar como entrar no Azure interativamente. Digite [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) na linha de comando:
+Para os fins deste artigo, vamos mostrar como entrar no Azure interativamente. Digite [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) na linha de comando:
 
 ```azurecli
 # Log in to Azure and authenticate interactively.
@@ -85,7 +83,7 @@ Os exemplos listados na seção [Scripts de shell de exemplo](#sample-shell-scri
 
 ### <a name="log-in-to-your-batch-account"></a>Fazer logon sua conta do Lote
 
-Para usar a CLI do Azure e gerenciar recursos do Lote, como pools, trabalhos e tarefas, você precisará entrar na sua conta do Lote e autenticar. Para entrar no serviço Lote, use o comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login). 
+Para usar a CLI do Azure e gerenciar recursos do Lote, como pools, trabalhos e tarefas, você precisará entrar na sua conta do Lote e autenticar. Para entrar no serviço Lote, use o comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login). 
 
 Você tem duas opções para autenticação na sua conta do Lote:
 
@@ -97,7 +95,7 @@ Você tem duas opções para autenticação na sua conta do Lote:
 
     Uma vantagem do Azure AD é que ele oferece RBAC (controle de acesso baseado em função). Com o RBAC, acesso de um usuário depende de suas funções atribuídas em vez da posse ou não de chaves da conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções RBAC e permitir que o Azure AD lide com autenticação e acesso.  
 
-     Para entrar na sua conta do Lote usando o Azure AD, chame o comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
+     Para entrar na sua conta do Lote usando o Azure AD, chame o comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -117,9 +115,9 @@ Você tem duas opções para autenticação na sua conta do Lote:
 
 Os exemplos listados na seção [Scripts de shell de exemplo](#sample-shell-scripts) mostram como entrar na conta do Lote com a CLI do Azure usando o Azure AD e a Chave Compartilhada.
 
-## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
+## <a name="use-azure-batch-cli-extension-commands"></a>Usar comandos de extensão da CLI do Lote do Azure
 
-Você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os arquivos de modelo do Lote dão suporte à criação de pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar a CLI do Azure para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos (Versão prévia)](batch-cli-templates.md).
+Instalando a extensão de CLI do Lote do Azure, você pode usar a CLI do Azure para executar trabalhos do Lote de ponta a ponta sem escrever código. Os comandos do Lote com suporte pela extensão permitem que você use modelos JSON para criar pools, trabalhos e tarefas com a CLI do Azure. Você também pode usar os comandos de CLI da extensão para carregar arquivos de entrada de trabalho na conta de Armazenamento do Azure associada à conta do Lote e baixar arquivos de saída de trabalho dele. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 ## <a name="script-examples"></a>Exemplos de script
 
@@ -181,7 +179,7 @@ As dicas abaixo poderão ajudar você quando estiver solucionando problemas da C
 
 * Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure).
 * Para saber mais sobre recursos do Lote, consulte [Visão geral do Lote do Azure para desenvolvedores](batch-api-basics.md).
-* Para saber mais sobre como usar modelos do Lote para criar pools, trabalhos e tarefas sem escrever código, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos (Versão prévia)](batch-cli-templates.md).
+* Para saber mais sobre como usar modelos do Lote para criar pools, trabalhos e tarefas sem escrever código, confira [Usar modelos da CLI do Lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

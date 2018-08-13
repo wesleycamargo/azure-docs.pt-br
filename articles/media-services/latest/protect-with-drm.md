@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116760"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528163"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Usar o serviço de entrega de licença e criptografia dinâmica do DRM
 
@@ -65,6 +65,7 @@ O exemplo descrito neste artigo produz o seguinte resultado:
 Os itens a seguir são necessários para concluir o tutorial.
 
 * Examine o artigo [Visão geral da proteção de conteúdo](content-protection-overview.md).
+* Reveja [Projetar proteção de conteúdo de diversos DRMs com controle de acesso](design-multi-drm-system-with-access-control.md)
 * Instalar Visual Studio Code ou Visual Studio
 * Crie uma nova conta dos Serviços de Mídia do Azure, conforme descrito [neste início rápido](create-account-cli-quickstart.md).
 * Obtenha as credenciais necessárias para usar as APIs dos Serviços de Mídia seguindo as [APIs de acesso](access-api-cli-how-to.md)

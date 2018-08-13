@@ -1,24 +1,20 @@
 ---
-title: 'Tutorial: Usar API de Streams do Apache Kafka - Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Usar a API de Streams do Apache Kafka – Azure HDInsight '
 description: Saiba como usar a API de Streams do Apache Kafka com o Kafka no HDInsight. Essa API permite realizar processamento de fluxo entre tópicos no Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d285575802dd830247533420154f6f5e868272a2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626387"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621038"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
 
@@ -40,7 +36,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar tópicos Kafka
 > * Executar o código
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster Kafka no HDInsight 3.6. Para saber como criar um Kafka no Cluster HDInsight, consulte o documento [Iniciar com Kafka no HDInsight](apache-kafka-get-started.md).
 
@@ -225,7 +221,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
 2. Para enviar registros para o tópico `test`, use o seguinte comando para iniciar o aplicativo produtor:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Após a conclusão do produtor, use o seguinte comando para exibir as informações armazenadas no tópico `wordcounts`:

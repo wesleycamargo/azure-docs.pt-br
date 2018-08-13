@@ -1,25 +1,19 @@
 ---
-title: Introdução ao Apache Kafka - Início Rápido do Azure HDInsight | Microsoft Docs
+title: Introdução ao Apache Kafka – Início Rápido do Azure HDInsight | Microsoft Docs
 description: Neste início rápido, você aprenderá a criar um cluster Apache Kafka no Azure HDInsight usando o Portal do Azure. Você também aprenderá sobre tópicos, assinantes e consumidores de Kafka.
 services: hdinsight
-documentationcenter: ''
-author: dhgoelmsft
-manager: jhubbard
-ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c8ec39c6962c4044810d0ae65d2736043bdd4d72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342146"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620205"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Início Rápido: Criar um Kafka no cluster HDInsight
 
@@ -34,7 +28,7 @@ Neste início rápido, você aprenderá a criar um cluster [Apache Kafka](https:
 >
 > Para saber mais, confira o documento [Conectar ao Kafka usando uma rede virtual](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -326,7 +320,7 @@ Para remover o grupo de recursos usando o portal do Azure:
 > [!WARNING]
 > A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
 > 
-> A exclusão de um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
+> Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
 
 ## <a name="next-steps"></a>Próximas etapas
 

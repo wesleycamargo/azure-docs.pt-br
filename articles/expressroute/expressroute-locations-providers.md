@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: jaredro
-ms.openlocfilehash: e5cb701295854c6908af04b5de5aec2ca5bd978c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 122a227429dace3ee4a85565d47366d31b6c3ddf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285152"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576824"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros do ExpressRoute
 
@@ -62,7 +62,8 @@ A tabela a seguir fornece informações sobre regiões e limites geopolíticos p
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- |
 | **Nuvem do Governo dos EUA** |Gov. EUA - Arizona, US Gov Iowa, US Gov - Texas, US Gov Virginia, US DoD Central, US DoD Leste  |Chicago, Dallas, Nova York, Phoenix, San Antonio, Seattle, Vale do Silício, Washington DC |
-| **China** |Norte da China, Leste da China |Pequim, Xangai |
+| **Leste da China** |Leste da China, Leste da China2 |Xangai |
+| **Norte da China** |Norte da China, Norte da China2 |Pequim |
 | **Alemanha** |Alemanha Central, Alemanha Oriental |Berlim+, Frankfurt |
 
 Não há suporte para conectividade entre regiões geopolíticas no SKU de ExpressRoute padrão. Você precisará habilitar o complemento premium de ExpressRoute para dar suporte a conectividade global. Não há suporte a conectividade para ambientes de nuvem nacionais. Você pode trabalhar com seu provedor de conectividade se surgir necessidade de fazê-lo.
@@ -139,7 +140,7 @@ Para saber mais, consulte [ExpressRoute na China](http://www.windowsazure.cn/hom
 ### <a name="germany"></a>Alemanha
 | **Localidade** | **Provedores de Serviço** |
 | --- | --- |
-| **Berlim** |Colt+, e-shelter, Megaport+, T-Systems |
+| **Berlim** |e-shelter, Megaport+, T-Systems |
 | **Frankfurt** |Colt, Equinix, Interxion |
 
 ## <a name="c1partners"></a>Conectividade por meio de outros provedores do Exchange

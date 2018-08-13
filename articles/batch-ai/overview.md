@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903468"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627195"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>O que é a IA do Lote no Azure?
 A IA do Lote é um serviço gerenciado que permite que os pesquisadores de IA e cientistas de dados treinem IA e outros modelos de aprendizado de máquina em clusters de máquinas virtuais do Azure, incluindo VMs com suporte de GPU. Descreva os requisitos do seu trabalho, onde encontrar as entradas e armazenar as saídas, e a IA do Lote cuida do resto.  
@@ -40,7 +40,7 @@ A IA do Lote oferece gerenciamento de recursos e agendamento de trabalhos especi
 * Expansão automática ou manual de clusters de VM usando GPUs ou CPUs 
 * Configuração de comunicação SSH entre VMs e para acesso remoto 
 * Suporte para estruturas de aprendizado profundo ou aprendizado de máquina, com configuração otimizada para kits de ferramentas populares, como o [CNTK](https://github.com/Microsoft/CNTK) (Microsoft Cognitive Toolkit), o [TensorFlow](https://www.tensorflow.org/) e o [Chainer](https://chainer.org/) 
-* Fila de trabalho baseado em prioridades para compartilhar clusters e tirar proveito de VMs de baixa prioridade e instâncias reservadas  
+* Fila de trabalho baseado em prioridades para compartilhar clusters e tirar proveito de VMs de baixa prioridade e reservas do Azure  
 * Opções de armazenamento flexíveis, incluindo Arquivos do Azure e servidor NFS gerenciado 
 * Montagem de compartilhamentos de arquivos remotos na VM e contêiner opcional 
 * Fornecimento de status do trabalho e reinicialização em caso de falhas de VM 

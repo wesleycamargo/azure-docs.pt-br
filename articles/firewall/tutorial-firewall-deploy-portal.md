@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358939"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480876"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure
 
@@ -164,9 +164,9 @@ Use as informações na tabela a seguir para definir as **Configurações** da m
    |NOME     |Test-FW01|
    |Assinatura     |\<sua assinatura\>|
    |Grupo de recursos     |**Usar existente**: Test-FW-RG |
-   |Localização     |Selecionar o mesmo local usado anteriormente|
+   |Local padrão     |Selecionar o mesmo local usado anteriormente|
    |Escolher uma rede virtual     |**Usar existente**: Test-FW-VN|
-   |Endereço IP público     |Criar Novo|
+   |Endereço IP público     |**Criar novo**. O endereço IP público deve ser do tipo SKU Standard.|
 
 2. Clique em **Revisar + Criar**.
 3. Reveja o resumo e clique em **Criar** para criar o firewall.
@@ -175,10 +175,6 @@ Use as informações na tabela a seguir para definir as **Configurações** da m
 4. Após a implantação ser concluída, vá para o grupo de recursos **Test-FW-RG** e clique no firewall **Test-FW01**.
 6. Anote o endereço IP privado. Você o usará mais tarde quando criar a rota padrão.
 
-> [!NOTE]
-> O endereço IP público deve ser do tipo SKU Standard.
-
-[//]: # (Lembre-se de anotar o IP privado para o firewall.)
 
 ## <a name="create-a-default-route"></a>Criar uma rota padrão
 
@@ -279,7 +275,7 @@ Agora que você verificou se as regras de firewall estão funcionando:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não for mais necessário, exclua o grupo de recursos **Test-FW-RG** a fim de excluir todos os recursos relacionados ao firewall.
+Você pode manter seus recursos de firewall para o próximo tutorial ou, se não forem mais necessários, exclua o grupo de recursos **Test-FW-RG** para excluir todos os recursos relacionados ao firewall.
 
 
 ## <a name="next-steps"></a>Próximas etapas

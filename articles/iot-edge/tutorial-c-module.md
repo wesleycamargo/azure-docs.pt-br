@@ -9,12 +9,12 @@ ms.date: 07/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9d1931f1b78bb19f5e321a19baca45265ea7ab4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 31560cbd4d8b4572ce930db7ffb8753f3e4a4bc0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413154"
+ms.locfileid: "39425911"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em C em seu dispositivo simulado
 
@@ -36,31 +36,39 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 
 Um dispositivo do Azure IoT Edge:
 
-* Você pode usar seu computador de desenvolvimento ou uma máquina virtual como dispositivo do Edge seguindo as etapas no início rápido para dispositivos [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
+* Você pode usar seu computador de desenvolvimento ou uma máquina virtual como um dispositivo do Edge seguindo as etapas no início rápido para os [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 
 Recursos de nuvem:
 
-* Uma camada padrão do [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no Azure. 
+* Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) na camada padrão no Azure. 
 
 Recursos de desenvolvimento:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Extensão de C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) para o Visual Studio Code.
+* [Extensão do C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) para Visual Studio Code.
 * [Extensão do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code.
 * [CE do Docker](https://docs.docker.com/install/). 
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 Neste tutorial, você utiliza a extensão do Azure IoT Edge do Visual Studio Code para compilar um módulo e criar uma **imagem de contêiner** dos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
 
 Você pode usar qualquer registro compatível com o Docker neste tutorial. Dois serviços de registro do Docker populares disponíveis na nuvem são o [Registro de Contêiner do Azure](https://docs.microsoft.com/azure/container-registry/) e o [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Este tutorial utiliza o Registro de Contêiner do Azure. 
 
-1. No [Portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Contêineres** > **Registro de Contêiner do Azure** .
-2. Nomeie seu registro, escolha uma assinatura, selecione um grupo de recursos e defina a SKU para **Básica**. 
-3. Selecione **Criar**.
-4. Depois que o registro de contêiner for criado, navegue até ele e selecione **Chaves de acesso**. 
-5. Alterne **Usuário administrador** para **Ativar**.
-6. Copie os valores para **Servidor de logon**, **Nome de usuário** e **Senha**. Você usará esses valores no tutorial posteriormente ao publicar a imagem do Docker no registro e ao adicionar as credenciais de registro para o tempo de execução do Edge. 
+O comando da CLI do Azure a seguir cria um registro em um grupo de recursos chamado **IoTEdgeResources**. Substitua **{acr_name}** por um nome exclusivo para o registro. 
+
+   ```azurecli-interactive
+   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
+   ```
+
+Recupere as credenciais para o registro. 
+
+   ```azurecli-interactive
+   az acr credential show --name {acr_name}
+   ```
+
+Copie os valores de **Nome de usuário** e uma das senhas. Você usará esses valores no tutorial posteriormente ao publicar a imagem do Docker no registro e ao adicionar as credenciais de registro para o tempo de execução do Edge. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Criar um projeto de módulo do IoT Edge
 As etapas a seguir mostram como criar um projeto de módulo do IoT Edge baseado no .NET Core 2.0 usando o Visual Studio Code e a extensão do Azure IoT Edge.
@@ -294,32 +302,26 @@ Você pode conferir o endereço de imagem de contêiner completo com marca no te
  
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
 Se você pretende continuar para o próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los.
 
 Caso contrário, você pode excluir as configurações locais e os recursos do Azure criados neste artigo para evitar encargos. 
 
 > [!IMPORTANT]
-> A exclusão de recursos do Azure e do grupo de recursos é irreversível. Depois de excluídos, o grupo de recursos e todos os recursos contidos nele serão excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. Caso tenha criado o Hub IoT dentro de um grupo de recursos existente que contém recursos que você deseja manter, exclua apenas o próprio recurso do Hub IoT em vez de excluir o grupo de recursos.
+> A exclusão de grupos de recursos do Azure é irreversível. Depois de excluídos, o grupo de recursos e todos os recursos contidos nele serão excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. Caso tenha criado o Hub IoT dentro de um grupo de recursos existente que contém recursos que você deseja manter, exclua apenas o próprio recurso do Hub IoT em vez de excluir o grupo de recursos.
 >
 
 Para excluir apenas o Hub IoT, execute o comando abaixo usando seu nome de hub e do grupo de recursos:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
 Para excluir o grupo de recursos inteiro por nome:
 
-1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
-
-2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
-
-3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
-
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 
 

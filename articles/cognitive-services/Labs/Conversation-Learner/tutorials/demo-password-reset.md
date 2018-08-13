@@ -33,7 +33,7 @@ Este tutorial exige que o bot de redefinição de senha esteja em execução
 
 ### <a name="open-the-demo"></a>Abrir a demonstração
 
-Na lista de modelos da interface do usuário da Web, clique no Tutorial de demonstração de redefinição de senha. 
+Na lista de modelos da interface do usuário da Web, clique em “Tutorial Demo Password Reset” (Tutorial de demonstração de redefinição de senha). 
 
 ### <a name="actions"></a>Ações
 
@@ -49,27 +49,27 @@ Há vários diálogos de treinamento. Há também demonstrações de uma classe 
 
 Por exemplo, vamos tentar uma sessão de ensino.
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
-1. Insira 'Perdi minha senha'.
-2. Clique em Pontuar Ação.
+1. Clique em “Train Dialogs” (Diálogos de treinamento) e, em seguida, em “New Train Dialog” (Novo diálogo de treinamento).
+1. Insira “I lost my password” (Perdi minha senha).
+2. Clique em “Score Action” (Pontuar Ação).
 3. Clique para selecionar 'É para sua conta local ou conta Microsoft?'
-4. Insira 'Conta local'.
-5. Clique em Pontuar Ações.
-3. Clique para Selecionar 'Qual versão do Windows você tem?'
-4. Insira 'Windows 8'.
-5. clique em Pontuar Ações.
-6. Selecione 'SOLUÇÃO: como redefinir senha no Windows 8.'
-4. Clique em Ensino Concluído.
+4. Insira “Loca account” (Conta local).
+5. Clique em “Score Actions” (Pontuar ações).
+3. Clique para Selecionar “Which version of Windows do you have?” (Qual versão do Windows você tem?)
+4. Insira “Windows 8’.
+5. clique em “Score Actions” (Pontuar ações).
+6. Selecione “SOLUTION: how to reset password on Windows 8” (SOLUÇÃO: como redefinir senha no Windows 8).
+4. Clique em “Done Teaching” (Ensino concluído).
 
 Vamos experimentar como o bot pode aprender uma aula fora do domínio.
 
-1. Clique em Diálogos de Treinamento e, em seguida, em Novo Diálogo de Treinamento.
-1. Insira 'pesquisa na Web'.
+1. Clique em “Train Dialogs” (Diálogos de treinamento) e, em seguida, em “New Train Dialog” (Novo diálogo de treinamento).
+1. Insira “web search” (pesquisa na Web).
     - Este é um exemplo de classe fora do domínio. 
-2. Clique em Pontuar Ação.
-3. Clique para Selecionar 'Desculpe, não posso ajudar com isso.'
+2. Clique em “Score Action” (Pontuar Ação).
+3. Clique para Selecionar “'Sorry, I can't help with that” (Desculpe, não posso ajudar com isso).
     - Observe que a pontuação dessa opção está baixa no momento. Mas, depois de um pouco mais de ensino, a pontuação será maior.
-4. Clique em Ensino Concluído.
+4. Clique em “Done Teaching” (Ensino concluído).
 
 Você já viu como criar uma demonstração básica de suporte técnico e como ela pode aprender a fornecer soluções, além de lidar com exemplos de consultas.
 

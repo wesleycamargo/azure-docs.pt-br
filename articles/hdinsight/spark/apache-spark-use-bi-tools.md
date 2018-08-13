@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: Analisar dados Apache Spark usando o Power BI no Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Analisar dados do Apache Spark usando o Power BI no Azure HDInsight '
 description: Use o Microsoft Power BI para visualizar dados Spark armazenados em clusters HDInsight
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1448b536-9bc8-46bc-bbc6-d7001623642a
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: ece0132573f25f4d288309d2e7bb6710f8fd9519
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b8024d8e5f239ff1bae2fe09f8cbe0a1b03a416
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771160"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618719"
 ---
 # <a name="tutorial-analyze-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados Spark usando o Power BI no HDInsight 
 
@@ -31,7 +26,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Concluir o artigo [Tutorial: Carregar dados e executar consultas em um cluster do Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) e [assinatura de avaliação do Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (opcional).

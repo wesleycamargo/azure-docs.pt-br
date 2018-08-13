@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345351"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492691"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Tutorial: 5. Adicionar entidade hierárquica
 Neste tutorial, crie um aplicativo que demonstra como localizar as partes relacionadas dos dados com base no contexto. 
@@ -119,15 +119,8 @@ Adicione a entidade numérica predefinida novamente ao aplicativo.
     ![Captura de tela do número selecionado no diálogo de entidades predefinidas](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>Treinar o aplicativo LUIS
-O LUIS não fica ciente das alterações nas intenções e entidades (o modelo) até que seja treinado. 
 
-1. No canto superior direito do site do LUIS, selecione o botão **Train** (Treinar).
-
-    ![Treinar o aplicativo](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. O treinamento é concluído quando você vir a barra de status verde na parte superior do site confirmando o sucesso.
-
-    ![Treinamento bem-sucedido](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publicar o aplicativo para obter a URL do ponto de extremidade
 
@@ -242,6 +235,10 @@ Sim, crie a expressão regular com funções de origem e destino e use-a em um p
 
 Os locais neste exemplo, como `a-1234`, seguem um formato específico de uma ou duas letras com um traço e, em seguida, uma série de 4 ou 5 números. Esses dados podem ser descritos como uma entidade de expressão regular com uma função para cada local. As funções estão disponíveis para padrões. Você pode criar padrões com base nesses enunciados, criar uma expressão regular para o formato de local e adicioná-la aos padrões. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>Padrões com funções
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>O que esse aplicativo de LUIS realizou?
 Esse aplicativo, com apenas algumas intenções e uma entidade hierárquica, identificou uma intenção de consulta de linguagem natural e retornou os dados extraídos. 
 
@@ -251,7 +248,8 @@ Agora seu chatbot tem informações suficientes para determinar a ação primár
 O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot, pode levar o resultado de topScoringIntent e os dados da entidade para realizar a próxima etapa. O LUIS não realiza esse trabalho de programação para o bot ou para o aplicativo de chamada. O LUIS só determina qual é a intenção do usuário. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, exclua o aplicativo LUIS. Para fazer isso, selecione o botão de reticências (***...***) à direita do nome do aplicativo na lista de aplicativos e selecione **Excluir**. Na caixa de diálogo pop-up **Excluir aplicativo?**, selecione **OK**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"] 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 22f7f9aee791d315300ffdc4dc9f708a80a5baf7
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 61654ae972965800909544554cc93dae511e1ff1
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127396"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480265"
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Tutorial: dimensionar o aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -34,34 +34,6 @@ Nos tutoriais subsequentes, o aplicativo Azure Vote é atualizado para uma nova 
 Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêiner, essa imagem foi carregada no Registro de Contêiner do Azure e um cluster Kubernetes foi criado. Em seguida, o aplicativo foi executado no cluster Kubernetes.
 
 Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
-
-## <a name="scale-aks-nodes"></a>Dimensionar nós do AKS
-
-Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem um nó. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
-
-O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster*. Esse comando leva alguns minutos para ser concluído.
-
-```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
-```
-
-A saída deverá ser semelhante a:
-
-```
-"agentPoolProfiles": [
-  {
-    "count": 3,
-    "dnsPrefix": null,
-    "fqdn": null,
-    "name": "myAKSCluster",
-    "osDiskSizeGb": null,
-    "osType": "Linux",
-    "ports": null,
-    "storageProfile": "ManagedDisks",
-    "vmSize": "Standard_D2_v2",
-    "vnetSubnetId": null
-  }
-```
 
 ## <a name="manually-scale-pods"></a>Dimensionar pods manualmente
 
@@ -142,6 +114,34 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 ```
 
 Após alguns minutos, com carga mínima no aplicativo Azure Vote, o número de réplicas de pod diminui automaticamente para 3.
+
+## <a name="manually-scale-aks-nodes"></a>Dimensionar nós do AKS manualmente
+
+Se você criou o cluster Kubernetes usando os comandos no tutorial anterior, ele tem um nó. Você pode ajustar o número de nós manualmente se planejar ter mais ou menos cargas de trabalho de contêiner no cluster.
+
+O exemplo a seguir aumenta o número de nós para três no cluster Kubernetes chamado *myAKSCluster*. Esse comando leva alguns minutos para ser concluído.
+
+```azurecli
+az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+```
+
+A saída deverá ser semelhante a:
+
+```
+"agentPoolProfiles": [
+  {
+    "count": 3,
+    "dnsPrefix": null,
+    "fqdn": null,
+    "name": "myAKSCluster",
+    "osDiskSizeGb": null,
+    "osType": "Linux",
+    "ports": null,
+    "storageProfile": "ManagedDisks",
+    "vmSize": "Standard_D2_v2",
+    "vnetSubnetId": null
+  }
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

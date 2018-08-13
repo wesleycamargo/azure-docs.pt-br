@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: cdec9c29d7f4f2832e175153ec50e400a735211a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ec9e45cac79f5396f62d913d7440918bec26c524
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172265"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493997"
 ---
 # <a name="get-started-with-batch-rendering"></a>Introdução à Renderização de Lote 
 
 A Renderização de Lote do Azure oferece recursos de renderização em escala de nuvem com base em pagamento por uso. A Renderização de Lote lida com agendamento e enfileiramento de trabalhos, gerenciando falhas e tentativas e fazendo o dimensionamento automático dos trabalhos de renderização. A Renderização de Lote oferece suporte a aplicativos de renderização incluindo [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), e [V-Ray](https://www.chaosgroup.com/vray/maya). O plug-in do Lote para o Maya 2017 facilita iniciar um trabalho de renderização no Azure diretamente da sua área de trabalho.
 
-Com o Maya e o 3ds Max, você pode executar trabalhos usando o aplicativo de área de trabalho [Batch Explorer](https://github.com/Azure/BatchExplorer) ou a [CLI de Modelos do Lote](batch-cli-templates.md). Usando a CLI do Lote do Azure, você pode executar trabalhos do Lote sem codificar. Em vez disso, você pode usar arquivos de modelo para criar pools, trabalhos e tarefas do Lote. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e Transferência de Arquivos](batch-cli-templates.md).
+Com o Maya e o 3ds Max, você pode executar trabalhos usando o aplicativo de área de trabalho [Batch Explorer](https://github.com/Azure/BatchExplorer) ou a [CLI de modelos do Lote](batch-cli-templates.md). Usando a CLI do Lote do Azure, você pode executar trabalhos do Lote sem codificar. Em vez disso, você pode usar arquivos de modelo para criar pools, trabalhos e tarefas do Lote. Para saber mais, confira [Usar modelos da CLI do Lote do Azure e transferência de arquivos](batch-cli-templates.md).
 
 
 ## <a name="supported-applications"></a>Aplicativos com suporte

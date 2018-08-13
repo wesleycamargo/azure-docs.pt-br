@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: barclayn
-ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 08331a399044eba17060d15f24af1863df38caf5
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282989"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480246"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o Cofre da Chave do Azure?
 
@@ -33,6 +33,8 @@ O Azure Key Vault é uma ferramenta para armazenar e acessar segredos de forma s
 Veja abaixo alguns termos principais:
 - **Locatário** - Um locatário é a organização que possui e gerencia uma instância específica de serviços de nuvem da Microsoft. Geralmente, ele é usado de maneira exata para referir-se ao conjunto de serviços do Azure e do Office 365 para uma organização
 - **Proprietário do Cofre**: pode criar um Key Vault obtendo acesso completo e controle sobre ele. O proprietário do cofre também pode configurar a auditoria para registrar quem acessa os segredos e as chaves. Os administradores podem controlar o ciclo de vida da chave. Eles podem reverter para uma nova versão da chave, fazer o backup etc.
+- **Recurso**: um item gerenciável que está disponível por meio do Azure. Alguns recursos comuns são uma máquina virtual, conta de armazenamento, aplicativo Web, banco de dados e rede virtual, mas há muito mais.
+- **grupo de recursos**: Um contêiner que mantém os recursos relacionados a uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que você deseja gerenciar como um grupo. Você decide como deseja alocar recursos para grupos de recursos com base no que faz mais sentido para sua organização. Confira Grupos de recursos.
 - **Consumidor do cofre**: pode executar ações nos ativos dentro do Key Vault quando o proprietário do cofre concede acesso que depende das permissões concedidas.
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** é o serviço do Azure AD para um determinado locatário. Cada diretório tem um ou mais domínios. Um diretório pode ter várias assinaturas associadas a ele, mas apenas um locatário. 
 - **ID do locatário do Azure**: essa é uma maneira exclusiva para identificar um Azure Active Directory dentro de uma Assinatura do Azure. 

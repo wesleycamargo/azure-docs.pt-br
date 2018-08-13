@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 12a6f731dfb1c106c28d18caa95710751736629c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952256"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434577"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introdução ao fornecimento de conteúdo sob demanda usando o SDK do .NET
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Este tutorial o orienta ao longo das etapas de implementação de um serviço básico de fornecimento de conteúdo de VoD (Vídeo sob Demanda) com o aplicativo AMS (Serviços de Mídia do Azure) usando o SDK .NET dos Serviços de Mídia do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Os itens a seguir são necessários para concluir o tutorial:
 
@@ -155,7 +155,7 @@ No Serviços de Mídia, você carrega (ou ingere) seus arquivos digitais em um a
 
 O método **UploadFile** definido abaixo chama **CreateFromFile** (definido em extensões do SDK .NET). **CreateFromFile** cria um novo ativo no qual o arquivo de origem especificado é carregado.
 
-O método **CreateFromFile** contém \*\*AssetCreationOptions, o que permite especificar uma das seguintes opções de criação de ativos:
+O método **CreateFromFile** contém **AssetCreationOptions**, o que permite especificar uma das seguintes opções de criação de ativos:
 
 * **None** - nenhuma criptografia é usada. Esse é o valor padrão. Observe que, ao usar essa opção, seu conteúdo não será protegido quando estiver em trânsito ou em repouso no armazenamento.
   Se você pretende enviar um MP4 usando o download progressivo, use essa opção.
