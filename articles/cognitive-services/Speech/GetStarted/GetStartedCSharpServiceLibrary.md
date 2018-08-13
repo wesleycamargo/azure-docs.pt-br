@@ -119,7 +119,7 @@ Esse evento é chamado sempre que o serviço de fala prevê o que você pode est
 **Formato de retorno** | DESCRIÇÃO |
 ------|------
 **LexicalForm** | Este formulário é ideal para uso por aplicativos que precisam de resultados de reconhecimento de fala bruto, não processados.
-**DisplayText** | A frase reconhecida com normalização de texto inverso, letras maiúsculas, pontuação e mascaramento de obscenidades aplicado. Obscenidades são mascaradas com asteriscos após o caractere inicial, por exemplo, "d *." Este formulário é ideal para uso por aplicativos que exibem os resultados de reconhecimento de fala a um usuário.
+**DisplayText** | A frase reconhecida com normalização de texto inverso, letras maiúsculas, pontuação e mascaramento de obscenidades aplicado. Obscenidades são mascaradas com asteriscos após o caractere inicial, por exemplo, "d\*\*\*." Este formulário é ideal para uso por aplicativos que exibem os resultados de reconhecimento de fala a um usuário.
 **Confidence** | O nível de confiança da frase reconhecida representa o áudio associado, conforme definido pelo servidor de reconhecimento de fala.
 **MediaTime** | A hora atual em relação ao início do fluxo de áudio (em unidades de 100 nanossegundos de tempo).
 **MediaDuration** | A hora atual em relação ao início do fluxo de áudio (em unidades de 100 nanossegundos de tempo).
