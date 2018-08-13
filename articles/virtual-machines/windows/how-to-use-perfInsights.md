@@ -140,7 +140,7 @@ Executa um mecanismo baseado em regras no segundo plano para coletar dados e dia
 > [!NOTE] 
 > Atualmente, há suporte para versões do Windows que incluem .NET Framework 3.5 ou versões posteriores.
 
-### <a name="performance-counter-trace-"></a>Rastreamento do contador de desempenho (**)
+### <a name="performance-counter-trace-"></a>Rastreamento do contador de desempenho (\*\*)
 
 Coleta os seguintes contadores de desempenho:
 
