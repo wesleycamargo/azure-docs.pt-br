@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 03db1bf84e200d8b66f0395cbd96813e2248eefe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39485602"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Backup e recuperação de desastre de discos de IaaS do Azure
 
@@ -148,15 +148,15 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
     b. No menu **Cofres dos Serviços de Recuperação**, clique em **Adicionar** e siga as etapas para criar um novo cofre na mesma região da VM. Por exemplo, se a VM estiver na região Oeste dos EUA, escolha Oeste dos EUA para o cofre.
 
-2.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **Cofres dos Serviços de Recuperação** e acesse **Configurações** > **Configuração de Backup**. Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Essa opção garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
+1.  Verifique a replicação de armazenamento do cofre recém-criado. Acesse o cofre em **Cofres dos Serviços de Recuperação** e acesse **Configurações** > **Configuração de Backup**. Verifique se a opção **Armazenamento com redundância geográfica** está selecionada por padrão. Essa opção garante que o cofre é replicado automaticamente em um data center secundário. Por exemplo, o cofre do Oeste dos EUA é replicado automaticamente no Leste dos EUA.
 
-3.  Configure a política de backup e selecione a VM na mesma interface do usuário.
+1.  Configure a política de backup e selecione a VM na mesma interface do usuário.
 
-4.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+1.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
-6.  Depois que as etapas anteriores forem concluídas, o backup será executado em intervalos regulares, conforme especificado na política de backup. Se necessário, dispare o primeiro backup manualmente no painel do cofre do portal do Azure.
+1.  Depois que as etapas anteriores forem concluídas, o backup será executado em intervalos regulares, conforme especificado na política de backup. Se necessário, dispare o primeiro backup manualmente no painel do cofre do portal do Azure.
 
 Para automatizar o Backup do Azure usando scripts, consulte [Cmdlets do PowerShell para backup de VM](../articles/backup/backup-azure-vms-automation.md).
 
@@ -188,9 +188,9 @@ Para evitar essa situação, o processo de backup deve implementar as seguintes 
 
 1.  Congele todos os discos.
 
-2.  Libere todas as gravações pendentes.
+1.  Libere todas as gravações pendentes.
 
-3.  [Crie um instantâneo de blob](../articles/storage/blobs/storage-blob-snapshots.md) para todos os discos.
+1.  [Crie um instantâneo de blob](../articles/storage/blobs/storage-blob-snapshots.md) para todos os discos.
 
 Alguns aplicativos do Windows, como o SQL Server, fornecem um mecanismo de backup coordenado por meio do serviço de sombra de volume para criar backups consistentes com o aplicativo. No Linux, use uma ferramenta como o *fsfreeze* para coordenar os discos. Essa ferramenta fornece backups consistentes com os arquivos, mas não instantâneos consistentes com o aplicativo. Esse processo é complexo. Portanto, considere o uso de [Backup do Azure](../articles/backup/backup-azure-vms-introduction.md) ou de uma solução de backup de terceiros que já implementa esse procedimento.
 
@@ -202,11 +202,11 @@ Outra opção para criar backups consistentes é desligar a VM e tirar instantâ
 
 1. Desligue a VM.
 
-2. Crie um instantâneo de cada blob de disco rígido virtual, o que leva apenas alguns segundos.
+1. Crie um instantâneo de cada blob de disco rígido virtual, o que leva apenas alguns segundos.
 
     Para criar um instantâneo, use o [PowerShell](../articles/storage/common/storage-powershell-guide-full.md), a [API REST do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/ee691971.aspx), a [CLI do Azure](/cli/azure/) ou uma das bibliotecas de clientes do Armazenamento do Azure, como [a biblioteca de clientes do Armazenamento para .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
 
-3. Inicie a VM, o que encerra o tempo de inatividade. Normalmente, todo o processo é concluído em alguns minutos.
+1. Inicie a VM, o que encerra o tempo de inatividade. Normalmente, todo o processo é concluído em alguns minutos.
 
 Esse processo gera uma coleção de instantâneos consistentes para todos os discos, fornecendo um ponto de restauração de backup para a VM.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6bd07439d4c6b1ccb5919fbfb286f714bac3b628
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b9f0571c88b6ec4aa9e3851d5bf618e5104b0652
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158889"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716239"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
@@ -30,7 +30,7 @@ Você pode usar uma das duas abordagens para exigir a verificação em duas etap
 
 Habilitado pela política de acesso condicional - Esse é o meio mais flexível de habilitar a verificação em duas etapas para usuários. Habilitar usando política de acesso condicional somente funciona para MFA do Azure na nuvem e é um recurso Premium do Azure AD. Mais informações sobre esse método podem ser encontradas em [Implantar Autenticação Multifator do Microsoft Azure baseada em nuvem](howto-mfa-getstarted.md).
 
-Habilitado pelo Azure AD Identity Protection - Esse método usa a política de risco do Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos na nuvem. Este método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins)
+Habilitado pelo Azure AD Identity Protection - Esse método usa a política de risco do Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos na nuvem. Este método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins)
 
 > [!Note]
 > Mais informações sobre licenças e preços podem ser encontradas nas páginas de preço do [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

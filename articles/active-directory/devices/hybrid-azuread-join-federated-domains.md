@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368664"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628981"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar ingresso no Azure Active Directory híbrido para domínios federados
 
@@ -50,6 +50,7 @@ Este tutorial assume que você está familiarizado com:
 
 -  [Como planejar a implementação de ingresso no Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
 
+-  [Como controlar o ingresso no Azure AD híbrido de seus dispositivos](hybrid-azuread-join-control.md)
 
 
 Para configurar o cenário neste tutorial, é necessário ter:
@@ -212,8 +213,8 @@ Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 Se estiver tendo problemas para concluir o ingresso do Azure AD híbrido para dispositivos Windows ingressados no domínio, consulte:
 
-- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos atuais do Windows](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos de nível inferior do Windows](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +222,7 @@ Se estiver tendo problemas para concluir o ingresso do Azure AD híbrido para di
 
 > [!div class="nextstepaction"]
 > [Configurar ingresso no Azure Active Directory híbrido para domínios federados](hybrid-azuread-join-managed-domains.md)
-> [Configurar ingresso no Azure Active Directory híbrido manualmente](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configurar ingresso no Azure Active Directory híbrido manualmente](hybrid-azuread-join-manual-steps.md)
 
 
 

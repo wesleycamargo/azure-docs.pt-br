@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390340"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629065"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -165,7 +165,7 @@ Há muitas maneiras diferentes de comunicar essa URL para seus usuários. Por ex
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Ingressar um dispositivo Windows 7 usando o registro de dispositivo do Azure Active Directory
 Para registrar dispositivos Windows 7 ingressados no domínio, é necessário implantar o [pacote de software de registro de dispositivo](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Para obter instruções sobre como usar o pacote, veja [Pacotes do Windows Installer para computadores sem Windows 10](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
+Para obter instruções sobre como usar o pacote, veja [Pacotes do Windows Installer para computadores sem Windows 10](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Verificar se foi feito o write-back dos dispositivos registrados no Active Directory
 Exiba e verifique se foi feito o write-back dos objetos de dispositivo no Active Directory usando o LDP.exe ou o Editor ADSI. Ambos estão disponíveis com as ferramentas do administrador do Active Directory.

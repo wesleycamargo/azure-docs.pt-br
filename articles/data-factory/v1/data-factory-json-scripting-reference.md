@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6c96cf220e34f1509375e5314e0b54e175575834
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c5909c1f511d3a7816ebafc3ea8b326edb7f14e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114201"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629490"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 > [!NOTE]
@@ -3733,7 +3733,7 @@ Para definir um serviço vinculado do HDFS, defina o **type** do serviço vincul
 | userName |Nome de usuário para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
 | Senha |Senha para a autenticação do Windows. |Sim (para a Autenticação do Windows) |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao HDFS. |SIM |
-| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) da credencial de acesso. |Não  |
+| encryptedCredential |[New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) da credencial de acesso. |Não  |
 
 #### <a name="example-using-anonymous-authentication"></a>Exemplo: Usando a autenticação anônima
 
@@ -4463,7 +4463,7 @@ Para definir um serviço vinculado do ODBC, defina o **type** do serviço vincul
 }
 ```
 #### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exemplo - Usando a autenticação básica com credenciais criptografadas
-Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (versão 1.0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versão 0.9 ou anterior do Azure PowerShell).  
+Você pode criptografar as credenciais usando o cmdlet [New-AzureRMDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/azurerm.datafactories/new-azurermdatafactoryencryptvalue) (versão 1.0 do Azure PowerShell) ou [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (versão 0.9 ou anterior do Azure PowerShell).  
 
 ```json
 {

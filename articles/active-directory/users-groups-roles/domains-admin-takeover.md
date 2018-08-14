@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870082"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629116"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Controlar um diretório não gerenciado como administrador no Azure Active Directory
 Este artigo descreve duas maneiras de controlar um nome de domínio DNS em um diretório não gerenciado no Azure AD (Azure Active Directory). Quando um usuário de autoatendimento se inscreve em um serviço de nuvem que usa o Azure AD, eles são adicionados a um diretório do Azure AD não gerenciado com base em seu domínio de email. Para obter mais informações sobre o autoatendimento ou inscrição “viral” em um serviço, consulte [O que é a inscrição de autoatendimento do Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
@@ -104,7 +104,7 @@ Não há suporte para controle de administrador externo para qualquer serviço q
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre o RMS para pessoas
 
-Para [RMS para pessoas](/information-protection/understand-explore/rms-for-individuals), quando o locatário não gerenciado está na mesma região que o locatário que você possui, a [chave de locatário da Proteção de Informações do Azure](/information-protection/plan-design/plan-implement-tenant-key) e os [modelos de proteção padrão](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) criados automaticamente são movidos adicionalmente com o nome de domínio. 
+Para [RMS para pessoas](/azure/information-protection/rms-for-individuals), quando o locatário não gerenciado está na mesma região que o locatário que você possui, a [chave de locatário da Proteção de Informações do Azure](/azure/information-protection/plan-implement-tenant-key) e os [modelos de proteção padrão](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) criados automaticamente são movidos adicionalmente com o nome de domínio. 
 
 A chave e os modelos não são movidos quando o locatário não gerenciado está em uma região diferente. Por exemplo, o locatário não gerenciado está na Europa, e o locatário que você possui está na América do Norte. 
 

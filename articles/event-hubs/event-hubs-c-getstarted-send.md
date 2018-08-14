@@ -3,7 +3,7 @@ title: Enviar eventos para Hubs de Eventos do Azure usando C | Microsoft Docs
 description: Enviar eventos para Hubs de Eventos do Azure usando C
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
-ms.author: sethm
-ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: shvija
+ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807808"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002450"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Enviar eventos para Hubs de Eventos do Azure usando C
 
@@ -154,7 +154,7 @@ Esta seção mostra como gravar um aplicativo em C para enviar eventos ao hub de
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)
 
 <!-- Images. -->
