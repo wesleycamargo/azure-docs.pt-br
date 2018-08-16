@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194352"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577748"
 ---
 # <a name="manage-azure-automation-account"></a>Como gerenciar uma conta de Automação do Azure
 Em algum momento antes que a conta de Automação expire, será necessário renovar o certificado. Se achar que a conta Executar como foi comprometida, você poderá excluí-la e recriá-la. Esta seção descreve como realizar essas operações.
 
-## <a name="self-signed-certificate-renewal"></a>Renovação do certificado autoassinado
+## <a name="cert-renewal"></a>Renovação do certificado autoassinado
 O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Quando você o renova, o certificado atual é mantido para garantir que todos os runbooks que estão enfileiradas ou ativamente em execução e que se autenticam com a conta Executar como não sejam afetados negativamente. O certificado permanece válido até a data de expiração.
 
 > [!NOTE]
@@ -77,6 +77,6 @@ Quando você selecionar a conta Executar como, o painel **Propriedades** da cont
 Você pode resolver rapidamente esses problemas de conta Executar como excluindo e recriando a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
+* Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md).
 * Para saber mais sobre o Controle de Acesso baseado em Função na Automação do Azure, consulte [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md).
 * Para saber mais sobre certificados e serviços do Azure, confira [Visão geral dos certificados de serviços de nuvem do Azure](../cloud-services/cloud-services-certs-create.md).

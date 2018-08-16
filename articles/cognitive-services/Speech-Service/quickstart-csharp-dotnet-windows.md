@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325183"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578153"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Início rápido: Reconhecer fala em C# no .NET Framework no Windows usando SDK de Fala
 
@@ -42,13 +42,13 @@ O aplicativo é compilado com o [Pacote NuGet do SDK de Fala dos Serviços Cogni
 
 1. Instale e faça referência ao pacote do [Speech SDK NuGet](https://aka.ms/csspeech/nuget). No Solution Explorer, clique com o botão direito do mouse na solução e selecione **Manage NuGet Packages for Solution**.
 
-    ![Clique com o botão direito em Gerenciar pacotes NuGet para solução] (media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Gerenciar pacotes NuGet para solução")
+    ![Clique com o botão direito em Gerenciar pacotes NuGet para solução](media/sdk/qs-csharp-dotnet-windows-02-manage-nuget-packages.png "Gerenciar pacotes NuGet para solução")
 
 1. No canto superior direito, no campo **Package Source**, selecione **Nuget.org**. Procure o pacote `Microsoft.CognitiveServices.Speech` e instale-o no projeto **helloworld**.
 
-    ![Instale o Pacote NuGet Microsoft.CognitiveServices.Speech] (media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Instale o pacote Nuget")
+    ![Instale o Pacote NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Instale o pacote Nuget")
 
-1. Aceite a licença na caixa de diálogo exibida.
+1. Aceite a licença exibida.
 
     ![Aceite a licença](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Aceite a licença")
 
@@ -76,7 +76,7 @@ Nesta seção, você adiciona uma nova plataforma à configuração que correspo
 
 ## <a name="add-the-sample-code"></a>Adicione o código de amostra
 
-1. Abra `Program.cs` no projeto do Visual Studio e substitua todo o código desse arquivo pelo seguinte.
+1. Abra `Program.cs` e substitua todo o código nesse arquivo pelo seguinte.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 

@@ -1,25 +1,20 @@
 ---
-title: Instalar aplicativos de terceiros do Hadoop no Azure HDInsight | Microsoft Docs
+title: Instale aplicativos de terceiros do Hadoop no Azure HDInsight
 description: Saiba como instalar aplicativos de terceiros do Hadoop no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 3ad112544a703a9b6ec37fa07cbd6df6976d5e26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: c4d8f6fb1804ff48899ebb96d4c4248f337b56ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201907"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591968"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Instale aplicativos de terceiros do Hadoop no Azure HDInsight
 
@@ -32,7 +27,7 @@ A lista a seguir mostra os aplicativos publicados:
 * A **Plataforma de Inteligência AtScale** transforma seu cluster do HDInsight em um servidor OLAP de expansão. O aplicativo permite consultar bilhões de linhas de dados interativamente usando as ferramentas de BI do Microsoft Excel, do PowerBI e do Tableau Software para QlikView.
 * **Cask CDAP para o HDInsight** fornece a primeira plataforma de integração unificada para Big Data, o que reduz o tempo de inatividade na produção para aplicativos de dados e data lakes em 80%. Este aplicativo só dá suporte a clusters HBase 3.4 padrão.
 * **DDS DATAIKU no HDInsight** permite que profissionais de dados gerem protótipos, criem e implantem serviços altamente específicos que transformam dados brutos em previsões de negócios de impacto.
-* **Inteligência Artificial H2O para o HDInsight (Beta)** A água gaseificada H2O oferece suporte aos seguintes algoritmos distribuídos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
+* **A inteligência Artificial para HDInsight (Beta) H20**  H2O Sparkling Water suporta os seguintes algoritmos distribuídos: GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection e Autoencoders.
 * **Kyligence Analytics Platform** O KAP (Kyligence Analytics Platform) é um data warehouse pronto para empresas com tecnologia Apache Kylin e Apache Hadoop; ele fornece a latência de consulta de fração de segundos em conjuntos de dados de escala, além de simplificar a análise de dados para analistas e usuários corporativos. 
 * **Preparação de dados de autoatendimento Paxata**
 * **Spark Job Server for KNIME Spark Executor** O Spark Job Server for KNIME Spark Executor é usado para conectar a Plataforma de Análise KNIME aos clusters HDInsight.
@@ -42,7 +37,7 @@ A lista a seguir mostra os aplicativos publicados:
 
 As instruções fornecidas neste artigo usam o portal do Azure. Você também pode exportar o modelo do Azure Resource Manager do portal ou obter uma cópia do modelo do Resource Manager de fornecedores e usar o Azure PowerShell e a CLI do Azure para implantar o modelo.  Consulte [Criar clusters do Hadoop no HDInsight usando modelos do Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Se você quiser instalar aplicativos do HDInsight em um cluster HDInsight existente, precisará ter um cluster HDInsight. Para criar um, confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Você também pode instalar aplicativos do HDInsight quando cria um cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Instalar aplicativos em clusters existentes

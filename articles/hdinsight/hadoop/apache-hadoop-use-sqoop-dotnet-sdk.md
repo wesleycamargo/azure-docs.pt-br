@@ -1,26 +1,21 @@
 ---
-title: Executar trabalhos Sqoop usando o .NET e o HDInsight – Azure | Microsoft Docs
+title: Executar trabalhos Sqoop usando o .NET e o HDInsight – Azure
 description: Saiba como usar o SDK .NET do HDInsight para executar a importação e a exportação do Sqoop entre um cluster do Hadoop e um banco de dados SQL do Azure.
 keywords: trabalho de sqoop
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 818e4aca63249c7a1543abe146e0691e993e9e80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 19c275de80b872fe214e45a52de7d6fb283daf41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200292"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595137"
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Executar trabalhos do Sqoop usando o SDK do .NET para Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -31,7 +26,7 @@ Saiba como usar o SDK .NET do Azure HDInsight para executar trabalhos do Sqoop n
 > As etapas deste artigo podem ser usadas com qualquer cluster HDInsight baseado em Linux ou Windows. No entanto, elas só funcionam em um cliente Windows. Use o seletor de guias na parte superior deste artigo para escolher outros métodos.
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte item:
 
 * Um cluster Hadoop no HDInsight. Para obter mais informações, consulte [Criar um cluster e um banco de dados SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).

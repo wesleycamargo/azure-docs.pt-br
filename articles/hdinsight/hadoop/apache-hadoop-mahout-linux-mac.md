@@ -1,25 +1,20 @@
 ---
-title: Gerar recomendações usando o Mahout e o HDInsight (SSH) – Azure | Microsoft Docs
+title: Gerar recomendações usando o Mahout e o HDInsight (SSH) – Azure
 description: Saiba como usar a biblioteca de aprendizado de máquina do Apache Mahout para gerar recomendações de vídeos com o HDInsight (Hadoop).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: ea9706d30797385718db5cb89bd5399b251f3253
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4f29967890d51b894c04b93d8f24f0d6de892cfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779413"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591152"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes usando o Apache Mahout com o Hadoop para Linux no HDInsight (SSH)
 
@@ -29,7 +24,7 @@ Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http:
 
 O Mahout é uma biblioteca de [machine learning][ml] para o Apache Hadoop. O Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste artigo, você utiliza um mecanismo de recomendação para gerar recomendações de filmes baseadas nos vídeos que seus amigos assistiram.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um, confira [Introdução ao uso do Hadoop baseado em Linux no HDInsight][getstarted].
 

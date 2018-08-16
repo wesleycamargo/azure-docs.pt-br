@@ -1,25 +1,20 @@
 ---
-title: Instale seus próprios aplicativos personalizados do Hadoop no Azure HDInsight | Microsoft Docs
+title: Instale seus próprios aplicativos personalizados do Hadoop no Azure HDInsight
 description: Saiba como instalar aplicativos do HDInsight em aplicativos do HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e556b29c-8176-4bc5-a90b-aa01abfd3aee
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: ab0395f9ee9a8950b439f19502ca6cef6c4f4cf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 23fbbdc4fc41329efadc4fc7953afa0659e79465
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201628"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595892"
 ---
 # <a name="install-custom-hadoop-applications-on-azure-hdinsight"></a>Instale aplicativos personalizados do Hadoop no Azure HDInsight
 
@@ -33,7 +28,7 @@ Outros artigos relacionados:
 * [Publicar aplicativos do HDInsight](hdinsight-apps-publish-applications.md): saiba como publicar seus aplicativos personalizados do HDInsight no Azure Marketplace.
 * [MSDN: instalar um aplicativo do HDInsight](https://msdn.microsoft.com/library/mt706515.aspx): saiba como definir aplicativos do HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Se você quiser instalar aplicativos do HDInsight em um cluster HDInsight existente, precisará ter um cluster HDInsight. Para criar um, confira [Criar clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Você também pode instalar aplicativos do HDInsight quando cria um cluster HDInsight.
 
 ## <a name="install-hdinsight-applications"></a>Instalar aplicativos do HDInsight

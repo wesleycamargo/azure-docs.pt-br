@@ -1,25 +1,20 @@
 ---
-title: Enviar trabalhos MapReduce usando o SDK do .NET do HDInsight – Azure | Microsoft Docs
+title: Enviar trabalhos MapReduce usando o SDK do .NET do Azure HDInsight
 description: Saiba como enviar trabalhos MapReduce para o Hadoop do Azure HDInsight usando o SDK do .NET do HDInsight.
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: a22a2c75f5f520fb74d7ef6a57ff519e95ad273e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019597"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596475"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -31,7 +26,7 @@ Saiba como enviar trabalhos MapReduce usando o SDK do .NET do HDInsight. Os clus
 > 
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter os seguintes itens:
 
 * **Um cluster Hadoop no HDInsight**. Confira a [Introdução ao uso do Hadoop baseado em Linux no HDInsight](apache-hadoop-linux-tutorial-get-started.md).

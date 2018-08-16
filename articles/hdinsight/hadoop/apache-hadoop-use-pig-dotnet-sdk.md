@@ -1,25 +1,20 @@
 ---
-title: Executar trabalhos de Pig do Apache com o SDK do .NET para Hadoop – Azure HDInsight | Microsoft Docs
+title: Executar trabalhos de Pig do Apache com o SDK do .NET para Hadoop – Azure HDInsight
 description: Aprenda a usar o SDK do .NET do Hadoop para enviar trabalhos do Pig para Hadoop no HDInsight.
 services: hdinsight
-documentationcenter: .net
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 986e6fe0e71c4e1361814e22d89fa5121341cc79
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: e781d5d6cf9b1e2ce3c79e138c7a82c780ce8df4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771745"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594807"
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Executar trabalhos do Pig usando o SDK do .NET para Hadoop no HDInsight
 
@@ -29,7 +24,7 @@ Aprenda a usar o SDK do .NET do Hadoop para enviar trabalhos do Pig Apache para 
 
 O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o trabalho com clusters HDInsight no .NET. O Pig permite que você crie operações MapReduce ao modelar uma série de transformações de dados. Neste documento, você aprenderá como usar um aplicativo C# básico para enviar um trabalho do Pig para um cluster do HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir as etapas deste artigo, você precisa do seguinte.
 

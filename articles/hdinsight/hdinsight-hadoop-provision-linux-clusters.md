@@ -1,26 +1,21 @@
 ---
-title: Configuração de cluster para Hadoop, Spark, Kafka, HBase ou ML Services – Microsoft Azure HDInsight | Microsoft Docs
+title: Configuração de cluster para Hadoop, Spark, Kafka, HBase ou ML Services – Microsoft Azure HDInsight
 description: Configure clusters Hadoop, Kafka, Spark, HBase, ML Services ou Storm para HDInsight de um navegador, da CLI do Azure, do Azure PowerShell, REST ou SDK.
 keywords: instalação de cluster hadoop, instalação de cluster kafka, instalação de cluster spark, o que é um cluster no hadoop
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051586"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595834"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurar clusters no HDInsight com Hadoop, Spark, Kafka e mais
 
@@ -39,7 +34,7 @@ A tabela a seguir mostra os diferentes métodos que você pode usar para configu
 
 | Clusters criados com | Navegador da Web | Linha de comando | API REST | . | 
 | --- |:---:|:---:|:---:|:---:|
-| [Portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [portal do Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [CLI do Azure (versão 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [PowerShell do Azure](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -153,7 +148,7 @@ Você é cobrado pelo uso de nó enquanto o cluster existe. A cobrança é inici
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Número de nós para cada tipo de cluster
 Cada tipo de cluster tem seu próprio número de nós, terminologia para nós no cluster e tamanho da VM padrão. Na tabela a seguir, o número de nós para cada tipo de nó está entre parênteses.
 
-| type | Nós | Diagrama |
+| Tipo | Nós | Diagrama |
 | --- | --- | --- |
 | O Hadoop |Nó de cabeçalho (2), Nó de dados (1+) |![Nós de cluster Hadoop do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Servidor de cabeçalho (2), Servidor de região (1 +), Nó mestre/do ZooKeeper (3) |![Nós de cluster HBase do HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

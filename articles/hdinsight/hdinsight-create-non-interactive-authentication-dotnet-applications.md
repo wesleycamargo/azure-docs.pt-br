@@ -1,25 +1,20 @@
 ---
-title: Criar aplicativos .NET de autenticação não interativa no Azure HDInsight | Microsoft Docs
+title: Criar aplicativos .NET de autenticação não interativa no Azure HDInsight
 description: Saiba como criar aplicativos Microsoft .NET de autenticação não interativa no Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 497c67132b6d5ebc1301f56fde72031ca3e7b976
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: f5f1aae62d8f2959f26a361f3c1187037cafcca5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199693"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591512"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 É possível executar seu aplicativo Microsoft .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter um exemplo de um aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -30,7 +25,7 @@ Em seu aplicativo .NET não interativo, você precisa:
 * Da ID de cliente do aplicativo do Azure AD (Azure Active Directory). Consulte [Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) (Criar um aplicativo do Azure Active Directory) e [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter uma ID de aplicativo).
 * Da chave secreta do aplicativo do Azure AD. Consulte [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key) (Obter chave de autenticação do aplicativo).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * Um cluster HDInsight. Consulte o [tutorial de introdução](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir uma função ao aplicativo do Azure AD

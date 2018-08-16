@@ -1,25 +1,20 @@
 ---
-title: Habilitar despejos de heap para serviços do Hadoop no HDInsight – Azure | Microsoft Docs
+title: Habilitar despejos de heap para serviços do Hadoop no HDInsight
 description: Habilite despejos de heap para serviços do Hadoop por meio de clusters do HDInsight baseados em Linux para depuração e análise.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e96cda8560d6fffa3475e7b3130ebc5954548eac
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405116"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592883"
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Habilitar despejos heap para serviços Hadoop no HDInsight baseado em Linux
 

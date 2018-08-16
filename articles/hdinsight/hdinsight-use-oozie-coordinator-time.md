@@ -1,26 +1,21 @@
 ---
-title: Usar o coordenador do Oozie com o Hadoop baseado no tempo no HDInsight | Microsoft Docs
+title: Usar o coordenador do Oozie com o Hadoop baseado no tempo no HDInsight
 description: Usar o Coordenador do Oozie com o Hadoop baseado no tempo no HDInsight, um serviço de big data. Saiba como definir fluxos de trabalho e coordenadores do Oozie e enviar trabalhos.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 61d2e03fad5303f6f66633536b2acc8b1fe300cc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063520"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597269"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usar o coordenador do Oozie com base no tempo com o Hadoop no HDInsight para definir fluxos de trabalho e coordenar trabalhos
 Saiba como definir fluxos de trabalho e coordenadores e como disparar os trabalhos do coordenador baseado em tempo. É útil examinar o artigo [Usar o Oozie com o HDInsight][hdinsight-use-oozie] antes deste. Além do Oozie, você também pode agendar trabalhos usando o Azure Data Factory. Para conhecer a Azure Data Factory, confira [Usar o Pig e o Hive com o Data Factory](../data-factory/transform-data.md).
@@ -61,7 +56,7 @@ O fluxo de trabalho contém duas ações:
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter o seguinte:
 
 * **Uma estação de trabalho com o PowerShell do Azure.**

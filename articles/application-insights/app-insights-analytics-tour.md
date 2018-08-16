@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335274"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579248"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -226,7 +226,7 @@ O uso de [`extend`](https://docs.loganalytics.io/docs/Language-Reference/Tabular
 
 ### <a name="convert-to-local-time"></a>Converter em hora local
 
-Os carimbos de data e hora são sempre em UTC. Portanto, se estiver na costa do Pacífico nos EUA e for inverno, você terá algo semelhante a isto:
+Os carimbos de data e hora são sempre em UTC. Portanto, se você estiver na Costa do Pacífico nos EUA e for inverno, o horário local é-8 horas do UTC, talvez assim:
 
 ```AIQL
 
@@ -461,7 +461,7 @@ Para obter uma análise separada para cada país, temos apenas que trazer a colu
 ## <a name="join"></a>Ingressar
 Temos acesso a várias tabelas, incluindo solicitações e exceções.
 
-Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `session_Id`:
+Para encontrar as exceções relacionadas a uma solicitação que retornou uma resposta com falha, podemos unir as tabelas em `operation_Id`:
 
 ```AIQL
 

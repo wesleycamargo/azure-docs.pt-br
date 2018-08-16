@@ -1,28 +1,25 @@
 ---
-title: Visão geral de back-ends com vários locatários com o Gateway de Aplicativo do Azure | Microsoft Docs
+title: Visão geral de back-ends com vários locatários com o Gateway de Aplicativo Azure AD
 description: Esta página fornece uma visão geral do suporte a vários sites do Gateway de Aplicativo para back-ends com vários locatários.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.topic: article
+ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: 7c00369737d05f414f9ac23d9d3e8918b908fc80
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200987"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578425"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>O Gateway de Aplicativo dá suporte a back-ends com vários locatários
 
-O Gateway de Aplicativo do Azure dá suporte a conjuntos de dimensionamento de máquina virtual, adaptadores de rede, IPs públicos/privados ou FQDN (nomes de domínio totalmente qualificados) como parte de seus pools de back-end. Por padrão, o gateway de aplicativo não altera o cabeçalho de host HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Há muitos serviços, como [Aplicativos Web do Azure](../app-service/app-service-web-overview.md), que têm vários locatários por natureza e contam com um cabeçalho de host ou extensão SNI específica para resolver para o ponto de extremidade correto. O Gateway de Aplicativo agora dá suporte aos usuários para que possam substituir o cabeçalho de host HTTP de entrada com base nas configurações HTTP de back-end. Esse recurso habilita o suporte a Aplicativos Web do Azure e ao Gerenciamento de APIs com back-ends com vários locatários. Esse recurso está disponível para as SKUs padrão e WAF. O suporte ao back-end com vários locatários funciona com terminação SSL e cenários do SSL de ponta a ponta.
+O Gateway de Aplicativo Azure AD dá suporte a conjuntos de dimensionamento de máquina virtual, adaptadores de rede, IPs públicos/privados ou FQDN (nomes de domínio totalmente qualificados) como parte de seus pools de back-end. Por padrão, o gateway de aplicativo não altera o cabeçalho de host HTTP recebido do cliente e envia o cabeçalho inalterado para o back-end. Há muitos serviços, como [Aplicativos Web do Azure](../app-service/app-service-web-overview.md), que têm vários locatários por natureza e contam com um cabeçalho de host ou extensão SNI específica para resolver para o ponto de extremidade correto. O Gateway de Aplicativo agora dá suporte aos usuários para que possam substituir o cabeçalho de host HTTP de entrada com base nas configurações HTTP de back-end. Esse recurso habilita o suporte a Aplicativos Web do Azure e ao Gerenciamento de APIs com back-ends com vários locatários. Esse recurso está disponível para as SKUs padrão e WAF. O suporte ao back-end com vários locatários funciona com terminação SSL e cenários do SSL de ponta a ponta.
+
+> [!NOTE]
+> A configuração do certificado de autenticação não é necessária para serviços do Azure confiáveis, como aplicativos Web do Azure.
 
 ![cenário de aplicativo Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -39,4 +36,4 @@ Com essa funcionalidade, os clientes especificam as opções de configuração a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como configurar um gateway de aplicativo com um aplicativo Web como um membro do pool de back-end visitando: [Configurar aplicativos Web do Serviço de Aplicativos com o Gateway de Aplicativo](application-gateway-web-app-powershell.md)
+Saiba como configurar um gateway de aplicativo com um aplicativo Web como um membro do pool de back-end visitando: [Configurar aplicativos Web do Serviço de Aplicativo do Azure com o Gateway de Aplicativo](application-gateway-web-app-powershell.md)

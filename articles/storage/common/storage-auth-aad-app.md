@@ -1,21 +1,21 @@
 ---
-title: Autenticar com Azure AD a partir de um aplicativo do Armazenamento (versão prévia) | Microsoft Docs
-description: Autentique com Azure AD a partir de um aplicativo do Armazenamento do Microsoft Azure (versão prévia).
+title: Autenticar com o Azure Active Directory para acessar dados de blob e fila de dados dos seus aplicativos (visualização) | Microsoft Docs
+description: Use o Azure Active Directory para autenticar a partir de um aplicativo e, em seguida, autorizar solicitações de recursos de Armazenamento do Microsoft Azure (visualização).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: 1bf4a8bba3b93c16f67d46f65292709ef2a1bba2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659001"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577697"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-storage-application-preview"></a>Autenticar com Azure AD a partir de um aplicativo do Armazenamento do Microsoft Azure (versão prévia)
+# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Autenticar com Microsoft Azure Active Directory a partir de um aplicativo do Armazenamento do Microsoft Azure (versão prévia)
 
 Uma das principais vantagens de usar o Azure AD (Azure Active Directory) com o Armazenamento do Microsoft Azure é que as credenciais não precisam mais ser armazenadas no código. Em vez disso, é possível solicitar um token de acesso OAuth 2.0 do Azure AD. O Azure AD trata a autenticação da entidade de segurança (um usuário, grupo ou entidade de serviço) executando o aplicativo. Se a autenticação tiver êxito, o Azure AD retornará o token de acesso ao aplicativo e o aplicativo poderá usar o token de acesso para autorizar solicitações ao Armazenamento do Microsoft Azure.
 
@@ -23,10 +23,10 @@ Este artigo mostra como configurar o aplicativo para autenticação com o Azure 
 
 Antes de poder autenticar uma entidade de segurança a partir do aplicativo do Armazenamento do Microsoft Azure, defina as configurações de RBAC (controle de acesso baseado em função) para essa entidade de segurança. O Armazenamento do Microsoft Azure define funções RBAC que abrangem permissões para contêineres e filas. Quando a função RBAC é atribuída a uma entidade de segurança, essa entidade de segurança recebe acesso para esse recurso. Para obter mais informações, consulte [Gerenciar direitos de acesso a dados de armazenamento com RBAC (versão prévia)](storage-auth-aad-rbac.md).
 
-Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, consulte [Autorizar acesso a aplicativos Web do Azure Active Directory usando o fluxo de concessão do código do OAuth 2.0](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, consulte [Autorizar acesso a aplicativos Web do Azure Active Directory usando o fluxo de concessão do código do OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
-> Esta versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Azure AD para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Azure AD ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
+> Esta versão prévia é destinada apenas para uso não produtivo. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
 >
 > Durante a versão prévia, as atribuições de função do RBAC podem levar até cinco minutos para serem propagadas.
 
@@ -34,9 +34,9 @@ Para obter uma visão geral do fluxo de concessão do código do OAuth 2.0, cons
 
 A primeira etapa do uso do Azure AD para autorizar o acesso a recursos de armazenamento é registrando o aplicativo cliente em um locatário do Azure AD. Registrar o aplicativo permite chamar a [ADAL (Biblioteca de Autenticação do Active Directory)](../../active-directory/active-directory-authentication-libraries.md) (ADAL) do seu código. A ADAL fornece uma API para realizar a autenticação no Azure AD por meio do aplicativo. Registrar o aplicativo também permite que você autorize chamadas desse aplicativo para as APIs do Armazenamento do Microsoft Azure com um token de acesso.
 
-Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no tempo de execução. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+Ao registrar o aplicativo, você fornece informações sobre ele ao Azure AD. O Azure AD, em seguida, fornece uma ID do cliente (também chamado de *ID do aplicativo*) que você usa para associar o aplicativo ao Azure AD no tempo de execução. Para saber mais sobre a ID do cliente, consulte [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registrar o aplicativo do Armazenamento do Microsoft Azure, siga as etapas na seção [Adicionar um aplicativo](../../active-directory/develop/active-directory-integrating-applications.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se você registrar o aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para **URI de Redirecionamento**. O valor não precisa ser um ponto de extremidade real.
+Para registrar o aplicativo do Armazenamento do Microsoft Azure, siga as etapas na seção [Adicionar um aplicativo](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) em [Integração de aplicativos com o Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se você registrar o aplicativo como um aplicativo nativo, poderá especificar qualquer URI válido para **URI de Redirecionamento**. O valor não precisa ser um ponto de extremidade real.
 
 ![Captura de tela mostrando como registrar o aplicativo de armazenamento com Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -44,7 +44,7 @@ Depois de registrar o aplicativo, você verá a ID do aplicativo (ou ID do clien
 
 ![Captura de tela mostrando a ID do cliente](./media/storage-auth-aad-app/app-registration-client-id.png)
 
-Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/active-directory-integrating-applications.md). 
+Para obter mais informações sobre como registrar um aplicativo no Azure AD, consulte [Integrando aplicativos com o Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). 
 
 ## <a name="grant-your-registered-app-permissions-to-azure-storage"></a>Conceder as permissões de aplicativo registradas ao Armazenamento do Microsoft Azure
 
@@ -104,15 +104,22 @@ Para obter a ID de locatário, siga estas etapas:
 
 ### <a name="add-references-and-using-statements"></a>Adicione referências e usando instruções  
 
-No Visual Studio, instale a versão de versão prévia da biblioteca de clientes do Armazenamento do Microsoft Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o comando a seguir no console:
+No Visual Studio, instale a versão prévia da biblioteca de clientes do Armazenamento do Microsoft Azure. No menu **Ferramentas**, selecione **Gerenciador de Pacotes do NuGet** e, em seguida, **Console do Gerenciador de Pacotes**. Digite o seguinte comando no console para instalar a versão mais recente da biblioteca de cliente para .NET:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package WindowsAzure.Storage
+```
+
+Além disso, instale a versão mais recente da Biblioteca de Autenticação do Active Directory:
+
+```
+Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 ```
 
 Em seguida, adicione as seguintes instruções no código:
 
 ```dotnet
+using System.Globalization;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; //ADAL client library for getting the access token
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -120,13 +127,17 @@ using Microsoft.WindowsAzure.Storage.Blob;
 
 ### <a name="get-an-oauth-token-from-azure-ad"></a>Obter um token OAuth do Azure AD
 
-Em seguida, adicione um método que solicite um token do Azure AD. Para solicitar o token, chame o método [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync).
+Em seguida, adicione um método que solicite um token do Azure AD. Para solicitar o token, chame o método [AuthenticationContext.AcquireTokenAsync](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokenasync). Certifique-se de que você tenha os seguintes valores de etapas que você seguiu anteriormente:
+
+- ID do locatário (diretório)
+- ID do cliente (aplicativo)
+- URI de redirecionamento de cliente
 
 ```dotnet
 static string GetUserOAuthToken()
 {
-    const string ResourceId = "https://storage.azure.com/"; // Storage resource endpoint
-    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token"; // Azure AD OAuth endpoint
+    const string ResourceId = "https://storage.azure.com/";
+    const string AuthEndpoint = "https://login.microsoftonline.com/{0}/oauth2/token";
     const string TenantId = "<tenant-id>"; // Tenant or directory ID
 
     // Construct the authority string from the Azure AD OAuth endpoint and the tenant ID. 
@@ -160,7 +171,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ```
 
 > [!NOTE]
-> A integração do Azure AD ao Armazenamento do Microsoft Azure requer o uso de HTTPS para operações de Armazenamento do Microsoft Azure.
+> A integração do Microsoft Azure Active Directory ao Armazenamento do Microsoft Azure requer o uso de HTTPS para operações de Armazenamento do Microsoft Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,26 +1,21 @@
 ---
-title: Alta disponibilidade para Hadoop – Azure HDInsight | Microsoft Docs
+title: Alta disponibilidade para Hadoop – Azure HDInsight
 description: Saiba como clusters HDInsight melhoram a confiabilidade e a disponibilidade usando um nó principal adicional. Saiba como isso afeta os serviços do Hadoop, como o Ambari e o Hive, e também como se conectar individualmente com cada nó principal usando SSH.
 services: hdinsight
-editor: cgronlun
-manager: cgronlun
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
+editor: jasonwhowell
+author: jasonwhowell
 keywords: alta disponibilidade hadoop
-ms.assetid: 99c9f59c-cf6b-4529-99d1-bf060435e8d4
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: ad42c1acd795d15bbbe951d90ec9b6b09695cd0a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046672"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592576"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Hadoop em HDInsight
 

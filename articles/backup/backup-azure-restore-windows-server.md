@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247271"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576178"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Restaurar arquivos em um computador de cliente do Windows ou Windows Server usando o modelo de implantação do Gerenciador de recursos
 
@@ -51,6 +51,8 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 4. No painel **Selecionar Modo de Recuperação**, escolha **Pastas e arquivos individuais** e, em seguida, clique em **Avançar**.
 
     ![Procurar arquivos](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> A opção de restauração *arquivos e pastas individuais* requer o .NET Framework 4.5.2 ou superior. Se você não vir as *arquivos e pastas individuais* opção, você deve atualizar o .NET Framework versão 4.5.2 ou superior e tente novamente.
 
 5. No painel **Selecionar Volume e Data**, selecione o volume que contém os arquivos e/ou pastas que deseja restaurar.
 
@@ -67,7 +69,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
     ![Opções de recuperação](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se as versões corretas são recuperadas.
+8. No Windows Explorer, copie os arquivos e/ou pastas que deseja restaurar e cole-os em qualquer localização local no servidor ou computador. Você pode abrir ou transmitir os arquivos diretamente do volume de recuperação e verificar se você está recuperando as versões corretas.
 
     ![Copiar e colar arquivos e pastas do volume montado na localização local](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

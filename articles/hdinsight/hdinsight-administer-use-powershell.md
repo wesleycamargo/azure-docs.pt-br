@@ -1,25 +1,20 @@
 ---
-title: Gerenciar clusters de Hadoop no HDInsight com o PowerShell – Azure | Microsoft Docs
+title: Gerenciar clusters de Hadoop no HDInsight com o PowerShell – Azure
 description: Saiba como realizar tarefas administrativas para os clusters Hadoop no HDInsight usando o PowerShell do Azure.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 60868ceb58a9ed4935ea540ad15abd0e5d35f559
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200819"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595521"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -32,7 +27,7 @@ Antes de começar este artigo, você deve ter os seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
+## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Se você instalou o Azure PowerShell versão 0.9x, deve desinstalá-lo antes de instalar uma versão mais recente.
@@ -134,7 +129,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 ## <a name="grantrevoke-access"></a>Conceder/revogar acesso
 Os clusters HDInsight têm os seguintes serviços Web HTTP (todos esses serviços têm pontos de extremidade RESTful):
 
-* ODBC
+* ODBCODBC
 * JDBC
 * Ambari
 * Oozie

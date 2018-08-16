@@ -1,24 +1,20 @@
 ---
-title: Analisar dados de atraso de voo com o Hadoop no HDInsight – Azure | Microsoft Docs
+title: Analisar dados de atraso de voo com Hadoop no HDInsight - Microsoft Azure
 description: Saiba como usar um script do Windows PowerShell para criar um cluster HDInsight, executar um trabalho do Hive, executar um trabalho do Sqoop e excluir o cluster.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770565"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592247"
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Analisar dados de atraso de voo usando o Hadoop no HDInsight
 O Hive fornece um meio para executar trabalhos MapReduce do Hadoop por meio de uma linguagem de script semelhante à SQL, chamada *[HiveQL][hadoop-hiveql]*, que pode ser aplicada para resumo, consulta e análise de grandes volumes de dados.
@@ -50,7 +46,7 @@ Nos apêndices, você pode encontrar instruções de carregamento dos dados de a
 > [!NOTE]
 > As etapas deste documento são específicas de clusters HDInsight baseados no Windows. Para conhecer as etapas que funcionam em um cluster baseado em Linux, confira [Analisar dados de atraso de voos usando o Hive no HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deve ter os seguintes itens:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

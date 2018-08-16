@@ -1,23 +1,20 @@
 ---
-title: Criar clusters Hadoop usando .NET – Azure HDInsight | Microsoft Docs
+title: Criar clusters Hadoop usando .NET – Azure HDInsight
 description: Aprenda a criar clusters Hadoop, HBase, Storm ou Spark no Linux para o HDInsight usando o SDK do .NET para HDInsight.
 services: hdinsight
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
-ms.author: jgao
-ms.openlocfilehash: a0e5bf4afcd1d02c81597efdab8ff349e6adf856
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 0c7f8e9ea37ac932b152bb90b7a75b3c5b8e90bf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952919"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590527"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Criar clusters baseados em Linux no HDInsight usando o SDK do .NET
 
@@ -31,7 +28,7 @@ Saiba como criar um cluster Hadoop no cluster Azure HDInsight usando o SDK do .N
 >
 > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -385,7 +382,7 @@ Agora que você criou com êxito um cluster HDInsight, use o seguinte para apren
 * [Desenvolvimento de aplicativos Java para HBase no HDInsight](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Clusters Storm
-* [Desenvolver topologias Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
+* [Desenvolvimento de aplicativos Java para Storm no HDInsight](storm/apache-storm-develop-java-topology.md)
 * [Usar componentes de Python no Storm no HDInsight](storm/apache-storm-develop-python-topology.md)
 * [Implantar e monitorar topologias com o Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
 

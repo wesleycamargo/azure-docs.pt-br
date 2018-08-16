@@ -1,25 +1,20 @@
 ---
-title: Criar MapReduce em Java para Hadoop – Azure HDInsight | Microsoft Docs
+title: Criar MapReduce em Java para Hadoop – Azure HDInsight
 description: Saiba como usar o Apache Maven para criar um aplicativo de MapReduce baseado em Java e, em seguida, execute-o com o Hadoop no Azure HDInsight.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: Blackmist
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: Java
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: c245b30a48be73f189dcf48502134cf36e93ba20
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 586c316a90c54de2179efd02d4c1e07d8040204a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169533"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593335"
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight"></a>Desenvolver programas Java MapReduce para Hadoop no HDInsight
 

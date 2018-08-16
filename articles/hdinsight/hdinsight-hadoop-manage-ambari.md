@@ -1,25 +1,20 @@
 ---
-title: Monitorar e gerenciar o Azure HDInsight usando a uusando a IU da Web do Ambari | Microsoft Docs
+title: Monitorar e gerenciar o Azure HDInsight usando a IU da Web do Ambari
 description: Aprenda a usar o Ambari para monitorar e gerenciar clusters HDInsight baseados em Linux. Neste documento, você aprenderá a usar a interface de usuário do Ambari Web com clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 4787f3cc-a650-4dc3-9d96-a19a67aad046
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8c58607e191d58d1cb6706569b909a4d709b14b3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: e0efab2caa4f214d407cf8c4f09bfa5f4f619e8d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405259"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591830"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web
 
@@ -233,7 +228,6 @@ Para configurar um serviço, use as seguintes etapas:
 
 As Exibições do Ambari permitem que os desenvolvedores conectem elementos de interface do usuário à interface do usuário da Web do Ambari usando a [Estrutura de modos de exibição do Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). O HDInsight fornece as seguintes exibições com tipos de cluster do Hadoop:
 
-* Gerenciador de filas Yarn: o gerenciador de filas fornece uma interface do usuário simples para exibir e modificar filas YARN.
 
 * Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

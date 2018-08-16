@@ -1,25 +1,20 @@
 ---
-title: Personalizar clusters do HDInsight usando a Inicialização – Azure | Microsoft Docs
+title: Personalizar Clusters do HDInsight usando a Inicialização - Azure
 description: Saiba como personalizar os clusters HDInsight usando a Inicialização.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ab2ebf0c-e961-4e95-8151-9724ee22d769
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2fdbb8730d350023035038d60d17a5ad12c98bc0
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.author: jasonh
+ms.openlocfilehash: 03c9ebad61756cba1de36c9bde4612c19330fb3a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272124"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594651"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -121,7 +116,7 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 
 ```json
 "configurations": {
-    …
+    �
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",

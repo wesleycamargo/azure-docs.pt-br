@@ -1,23 +1,20 @@
 ---
-title: Instalar Presto em clusters Linux do Azure HDInsight | Microsoft Docs
+title: Instalar Presto em clusters Linux do Azure HDInsight
 description: Saiba como instalar o Presto e o Airpal em clusters Hadoop do HDInsight baseados em Linux usando as ações de script.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: ea777b13348b84aaeb7cb7628a4d0aac9f5705bd
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401807"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591414"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Instalar e usar Presto em clusters Hadoop do HDInsight
 
@@ -43,7 +40,7 @@ Esta seção fornece instruções sobre como usar o script de exemplo durante a 
 
 1. Inicie o provisionamento de um cluster usando as etapas em [Provisionar clusters HDInsight baseados em Linux](hdinsight-hadoop-create-linux-clusters-portal.md). Crie o cluster usando o fluxo de criação de cluster **Personalizado**. O cluster deve atender aos requisitos a seguir.
 
-    * Ele deve ser um cluster Hadoop com o HDInsight versão 3.5.
+    * Ele deve ser um cluster Hadoop com o HDInsight versão 3.6.
 
     * Ele deve usar o Armazenamento do Azure como armazenamento de dados. Não há suporte para o uso do Presto em um cluster que usa o Azure Data Lake Store como opção de armazenamento no momento. 
 

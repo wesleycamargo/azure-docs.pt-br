@@ -4,16 +4,16 @@ description: Usar um dispositivo simulado em seu computador Windows para testar 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307936"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576195"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Crie e provisione um dispositivo de borda do TPM simulado no Windows
 
@@ -58,6 +58,8 @@ Depois de criar o registro individual, salve o valor do **ID de registro**. Voc�
 
 ## <a name="install-the-iot-edge-runtime"></a>Instalar o tempo de execução do Azure IoT Edge
 
+Depois de concluir a seção anterior, você deve ver o novo dispositivo listado como um dispositivo IoT Edge em seu Hub IoT. Agora, você precisa instalar o tempo de execução do IoT Edge no dispositivo. 
+
 O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Seus componentes são executados em contêineres e permitem implantar contêineres adicionais no dispositivo para que você possa executar o código na borda. Em dispositivos que executam o Windows, você pode optar por usar contêineres do Windows ou contêineres do Linux. Escolha o tipo de contêineres que você deseja usar e siga as etapas. Certifique-se de configurar o tempo de execução do IoT Edge para provisionamento automático, não manual. 
 
 Siga as instruções para instalar o tempo de execução do IoT Edge no dispositivo que está executando o TPM simulado da seção anterior. 
@@ -67,30 +69,9 @@ Saiba seu DPS **Escopo da ID** e do dispositivo **ID de registro** antes de come
 * [Contêineres do Windows](how-to-install-iot-edge-windows-with-windows.md)
 * [Contêineres do Linux](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>Criar uma Variável de Ambiente TPM
-
-Na máquina que está executando seu dispositivo simulado, modifique o registro do serviço **iotedge** para configurar uma variável de ambiente.
-
-1. No menu **Iniciar**, abra **regedit**. 
-2. Navegue para **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Selecione **Editar** > **Novo** > **Valor de várias cadeias de caractere**. 
-4. Insira o nome do seu **Ambiente**. 
-5. Clique duas vezes a nova variável e defina os dados de valor como **IOTEDGE_USE_TPM_DEVICE = ON**. 
-6. Clique em **OK** para salvar as alterações. 
-
-## <a name="restart-the-iot-edge-runtime"></a>Reinicie o tempo de execução do IoT Edge
-
-Reinicie o tempo de execução do IoT Edge para que ele pega todas as alterações de configuração feitas no dispositivo. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 
-Se o tempo de execução foi iniciado com êxito, você pode entrar em seu Hub IoT e veja que o novo dispositivo foi provisionado automaticamente e está pronto para executar os módulos do Azure IoT. 
+Se o tempo de execução foi iniciado com êxito, você pode entrar em seu Hub IoT e iniciar a implantação de módulos do IoT Edge em seu dispositivo. Use os seguintes comandos em seu dispositivo para verificar o tempo de execução instalado e iniciado com êxito.  
 
 Verifique o status do serviço do IoT Edge.
 

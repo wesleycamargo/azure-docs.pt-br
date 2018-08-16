@@ -1,25 +1,20 @@
 ---
-title: Usar C# com MapReduce no Hadoop no HDInsight – Azure | Microsoft Docs
+title: Usar C# com MapReduce no Hadoop no HDInsight – Azure
 description: Saiba como usar C# para criar soluções de MapReduce com Hadoop no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 7287972ccf63f33a8cf08065f8d5d30ee1b1afb5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7c9a4a0fdbc362a1c2856e35f112deaabddeb229
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400870"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594372"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Use C# com streaming de MapReduce no Hadoop no HDInsight
 
@@ -48,7 +43,7 @@ O processo básico usado para streaming neste documento é o seguinte:
 
 Para mais informações sobre streaming, consulte [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Familiaridade com gravação e compilação de código em C# que se destina ao .NET Framework 4.5. As etapas neste tutorial usam o Visual Studio 2017.
 

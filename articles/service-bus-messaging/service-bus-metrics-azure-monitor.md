@@ -9,18 +9,21 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 517c1376415466f5ce0e3c854f6c91f60cdab9f8
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d27cb7a870a1a03e89ea35aa3ebe3a777483cf67
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247616"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579452"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor (versão prévia)
 
 As métricas do Barramento de Serviço fornecem o estado dos recursos na sua assinatura do Azure. Com um amplo conjunto de dados de métricas, você pode avaliar a integridade geral dos seus recursos de Barramento de Serviço não apenas no nível de namespace, mas também no nível de entidade. Essas estatísticas podem ser importantes, pois elas ajudam você a monitorar o estado do Barramento de Serviço. As métricas também podem ajudar a solucionar problemas de causa raiz sem a necessidade de entrar em contato com o suporte do Azure.
 
 O Azure Monitor fornece interfaces de usuário unificadas para monitoramento entre os diferentes serviços do Azure. Para obter mais informações, consulte [Monitoramento no Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) e o exemplo [Recuperar métricas do Azure Monitor com o .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) no GitHub.
+
+> [!IMPORTANT]
+> Quando não houver nenhuma interação com uma entidade por 2 horas, as métricas começarão a mostrar "0" como um valor até que a entidade não esteja mais ociosa.
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
