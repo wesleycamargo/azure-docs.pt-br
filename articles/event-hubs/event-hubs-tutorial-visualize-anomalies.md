@@ -2,19 +2,19 @@
 title: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure | Microsoft Docs
 description: Tutorial – Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Microsoft Azure
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132645"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004106"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real enviados aos Hubs de Eventos do Azure
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá como:
 > * Configurar um trabalho do Stream Analytics para processar as transações
 > * Configurar uma visualização do Power BI para mostrar os resultados
 
-Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver uma [conta gratuita][], crie uma antes de começar.
+Para concluir este tutorial, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
 ## <a name="prerequisites"></a>pré-requisitos
 
@@ -382,4 +382,4 @@ Avance para o próximo artigo para saber mais sobre os Hubs de Eventos do Azure.
 > [!div class="nextstepaction"]
 > [Introdução ao envio de mensagens para os Hubs de Eventos do Azure no .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

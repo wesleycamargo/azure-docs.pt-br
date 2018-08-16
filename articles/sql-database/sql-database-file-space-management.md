@@ -2,23 +2,22 @@
 title: Gerenciamento de espaço de arquivo do Banco de Dados SQL do Azure | Microsoft Docs
 description: Esta página descreve como gerenciar o espaço no arquivo com o Banco de Dados SQL do Azure e fornece exemplos de código para determinar se você precisa reduzir um banco de dados, além de como executar uma operação de redução do banco de dados.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415999"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003851"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gerenciar espaço no arquivo no Banco de Dados SQL do Azure
-
-Este artigo descreve os diferentes tipos de espaço de armazenamento no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado pelo cliente.
+Este artigo descreve os diferentes tipos de espaço de armazenamento no Banco de Dados SQL do Azure e as etapas que podem ser executadas quando o espaço no arquivo alocado para bancos de dados e pools elásticos precisa ser gerenciado explicitamente.
 
 ## <a name="overview"></a>Visão geral
 
@@ -28,35 +27,35 @@ No Banco de Dados SQL do Azure, as métricas de tamanho de armazenamento exibida
 - T-SQL: [sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Existem padrões de carga de trabalho nos quais a alocação de espaço nos arquivos de dados subjacentes para bancos de dados se torna maior do que o número de páginas de dados usadas nos arquivos de dados. Esse cenário pode ocorrer quando o espaço usado aumenta e, em seguida, os dados são excluídos posteriormente. Quando os dados são excluídos, o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos. Nesses cenários, o espaço alocado para um banco de dados ou pool pode exceder os limites máximos suportados configurados (ou suportados) para o banco de dados e, como resultado, impedir o crescimento de dados ou evitar alterações no nível de desempenho, embora o espaço de banco de dados realmente usado seja menor que o limite máximo de espaço. Para atenuar, talvez seja necessário reduzir o banco de dados para reduzir o espaço alocado mas não usado no banco de dados.
+Há padrões de carga de trabalho que a alocação de arquivos de dados subjacente para bancos de dados pode se tornar maior do que a quantidade de páginas de dados usada.  Isso pode ocorrer quando o espaço usado aumenta e os dados são excluídos posteriormente.  Isso é porque o espaço no arquivo alocado não é recuperado automaticamente quando os dados são excluídos.  Nesses cenários, o espaço alocado para um pool ou banco de dados pode exceder os limites com suporte e impedir que o crescimento de dados ou impedir alterações de nível de desempenho e exigem a redução de arquivos de dados para reduzir.
 
-O serviço Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados. No entanto, você pode reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [Recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space). 
+O serviço Banco de Dados SQL não reduz automaticamente os arquivos de banco de dados para recuperar espaço alocado não utilizado devido ao possível impacto no desempenho do banco de dados.  No entanto, os clientes podem reduzir o arquivo em um banco de dados no momento de sua escolha, seguindo as etapas descritas em [Recuperar espaço não utilizado alocado](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados.
+> Ao contrário dos arquivos de dados, o serviço Banco de Dados SQL reduz automaticamente os arquivos de log, pois essa operação não afeta o desempenho do banco de dados. 
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>Entendendo os tipos de espaço de armazenamento para um banco de dados
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Entendendo os tipos de espaço de armazenamento para um banco de dados
 
-Para gerenciar o espaço no arquivo, você precisa entender os seguintes termos relacionados ao armazenamento do banco de dados para um único banco de dados e para um conjunto elástico.
+Noções básicas sobre as quantidades de espaço de armazenamento a seguir são importantes para gerenciar o espaço de arquivo de banco de dados.
 
-|Termo do espaço de armazenamento|Definição|Comentários|
+|Quantidade de banco de dados|Definição|Comentários|
 |---|---|---|
 |**Espaço de dados usado**|A quantidade de espaço usada para armazenar dados do banco de dados em páginas de 8 KB.|Geralmente, esse espaço utilizado aumenta (diminui) em inserções (exclusões). Em alguns casos, o espaço utilizado não é alterado em inserções ou exclusões, dependendo da quantidade e do padrão de dados envolvidos na operação e de qualquer fragmentação. Por exemplo, excluir uma linha de cada página de dados não diminui necessariamente o espaço usado.|
-|**Espaço alocado**|A quantidade de espaço no arquivo formatado disponibilizada para armazenar dados do banco de dados|O espaço alocado cresce automaticamente, mas nunca diminui após as exclusões. Esse comportamento garante que as futuras inserções sejam mais rápidas, já que o espaço não precisa ser reformatado.|
-|**Espaço alocado, mas não usado**|A quantidade de espaço no arquivo de dados não utilizado alocada para o banco de dados.|Essa quantidade é a diferença entre a quantidade de espaço alocado e o espaço usado e representa a quantidade máxima de espaço que pode ser recuperada ao encolher arquivos de banco de dados.|
-|**Tamanho máximo**|A quantidade máxima de espaço para dados que pode ser usada pelo banco de dados.|O espaço para dados alocado não pode crescer além do tamanho máximo dos dados.|
+|**Espaço alocado de dados**|A quantidade de espaço no arquivo formatado disponibilizada para armazenar dados do banco de dados.|O quantidade de espaço alocado cresce automaticamente, mas nunca diminui após as exclusões. Esse comportamento garante que as futuras inserções sejam mais rápidas, já que o espaço não precisa ser reformatado.|
+|**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado.|Essa quantidade representa a quantidade máxima de espaço livre que pode ser recuperado pela redução de arquivos de dados do banco de dados.|
+|**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada para armazenar dados do banco de dados.|A quantidade do espaço de dados alocados não pode crescer além do tamanho máximo de dados.|
 ||||
 
-O diagrama a seguir ilustra o relacionamento entre os tipos de espaço de armazenamento.
+O diagrama a seguir ilustra o relacionamento entre os tipos de espaço diferentes de espaço de armazenamento para um banco de dados.
 
-![relações e tipos de espaço de armazenamento](./media/sql-database-file-space-management/storage-types.png)
+![relações e tipos de espaço de armazenamento](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Consultar um banco de dados para informações de espaço de armazenamento
 
-Para determinar se você alocou, mas não usou espaço de dados para um banco de dados individual que você deseja recuperar, use as seguintes consultas:
+As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um banco de dados.  
 
 ### <a name="database-data-space-used"></a>Espaço de dados do banco de dados usado
-Modifique a consulta a seguir para retornar a quantidade de espaço para dados do banco de dados usada em MB.
+Modifique a consulta a seguir para retornar a quantidade de espaço para dados do banco de dados usado.  Unidades do resultado da consulta são em MB.
 
 ```sql
 -- Connect to master
@@ -67,8 +66,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>Dados do banco de dados alocados e espaço alocado não utilizado
-Modifique a consulta a seguir para retornar a quantidade de dados do banco de dados alocados e o espaço alocado não utilizado.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de banco de dados alocado e espaço alocado não usado
+Use a seguinte consulta para retornar a quantidade de espaço de dados do banco de dados alocado e a quantidade de espaço não utilizado alocada.  Unidades do resultado da consulta são em MB.
 
 ```sql
 -- Connect to database
@@ -80,8 +79,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>Tamanho máximo do banco de dados
-Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados em bytes.
+### <a name="database-data-max-size"></a>Tamanho máximo de dados de banco de dados
+Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados.  Unidades do resultado da consulta são em bytes.
 
 ```sql
 -- Connect to database
@@ -89,12 +88,24 @@ Modifique a consulta a seguir para retornar o tamanho máximo do banco de dados 
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Noções básicas sobre tipos de espaço de armazenamento para um pool elástico
+
+Noções básicas sobre as quantidades de espaço de armazenamento a seguir são importantes para gerenciar o espaço de arquivo de banco de dados.
+
+|Quantidade de pool elástico|Definição|Comentários|
+|---|---|---|
+|**Espaço de dados usado**|O resumo de espaço de dados usado por todos os bancos de dados no pool elástico.||
+|**Espaço alocado de dados**|O resumo de espaço de dados alocado por todos os bancos de dados no pool elástico.||
+|**Espaço de dados alocados, mas não utilizado**|A diferença entre a quantidade de espaço de dados alocado e espaço de dados usado por todos os banco de dados no pool elástico.|Essa quantidade representa a quantidade máxima de espaço alocado para o pool elástico que pode ser recuperado pela redução de arquivo de dados do banco de dados.|
+|**Tamanho máximo dos dados**|A quantidade máxima de espaço para dados que pode ser usada pelo pool elástico de todos esses bancos de dados.|O espaço alocado não deve exceder o tamanho máximo do pool elástico.  Se isso ocorrer, o espaço alocado não utilizado pode ser recuperado por reduzir os arquivos de dados do banco de dados.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar um pool elástico para informações de espaço de armazenamento
 
-Para determinar se você alocou, mas não usou o espaço para dados em um pool elástico e para cada banco de dados em pool que você deseja recuperar, use as seguintes consultas:
+As consultas a seguir podem ser usadas para determinar as quantidades de espaço de armazenamento para um pool elástico.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espaço de dados do pool elástico usado
-Modifique a consulta a seguir para retornar a quantidade de espaço para dados do conjunto elástico usado em MB.
+Modifique a consulta a seguir para retornar a quantidade de espaço para dados do conjunto elástico usado.  Unidades do resultado da consulta são em MB.
 
 ```sql
 -- Connect to master
@@ -105,11 +116,11 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>Dados do conjunto elástico alocados e espaço alocado não utilizado
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espaço de dados de pool elástico alocado e espaço alocado não usado
 
-Modifique o seguinte script do PowerShell para retornar uma tabela listando o espaço total alocado e o espaço não utilizado alocado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados daqueles com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  
+Modifique o seguinte script do PowerShell para retornar uma tabela listando o espaço total alocado e o espaço não utilizado alocado para cada banco de dados em um pool elástico. A tabela ordena bancos de dados daqueles com a maior quantidade de espaço alocado não utilizado para a menor quantidade de espaço alocado não utilizado.  Unidades do resultado da consulta são em MB.  
 
-Os resultados da consulta para determinar o espaço alocado para cada banco de dados no conjunto podem ser incluídos juntos para determinar o espaço do conjunto elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
+Os resultados da consulta para determinar o espaço alocado para cada banco de dados no pool podem ser incluídos juntos para determinar o espaço do pool elástico alocado. O espaço do pool elástico alocado não deve exceder o tamanho máximo do pool elástico.  
 
 ```powershell
 # Resource group name
@@ -160,9 +171,9 @@ A captura de tela a seguir é um exemplo da saída do script:
 
 ![espaço alocado de pool elástico e exemplo de espaço alocado não utilizado](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>Tamanho máximo do pool Elástico
+### <a name="elastic-pool-data-max-size"></a>Tamanho máximo dos dados do pool elástico
 
-Use a seguinte consulta T-SQL para retornar o tamanho máximo do banco de dados elástico em MB.
+Modifique a seguinte consulta T-SQL para retornar o tamanho máximo dos dados do pool elástico.  Unidades do resultado da consulta são em MB.
 
 ```sql
 -- Connect to master
@@ -175,19 +186,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperar espaço alocado não utilizado
 
-Depois de determinar que você tem espaço alocado não usado que deseja recuperar, use o comando a seguir para reduzir o espaço do banco de dados alocado. 
-
-> [!IMPORTANT]
-> Para bancos de dados em um pool elástico, os bancos de dados com mais espaço alocado não utilizado devem ser reduzidos primeiro para recuperar o espaço no arquivo mais rapidamente.  
-
-Use o seguinte comando para reduzir todos os arquivos de dados no banco de dados especificado:
+Depois que os bancos de dados foram identificados para recuperar o espaço alocado não utilizado, modifique o comando a seguir para reduzir os arquivos de dados para cada banco de dados.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Para obter mais informações sobre este comando, consulte [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Considerar a reconstrução de índices do banco de dados Depois que os arquivos de dados do banco de dados são reduzidos, os índices podem se tornar fragmentados e perder a eficácia da otimização do desempenho. Se isso ocorrer, os índices devem ser recriados. Para obter mais informações sobre fragmentação e reconstrução de índices, consulte [Reorganizar e reconstruir índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ccdea2833a24aa9e2bdf4fadd12b19d78b40f999
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444354"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037881"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Criar um cluster do Service Fabric usando o Azure Resource Manager 
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
+> * [portal do Azure](service-fabric-cluster-creation-via-portal.md)
 >
 >
 
@@ -75,7 +75,7 @@ O conceito para criar clusters seguros é o mesmo, sejam clusters do Linux ou do
 Qualquer quantidade de certificados adicionais pode ser especificada para operações de cliente de usuário ou administrador. Por padrão, o certificado de cluster tem privilégios de cliente do administrador. Esses certificados de cliente adicionais não devem ser instalados no cluster, só precisam ser especificados como sendo permitidos na configuração do cluster, no entanto, eles precisam ser instalados nos computadores cliente para se conectarem ao cluster e executarem qualquer operação de gerenciamento.
 
 
-## <a name="prerequisites"></a>pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 O conceito para criar clusters seguros é o mesmo, sejam clusters do Linux ou do Windows. Este guia abrange o uso do Azure PowerShell ou da CLI do Azure para criar novos clusters. Os pré-requisitos são:
 
 -  [O Azure PowerShell 4.1 e posterior][azure-powershell] ou [CLI do Azure 2.0 e posterior][azure-CLI].
@@ -341,6 +341,9 @@ Para simplificar algumas das etapas envolvidas na configuração do Azure AD com
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> Para nuvens nacionais (Azure Governamental, Azure China, Azure Alemanha), você também deve especificar o `-Location` parâmetro.
+
 Você pode encontrar o TenantId executando o comando `Get-AzureSubscription` do PowerShell. A execução desse comando exibe a TenantId para cada assinatura.
 
 O ClusterName é usado para prefixar os aplicativos do Azure AD criados pelo script. Ele não precisa corresponder exatamente ao nome real do cluster. Serve apenas para tornar mais fácil mapear artefatos do Azure AD para o cluster do Service Fabric com que estão sendo usados.
@@ -370,6 +373,9 @@ O script imprimirá o JSON necessário para o modelo do Azure Resource Manager a
 Esta seção é para usuários que desejam criar um modelo do Resource Manager de cluster do Service Fabric personalizado. assim que você tiver um modelo, é possível voltar e usar os modelos de CLI e do PowerShell para implantá-lo. 
 
 Os exemplos de modelo do Resource Manager estão disponíveis nos [Exemplos do Azure no GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Esses modelos podem ser usados como ponto de partida para o modelo de cluster.
+
+> [!NOTE]
+> Para nuvens nacionais (Azure Governamental, Azure China, Azure Alemanha), você também deve adicionar o seguinte `fabricSettings` para o seu modelo ARM: `AADLoginEndpoint`, `AADTokenEndpointFormat` e `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Criar o modelo do Gerenciador de Recursos
 Este guia usa o modelo de exemplo e parâmetros de modelo do [cluster seguro de cinco nós][service-fabric-secure-cluster-5-node-1-nodetype]. Baixe `azuredeploy.json` e `azuredeploy.parameters.json` em seu computador e abra ambos os arquivos em seu editor de texto favorito.
@@ -676,7 +682,7 @@ Para se conectar ao cluster do Service Fabric, use o seguinte exemplo de comando
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Para saber mais sobre o cmdlet Connect-ServiceFabricCluster, confira [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+Para saber mais sobre o cmdlet Connect-ServiceFabricCluster, confira [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster).
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>Posso reutilizar o mesmo locatário do Azure AD em vários clusters?
 Sim. Mas lembre-se de adicionar a URL do Service Fabric Explorer ao aplicativo do cluster (Web). Caso contrário, o Service Fabric Explorer não funcionará.
@@ -695,7 +701,7 @@ Neste ponto, você tem um cluster seguro com o Azure Active Directory fornecendo
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
@@ -715,4 +721,3 @@ Neste ponto, você tem um cluster seguro com o Azure Active Directory fornecendo
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

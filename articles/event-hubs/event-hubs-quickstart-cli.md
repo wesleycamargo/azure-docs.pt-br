@@ -2,26 +2,26 @@
 title: Início rápido do Azure - Processar fluxos de eventos usando a CLI do Azure | Microsoft Docs
 description: Neste início rápido, você aprenderá como processar fluxos de eventos usando a CLI do Azure.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425945"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004555"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Início rápido: Processar fluxos de eventos do processo usando a CLI do Azure e Java
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente escalonável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar recursos de Hubs de Eventos usando a CLI do Azure, em seguida, enviar e receber fluxos de eventos de um hub de eventos usando código Java.
 
-Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver uma [conta gratuita][], crie uma antes de começar.
+Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -292,7 +292,7 @@ Neste artigo, você criou um namespace de Hubs de Eventos e outros recursos nece
 > [!div class="nextstepaction"]
 > [Visualizar anomalias de dados nos fluxos de dados dos Hubs de Eventos](event-hubs-tutorial-visualize-anomalies.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

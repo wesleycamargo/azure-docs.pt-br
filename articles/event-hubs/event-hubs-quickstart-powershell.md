@@ -2,7 +2,7 @@
 title: Início rápido do Azure - processar fluxos de eventos usando o PowerShell | Microsoft Docs
 description: Este início rápido descreve como enviar e receber eventos de Hubs de Eventos do Azure usando o PowerShell e um aplicativo .NET de exemplo.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132084"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003603"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Início rápido: Processar fluxos de eventos usando o PowerShell e o .NET Standard
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente escalonável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar um hub de eventos usando o Azure PowerShell e, em seguida, enviar e receber de um hub de eventos usando o SDK do .NET Standard.
 
-Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver uma [conta gratuita][], crie uma antes de começar.
+Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -156,7 +156,7 @@ Neste artigo, você criou um namespace de Hubs de Eventos e outros recursos nece
 > [!div class="nextstepaction"]
 > [Visualizar anomalias de dados nos fluxos de dados dos Hubs de Eventos](event-hubs-tutorial-visualize-anomalies.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

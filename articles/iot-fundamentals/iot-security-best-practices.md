@@ -8,12 +8,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: dobett
-ms.openlocfilehash: 0dfd08b4f6c9333dae725f3348dcea315e2ad85e
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: dd34cbb2cf79bb5a490e7cf19319a3fce7e8178f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35766051"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037942"
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
@@ -23,4 +23,4 @@ Para saber mais sobre como proteger uma solução criada por um acelerador de so
 Leia sobre a segurança do Hub IoT em [ Controlar acesso ao Hub IoT ][lnk-devguide-security] no guia do desenvolvedor Hub IoT.
 
 [lnk-security-deployment]: iot-security-deployment.md
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
+[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security

@@ -2,23 +2,18 @@
 title: Usando o Azure PowerShell com o Armazenamento do Azure | Microsoft Docs
 description: Saiba como usar os cmdlets do Azure PowerShell para o Armazenamento do Azure.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 06/13/2018
 ms.author: rogarana
-ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 6cf7f35e60502d0e21ffa2b777f1700a57add965
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652494"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037853"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Usando o PowerShell do Azure com o Armazenamento do Azure
 
@@ -55,7 +50,7 @@ Connect-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Listar as contas de armazenamento na assinatura
 
-Execute o cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) para recuperar a lista de contas de armazenamento na assinatura atual. 
+Execute o cmdlet [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) para recuperar a lista de contas de armazenamento na assinatura atual. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,11 +103,11 @@ $ctx = $storageAccount.Context
 
 O script usa os seguintes cmdlets do PowerShell: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation): recupera uma lista dos locais válidos. O exemplo usa `eastus` como local.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation): recupera uma lista dos locais válidos. O exemplo usa `eastus` como local.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup): cria um novo grupo de recursos. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O nosso se chama `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): cria um novo grupo de recursos. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O nosso se chama `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount): cria a conta de armazenamento real. O exemplo usa `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- cria a conta de armazenamento real. O exemplo usa `testpshstorage`.
 
 O nome da SKU indica o tipo de replicação da conta de armazenamento, como LRS (armazenamento com redundância local). Para saber mais sobre a replicação, consulte [Replicação do Armazenamento do Azure](storage-redundancy.md).
 
@@ -128,7 +123,7 @@ Agora que você tem uma referência a uma nova conta de armazenamento ou uma exi
 
 ### <a name="storage-account-properties"></a>Propriedades da conta de armazenamento
 
-Para alterar as configurações de uma conta de armazenamento, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). Embora não seja possível alterar o local de uma conta de armazenamento ou o grupo de recursos em que ela reside, é possível alterar muitas outras propriedades. A seguir estão listadas algumas das propriedades que podem ser alteradas usando o PowerShell.
+Para alterar as configurações de uma conta de armazenamento, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Embora não seja possível alterar o local de uma conta de armazenamento ou o grupo de recursos em que ela reside, é possível alterar muitas outras propriedades. A seguir estão listadas algumas das propriedades que podem ser alteradas usando o PowerShell.
 
 * O **domínio personalizado** atribuído à conta de armazenamento.
 
@@ -220,7 +215,6 @@ Agora que você sabe como gerenciar sua conta de armazenamento com o PowerShell,
 A API de Tabela do Azure Cosmos DB fornece recursos premium para o armazenamento de tabelas, como distribuição global turnkey, leituras e gravações de baixa latência, indexação secundária automática e taxa de transferência dedicada. 
 
 * Para obter mais informações, consulte o [API de Tabela do Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
-* Para saber como usar o PowerShell para realizar operações de API de tabela do Azure Cosmos DB, consulte [Realizar operações de API de tabela do Azure Cosmos DB com o PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Implantações de nuvem independentes do Azure
 

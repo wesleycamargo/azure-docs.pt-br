@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
 ms.devlang: azure-cli
-ms.topic: conceputal
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 356e8019f9a4a64cb1c1c113d0f44990aa4e0f95
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090319"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037891"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>Implantar um aplicativo de Malha do Service Fabric para a malha de Service Fabric usando um modelo
 Este artigo mostra como implantar um aplicativo .NET Core à Malha de Service Fabric usando um modelo. Quando terminar, você terá um aplicativo de votação com um front-end da Web do ASP.NET Core que salva os resultados da votação em um serviço de back-end com estado do cluster. O front-end usa o DNS para resolver o endereço do serviço de back-end.

@@ -3,25 +3,25 @@ title: Início rápido do Azure - Fluxos de eventos do processo usando o portal 
 description: Neste início rápido, você aprenderá como processar fluxos de eventos usando o portal do Azure.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132083"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004303"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Início rápido: Processar fluxos de eventos do processo usando o portal do Azure e .NET
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente escalonável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar um hub de eventos usando o [portal do Azure](https://portal.azure.com)e, em seguida, enviar e receber de um hub de eventos usando o SDK do .NET Standard.
 
-Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver uma [conta gratuita][], crie uma antes de começar.
+Para concluir este início rápido, você precisa de uma assinatura do Azure. Se você não tiver [uma conta gratuita][], crie uma antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -173,7 +173,7 @@ Neste artigo, você criou um namespace de Hubs de Eventos e outros recursos nece
 > [!div class="nextstepaction"]
 > [Visualizar anomalias de dados nos fluxos de dados dos Hubs de Eventos](event-hubs-tutorial-visualize-anomalies.md)
 
-[conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[uma conta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [portal do Azure]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

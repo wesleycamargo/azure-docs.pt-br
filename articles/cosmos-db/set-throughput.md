@@ -2,19 +2,19 @@
 title: Provisionar a produtividade do Azure Cosmos DB | Microsoft Docs
 description: Saiba como definir a produtividade provisionada para contêineres, coleções, grafos e tabelas do Azure Cosmos DB.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600152"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037865"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Definir e obter a taxa de transferência de contêineres e banco de dados do Microsoft Azure Cosmos DB
 
@@ -262,20 +262,6 @@ Um método para estimar a quantidade de produtividade reservada exigida pelo apl
 > Se você tiver tipos de itens que são muito diferentes em termos de tamanho e número de propriedades indexadas, registre o encargo de unidades de solicitação da operação aplicável associado a cada *tipo* de item típico.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Obter o encargo de solicitação para contas da API do Gremlin 
-
-Aqui está um exemplo sobre como obter o encargo de solicitação para contas da API Gremlin usando a biblioteca Gremlin.Net. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Além do método acima, você também pode usar o cabeçalho "x-ms-total-request-charge" para cálculos de unidades de solicitação.
-
 
 ## <a name="throughput-faq"></a>Perguntas frequentes sobre taxa de transferência
 

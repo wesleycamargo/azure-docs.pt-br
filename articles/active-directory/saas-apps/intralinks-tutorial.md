@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424770"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Tutorial: Integração do Azure Active Directory com o Intralinks
 
@@ -115,7 +115,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Intralinks](https://www.intralinks.com/contact-1) para obter esse valor. 
+    > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Intralinks](https://www.intralinks.com/contact) para obter esse valor. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
@@ -125,7 +125,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Para configurar o logon único no lado do **Intralinks**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Intralinks](https://www.intralinks.com/contact-1). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar o logon único no lado do **Intralinks**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Intralinks](https://www.intralinks.com/contact). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-an-intralinks-test-user"></a>Criação de um usuário de teste do Intralinks
 
-Nesta seção, você criará uma usuária chamada Brenda Fernandes no Intralinks. Trabalhe com a [equipe de suporte do Intralinks](https://www.intralinks.com/contact-1) para adicionar os usuários à plataforma Intralinks.
+Nesta seção, você criará uma usuária chamada Brenda Fernandes no Intralinks. Trabalhe com a [equipe de suporte do Intralinks](https://www.intralinks.com/contact) para adicionar os usuários à plataforma Intralinks.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -237,7 +237,7 @@ Depois disso, você pode seguir o procedimento abaixo para adicionar outro aplic
  
     ![Configurar o logon único](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Obtenha a URL de SSO Iniciada por SP com a [equipe do Intralinks](https://www.intralinks.com/contact-1) para o outro aplicativo Intralinks e insira-a em **Configurar URL de Logon**, conforme é mostrado abaixo. 
+1. Obtenha a URL de SSO Iniciada por SP com a [equipe do Intralinks](https://www.intralinks.com/contact) para o outro aplicativo Intralinks e insira-a em **Configurar URL de Logon**, conforme é mostrado abaixo. 
     
      ![Configurar o logon único](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

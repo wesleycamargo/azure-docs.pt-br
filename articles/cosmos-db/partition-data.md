@@ -2,20 +2,20 @@
 title: Particionamento e escala horizontal no BD Cosmos do Azure | Microsoft Docs
 description: Saiba mais sobre como o particionamento funciona no DB Cosmos do Azure, como configurar o particionamento e as chaves de partição e como escolher a chave de partição correta para seu aplicativo.
 services: cosmos-db
-author: rimman
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.author: rimman
+ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344123"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037870"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partição e escala no Azure Cosmos DB
 
