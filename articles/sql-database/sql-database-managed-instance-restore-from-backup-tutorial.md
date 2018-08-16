@@ -57,7 +57,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLM
    |**Tipo de conta**|Armazenamento de blob||
    |**Desempenho**|Standard ou Premium|Unidades magnéticas ou SSDs|
    |**Replicação**|Armazenamento com redundância local||
-   |**Camada de acesso (padrão)|Inativo ou ativo||
+   |\*\*Camada de acesso (padrão)|Inativo ou ativo||
    |**Transferência segura é necessária**|Desabilitado||
    |**Assinatura**|Sua assinatura|Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions).|
    |**Grupo de recursos**|O grupo de recursos criado anteriormente|| 
