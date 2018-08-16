@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214910"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716365"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Tutorial: Escreva um aplicativo do WPF para Tradução de Texto usando C&#35;
 
@@ -666,9 +666,9 @@ Em seguida, passe o texto para a API `Translate` em uma matriz serializada JSON 
 O cabeçalho HTTP chamado `X-ClientTraceId` é opcional. O valor deve ser um GUID. A ID de rastreamento fornecida pelo cliente é útil para rastrear as solicitações quando as coisas não funcionam como o esperado. No entanto, para ser útil, o valor de X-ClientTraceID deve ser registrado pelo cliente. Uma ID de rastreamento do cliente e a data das solicitações podem ajudar a Microsoft a diagnosticar os problemas que podem ocorrer.
 
 > [!NOTE]
-> Este tutorial concentra-se no serviço Microsoft Translator, portanto, não são abordados os métodos `DetectLanguage()` e `CorrectSpelling()` em detalhes. Os serviços de Análise de Texto e Verificação Ortográfica do Bing fornecem respostas em JSON, não em XML, e a Análise de Texto requer que a solicitação esteja formatada, bem como o JSON. Essas características explicam a maioria das diferenças de código nos métodos que já discutimos aqui.
+> Este tutorial concentra-se no serviço Microsoft Translator, portanto, não são abordados os métodos `DetectLanguage()` e `CorrectSpelling()` em detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Referência da API de Tradução de Texto da Microsoft](http://docs.microsofttranslator.com/text-translate.html)
+> [Referência da API de Tradução de Texto da Microsoft](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

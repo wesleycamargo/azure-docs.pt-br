@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158855"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622313"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -75,12 +75,13 @@ Considere [preencher previamente alguns dados de autenticação dos usuários](h
 
 ## <a name="disable-self-service-password-reset"></a>Desabilitar a redefinição de senha por autoatendimento
 
-Se a organização decidir desabilitar a redefinição de senha de autoatendimento, será um processo simples. Abra o seu locatário do Azure AD e vá para **Redefinição de senha** > **Propriedades** e, em seguida, selecione **Nenhum** em **Redefinição de senha do serviço de autoatendimento habilitada**. Os usuários ainda manterão as suas
+Se a organização decidir desabilitar a redefinição de senha de autoatendimento, será um processo simples. Abra o seu locatário do Azure AD e vá para **Redefinição de senha** > **Propriedades** e, em seguida, selecione **Nenhum** em **Redefinição de senha do serviço de autoatendimento habilitada**. Os usuários ainda manterão seus métodos de autenticação registrado para uso futuro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Redefinir ou alterar sua senha](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro de redefinição de senha de autoatendimento](../user-help/active-directory-passwords-reset-register.md)
+* [Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)
 * [Você tem uma pergunta sobre licenciamento?](concept-sspr-licensing.md)
 * [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](howto-sspr-authenticationdata.md)
 * [Quais são as opções de política com SSPR?](concept-sspr-policy.md)

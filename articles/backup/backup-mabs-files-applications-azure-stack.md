@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751697"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617108"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Fazer backup no Microsoft Azure Stack
 É possível usar o Backup do Azure para proteger (ou fazer backup) de arquivos e aplicativos no Azure Stack. Para fazer backup de arquivos e aplicativos, instale o Servidor de Backup do Microsoft Azure como uma máquina virtual em execução no Azure Stack. Você pode proteger os arquivos no servidor do Azure Stack na mesma rede virtual. Após instalar o Servidor de Backup do Azure, adicione os discos do Azure para aumentar o armazenamento local disponível para dados de backup de curto prazo. O Servidor de Backup do Azure usa o armazenamento do Azure para retenção de longo prazo.
@@ -27,7 +27,7 @@ Este artigo não aborda a instalação de Servidor de Backup do Azure no ambient
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Realize o backup dos Arquivos e Pastas nas VMs do Azure Stack para o Azure
 
-Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais das VMs do Azure Stack, abra o console do Servidor de Backup do Azure. Você usará o console para configurar grupos de proteção e para proteger os dados em suas máquinas virtuais.
+Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais das máquinas virtuais do Azure Stack, abra o console do Servidor de Backup do Azure. Você usará o console para configurar grupos de proteção e para proteger os dados em suas máquinas virtuais.
 
 1. No console do Servidor de Backup do Azure, clique em **Proteção** e, na barra de ferramentas, clique em **Novo** para abrir o assistente **Criar Novo Grupo de Proteção**.
 
@@ -90,15 +90,13 @@ Para configurar o Servidor de Backup do Azure para proteger máquinas virtuais d
 
 13. Em **Resumo**, examine as configurações. Quando você clica em **Criar Grupo**, ocorre a replicação inicial de dados. Quando a replicação de dados termina, na página **Status**, o status do grupo de proteção é mostrado como **OK**. O trabalho de backup inicial ocorre em linha com as configurações do grupo de proteção.
 
-Perguntas que precisam ser respondidas: como expandir o armazenamento em disco para armazenamento em disco de curto prazo do Azure Stack. Quais são as diretrizes que precisam ser chamadas explicando o armazenamento de curto prazo em disco?
-
 ## <a name="recover-file-data"></a>Recuperar dados de arquivo
 
 Use o console do Servidor de Backup do Azure para recuperar dados para sua máquina virtual.
 
 1. No console do Servidor de Backup do Azure, na barra de navegação, clique em **Recuperação** e procure os dados que você deseja recuperar. No painel de resultados, selecione os dados.
 
-2. No calendário da seção de pontos de recuperação, as datas em negrito indicam que os pontos de recuperação estão disponíveis. Selecione a data para recuperar um ponto de recuperação.
+2. No calendário da seção de pontos de recuperação, as datas em negrito indicam que os pontos de recuperação estão disponíveis. Selecione a data para recuperar.
 
 3. No painel **Item recuperável**, selecione o item que você deseja recuperar.
 

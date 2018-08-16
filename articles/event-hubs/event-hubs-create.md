@@ -2,19 +2,19 @@
 title: Criar um hub de eventos do Azure | Microsoft Docs
 description: Criar um namespace de Hubs de Eventos do Azure e um hub de eventos usando o Portal do Azure
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
-ms.author: sethm
-ms.openlocfilehash: 9b466d4e727c1511ca2318c0da3ec2807a965a5d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: fb2020f7bfc8521e141adb4eefbc227e8123a269
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625535"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002613"
 ---
 # <a name="create-an-event-hubs-namespace-and-an-event-hub-using-the-azure-portal"></a>Criar um namespace de Hubs de Eventos e um hub de eventos usando o Portal do Azure
 
@@ -64,7 +64,7 @@ Seu hub de eventos foi criado, e você tem as cadeias de conexão que precisa pa
 
 Para saber mais sobre os Hubs de Eventos, consulte estes links:
 
-* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Visão geral de API de Hubs de Eventos](event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.com/

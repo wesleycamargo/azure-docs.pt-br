@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283216"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627467"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Logon Único Contínuo do Azure Active Directory: perguntas frequentes
 
@@ -40,19 +40,20 @@ Não. O SSO Contínuo está disponível apenas na instância mundial do Azure AD
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Quais aplicativos tiram proveito da capacidade de parâmetro `domain_hint` ou `login_hint` do SSO Contínuo?
 
-Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o Azure AD e, portanto, fornecem aos usuários uma experiência de logon silenciosa usando o SSO contínuo (isto é, os usuários não precisam inserir seus nomes de usuário):
+Veja abaixo uma lista parcial de aplicativos que enviam esses parâmetros para o Microsoft Azure Active Directory e, portanto, fornecem aos usuários uma experiência de logon silenciosa usando o SSO contínuo (isto é, os usuários não precisam inserir seus nomes de usuário ou senha):
 
 | Nome do aplicativo | URL do aplicativo a ser usada |
 | -- | -- |
-| Painel de acesso | myapps.microsoft.com/contoso.com |
-| Outlook na Web | outlook.office365.com/contoso.com |
+| Painel de acesso | https://myapps.microsoft.com/contoso.com |
+| Outlook na Web | https://outlook.office365.com/contoso.com |
+| Portal do Office 365 | https://portal.office.com?domain_hint=contoso.com |
 
 Além disso, os usuários também terão uma experiência de logon silenciosa se um aplicativo enviar solicitações de entrada para pontos de extremidade com locatários do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/contoso.com/<..> ou https://login.microsoftonline.com/<tenant_ID>/<..> - em vez do ponto de extremidade comum do Microsoft Azure AD - ou seja, https://login.microsoftonline.com/common/<...>. Abaixo está uma lista parcial de aplicativos que fazem esses tipos de solicitações de entrada.
 
 | Nome do aplicativo | URL do aplicativo a ser usada |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Portal do Azure | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Portal do Azure | https://portal.azure.com/contoso.com |
 
 Nas tabelas acima, substitua "contoso.com" por seu nome de domínio para obter as URLs do aplicativo certo para o seu locatário.
 

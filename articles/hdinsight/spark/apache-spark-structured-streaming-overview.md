@@ -1,25 +1,20 @@
 ---
-title: Spark Structured Streaming no Azure HDInsight | Microsoft Docs
+title: Spark Structured Streaming no Azure HDInsight
 description: Como usar aplicativos Spark Structured Streaming em clusters Spark do HDInsight.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: f3eccfb63b127f3cbb8f9d95ec2fa802861d8c9d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 79e170349165dac286eda46ac1d4ff6945e71e8f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164672"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621592"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Visão geral do Spark Structured Streaming
 

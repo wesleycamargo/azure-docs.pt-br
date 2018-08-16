@@ -3,17 +3,16 @@ title: Conceitos da Grade de Eventos do Azure
 description: Descreve a Grade de Eventos do Azure e seus conceitos. Define vários componentes importantes da Grade de Eventos.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626028"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621194"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos da Grade de Eventos do Azure
 
@@ -72,6 +71,10 @@ A Grade de Eventos proporciona segurança na assinatura em tópicos e na publica
 ## <a name="event-delivery"></a>Entrega de eventos
 
 Se a Grade de Eventos não puder confirmar que um evento foi recebido pelo ponto de extremidade do assinante, ela repetirá a entrega do evento. Para saber mais, confira [Event Grid message delivery and retry](delivery-and-retry.md) (Entrega e repetição de mensagens da Grade de Eventos).
+
+## <a name="batching"></a>Envio em lote
+
+Ao usar um tópico personalizado, os eventos sempre devem ser publicados em uma matriz. Isso pode ser um lote de um para cenários de baixa taxa de transferência, no entanto, para usecases de alto volume, é recomendável que você envie em lote juntos por vários eventos por publicação para alcançar maior eficiência. Lotes podem ter até 1 MB. Cada evento ainda não deve exceder 64 KB.
 
 ## <a name="next-steps"></a>Próximas etapas
 

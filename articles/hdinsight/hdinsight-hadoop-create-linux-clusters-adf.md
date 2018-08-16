@@ -1,25 +1,20 @@
 ---
-title: 'Tutorial: Criar clusters Hadoop no Azure HDInsight usando o Data Factory | Microsoft Docs'
+title: 'Tutorial: Criar clusters Hadoop sob no Azure HDInsight usando o Azure Data Factory '
 description: Saiba como criar clusters Hadoop sob demanda usando o Azure Data Factory.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: 9d54d3481176b36a0d13a9b8af2fad03349b81be
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.author: jasonh
+ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229246"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599642"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Hadoop sob demanda usando o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -40,7 +35,7 @@ Este tutorial cobre as seguintes tarefas:
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * PowerShell do Azure. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
@@ -53,10 +48,10 @@ Nesta seção, você deve criar uma conta de armazenamento que será usada como 
 Esta seção usa um script do Azure PowerShell para criar a conta de armazenamento e copie os arquivos necessários na conta de armazenamento. O exemplo de script do Azure PowerShell nesta seção executa as seguintes tarefas:
 
 1. Logs no Azure.
-2. Cria um grupo de recursos do Azure.
-3. Cria uma conta de armazenamento do Azure.
-4. Cria um contêiner de Blob na conta de armazenamento
-5. Copia o script HiveQL de exemplo (**hivescript.hql**) o contêiner de Blob. O script está disponível em [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). O script de exemplo já está disponível em outro contêiner de Blob público. O script do PowerShell a seguir faz uma cópia desses arquivos para a conta de Armazenamento do Azure, que ele cria.
+1. Cria um grupo de recursos do Azure.
+1. Cria uma conta de armazenamento do Azure.
+1. Cria um contêiner de Blob na conta de armazenamento
+1. Copia o script HiveQL de exemplo (**hivescript.hql**) o contêiner de Blob. O script está disponível em [https://hditutorialdata.blob.core.windows.net/adfv2hiveactivity/hivescripts/hivescript.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). O script de exemplo já está disponível em outro contêiner de Blob público. O script do PowerShell a seguir faz uma cópia desses arquivos para a conta de Armazenamento do Azure, que ele cria.
 
 
 **Para preparar a conta de armazenamento e copiar os arquivos usando o Azure PowerShell:**
@@ -140,12 +135,12 @@ Write-host "`nScript completed" -ForegroundColor Green
 **Para verificar a conta de armazenamento**
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Grupos de recursos** no painel esquerdo.
-3. Clique duas vezes no nome do grupo de recursos criado em seu script da CLI ou do PowerShell. Use o filtro se houver muitos grupos de recursos listados.
-4. No bloco **Recursos**, você vê um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome especificado anteriormente. Selecione o nome da conta de armazenamento.
-5. Selecione os blocos **Blobs**.
-6. Selecione o contêiner **adfgetstarted**. Você verá uma pasta chamada **hivescripts**.
-7. Abra a pasta e certificar-se de que ela contém o arquivo de script de exemplo, **hivescript.hql**.
+1. Selecione **Grupos de recursos** no painel esquerdo.
+1. Clique duas vezes no nome do grupo de recursos criado em seu script da CLI ou do PowerShell. Use o filtro se houver muitos grupos de recursos listados.
+1. No bloco **Recursos**, você vê um recurso listado, a menos que compartilhe o grupo de recursos com outros projetos. Esse recurso é a conta de armazenamento com o nome especificado anteriormente. Selecione o nome da conta de armazenamento.
+1. Selecione os blocos **Blobs**.
+1. Selecione o contêiner **adfgetstarted**. Você verá uma pasta chamada **hivescripts**.
+1. Abra a pasta e certificar-se de que ela contém o arquivo de script de exemplo, **hivescript.hql**.
 
 ## <a name="understand-the-azure-data-factory-activity"></a>Entender a atividade do Azure Data Factory
 
@@ -160,22 +155,22 @@ Neste artigo, você deve configurar a atividade de Hive para criar um cluster Ha
 
 1. Um cluster Hadoop do HDInsight é criado automaticamente para você just-in-time para processar a fatia. 
 
-2. Os dados de entrada são processados executando um script HiveQL no cluster. Neste tutorial, o script HiveQL associado à atividade hive executa as seguintes ações:
+1. Os dados de entrada são processados executando um script HiveQL no cluster. Neste tutorial, o script HiveQL associado à atividade hive executa as seguintes ações:
 
     * Usa a tabela existente (*hivesampletable*) para criar outra tabela **HiveSampleOut**.
     * Preencha a tabela **HiveSampleOut** com apenas a colunas específicas do original *hivesampletable*.
 
-3. O cluster HDInsight Hadoop é excluído depois que o processamento é concluído e o cluster está ocioso pelo período de tempo configurado (configuração timeToLive). Se a próxima fatia de dados estiver disponível para processamento nesse tempo ocioso timeToLive, o mesmo cluster será usado para processar a fatia.  
+1. O cluster HDInsight Hadoop é excluído depois que o processamento é concluído e o cluster está ocioso pelo período de tempo configurado (configuração timeToLive). Se a próxima fatia de dados estiver disponível para processamento nesse tempo ocioso timeToLive, o mesmo cluster será usado para processar a fatia.  
 
 ## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
-2. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**.
+1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Data Factory**.
 
     ![Azure Data Factory no portal](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Data Factory no portal")
 
-2. Insira ou selecione os valores, conforme mostrado na captura de tela a seguir:
+1. Insira ou selecione os valores, conforme mostrado na captura de tela a seguir:
 
     ![Criar Azure Data Factory usando o portal do Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "criar Azure Data Factory usando o portal do Azure")
 
@@ -190,15 +185,15 @@ Neste artigo, você deve configurar a atividade de Hive para criar um cluster Ha
     |**Localidade**     | O local é definido automaticamente para o local que você especificou ao criar o grupo de recursos anterior. Para este tutorial, o local é definido como **Leste dos EUA 2**. |
     
 
-3. Escolha **Fixar no painel** e selecione **Criar**. Você verá um novo bloco chamado **Enviando a implantação** no painel do portal. Criar um data factory pode levar entre 2 a 4 minutos.
+1. Escolha **Fixar no painel** e selecione **Criar**. Você verá um novo bloco chamado **Enviando a implantação** no painel do portal. Criar um data factory pode levar entre 2 a 4 minutos.
 
     ![Progresso da implantação de modelo](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "Progresso da implantação de modelo") 
  
-4. Depois que o data factory é criado, o portal mostra a visão geral do data factory.
+1. Depois que o data factory é criado, o portal mostra a visão geral do data factory.
 
     ![Visão geral do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Visão geral do Azure Data Factory")
 
-5. Selecione **Autor & Monitor** para iniciar o portal de criação e monitoramento do Azure Data Factory.
+1. Selecione **Autor & Monitor** para iniciar o portal de criação e monitoramento do Azure Data Factory.
 
 ## <a name="create-linked-services"></a>Criar serviços vinculados
 
@@ -213,15 +208,15 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
     ![Criar um serviço vinculado do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-edit-tab.png "Criar um serviço vinculado do Azure Data Factory")
 
-2. Selecione **Conexões** do canto inferior esquerdo da janela e, depois, selecione **+ Novo**.
+1. Selecione **Conexões** do canto inferior esquerdo da janela e, depois, selecione **+ Novo**.
 
     ![Criar conexões no Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-create-new-connection.png "Criar conexões no Azure Data Factory")
 
-3. Na caixa de diálogo **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**.
+1. Na caixa de diálogo **Novo Serviço Vinculado**, selecione **Armazenamento de Blobs do Azure** e selecione **Continuar**.
 
     ![Criar serviço vinculado do Armazenamento do Azure para o Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Criar serviço vinculado do Armazenamento do Azure para o Data Factory")
 
-4. Forneça um nome para o serviço vinculado de armazenamento, selecione a conta de Armazenamento do Azure que você criou como parte do script do PowerShell e, em seguida, selecione **Concluir**.
+1. Forneça um nome para o serviço vinculado de armazenamento, selecione a conta de Armazenamento do Azure que você criou como parte do script do PowerShell e, em seguida, selecione **Concluir**.
 
     ![Forneça o nome para o serviço vinculado do Armazenamento do Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Forneça o nome para o serviço vinculado do Armazenamento do Azure")
 
@@ -229,20 +224,20 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
 1. Selecione o botão **+ Novo** novamente para criar outro serviço vinculado.
 
-2. Na janela **Novo Serviço Vinculado**, selecione **Computação** > **Azure HDInsight** e selecione **Continuar**.
+1. Na janela **Novo Serviço Vinculado**, selecione **Computação** > **Azure HDInsight** e selecione **Continuar**.
 
     ![Criar serviço vinculado do HDInsight para o Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Criar serviço vinculado do HDInsight para o Azure Data Factory")
 
-3. Na janela **Novo serviço vinculado**, forneça os valores necessários.
+1. Na janela **Novo serviço vinculado**, forneça os valores necessários.
 
     ![Forneça valores para o serviço vinculado do HDInsight](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "Forneça valores para o serviço vinculado do HDInsight")
 
     Insira os seguintes valores e mantenha os demais como padrão.
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     | --- | --- |
     | NOME | Insira um nome para o serviço vinculado do HDInsight |
-    | type | Selecione **HDInsight sob demanda** |
+    | Tipo | Selecione **HDInsight sob demanda** |
     | Serviço vinculado de armazenamento do Azure | Selecione o serviço vinculado de armazenamento criado anteriormente. |
     | Tipo de cluster | Selecione **hadoop** |
     | Vida útil | Forneça a duração para a qual você deseja que o cluster HDInsight esteja disponível antes de ser excluído automaticamente.|
@@ -261,15 +256,15 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
     ![Criar um pipeline no Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Criar um pipeline no Azure Data Factory")
 
-2. Na caixa de ferramentas **Atividades**, expanda **HDInsight**e arraste a atividade **Hive** para a superfície do designer de pipeline. Na guia **Geral**, forneça um nome para a atividade.
+1. Na caixa de ferramentas **Atividades**, expanda **HDInsight**e arraste a atividade **Hive** para a superfície do designer de pipeline. Na guia **Geral**, forneça um nome para a atividade.
 
     ![Adicionar atividades a pipeline do Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Adicionar atividades a pipeline do Data Factory")
 
-3. Certifique-se de ter a atividade de Hive selecionada, selecione a guia **grupo HDI** e da lista suspensa **Serviço vinculado HDInsight**, selecione o serviço vinculado que você criou anteriormente para HDInsight.
+1. Certifique-se de ter a atividade de Hive selecionada, selecione a guia **grupo HDI** e da lista suspensa **Serviço vinculado HDInsight**, selecione o serviço vinculado que você criou anteriormente para HDInsight.
 
     ![Forneça detalhes do cluster HDInsight para o pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Forneça detalhes do cluster HDInsight para o pipeline")
 
-4. Selecione a guia **Script** e conclua as etapas a seguir:
+1. Selecione a guia **Script** e conclua as etapas a seguir:
 
     a. Para **Serviço vinculado de script**, selecione **HDIStorageLinkedService**. Este valor é o serviço vinculado de armazenamento criado anteriormente.
 
@@ -281,11 +276,11 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
     ![Forneça parâmetros para o script do Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Forneça parâmetros para o script de Hive")
 
-5. Selecione **Validar** para validar o pipeline. Selecione a **>>** (seta para a direita) para fechar a janela de validação.
+1. Selecione **Validar** para validar o pipeline. Selecione a **>>** (seta para a direita) para fechar a janela de validação.
 
     ![Validar o pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-validate-all.png "Validar o pipeline do Azure Data Factory")
 
-5. Por fim, selecione **Publicar tudo** para publicar os artefatos no Azure Data Factory.
+1. Por fim, selecione **Publicar tudo** para publicar os artefatos no Azure Data Factory.
 
     ![Publicar o pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-publish-pipeline.png "Publicar o pipeline do Azure Data Factory")
 
@@ -295,7 +290,7 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
     ![Disparar o pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-trigger-pipeline.png "Disparar o pipeline do Azure Data Factory")
 
-2. Selecione **Concluir** na barra lateral do pop-up.
+1. Selecione **Concluir** na barra lateral do pop-up.
 
 ## <a name="monitor-a-pipeline"></a>Como monitorar um pipeline
 
@@ -303,9 +298,9 @@ Nesta seção, você pode criar dois serviços vinculados no data factory.
 
     ![Monitorar o pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline.png "Monitorar o pipeline do Azure Data Factory")
 
-2. Selecione **Atualizar** para atualizar o status.
+1. Selecione **Atualizar** para atualizar o status.
 
-3. Você também pode monitorar o ícone **Exibir Execuções da Atividade** para ver a execução de atividade associada ao pipeline. Na captura de tela abaixo, você vê somente uma execução de atividade, já que há apenas uma atividade no pipeline que você criou. Para voltar para o modo de exibição anterior, selecione **Pipelines** no topo da página.
+1. Você também pode monitorar o ícone **Exibir Execuções da Atividade** para ver a execução de atividade associada ao pipeline. Na captura de tela abaixo, você vê somente uma execução de atividade, já que há apenas uma atividade no pipeline que você criou. Para voltar para o modo de exibição anterior, selecione **Pipelines** no topo da página.
 
     ![Monitorar a atividade do pipeline do Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-monitor-pipeline-activity.png "Monitorar a atividade do pipeline do Azure Data Factory")
 
@@ -332,14 +327,14 @@ Como alternativa, você pode excluir o grupo de recursos inteiro que você criou
 ### <a name="delete-the-resource-group"></a>Exclua o grupo de recursos
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Selecione **Grupos de recursos** no painel esquerdo.
-3. Selecione o nome do grupo de recursos criado em seu script do PowerShell. Use o filtro se houver muitos grupos de recursos listados. Ele abre o grupo de recursos.
-4. No bloco **Recursos** , a conta de armazenamento padrão e o data factory deverão estar listados, a menos que você compartilhe o grupo de recursos com outros projetos.
-5. Selecione **Excluir grupo de recursos**. Isso exclui a conta de armazenamento e os dados armazenados na conta de armazenamento.
+1. Selecione **Grupos de recursos** no painel esquerdo.
+1. Selecione o nome do grupo de recursos criado em seu script do PowerShell. Use o filtro se houver muitos grupos de recursos listados. Ele abre o grupo de recursos.
+1. No bloco **Recursos** , a conta de armazenamento padrão e o data factory deverão estar listados, a menos que você compartilhe o grupo de recursos com outros projetos.
+1. Selecione **Excluir grupo de recursos**. Isso exclui a conta de armazenamento e os dados armazenados na conta de armazenamento.
 
     ![Excluir o grupo de recursos](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Excluir o grupo de recursos")
 
-6. Insira o nome do grupo de recursos para confirmar a exclusão e, em seguida, selecione **Excluir**.
+1. Insira o nome do grupo de recursos para confirmar a exclusão e, em seguida, selecione **Excluir**.
 
 
 ## <a name="next-steps"></a>Próximas etapas

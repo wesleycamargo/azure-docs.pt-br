@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445374"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621014"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Datacenter Virtual do Azure: uma perspectiva de rede
 **Microsoft Azure**: avance mais rapidamente, economize dinheiro, integre aplicativos e dados locais
@@ -262,7 +262,7 @@ Em um vDC, é extremamente importante controlar os logs de NSGs, particularmente
 
 Todos os logs podem ser armazenados nas Contas de Armazenamento do Azure para fins de auditoria, análise estática ou backup. Quando os logs são armazenados em uma conta de armazenamento do Azure, os clientes podem usar diferentes tipos de estruturas para recuperar, preparar, analisar e visualizar esses dados para relatar o status e a integridade dos recursos de nuvem.
 
-Grandes empresas já devem ter adquirido uma estrutura padrão para monitorar sistemas locais e podem estender essa estrutura para integrar logs gerados por implantações de nuvem. Para organizações que desejam manter todo o registro na nuvem, o [Log Analytics] [LogAnalytics] é uma ótima escolha. Como o Log Analytics é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. O Log Analytics também pode integrar-se a componentes do System Center, como System Center Operations Manager, para estender seus investimentos atuais em gerenciamento para a nuvem.
+Grandes empresas já devem ter adquirido uma estrutura padrão para monitorar sistemas locais e podem estender essa estrutura para integrar logs gerados por implantações de nuvem. Para organizações que desejam manter todo o registro na nuvem, o[Log Analytics][../log-analytics/log-analytics-overview .md] é uma ótima escolha. Como o Log Analytics é implementado como um serviço baseado em nuvem, é possível colocá-lo em funcionamento com investimentos mínimos em serviços de infraestrutura. O Log Analytics também pode integrar-se a componentes do System Center, como System Center Operations Manager, para estender seus investimentos atuais em gerenciamento para a nuvem.
 
 O Log Analytics é um serviço no Azure que ajuda a coletar, correlacionar, pesquisar e agir quanto a dados de desempenho e log gerados por sistemas operacionais, aplicativos e componentes de infraestrutura de nuvem. Ele dá aos clientes informações operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar todos os registros em todas as suas cargas de trabalho em um vDC.
 

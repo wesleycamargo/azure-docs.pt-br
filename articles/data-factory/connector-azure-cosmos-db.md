@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325346"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600329"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copiar dados de ou para o Azure Cosmos DB usando o Azure Data Factory
 
@@ -35,9 +35,9 @@ Você pode copiar dados do Azure Cosmos DB para qualquer armazenamento de dados 
 Especificamente, este conector do Azure Cosmos DB dá suporte a:
 
 - Cosmos DB [API do SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
-- Importação/exportação de documentos JSON no estado em que se encontram ou a cópia de dados de/para um conjunto de dados tabular, por exemplo, banco de dados SQL, arquivos CSV, etc.
+- Importação/exportação de documentos JSON no estado em que se encontram ou a cópia de dados de/para um conjunto de dados tabular, por exemplo, banco de dados SQL, arquivos CSV, etc. Para copiar documentos no estado em que se encontram de/para arquivos JSON ou outra coleção do Cosmos DB, confira [Importação/Exportação de documentos JSON](#importexport-json-documents).
 
-Para copiar documentos no estado em que se encontram de/para arquivos JSON ou outra coleção do Cosmos DB, confira [Importação/Exportação de documentos JSON](#importexport-json-documents).
+O Data Factory integra-se à [biblioteca de executor do Azure Cosmos DB em massa](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para fornecer o melhor desempenho de gravação no Azure Cosmos DB.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -166,7 +166,7 @@ Para copiar dados para o Azure Cosmos DB, defina o tipo de coletor na atividade 
 |:--- |:--- |:--- |
 | Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **DocumentDbCollectionSink** |SIM |
 | writeBehavior |Descrevem como gravar dados no Cosmos DB. Os valores permitidos são: `insert` e `upsert`.<br/>O comportamento de **upsert** é substituir o documento se já existir um documento com o mesmo id; caso contrário, insira-o. Nota O ADF gerará automaticamente um ID para o documento, se não estiver especificado no documento original ou no mapeamento de coluna, o que significa que você precisa garantir que o documento tenha um "id" para que o backup funcione conforme o esperado. |Não, o padrão é inserir |
-| writeBatchSize | Data Factory use [o executor em massa do Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para gravar dados no Cosmos DB. "writeBatchSize" Controla o tamanho dos documentos que fornecemos para a biblioteca de cada vez. Você pode tentar aumentar writeBatchSize para melhorar o desempenho. |Não  |
+| writeBatchSize | O Data Factory usa [o executor em massa do Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) para gravar dados no Azure Cosmos DB. "writeBatchSize" Controla o tamanho dos documentos que fornecemos para a biblioteca de cada vez. Você pode tentar aumentar writeBatchSize para melhorar o desempenho. |Não, o padrão é 10.000 |
 | nestingSeparator |Um caractere especial no nome da coluna de fonte para indicar que esse documento aninhado é necessário. <br/><br/>Por exemplo, `Name.First` na estrutura do conjunto de dados de saída gera a seguinte estrutura JSON no documento do Cosmos DB:`"Name": {"First": "[value maps to this column from source]"}` quando o nestedSeparator é um ponto. |Não (o padrão é o ponto `.`) |
 
 **Exemplo:**

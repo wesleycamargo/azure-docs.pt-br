@@ -1,25 +1,20 @@
 ---
-title: Arquitetura do Azure HDInsight ingressado no domínio | Microsoft Docs
+title: Arquitetura do Azure HDInsight ingressado no domínio
 description: Aprenda a planejar o HDInsight associado ao domínio.
 services: hdinsight
-documentationcenter: ''
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 1f51a1fbb38bc27d15b7a45ca4783508d863fee5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1744a824e3b3fef848ad0513c95b1c6bb21f9fc9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112620"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597568"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Planejar clusters Hadoop do Azure associados ao domínio no HDInsight
 
@@ -72,5 +67,5 @@ O uso do Active Directory local ou Active Directory somente em VMs da IaaS, sem 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Configurar clusters HDInsight ingressados no domínio](apache-domain-joined-configure-using-azure-adds.md)
-* [Configurar políticas do Hive para clusters HDInsight ingressados no domínio](apache-domain-joined-run-hive.md)
+* [Configurar políticas do Hive para cluster HDInsight ingressado no domínio](apache-domain-joined-run-hive.md)
 * [Gerenciar clusters HDInsight ingressados no domínio](apache-domain-joined-manage.md) 

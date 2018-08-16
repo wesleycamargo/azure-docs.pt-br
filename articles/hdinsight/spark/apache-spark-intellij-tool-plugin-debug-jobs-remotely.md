@@ -1,25 +1,20 @@
 ---
-title: 'Kit de ferramentas do Azure para IntelliJ: depurar aplicativos remotamente no HDInsight Spark | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: depurar aplicativos remotamente no HDInsight Spark '
 description: Saiba como usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para depurar remotamente os aplicativos Spark executados em clusters do HDInsight por meio de VPN.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 55fb454f-c7dc-46de-a978-e242e9a94f4c
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: 6ca69ccab6c9b526c86f6f7a8998089e52c6c939
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d71186dcfd5528de48151804492d8ae51e808a07
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521425"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618913"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usar o kit de ferramentas do Azure para IntelliJ para depurar aplicativos Spark remotamente no HDInsight por meio de VPN
 
@@ -28,12 +23,12 @@ Recomendamos a depuração remota do aplicativo Spark por meio do SSH. Para obte
 Este artigo oferece diretrizes passo a passo sobre como usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ para enviar um trabalho do Spark no cluster do HDInsight Spark e depurá-lo remotamente do seu computador desktop. Para concluir essas tarefas, você deve executar as seguintes etapas de alto nível:
 
 1. Crie uma rede virtual do Azure site a site ou ponto a site. As etapas neste documento pressupõem que você esteja usando uma rede site a site.
-2. Crie um cluster do Spark no HDInsight que faça parte da rede virtual site a site.
-3. Verifique a conectividade entre o nó de cabeçalho do cluster e sua área de trabalho.
-4. Crie um aplicativo Scala no IntelliJ IDEA e configure-o para a depuração remota.
-5. Execute e depure o aplicativo.
+1. Crie um cluster do Spark no HDInsight que faça parte da rede virtual site a site.
+1. Verifique a conectividade entre o nó de cabeçalho do cluster e sua área de trabalho.
+1. Crie um aplicativo Scala no IntelliJ IDEA e configure-o para a depuração remota.
+1. Execute e depure o aplicativo.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 * **Uma assinatura do Azure**. Para mais informações, consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Um cluster do Apache Spark no HDInsight**. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 * **Kit de desenvolvimento Oracle Java**. Você pode instalá-lo do [site da Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
@@ -56,16 +51,16 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 1. Obter endereço IP do nó de cabeçalho. Abra a IU do Ambari para o cluster. Na folha do cluster, selecione **Painel**.
 
     ![Selecionar Painel no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-ambari-ui.png)
-2. Na interface do usuário do Ambari, selecione **Hosts**.
+1. Na interface do usuário do Ambari, selecione **Hosts**.
 
     ![Selecionar Hosts no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-3. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn**\*. Selecione o primeiro nó de cabeçalho.
+1. Você deve ver uma lista de nós de cabeçalho, nós de trabalho e nós do zookeeper. Os nós de cabeçalho têm um prefixo **hn***. Selecione o primeiro nó de cabeçalho.
 
     ![Localizar o nó de cabeçalho no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
-4. No painel **Resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeçalho e o **nome do host**.
+1. No painel **Resumo** na parte inferior da página que abre, copie o **endereço IP** do nó de cabeçalho e o **nome do host**.
 
     ![Localizar o endereço IP no Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address.png)
-5. Adicione o endereço IP e o nome do host do nó de cabeçalho no arquivo **hosts** no computador do qual você deseja executar e depurar os trabalhos do Spark remotamente. Isso permitirá que você se comunique com o nó de cabeçalho usando o endereço IP, bem como o nome do host.
+1. Adicione o endereço IP e o nome do host do nó de cabeçalho no arquivo **hosts** no computador do qual você deseja executar e depurar os trabalhos do Spark remotamente. Isso permitirá que você se comunique com o nó de cabeçalho usando o endereço IP, bem como o nome do host.
 
    a. Abra um arquivo do Bloco de notas com permissões elevadas. No menu **Arquivo**, selecione **Abrir** e navegue até o local do arquivo hosts. Em um computador com Windows, o local é **C:\Windows\System32\Drivers\etc\hosts**.
 
@@ -78,13 +73,13 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
            # For headnode1
            192.xxx.xx.xx hn1-nitinp
            192.xxx.xx.xx hn1-nitinp.lhwwghjkpqejawpqbwcdyp3.gx.internal.cloudapp.net
-6. No computador conectado à rede virtual do Azure usada pelo cluster do HDInsight, verifique se você pode executar ping nos nós de cabeçalho usando o endereço IP, bem como o nome do host.
-7. Use o SSH para conexão ao nó de cabeçalho do cluster usando as instruções em [Conectar-se a um cluster do HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Do nó de cabeçalho do cluster, execute ping no endereço IP do computador desktop. Teste a conectividade com os dois endereços IP atribuídos ao computador:
+1. No computador conectado à rede virtual do Azure usada pelo cluster do HDInsight, verifique se você pode executar ping nos nós de cabeçalho usando o endereço IP, bem como o nome do host.
+1. Use o SSH para conexão ao nó de cabeçalho do cluster usando as instruções em [Conectar-se a um cluster do HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Do nó de cabeçalho do cluster, execute ping no endereço IP do computador desktop. Teste a conectividade com os dois endereços IP atribuídos ao computador:
 
     - Um para a conexão de rede
     - Um para a rede virtual do Azure
 
-8. Repita estas etapas no outro nó de cabeçalho.
+1. Repita estas etapas no outro nó de cabeçalho.
 
 ## <a name="step-4-create-a-spark-scala-application-by-using-hdinsight-tools-in-azure-toolkit-for-intellij-and-configure-it-for-remote-debugging"></a>Etapa 4: Criar um aplicativo Scala Spark usando as Ferramentas do HDInsight no Kit de Ferramentas do Azure para IntelliJ e configurá-lo para a depuração remota
 1. Abra o IntelliJ IDEA e crie um novo projeto. Na caixa de diálogo **Novo Projeto** , faça o seguinte:
@@ -94,7 +89,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
     a. Selecione **HDInsight** > **Spark no HDInsight (Scala)**.
 
     b. Selecione **Avançar**.
-2. Na caixa de diálogo **Novo Projeto** a seguir, faça o seguinte e, depois, selecione **Concluir**:
+1. Na caixa de diálogo **Novo Projeto** a seguir, faça o seguinte e, depois, selecione **Concluir**:
 
     - Insira um nome e o local do projeto.
 
@@ -104,7 +99,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
   
    ![Selecione a versão do Spark e o SDK do projeto](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
-3. O projeto do Spark cria automaticamente um artefato para você. Para exibir o artefato, faça o seguinte:
+1. O projeto do Spark cria automaticamente um artefato para você. Para exibir o artefato, faça o seguinte:
 
     a. No menu **Arquivo**, escolha **Estrutura do Projeto**.
 
@@ -113,7 +108,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
    ![Criar JAR](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/default-artifact.png)
 
 
-4. Adicione bibliotecas ao seu projeto. Para adicionar uma biblioteca, faça o seguinte:
+1. Adicione bibliotecas ao seu projeto. Para adicionar uma biblioteca, faça o seguinte:
 
     a. Clique com o botão direito do mouse no nome do projeto na árvore do projeto e selecione **Abrir Configurações do Módulo**. 
 
@@ -125,7 +120,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
    * `org.scalatest:scalatest_2.10:2.2.1`
    * `org.apache.hadoop:hadoop-azure:2.7.1`
-5. Copie `yarn-site.xml` e `core-site.xml` do nó de cabeçalho do cluster e os adicione ao projeto. Use os comandos a seguir para copiar os arquivos. Você pode usar [Cygwin](https://cygwin.com/install.html) para executar os seguintes comandos `scp` para copiar os arquivos dos nós de cabeçalho do cluster:
+1. Copie `yarn-site.xml` e `core-site.xml` do nó de cabeçalho do cluster e os adicione ao projeto. Use os comandos a seguir para copiar os arquivos. Você pode usar [Cygwin](https://cygwin.com/install.html) para executar os seguintes comandos `scp` para copiar os arquivos dos nós de cabeçalho do cluster:
 
         scp <ssh user name>@<headnode IP address or host name>://etc/hadoop/conf/core-site.xml .
 
@@ -135,7 +130,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
         scp sshuser@hn0-nitinp:/etc/hadoop/conf/yarn-site.xml .
 
     Adicione esses arquivos ao seu projeto copiando-os na pasta **/src** na sua árvore de projeto, por exemplo, `<your project directory>\src`.
-6. Atualize o arquivo `core-site.xml` para fazer as alterações a seguir:
+1. Atualize o arquivo `core-site.xml` para fazer as alterações a seguir:
 
    a. Substitua a chave criptografada. O arquivo `core-site.xml` inclui a chave criptografada para a conta de armazenamento associada ao cluster. No arquivo `core-site.xml` que você adicionou ao projeto, substitua a chave criptografada pela chave de armazenamento real associada à conta de armazenamento padrão. Para mais informações, consulte [Gerenciar suas chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
 
@@ -160,13 +155,13 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
                  <value>/etc/hadoop/conf/topology_script.py</value>
            </property>
    c. Salve o arquivo.
-7. Adicione a classe principal ao seu aplicativo. No **Gerenciador de Projetos**, clique com o botão direito do mouse em **src**, aponte para **Novo** e escolha **Classe do Scala**.
+1. Adicione a classe principal ao seu aplicativo. No **Gerenciador de Projetos**, clique com o botão direito do mouse em **src**, aponte para **Novo** e escolha **Classe do Scala**.
 
     ![Selecione a classe principal](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
-8. Na caixa de diálogo **Criar Nova Classe do Scala**, forneça um nome, selecione **Objeto** na caixa **Tipo** e selecione **OK**.
+1. Na caixa de diálogo **Criar Nova Classe do Scala**, forneça um nome, selecione **Objeto** na caixa **Tipo** e selecione **OK**.
 
     ![Criar Nova Classe Scala](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
-9. No arquivo `MyClusterAppMain.scala` , cole o código a seguir. Esse código cria o contexto do Spark e abre um método `executeJob` do objeto `SparkSample`.
+1. No arquivo `MyClusterAppMain.scala` , cole o código a seguir. Esse código cria o contexto do Spark e abre um método `executeJob` do objeto `SparkSample`.
 
         import org.apache.spark.{SparkConf, SparkContext}
 
@@ -182,7 +177,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
           }
         }
 
-10. Repita as etapas 8 e 9 para adicionar um novo objeto Scala chamado `*SparkSample`. Adicione o código a seguir a essa classe. Esse código lê os dados do HVAC.csv (disponível em todos os clusters do HDInsight Spark). Ele recupera as linhas com apenas um dígito na sétima coluna no arquivo CSV e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
+1. Repita as etapas 8 e 9 para adicionar um novo objeto Scala chamado `*SparkSample`. Adicione o código a seguir a essa classe. Esse código lê os dados do HVAC.csv (disponível em todos os clusters do HDInsight Spark). Ele recupera as linhas com apenas um dígito na sétima coluna no arquivo CSV e grava a saída em **/HVACOut** no contêiner padrão de armazenamento do cluster.
 
         import org.apache.spark.SparkContext
 
@@ -200,7 +195,7 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
            //rdd1.collect().foreach(println)
          }
         }
-11. Repita as etapas 8 e 9 para adicionar uma nova classe chamada `RemoteClusterDebugging`. Essa classe implementa a estrutura de teste Spark usada para depuração de aplicativos. Adicione o código a seguir à classe `RemoteClusterDebugging`:
+1. Repita as etapas 8 e 9 para adicionar uma nova classe chamada `RemoteClusterDebugging`. Essa classe implementa a estrutura de teste Spark usada para depuração de aplicativos. Adicione o código a seguir à classe `RemoteClusterDebugging`:
 
         import org.apache.spark.{SparkConf, SparkContext}
         import org.scalatest.FunSuite
@@ -226,14 +221,14 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 
       * Para `.set("spark.yarn.jar", "wasb:///hdp/apps/2.4.2.0-258/spark-assembly-1.6.1.2.4.2.0-258-hadoop2.7.1.2.4.2.0-258.jar")`, verifique se o assembly JAR do Spark está disponível no armazenamento de cluster no caminho especificado.
       * Para `setJars`, especifique o local em que o artefato JAR será criado. Geralmente, é `<Your IntelliJ project directory>\out\<project name>_DefaultArtifact\default_artifact.jar`.
-12. Na classe `*RemoteClusterDebugging`, clique com botão direito do mouse na palavra-chave `test` e selecione **Criar Configuração de RemoteClusterDebugging**.
+1. Na classe `*RemoteClusterDebugging`, clique com botão direito do mouse na palavra-chave `test` e selecione **Criar Configuração de RemoteClusterDebugging**.
 
     ![Criar uma configuração remota](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
-13. Na caixa de diálogo **Criar Configuração de RemoteClusterDebugging**, forneça um nome para a configuração e, em seguida, selecione **Tipo de teste** como o **Nome do teste**. Deixe todos os outros valores como configurações padrão. Selecione **Aplicar** e, depois, **OK**.
+1. Na caixa de diálogo **Criar Configuração de RemoteClusterDebugging**, forneça um nome para a configuração e, em seguida, selecione **Tipo de teste** como o **Nome do teste**. Deixe todos os outros valores como configurações padrão. Selecione **Aplicar** e, depois, **OK**.
 
     ![Adicione os detalhes da configuração](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
-14. Agora você deve ver uma lista suspensa de configuração **Execução Remota** na barra de menus.
+1. Agora você deve ver uma lista suspensa de configuração **Execução Remota** na barra de menus.
 
     ![A lista suspensa Execução remota](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
@@ -241,13 +236,13 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
 1. No projeto IntelliJ IDEA, abra `SparkSample.scala` e crie um ponto de interrupção ao lado de `val rdd1`. No menu pop-up **Criar ponto de interrupção para**, selecione **linha na função executeJob**.
 
     ![Adicionar um ponto de interrupção](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
-2. Para executar o aplicativo, selecione o botão **Execução de Depuração** ao lado da lista suspensa de configuração de **Execução Remota**.
+1. Para executar o aplicativo, selecione o botão **Execução de Depuração** ao lado da lista suspensa de configuração de **Execução Remota**.
 
     ![Selecione o botão Execução de Depuração](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode.png)
-3. Quando a execução do programa atingir o ponto de interrupção, você verá uma guia **Depurador** no painel inferior.
+1. Quando a execução do programa atingir o ponto de interrupção, você verá uma guia **Depurador** no painel inferior.
 
     ![Exiba a guia Depurador](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch.png)
-4. Para adicionar uma inspeção, selecione o ícone (**+**).
+1. Para adicionar uma inspeção, selecione o ícone (**+**).
 
     ![Selecione o ícone +](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
@@ -256,10 +251,10 @@ Você também deve criar um cluster Apache Spark no Azure HDInsight que faça pa
     ![Executar o programa no modo de depuração](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
     O que você vê na imagem anterior é que, em tempo de execução, você poderia consultar terabytes de dados e de depuração à medida que o aplicativo progride. Por exemplo, na saída mostrada na imagem anterior, você pode ver que a primeira linha da saída é um cabeçalho. Com base nessa saída, você pode modificar seu código do aplicativo para ignorar a linha de cabeçalho, se necessário.
-5. Agora você pode selecionar o ícone **Retomar Programa** para prosseguir com a execução do aplicativo.
+1. Agora você pode selecionar o ícone **Retomar Programa** para prosseguir com a execução do aplicativo.
 
     ![Selecione Retomar Programa](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-run.png)
-6. Se o aplicativo for concluído com êxito, você verá uma saída semelhante à seguinte:
+1. Se o aplicativo for concluído com êxito, você verá uma saída semelhante à seguinte:
 
     ![Saída do console](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 

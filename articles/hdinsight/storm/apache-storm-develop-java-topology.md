@@ -1,26 +1,21 @@
 ---
-title: Exemplo de topologia Java do Apache Storm – Azure HDInsight | Microsoft Docs
+title: Exemplo de topologia Java do Apache Storm – Azure HDInsight
 description: Aprenda a criar topologias Apache Storm em Java criando um exemplo de topologia de contagem de palavras.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 keywords: apache storm, exemplo de apache storm, storm java, exemplo de topologia storm
-ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 02277d8398fe5e3f3cfd1244e53cc80c4b627fa3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9376d80e3c856df570f3709ca52c353b81579100
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857415"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618998"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -31,7 +26,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 > [!NOTE]
 > Uma versão completa dos exemplos de topologia do Storm criados neste documento está disponível em [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK (Java Developer Kit) versão 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 

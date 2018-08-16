@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435908"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600856"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
 
@@ -118,14 +118,14 @@ Além disso, você pode trabalhar com contas nacionais e internacionais de armaz
 
 ## <a name="work-with-local-development-storage"></a>Trabalhar com o armazenamento de desenvolvimento local
 
-O Gerenciador de Armazenamento permite que você trabalhe no armazenamento local usando o Emulador. Essa abordagem permite que você simule o trabalho com o Armazenamento do Azure sem, necessariamente, ter uma conta de armazenamento implantada no Azure.
+O Gerenciador de Armazenamento permite que você trabalhe no armazenamento local usando um emulador. Essa abordagem permite que você simule o trabalho com o Armazenamento do Azure sem, necessariamente, ter uma conta de armazenamento implantada no Azure.
 
 Começando com a versão 1.1.0, emulador de armazenamento local é compatível com todas as plataformas. O Gerenciador de armazenamento pode se conectar a qualquer serviço emulado ouvindo seus pontos de extremidade de armazenamento local padrão.
 
 > [!NOTE]
 > Suporte para recursos e serviços de armazenamento pode variar amplamente, dependendo de sua escolha de emulador. Verifique se o emulador suporta os serviços e recursos que você pretende trabalhar com.
 
-1. Configure o emulador de escolha para escutar nos pontos de extremidade padrão.
+1. Configure os serviços do seu emulador de escolha para escutar uma porta não utilizada.
 
    Serviço Emulado | Ponto de extremidade padrão
    -----------------|-------------------------
@@ -134,16 +134,19 @@ Começando com a versão 1.1.0, emulador de armazenamento local é compatível c
    Tabelas           | `http://127.0.0.1:10002`
 
 2. Inicie o emulador.
+   > [!IMPORTANT]
+   > O Gerenciador de Armazenamento do Microsoft Azure não inicia automaticamente o emulador. Você deve iniciá-lo.
 
-3. No painel esquerdo do Gerenciador de armazenamento, expanda o nó **(Local e Anexados)** > **Contas de Armazenamento** > **(Desenvolvimento)**.
+3. No Gerenciador de Armazenamento do Microsoft Azure, clique no botão **Adicionar Conta**. Selecione **Anexar a um emulador local** e clique em **Próximo**.
+
+4. Insira os números de porta para os serviços configurados acima (deixe em branco se você não pretende usar esse serviço). Clique em **Próximo**, em seguida, **Conectar** para criar a conexão.
+
+5. Expanda o **Contas de Armazenamento** > **Locais e Anexadas** > nós, em seguida, expanda os nós de serviço no nó correspondente à sua conexão do emulador.
 
    Você pode usar esse nó para criar e trabalhar com tabelas, filas e blobs de locais. Para saber como trabalhar com cada tipo de conta de armazenamento, consulte os guias a seguir:
 
    * [Gerenciar recursos de Armazenamento de Blobs do Azure](vs-azure-tools-storage-explorer-blobs.md)
    * [Gerenciar recursos de Armazenamento de Arquivo do Azure](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> O Gerenciador de armazenamento só dá suporte à conexão para emuladores locais usando os pontos de extremidade padrão. Ao iniciar o emulador, verifique se apenas os pontos de extremidade padrão estão configurados.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Conexão ou desconexão de uma conta de armazenamento externo
 

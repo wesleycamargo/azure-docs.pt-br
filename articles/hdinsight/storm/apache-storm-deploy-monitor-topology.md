@@ -1,25 +1,20 @@
 ---
-title: Implantar e gerenciar topologias do Apache Storm no HDInsight| Microsoft Docs
-description: Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight. Use as ferramentas do Hadoop para Visual Studio.
+title: Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight
+description: Aprenda a implantar, monitorar e gerenciar topologias do Apache Storm usando o Painel do Storm no HDInsight baseado em Windows. Use as ferramentas do Hadoop para Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
-ms.devlang: java
+author: jasonwhowell
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1ad1d6662d276039ae1e01e49c60fc06682cb54a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414976"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622809"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
 
@@ -32,7 +27,7 @@ Os recursos do Storm e do Painel Storm das Ferramentas do HDInsight contam com A
 >
 > Para obter informações sobre como implantar e gerenciar topologias Storm com um cluster HDInsight que usa Linux, veja [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Apache Storm no HDInsight** - veja [Introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para obter as etapas de criação de um cluster.
 
@@ -133,7 +128,7 @@ Use as etapas a seguir para implantar um exemplo para seu Storm no cluster HDIns
 
 3. Na caixa de diálogo **Novo Projeto**, expanda **Instalados** > **Modelos** e selecione **HDInsight**. Na lista de modelos, selecione **Amostra do Storm**. Na parte inferior da caixa de diálogo, digite um nome para o aplicativo.
 
-    ![imagem](./media/apache-storm-deploy-monitor-topology/sample.png)
+    ![image](./media/apache-storm-deploy-monitor-topology/sample.png)
 
 4. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Enviar para o Storm no HDInsight**.
 

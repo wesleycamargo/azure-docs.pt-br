@@ -1,28 +1,23 @@
 ---
-title: Publicar aplicativos Azure HDInsight | Microsoft Docs
+title: Publicar aplicativos Azure HDInsight
 description: Saiba como criar um aplicativo HDInsight e, em seguida, publicá-lo no Azure Marketplace.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 9c538be4948a8e67ee9b94fcd6ff6bcea04438ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 9b25452565a66fbd2edec51626bc636bed3d2e53
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201699"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599778"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
-É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) (Publicar uma oferta no Azure Marketplace).
+É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md) (Publicar uma oferta no Azure Marketplace).
 
 Os aplicativos HDInsight usam o modelo *BYOL (Traga sua própria licença)*. Em um cenário BYOL, um provedor de aplicativo é responsável por licenciar o aplicativo para usuários do aplicativo. Os usuários do aplicativo serão cobrados apenas para os recursos do Azure que eles criarem, como o cluster HDInsight e as VMs e nós do cluster. No momento, a cobrança do aplicativo propriamente não ocorre no Azure.
 
@@ -31,10 +26,10 @@ Para obter mais informações, consulte estes artigos relacionados ao aplicativo
 * [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md). Saiba como instalar um aplicativo HDInsight em seus clusters.
 * [Instalar aplicativos HDInsight personalizados](hdinsight-apps-install-custom-applications.md). Saiba como instalar e testar aplicativos HDInsight personalizados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para enviar seu aplicativo personalizado no Marketplace, primeiro [crie e teste seu aplicativo personalizado](hdinsight-apps-install-custom-applications.md).
 
-Também é necessário registrar sua conta de desenvolvedor. Para obter mais informações, consulte [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) (Publicar uma oferta no Azure Marketplace) e [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md) (Criar uma conta de Desenvolvedor Microsoft).
+Também é necessário registrar sua conta de desenvolvedor. Para obter mais informações, consulte [Publish an offer in the Azure Marketplace](../marketplace/marketplace-publishers-guide.md) (Publicar uma oferta no Azure Marketplace) e [Create a Microsoft Developer account](../marketplace/marketplace-publishers-guide.md) (Criar uma conta de Desenvolvedor Microsoft).
 
 ## <a name="define-the-application"></a>Definir o aplicativo
 Duas etapas são envolvidas na publicação de aplicativos no Marketplace. Primeiro, defina um arquivo *createUiDef.json*. O arquivo createUiDef.json indica com quais clusters seu aplicativo é compatível. Em seguida, publique o modelo no Portal do Azure. Veja um exemplo do arquivo createUiDef.json:
@@ -96,7 +91,7 @@ Para publicar um aplicativo do HDInsight:
 1. Entre no [Azure Publishing](https://publish.windowsazure.com/).
 2. No menu à esquerda, selecione **Modelos de solução**.
 3. Insira um título e selecione **Criar um novo modelo de solução**.
-4. Se você ainda não registrou sua organização, selecione **Criar conta do Centro de Desenvolvimento e ingressar no programa do Azure**.  Para obter mais informações, consulte [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md) (Criar uma conta de Desenvolvedor Microsoft).
+4. Se você ainda não registrou sua organização, selecione **Criar conta do Centro de Desenvolvimento e ingressar no programa do Azure**.  Para obter mais informações, consulte [Create a Microsoft Developer account](../marketplace/marketplace-publishers-guide.md) (Criar uma conta de Desenvolvedor Microsoft).
 5. Selecione **Definir algumas topologias para começar**. Um modelo de solução é um "pai" para todas as respectivas topologias. É possível definir várias topologias em uma oferta ou modelo de solução. Quando uma oferta é enviada por push para preparo, todas as respectivas topologias a acompanham. 
 6. Insira um nome de topologia e selecione **+**.
 7. Insira uma nova versão e, em seguida, selecione **+**.

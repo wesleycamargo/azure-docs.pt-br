@@ -1,25 +1,20 @@
 ---
-title: Instalar aplicativo publicado – Datameer – HDInsight do Azure | Microsoft Docs
+title: Instalar aplicativo publicado – Datameer – HDInsight do Azure
 description: Instale e use o aplicativo de Hadoop de terceiros da Datameer.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7b75170349f41b0fa611d5e748353484c7fea2e0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401302"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598581"
 ---
 # <a name="install-published-application---datameer"></a>Instalar aplicativo publicado – Datameer
 
@@ -29,7 +24,7 @@ Este artigo descreve como instalar e executar o aplicativo de Hadoop publicado d
 
 O Datameer é um aplicativo nativo para a plataforma de Hadoop, que estende os recursos existentes de HDInsight do Azure e fornece rápida integração, preparação e análise de dados estruturados e não estruturados. O Datameer pode acessar mais de 70 fontes e formatos: estruturados, semi-estruturados e não estruturados. Você pode carregar dados diretamente ou usar os links exclusivos de dados para efetuar pull de dados sob demanda. A funcionalidade de autoatendimento do Datameer e a interface familiar de planilha reduz a complexidade da tecnologia de Big Data e acelera o tempo de insight. A interface de planilha fornece um mecanismo simples para inserir fórmulas declarativas que são, então, traduzidas para a otimização de trabalhos do Hadoop. Com o Datameer, o business intelligence (BI) e habilidades de Excel, você pode usar o Hadoop na nuvem rapidamente. Para obter mais informações, consulte a [documentação do Datameer](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para instalar este aplicativo em um novo cluster do HDInsight ou em um cluster existente, você deve ter a seguinte configuração:
 
@@ -69,7 +64,7 @@ As etapas a seguir mostram uma demonstração de "Olá, Mundo".
 
     ![Upload de arquivos](./media/hdinsight-apps-install-datameer/upload-browse.png)
 
-4. Nomeie o arquivo **Olá, Mundo** sob uma Nova Pasta. Renomeie a nova pasta como "Demonstração". Selecione **Salvar**.
+4. Nomeie o arquivo **Olá, Mundo** sob uma Nova Pasta. Renomeie a nova pasta como "Demonstração". Clique em **Salvar**.
 
     ![Salvar](./media/hdinsight-apps-install-datameer/save.png)
 

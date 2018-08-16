@@ -1,39 +1,41 @@
 ---
-title: Pesquisa cognitiva para extração de dados e processamento de idioma natural no Azure Search | Microsoft Docs
-description: Extração de dados, NLP (processamento de idioma natural) e processamento de imagem para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas.
+title: Pesquisa cognitiva para extração de dados e processamento de idioma de IA no Azure Search | Microsoft Docs
+description: Extração de conteúdo, NLP (processamento de idioma natural) e processamento de imagem para criar conteúdo pesquisável na indexação do Azure Search usando habilidades cognitivas e os algoritmos IA
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304277"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617951"
 ---
 # <a name="what-is-cognitive-search"></a>O que é pesquisa cognitiva?
 
-Pesquisa cognitiva é um recurso de versão prévia do [Azure Search](search-what-is-azure-search.md), disponível em todos níveis no Centro-Sul dos EUA e na Europa Ocidental, que adiciona IA para cargas de trabalho de indexação. A extração de dados, o processamento de idioma natural e o processamento de imagem durante a indexação localiza as informações latentes em conteúdo não estruturado ou não pesquisável e as torna pesquisáveis no Azure Search.
+A pesquisa cognitiva cria informações pesquisáveis fora do conteúdo não pesquisável, anexando os algoritmos de IA para um pipeline de indexação. A integração de IA é por meio de *habilidades cognitivas* que enriquecem os documentos de origem por meio de processos sequenciais, na rota para um índice de pesquisa. 
 
-A integração de IA é por meio de *habilidades cognitivas* que enriquecem os documentos de origem por meio de processos sequenciais, na rota para um índice de pesquisa. 
+As habilidades de **Processamento de linguagem natural** incluem habilidades [reconhecimento de entidade](cognitive-search-skill-named-entity-recognition.md), detecção de idioma [extração de expressão de chave](cognitive-search-skill-keyphrases.md), manipulação de texto e detecção de sentimento. Com essas habilidades, textos não estruturados se tornam estruturados, mapeados para pesquisáveis e campos filtráveis em um índice.
+
+**Processamento de imagens** inclui [OCR](cognitive-search-skill-ocr.md) e a identificação de [recursos visuais](cognitive-search-skill-image-analysis.md), como detecção facial, interpretação de imagem, reconhecimento (pessoas famosas e pontos de referência) da imagem ou atributos, como cores ou orientação da imagem. Você pode criar representações de texto de conteúdo de imagem, podem ser pesquisado usando todos os recursos de consulta do Azure Search.
 
 ![Diagrama do pipeline de pesquisa cognitiva](./media/cognitive-search-intro/cogsearch-architecture.png "Visão geral do pipeline de pesquisa cognitiva")
 
-As habilidades usadas durante a indexação podem ser predefinidas ou personalizadas:
+As habilidades cognitivas no Azure Search se baseiam nos mesmos algoritmos de IA usados na API de Serviços Cognitivos: [API de reconhecimento de entidade nomeada](cognitive-search-skill-named-entity-recognition.md), [chave de API de extração de frase](cognitive-search-skill-keyphrases.md), e [OCR API](cognitive-search-skill-ocr.md) são apenas alguns. 
 
-+ As [habilidades predefinidas](cognitive-search-predefined-skills.md) são baseadas nos mesmos algoritmos de IA usados nas APIs de Serviços Cognitivos: [Reconhecimento de Entidade Nomeada](cognitive-search-skill-named-entity-recognition.md), [Extração de Frases-chave](cognitive-search-skill-keyphrases.md) e [OCR](cognitive-search-skill-ocr.md) são apenas alguns. 
-
-+ As [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) podem ser desenvolvidas por você para qualquer processamento especializado necessário. Exemplos de habilidades personalizadas podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
+Processamento de imagens e de idioma natural é aplicada durante a fase de ingestão de dados, com resultados se tornando parte da composição de um documento em um índice pesquisável no Azure Search. Os dados são originados como um conjunto de dados do Azure e, em seguida, enviados por meio de um pipeline de indexação usando o que ocorrer [habilidades internas](cognitive-search-predefined-skills.md) que você precisa. A arquitetura é extensível, portanto, se as habilidades internas não forem suficientes, você pode criar e anexar [habilidades personalizadas](cognitive-search-create-custom-skill-example.md) a integrar o processamento personalizado. Exemplos podem ser um módulo de entidade personalizada ou um classificador de documento direcionado a um domínio específico, como finanças, publicações científicas ou medicina.
 
 > [!NOTE]
-> A Pesquisa Cognitiva está em versão prévia pública, e a execução do conjunto de habilidades é oferecida gratuitamente no momento. Posteriormente, o preço dessa capacidade será anunciado.
+> A Pesquisa Cognitiva está em versão prévia pública, e a execução do conjunto de habilidades é oferecida gratuitamente no momento. Posteriormente, o preço dessa capacidade será anunciado. 
 
 ## <a name="components-of-cognitive-search"></a>Componentes da pesquisa cognitiva
+
+Pesquisa cognitiva é um recurso de versão prévia do [Azure Search](search-what-is-azure-search.md), disponível em todos níveis no Centro-Sul dos EUA e na Europa Ocidental. 
 
 O pipeline de pesquisa cognitiva baseia-se em [*indexadores* do Azure Search](search-indexer-overview.md) que rastreiam as fontes de dados e oferecem processamento de índice de ponta a ponta. Agora, as habilidades são anexadas aos indexadores, interceptando e enriquecendo documentos de acordo com o conjunto de habilidades que você define. Após a indexação, você pode acessar o conteúdo por meio de solicitações de pesquisa em todos os [tipos de consulta compatíveis com o Azure Search](search-query-overview.md).  Se você estiver começando a usar indexadores, esta seção o orientará pelas etapas.
 

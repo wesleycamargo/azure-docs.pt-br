@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968612"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627433"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrar o Cloud Foundry com o Azure
 
@@ -81,8 +81,8 @@ Enquanto as séries de VM D e F comumente recomendadas para o ambiente de produ�
 #### <a name="managed-standard-disk"></a>Disco Standard gerenciado: 
 Os discos Premium foram recomendados para um desempenho confiável na produção.  Com o [Disco Gerenciado](https://azure.microsoft.com/services/managed-disks/), o armazenamento standard também pode fornecer confiabilidade semelhante, com desempenho diferente. Para cargas de trabalho que não são sensíveis ao desempenho, como os ambientes de desenvolvimento/teste não críticos, os discos Standard gerenciados oferecem uma opção alternativa com menor custo.  
 ### <a name="cost-saving-in-general"></a>Redução de custos em geral 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Redução de custos significativa da VM com as Instâncias Reservadas: 
-Atualmente, todas as VMs CF são cobradas usando preços "sob demanda", embora os ambientes normalmente permaneçam indefinidamente. Agora, você pode reservar a capacidade da VM em um período de 1 ou 3 anos e obter descontos de 45 a 65%. Os descontos são aplicados no sistema de cobrança, sem alterações ao seu ambiente. Para obter detalhes, consulte [como as instâncias reservadas funcionam](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Economia de custo significante em máquina virtual com as reservas do Microsoft Azure: 
+Atualmente, todas as VMs CF são cobradas usando preços "sob demanda", embora os ambientes normalmente permaneçam indefinidamente. Agora, você pode reservar a capacidade da VM em um período de 1 ou 3 anos e obter descontos de 45 a 65%. Os descontos são aplicados no sistema de cobrança, sem alterações ao seu ambiente. Para obter detalhes, consulte [Como o Azure reservas funciona](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Disco Premium gerenciado com tamanhos menores: 
 Os discos gerenciados oferecem suporte a tamanhos menores de disco, por exemplo, P4(32 GB) e P6(64 GB) para discos standard e premium. Se você tiver cargas de trabalho pequenas, é possível reduzir o custo ao migrar discos premium standard para discos premium gerenciados.
 #### <a name="utilizing-azure-first-party-services"></a>Usando os serviços internos do Azure: 

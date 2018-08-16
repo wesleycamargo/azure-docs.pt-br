@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414517"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622245"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -132,7 +132,7 @@ O aplicativo Microsoft Authenticator está disponível para [Android](https://go
 O aplicativo Microsoft Authenticator pode ajudar a impedir o acesso não autorizado a contas e interromper transações fraudulentas enviando uma notificação para seu smartphone ou tablet. Os usuários visualizam a notificação e, se for legítimo, selecione Verificar. Caso contrário, eles podem selecionar Deny.
 
 > [!WARNING]
-> Para redefinição de senha de autoatendimento quando apenas um método é necessário para redefinir, o código de verificação é a única opção disponível para os usuários.
+> Para redefinição de senha de autoatendimento quando apenas um método é necessário para redefinir, o código de verificação é a única opção disponível para os usuários **garantirem o mais alto nível de segurança**.
 >
 > Quando dois métodos forem necessários, os usuários poderão redefinir usando notificação **SEJA** **OU** código de verificação, além de qualquer outro método ativado.
 >
@@ -142,7 +142,7 @@ O aplicativo Microsoft Authenticator pode ajudar a impedir o acesso não autoriz
 O aplicativo Microsoft Authenticator ou outros aplicativos de terceiros podem ser usados como um token de software para gerar um código de verificação OATH. Depois de inserir seu nome de usuário e senha, insira o código fornecido pelo aplicativo na tela de login. O código de verificação oferece uma segunda forma de autenticação.
 
 > [!WARNING]
-> Para redefinição de senha de autoatendimento, quando apenas um método é necessário para redefinir o código de verificação, a única opção disponível para os usuários.
+> Para redefinição de senha de autoatendimento quando apenas um método é necessário para redefinir, o código de verificação é a única opção disponível para os usuários **garantirem o mais alto nível de segurança**.
 >
 
 ## <a name="mobile-phone"></a>Telefone celular
@@ -198,5 +198,7 @@ Se sua organização for federada para o SSO com o Azure AD e você pretender us
 [Ativar redefinição de senha de autoatendimento para sua organização](quickstart-sspr.md)
 
 [Ativar a autenticação de vários fatores do Azure para sua organização](howto-mfa-getstarted.md)
+
+[Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)
 
 [Documentação de configuração do método de autenticação do usuário final](https://aka.ms/securityinfoguide)

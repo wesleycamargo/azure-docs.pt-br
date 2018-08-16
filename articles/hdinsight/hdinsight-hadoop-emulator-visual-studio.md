@@ -1,24 +1,20 @@
 ---
-title: Ferramentas do Data Lake para Visual Studio com a Área Restrita da Hortonworks – Azure HDInsight | Microsoft Docs
+title: Ferramentas do Data Lake para Visual Studio com a Área Restrita da Hortonworks – Azure HDInsight
 description: Saiba como usar as Ferramentas do Azure Data Lake para Visual Studio com a área restrita da Hortonworks em execução em uma VM local. Com essas ferramentas, você pode criar e executar trabalhos Hive e Pig na área restrita e exibir a saída e o histórico do trabalho.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: e3434c45-95d1-4b96-ad4c-fb59870e2ff0
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: a4c1f5a8100d5d4017e56ef129aa4f4826746868
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.author: jasonh
+ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886724"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597359"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio com a Área Restrita da Hortonworks
 
@@ -26,7 +22,7 @@ O Azure Data Lake inclui ferramentas para trabalhar com clusters Hadoop genéric
 
 O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente em seu ambiente de desenvolvimento. Após você desenvolver uma solução e querer implantá-la em escala, mude para um cluster HDInsight.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * A Área Restrita da Hortonworks em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi criado e testado com a área restrita em execução no Oracle VirtualBox. Para obter informações sobre como configurar a área restrita, confira o documento [Introdução a uma área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 

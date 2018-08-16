@@ -1,29 +1,26 @@
 ---
-title: Operacionalizar o ML Services no HDInsight - Azure | Microsoft Docs
+title: Operacionalizar o ML Services no HDInsight - Azure
 description: Saiba como operacionalizar o ML Services no Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046132"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622296"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
 Após usar o cluster do ML Services no HDInsight para concluir a modelagem de dados, você poderá operacionalizar o modelo para fazer previsões. Esse artigo fornece instruções sobre como fazer essa tarefa.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster do ML Services no HDInsight** : Para obter instruções, consulte [Introdução ao ML Services no HDInsight](r-server-get-started.md).
 
@@ -40,7 +37,7 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
     Para obter instruções sobre como usar SSH com o Azure HDInsight, consulte [usar SSH com HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Altere o diretório para a versão relevante e sudo do dll dot net: 
+1. Altere o diretório para a versão relevante e sudo do dll dot net: 
 
     - Para Microsoft ML Server 9.1:
 
@@ -52,21 +49,21 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
+1. São apresentadas as opções para escolher. Escolha a primeira opção, conforme mostrado na captura de tela a seguir, para **Configurar o ML Server para operacionalização**.
 
     ![operações de uma caixa](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
+1. Agora, é possível escolher como você quer operacionalizar o ML Server. A partir das opções apresentadas, escolha a primeiro inserindo **A**.
 
     ![operações de uma caixa](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. Quando solicitado, digite e insira novamente a senha para um usuário de administrador local.
+1. Quando solicitado, digite e insira novamente a senha para um usuário de administrador local.
 
-6. Você deve ver sugestões de saídas que a operação foi bem-sucedida. Você também precisará selecionar outra opção de menu. Selecione E para retornar ao menu principal.
+1. Você deve ver sugestões de saídas que a operação foi bem-sucedida. Você também precisará selecionar outra opção de menu. Selecione E para retornar ao menu principal.
 
     ![operações de uma caixa](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. Como opção, você pode executar verificações de diagnóstico com um teste de diagnóstico da seguinte forma:
+1. Como opção, você pode executar verificações de diagnóstico com um teste de diagnóstico da seguinte forma:
 
     a. No menu principal, selecione **6** para executar testes de diagnóstico.
 
@@ -124,7 +121,7 @@ Se o cluster não estiver configurado na rede virtual ou se você estiver tendo 
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Depois que a sessão SSH estiver ativa, o tráfego da porta 12800 da máquina será encaminhado para a porta 12800 do nó de borda por meio de uma sessão SSH. Use `127.0.0.1:12800` no seu método `remoteLogin()`. Isso faz logon na operacionalização do nó de borda por meio do encaminhamento de porta.
+Depois que a sessão SSH estiver ativa, o tráfego da porta local 12800 da máquina será encaminhado para a porta 12800 do nó de borda por meio de uma sessão SSH. Use `127.0.0.1:12800` no seu método `remoteLogin()`. Isso faz logon na operacionalização do nó de borda por meio do encaminhamento de porta.
 
 
     library(mrsdeploy)
@@ -148,9 +145,9 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. Faça logon no console de Ambari do cluster e clique na guia **Hosts**.
 
-2. Selecione nós de trabalho (para ser desativado).
+1. Selecione nós de trabalho (para ser desativado).
 
-3. Clique em **Ações** > **Hosts Selecionados** > **Hosts** > **Ativar o modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
+1. Clique em **Ações** > **Hosts Selecionados** > **Hosts** > **Ativar o modo de manutenção**. Por exemplo, na imagem a seguir, selecionamos wn3 e wn4 para desativar.  
 
    ![encerrar nós de trabalho](./media/r-server-operationalize/get-started-operationalization.png)  
 
@@ -166,15 +163,15 @@ Siga estas etapas para desativar os nós de trabalho:
 
 1. SSH em cada nó de trabalho desativado.
 
-2. Execute o utilitário admin usando a DLL relevante para o cluster do ML Services existente. Para ML Server 9.1, execute o seguinte:
+1. Execute o utilitário admin usando a DLL relevante para o cluster do ML Services existente. Para ML Server 9.1, execute o seguinte:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Insira **1** para selecionar a opção **Configurar o ML Server para operacionalização**.
+1. Insira **1** para selecionar a opção **Configurar o ML Server para operacionalização**.
 
-4. Insira **C** para selecionar a opção `C. Compute node`. Isso configura o nó de computação no nó de trabalho.
+1. Insira **C** para selecionar a opção `C. Compute node`. Isso configura o nó de computação no nó de trabalho.
 
-5. Saia do utilitário de administração.
+1. Saia do utilitário de administração.
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Etapa 3: adicionar detalhes de nós de computação no nó da Web
 
@@ -182,9 +179,9 @@ Depois que todos os nós de trabalho encerrados forem configurados para executar
 
 1. SSH no nó de borda.
 
-2. Execute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
+1. Execute `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json`.
 
-3. Procure a seção "URIs" e adicione o IP do nó de trabalho e detalhes de porta.
+1. Procure a seção "URIs" e adicione o IP do nó de trabalho e detalhes de porta.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",

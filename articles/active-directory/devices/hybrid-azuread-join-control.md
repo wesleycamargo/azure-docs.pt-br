@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368674"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622163"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Como controlar ingresso no Azure AD híbrido dos dispositivos
 
@@ -110,6 +110,9 @@ Se você verificou que tudo está funcionando conforme o esperado, significa que
     
 
 É necessário vincular essa configuração do cliente a um local de sua escolha. Por exemplo, para definir essa configuração do cliente para todos os dispositivos atuais do Windows na organização, vincule a configuração do cliente ao domínio. Para fazer uma implantação controlada, é possível definir a configuração do cliente para dispositivos atuais do Windows ingressados no domínio que pertençam a uma unidade organizacional ou a um grupo de segurança.
+
+> [!Important]
+> Embora a configuração acima se encarregue dos dispositivos Windows 10 associados ao domínio existente, existe a possibilidade de os dispositivos recém-ingressados ​​no domínio tentarem completar a junção híbrida do Microsoft Azure Active Directory devido ao possível atraso na aplicação real das configurações da diretiva de grupo ou do System Center Configuration Manager no dispositivos do Windows 10 ingressados recentemente no domínio. Para evitar isso, é recomendável que você crie uma nova imagem de sysprep (usada como um exemplo para um método de provisionamento) de um dispositivo que nunca anteriormente foi o Microsoft Azure Active Directory híbrido e que já tem a configuração de diretiva de grupo acima aplicada ou a definição do System Center Configuration Manager aplicada. Você também deve usar a nova imagem para o provisionamento de novos computadores que ingressam no domínio da sua organização. 
 
 ## <a name="control-windows-down-level-devices"></a>Controlar os dispositivos de nível inferior do Windows
 

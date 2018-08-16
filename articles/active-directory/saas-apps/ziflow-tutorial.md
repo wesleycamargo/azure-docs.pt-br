@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050482"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Microsoft Azure Active Directory ao Ziflow
 
@@ -101,20 +101,20 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Link Configurar logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
- 
+
     ![Caixa de diálogo Logon único](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. Na seção **URLs e Domínio do Ziflow**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:ziflow-production:<Unique ID>`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
 
-    > [!NOTE] 
-    > Os valores anteriores não são reais. Você atualizará o valor de ID exclusiva no identificador e na URL de logon com o valor real, que é explicado no tutorial posteriormente. Entre em contato com a [equipe de suporte do Ziflow](mailto:support@ziflow.com) para o valor de subdomínio na URL de logon.
-    
+    > [!NOTE]
+    > Os valores anteriores não são reais. Você atualizará o valor de ID exclusiva no identificador e na URL de logon com o valor real, que é explicado no tutorial posteriormente.
+
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
     ![Configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. Em uma janela diferente do navegador da Web, faça logon no Ziflow como Administrador de segurança.
-
 
 8. Clique em Avatar no canto superior direito e, em seguida, clique em **Gerenciar conta**.
 
@@ -144,7 +143,7 @@ Nesta seção, você habilitará o logon único do Microsoft Azure AD no Portal 
 
     a. Selecione **Tipo** como **SAML 2.0**.
 
-    b. Na caixa de texto **URL de entrada**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do Portal do Azure.
+    b. Na caixa de texto **URL de entrada**, cole o valor de **URL do Serviço de Logon Único SAML** copiado do portal do Azure.
 
     c. Carregue o certificado codificado em base 64 que você baixou do Portal do Azure, para o **Certificado de Autenticação do X509**.
 

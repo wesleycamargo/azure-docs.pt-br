@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902914"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715413"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas do Azure Stream Analytics
 Este artigo descreve os diferentes tipos de saídas disponíveis para um trabalho do Azure Stream Analytics. As saídas permitem armazenar e salvar os resultados do trabalho do Stream Analytics. Usando os dados de saída, você pode fazer mais análise de negócios e data warehouse de seus dados. 
 
 Quando você criar sua consulta do Stream Analytics, consulte o nome de saída usando a [cláusula INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Você pode usar uma única saída por trabalho ou várias saídas por trabalho de streaming se você precisar fornecer várias cláusulas INTO na consulta.
 
-Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output) e o [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Para criar, editar e testar as saídas de trabalho do Stream Analytics, você pode usar o [Porta do Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), o [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), o [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), o [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alguns tipos de saídas dão suporte a [particionamento](#partitioning) e os [tamanhos de lote de saída](#output-batch-size) variam para otimizar a taxa de transferência.
 
@@ -296,15 +296,15 @@ A tabela a seguir resume o suporte de partição e o número de gravadores de sa
 
 | Tipo de saída | Suporte ao particionamento | Chave de partição  | Número de gravadores de saída | 
 | --- | --- | --- | --- |
-| Repositório Azure Data Lake | sim | Use tokens de {data} e {hora} no padrão de prefixo de caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
+| Repositório Azure Data Lake | SIM | Use tokens de {data} e {hora} no padrão de prefixo de caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
 | Banco de Dados SQL do Azure | Não  | Nenhum | Não aplicável. | 
-| Armazenamento de Blobs do Azure | sim | Use os tokens de {data} e {hora} dos seus campos de evento no padrão do caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. Como parte da [versão prévia](https://aka.ms/ASAPreview), a saída de blob pode ser particionada por um atributo de evento personalizado único {fieldname} ou {datetime:\<specifier>}. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
-| Hub de Eventos do Azure | sim | sim | Varia dependendo do alinhamento da partição.</br> Quando a chave de partição de saída do Hub de Eventos é alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições do Hub de Eventos de saída. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do EventHub para enviar eventos para a partição específica. </br> Quando a chave de partição de saída do Hub de Eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) do EventHubClient para enviar eventos para todas as partições de saída. |
+| Armazenamento de Blobs do Azure | SIM | Use os tokens de {data} e {hora} dos seus campos de evento no padrão do caminho. Escolha o formato de data, como DD/MM/AAAA, MM/DD/AAAA, MM-DD-AAAA. HH é usado para o formato de hora. Como parte da [versão prévia](https://aka.ms/ASAPreview), a saída de blob pode ser particionada por um atributo de evento personalizado único {fieldname} ou {datetime:\<specifier>}. | Segue o particionamento de entrada para [consultas totalmente paralelizáveis](stream-analytics-scale-jobs.md). | 
+| Hub de Eventos do Azure | SIM | SIM | Varia dependendo do alinhamento da partição.</br> Quando a chave de partição de saída do Hub de Eventos é alinhada de forma igual com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições do Hub de Eventos de saída. Cada gravador usa [a classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do EventHub para enviar eventos para a partição específica. </br> Quando a chave de partição de saída do Hub de Eventos não é alinhada com a etapa de consulta (anterior) de upstream, o número de gravadores é o mesmo que o de partições nessa etapa anterior. Cada gravador usa a [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) do EventHubClient para enviar eventos para todas as partições de saída. |
 | Power BI | Não  | Nenhum | Não aplicável. | 
-| Armazenamento da tabela do Azure | sim | Qualquer coluna de saída.  | Segue o particionamento de entrada para as [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 
-| Tópico do Barramento de Serviço do Azure | sim | Escolhido automaticamente. O número de partições baseia-se no [tamanho e SKU do Barramento de Serviço](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições no tópico de saída.  |
-| Fila do Barramento de Serviço do Azure | sim | Escolhido automaticamente. O número de partições baseia-se no [tamanho e SKU do Barramento de Serviço](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições na fila de saída. |
-| Azure Cosmos DB | sim | Use o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se na cláusula PARTITION BY na consulta. | Segue o particionamento de entrada para as [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
+| Armazenamento da tabela do Azure | SIM | Qualquer coluna de saída.  | Segue o particionamento de entrada para as [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). | 
+| Tópico do Barramento de Serviço do Azure | SIM | Escolhido automaticamente. O número de partições baseia-se no [tamanho e SKU do Barramento de Serviço](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições no tópico de saída.  |
+| Fila do Barramento de Serviço do Azure | SIM | Escolhido automaticamente. O número de partições baseia-se no [tamanho e SKU do Barramento de Serviço](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.| Mesmo que o número de partições na fila de saída. |
+| Azure Cosmos DB | SIM | Use o token {partition} no padrão de nome de coleção. valor de {partition} baseia-se na cláusula PARTITION BY na consulta. | Segue o particionamento de entrada para as [consultas totalmente paralelizadas](stream-analytics-scale-jobs.md). |
 | Funções do Azure | Não  | Nenhum | Não aplicável. | 
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída

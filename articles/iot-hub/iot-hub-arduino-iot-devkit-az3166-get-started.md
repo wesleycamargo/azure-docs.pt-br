@@ -9,23 +9,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 34088440bf723fc65f4ff5c49f62182f405fa35a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6d5b0036bb44f301ea0b11e5d984fcd5b4bfac71
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344538"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599822"
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>Como conectar o IoT DevKit AZ3166 ao Azure IoT Hub na nuvem
+# <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 Você pode usar o [Kit de Desenvolvimento da IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/) para desenvolver e criar protótipos de soluções de Internet das Coisas (IoT) que usufruem dos serviços do Microsoft Azure. Ele inclui uma placa compatível com Arduino com periféricos avançados e sensores, um pacote de placa de software livre e um [catálogo de projetos](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) crescente.
 
 ## <a name="what-you-do"></a>O que fazer
+
 Conecte o [Kit de Desenvolvimento](https://microsoft.github.io/azure-iot-developer-kit/) a um Hub IoT do Azure que você criou, colete os dados de temperatura e umidade de sensores e envie os dados para o Hub IoT.
 
-Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [obtenha um](https://aka.ms/iot-devkit-purchase).
+Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [compre um kit de desenvolvimento](https://aka.ms/iot-devkit-purchase).
 
 ## <a name="what-you-learn"></a>O que você aprenderá
 
@@ -40,25 +41,24 @@ Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-s
 * Um computador que executa o Windows 10 ou macOS 10.10+.
 * Uma assinatura ativa do Azure. [Ative uma conta de avaliação do Microsoft Azure por 30 dias](https://azureinfo.microsoft.com/us-freetrial.html).
   
-
 ## <a name="prepare-your-hardware"></a>Prepare seu hardware
 
-Conecte o hardware no seu computador.
-
-Você precisa desse hardware:
+Conecte o hardware a seguir no seu computador:
 
 * Placa DevKit
 * Cabo micro USB
 
 ![Requisitos de hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/hardware.jpg)
 
-Conecte o Kit de Desenvolvimento ao computador:
+Conecte o Kit de Desenvolvimento ao computador, siga essas etapas:
 
 1. Conecte a extremidade USB ao computador.
+
 2. Conecte a extremidade micro USB ao Kit de Desenvolvimento.
+
 3. O LED verde perto do botão liga/desliga confirma a conexão.
 
-![Conexões de hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
+   ![Conexões de hardware](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connect.jpg)
 
 ## <a name="configure-wi-fi"></a>Configurar o Wi-Fi
 
@@ -98,7 +98,7 @@ O aplicativo padrão em execução no DevKit verifica a versão mais recente do 
 ### <a name="upgrade-to-the-latest-firmware"></a>Como atualizar para o firmware mais recente
 
 > [!NOTE] 
-> Desde a v1.1, o Kit de desenvolvimento permite o ST-SAFE no carregador de inicialização. Será necessário atualizar o firmware se você estiver executando uma versão abaixo de v1.1 para que ele funcione provavelmente.
+> Desde a v1.1, o Kit de desenvolvimento permite o ST-SAFE no carregador de inicialização. Você precisa atualizar o firmware se você estiver executando uma versão anterior à versão 1.1.
 
 Se você precisa de uma atualização de firmware, a tela exibirá a versão de firmware atual e a mais recente. Siga o guia [Atualizar o firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) para atualizá-lo.
 
@@ -119,7 +119,7 @@ Agora é hora de configurar o ambiente de desenvolvimento: ferramentas e pacotes
 
 ### <a name="windows"></a>Windows
 
-Recomendamos usar o pacote de instalação para preparar o ambiente de desenvolvimento. Se tiver alguma dificuldade, siga as [etapas manuais](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) para concluir sua tarefa.
+Recomendamos usar o pacote de instalação para preparar o ambiente de desenvolvimento. Se você encontrar problemas, você pode seguir a [manuais instruções para a instalação do Kit de Desenvolvimento do IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) para que isso seja feito.
 
 #### <a name="download-the-latest-package"></a>Baixar o pacote mais recente
 
@@ -131,11 +131,17 @@ O arquivo .zip que você baixa contém todas as ferramentas e pacotes necessári
 O arquivo .zip contém as ferramentas e pacotes a seguir. Se você já tiver alguns componentes instalados, o script irá detectá-los e ignorá-los.
 
 * Node.js e Yarn: tempo de execução para o script de instalação e as tarefas automatizadas.
+
 * [MSI da CLI do Azure 2.0](https://docs.microsoft.com//cli/azure/install-azure-cli#windows): experiência de linha de comando de multiplaforma para gerenciar recursos do Azure. O MSI contém Python e pip dependentes.
+
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor de códigos simples para o desenvolvimento de Kit de Desenvolvimento.
+
 * [Extensão do Visual Studio Code para Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): extensão que permite o desenvolvimento do Arduino no Visual Studio Code.
+
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): a extensão para Arduino depende dessa ferramenta.
+
 * Pacote de placa do Kit de Desenvolvimento: cadeias de ferramentas, bibliotecas e projetos para o Kit de Desenvolvimento.
+
 * Utilitário de Link-ST: ferramentas e drivers essenciais.
 
 #### <a name="run-the-installation-script"></a>Execute o script de instalação
@@ -149,11 +155,11 @@ Durante a instalação, você verá o progresso de cada ferramenta ou pacote.
 ![Progresso da instalação](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
 
 > [!NOTE] 
-> Dependendo do seu ambiente, às vezes, você terá falha ao instalar o Arduino IDE. Nesse caso, você pode tentar [instalar o Arduino IDE individualmente](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) e executar install.cmd novamente. Caso contrário, siga as [etapas manuais](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) para instalar todas as ferramentas e pacotes necessários.
+> Dependendo do seu ambiente, às vezes, você terá falha ao instalar o Arduino IDE. Nesse caso, você pode tentar [instalar o Arduino IDE individualmente](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) e executar install.cmd novamente. Caso contrário, siga as [instruções manuais para a instalação do Kit de Desenvolvimento do IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) para instalar todas as ferramentas e pacotes necessários.
 
 #### <a name="install-drivers"></a>Instalar drivers
 
-O VS Code para extensão do Arduino depende do Arduino IDE. Se esta for a primeira vez que você estiver instalando o Arduino IDE, será solicitado que você instale os drivers relevantes:
+O VS Code para extensão do Arduino depende do Arduino IDE. Se esta for a primeira vez que você estiver instalando o Arduino IDE, será solicitado que você instale os drivers relevantes.
 
 ![Guia de Introdução: driver](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/driver.png)
 
@@ -164,7 +170,7 @@ A instalação deve levar cerca de 10 minutos para ser concluída, dependendo da
 
 ### <a name="macos"></a>macOS
 
-Recomendamos usar a experiência de instalação com um clique para preparar o ambiente de desenvolvimento. Se tiver alguma dificuldade, siga as [etapas manuais](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) para concluir sua tarefa.
+Recomendamos usar a experiência de instalação com um clique para preparar o ambiente de desenvolvimento. Se você encontrar problemas, você pode seguir a [manuais instruções para a instalação do Kit de Desenvolvimento do IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/) para que isso seja feito.
 
 #### <a name="install-homebrew"></a>Instalar o Homebrew
 
@@ -174,6 +180,7 @@ Recomendamos usar a experiência de instalação com um clique para preparar o a
 Siga as [instruções de instalação do Homebrew](https://docs.brew.sh/Installation.html) para instalá-lo.
 
 #### <a name="download-the-latest-package"></a>Baixar o pacote mais recente
+
 O arquivo .zip que você baixa contém todas as ferramentas e pacotes necessários para o desenvolvimento do Kit de Desenvolvimento.
 
 > [!div class="button"]
@@ -182,11 +189,17 @@ O arquivo .zip que você baixa contém todas as ferramentas e pacotes necessári
 O arquivo .zip contém as ferramentas e pacotes a seguir. Se você já tiver alguns componentes instalados, o script irá detectá-los e ignorá-los.
 
 * Node.js e Yarn: tempo de execução para o script de instalação e as tarefas automatizadas.
+
 * [CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos): experiência de linha de comando multiplataforma para gerenciar recursos do Azure.
+
 * [Visual Studio Code](https://code.visualstudio.com/) (VS Code): editor de códigos simples para o desenvolvimento de Kit de Desenvolvimento.
+
 * [Extensão do Visual Studio Code para Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino): extensão que permite o desenvolvimento do Arduino no Visual Studio Code.
+
 * [Arduino IDE](https://www.arduino.cc/en/Main/Software): a extensão para Arduino depende dessa ferramenta.
+
 * Pacote de placa do Kit de Desenvolvimento: cadeias de ferramentas, bibliotecas e projetos para o Kit de Desenvolvimento.
+
 * Utilitário de Link-ST: ferramentas e drivers essenciais.
 
 #### <a name="run-the-installation-script"></a>Execute o script de instalação
@@ -195,7 +208,7 @@ No Localizador, localize o .zip e extraia-o:
 
 ![Finder do macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-finder.png)
 
-Inicie o aplicativo Terminal, localize a pasta para a qual você extraiu o arquivo .zip e execute:
+Inicie o aplicativo Terminal, localize a pasta para a qual você extraiu o arquivo .zip e execute as seguintes etapas:
 
 ```bash
 ./install.sh
@@ -204,22 +217,22 @@ Inicie o aplicativo Terminal, localize a pasta para a qual você extraiu o arqui
 ![Instalação do macOS](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/mac-install-sh.png)
 
 > [!NOTE] 
-> Se você atender a um erro de permissão Homebrew, execute `brew doctor` para resolvê-lo. Confira as [Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) para obter mais detalhes.
+> Se você atender a um erro de permissão Homebrew, execute `brew doctor` para resolvê-lo. Verifique as [seção de "Erro homebrew" de perguntas frequentes sobre o Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos) para obter mais detalhes.
 
 Agora você já instalou todas as ferramentas e os pacotes necessários para macOS.
 
-
 ## <a name="open-the-project-folder"></a>Abrir a pasta do projeto
+
+Comece abrindo a pasta do projeto. 
 
 ### <a name="start-vs-code"></a>Iniciar o VS Code
 
-Verifique se que o DevKit não está conectado. Inicie o VS Code primeiro e conecte o Kit de Desenvolvimento ao seu computador. O VS Code localiza o Visual Studio Code automaticamente e abre uma página de introdução:
+Verifique se que o DevKit não está conectado. Inicie o VS Code e conecte o Kit de Desenvolvimento ao seu computador. O VS Code localiza o Visual Studio Code automaticamente e abre uma página de introdução.
 
 ![Página Introdução](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/vscode_start.png)
 
 > [!NOTE] 
 > Eventualmente, ao iniciar o VS Code, aparecerá um erro notificando que ele não pôde encontrar o Arduino IDE nem o pacote de placa relacionado. Feche o VS Code e reinicie o Arduino IDE. O VS Code deve então localizar o caminho do Arduino IDE corretamente.
-
 
 ### <a name="open-the-arduino-examples-folder"></a>Abra a pasta de exemplos de Arduino
 
@@ -233,65 +246,76 @@ Se você fechar o painel, você poderá reabri-lo. Use `Ctrl+Shift+P` (macOS: `C
 
 Na janela de solução, execute a tarefa por meio de `Ctrl+P` (macOS: `Cmd+P`) digitando `task cloud-provision`:.
 
-No terminal do VS Code, uma linha de comando interativa orienta você durante o provisionamento dos serviços do Azure necessários:
+No terminal do VS Code, uma linha de comando interativa orienta você durante o provisionamento dos serviços do Azure necessários.
 
 ![Linha de comando interativa](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/cloud-provision.png)
 
 ## <a name="build-and-upload-the-arduino-sketch"></a>Compilar e carregar o esboço do Arduino
 
+Em seguida, compilar e carregar o esboço do Arduino.
+
 ### <a name="windows"></a>Windows
 
 1. Use `Ctrl+P` para executar `task device-upload`.
+
 2. O terminal solicita que você entre no modo de configuração. Para fazer isso, mantenha o botão A pressionado e, em seguida, solte o botão Reiniciar. A tela exibe a ID do Kit de Desenvolvimento e “Configuração”.
 
-Isso serve para definir a cadeia de conexão que recupera da etapa `task cloud-provision`.
+   Isso serve para definir a cadeia de conexão que recupera da etapa `task cloud-provision`.
 
-Em seguida, o VS Code começa verificando e carregando o sketch do Arduino:
+   Em seguida, o VS Code começa verificando e carregando o sketch do Arduino.
 
-![Verificação e o upload do esboço do Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+   ![Verificação e o upload do esboço do Arduino](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
-O Kit de Desenvolvimento reinicia e começa a execução do código.
+   O Kit de Desenvolvimento reinicia e começa a execução do código.
 
-> [!NOTE] 
-> Ocasionalmente, você receberá o erro "Erro: AZ3166: pacote desconhecido". Isso ocorre pela falta de atualização do índice do pacote. Confira estas [etapas das Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) para resolvê-lo.
+   > [!NOTE] 
+   > Ocasionalmente, você receberá o erro "Erro: AZ3166: pacote desconhecido". Isso ocorre pela falta de atualização do índice do pacote. Confira estas [etapas das Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) para resolvê-lo.
 
 ### <a name="macos"></a>macOS
 
 1. Coloque o Kit de Desenvolvimento no modo de configuração: mantenha o botão A pressionado e, em seguida, solte o botão Reiniciar. A tela exibe “Configuração”.
+
 2. Use `Cmd+P` para executar `task device-upload`.
 
-Isso serve para definir a cadeia de conexão que recupera da etapa `task cloud-provision`.
+   Isso serve para definir a cadeia de conexão que recupera da etapa `task cloud-provision`.
 
-Em seguida, o VS Code começa verificando e carregando o sketch do Arduino:
+   Em seguida, o VS Code começa verificando e carregando o sketch do Arduino:
 
-![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+   ![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
 
-O Kit de Desenvolvimento reinicia e começa a execução do código.
+   O Kit de Desenvolvimento reinicia e começa a execução do código.
 
-> [!NOTE] 
-> Ocasionalmente, você receberá o erro "Erro: AZ3166: pacote desconhecido". Isso ocorre pela falta de atualização do índice do pacote. Confira estas [etapas das Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) para resolvê-lo.
+   > [!NOTE] 
+   > Ocasionalmente, você receberá o erro "Erro: AZ3166: pacote desconhecido". Isso ocorre pela falta de atualização do índice do pacote. Verifique as etapas [perguntas frequentes sobre o Kit de desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) para resolvê-lo.
 
 
 ## <a name="test-the-project"></a>Teste do projeto
 
 No VS Code, siga estas etapas para abrir e configurar o Monitor Serial:
 
-1. Clique na palavra `COM[X]` na barra de status para definir a porta COM certa com `STMicroelectronics`: ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
+1. Clique na palavra `COM[X]` na barra de status para definir a porta COM certa com `STMicroelectronics`.
 
-2. Clique no ícone de tomada na barra de status para abrir o Monitor Serial: ![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
+   ![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
 
-3. Na barra de status, clique no número que representa a Taxa de Baud e defina como `115200`: ![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
+2. Clique no ícone de tomada na barra de status para abrir o Monitor Serial.
 
-O aplicativo de exemplo é executado com êxito quando você vê os seguintes resultados:
+   ![monitor de série](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution//connect-iothub/serial-monitor.png)
 
-* O Monitor Serial exibe as mesmas informações como o conteúdo na captura de tela abaixo.
-* O LED RGB no MXChip IoT DevKit está piscando.
+3. Na barra de status, clique no número que representa a Taxa de Baud e defina como `115200`.
 
-![Saída final no VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
+   ![taxa de transmissão](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
+
+4. O aplicativo de exemplo é executado com êxito quando você vê os seguintes resultados:
+
+   * O Monitor Serial exibe as mesmas informações como o conteúdo na captura de tela abaixo.
+   
+   * O LED RGB no MXChip IoT DevKit está piscando.
+
+   ![Saída final no VS Code](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 
 ## <a name="problems-and-feedback"></a>Comentários e problemas
 
-Se você tiver problemas, você poderá encontrar [Perguntas frequentes](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Você também pode nos fornecer comentários fazendo-os nesta página.
+Se você encontrar problemas, você pode procurar uma solução nas [perguntas frequentes sobre o Kit de Desenvolvimento de IoT](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/). Você também pode nos fornecer comentários fazendo-os nesta página.
 
 ## <a name="next-steps"></a>Próximas etapas
 
