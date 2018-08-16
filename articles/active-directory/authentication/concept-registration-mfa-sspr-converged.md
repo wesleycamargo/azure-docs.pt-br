@@ -1,6 +1,6 @@
 ---
-title: Registro convergente para o Azure AD SSPR e o MFA
-description: Autenticação de vários fatores do Azure AD e registro de redefinição de senha de autoatendimento
+title: Registro convergido para o Microsoft Azure Active Directory SSPR e o MFA (visualização pública)
+description: Autenticação de vários fatores do Microsoft Azure Active Directory e registro de redefinição de senha de autoatendimento (visualização pública)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415649"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492885"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Registro convergente para redefinição de senha de autoatendimento e Autenticação de vários fatores do Azure
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergente para redefinição de senha de autoatendimento e Autenticação de vários fatores do Azure (visualização pública)
 
 Até agora, os usuários precisavam registrar métodos de autenticação para a Autenticação Multifatores do Azure (MFA) e a redefinição de senha de autoatendimento (SSPR) em dois portais diferentes. Muitos usuários ficaram confusos com o fato de que métodos similares foram usados tanto para o Azure MFA quanto para o SSPR e não se registrariam em ambos os portais. Essa disparidade fez com que alguns usuários não pudessem usar o Azure MFA ou SSPR quando necessário, levando a uma chamada de assistência técnica e, potencialmente, um usuário chateado. Agora, os usuários podem se registrar uma vez e obter os benefícios do Azure MFA e SSPR, eliminando a necessidade de registrar seus métodos de autenticação para esses recursos duas vezes.  
 
@@ -71,10 +71,12 @@ Registros de auditoria para essa nova experiência existem na categoria Métodos
 ## <a name="known-issues"></a>Problemas conhecidos
 
 **O método MFA padrão é definido como chamada telefônica quando o usuário registra o telefone usando uma mensagem de texto**
-   * Alguns usuários podem perceber que o método MFA padrão é definido como chamada telefônica depois de registrar seu número de telefone usando uma mensagem de texto. Os usuários podem resolver esse problema alterando seu método padrão seguindo estas instruções. 
+
+   * Alguns usuários podem perceber que o método MFA padrão é definido como chamada telefônica depois de registrar seu número de telefone usando uma mensagem de texto. Os usuários podem resolver esse problema alterando o método padrão, seguindo as instruções encontradas no artigo [Gerenciar suas informações de segurança (visualização)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Usuário incapaz de acessar a nova experiência de registro depois que o administrador desabilita seu método padrão**
-   * Alguns usuários podem não conseguir acessar a nova experiência de registro se o método MFA padrão registrado anteriormente tiver sido desabilitado pelo administrador. Aqui está um exemplo de cenário: 
+
+   * Alguns usuários podem não conseguir acessar a nova experiência de registro se o método MFA padrão registrado anteriormente tiver sido desabilitado pelo administrador. Aqui está um exemplo de cenário:
       1. O usuário registrou previamente seu número de telefone e definiu seu método padrão como chamada telefônica.
       2. O administrador desativa a chamada telefônica como um método MFA para o locatário.
       3. O usuário é solicitado a se registrar durante o login porque precisa registrar um método adicional para atender à política SSPR do inquilino.

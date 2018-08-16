@@ -3,7 +3,7 @@ title: Acesso just in time à máquina virtual na Central de Segurança do Azure
 description: Este documento demonstra como o acesso just in time à VM, na Central de Segurança do Azure, ajuda você a controlar o acesso às suas máquinas virtuais do Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990571"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525936"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando o just in time
 
@@ -168,10 +168,9 @@ Você pode baixar as informações de log selecionando **Clique aqui para baixar
 
 Modifique os filtros e selecione **Aplicar** para criar uma pesquisa e um log.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Usando o acesso à VM just in time por meio do PowerShell
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Usando o acesso à VM just in time por meio das APIs de REST
 
-Para usar a solução just in time por meio do PowerShell, verifique se você tem a versão [mais recente](/powershell/azure/install-azurerm-ps) do Azure PowerShell.
-Depois disso, você precisa instalar a Central de Segurança do Azure [mais recente](https://aka.ms/asc-psgallery) da galeria do PowerShell.
+O acesso da VM em tempo pode ser usado através da API do Central de Segurança do Azure. Você pode obter informações sobre VMs configuradas, adicionar novos, solicitar o acesso a uma VM e mais, por meio dessa API. Veja [Políticas de Acesso à Rede Jit](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), para saber mais sobre o apenas no tempo de API REST.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurando uma política just in time para uma VM
 

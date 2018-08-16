@@ -3,16 +3,17 @@ title: Planejando uma implantação de Arquivos do Azure | Microsoft Docs
 description: Saiba o que considerar ao planejar uma implantação de Arquivos do Azure.
 services: storage
 author: wmgries
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 06/12/2018
 ms.author: wgries
-ms.openlocfilehash: 017dd79e2d15fdd98ea020c686857d282bad244e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: files
+ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/24/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528846"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Já que o Arquivos do Azure é totalmente gerenciado, implantá-lo em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de Arquivos do Azure para uso em produção dentro de sua organização.
@@ -57,7 +58,7 @@ O Arquivos do Azure tem várias opções integradas para garantir a segurança d
     * Os clientes que dão suporte a criptografia SMB 3.0 enviam e recebem dados por um canal criptografado.
     * Clientes que não dão suporte a SMB 3.0 podem se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0, sem criptografia. Observe que os clientes não têm permissão para se comunicar no interior do datacenter via SMB 2.1 ou SMB 3.0 sem criptografia.
     * Os clientes podem se comunicar por REST de arquivo via HTTP ou HTTPS.
-* Criptografia em repouso ([criptografia do serviço de Armazenamento do Microsoft Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): a criptografia de serviço de armazenamento (SSE) é habilitada por padrão para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. Criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
+* Criptografia em repouso ([criptografia do serviço de Armazenamento do Microsoft Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): a Criptografia do Serviço de Armazenamento (SSE) é habilitada para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. Criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
 * Requisito opcional de dados criptografados em trânsito: quando selecionado, o Arquivos do Azure rejeitam o acesso aos dados por canais sem criptografia. Especificamente, são permitidas somente HTTPS e SMB 3.0 com conexões de criptografia. 
 
     > [!Important]  

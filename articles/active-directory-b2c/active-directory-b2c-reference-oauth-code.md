@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2452389605db0654fb9d8dc06d89a8195f9ae372
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113667"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480837"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: fluxo de código de autorização OAuth 2.0
 Você pode usar a concessão de código de autorização OAuth 2.0 em aplicativos instalados em um dispositivo para obter acesso a recursos protegidos, como APIs Web. Usando a implementação do Azure AD B2C (Azure Active Directory B2C) do OAuth 2.0, você pode adicionar tarefas de inscrição, entrada e outras de gerenciamento de identidade aos seus aplicativos móveis e da área de trabalho. Este artigo é independente de linguagem. No artigo, descreveremos como enviar e receber mensagens HTTP sem usar nenhuma biblioteca de software livre.
 
 <!-- TODO: Need link to libraries -->
 
-O fluxo do código de autorização do OAuth 2.0 é descrito na [seção 4.1 da especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749). É possível usá-lo para autenticação e autorização na maioria dos [tipos de aplicativos](active-directory-b2c-apps.md), incluindo aplicativos Web e aplicativos instalados nativamente. Você pode usar o fluxo do código de autorização OAuth 2.0 para adquirir com segurança tokens de acesso para os aplicativos, que podem ser usados para acessar recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md).
+O fluxo do código de autorização do OAuth 2.0 é descrito na [seção 4.1 da especificação do OAuth 2.0](http://tools.ietf.org/html/rfc6749). É possível usá-lo para autenticação e autorização na maioria dos [tipos de aplicativos](active-directory-b2c-apps.md), incluindo aplicativos Web e aplicativos instalados nativamente. Você pode usar o fluxo do código de autorização OAuth 2.0 para adquirir com segurança tokens de acesso e atualizar tokens para os aplicativos, que podem ser usados para acessar recursos protegidos por um [servidor de autorização](active-directory-b2c-reference-protocols.md).  O token de atualização permite que o cliente adquirir novo acesso (e atualizar) tokens depois que o token de acesso expira, normalmente após uma hora.
 
 Este artigo concentra-se no fluxo de código de autorização do OAuth 2.0 de **clientes públicos**. Um cliente público é qualquer aplicativo cliente que não é confiável para manter a integridade de uma senha secreta com segurança. Isso inclui aplicativos móveis, aplicativos da área de trabalho e, basicamente, qualquer aplicativo que seja executado em um dispositivo e precise obter tokens de acesso. 
 

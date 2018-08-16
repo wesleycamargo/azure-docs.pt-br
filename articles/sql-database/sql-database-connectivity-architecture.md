@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036761"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493665"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
@@ -51,7 +51,7 @@ Se você estiver se conectando de fora do Azure, as conexões têm uma política
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Redirecionar** por padrão. Portanto, para habilitar a conectividade de dentro da rede virtual, você precisa permitir saída para todos os endereços IP de banco de dados SQL do Azure, não apenas para IPs de gateway. Isso pode ser feito com a Ajuda de marcas de serviço do NSG (Grupo de Segurança de Rede) e, se você quer permitir saída apenas para IPs de gateway, altere a configuração para **Proxy**.
+> Ao usar pontos de extremidade de serviço com o banco de dados SQL do Azure, sua política é **Proxy** por padrão. Para habilitar a conectividade de dentro de sua rede virtual, permita conexões de saída para os endereços de IP de Gateway de banco de dados de SQL do Azure especificados na lista abaixo. Ao usar pontos de extremidade de serviço é altamente recomendável alterar sua política de conexão para **Redirecionar** para permitir um melhor desempenho. Se você alterar sua política de conexão para **Redirecionar** não será suficiente para permitir a saída em seu NSG ao gateway do Azure SQLDB IPs listados abaixo, você deve permitir a saída para todos os IPs do Azure SQLDB. Isso pode ser feito com a ajuda de Marcas de Serviço do NSG (Grupos de Segurança de Rede). Para saber mais, confira [Marcas do Serviço](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
 

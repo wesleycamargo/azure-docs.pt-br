@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 60f3f74778f0fb32677c3b87b3140131ccd37bea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763622"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494236"
 ---
 # <a name="sfctl-cluster"></a>cluster sfctl
 Selecionar, gerenciar e operar clusters do Service Fabric.
@@ -38,6 +38,7 @@ Selecionar, gerenciar e operar clusters do Service Fabric.
 | sistema de recuperação | Indica ao cluster do Service Fabric que ele deve tentar recuperar os serviços do sistema que estão atualmente paralisados na perda de quorum. |
 | report-health | Envia um relatório de integridade sobre o cluster do Service Fabric. |
 | selecionar | Se conecta a um ponto de extremidade do cluster do Service Fabric. |
+| show-connection | Mostre qual cluster do Service Fabric essa instância sfctl está conectada. |
 | unprovision | Desconfigurar os pacotes de código ou a configuração de um cluster do Service Fabric. |
 | atualizar | Começar a realizar os upgrades da versão do código ou configuração de um cluster do Service Fabric. |
 | upgrade-resume | Verifica o upgrade do cluster para passar para o próximo domínio de upgrade. |
@@ -64,7 +65,7 @@ Obtém uma lista de informações sobre a malha versões de código que são pro
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-config-versions"></a>configuração de cluster sfctl versões
@@ -86,21 +87,21 @@ Obtém uma lista de informações sobre a malha versões de configuração que s
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-health"></a>Integridade do cluster sfctl
 Obtém a integridade de um cluster do Service Fabric.
 
-Obtém a integridade de um cluster do Service Fabric. Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade relatados no cluster de acordo com o estado de integridade. Da mesma forma, use NodesHealthStateFilter e ApplicationsHealthStateFilter para filtrar o conjunto de nós e aplicativos retornados com base no seu estado de integridade agregada.
+Use EventsHealthStateFilter para filtrar o conjunto de eventos de integridade relatados no cluster de acordo com o estado de integridade. Da mesma forma, use NodesHealthStateFilter e ApplicationsHealthStateFilter para filtrar o conjunto de nós e aplicativos retornados com base no seu estado de integridade agregada.
 
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
 | --filtro do estado de integridade dos aplicativos | Permite filtrar os objetos de estado de integridade do aplicativo retornados no resultado da consulta de integridade do cluster com base em seu estado de integridade. Os valores possíveis para este parâmetro incluem valor inteiro obtido de membros ou operações bit a bit em membros da enumeração HealthStateFilter. São retornados apenas aplicativos que correspondem ao filtro. Todos os aplicativos são usados para avaliar o estado de integridade agregada. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, o estado de integridade dos aplicativos com valor HealthState de OK (2) e Aviso (4) será retornado.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, Warning e Error. |
+| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
+| --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
 | --include-system-application-health-statistics | Indica se as estatísticas de integridade devem incluir as estatísticas de integridade do aplicativo fabric\:/System. Falso por padrão. Se IncludeSystemApplicationHealthStatistics for definido como true, as estatísticas de integridade incluirão as entidades que pertencem ao aplicativo fabric \:/System. Caso contrário, o resultado da consulta inclui estatísticas de integridade somente para aplicativos de usuário. As estatísticas de integridade devem ser incluídas no resultado da consulta para que este parâmetro seja aplicado. |
 | --nodes-health-state-filter | Permite filtrar os objetos de estado de integridade de nó retornados no resultado da consulta de integridade do cluster com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Só retornam os nós que correspondem ao filtro. Todos os nós são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, o estado de integridade dos nós com o valor HealthState de OK (2) e Aviso (4) será retornado.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
@@ -112,7 +113,7 @@ Obtém a integridade de um cluster do Service Fabric. Use EventsHealthStateFilte
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-manifest"></a>Manifesto do cluster sfctl
@@ -133,7 +134,7 @@ Obter o manifesto do cluster do Service Fabric. O manifesto do cluster contém p
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-operation-cancel"></a>operação de cluster sfctl cancelamento
@@ -141,7 +142,7 @@ Cancela uma operação com falha induzida pelo usuário.
 
 As seguintes APIs iniciar operações com falha que podem ser canceladas usando CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition. Se forçar for false, em seguida, a operação especificada induzido pelo usuário será normalmente interrompida e limpos.  Se forçar for true, o comando será anulado e algum estado interno pode ser deixado para trás.  Especificar force como verdadeiro deve ser usada com cuidado. Não é permitido chamar essa API com force definido como verdadeiro, até que essa API já foi chamada no mesmo comando de teste com force definido como false, ou a menos que o comando de teste já tem um OperationState de OperationState.RollingBack. 
 
-Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando. Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. 
+ Esclarecimento\: significa OperationState.RollingBack que o sistema será/está limpando interno do sistema de estado causado pela execução do comando. Ele não irá restaurar os dados se o comando de teste foi causar perda de dados.  Por exemplo, se você chamar StartDataLoss chamar esta API, o sistema só limpará o estado interno da execução do comando. Ele não irá restaurar os dados da partição de destino, se o comando progrediu distante o suficiente para causar perda de dados. 
 
 > [!NOTE]
 > Se essa API é invocada com a equipe = = true, interno de estado pode ser deixado para trás.
@@ -161,7 +162,7 @@ Esclarecimento\: significa OperationState.RollingBack que o sistema será/está 
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-operation-list"></a>lista de operações de cluster de sfctl
@@ -184,7 +185,7 @@ Obtém a lista de operações com falha induzido pelo usuário filtrados por ent
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-provision"></a>provisionamento do cluster sfctl
@@ -207,7 +208,7 @@ Valide e provisione o código ou os pacotes de configuração de um cluster do S
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-recover-system"></a>sistema de recuperação de cluster de sfctl
@@ -228,7 +229,7 @@ Indica ao cluster do Service Fabric que ele deve tentar recuperar os serviços d
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-report-health"></a>relatório de cluster sfctl integridade
@@ -240,15 +241,15 @@ O relatório deve conter as informações sobre a origem do relatório de integr
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --health-property [Obrigatório] | A propriedade de informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir ao relator flexibilidade para categorizar a condição de estado que dispara o relatório. Por exemplo, um relator com SourceId "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para poder relatar a propriedade "AvailableDisk" nesse nó. O mesmo relator pode monitorar a conectividade do nó, para que ele possa relatar a "Conectividade" de uma propriedade no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade distintos para o nó especificado. Junto com a SourceId, a propriedade identifica exclusivamente as informações de integridade. |
+| --health-property [Obrigatório] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir ao relator flexibilidade para categorizar a condição de estado que dispara o relatório. Por exemplo, um relator com SourceId "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para poder relatar a propriedade "AvailableDisk" nesse nó. O mesmo relator pode monitorar a conectividade do nó, para que ele possa relatar a "Conectividade" de uma propriedade no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade distintos para o nó especificado. Junto com a SourceId, a propriedade identifica exclusivamente as informações de integridade. |
 | --health-state    [Obrigatório] | Os valores possíveis são\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
 | --source-id       [Obrigatório] | O nome de origem que identifica o componente do cliente/watchdog/sistema que gerou as informações de integridade. |
 | --description | A descrição de informações de integridade. <br><br> Ele representa texto livre usado para adicionar informações legíveis humanas sobre o relatório. O tamanho máximo da cadeia de caracteres da descrição é de 4.096 caracteres. Se a cadeia de caracteres fornecida for maior, será truncada automaticamente. Quando truncada, os últimos caracteres da descrição contêm um marcador "[Truncated]", e o tamanho total da cadeia de caracteres é de 4.096 caracteres. A presença do marcador indica aos usuários que o truncamento ocorreu. Observe que, quando truncada, a descrição tem menos de 4.096 caracteres da cadeia de caracteres original. |
-| --immediate | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado a um Aplicativo de gateway do Service Fabric, que encaminha para o repositório de integridade. Se Imediato estiver configurado como true, o relatório será enviado imediatamente do Gateway HTTP para o repositório de integridade, independentemente das configurações do cliente de malha que o Aplicativo de Gateway HTTP estiver usando. Isso é útil para relatórios importantes que precisam ser enviados assim que possível. Dependendo do tempo e de outras condições, enviar o relatório ainda pode falhar se, por exemplo, o Gateway de HTTP estiver fechado ou a mensagem não alcançar o Gateway. Se “Immediate” for definido como false, o relatório é enviado com base nas configurações do cliente de integridade do Gateway de HTTP. Portanto, ele será agrupado de acordo com a configuração de HealthReportSendInterval. Esta é a configuração recomendada, pois ela permite que o cliente de integridade otimize a integridade relatando mensagens para o repositório de integridade, bem como para o processamento de relatório de integridade. Por padrão, relatórios não são enviados imediatamente. |
-| – Remover quando expirado | Valor que indica se o relatório é removido do repositório de integridade quando expirar. <br><br> Se definido como true, o relatório é removido do repositório de integridade depois de expirar. Se definido como false, o relatório é tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes enviam relatórios periodicamente, devem definir RemoveWhenExpired como false (padrão). Dessa forma, se o relator tiver problemas (por exemplo, deadlock) e não conseguir enviar relatórios, a entidade é avaliada em erro quando o relatório de integridade expira. Isso sinaliza a entidade como em um estado de integridade de Erro. |
+| --immediate | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado a um Aplicativo de gateway do Service Fabric, que encaminha para o repositório de integridade. Se "Immediate" for definido como "true", o relatório será enviado imediatamente do Gateway de HTTP para o repositório de integridade, independentemente das configurações de cliente que o Aplicativo de Gateway de HTTP estiver usando. Isso é útil para relatórios importantes que precisam ser enviados assim que possível. Dependendo do tempo e de outras condições, enviar o relatório ainda pode falhar se, por exemplo, o Gateway de HTTP estiver fechado ou a mensagem não alcançar o Gateway. Se "Immediate" for definido como "false", o relatório será enviado com base nas configurações do cliente de integridade do Gateway de HTTP. Portanto, ele será agrupado de acordo com a configuração de HealthReportSendInterval. Esta é a configuração recomendada, pois ela permite que o cliente de integridade otimize a integridade relatando mensagens para o repositório de integridade, bem como para o processamento de relatório de integridade. Por padrão, relatórios não são enviados imediatamente. |
+| – Remover quando expirado | Valor que indica se o relatório é removido do repositório de integridade quando expirar. <br><br> Se definido como "true", o relatório é removido do repositório de integridade depois de expirar. Se definido como "false", o relatório é tratado como um erro quando expirado. O valor dessa propriedade é "false" por padrão. Quando os clientes enviam relatórios periodicamente, devem definir RemoveWhenExpired como "false" (padrão). Dessa forma, se o gerador de relatórios tiver problemas (por exemplo, um deadlock) e não puder fazer o relatório, a entidade será avaliada como erro quando o relatório de integridade expirar. Isso sinaliza a entidade como em um estado de integridade de Erro. |
 | --sequence-number | O número da sequência para este relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência de relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
-| --ttl | A duração da validade deste relatório de integridade. Este campo está usando o formato ISO8601 para especificar a duração. <br><br> Quando os clientes enviam relatórios periodicamente, devem enviar relatórios com frequência maior do que o tempo de vida. Se os clientes enviam relatórios em transição, podem definir o tempo de vida como infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida assumirá o padrão de infinito. |
+| --ttl | A duração da validade deste relatório de integridade. Este campo está usando o formato ISO8601 para especificar a duração. <br><br> Quando clientes geram relatórios periodicamente, eles devem enviar relatórios com uma frequência maior do que o tempo de vida. Se os clientes gerarem relatórios sobre a transição, poderão definir o tempo de vida como infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida terá como padrão o valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -257,7 +258,7 @@ O relatório deve conter as informações sobre a origem do relatório de integr
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-select"></a>seleção do cluster sfctl
@@ -284,13 +285,26 @@ Se estiver se conectando ao cluster seguro, especifique um caminho absoluto para
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
+| --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
+## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
+Mostre qual cluster do Service Fabric essa instância sfctl está conectada.
+
+### <a name="global-arguments"></a>Argumentos globais
+
+|Argumento|DESCRIÇÃO|
+| --- | --- |
+| --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
+| --help -h | Mostrar esta mensagem de ajuda e sair. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-unprovision"></a>desprovisionamento do cluster sfctl
 Desconfigurar os pacotes de código ou a configuração de um cluster do Service Fabric.
 
-Desconfigurar os pacotes de código ou a configuração de um cluster do Service Fabric. Há suporte para desprovisionar o código e a configuração separadamente.
+Há suporte para desprovisionar o código e a configuração separadamente.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -307,7 +321,7 @@ Desconfigurar os pacotes de código ou a configuração de um cluster do Service
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-upgrade"></a>upgrade do cluster sfctl
@@ -325,13 +339,13 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
 | --versão de configuração | A versão da configuração do cluster. |
 | --delta-health-evaluation | Habilita a avaliação de integridade delta em vez da avaliação de integridade absoluta após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade de nós permitida durante os upgrades do cluster.  Padrão\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação de integridade. A verificação é realizada após a conclusão de cada atualização de domínio de atualização para garantir que o estado global do cluster esteja dentro dos limites tolerados. |
-| --ação de falha | Os valores possíveis incluem\:: 'Inválido', 'Reversão', 'Manual'. |
+| --ação de falha | Os valores possíveis incluem\: 'Inválido', 'Reversão', 'Manual'. |
 | -força-reinicialização | Força reinicialização. |
 | --nova tentativa de verificação da integridade | Tempo limite de repetição de verificação de integridade medido em milissegundos. |
 | --estabilidade de verificação de integridade | Verificação da integridade de duração estável, medida em milissegundos. |
 | --espera de verificação de integridade | Duração da espera da verificação da integridade, medida em milissegundos. |
 | --replica-set-check-timeout | Tempo limite de verificação do conjunto de réplicas de atualização medido em segundos. |
-| --rolling-upgrade-mode | Os valores possíveis incluem\:: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Padrão\:: UnmonitoredAuto. |
+| --rolling-upgrade-mode | Os valores possíveis incluem\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Padrão\: UnmonitoredAuto. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | --unhealthy-applications | O percentual máximo permitido de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como ‘Aviso’. Isso é calculado dividindo o número de aplicativos problemáticos pelo número total de instâncias do aplicativo no cluster, exceto aplicativos de tipos de aplicativos que estão incluídos no ApplicationTypeHealthPolicyMap. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de aplicativos. |
 | --unhealthy-nodes | O percentual máximo permitido de nós não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos nós sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um nó não íntegro, a integridade será avaliada como ‘Aviso’. Este percentual é calculado pela divisão do número de nós não íntegros pelo número total de nós no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. Em clusters grandes, alguns nós sempre estarão inoperantes ou ausentes para reparos, de modo que esse percentual deve ser configurado para tolerá-los. |
@@ -347,7 +361,7 @@ Valide os parâmetros de upgrade fornecidos e comece a atualizar o código ou a 
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-upgrade-resume"></a>atualização de cluster sfctl continuar
@@ -369,7 +383,7 @@ Mude cluster configuração ou código de atualização para o próximo domínio
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-upgrade-rollback"></a>atualização de cluster sfctl reversão
@@ -390,7 +404,7 @@ Reverta a atualização de configuração ou código de um cluster do Service Fa
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-upgrade-status"></a>status de atualização de cluster de sfctl
@@ -411,7 +425,7 @@ Obtém o progresso atual da atualização do cluster em andamento. Se nenhuma at
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-cluster-upgrade-update"></a>sfctl atualização-atualização de cluster
@@ -425,13 +439,13 @@ Atualize os parâmetros de upgrade de um upgrade de cluster do Service Fabric.
 | --mapa de integridade do tipo do aplicativo | O JSON codificava o dicionário de pares de nome de tipo de aplicativo e percentual máximo não íntegro antes de gerar o erro. |
 | --delta-health-evaluation | Habilita a avaliação de integridade delta em vez da avaliação de integridade absoluta após a conclusão de cada domínio de atualização. |
 | --delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade de nós permitida durante os upgrades do cluster.  Padrão\: 10. <br><br> O delta é medido entre o estado de nós no início da atualização e o estado de nós no momento da avaliação de integridade. A verificação é realizada após a conclusão de cada atualização de domínio de atualização para garantir que o estado global do cluster esteja dentro dos limites tolerados. |
-| --ação de falha | Os valores possíveis incluem\:: 'Inválido', 'Reversão', 'Manual'. |
+| --ação de falha | Os valores possíveis incluem\: 'Inválido', 'Reversão', 'Manual'. |
 | -força-reinicialização | Força reinicialização. |
 | --nova tentativa de verificação da integridade | Tempo limite de repetição de verificação de integridade medido em milissegundos. |
 | --estabilidade de verificação de integridade | Verificação da integridade de duração estável, medida em milissegundos. |
 | --espera de verificação de integridade | Duração da espera da verificação da integridade, medida em milissegundos. |
 | --replica-set-check-timeout | Tempo limite de verificação do conjunto de réplicas de atualização medido em segundos. |
-| --rolling-upgrade-mode | Os valores possíveis incluem\:: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Padrão\:: UnmonitoredAuto. |
+| --rolling-upgrade-mode | Os valores possíveis incluem\: 'Invalid', 'UnmonitoredAuto', 'UnmonitoredManual', 'Monitored'.  Padrão\: UnmonitoredAuto. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 | --unhealthy-applications | O percentual máximo permitido de aplicativos não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos aplicativos sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de aplicativos que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um aplicativo não íntegro, a integridade será avaliada como ‘Aviso’. Isso é calculado dividindo o número de aplicativos problemáticos pelo número total de instâncias do aplicativo no cluster, exceto aplicativos de tipos de aplicativos que estão incluídos no ApplicationTypeHealthPolicyMap. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de aplicativos. |
 | --unhealthy-nodes | O percentual máximo permitido de nós não íntegros antes de relatar um erro. <br><br> Por exemplo, para permitir que 10% dos nós sejam problemáticos, esse valor seria 10. A porcentagem representa o máximo tolerado de nós que podem estar não íntegros antes de o cluster ser considerado com erro. Se a porcentagem for respeitada, mas houver pelo menos um nó não íntegro, a integridade será avaliada como ‘Aviso’. Este percentual é calculado pela divisão do número de nós não íntegros pelo número total de nós no cluster. O cálculo é arredondado para cima para tolerar uma falha em um número pequeno de nós. Em clusters grandes, alguns nós sempre estarão inoperantes ou ausentes para reparos, de modo que esse percentual deve ser configurado para tolerá-los. |
@@ -448,10 +462,8 @@ Atualize os parâmetros de upgrade de um upgrade de cluster do Service Fabric.
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

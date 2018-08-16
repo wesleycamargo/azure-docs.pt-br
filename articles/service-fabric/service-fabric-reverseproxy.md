@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309112"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503512"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy reverso no Azure Service Fabric
 Proxy reverso incorporado no Azure Service Fabric ajuda microsserviços em execução em um cluster do Service Fabric a descobrir e comunicar-se com outros serviços que têm pontos de extremidade http.
@@ -146,184 +146,23 @@ Portanto, o proxy reverso precisa de uma maneira de distinguir entre esses dois 
 
 Esse cabeçalho de resposta HTTP indica uma situação de HTTP 404 normal em que o recurso solicitado não existe e o proxy reverso não tentará resolver novamente o endereço do serviço.
 
-## <a name="setup-and-configuration"></a>Instalação e configuração
+## <a name="special-handling-for-services-running-in-containers"></a>Tratamento especial para serviços em execução em contêineres
 
-### <a name="enable-reverse-proxy-via-azure-portal"></a>Habilitar proxy reverso por meio do portal do Azure
+Para serviços em execução dentro de contêineres, você pode usar a variável de ambiente `Fabric_NodeIPOrFQDN` para construir a [URL de proxy reverso](#uri-format-for-addressing-services-by-using-the-reverse-proxy) como no código a seguir:
 
-Portal do Azure fornece uma opção para habilitar o proxy inverso ao criar um novo cluster do Service Fabric.
-Em **cluster do Service Fabric criar**, etapa 2: configuração de Cluster, configuração do tipo de nó, selecione a caixa de seleção "Habilitar proxy reverso".
-Para configurar o proxy reverso seguro, o certificado SSL pode ser especificado na Etapa 3: Segurança, definir configurações de segurança de cluster, selecione a caixa de seleção "Incluir um certificado SSL para o proxy inverso" e insira os detalhes do certificado.
-
-### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Habilitar proxy reverso, por meio de modelos do Azure Resource Manager
-
-O proxy reverso do Service Fabric pode ser habilitado para o cluster por meio do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md).
-
-Consulte [Configurar proxy reverso HTTPS em um cluster seguro](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) para amostras de modelo do Azure Resource Manager para configurar o proxy reverso de segurança com um certificado e o tratamento da substituição de certificados.
-
-Primeiro, você obtém o modelo para o cluster que deseja implantar. Você pode usar os modelos de exemplo ou criar um modelo do Resource Manager personalizado. Em seguida, você pode habilitar o proxy reverso usando as seguintes etapas:
-
-1. Defina uma porta para o proxy inverso na [seção Parâmetros](../azure-resource-manager/resource-group-authoring-templates.md) do modelo.
-
-    ```json
-    "SFReverseProxyPort": {
-        "type": "int",
-        "defaultValue": 19081,
-        "metadata": {
-            "description": "Endpoint for Service Fabric Reverse proxy"
-        }
-    },
-    ```
-2. Especifique a porta para cada um dos objetos nodetype no **Cluster** [seção Tipo de recurso](../azure-resource-manager/resource-group-authoring-templates.md).
-
-    A porta é identificada pelo nome do parâmetro, reverseProxyEndpointPort.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-3. Para resolver o proxy inverso de fora do cluster do Azure, configure as regras do Azure Load Balancer para a porta que você especificou na etapa 1.
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. Para configurar certificados SSL na porta de proxy Inverso, adicione o certificado à propriedade ***reverseProxyCertificate*** na [seção Tipo de recurso](../resource-group-authoring-templates.md) do **Cluster**.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "reverseProxyCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>Suporte um certificado de proxy reverso diferente do certificado de cluster
- Se o certificado de proxy reverso é diferente do certificado que protege o cluster, o certificado especificado anteriormente deve ser instalado na máquina virtual e adicionado à ACL (lista de controle de acesso) para que o Service Fabric possa acessá-lo. Isso pode ser feito na [seção de Tipo de recurso](../resource-group-authoring-templates.md) **virtualMachineScaleSets**. Para instalação, adicione o certificado ao osProfile. A seção de extensão do modelo pode atualizar o certificado na ACL.
-
-  ```json
-  {
-    "apiVersion": "[variables('vmssApiVersion')]",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    ....
-      "osProfile": {
-          "adminPassword": "[parameters('adminPassword')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "computernamePrefix": "[parameters('vmNodeType0Name')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[parameters('sfReverseProxySourceVaultValue')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
-                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
-                }
-              ]
-            }
-          ]
-        }
-   ....
-   "extensions": [
-          {
-              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
-              "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": false,
-                      ...
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
-                        "dataPath": "D:\\\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "testExtension": true,
-                        "reverseProxyCertificate": {
-                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
-                        },
-                  },
-                  "typeHandlerVersion": "1.0"
-              }
-          },
-      ]
-    }
-  ```
-> [!NOTE]
-> Ao usar certificados que são diferentes do certificado do cluster para habilitar o proxy reverso em um cluster existente, instale o certificado de proxy reverso e atualize a ACL no cluster antes de habilitar o proxy reverso. Conclua a implantação do [modelo do Azure Resource Manager](service-fabric-cluster-creation-via-arm.md) usando as configurações mencionadas acima antes de iniciar uma implantação para habilitar o proxy reverso usando as etapas 1 a 4.
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+Para o cluster local, `Fabric_NodeIPOrFQDN` é definido como "localhost" por padrão. Inicie o cluster local com o `-UseMachineName` parâmetro para certificar-se que os contêineres podem acessar o proxy reverso em execução no nó. Para obter mais informações, consulte [Configurar seu ambiente de desenvolvedor para depurar contêineres](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers).
 
 ## <a name="next-steps"></a>Próximas etapas
+* [Definir e configurar proxy reverso em um cluster](service-fabric-reverseproxy-setup.md).
+* [Definir encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * Confira um exemplo de comunicação HTTP entre serviços em um [projeto de exemplo no GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
-* [Encaminhamento para o serviço HTTP seguro com um proxy reverso](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Comunicação remota de serviço com os Reliable Services](service-fabric-reliable-services-communication-remoting.md)
 * [API Web que usa o OWIN nos Reliable Services](service-fabric-reliable-services-communication-webapi.md)
 * [Comunicação WCF usando os Reliable Services](service-fabric-reliable-services-communication-wcf.md)
-* Para obter outras opções de configuração de proxy reverso, consulte a seção ApplicationGateway/Http em [Personalizar as configurações de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

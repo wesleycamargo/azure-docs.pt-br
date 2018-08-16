@@ -4,25 +4,23 @@ description: Descreve como resolver erros ao trabalhar com um recurso pai.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357768"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447295"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Resolva erros de recursos pai
 
-Este artigo descreve os erros com que você pode se deparar durante a implantação de um recurso que é dependente de um recurso pai.
+Este artigo descreve os erros com que você pode se obter durante a implantação de um recurso que é dependente de um recurso pai.
 
 ## <a name="symptom"></a>Sintoma
 
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Quando um recurso é filho de outro recurso, o recurso pai deve existir antes da criação do recurso filho. O nome do recurso filho inclui o nome do pai. Por exemplo, um Banco de Dados SQL pode ser definido como:
+Quando um recurso é filho de outro recurso, o recurso pai deve existir antes da criação do recurso filho. O nome do recurso filho define a conexão com o recurso pai. O formato do nome do recurso filho está no formato `<parent-resource-name>/<child-resource-name>`. Por exemplo, um Banco de Dados SQL pode ser definido como:
 
 ```json
 {
@@ -44,16 +42,48 @@ Quando um recurso é filho de outro recurso, o recurso pai deve existir antes da
   ...
 ```
 
-No entanto, se você não especificar uma dependência no servidor, a implantação do banco de dados poderá ser iniciada antes que o servidor tenha sido implantado.
+Se você implantar o servidor e o banco de dados no mesmo modelo, mas não especifica uma dependência no servidor, a implantação de banco de dados talvez seja iniciado antes que o servidor tenha sido implantado. 
+
+Se o recurso pai já existe e não será implantado no mesmo modelo, você receber esse erro quando o Gerenciador de Recursos não é possível associar o recurso filho com o pai. Esse erro pode acontecer quando o recurso filho não está no formato correto ou o recurso filho é implantado em um grupo de recursos é diferente do grupo de recursos para o recurso pai.
 
 ## <a name="solution"></a>Solução
 
-Para resolver esse erro, inclua uma dependência.
+Para resolver esse erro quando recursos pai e filho são implantados no mesmo modelo, inclua uma dependência.
 
 ```json
 "dependsOn": [
     "[variables('databaseServerName')]"
 ]
+```
+
+Para resolver esse erro quando o recurso pai foi anteriormente implantado em um modelo diferente, você não define uma dependência. Em vez disso, implante o filho no mesmo grupo de recursos e forneça o nome do recurso pai.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 Para obter mais informações, consulte [Definir a ordem de implantação dos recursos em modelos do Azure Resource Manager](resource-group-define-dependencies.md).

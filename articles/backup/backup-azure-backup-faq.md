@@ -7,14 +7,14 @@ manager: carmonm
 keywords: backup e recuperação de desastre; serviço de backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412944"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493861"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo responde às perguntas frequentes sobre componentes do Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você pode fazer perguntas sobre o Backup do Azure clicando em **comentários** (à direita). Os comentários aparecem na parte inferior deste artigo. Uma conta de Livefyre é necessária para o comentário. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,6 +29,9 @@ Sim. Crie até 500 cofres dos Serviços de Recuperação por região com suporte
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Há limites para o número de servidores/computadores que podem ser registrados em cada cofre? <br/>
 Você pode registrar no máximo 1000 máquinas virtuais do Azure por cofre. Se você estiver usando o agente MAB, você pode registrar até 50 agentes MAB por cofre. E você pode registrar servidores DPM/servidores MAB 50 em um cofre.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Posso usar uma API REST para consultar o tamanho dos itens protegidos em um cofre? <br/>
+Sim, o artigo [Usos - Listar por Cofres](https://t.co/2lgIrIaF0J), lista as informações que podem ser obtidas do cofre de Serviços de Recuperação.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se a minha organização tiver um cofre, como posso isolar dados de um servidor de outro servidor ao restaurar os dados?<br/>
 Todos os servidores registrados no mesmo cofre poderão recuperar os dados do backup feito por outros servidores *que usem a mesma senha*. Se houver servidores cujos dados de backup que você deseja isolar de outros servidores em sua organização, use uma senha designada para esses servidores. Por exemplo, os servidores de recursos humanos podem usar uma senha de criptografia, os servidores de contabilidade podem usar outra senha e os outros servidores de armazenamento podem usar uma terceira senha.
@@ -57,6 +60,8 @@ Há uma lista detalhada de perguntas nas [Perguntas Frequentes sobre o backup da
 
 Sim. Você pode usar o Servidor de Backup do Azure para fazer backup do VMware vCenter e ESXi para o Azure. Para obter informações sobre a versão do VMware com suporte, confira o artigo [Matriz de proteção do Servidor de Backup do Azure](backup-mabs-protection-matrix.md). Para obter instruções passo a passo, confira [U osar Servidor de Backup do Azure para fazer backup de um servidor VMware](backup-azure-backup-server-vmware.md).
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>É necessário uma licença separada para recuperar um cluster do VMware/Hyper-V local completo do DPM ou Servidor de Backup do Azure?<br/>
+Você não precisa separar licenciamento para a proteção de VMware/Hyper-V. Se você for um cliente do System Center, use o DPM para proteger as VMs VMware. Se você não for um cliente do System Center, você pode usar o Servidor de Backup do Azure (pré-pago) para proteger as VMs VMware.
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Servidor de Backup do Azure e System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Posso usar o servidor de Backup do Azure para criar um backup BMR (Recuperação Bare-Metal) para um servidor físico? <br/>
@@ -90,6 +95,9 @@ Sim. Você pode executar os trabalhos de backup no Windows Server ou em estaçõ
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Por que o tamanho dos dados transferidos para o cofre dos Serviços de Recuperação é menor do que os dados submetido a backup?<br/>
  Todos os dados dos quais é feito backup do Azure Backup Agent, SCDPM ou Servidor de Backup do Azure são compactados e criptografados antes de serem transferidos. Depois que a compactação e a criptografia forem aplicadas, os dados no cofre dos Serviços de Recuperação serão de 30 a 40% menores.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>Posso excluir arquivos individuais de um ponto de recuperação no cofre?<br/>
+Não, o Backup do Microsoft Azure não dá suporte a exclusão ou limpeza de itens individuais de backups armazenados.
 
 ## <a name="what-can-i-back-up"></a>Do que eu posso fazer backup
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Quais sistemas operacionais o Backup do Azure dá suporte? <br/>

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651198"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480947"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introdução ao StorSimple Virtual Array
 
@@ -76,8 +76,8 @@ Confira abaixo um resumo das cargas de trabalho com suporte do StorSimple.
 
 |Cenário     |Carga de trabalho     |Com suporte      |Restrições               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Compartilhamento de arquivos     |sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
-|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |sim      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Escritórios remotos/filiais (ROBO)  |Compartilhamento de arquivos     |SIM      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
+|Arquivamento de nuvem  |Compartilhamento de arquivos de arquivamento     |SIM      |Consulte [limites máximos para o servidor de arquivos](storsimple-ova-limits.md).<br></br>Confira [requisitos do sistema para as versões suportadas por SMB](storsimple-ova-system-requirements.md).| Todas as versões     |
 
 A Matriz Virtual StorSimple é mais adequada para dados acessados com pouca frequência. Embora a matriz virtual tenha um cache local para melhorar o desempenho, os usuários devem supor que o dispositivo atende a arquivos no nível mais baixo de armazenamento (nuvem). Cada matriz virtual pode gravar e ler no armazenamento do Azure em aproximadamente 100 Mbps. Esse link é compartilhado entre todas as solicitações que chegam ao dispositivo e pode tornar-se um gargalo, conforme mostra o diagrama a seguir.
 

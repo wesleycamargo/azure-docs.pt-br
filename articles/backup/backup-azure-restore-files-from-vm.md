@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: pullabhk
-ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958613"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493374"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -27,9 +27,9 @@ O Backup do Azure fornece a capacidade de restaurar [máquinas virtuais (VMs) do
 
 ## <a name="mount-the-volume-and-copy-files"></a>Montar os volume e copiar arquivos
 
-Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina virtual e escolha o ponto de recuperação desejado. 
+Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina virtual e escolha o ponto de recuperação desejado.
 
-1. Entre no [Portal do Azure](http://portal.Azure.com) e no menu à esquerda clique em **Máquinas virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o painel da máquina virtual. 
+1. Faça logon no [portal do Azure](http://portal.Azure.com) e no painel esquerdo, clique em **Máquinas Virtuais**. Na lista de máquinas virtuais, selecione a máquina virtual para abrir o painel da máquina virtual.
 
 2. No menu da máquina virtual, clique em **Backup** para abrir o painel de Backup.
 
@@ -41,7 +41,7 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
 4. No menu suspenso **Selecionar ponto de recuperação**, selecione o ponto de recuperação que contém os arquivos desejados. Por padrão, o ponto de recuperação mais recente já está selecionado.
 
-5. Para baixar o software utilizado para copiar arquivos do ponto de recuperação, clique em **Baixar Executável** (para VM do Windows Azure) ou **Baixar Script** (para VM do Linux Azure). 
+5. Para baixar o software utilizado para copiar arquivos do ponto de recuperação, clique em **Baixar Executável** (para VM do Windows Azure) ou **Baixar Script** (para VM do Linux Azure).
 
     ![Senha gerada](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -62,31 +62,33 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
     Se você executar o script em um computador com acesso restrito, verifique se há acesso a:
 
     - download.microsoft.com
-    - [Pontos de extremidade do Azure usados para backups de VM do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity)
+    - URLs de serviço de recuperação (geo-name refere-se para a região onde reside o cofre dos serviços de recuperação)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.com> (Para as geografias públicas do Azure)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Para Azure China)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.us> (Para Governo dos EUA para Azure)
+        - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Para Azure Alemanha)
     - porta de saída 3260
 
     Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.
-    
-    É necessário ter acesso a download.microsoft.com para baixar os componentes usados para criar um canal seguro entre o computador em que o script é executado e os dados no ponto de recuperação.         
+
+    É necessário ter acesso a download.microsoft.com para baixar os componentes usados para criar um canal seguro entre o computador em que o script é executado e os dados no ponto de recuperação.
 
     Você pode executar o script em qualquer máquina que tenha o mesmo sistema operacional (ou compatível) que a VM do backup. Consulte a [tabela Sistema operacional compatível](backup-azure-restore-files-from-vm.md#system-requirements) para saber mais sobre os sistemas operacionais compatíveis. Se a máquina virtual do Azure protegida usar Espaços de Armazenamento do Windows (para VMs do Microsoft Azure) ou Matrizes LVM/RAID (para VMs Linux), você não poderá executar o arquivo executável nem o script na mesma máquina virtual. Em vez disso, execute o script ou o arquivo executável em qualquer outra máquina com um sistema operacional compatível.
- 
 
 ### <a name="identifying-volumes"></a>Identificação de Volumes
 
 #### <a name="for-windows"></a>Para Windows
 
 Quando você executa o arquivo executável, o sistema operacional monta os novos volumes e atribui letras de unidade. Você pode usar o Windows Explorer ou o Explorador de arquivos para procurar essas unidades. As letras de unidade atribuídas aos volumes podem não ser as mesmas letras da máquina virtual original, no entanto, o nome do volume é preservado. Por exemplo, se o volume na máquina virtual original fosse “Disco de Dados (E:`\`)”, esse volume poderia ser anexado no computador local como “Disco de Dados ('Qualquer letra':`\`). Busque em todos os volumes mencionados na saída do script até encontrar a pasta/arquivos.  
-       
+
    ![Menu de recuperação de arquivo](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
-           
+
 #### <a name="for-linux"></a>Para Linux
 
 No Linux, os volumes do ponto de recuperação são montados para a pasta onde o script é executado. Os discos anexados, volumes e os caminhos de montagem correspondente são mostrados adequadamente. Esses caminhos de montagem ficam visíveis aos usuários que têm acesso ao nível raiz. Percorra os volumes mencionados na saída do script.
 
   ![Menu de recuperação de Arquivo do Linux](./media/backup-azure-restore-files-from-vm/linux-mount-paths.png)
   
-
 ## <a name="closing-the-connection"></a>Encerrando a conexão
 
 Depois de identificar os arquivos e copiá-los para um local de armazenamento local, remova ou desmonte as unidades adicionais. Para desmontar as unidades no menu de **Recuperação de Arquivos** no Portal do Azure, clique em **Desmontar discos**.
@@ -101,10 +103,10 @@ No Linux, após a conexão com o ponto de recuperação ser interrompida, o sist
 
 ### <a name="dynamic-disks"></a>Discos Dinâmicos
 
-Se a VM do Azure protegida tiver volumes com uma ou ambas as seguintes características, não será possível executar o script executável na mesma VM. 
+Se a VM do Azure protegida tiver volumes com uma ou ambas as seguintes características, não será possível executar o script executável na mesma VM.
 
-  - Volumes que abrangem vários discos (volumes distribuídos e estendidos)
-  - Volumes tolerantes a falhas (volumes RAID-5 e espelhados) em discos dinâmicos 
+    - Volumes que abrangem vários discos (volumes distribuídos e estendidos)
+    - Volumes tolerantes a falhas (volumes RAID-5 e espelhados) em discos dinâmicos
 
 Em vez disso, execute o script executável em qualquer outro computador com um sistema operacional compatível.
 
@@ -121,40 +123,47 @@ No Linux, o LVM (Gerenciador de volumes lógicos) e/ou Matrizes RAID de software
 A saída de script seguinte exibe os discos de Matrizes RAID e/ou LVM e os volumes com o tipo de partição.
 
    ![Menu de Saída de LVM do Linux](./media/backup-azure-restore-files-from-vm/linux-LVMOutput.png)
-   
-Para colocar essas partições online, execute os comandos nas seções a seguir. 
 
-**Para partições LVM**
+Para colocar essas partições online, execute os comandos nas seções a seguir.
+
+#### <a name="for-lvm-partitions"></a>Para partições LVM
 
 Listar os nomes de grupo de volumes em um volume físico.
+
+```bash
+#!/bin/bash
+$ pvs <volume name as shown above in the script output>
 ```
-$ pvs <volume name as shown above in the script output> 
-```
+
 Listar todos os volumes lógicos, nomes e seus caminhos em um grupo de volumes.
 
-```
-$ lvdisplay <volume-group-name from the pvs command’s results> 
+```bash
+#!/bin/bash
+$ lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 Para montar os volumes lógicos no caminho de sua escolha.
 
-```
+```bash
+#!/bin/bash
 $ mount <LV path> </mountpath>
 ```
 
-
-
-**Para Matrizes RAID**
+#### <a name="for-raid-arrays"></a>Para Matrizes RAID
 
 O comando a seguir exibe detalhes sobre todos os discos RAID.
 
-```
+```bash
+#!/bin/bash
 $ mdadm –detail –scan
 ```
+
  O disco RAID relevante é exibido como `/dev/mdm/<RAID array name in the protected VM>`
 
 Use o comando de montagem se o disco RAID tiver volumes físicos.
-```
+
+```bash
+#!/bin/bash
 $ mount [RAID Disk Path] [/mountpath]
 ```
 
@@ -162,9 +171,9 @@ Se o disco RAID tiver outra LVM configurada, utilize o procedimento anterior par
 
 ## <a name="system-requirements"></a>Requisitos do sistema
 
-### <a name="for-windows"></a>Para Windows
+### <a name="for-windows-os"></a>Para Windows 10
 
-A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de computador e servidor. Ao recuperar arquivos, você não poderá restaurar arquivos para uma versão anterior ou uma versão futura do sistema operacional. Por exemplo, você não pode restaurar um arquivo de uma VM do Windows Server 2016 para um computador Windows Server 2012 ou Windows 8. É possível restaurar arquivos de uma VM para o mesmo sistema operacional do servidor ou para o sistema operacional compatível do cliente.   
+A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de computador e servidor. Ao recuperar arquivos, você não poderá restaurar arquivos para uma versão anterior ou uma versão futura do sistema operacional. Por exemplo, você não pode restaurar um arquivo de uma VM do Windows Server 2016 para um computador Windows Server 2012 ou Windows 8. É possível restaurar arquivos de uma VM para o mesmo sistema operacional do servidor ou para o sistema operacional compatível do cliente.
 
 |Sistema operacional de servidor | Sistema operacional de cliente compatível  |
 | --------------- | ---- |
@@ -201,10 +210,10 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 
 | Mensagem de erro/Cenário | Causas prováveis | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Saída de exe: *exceção ao se conectar ao destino* |O script não é capaz de acessar o ponto de recuperação | Verifique se a máquina preenche os requisitos de acesso anteriores. |  
-|   Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles NÃO podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no Explorer para encontrar o arquivo |
-| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/o limite de 12 horas foi excedido. Baixe um novo script a partir do portal.* | Os discos foram desmontados do portal ou o limite de 12 horas foi excedido |    Esse exe é inválido e não pode ser executado. Se você desejar acessar os arquivos desse ponto de recuperação a tempo, visite o portal para obter um novo exe|
-| Na máquina na qual o exe é executado: novos volumes não serão desmontados depois que o botão de desmontagem for clicado |    O Iniciador iSCSI na máquina não está respondendo/atualizando sua conexão para o destino e manutenção do cache |    Aguarde alguns minutos depois que o botão de desmontagem for pressionado. Se os novos volumes ainda não estiverem desmontados, navegue por todos os volumes. Isso força o iniciador a atualizar a conexão e o volume é desmontado com uma mensagem de erro de que o disco não está disponível|
-| Saída de exe: o script é executado com êxito, mas a mensagem "Novos volumes anexados" não é exibida na saída do script | Esse é um problema temporário   | Os volumes já foram anexados. Abra o Explorer para navegar. Se você estiver usando a mesma máquina para todas as execuções de scripts, considere reiniciar a máquina, e a lista deverá ser exibida nas execuções subsequentes do exe. |
+| Saída de exe: *exceção ao se conectar ao destino* |O script não é capaz de acessar o ponto de recuperação    | Verifique se a máquina preenche os requisitos de acesso anteriores. |  
+| Saída de exe: *o destino já foi acessado por meio de uma sessão iSCSI.* | O script já foi executado na mesma máquina e as unidades foram anexadas | Os volumes do ponto de recuperação já foram anexados. Eles NÃO podem ser montados com as mesmas letras de unidade da VM original. Navegue por todos os volumes disponíveis no Explorer para encontrar o arquivo |
+| Saída de exe: *esse script é inválido porque os discos foram desmontados por meio do portal/o limite de 12 horas foi excedido. Baixe um novo script a partir do portal.* |    Os discos foram desmontados do portal ou o limite de 12 horas foi excedido | Esse exe é inválido e não pode ser executado. Se você desejar acessar os arquivos desse ponto de recuperação a tempo, visite o portal para obter um novo exe|
+| Na máquina na qual o exe é executado: novos volumes não serão desmontados depois que o botão de desmontagem for clicado | O Iniciador iSCSI na máquina não está respondendo/atualizando sua conexão para o destino e manutenção do cache |    Aguarde alguns minutos depois que o botão de desmontagem for pressionado. Se os novos volumes ainda não estiverem desmontados, navegue por todos os volumes. Isso força o iniciador a atualizar a conexão e o volume é desmontado com uma mensagem de erro de que o disco não está disponível|
+| Saída de exe: o script é executado com êxito, mas a mensagem "Novos volumes anexados" não é exibida na saída do script |    Esse é um problema temporário    | Os volumes já foram anexados. Abra o Explorer para navegar. Se você estiver usando a mesma máquina para todas as execuções de scripts, considere reiniciar a máquina, e a lista deverá ser exibida nas execuções subsequentes do exe. |
 | Específico do Linux: não é possível exibir os volumes desejados | O SO da máquina onde o script é executado pode não reconhecer o sistema de arquivos subjacente da VM protegida | Verifique se o ponto de recuperação é consistente com a falha ou consistentes com o arquivo. Se o arquivo for consistente, execute o script em outra máquina cujo SO reconheça o sistema de arquivos da VM protegida |
 | Específico do Windows: não é possível exibir os volumes desejados | Os discos podem ter sido anexados, mas os volumes não foram configurados | Na tela de gerenciamento de disco, identifique os discos adicionais relacionados ao ponto de recuperação. Se algum desses discos estiver no estado offline, tente torná-los online clicando com o botão direito do mouse no disco e, em seguida, em 'Online'|

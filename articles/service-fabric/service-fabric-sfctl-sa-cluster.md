@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: ffdbff7edc5af187071615c8b1e61790b3a38429
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763919"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494349"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Gerencie clusters autônomos do Service Fabric.
@@ -35,7 +35,7 @@ Gerencie clusters autônomos do Service Fabric.
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
 Obtenha a configuração de cluster autônomo do Service Fabric.
 
-Obtenha a configuração de cluster autônomo do Service Fabric. A configuração do cluster contém propriedades do cluster que incluem diferentes tipos de nó no cluster, as configurações de segurança, falhas e topologias de domínio de atualização etc.
+A configuração do cluster contém propriedades do cluster que incluem diferentes tipos de nó no cluster, as configurações de segurança, falhas e topologias de domínio de atualização etc.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -50,7 +50,7 @@ Obtenha a configuração de cluster autônomo do Service Fabric. A configuraçã
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
@@ -63,7 +63,8 @@ Valide os parâmetros de upgrade da configuração fornecidos e comece a atualiz
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --cluster-config            [Obrigatório] | A configuração do cluster. |
+| --cluster-config            [Obrigatório] | A configuração do cluster que será aplicada ao cluster. |
+| --application-health-policies | O JSON codificava o dicionário de pares de nome de tipo de aplicativo e percentual máximo não íntegro antes de gerar o erro. |
 | --delta-unhealthy-nodes | O percentual máximo permitido de degradação de integridade delta permitida durante o upgrade. Os valores permitidos são inteiros, de zero a 100. |
 | --nova tentativa de verificação da integridade | O período entre as tentativas de uma verificação de integridade, se o aplicativo ou o cluster não estiver íntegro.  Padrão\: PT0H0M0S. |
 | --estabilidade de verificação de integridade | O período durante o qual o aplicativo ou o cluster deve permanecer íntegro.  Padrão\: PT0H0M0S. |
@@ -81,9 +82,13 @@ Valide os parâmetros de upgrade da configuração fornecidos e comece a atualiz
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
+### <a name="examples"></a>Exemplos
+
+Inicie uma atualização de configuração do cluster sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 Obtenha o status de atualização de configuração do cluster de um cluster autônomo do Service Fabric.
@@ -102,9 +107,10 @@ Obtenha detalhes do status de atualização de configuração do cluster de um c
 | --- | --- |
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
-| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, table, tsv.  Padrão\: json. |
+| --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
 | --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

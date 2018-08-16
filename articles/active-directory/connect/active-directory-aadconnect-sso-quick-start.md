@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325380"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522174"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -57,9 +57,12 @@ Habilite o SSO Contínuo por meio do [Azure AD Connect](active-directory-aadconn
 
 Se você está realizando uma instalação nova do Azure AD Connect, escolha o [caminho de instalação personalizada](active-directory-aadconnect-get-started-custom.md). Na página **Entrada do usuário**, marque a opção **Habilitar logon único**.
 
-![Azure AD Connect: conexão do usuário](./media/active-directory-aadconnect-sso/sso8.png)
+>[!NOTE]
+> A opção estará disponível para seleção apenas se o método de logon é **Sincronização de Hash de Senha** ou **Autenticação de Passagem**.
 
-Se você já tem uma instalação do Azure AD Connect, selecione **Alterar página de entrada do usuário** no Azure AD Connect e selecione **Avançar**.
+![Azure AD Connect: entrada do usuário](./media/active-directory-aadconnect-sso/sso8.png)
+
+Se você já tem uma instalação do Azure AD Connect, selecione **Alterar página de entrada do usuário** no Azure AD Connect e selecione **Avançar**. Se você estiver usando o Azure AD Connect versões 1.1.880.0 ou superior, a opção **Habilitar o logon único** será selecionada por padrão. Se você estiver usando versões mais antigas do Azure AD Connect, selecione a opção **Habilitar o logon único**.
 
 ![Azure AD Connect: Alterar entrada do usuário](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

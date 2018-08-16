@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126335"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480985"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -28,7 +28,7 @@ ms.locfileid: "39126335"
 
 O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada da API ou uma [chamada do método do SDK](set-throughput.md#set-throughput-sdk). No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o melhor desempenho ao usar o [SDK do SQL .NET](documentdb-sdk-dotnet.md).
 
-Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?", considere as seguintes opções:
+Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
 
 ## <a name="networking"></a>Rede
 <a id="direct-connection"></a>
@@ -132,13 +132,14 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
     Se você estiver testando em altos níveis da taxa de transferência (&gt;50.000 RU/s), o aplicativo cliente poderá fazer um gargalo devido à limitação do computador na utilização da CPU ou da Rede. Se você chegar a este ponto, poderá continuar aumentando a conta do Azure Cosmos DB ainda mais distribuindo seus aplicativos cliente entre vários servidores.
 8. **Armazenar em cache os URIs do documento para uma menor latência de leitura**
 
-    Armazene em cache os URIs do documento sempre que possível para ter o melhor desempenho de leitura.
+    Armazene em cache os URIs do documento sempre que possível para ter o melhor desempenho de leitura. Você precisa definir a lógica para armazenar em cache o resourceid quando você cria o recurso. ResourceID com base em pesquisas são mais rápido que as pesquisas de nome com base, para que esses valores de cache melhorem o desempenho. 
+
    <a id="tune-page-size"></a>
-9. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
+1. **Ajustar o tamanho da página para os feeds de leitura/consultas para ter o melhor desempenho**
 
     Ao executar uma grande quantidade de leitura dos documentos utilizando a funcionalidade do feed de leitura (por exemplo, ReadDocumentFeedAsync) ou ao enviar uma consulta SQL do DocumentDB, os resultados são retornados de uma maneira segmentada se o conjunto de resultados for muito grande. Por padrão, os resultados são retornados em blocos de 100 itens ou 1 MB, o limite que for atingido primeiro.
 
-    Para reduzir o número de idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página para até 1000 usando o cabeçalho de solicitação [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas dez resultados de uma vez, também será possível diminuir o tamanho da página para dez para reduzir a taxa de transferência consumida pelas leituras e consultas.
+    Para reduzir o número de idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página para até 1000 usando o cabeçalho de solicitação [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados de uma vez, também será possível diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
     Você também pode definir o tamanho da página usando os SDKs do Azure Cosmos DB disponíveis.  Por exemplo: 
 
@@ -174,7 +175,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Produtividade
 <a id="measure-rus"></a>
 
 1. **Medir e ajustar para o uso mais baixo de unidades/segundo da solicitação**

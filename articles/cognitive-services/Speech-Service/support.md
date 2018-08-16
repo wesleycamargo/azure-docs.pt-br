@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286164"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528180"
 ---
 # <a name="support-and-help-options"></a>Opções de Ajuda e suporte
 
 Você está apenas começando a explorar a funcionalidade do serviço de fala? Você está implementando um novo recurso para o seu aplicativo? Aqui estão dicas onde você pode obter ajuda como desenvolvedor.
 
 > [!div class="checklist"]
+> * Mantenha-se informado sobre novos desenvolvimentos dos *Serviços Cognitivos da Microsoft* ou localize as notícias mais recentes relacionadas a *Serviço de fala*.
 > * Pesquise para verificar se sua pergunta de problema não foi respondida pela comunidade ou se já existe uma documentação existente para o recurso que você está tentando implementar.
 > * Se não conseguir encontrar a resposta do que você precisa, faça uma pergunta em *Stack Overflow*.
 > * Se você encontrar um problema com um dos exemplos que você pode encontrar no GitHub, gerar um problema *GitHub*.
 > * Pesquisar uma solução na *fórum voz do usuário*.
+
+## <a name="stay-informed"></a>Continue informado
+
+Notícias sobre os serviços Cognitivos da Microsoft são coletados na [blog de Serviços Cognitivos](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Para obter as informações mais recentes sobre o serviço de fala, acompanhe os [blog de Serviço de Fala](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Search
 

@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: cd3725ac547a1ed1fd9207dc48ba3b6227e85ef1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763918"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495121"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Execute comandos relacionados ao contêiner em um nó de cluster.
@@ -56,7 +56,7 @@ Chame a API REST do contêiner.
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-container-logs"></a>logs de contêiner sfctl
@@ -81,8 +81,9 @@ Recuperar os logs de contêiner.
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

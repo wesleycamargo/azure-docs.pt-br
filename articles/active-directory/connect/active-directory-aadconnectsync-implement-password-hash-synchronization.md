@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265039"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494974"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
@@ -28,7 +28,7 @@ Este artigo fornece as informações necessárias para sincronizar suas senhas d
 ## <a name="what-is-password-hash-synchronization"></a>O que é a sincronização de hash de senha
 A probabilidade de você ser impedido de concluir seu trabalho devido a uma senha esquecida está relacionada ao número de senhas diferentes que você precisa se lembrar. Quanto mais senhas você precisa lembrar, maior a probabilidade de se esquecer uma delas. Perguntas e chamadas sobre redefinições de senha e outros problemas relacionados à senha demandam a maior parte dos recursos de assistência técnica.
 
-A sincronização de hash de senha é um recurso usado para sincronizar senhas de usuário de uma instância do Active Directory local para uma instância do Azure Active Directory local.
+A sincronização de hash de senha é um recurso usado para sincronizar hash de hash da senha do usuário de uma instância do Active Directory local para uma instância do Microsoft Azure AD baseada em nuvem.
 Use esse recurso para entrar nos serviços do Azure AD como Office 365, Microsoft Intune, CRM Online e Azure Active Directory Domain Services (Azure AD DS). Você entra no serviço usando a mesma senha que usa para entrar sua instância do Active Directory local.
 
 ![O que é o Azure AD Connect](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

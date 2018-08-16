@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226016"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505521"
 ---
 # <a name="plan-your-luis-app"></a>Planejar seu aplicativo LUIS
 
@@ -65,7 +65,7 @@ O LUIS oferece [entidades predefinidas](luis-prebuilt-entities.md) para tipos co
 
 ![Numerar entidade predefinida](./media/luis-plan-your-app/number-entity.png)
 
-Confira [Extração de Dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre como extrair entidades de expressão regular da resposta da consulta JSON do ponto de extremidade. 
+Consulte [Extração de Dados](luis-concept-data-extraction.md#prebuilt-entity-data) para saber mais sobre como extrair a entidade pré-compilada da resposta da consulta JSON do ponto de extremidade. 
 
 ### <a name="list-entity"></a>Entidade de lista 
 Uma entidade de lista é uma lista de valores especificada explicitamente. Cada valor é composto por um ou mais sinônimos. Em um aplicativo de viagem, você pode optar por criar uma entidade de lista para representar nomes de aeroporto.

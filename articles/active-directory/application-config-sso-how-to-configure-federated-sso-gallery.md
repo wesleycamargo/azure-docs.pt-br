@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e79aff1a9bf7a7d151b4973381d0ee9010c2255e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 70e0bce54cdfc3af6e5336a8188724acd11b6a04
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363845"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503216"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Como configurar o logon único federado para um aplicativo na Galeria do Azure AD
 
@@ -167,7 +167,7 @@ Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas ab
 
 8.  Vá para a seção **Certificado de Autenticação SAML** e, em seguida, clique no valor da coluna **Download**. Dependendo do aplicativo que exigir a configuração de logon único, você verá a opção para baixar o Certificado ou o XML de Metadados.
 
-O Microsoft Azure Active Directory também fornece uma URL para obter os metadados. Siga esse padrão para obter a URL de metadados específicos ao aplicativo: https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+O Microsoft Azure Active Directory também fornece uma URL para obter os metadados. Siga esse padrão para obter a URL de metadados específicos ao aplicativo: `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
 
 ## <a name="assign-users-to-the-application"></a>Atribuir usuários ao aplicativo
 

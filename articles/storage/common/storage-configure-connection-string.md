@@ -1,25 +1,19 @@
 ---
 title: Configurar uma cadeia de conexão para o Armazenamento do Azure | Microsoft Docs
-description: Configure uma cadeia de conexão para uma conta de Armazenamento do Azure. Uma cadeia de conexão contém as informações necessárias para autenticar o acesso a uma conta de armazenamento de seu aplicativo no tempo de execução.
+description: Configure uma cadeia de conexão para uma conta de Armazenamento do Azure. Uma cadeia de conexão contém as informações necessárias para autorizar o acesso a uma conta de armazenamento de seu aplicativo no tempo de execução.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240822"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528997"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar cadeias de conexão do Armazenamento do Azure
 
@@ -32,7 +26,7 @@ Uma cadeia de conexão inclui as informações de autenticação necessárias pa
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>Armazenar a sua cadeia de conexão
-Seu aplicativo precisara acessar a cadeia de conexão no tempo de execução para autenticar solicitações feitas para o Armazenamento o Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
+Seu aplicativo precisara acessar a cadeia de conexão no tempo de execução para autorizar as solicitações feitas para o Armazenamento do Microsoft Azure. Você tem várias opções diferentes para armazenar a cadeia de conexão:
 
 * Um aplicativo em execução na área de trabalho ou em um dispositivo pode armazenar a cadeia de conexão em um arquivo **app.config** ou **web.config**. Adicione a cadeia de conexão à seção **AppSettings** nesses arquivos.
 * Um aplicativo em execução em um serviço de nuvem do Azure pode armazenar a cadeia de conexão no [arquivo de esquema (.cscfg) de configuração de serviço do Azure](https://msdn.microsoft.com/library/ee758710.aspx). Adicionar a cadeia de conexão à seção **ConfigurationSettings** do arquivo de configuração de serviço.

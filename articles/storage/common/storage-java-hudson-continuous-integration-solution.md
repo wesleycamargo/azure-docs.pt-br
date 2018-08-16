@@ -2,24 +2,19 @@
 title: Como usar o Hudson com o Armazenamento de Blobs | Microsoft Docs
 description: Descreve como usar o Hudson com o armazenamento de Blob do Azure como um repositório para artefatos de compilação.
 services: storage
-documentationcenter: java
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060121"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528384"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Usando o Armazenamento do Azure com uma solução Hudson Continuous Integration
 ## <a name="overview"></a>Visão geral
@@ -57,7 +52,7 @@ Será necessário o seguinte para usar o serviço Blob com a solução Hudson CI
   5. Depois de concluir a configuração inicial, cancele a instância em execução do Hudson WAR, inicie o Hudson WAR novamente e reabra o painel do Hudson, `http://localhost:8080/`, que você usará para instalar e configurar o plug-in de Armazenamento do Azure.
      
       Embora uma solução Hudson CI típica possa ser configurada para ser executada como um serviço, a execução do war do Hudson na linha de comando será suficiente para este tutorial.
-* Uma conta do Azure. Você pode criar uma conta do Azure em <http://www.azure.com>.
+* Uma conta do Azure. Você pode se inscrever para uma conta do Azure em <http://www.azure.com>.
 * Uma conta de armazenamento do Azure. Se você não tiver uma conta de armazenamento, crie uma usando as etapas em [Criar uma Conta de Armazenamento](../common/storage-create-storage-account.md#create-a-storage-account).
 * Estar familiarizado com a solução Hudson CI é recomendável, mas não é obrigatório, já que o conteúdo a seguir usará um exemplo básico para mostrar a você as etapas necessárias ao usar o serviço Blob como um repositório para os artefatos de compilação do Hudson CI.
 

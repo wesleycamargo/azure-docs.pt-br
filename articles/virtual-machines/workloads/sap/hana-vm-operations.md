@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59db39e4d8cc68f8c7b63b347980044f06b4522a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344402"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521975"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurações e operações de infraestrutura do SAP HANA no Azure
 Este documento fornece orientação para configurar a infraestrutura do Azure e operar sistemas SAP HANA que são implantados em máquinas virtuais nativas (VMs) do Azure. O documento também inclui informações de configuração de expansão para a SKU de VM M128s do SAP HANA. Este documento não pretende substituir a documentação padrão do SAP, que inclui o seguinte conteúdo:
@@ -83,11 +83,11 @@ Até o momento, você comprou dispositivos do SAP HANA para local, nunca preciso
 
 - Habilite o volume de leitura / gravação em **/hana/log** de um mínimo de 250 MB / s com tamanhos de E / S de 1 MB
 - Habilite a atividade de leitura de pelo menos 400MB/seg para **/hana/data** para tamanhos de E / S de 16MB e 64MB
-- Habilitar a atividade de gravação de pelo menos 250MB/s para **hana/data** com tamanhos de e/s de 16 MB e 64 MB
+- Habilite a atividade gravação de pelo menos 250 MB/seg para **/hana/data** para tamanhos de E / S de 16MB e 64MB
 
 Como a baixa latência de armazenamento é crítica para os sistemas DBMS, mesmo que esses DBMS, como o SAP HANA, mantenham os dados na memória. O caminho crítico no armazenamento é geralmente em torno das gravações de log de transações dos sistemas DBMS. Mas também operações como gravar pontos de salvamento ou carregar dados na memória após a recuperação de falhas poderão ser críticas. Portanto, é obrigatório aproveitar os discos de Premium do Azure para **hana/data** e **hana/log** volumes. Para alcançar a taxa de transferência mínima **hana/log** e **hana/data** conforme desejado pelo SAP, você precisa para criar um RAID 0 utilizando MDADM ou LVM em vários discos de armazenamento Premium do Azure. E usar os volumes RAID como **hana/data** e **hana/log** volumes. Com tamanhos de faixa para RAID 0, o recomendável é usar:
 
-- 64KB ou 128KB para **hana/data**
+- 64 KB ou 128 KB para **hana/data**
 - 32KB para **hana/log**
 
 > [!NOTE]
@@ -350,7 +350,109 @@ Instalando uma configuração SAP scale-out, você precisa executar etapas aprox
 - Adicione nós de trabalho adicionais. Consulte também <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Especifique a rede interna para a comunicação entre nós durante a instalação do SAP HANA ou posteriormente, usando, por exemplo, o hdblcm local. Para obter mais documentação, consulte também [SAP Observação #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Seguindo essa rotina de instalação, a configuração de scale-out que você instalou usará discos não compartilhados para executar **/hana/data** e **/hana/log**. Considerando que o volume **/hana/shared** será colocado no compartilhamento NFS altamente disponível.
-  
+
+
+## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA Dynamic Tiering 2.0 para as máquinas virtuais do Azure
+
+Além das certificações de SAP HANA em VMs da série M do Azure, SAP HANA Dynamic Tiering 2.0 também têm suporte no Microsoft Azure (consulte a documentação SAP HANA Dynamic Tiering abaixo). Embora não haja nenhuma diferença na instalação do produto ou operação, por exemplo, por meio da ferramenta Cockpit do SAP HANA dentro de uma máquina de Virtual do Azure, há alguns itens importantes, que são obrigatórios para suporte oficial no Azure. Estes pontos-chave são descritos abaixo. Em todo o artigo, a abreviação de "DT 2.0" será usada em vez do nome completo Dynamic Tiering 2.0.
+
+SAP HANA Dynamic Tiering 2.0 não tem suporte pelo SAP BW ou S4HANA. Casos de uso principal agora são aplicativos nativos do HANA.
+
+
+### <a name="overview"></a>Visão geral
+
+A figura abaixo fornece uma visão geral sobre o suporte de DT 2.0 no Microsoft Azure. Há um conjunto de requisitos obrigatórios, que deve ser seguido para estar em conformidade com a certificação oficial:
+
+- DT 2.0 deve ser instalado em uma VM do Azure dedicada. Pode não ser executada na mesma VM em que o SAP HANA é executado
+- O SAP HANA e DT 2.0 VMs devem ser implantados na mesma rede virtual do Azure
+- O SAP HANA e DT 2.0 VMs devem ser implantados com a rede acelerada do Azure habilitada
+- Tipo de armazenamento para VMs DT 2.0 deve ser o Armazenamento Premium
+- Vários discos do Azure devem ser anexados à VM DT 2.0
+- Ele é necessário para criar um raid de software / volume distribuído (seja por meio de lvm ou mdadm) usando a distribuição entre os discos do Azure
+
+Mais detalhes serão explicados nas seções a seguir.
+
+![Visão geral da arquitetura SAP HANA DT 2.0](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### <a name="dedicated-azure-vm-for-sap-hana-dt-20"></a>VM do Azure dedicada para SAP HANA DT 2.0
+
+No Azure IaaS, DT 2.0 tem suporte apenas em uma VM dedicada. Não é permitido executar DT 2.0 na mesma VM do Azure onde a instância do HANA está em execução. Inicialmente, dois tipos de VM podem ser usados para executar o SAP HANA DT 2.0:
+
+M64-32ms, E32sv3 
+
+Consulte a descrição de tipo VM [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+
+Dada a ideia básica do 2.0 DT, que aborda o descarregamento de dados "passivos" para economizar custos, faz sentido usar tamanhos de VM correspondentes. Embora não haja nenhuma regra rígida sobre as combinações possíveis. Isso depende da carga de trabalho de cliente específico.
+
+Configurações recomendadas:
+
+| Tipo de VM do SAP HANA | Tipo de VM do DT 2.0 |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+Todas as combinações de VMs da série M certificadas para SAP HANA com VMs de 2.0 com suporte DT (M64 32ms, E32sv3) são possíveis.
+
+
+### <a name="azure-networking-and-sap-hana-dt-20"></a>Rede do Azure e SAP HANA DT 2.0
+
+Instalar DT 2.0 em uma VM dedicada requer a taxa de transferência de rede entre a VM de 2.0 DT e VM do SAP HANA de 10 Gb no mínimo. Portanto, é obrigatório colocar todas as VMs na mesma rede virtual do Azure e habilitar a rede acelerada do Azure.
+
+Consulte informações adicionais sobre a rede acelerada do Azure [aqui](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+
+### <a name="vm-storage-for-sap-hana-dt-20"></a>Armazenamento VM para SAP HANA DT 2.0
+
+Acordo com diretrizes de práticas recomendadas de DT 2.0, a taxa de transferência de e/s de disco deve ser mínimo 50 MB/s por núcleo físico. Observando a especificação para os dois tipos de VM do Azure, que têm suporte para 2.0 DT, o limite de taxa de transferência de e/s para a VM de disco máximo será exibido:
+
+- E32sv3: 768 MB/s (sem cache) que significa uma razão de 48 MB/s por núcleo físico
+- M64-32ms: 1000 MB/s (sem cache) que significa uma razão de 62,5 MB/s por núcleo físico
+
+É necessário anexar vários discos do Azure para a VM de 2.0 DT e criar um raid de software (distribuição) no nível do sistema operacional para atingir o limite máximo de taxa de transferência de disco por VM. Um único disco do Azure não pode fornecer a taxa de transferência para alcançar o limite máximo de VM em relação a isso. Armazenamento Premium do Azure é obrigatório para executar o DT 2.0. 
+
+- Detalhes sobre os tipos de disco do Azure disponíveis podem ser encontrados [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Encontre detalhes sobre como criar um raid de software via mdadm [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+- Detalhes sobre como configurar o LVM para criar um volume distribuído para taxa de transferência máxima que pode ser encontrada [aqui](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+
+Dependendo dos requisitos de tamanho, há opções diferentes para alcançar a taxa de transferência máxima de uma VM. Aqui estão as configurações de disco de volume de dados possíveis para cada tipo de VM de 2.0 DT atingir o limite de taxa de transferência da VM. A VM E32sv3 deve ser considerada como um nível de entrada para cargas de trabalho menores. Caso isso resulte em não ser rápido o suficiente, pode ser necessário redimensionar a VM para M64-32ms.
+Assim como a VM M64 32ms tem a quantidade de memória, a carga de e/s pode não alcançar o limite, especialmente para cargas de trabalho com uso intensivo de leitura. Portanto menos discos na faixa de conjunto pode ser suficiente, dependendo da carga de trabalho específica do cliente. Mas, para ser seguro o disco configurações abaixo foram escolhidas para garantir a produtividade máxima:
+
+
+| SKU da VM | Configuração de disco 1 | Configuração de disco 2 | Configuração de disco 3 | Configuração de disco 4 | Configuração de disco 5 | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
+
+
+Especialmente no caso da carga de trabalho intensas de leitura ele poderia melhorar o desempenho de e/s para ativar o cache de host do Azure "somente leitura" conforme recomendado para os volumes de dados do software de banco de dados. Enquanto a transação de log de cache de disco do host do Azure deve ser "nenhum". 
+
+Sobre o tamanho do volume de log de um ponto de partida recomendado está uma heurística de 15% do tamanho dos dados. A criação do volume de log pode ser feita usando os tipos de disco do Azure diferente dependendo dos requisitos de custo e a taxa de transferência. Também para o log de alta taxa de transferência de volume é preferencial e em caso de M64 32ms é altamente recomendável ativar o Acelerador de gravação (que é obrigatório para o SAP HANA). Isso fornece a latência de gravação de disco ideais para o log de transações (disponível apenas para a série M). Há alguns itens a considerar, embora, como o número máximo de discos por tipo de VM. Detalhes sobre WA podem ser encontrados [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+
+Aqui estão alguns exemplos sobre como dimensionar o volume de log:
+
+| tipo de disco e tamanho do volume de dados | configuração 1 de tipo de disco e volume de log | configuração 2 de tipo de disco e volume de log |
+| --- | --- | --- |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
+
+
+Como para escalabilidade horizontal de SAP HANA, o diretório /hana/shared deve ser compartilhado entre a VM do SAP HANA e VM DT 2.0. A mesma arquitetura quanto ao uso de expansão do SAP HANA dedicado VMs que atuam como um servidor NFS altamente disponível é recomendado. Para fornecer um volume compartilhado de backup, o design idêntico pode ser usado. Mas, cabe ao cliente se HA será necessária ou se é suficiente usar apenas uma VM dedicada com capacidade de armazenamento suficiente para atuar como um servidor de backup.
+
+
+
+### <a name="links-to-dt-20-documentation"></a>Links para documentação DT 2.0 
+
+- [Instalação do SAP HANA Dynamic Tiering e atualizar guia](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [Recursos e tutoriais de camadas do SAP HANA Dynamic Tiering](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [PoC de SAP HANA Dynamic Tiering](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [Aprimoramentos do SAP HANA 2.0 SPS 02](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Operações de implantação do SAP HANA em VMs do Azure

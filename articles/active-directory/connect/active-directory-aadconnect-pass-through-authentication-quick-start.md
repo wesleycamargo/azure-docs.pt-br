@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5a93a21c3884d742479bdd30417a846942cb1ed1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308602"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524083"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Autenticação de passagem do Azure Active Directory: início rápido
 
@@ -62,6 +62,7 @@ Verifique se os pré-requisitos a seguir estão em vigor.
     | --- | --- |
     | **80** | Baixa as listas de certificados revogados (CRLs) enquanto valida o certificado SSL |
     | **443** | Lida com toda a comunicação de saída com o serviço |
+    | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas do usuário. |
    
     Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o seu firewall ou proxy permitirem lista de permissões de DNS, adicione as conexões a **\*msappproxy.net** e **\*servicebus.windows.net** à lista de permissões. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.

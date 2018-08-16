@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259095"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505354"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um tempo de execução de integração no Azure Data Factory  
 O **tempo de execução de integração** é a infraestrutura de computação usada pelo Azure Data Factory para fornecer diversas funcionalidades de integração de dados entre diferentes ambientes de rede. São oferecidos três tipos de tempos de execução de integração pelo Data Factory:
@@ -45,7 +45,7 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 -------- | ------------- | 
 | NOME | Nome do tempo de execução de integração do Azure. |  
 | Estado | Status do tempo de execução de integração do Azure. | 
-| Localização | Local do tempo de execução de integração do Azure. Para obter detalhes sobre o local de um tempo de execução de integração do Azure, consulte [Introdução ao tempo de execução de integração](concepts-integration-runtime.md). |
+| Local padrão | Local do tempo de execução de integração do Azure. Para obter detalhes sobre o local de um tempo de execução de integração do Azure, consulte [Introdução ao tempo de execução de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o tempo de execução de integração do Azure pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | DESCRIÇÃO | Descrição do tempo de execução de integração.  |
@@ -164,7 +164,7 @@ O tempo de execução de integração do SSIS do Azure é um cluster totalmente 
 | OtherErrors | Os erros acionáveis não específicos dos nós em seu tempo de execução de integração do Azure-SSIS. |
 | LastOperation | O resultado da última operação de iniciar/parar em seu tempo de execução de integração do Azure-SSIS com erros acionáveis se houve falha. |
 | Estado | O status geral (inicial/iniciando/iniciado/parando/parado) de seu tempo de execução de integração do Azure-SSIS. |
-| Localização | O local do seu tempo de execução de integração do Azure-SSIS. |
+| Local padrão | O local do seu tempo de execução de integração do Azure-SSIS. |
 | NodeSize | O tamanho de cada nó do seu tempo de execução de integração do Azure-SSIS. |
 | NodeCount | O número de nós em seu tempo de execução de integração do Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó em seu tempo de execução de integração do Azure-SSIS. |

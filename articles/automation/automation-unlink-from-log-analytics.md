@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f51103045f6a0cac1b1ed4f32200eaf7bef9cf24
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1328ce8c306188c32bce5385f58f118a63c08deb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193869"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426526"
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Como desvincular sua conta de Automação de um espaço de trabalho do Log Analytics
 
@@ -24,7 +24,7 @@ A Automação do Azure integra-se ao Log Analytics não só para dar suporte ao 
 * [Controle de alterações](../log-analytics/log-analytics-change-tracking.md)
 * [Iniciar/parar VMs durante os horários fora de pico](automation-solution-vm-management.md)
 
-Caso decida que não quer mais integrar sua conta de Automação ao Log Analytics, você poderá desvincular a conta diretamente no Portal do Azure.  Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o tópico sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
+Caso decida que não quer mais integrar sua conta de Automação ao Log Analytics, você poderá desvincular a conta diretamente no Portal do Azure.  Antes de prosseguir, você precisa remover as soluções mencionadas anteriormente, caso contrário, esse processo será impedido de continuar. Examine o artigo sobre a solução específica que você importou para entender as etapas necessárias para removê-la.
 
 Depois de remover essas soluções, você poderá executar as etapas a seguir para desvincular sua conta de Automação.
 
@@ -33,9 +33,7 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 ## <a name="unlink-workspace"></a>Desvincular o espaço de trabalho
 
-1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Desvincular o espaço de trabalho** na seção **Recursos Relacionados** à esquerda.
-
-   ![Opção Desvincular espaço de trabalho](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+1. No portal do Azure, abra sua conta da Automação e, na página da conta da Automação, selecione **Espaço de trabalho vinculado** na seção **Recursos Relacionados** à esquerda.
 
 1. Na página Desvincular o espaço de trabalho, clique em **Desvincular o espaço de trabalho**.
 
@@ -47,9 +45,9 @@ Depois de remover essas soluções, você poderá executar as etapas a seguir pa
 
 Se você tiver usado a solução Gerenciamento de Atualizações, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 
-* Agendas de atualizações.  Cada uma terá nomes que correspondam às implantações de atualizações que você criou)
+* Atualizar agendas - Cada uma terá nomes que correspondam às implantações de atualizações que você criou)
 
-* Grupos de trabalho híbridos criados para a solução.  Cada um receberá um nome semelhante a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
+* Grupos de trabalho híbrido criados para a solução - Cada um receberá um nome semelhante a machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8).
 
 Se você tiver usado a solução Iniciar/parar VMs durante os horários fora de pico, como opção, convém remover os itens a seguir que não serão mais necessários após a remoção da solução.
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304017"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423735"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -46,6 +46,7 @@ Se você planeja executar cargas de trabalho de produção em Lote, talvez seja 
 Se você tiver criado uma conta de Lote com modo de alocação de pool definido como **assinatura de usuário**, as cotas serão aplicadas de forma diferente. Nesse modo, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As cotas de núcleos de Lote do Azure não se aplicam a uma conta criada nesse modo. Em vez disso, as cotas em sua assinatura para regionais núcleos de computação e outros recursos são aplicados. Saiba mais sobre a [assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).
 
 ## <a name="other-limits"></a>Outros limites
+
 | **Recurso** | **Limite máximo** |
 | --- | --- |
 | [Tarefas simultâneas](batch-parallel-node-tasks.md) por nó de computação |4 vezes o número de núcleos de nó |
@@ -56,26 +57,27 @@ Se você tiver criado uma conta de Lote com modo de alocação de pool definido 
 
 <sup>1</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 
-
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote
+
 Exibir suas cotas de conta do Lote no [portal do Azure][portal].
 
 1. Selecione **Contas do Lote** no portal e selecione a conta do Lote na qual você está interessado.
-2. Selecione **Cotas** no menu da conta do Lote.
-3. Exibe as cotas atualmente aplicadas à conta do Lote
+1. Selecione **Cotas** no menu da conta do Lote.
+1. Exibe as cotas atualmente aplicadas à conta do Lote
    
     ![Cotas para conta do Lote][account_quotas]
 
 
 
 ## <a name="increase-a-quota"></a>Aumentar uma cota
+
 Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua assinatura usando o [portal do Azure][portal]. O tipo de aumento de cota depende do modo de alocação de pool de sua conta do lote.
 
 ### <a name="increase-a-batch-cores-quota"></a>Aumentar a cota de núcleos de lote 
 
 1. Selecione o bloco **Ajuda + suporte** no painel do portal ou o ponto de interrogação (**?**) no canto superior direito do portal.
-2. Selecione **Nova solicitação de suporte** > **Fundamentos**.
-3. Em **Noções básicas**:
+1. Selecione **Nova solicitação de suporte** > **Fundamentos**.
+1. Em **Noções básicas**:
    
     a. **Tipo de Problema** > **Cota**
    
@@ -86,14 +88,14 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
     d. **Plano de suporte** > **Suporte da cota - Incluído**
    
     Clique em **Próximo**.
-4. Em **Problema**:
+1. Em **Problema**:
    
     a. Selecione uma **Gravidade** de acordo com o [impacto nos negócios][support_sev].
    
     b. Em **Detalhes**, especifique cada cota que você deseja alterar, o nome da conta do Lote e o novo limite.
    
     Clique em **Próximo**.
-5. Em **Informações de contato**:
+1. Em **Informações de contato**:
    
     a. Selecione um **método de contato preferencial**.
    
@@ -102,6 +104,16 @@ Siga estas etapas para solicitar uma cota aumentam para sua conta de lote ou sua
     Clique em **Criar** para enviar a solicitação de suporte.
 
 Depois que a solicitação de suporte foi enviada, o suporte do Azure entrará em contato com você. Observe que a conclusão do pedido pode levar até dois dias úteis.
+
+## <a name="related-quotas-for-vm-pools"></a>Cotas relacionadas para pools VM
+
+Os pools de lota na Configuração de Máquina virtual implantada em uma rede virtual do Azure automaticamente aloca os recursos de rede adicionais do Azure. Os recursos a seguir são necessárias para cada nós de pool de 50 em uma rede virtual:
+
+* 1 [grupo de segurança de rede](../virtual-network/security-overview.md#network-security-groups)
+* 1 [endereço IP público](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 1 [balanceador de carga](../load-balancer/load-balancer-overview.md)
+
+Esses recursos são alocados na assinatura que contém a rede virtual fornecida ao criar o pool de Lote. Esses recursos são limitados pelas [cotas de recursos](../azure-subscription-service-limits.md) da assinatura. Se você planejar implantações de grande pool em uma rede virtual, verifique as cotas da assinatura para esses recursos. Se necessário, solicite um aumento no portal do Azure, selecionando **Ajuda + suporte**.
 
 
 ## <a name="related-topics"></a>Tópicos relacionados

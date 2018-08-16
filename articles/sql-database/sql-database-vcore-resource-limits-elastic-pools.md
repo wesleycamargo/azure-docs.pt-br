@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414435"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495502"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites do modelo de compra baseado em vCore para Banco de Dados SQL do Azure para pools elásticos
 
@@ -23,7 +23,7 @@ Este artigo fornece os limites de recursos detalhados para pools elásticos do B
 Para limites de modelo de compra baseados em DTU, veja [Limites de recursos baseados em DTU de Banco de Dados SQL – pools elásticos](sql-database-dtu-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez você precise reduzir um banco de dados para recuperar espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool elástico: tamanhos de armazenamento e níveis de desempenho
 
@@ -148,4 +148,5 @@ A tabela a seguir descreve as propriedades dos bancos de dados em pool.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
+- Veja [limites de recursos de visão geral do Banco de Dados SQL do Azure](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e a assinatura.
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).

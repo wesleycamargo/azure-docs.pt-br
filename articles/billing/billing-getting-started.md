@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062148"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528258"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -121,7 +121,7 @@ Para obter mais recursos de redução de custos para os ambientes de desenvolvim
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>Habilitar e conferir as recomendações do Azure Advisor
 
-[O Azure Advisor](../advisor/advisor-overview.md) é um recurso de visualização que ajuda a reduzir os custos identificando recursos com baixa utilização. Habilite-o no portal do Azure:
+[O Assistente do Azure](../advisor/advisor-overview.md) é um recurso que ajuda a reduzir os custos identificando recursos com baixa utilização. Visite o assistente no portal do Azure:
 
 ![Captura de tela do botão Azure Advisor no portal do Azure](./media/billing-getting-started/advisor-button.PNG)
 

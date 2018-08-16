@@ -3,7 +3,7 @@ title: Gerenciando recomendações de segurança na Central de Segurança do Azu
 description: Este documento mostra como as recomendações na Central de Segurança do Azure ajudam a proteger os recursos do Azure e a cumprir as políticas de segurança.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367099"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522230"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Gerenciando recomendações de segurança na Central de Segurança do Azure
 Este documento mostra como usar as recomendações na Central de Segurança do Azure para ajudar a proteger os recursos do Azure.
@@ -50,6 +50,8 @@ Depois de definir uma política de segurança, a Central de Segurança analisa o
 Para ver os detalhes de cada recomendação, selecione o **bloco Recomendações** em **Visão geral**. **Recomendações** se abre.
 
 ![Recomendações de filtro][2]
+
+Você pode filtrar as recomendações. Para filtrar as recomendações, selecione **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
 
 As recomendações são mostradas em um formato de tabela, em que cada linha representa uma recomendação específica. As colunas da tabela são:
 
@@ -124,13 +126,6 @@ Use a tabela a seguir como referência para ajudar a entender as recomendações
 | Remova contas externas com permissões de proprietário da sua assinatura | É recomendável que você remova contas externas com permissões de proprietário da sua assinatura para impedir o acesso não monitorado. |
 | Remova contas preteridas da assinatura | É recomendável remover contas preteridas das suas assinaturas. |
 | Remova contas preteridas com permissões de proprietário da assinatura | É recomendável que você remova as contas preteridas com permissões de proprietário das suas assinaturas. |
-Você pode filtrar e ignorar as recomendações.
-
-1. Selecione **Filtro** na folha **Recomendações**. A folha **Filtro** é aberta e você seleciona os valores de gravidade e de estado que deseja ver.
-
-2. Se você determinar que uma recomendação não se aplica, poderá ignorar a recomendação e removê-la da exibição. Há duas maneiras de ignorar uma recomendação. Uma das maneiras consiste em clicar com o botão direito do mouse em um item e selecionar **Ignorar**. A outra maneira é passar o mouse sobre um item, clicar nos três pontos que aparecem à direita e selecionar **Ignorar**. Você pode exibir as recomendações ignoradas ao clicar em **Filtro** e selecionar **Ignoradas**.
-
-    ![Ignorar recomendação][3]
 
 ### <a name="apply-recommendations"></a>Aplicar recomendações
 Depois de examinar todas as recomendações, decida qual delas aplicar primeiro. É recomendável usar a classificação de gravidade como o parâmetro principal para avaliar quais recomendações devem ser aplicadas primeiro.
@@ -150,4 +145,3 @@ Neste documento, você foi apresentado às recomendações de segurança da Cent
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919080"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526990"
 ---
 # <a name="install-the-mobility-service"></a>Instalar o serviço de Mobilidade 
 
@@ -26,9 +26,10 @@ O serviço de mobilidade está instalado em VMs VMware e servidores físicos que
 
 
 >[!IMPORTANT]
-> A partir da versão 9.7.0.0, em VMs Windows, o instalador do Serviço de Mobilidade também instala o [Agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) mais recente disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> A partir da versão 9.7.0.0, em **VMs Windows**, o instalador do Serviço de Mobilidade também instala o [Agente de VM do Azure](../virtual-machines/extensions/features-windows.md#azure-vm-agent) mais recente disponível. Quando um computador faz failover no Azure, o computador atende ao pré-requisito da instalação do agente para usar qualquer extensão de VM.
+> </br>Na **VMs do Linux**, o WALinuxAgent deve ser instalado manualmente.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidade manualmente no servidor:
 1. Entre no servidor de configuração e, em seguida, abra uma janela do prompt de comando como administrador.
 2. Altere o diretório para a pasta bin e, em seguida, crie um arquivo de frase secreta.
@@ -42,11 +43,14 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mapeamento do instalador para o sistema operacional do Serviço de Mobilidade
 
+Para ver uma lista das versões do sistema com um pacote de serviço de mobilidade compatível, consulte a lista de [sistemas operacionais com suporte para máquinas virtuais VMware e servidores físicos](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Nome do modelo do arquivo do instalador| Sistema operacional |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bits) </br> Windows Server 2012 (64 bits) </br> Windows Server 2012 R2 (64 bits) </br> Windows Server 2016 (64 bits) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (somente 64 bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9 (somente 64 bits) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (somente 64 bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (somente 64 bits) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (somente 64 bits) </br> CentOS 6.* (somente 64 bits) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (somente 64 bits) </br> CentOS 7.* (somente 64 bits) |
+|Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3 (64 bits apenas)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (somente 64 bits)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (somente 64 bits)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (somente 64 bits)|
@@ -54,7 +58,6 @@ Conclua estas etapas de pré-requisito antes de instalar o Serviço de Mobilidad
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Servidor do Ubuntu Linux 16.04 LTS (somente 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (somente 64 bits)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (somente 64 bits)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Instalar o Serviço de Mobilidade manualmente usando a GUI
 

@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399066"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422317"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migração de Contoso: avaliar as cargas de trabalho do local para a migração para o Azure
 
@@ -99,7 +99,7 @@ Nesse cenário, a Contoso baixa e executa o Assistente de Migração de Dados pa
 - A Contoso é um nome fictício que representa uma organização empresarial típica.
 - A Contoso tem um datacenter local (**contoso-datacenter**) e controladores de domínio locais (**CONTOSODC1**, **CONTOSODC2**).
 - As VMs do VMware estão localizadas em hosts VMware ESXi executando a versão 6.5 (**contosohost1**, **contosohost2**).
-- O ambiente VMware é gerenciado pelo vCenter Server 6.5 (**vcenter**, em execução em uma VM).
+- O ambiente VMware é gerenciado pelo vCenter Server 6.5 (**vcenter.contoso.com** em execução em uma VM).
 - O aplicativo de viagens SmartHotel tem estas características:
     - O aplicativo é em camadas em duas VMs do VMware (**WEBVM** e **SQLVM**).
     - As VMs estão localizadas no host VMware ESXi **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ A Contoso e outros usuários devem atender aos seguintes pré-requisitos para a 
 - Pelo menos duas VMs VMware locais, uma delas executando um banco de dados do SQL Server.
 - Permissões para instalar agentes de migrar do Azure em cada VM.
 - As VMs devem ter conectividade direta com a Internet.  
-        
-- Você pode restringir o acesso à Internet aos [URLs obrigatórios](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Se as suas VMs não tiverem conectividade com a Internet, o Azure Log Analytics [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) do Gateway de Log do Azure deverá ser instalado nelas.
+        - Você pode restringir o acesso à internet para as [URLs necessárias](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        - Se as suas VMs não tiverem conectividade com a internet, o [Gateway OMS](../log-analytics/log-analytics-oms-gateway.md) do Azure Log Analytics deve ser instalada nelas e o tráfego de agente direcionado por meio dele.
 - O FQDN da VM que está executando a instância do SQL Server, para a avaliação do banco de dados.
-- O Firewall do Windows em execução na VM do SQL Server deve permitir conexões externas na porta TCP 1433 (padrão). A configuração permite que o Assistente de Migração de Dados seja conectado.
+- O Firewall do Windows em execução na VM do SQL Server deve permitir conexões externas na porta TCP 1433 (padrão). Esta configuração permite que o Assistente de Migração de Dados seja conectado.
 
 ## <a name="assessment-overview"></a>Visão geral da avaliação
 
@@ -297,7 +295,7 @@ Antes de implantar a VM, a Contoso verifica se o arquivo OVA é seguro:
 
 ### <a name="create-the-collector-appliance"></a>Criar o dispositivo coletor
 
-Agora, a Contoso pode importar o arquivo baixado para a instância do vCenter Server e provisionar a VM do servidor de configuração:
+Agora, a Contoso pode importar o arquivo baixado para a instância do vCenter Server e provisionar a VM do dispositivo coletor:
 
 1. No console do vSphere Client, a Contoso seleciona **Arquivo** > **Implantar o modelo de OVF**.
 

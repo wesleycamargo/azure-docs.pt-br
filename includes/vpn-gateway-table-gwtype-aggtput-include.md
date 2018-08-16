@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39138005"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513983"
 ---
 |**SKU**   | **S2S/VNet para VNet<br>Túneis** | **Conexões<br>P2S** | **Parâmetro de comparação<br>de taxa de transferência total** |
 |---       | ---                             | ---                    | ---                         |
@@ -24,7 +24,7 @@ ms.locfileid: "39138005"
 
 * (*) Use [WAN Virtual](../articles/virtual-wan/virtual-wan-about.md) se precisar de mais de 30 túneis de VPN S2S.
 
-* (\*\*) Contate o suporte se conexões adicionais forem necessárias
+* (**) Contate o suporte se conexões adicionais forem necessárias. Isso se aplica somente a IKEv2, o número de conexões para SSTP não pode ser aumentado.
 
 * O parâmetro de comparação da taxa de transferência total se baseia nas medidas de vários túneis agregados por meio de um único gateway. Não é uma taxa de transferência garantida devido às condições de tráfego de Internet e seus comportamentos de aplicativo.
 

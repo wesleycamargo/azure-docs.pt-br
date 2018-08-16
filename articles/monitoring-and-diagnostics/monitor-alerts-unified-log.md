@@ -8,19 +8,23 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971713"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440422"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de log no Azure Monitor - Alertas 
-Este artigo fornece detalhes de alertas de Log, que são um dos tipos de alertas de suporte no novo [Alertas do Azure](monitoring-overview-unified-alerts.md) e permitem que os usuários usem a plataforma de análise do Azure como base para alertas. Para obter detalhes de Alertas de Métrica usando Logs, veja [Alertas de métrica quase em tempo real](monitoring-near-real-time-metric-alerts.md)
+Este artigo fornece detalhes de alertas de Log, que são um dos tipos de alertas de suporte no novo [Alertas do Azure](monitoring-overview-unified-alerts.md) e permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
 
 
-O Alerta de Log consiste em regras de Pesquisa de Log criadas para o [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+O Alerta de Log consiste em regras de Pesquisa de Log criadas para o [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou o [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Os detalhes de preços para alertas de log estão disponíveis na página [preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/). Nas listas do Azure, os Alertas de Log são representados como tipo `microsoft.insights/scheduledqueryrules` com:
+- Alertas de log no Application Insights mostrados com o nome exato do alerta, juntamente com o grupo de recursos e propriedades do alerta
+- Os Alertas de Log no Log Analytics mostrados com o nome exato do alerta, juntamente `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` com o grupo de recursos e propriedades do alerta
 
+    > [!NOTE]
+    > O nome para todas as pesquisas, agendas e ações salvas criadas com a API do Log Analytics deve estar em letras minúsculas. Se caracteres inválidos, como `<, >, %, &, \, ?, /` são usados – serão substituídos por `_` na fatura.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Regra de alerta de pesquisa de log - definição e tipos
 
@@ -104,7 +108,7 @@ O alerta de log, bem como sua respectiva regra de alerta de pesquisa de logs de 
 - Modelos do Azure Resource Manager
 
 ### <a name="azure-portal"></a>Portal do Azure
-Desde o lançamento dos [novos alertas do Azure](monitoring-overview-unified-alerts.md), agora os usuários podem gerenciar todos os tipos de alertas no portal do Azure de um único local e em etapas semelhantes. Saiba mais sobre como [usar os novos Alertas do Azure](monitor-alerts-unified-usage.md).
+Desde o lançamento dos [novos alertas do Azure](monitoring-overview-unified-alerts.md), agora os usuários podem gerenciar todos os tipos de alertas no portal do Azure de um único local e com etapas semelhantes para o uso. Saiba mais sobre como [usar os novos Alertas do Azure](monitor-alerts-unified-usage.md).
 
 Além disso, os usuários podem aperfeiçoar suas consultas na plataforma Analytics de sua escolha no Azure e, em seguida, *importá-las para uso em alertas, salvando a consulta*. Etapas a serem executadas:
 - *Para o Application Insights*: vá para o portal do Analytics, valide a consulta e seus resultados. Em seguida, salve com um nome exclusivo para no *Consultas compartilhadas*.
@@ -131,7 +135,7 @@ Para obter mais detalhes, assim como exemplos sobre como usar os modelos do Reso
  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre os [alertas de log no Azure](monitor-alerts-unified-log-webhook.md).
+* Entenda os [webhooks nos alertas de log no Azure](monitor-alerts-unified-log-webhook.md).
 * Saiba mais sobre os novos [Alertas do Azure](monitoring-overview-unified-alerts.md).
 * Saiba mais sobre o [Application Insights](../application-insights/app-insights-analytics.md).
 * Saiba mais sobre o [Log Analytics](../log-analytics/log-analytics-overview.md).    

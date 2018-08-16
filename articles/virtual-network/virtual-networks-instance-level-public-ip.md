@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2018
+ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 8a6256ab9c511342b536919c69faed30d40a256d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb8ba5169a6ebfbb11ba0acfa9b9f463b7cdf6a1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282583"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520795"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -60,10 +60,26 @@ O seguinte script do PowerShell cria um serviço de nuvem chamado *FTPService*, 
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+Se você quiser especificar outra conta de armazenamento como o local do novo disco VM, você pode usar o parâmetro **MediaLocation**:
+
+```powershell
+    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+     -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### <a name="how-to-retrieve-ilpip-information-for-a-vm"></a>Como recuperar informações de ILPIP para uma máquina virtual

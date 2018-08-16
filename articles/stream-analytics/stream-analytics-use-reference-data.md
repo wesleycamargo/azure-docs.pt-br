@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: f87337d51b86f6b1eb053c1b618a2fc0696a9eb2
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114500"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480522"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usar dados de referência para pesquisas no Stream Analytics
 Dados de referência (também conhecidos como tabela de pesquisa) são um conjunto finito de dados estáticos ou com alteração lenta por natureza, usados para executar uma pesquisa ou para correlacionar com seu fluxo de dados. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para usar dados de referência no seu trabalho do Stream Analytics do Azure geralmente é preciso usar uma [União de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) em sua Consulta. O Stream Analytics usa o armazenamento de Blobs do Azure como a camada de armazenamento para dados de referência e com os dados de referência do Azure Data Factory podem ser transformados e/ou copiados para o armazenamento de Blobs do Azure, para uso como dados de referência de [qualquer número armazenamentos de dados de nuvem e locais](../data-factory/copy-activity-overview.md). Dados de referência são modelados como uma sequência de blobs (definidos na configuração de entrada) em ordem crescente segundo a data/hora especificada no nome do blob. Ele **somente** dá suporte à adição ao final da sequência usando um valor de data/hora **maior** que aquele especificado pelo último blob na sequência.
@@ -46,8 +46,13 @@ Para configurar os dados de referência, você primeiro precisa criar uma entrad
 |Formato de serialização do evento   | Para verificar se as consultas funcionam da maneira esperada, o Stream Analytics precisa saber qual formato de serialização você está usando para os fluxos de dados de entrada. Para dados de referência, os formatos com suporte são CSV e JSON.  |
 |Codificação   | UTF-8 é o único formato de codificação com suporte no momento.  |
 
+## <a name="static-reference-data"></a>Dados de referência estática
+Se os dados de referência não forem alterados, em seguida, então o suporte para dados são habilitados especificando um caminho estático na configuração de entrada de referência estática. O Azure Stream Analytics pega o blob do caminho especificado. substituição de {data} e {hora} não é necessária. Dados de referência são imutáveis no Stream Analytics. Portanto, não é recomendável substituir um blob de dados de referência estática.
+
 ## <a name="generating-reference-data-on-a-schedule"></a>Gerar dados de referência em uma agenda
 Se os seus dados de referência são um conjunto de dados de alteração lenta, o suporte para atualização de dados de referência é habilitado especificando, na configuração de entrada, um padrão de caminho usando os tokens de substituição {date} e {time}. O Stream Analytics separa as definições de dados de referência baseadas nesse padrão de caminho. Por exemplo, um padrão de `sample/{date}/{time}/products.csv` com um formato de data **"AAAA-MM-DD"** e um formato de hora **"HH: mm"** informa o Stream Analytics para acompanhar o blob `sample/2015-04-16/17-30/products.csv` atualizado às 17:30, em 16 de abril de 2015 fuso horário UTC.
+
+O Azure Stream Analytics verifica automaticamente os blobs de dados de referência atualizados em um intervalo de um minuto.
 
 > [!NOTE]
 > Atualmente os trabalhos do Stream Analytics procuram pela atualização de blob somente quando a hora do computador avança até a hora codificada no nome do blob. Por exemplo o trabalho irá procurar `sample/2015-04-16/17-30/products.csv` assim que possível, mas não antes das 17:30 UTC do dia 16 de abril de 2015. Ele *nunca* procurará um blob com uma hora codificada anterior ao último que foi descoberto.
@@ -63,8 +68,12 @@ Se os seus dados de referência são um conjunto de dados de alteração lenta, 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser utilizada para orquestrar a tarefa de criar os blobs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados baseado em nuvem que automatiza a movimentação e a transformação dos dados. O Data Factory dá suporte [à conexão de um grande número de armazenamentos de dados local baseados em nuvem](../data-factory/copy-activity-overview.md) e mover dados facilmente em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para o Stream Analytics que é atualizado em um cronograma predefinido, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Dicas sobre como atualizar seus dados de referência
-1. Substituir blobs de dados de referência não fará com que o Stream Analytics recarregue o blob e, em alguns casos, isso pode fazer com que o trabalho falhe. A maneira recomendada de alterar os dados de referência é adicionar um novo blob usando o mesmo padrão de caminho e contêiner definidos na entrada de trabalho e usar um valor de data/hora **maior** que o especificado pelo último blob na sequência.
-2. Blobs de dados de referência **não** são ordenados pela hora da "Última modificação" do blob, mas apenas pela hora e data especificadas no nome do blob usando as substituições {date} e {time}.
+1. Não substitua os blobs de dados de referência uma vez que são imutáveis.
+2. A maneira recomendada para atualizar os dados de referência é:
+    * Use {date} / {hora} no padrão de caminho
+    * Adicione um novo blob usando o mesmo padrão de contêiner e o caminho definido na entrada do trabalho
+    * Use um valor de data/hora **maior** daquele especificado pelo último blob na sequência.
+3. Blobs de dados de referência **não** são ordenados pela hora da "Última modificação" do blob, mas apenas pela hora e data especificadas no nome do blob usando as substituições {date} e {time}.
 3. Para evitar a necessidade de listar um grande número de blobs, considere excluir blobs muito antigos para os quais o processamento não será mais feito. Observe que o ASA talvez tenha que reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
 ## <a name="next-steps"></a>Próximas etapas

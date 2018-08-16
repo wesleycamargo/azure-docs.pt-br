@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263194"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441435"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de log com um modelo do Resource Manager
 Este artigo mostra como você pode gerenciar [registrar alertas](monitor-alerts-unified-log.md) programaticamente em escala, no Azure usando [modelo do Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) e [CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md). No momento, Alertas do Azure dá suporte a alertas de log em consultas do [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) e do [Application Insights do Azure](../application-insights/app-insights-analytics-tour.md).
@@ -27,7 +27,7 @@ O alerta de log para o [Azure Log Analytics](../log-analytics/log-analytics-tuto
 ### <a name="using-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os alertas para o Log Analytics são criados por regras de alerta que executam uma pesquisa salva em um intervalo regular. Se os resultados da consulta correspondência aos critérios especificados, será criado um registro de alerta e uma ou mais ações são executadas. 
 
-Modelo de recurso para a pesquisa [do Log analytics salva](../log-analytics/log-analytics-log-searches.md) e [alertas da análise de Log](../log-analytics/log-analytics-alerts.md) estão disponíveis na seção Log Analytics da documentação. Saiba mais sobre [adicionando as pesquisas e alertas do Log Analytics salvos](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como os detalhes do esquema.
+Modelo de recurso para a pesquisa do Log analytics salva e alertas da análise de Log estão disponíveis na seção Log Analytics da documentação. Saiba mais sobre [Adicionar as pesquisas e alertas do Log Analytics salvos](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); que inclui exemplos ilustrativos, bem como os detalhes do esquema.
 
 ### <a name="using-resource-template-via-apipowershell"></a>Usando o Modelo de Recursos por meio da API/Powershell
 A API REST Alerta do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. A API pode então ser acessada da uma linha de comando do PowerShell e produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados de diferentes maneiras por meio de programação.

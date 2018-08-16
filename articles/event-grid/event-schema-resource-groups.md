@@ -6,20 +6,28 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 242a0cee6e76250288f51f75dd695b608fd4d914
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173169"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495315"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure
 
 Este artigo fornece as propriedades e o esquema de eventos de grupo de recursos. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md).
 
-Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos relacionados às alterações em recursos. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura. 
+Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos relacionados às alterações em recursos. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura.
+
+Eventos de recursos são criados para operações PUT, PATCH e EXCLUIR que são enviadas para `management.azure.com`. Operações de GET e POST não criam eventos. Operações enviadas para o plano de dados (como `myaccount.blob.core.windows.net`) não criam eventos.
+
+Quando você assina eventos para um grupo de recursos, seu ponto de extremidade recebe todos os eventos para esse grupo de recursos. Os eventos podem incluir eventos que você deseja ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para você, como gravar uma nova entrada no histórico de implantação. Você pode receber todos os eventos no seu ponto de extremidade e escrever um código que processa os eventos que você deseja manipular, ou você pode definir um filtro ao criar a assinatura de evento.
+
+Para manipular programaticamente os eventos, você pode classificar eventos, observando o `operationName` valor. Por exemplo, o ponto de extremidade de evento apenas pode processar eventos para operações que são iguais a `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
+
+O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID. Para scripts de exemplo, consulte [Assinar e filtrar para o grupo de recursos - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [Assinar e filtrar para o grupo de recursos - CLI do Azure](scripts/event-grid-cli-resource-group-filter.md). Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -36,7 +44,7 @@ Os Grupos de Recursos agora podem emitir eventos de gerenciamento do Azure Resou
 
 ## <a name="example-event"></a>Exemplo de evento
 
-O exemplo a seguir mostra o esquema de um recurso criado de evento: 
+O exemplo a seguir mostra o esquema para um evento **ResourceWriteSuccess**. O mesmo esquema é usado para os eventos **ResourceWriteFailure** e **ResourceWriteCancel** com valores diferentes para `eventType`.
 
 ```json
 [{
@@ -96,7 +104,7 @@ O exemplo a seguir mostra o esquema de um recurso criado de evento:
 }]
 ```
 
-O esquema para um evento de recurso excluído é semelhante:
+O exemplo a seguir mostra o esquema para um evento **ResourceDeleteSuccess**. O mesmo esquema é usado para os eventos **ResourceDeleteFailure** e **ResourceDeleteCancel** com valores diferentes para `eventType`.
 
 ```json
 [{
@@ -184,7 +192,7 @@ O objeto de dados tem as seguintes propriedades:
 | autorização | objeto | A autorização solicitada para a operação. |
 | declarações | objeto | As propriedades da declaração. Para obter mais informações, consulte [especificação JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | string | Uma ID de operação para solução de problemas. |
-| httpRequest | objeto | Os detalhes da operação. |
+| httpRequest | objeto | Os detalhes da operação. Esse objeto é apenas incluído ao atualizar um recurso existente ou excluir um recurso. |
 | ResourceProvider | string | O provedor de recursos executando a operação. |
 | resourceUri | string | O URI do recurso na operação. |
 | operationName | string | A operação que foi executada. |

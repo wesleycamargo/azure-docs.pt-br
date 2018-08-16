@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364369"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433557"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Fazer backup de bancos de dados do SQL Server para o Azure
 
@@ -47,6 +47,8 @@ Os itens a seguir são as limitações conhecidas da Visualização Pública:
 - [Backups de grupos de disponibilidade distribuídos](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) têm limitações.
 - Não há suporte para FCI (Instâncias do Cluster de Failover) Always On do SQL Server.
 - Use o Portal do Azure para configurar o Backup do Azure para proteger bancos de dados do SQL Server. No momento, não há suporte para o Azure PowerShell, a CLI do Azure e as APIs REST.
+
+Consulte a [Seção de Perguntas Frequentes](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) para obter mais detalhes sobre o suporte/cenários sem suporte.
 
 ## <a name="support-for-azure-geos"></a>Suporte para áreas geográficas do Azure
 

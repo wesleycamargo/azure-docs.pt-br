@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358625"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528418"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Entre com seu telefone, não com sua senha
 
@@ -70,7 +70,7 @@ As novas contas são ativadas automaticamente para que você possa começar a us
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Para usar o login por telefone para fazer login na sua conta pessoal
 
-1.  Vá para a página de login da conta pessoal da Microsoft e, em vez de digitar sua senha, selecione o link **Usar um aplicativo em vez disso**.
+1.  Vá para a página de login da conta pessoal da Microsoft e, em vez de digitar sua senha, selecione o link **Usar um aplicativo Microsoft Authenticator em vez disso**.
 
     A Microsoft envia uma notificação para seu telefone. 
 
@@ -95,4 +95,4 @@ As novas contas são ativadas automaticamente para que você possa começar a us
 
 -   Se você quiser mais informações sobre a verificação em duas etapas, consulte [Configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
 
--   Se você quiser obter mais informações sobre informações de segurança, consulte [gerenciar suas informações de segurança](security-info-manage-settings.md)
+-   Se você quiser mais informações sobre informações de segurança, consulte [Gerenciar suas informações de segurança](security-info-manage-settings.md)

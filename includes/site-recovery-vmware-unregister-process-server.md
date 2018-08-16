@@ -1,3 +1,16 @@
+---
+author: Rajeswari-Mamilla
+ms.service: site-recovery
+ms.topic: include
+ms.date: 08/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 81390d38b4c0c38b7ac6883ae2bf18c64542fa00
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582774"
+---
 As etapas para cancelar o registro de um servidor de processo difere dependendo de seu status de conexão com o servidor de configuração.
 
 ### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>Cancelar o registro de um servidor de processo que está em um estado conectado
@@ -19,4 +32,8 @@ As etapas para cancelar o registro de um servidor de processo difere dependendo 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. Essa mensagem é emitida quando o servidor de processo é removido com êxito: **nome do servidor com registro cancelado com sucesso> (server-IP-address)**.
+4. O comando acima fornecerá a lista de servidores de processo (pode ser mais de um, no caso de entradas duplicadas) com número de série (S.Nº), endereço IP (IP), nome da VM em que o servidor de processo está implantado (Nome), pulsação da VM (Pulsação) conforme mostrado abaixo.
+    ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+5. Agora, insira o número de série do servidor de processo do qual você deseja cancelar o registro.
+6. Isso limpa os detalhes do servidor de processo do sistema e exibe a mensagem: **Cancelamento de registro do server-name realizado com êxito> (server-IP-address)**
+

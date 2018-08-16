@@ -2,24 +2,18 @@
 title: Lista de verificação de desempenho e escalabilidade do Armazenamento do Azure | Microsoft Docs
 description: Uma lista de verificação de práticas comprovadas para uso com o Armazenamento do Azure no desenvolvimento de aplicativos de alto desempenho.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246212"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528996"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de verificação de desempenho e escalabilidade do armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -146,7 +140,7 @@ Se os aplicativos do seu cliente não estiverem hospedados no Azure (como no cas
 Para obter mais informações, confira [CDN do Azure](https://azure.microsoft.com/services/cdn/).  
 
 ### <a name="subheading6"></a>Usando SAS e CORS
-Quando você precisar autorizar o código como JavaScript no navegador da Web de um usuário ou um aplicativo de telefone celular para acessar dados no armazenamento do Azure, uma abordagem é usar um aplicativo em função Web como um proxy: autentica o dispositivo do usuário com a função Web, que por sua vez é autenticado com o serviço de armazenamento. Dessa forma, você pode evitar a exposição das chaves de conta de armazenamento em dispositivos que não são seguros. No entanto, isso gera uma grande sobrecarga na função Web porque todos os dados transferidos entre os dispositivos do usuário e o serviço de armazenamento devem ser transmitidos por meio de uma função Web. Você pode evitar o uso da função web como um proxy para o serviço de armazenamento. Para isso, use SAS (assinaturas de acesso compartilhado), que podem ser combinadas a cabeçalhos de CORS (compartilhamento de recursos entre origens). Por meio das SAS, você pode permitir que o dispositivo do usuário faça solicitações diretamente a um serviço de armazenamento por meio de um token de acesso limitado. Por exemplo, se o usuário quiser carregar uma foto no seu aplicativo, sua função Web poderá gerar e enviar um token SAS que conceda permissão de edição a um blob ou contêiner específico pelos próximos 30 minutos ao dispositivo do usuário (após esse período, o token expira).
+Quando você precisar autorizar o código como JavaScript no navegador da Web de um usuário ou um aplicativo de telefone celular para acessar dados no Armazenamento do Microsoft Azure, uma abordagem é usar um aplicativo em função Web como um proxy: o dispositivo do usuário autentica com a função web, que por sua vez autoriza o acesso para os recursos de armazenamento. Dessa forma, você pode evitar a exposição das chaves de conta de armazenamento em dispositivos que não são seguros. No entanto, isso gera uma grande sobrecarga na função Web porque todos os dados transferidos entre os dispositivos do usuário e o serviço de armazenamento devem ser transmitidos por meio de uma função Web. Você pode evitar o uso da função web como um proxy para o serviço de armazenamento. Para isso, use SAS (assinaturas de acesso compartilhado), que podem ser combinadas a cabeçalhos de CORS (compartilhamento de recursos entre origens). Por meio das SAS, você pode permitir que o dispositivo do usuário faça solicitações diretamente a um serviço de armazenamento por meio de um token de acesso limitado. Por exemplo, se o usuário quiser carregar uma foto no seu aplicativo, sua função Web poderá gerar e enviar um token SAS que conceda permissão de edição a um blob ou contêiner específico pelos próximos 30 minutos ao dispositivo do usuário (após esse período, o token expira).
 
 Normalmente, o navegador não permite o uso de JavaScript em páginas hospedadas por um site em um domínio para executar operações especificas, como um "PUT" em outro domínio. Por exemplo, se você hospedar uma função Web em "contosomarketing.cloudapp.net" e quiser usar o JavaScript do cliente para carregar um blob em sua conta de armazenamento em "contosoproducts.blob.core.windows.net", a "política de mesma origem" proibirá essa operação. O CORS é um recurso do navegador que permite que o domínio alvo (neste caso, a conta de armazenamento) comunique-se com o navegador ao qual confia as solicitações que se originam no domínio de origem (neste caso, a função web).  
 

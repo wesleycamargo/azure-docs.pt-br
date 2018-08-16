@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: a7f20c22b39458134d3dcd42b7e13860c03bad58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 08b7f50c3051c174158cff0b4c591a2b22fb4ab4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785905"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502695"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD
  
 A API dos Serviços de Mídia do Azure é uma API RESTful. Você pode usá-la para executar operações em recursos de mídia usando uma API REST ou os SDKs de cliente disponíveis. Os Serviços de Mídia do Azure oferecem um SDK de cliente dos Serviços de Mídia para o Microsoft .NET. Para estar autorizado a acessar os recursos e a API dos Serviços de Mídia, primeiro você deve ser autenticado. 
 
-Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../../active-directory/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).  
+Os Serviços de Mídia dão suporte à [autenticação baseada no Azure AD (Azure Active Directory)](../../active-directory/fundamentals/active-directory-whatis.md). O serviço REST de Mídia do Azure exige que o usuário ou o aplicativo que faz as solicitações da API REST tenha a função **Colaborador** ou **Proprietário** para acessar os recursos. Para obter mais informações, consulte [Introdução ao Controle de Acesso Baseado em Função no portal do Azure](../../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
 > Atualmente, os Serviços de Mídia dão suporte ao modelo de autenticação do serviço de Controle de Acesso do Azure. No entanto, a autorização de Controle de Acesso será preterida em 1º de junho de 2018. Recomendamos que você migre para o modelo de autenticação do Azure AD assim que possível.
@@ -100,7 +100,7 @@ Os aplicativos que geralmente usam esse método de autenticação são aplicativ
 
 Quando você usa o método de autenticação de entidade de serviço para criar cenários de consumidor, a autenticação normalmente é manipulada na camada intermediária (por meio de alguma API) e não diretamente em um aplicativo móvel ou da área de trabalho. 
 
-Para usar esse método, crie um aplicativo e uma entidade de serviço do Azure AD em seu próprio locatário. Depois de criar o aplicativo, conceda o acesso da função de Colaborador ou Proprietário ao aplicativo à conta dos Serviços de Mídia. Faça isso no portal do Azure, usando a CLI do Azure ou com um script do PowerShell. Use também um aplicativo existente do Azure AD. Registre e gerencie o aplicativo e a entidade de serviço do Azure AD [no portal do Azure](media-services-portal-get-started-with-aad.md). Também faça isso usando a [CLI 2.0 do Azure](media-services-use-aad-auth-to-access-ams-api.md) ou o [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
+Para usar esse método, crie um aplicativo e uma entidade de serviço do Azure AD em seu próprio locatário. Depois de criar o aplicativo, conceda o acesso da função de Colaborador ou Proprietário ao aplicativo à conta dos Serviços de Mídia. Você pode fazer isso no portal do Azure, usando a CLI do Azure ou com um script do PowerShell. Use também um aplicativo existente do Azure AD. Registre e gerencie o aplicativo e a entidade de serviço do Azure AD [no portal do Azure](media-services-portal-get-started-with-aad.md). Também faça isso usando a [CLI do Azure](media-services-use-aad-auth-to-access-ams-api.md) ou o [PowerShell](media-services-powershell-create-and-configure-aad-app.md). 
 
 ![Aplicativos de camada intermediária](./media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
@@ -146,8 +146,8 @@ Solução: para que a solicitação REST dos Serviços de Mídia seja bem-sucedi
 
 Os seguintes artigos são visões gerais dos conceitos de autenticação do Azure AD: 
 
-- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
-- [Adicionar, atualizar ou remover um aplicativo no Azure AD](../../active-directory/develop/active-directory-integrating-applications.md)
+- [Cenários de autenticação abordados pelo Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Adicionar, atualizar ou remover um aplicativo no Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Configurar e gerenciar o Controle de Acesso Baseado em Função usando o PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Próximas etapas

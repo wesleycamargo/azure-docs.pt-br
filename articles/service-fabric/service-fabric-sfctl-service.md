@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: e027bb7f61d19fc274f7eddd8f28e9e6dac099ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763537"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494567"
 ---
 # <a name="sfctl-service"></a>Serviço sfctl
 Crie, exclua e gerencie o serviço, os tipos de serviço e os pacotes de serviço.
@@ -59,7 +59,7 @@ Obtém o nome do aplicativo para o serviço especificado. Um erro FABRIC_E_SERVI
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -69,7 +69,7 @@ Obtém o nome do aplicativo para o serviço especificado. Um erro FABRIC_E_SERVI
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-code-package-list"></a>sfctl serviço código--lista de pacotes
@@ -94,7 +94,7 @@ Obtém a lista de pacotes de código implantado em um nó de malha do serviço p
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-create"></a>sfctl service create
@@ -116,7 +116,7 @@ Cria o serviço de malha do serviço especificado.
 | --int-scheme | Indica que o serviço deve ser particionado uniformemente em um intervalo de inteiros sem sinal. |
 | --int-scheme-count | O número de partições dentro do intervalo de chaves inteiro para criar, se usando um esquema de partição inteiro uniforme. |
 | --int-scheme-high | O final do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
-| --int-scheme-low | O início do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
+| --int-scheme-low | O final do intervalo de chaves de inteiros, se estiver usando um esquema de partição de inteiros uniforme. |
 | --load-metrics | Lista de métricas codificada em JSON, usada ao balancear as cargas de serviços entre nós. |
 | --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
 | --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\:: "Zero", "Low", "Medium", "High". |
@@ -141,7 +141,7 @@ Cria o serviço de malha do serviço especificado.
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
@@ -153,7 +153,7 @@ Um serviço deve ser criado antes que possa ser excluído. Por padrão, do Servi
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --force-remove | Remova um aplicativo ou serviço do Service Fabric de modo forçado sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para excluir de modo forçado um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código do serviço que impedem o fechamento normal das réplicas. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
@@ -164,7 +164,7 @@ Um serviço deve ser criado antes que possa ser excluído. Por padrão, do Servi
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-deployed-type"></a>serviço sfctl tipo implantado
@@ -189,7 +189,7 @@ Obtém a lista que contém as informações sobre um tipo de serviço específic
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-deployed-type-list"></a>sfctl serviço implantado-lista de tipo
@@ -213,7 +213,7 @@ Obtém a lista que contém as informações sobre os tipos de serviço dos aplic
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-description"></a>sfctl service description
@@ -225,7 +225,7 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -235,7 +235,7 @@ Obtém a descrição de um serviço do Service Fabric existente. É necessário 
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-get-container-logs"></a>sfctl get-container-logs de serviço
@@ -262,7 +262,7 @@ Obtém os logs do contêiner para contêiner implantado em um nó de malha do se
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-health"></a>sfctl service health
@@ -274,9 +274,9 @@ Obtém as informações de integridade do serviço especificado. Use EventsHealt
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id          [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
-| --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, Warning e Error. |
+| --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
+| --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas nos estados de integridade Ok, Warning e Error. |
 | --partitions-health-state-filter | Permite a filtragem dos objetos de estado de integridade das partições retornados no resultado da consulta de integridade de serviço, com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente as partições que correspondem ao filtro são retornadas. Todas as partições são usadas para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for "6", o estado de integridade das partições com um valor de HealthState OK (2) e Warning (4) retornará.  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
@@ -287,7 +287,7 @@ Obtém as informações de integridade do serviço especificado. Use EventsHealt
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-info"></a>sfctl service info
@@ -300,7 +300,7 @@ Retorna as informações sobre o serviço especificado pertencentes ao aplicativ
 |Argumento|DESCRIÇÃO|
 | --- | --- |
 | --application-id [Obrigatório] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
-| --service-id          [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id          [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -310,7 +310,7 @@ Retorna as informações sobre o serviço especificado pertencentes ao aplicativ
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-list"></a>sfctl service list
@@ -334,7 +334,7 @@ Retorna as informações sobre todos os serviços pertencentes ao aplicativo esp
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
@@ -358,7 +358,7 @@ Obtém o manifesto que descreve um tipo de serviço. A resposta contém o XML do
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-package-deploy"></a>implantar pacotes de serviço sfctl
@@ -382,13 +382,13 @@ Baixa os pacotes associados ao manifesto de serviço especificado para o cache d
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-package-health"></a>pacote de serviço sfctl integridade
 Obtém as informações sobre a integridade de um pacote de serviço para um aplicativo específico implantado em um nó e em um aplicativo do Service Fabric.
 
-Obtém as informações sobre a integridade do pacote de serviço para um aplicativo específico implantado em um nó de malha do serviço. Use EventsHealthStateFilter para filtrar, opcionalmente, a coleção de objetos HealthEvent relatado no pacote de serviço implantado com base no estado de integridade.
+Obtém as informações sobre a integridade do pacote de serviço para um aplicativo específico implantado em um nó do Microsoft Azure Service Fabric. Use EventsHealthStateFilter para filtrar, opcionalmente, a coleção de objetos HealthEvent relatado no pacote de serviço implantado com base no estado de integridade.
 
 ### <a name="arguments"></a>Argumentos
 
@@ -397,7 +397,7 @@ Obtém as informações sobre a integridade do pacote de serviço para um aplica
 | --id do aplicativo [requerido] | A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do aplicativo for "fabric\:/meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo\~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
 | -nome de nó [requerido] | O nome do nó. |
 | -serviço-nome do pacote [requerido] | O nome do pacote de serviço. |
-| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
+| --events-health-state-filter | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são enumerações baseadas no sinalizador. Assim, o valor pode ser uma combinação desses valores obtidos, usando o operador “OR” bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4).  <br> – Default – Valor padrão. Corresponde a qualquer HealthState. O valor é zero.  <br> -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1.  <br> - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2.  <br> -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4.  <br> -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8.  <br> - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -407,7 +407,7 @@ Obtém as informações sobre a integridade do pacote de serviço para um aplica
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-package-info"></a>informações de pacote do serviço sfctl
@@ -431,7 +431,7 @@ Retorna as informações sobre os pacotes de serviço implantado em um nó de ma
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-package-list"></a>lista de pacotes de serviço de sfctl
@@ -454,7 +454,7 @@ Retorna as informações sobre os pacotes de serviço implantado em um nó de ma
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
@@ -466,7 +466,7 @@ Indica para o cluster do Service Fabric que ele deve tentar recuperar o serviço
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -476,7 +476,7 @@ Indica para o cluster do Service Fabric que ele deve tentar recuperar o serviço
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-report-health"></a>relatório de serviço sfctl integridade
@@ -488,16 +488,16 @@ Relata o estado de integridade do serviço de malha do serviço especificado. O 
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --health-property [Obrigatório] | A propriedade de informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir ao relator flexibilidade para categorizar a condição de estado que dispara o relatório. Por exemplo, um relator com SourceId "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para poder relatar a propriedade "AvailableDisk" nesse nó. O mesmo relator pode monitorar a conectividade do nó, para que ele possa relatar a "Conectividade" de uma propriedade no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade distintos para o nó especificado. Junto com a SourceId, a propriedade identifica exclusivamente as informações de integridade. |
+| --health-property [Obrigatório] | A propriedade das informações de integridade. <br><br> Uma entidade pode ter relatórios de integridade para propriedades diferentes. A propriedade é uma cadeia de caracteres e não uma enumeração fixa para permitir ao relator flexibilidade para categorizar a condição de estado que dispara o relatório. Por exemplo, um relator com SourceId "LocalWatchdog" pode monitorar o estado do disco disponível em um nó, para poder relatar a propriedade "AvailableDisk" nesse nó. O mesmo relator pode monitorar a conectividade do nó, para que ele possa relatar a "Conectividade" de uma propriedade no mesmo nó. No repositório de integridade, esses relatórios são tratados como eventos de integridade distintos para o nó especificado. Junto com a SourceId, a propriedade identifica exclusivamente as informações de integridade. |
 | --health-state    [Obrigatório] | Os valores possíveis são\: 'Invalid', 'Ok', 'Warning', 'Error', 'Unknown'. |
 | – id de serviço [requerido] | A identidade do serviço. <br><br> Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço é ' malha\:/myapp/app1/svc1', a identidade de serviço deve ser ' myapp\~app1\~svc1' 6.0 + e ' myapp/app1/svc1' nas versões anteriores. |
-| --source-id       [Obrigatório] | O nome de origem que identifica o componente de sistema/de watchdog de cliente que gera as informações de integridade. |
+| --source-id       [Obrigatório] | O nome de origem que identifica o componente do cliente/watchdog/sistema que gerou as informações de integridade. |
 | --description | A descrição de informações de integridade. <br><br> Ele representa texto livre usado para adicionar informações legíveis humanas sobre o relatório. O tamanho máximo da cadeia de caracteres da descrição é de 4.096 caracteres. Se a cadeia de caracteres fornecida for maior, será truncada automaticamente. Quando truncada, os últimos caracteres da descrição contêm um marcador "[Truncated]", e o tamanho total da cadeia de caracteres é de 4.096 caracteres. A presença do marcador indica aos usuários que o truncamento ocorreu. Observe que, quando truncada, a descrição tem menos de 4.096 caracteres da cadeia de caracteres original. |
-| --immediate | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado a um Aplicativo de gateway do Service Fabric, que encaminha para o repositório de integridade. Se Imediato estiver configurado como true, o relatório será enviado imediatamente do Gateway HTTP para o repositório de integridade, independentemente das configurações do cliente de malha que o Aplicativo de Gateway HTTP estiver usando. Isso é útil para relatórios importantes que precisam ser enviados assim que possível. Dependendo do tempo e de outras condições, enviar o relatório ainda pode falhar se, por exemplo, o Gateway de HTTP estiver fechado ou a mensagem não alcançar o Gateway. Se “Immediate” for definido como false, o relatório é enviado com base nas configurações do cliente de integridade do Gateway de HTTP. Portanto, ele será agrupado de acordo com a configuração de HealthReportSendInterval. Esta é a configuração recomendada, pois ela permite que o cliente de integridade otimize a integridade relatando mensagens para o repositório de integridade, bem como para o processamento de relatório de integridade. Por padrão, relatórios não são enviados imediatamente. |
-| – Remover quando expirado | Valor que indica se o relatório é removido do repositório de integridade quando expirar. <br><br> Se definido como true, o relatório é removido do repositório de integridade depois de expirar. Se definido como false, o relatório é tratado como um erro quando expirado. O valor dessa propriedade é false por padrão. Quando os clientes enviam relatórios periodicamente, devem definir RemoveWhenExpired como false (padrão). Dessa forma, é o gerador de relatórios tem problemas (por exemplo, deadlock) e não pode relatar a entidade é avaliada em erro quando o relatório de integridade expira. Isso sinaliza a entidade como em um estado de integridade de Erro. |
+| --immediate | Um sinalizador que indica se o relatório deve ser enviado imediatamente. <br><br> Um relatório de integridade é enviado a um Aplicativo de gateway do Service Fabric, que encaminha para o repositório de integridade. Se "Immediate" for definido como "true", o relatório será enviado imediatamente do Gateway de HTTP para o repositório de integridade, independentemente das configurações de cliente que o Aplicativo de Gateway de HTTP estiver usando. Isso é útil para relatórios importantes que precisam ser enviados assim que possível. Dependendo do tempo e de outras condições, enviar o relatório ainda pode falhar se, por exemplo, o Gateway de HTTP estiver fechado ou a mensagem não alcançar o Gateway. Se "Immediate" for definido como "false", o relatório será enviado com base nas configurações do cliente de integridade do Gateway de HTTP. Portanto, ele será agrupado de acordo com a configuração de HealthReportSendInterval. Esta é a configuração recomendada, pois ela permite que o cliente de integridade otimize a integridade relatando mensagens para o repositório de integridade, bem como para o processamento de relatório de integridade. Por padrão, relatórios não são enviados imediatamente. |
+| – Remover quando expirado | Valor que indica se o relatório é removido do repositório de integridade quando expirar. <br><br> Se definido como "true", o relatório é removido do repositório de integridade depois de expirar. Se definido como "false", o relatório é tratado como um erro quando expirado. O valor dessa propriedade é "false" por padrão. Quando os clientes enviam relatórios periodicamente, devem definir RemoveWhenExpired como "false" (padrão). Dessa forma, se o gerador de relatórios tiver problemas (por exemplo, um deadlock) e não puder fazer o relatório, a entidade será avaliada como erro quando o relatório de integridade expirar. Isso sinaliza a entidade como em um estado de integridade de Erro. |
 | --sequence-number | O número da sequência para este relatório de integridade como uma cadeia de caracteres numérica. <br><br> O número de sequência de relatório é usado pelo repositório de integridade para detectar relatórios obsoletos. Se não for especificado, um número de sequência será gerado automaticamente pelo cliente de integridade quando um relatório for adicionado. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
-| --ttl | A duração da validade deste relatório de integridade. Este campo está usando o formato ISO8601 para especificar a duração. <br><br> Quando os clientes enviam relatórios periodicamente, devem enviar relatórios com frequência maior do que o tempo de vida. Se os clientes enviam relatórios em transição, podem definir o tempo de vida como infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida assumirá o padrão de infinito. |
+| --ttl | A duração da validade deste relatório de integridade. Este campo está usando o formato ISO8601 para especificar a duração. <br><br> Quando clientes geram relatórios periodicamente, eles devem enviar relatórios com uma frequência maior do que o tempo de vida. Se os clientes gerarem relatórios sobre a transição, poderão definir o tempo de vida como infinito. Quando o tempo de vida expira, o evento de integridade que contém as informações de integridade é removido do repositório de integridade, se RemoveWhenExpired for true, ou recebe uma avaliação de erro, se RemoveWhenExpired for false. Se não for especificado, o tempo de vida terá como padrão o valor infinito. |
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -506,7 +506,7 @@ Relata o estado de integridade do serviço de malha do serviço especificado. O 
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
@@ -518,7 +518,7 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
+| --service-id [Obrigatório] | A identidade do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço for "fabric\:/myapp/app1/svc1", a identidade do serviço será "myapp\~app1\~svc1" na versão 6.0 e superiores, e "myapp/app1/svc1" em versões anteriores. |
 | --partition-key-type | Tipo de chave para a partição. Esse parâmetro é necessário se o esquema de partição para o serviço for Int64Range ou Nomeado. Os valores possíveis são os seguintes. -None (1) - Indica que o parâmetro PartitionKeyValue não foi especificado. Isso é válido para as partições com o esquema de particionamento como Singleton. Esse é o valor padrão. O valor é 1. -Int64Range (2)- Indica que o parâmetro PartitionKeyValue é uma chave de partição int64. Isso é válido para as partições com o esquema de particionamento como Int64Range. O valor é 2. -Named (3) - Indica que o parâmetro PartitionKeyValue é um nome da partição. Isso é válido para as partições com o esquema de particionamento como Named. O valor é 3. |
 | --partition-key-value | Chave de partição. Isso é necessário se o esquema de partição para o serviço for Int64Range ou Named. |
 | --previous-rsp-version | O valor no campo Versão da resposta recebida anteriormente. Isso será necessário se o usuário souber que o resultado obtido anteriormente está obsoleto. |
@@ -531,7 +531,7 @@ Resolve uma partição de serviço do Service Fabric, para obter os pontos de ex
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-type-list"></a>lista de tipo de serviço de sfctl
@@ -554,7 +554,7 @@ Obtém a lista que contém as informações sobre os tipos de serviço compatív
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
 
 ## <a name="sfctl-service-update"></a>sfctl service update
@@ -564,22 +564,22 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 
 |Argumento|DESCRIÇÃO|
 | --- | --- |
-| --service-id          [Obrigatório] | A ID do serviço. Essa ID normalmente é o nome completo do serviço sem o ' malha\:' esquema de URI. A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço é ' malha\:/myapp/app1/svc1', a identidade de serviço deve ser ' myapp\~app1\~svc1' 6.0 + e ' myapp/app1/svc1' nas versões anteriores. |
+| --service-id          [Obrigatório] | A identidade do serviço. Normalmente, é o nome completo do serviço sem o esquema de URI "fabric\:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "\~". Por exemplo, se o nome do serviço é ' malha\:/myapp/app1/svc1', a identidade de serviço deve ser ' myapp\~app1\~svc1' 6.0 + e ' myapp/app1/svc1' nas versões anteriores. |
 | --constraints | As restrições de posicionamento como uma cadeia de caracteres. As restrições de posicionamento são expressões boolianas nas propriedades de nó, e permitem restringir um serviço a nós específicos com base nos requisitos do serviço. Por exemplo, para posicionar um serviço em nós nos quais NodeType é azul, especifique o seguinte\:: "NodeColor == blue". |
 | --correlated-service | Nome do serviço de destino com o qual correlacionar. |
 | --correlation | Correlaciona o serviço com um serviço existente usando uma afinidade de alinhamento. |
 | --instance-count | A contagem de instâncias. Aplica-se apenas a serviços sem estado. |
 | --load-metrics | Lista de métricas codificadas em JSON usadas ao balancear as cargas entre os nós. |
-| --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Esse tamanho de conjunto aplica-se apenas a serviços com monitoração de estado. |
+| --min-replica-set-size | O tamanho mínimo do conjunto de réplicas como um número. Aplica-se apenas a serviços com estado. |
 | --move-cost | Especifica o custo da mudança para o serviço. Os valores possíveis são\:: "Zero", "Low", "Medium", "High". |
 | --placement-policy-list | Lista codificada por JSON de políticas de posicionamento para o serviço e quaisquer nomes de domínio associados. As políticas podem ser uma ou mais dentre estas: \:, `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Esta duração aplica-se apenas a serviços com monitoração de estado. |
-| --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Esta duração aplica-se apenas a serviços com monitoração de estado. |
+| --quorum-loss-wait | A duração máxima, em segundos, durante a qual uma partição é permitida em um estado de perda de quorum. Aplica-se apenas a serviços com estado. |
+| --replica-restart-wait | A duração, em segundos, entre a inatividade de uma réplica e a criação de uma nova réplica. Aplica-se apenas a serviços com estado. |
 | -políticas de dimensionamento | Lista de políticas para esse serviço de dimensionamento codificados para JSON. |
-| --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Esta duração aplica-se apenas a serviços com monitoração de estado. |
+| --stand-by-replica-keep | A duração máxima, em segundos, para qual espera réplicas serão mantidas antes de serem removidos. Aplica-se apenas a serviços com estado. |
 | --stateful | Indica que o serviço de destino tem estado. |
 | --stateless | Indica que o serviço de destino não tem estado. |
-| --target-replica-set-size | O tamanho do conjunto de réplicas de destino como um número. Esse tamanho de conjunto aplica-se apenas a serviços com monitoração de estado. |
+| --target-replica-set-size | O tamanho do conjunto de réplicas de destino como um número. Aplica-se apenas a serviços com estado. |
 | --timeout -t | Tempo limite do servidor em segundos.  Padrão\: 60. |
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -589,8 +589,9 @@ Atualiza o serviço especificado usando a descrição de atualização fornecida
 | --debug | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração. |
 | --help -h | Mostrar esta mensagem de ajuda e sair. |
 | --output -o | O formato da saída.  Valores permitidos\: json, jsonc, tabela, tsv.  Padrão\: json. |
-| --query | Cadeia de caracteres de consulta JMESPath. Consulte http\://jmespath.org/ para obter mais informações e exemplos. |
+| --query | Cadeia de caracteres de consulta JMESPath. Veja http\://jmespath.org/ para saber mais e obter exemplos. |
 | --verbose | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Configurar](service-fabric-cli.md) a CLI do Service Fabric.

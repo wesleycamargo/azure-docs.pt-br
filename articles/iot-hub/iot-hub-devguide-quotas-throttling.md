@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004764"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525545"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -43,7 +43,7 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Leituras de (dispositivos e módulos) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Atualizações de (dispositivo e módulo) gêmeos <sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Operações de trabalhos<sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
-| Taxa de transferência de operação de trabalhos por dispositivo<sup>1</sup> | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
+| Operações de dispositivo de trabalhos<sup>1</sup> <br/> (atualizar gêmeos, invocar o método direto) | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
 | Configurações e implantações de borda <sup>1</sup> <br/> (criar, atualizar, listar, excluir) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) | 0,33/s/unidade (20/min/unidade) |
 
 

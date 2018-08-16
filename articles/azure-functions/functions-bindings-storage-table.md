@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345898"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523658"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Associações de armazenamento de tabelas do Azure Functions
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Entrada - exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo *function.json* e [código JavaScript] (functions-reference-node.md) que usa a associação. A função usa um gatilho de fila para ler uma linha da tabela. 
+O exemplo a seguir mostra uma associação de entrada de tabela em um arquivo*function.json* e o código [JavaScript](functions-reference-node.md) que usa a associação. A função usa um gatilho de fila para ler uma linha da tabela. 
 
 O arquivo *function.json* especifica um `partitionKey` e um `rowKey`. O `rowKey` valor “{queueTrigger}” indica que a chave de linha foi obtida da cadeia de caracteres da mensagem da fila.
 

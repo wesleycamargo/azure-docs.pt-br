@@ -4,7 +4,7 @@ description: Entenda como usar associações dos Hubs de Eventos do Azure no Azu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: cd5c3316fd41bbd10d4469a6551ae7bd76a881c8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345431"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480930"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associações de Hubs de Eventos do Azure para o Azure Functions
 
@@ -337,8 +337,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo** | n/d | Deve ser definido como `eventHubTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
 |**direction** | n/d | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o item de evento no código de função. | 
-|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
-|**eventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
+|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. | 
+|**eventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
 |**consumerGroup** |**ConsumerGroup** | É uma propriedade opcional que define o [grupo de consumidores ](../event-hubs/event-hubs-features.md#event-consumers) usado para assinar eventos no hub. Se omitido, o grupo de consumidores `$Default` será usado. | 
 |**cardinalidade** | n/d | Para JavaScript. Definido como `many` para habilitar o envio em lote.  Se omitido ou definido como `one`, uma única mensagem será passada para a função. | 
 |**conexão** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), não no próprio hub de eventos. Essa cadeia de conexão deve ter, pelo menos, permissões de leitura para ativar o gatilho.|
@@ -557,8 +557,8 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**tipo** | n/d | Deve ser definido como "eventHub". |
 |**direction** | n/d | Deve ser definido como "out". Esse parâmetro é definido automaticamente quando você cria a associação no portal do Azure. |
 |**name** | n/d | É o nome da variável usada no código da função que representa o evento. | 
-|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos.  | 
-|**eventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos.  |
+|**path** |**EventHubName** | Funciona apenas 1. x. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. | 
+|**eventHubName** |**EventHubName** | Funciona apenas 2. x. O nome do hub de eventos. Quando o nome do hub de eventos também estiver presente na cadeia de conexão, esse valor substitui essa propriedade em tempo de execução. |
 |**conexão** |**Conexão** | É o nome de uma configuração de aplicativo que contém a cadeia de conexão para o namespace do hub de eventos. Copie essa cadeia de conexão clicando no botão **Informações de Conexão** do *namespace*, não no próprio hub de eventos. Essa cadeia de conexão deve ter permissões de envio para enviar a mensagem à transmissão do evento.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

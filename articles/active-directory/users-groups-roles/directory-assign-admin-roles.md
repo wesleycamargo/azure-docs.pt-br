@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399933"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505504"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 
 Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Os administradores podem ser designados no portal do Azure AD para realizar tarefas como adicionar ou alterar os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio.
 
 ## <a name="details-about-the-global-administrator-role"></a>Detalhes sobre a função de administrador global
+
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de administrador global para o diretório. Somente os administradores globais podem atribuir outras funções de administrador.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
+
 Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Atribuir um usuário a funções de administrador no Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Funções disponíveis
+
 As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de Aplicativos](#application-administrator)**: usuários nesta função podem criar e gerenciar todos os aspectos de aplicativos corporativos, registros de aplicativo e as configurações de proxy de aplicativo. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os membros dessa função não são adicionados como proprietários, ao criar novos registros de aplicativo ou aplicativos empresariais.
@@ -48,13 +51,13 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
   
-* **[Administradores do Dispositivo](#device-administrators)**: os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
+* **[Administradores de dispositivo](#device-administrators)**: essa função está disponível para atribuição apenas como um administrador local adicional nas [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory. 
 
-* **[Leitores de Diretório](#directory-readers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/active-directory-integrating-applications.md). Ele não deve ser atribuído a nenhum usuário.
+* **[Leitores de Diretório](#directory-readers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
 
 * **[Contas de Sincronização de Diretório](#directory-synchronization-accounts)**: não use. Essa função é automaticamente atribuída ao serviço do Azure AD Connect e não tem intenção ou suporte para outros usos.
 
-* **[Gravadores de Diretório](#directory-writers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/active-directory-integrating-applications.md). Ele não deve ser atribuído a nenhum usuário.
+* **[Gravadores de Diretório](#directory-writers)**: esta é uma função herdada que deve ser atribuída aos aplicativos que não dão suporte a [Estrutura de Consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Ele não deve ser atribuído a nenhum usuário.
 
 * **[ Administrador de serviço do Dynamics 365 / CRM Service Administrator](#dynamics-365-service-administrator)**: os usuários com essa função têm permissões globais no Microsoft Dynamics 365 Online, quando o serviço está presente, bem como a capacidade de gerenciar tickets de suporte e monitorar a saúde do serviço. Mais informações em [usar a função de administrador de serviço para gerenciar seu locatário](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
@@ -353,15 +356,13 @@ Pode gerenciar os recursos de acesso condicional.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Atualize a propriedade ConditionalAccessPolicys.Owners no Azure Active Directory. |
 
 ### <a name="device-administrators"></a>Administradores de Dispositivo
-Os membros dessa função são adicionados ao grupo Administradores local em dispositivos que ingressaram no AD do Azure.
+
+Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
   > [!NOTE]
   > Essa função herda permissões adicionais da [função de usuário](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
   >
   >
-
-| **Ações** | **Descrição** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>Leitores de Diretório
 Pode ler informações básicas do diretório. Solucionar problemas de acesso a aplicativos.

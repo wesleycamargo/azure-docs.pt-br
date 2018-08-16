@@ -1,6 +1,6 @@
 ---
-title: Configurar o LDAP Seguro (LDAPS) nos Serviços de Domínio do Azure AD |Microsoft Docs
-description: Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos Serviços de Domínio do Azure AD
+title: Criar um certificado LDAP seguro para um Azure AD Domain Services gerenciar o domínio | Microsoft Docs
+description: Criar um certificado LDAP seguro para um Azure AD Domain Services gerenciar o domínio
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,26 +12,26 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/30/2017
+ms.topic: conceptual
+ms.date: 08/01/2017
 ms.author: maheshu
-ms.openlocfilehash: d2c7bd8b335ce49bed8e39812cccbe7ab474bf8f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d34da3c7a32a9fd425e30880ba9bc808d9d2bab1
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211519"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505977"
 ---
-# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
+# <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Criar um. Arquivo PFX, com o certificado LDAPS (LDAP) seguro para um domínio gerenciado
 
 ## <a name="before-you-begin"></a>Antes de começar
-Não deixe de concluir a [Tarefa 1 – obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
+Concluir [Tarefa 1: obter um certificado para LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
 
-## <a name="task-2---export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2 – exportar o certificado LDAP seguro para um arquivo .PFX
-Antes de iniciar esta tarefa, verifique se você obteve o certificado LDAP seguro de sua autoridade de certificação pública ou se criou um certificado autoassinado.
+## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2 – exportar o certificado LDAP seguro para um arquivo .PFX
+Antes de iniciar esta tarefa,obtenha o certificado LDAP seguro de sua autoridade de certificação pública ou se criou um certificado autoassinado.
 
-Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PFX.
+Para exportar o certificado LDAPS para um. arquivo .PFX:
 
 1. Pressione o botão **Iniciar** e digite **R**. Na caixa de diálogo **Executar**, digite **mmc** e clique em **OK**.
 
@@ -55,7 +55,7 @@ Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PF
 8. Na janela do MMC, clique para expandir **Raiz do Console**. Você deve ver o snap-in de Certificados carregado. Clique em **Certificados (Computador Local)** para expandir. Clique para expandir o nó **Pessoal**, seguido pelo nó **Certificados**.
 
     ![Abrir repositório de certificados pessoais](./media/active-directory-domain-services-admin-guide/secure-ldap-open-personal-store.png)
-9. Você deve ver o certificado autoassinado que acabamos de criar. É possível examinar as propriedades do certificado para garantir que a impressão digital corresponda àquela relatada nas janelas do PowerShell quando você criou o certificado.
+9. Você deve ver o certificado autoassinado que acabamos de criar. É possível examinar as propriedades do certificado para verificar que a impressão digital corresponda àquela relatada nas janelas do PowerShell quando você criou o certificado.
 10. Escolha o certificado autoassinado e **clique com o botão direito do mouse**. No menu de clique com o botão direito do mouse, escolha **Todas as Tarefas** e **Exportar...**.
 
     ![Exportar o certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
@@ -70,6 +70,7 @@ Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PF
     > Você DEVE exportar a chave privada junto com o certificado. Se você fornecer um PFX que não contém a chave privada do certificado, a habilitação do LDAP seguro para seu domínio gerenciado falhará.
     >
     >
+
 13. Na página **Exportar Formato de Arquivo**, escolha **Personal Information Exchange – PKCS #12 (.PFX)** como o formato de arquivo para o certificado exportado.
 
     ![Formato de arquivo de Exportar certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-to-pfx.png)
@@ -78,7 +79,8 @@ Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PF
     > Somente o formato de arquivo .PFX tem suporte. Não exporte o certificado para o formato de arquivo .CER.
     >
     >
-14. Na página **Segurança**, escolha a opção **Senha** e digite uma senha para proteger o arquivo .PFX. Guarde essa senha, pois ela será necessária na próxima tarefa. Clique em **Avançar** para continuar.
+
+14. Na página **Segurança**, escolha a opção **Senha** e digite uma senha para proteger o arquivo .PFX. Guarde essa senha, pois ela será necessária na próxima tarefa. Clique em **Próximo**.
 
     ![Senha para exportação de certificado ](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-password.png)
 
@@ -86,6 +88,7 @@ Execute as etapas a seguir para exportar o certificado LDAPS para um arquivo .PF
     > Anote essa senha. Você precisará dela ao habilitar o LDAP seguro para este domínio gerenciado na [Tarefa 3 – habilitar o LDAP seguro para o domínio gerenciado](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
     >
     >
+
 15. Na página **Arquivo a ser Exportado** , especifique o nome do arquivo e o local para onde você deseja exportar o certificado.
 
     ![Caminho para exportação de certificado](./media/active-directory-domain-services-admin-guide/secure-ldap-export-select-path.png)

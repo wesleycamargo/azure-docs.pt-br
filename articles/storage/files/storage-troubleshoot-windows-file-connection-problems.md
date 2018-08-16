@@ -2,24 +2,19 @@
 title: Solucionar problemas de Arquivos do Azure no Windows | Microsoft Docs
 description: Solução de problemas de Arquivos do Azure no Windows
 services: storage
-documentationcenter: ''
-author: wmgries
-manager: aungoo
-editor: tamram
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 18f594586aa95afaa01bfda712dfc23c8aad3a36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738540"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528991"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucionar problemas de Arquivos do Azure no Windows
 
@@ -98,7 +93,7 @@ Reduza o número de identificadores abertos simultâneos fechando alguns identif
 
 Você pode ver o desempenho lento ao tentar transferir arquivos para o Serviço de Arquivos do Azure.
 
-- Se você não tem um requisito de tamanho de E/S mínimo específico, recomendamos que você use 1 MB de tamanho de E/S para um desempenho ideal.
+- Se você não tiver um requisito mínimo de tamanho de E / S específico, recomendamos usar 1 MiB como o tamanho de E / S para um desempenho ideal.
 -   Se você sabe o tamanho final de um arquivo que você está estendendo com gravações e o seu software não tem problemas de compatibilidade com o final ainda não escrito desse arquivo que contém zeros, defina o tamanho do arquivo antecipadamente em vez de realizar cada gravação como uma gravação de extensão.
 -   Use o método de cópia correto:
     -   Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.

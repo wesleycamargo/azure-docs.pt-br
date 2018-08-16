@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264248"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426686"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 Quando um alerta [é criado no Azure ](monitor-alerts-unified-usage.md), você tem a opção de [configurar usando grupos de ações](monitoring-action-groups.md) para executar uma ou mais ações.  Este artigo descreve as diferentes ações do webhook que estão disponíveis e os detalhes sobre a configuração do webhook baseado em JSON personalizado.
@@ -53,6 +53,8 @@ Webhooks incluem uma URL e uma carga formatada em JSON, que são os dados enviad
 | ID do aplicativo |#applicationid |ID do seu aplicativo Application Insight. |
 | ID da assinatura |#subscriptionid |ID da sua assinatura do Azure usado com o Application Insights. 
 
+> [!NOTE]
+> O LinkToSearchResults passa parâmetros como os tempos de Search Interval StartTime & Search Interval End time na URL para o portal do Azure para visualização na seção de análise. O portal do Azure tem limite de tamanho do URI de aproximadamente 2000 caracteres e será aberto se os valores de parâmetros excederem o limite mencionado. Os usuários podem inserir manualmente os detalhes para exibir os resultados no portal de análise ou usar o [API REST do Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [API REST do Log Analytics](https://dev.loganalytics.io/reference) para recuperar os resultados por meio de programação 
 
 Por exemplo, você pode especificar a seguinte carga personalizada que inclui um único parâmetro chamado *text*.  O serviço chamado por esse webhook seria esperaria receber esse parâmetro.
 
