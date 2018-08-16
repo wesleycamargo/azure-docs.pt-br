@@ -3,7 +3,7 @@ title: Integrando o Apache Spark com Hubs de Eventos do Azure | Microsoft Docs
 description: Integrar com o Apache Spark para habilitar o Streaming estruturado com Hubs de Eventos
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
-ms.author: sethm
-ms.openlocfilehash: 9f1cf75fdea1dd7f5842c2efdaeca663d611065c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: 301770d8950d820ddace6e47eac8cab5950b7ac8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626914"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004575"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Integrando o Apache Spark com Hubs de Eventos
 
@@ -28,7 +28,7 @@ Este artigo descreve como criar um aplicativo contínuo no [Azure Databricks](ht
 
 O exemplo neste artigo usa dois blocos de anotações Scala, um para transmitir eventos de um hub de eventos e outro para enviar eventos de volta para ele.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se não tiver uma, [crie uma conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Uma instância de Hubs de Eventos. [Crie uma](event-hubs-create.md) se ainda não tiver feito isso.
