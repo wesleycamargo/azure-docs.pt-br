@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado da v5 para a v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/Sugestões.
+- O número de versão do ponto de extremidade foi alterado da v5 para a v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Sugestões.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 

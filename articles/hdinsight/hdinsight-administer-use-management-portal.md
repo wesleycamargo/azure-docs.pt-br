@@ -273,7 +273,7 @@ O console de Consulta do HDInsight inclui os seguintes recursos:
 
     ![histórico de trabalhos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e **Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
+    Clique em **Nome da Consulta** para mostrar os detalhes, incluindo propriedades do trabalho, **Consulta de Trabalho** e \*\*Saída do Trabalho. Você também pode baixar a consulta e a saída para sua estação de trabalho.
 * **Navegador de Arquivos**: procure a conta de armazenamento padrão e as contas de armazenamento vinculadas.
 
     ![Pesquisa do navegador de arquivos do portal do HDInsight](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)

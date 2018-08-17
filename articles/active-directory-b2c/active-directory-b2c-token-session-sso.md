@@ -29,7 +29,7 @@ Esse recurso oferece um controle refinado, com base [em cada política](active-d
 Para políticas internas, você pode usar esse recurso em seu diretório do Azure AD B2C da seguinte maneira:
 
 1. Execute estas etapas para [navegar até o menu de recursos do B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) no Portal do Azure.
-2. Clique em **Políticas de inscrição ou de entrada**. *Observação: é possível utilizar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada ou inscrição***.
+2. Clique em **Políticas de inscrição ou de entrada**. *Observação: é possível utilizar esse recurso em qualquer tipo de política, não apenas em **Políticas de entrada ou inscrição*\*\*.
 3. Clique em uma política para abri-la. Por exemplo, clique em **B2C_1_SiUpIn**.
 4. Clique em **Editar** na parte superior do menu.
 5. Clique em **Configuração de token, de sessão e de logon único**.
