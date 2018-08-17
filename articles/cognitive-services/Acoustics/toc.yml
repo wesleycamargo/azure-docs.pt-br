@@ -1,0 +1,32 @@
+items:
+- name: Documentação do Projeto Acústico
+- name: Visão geral
+  items:
+  - name: O que é Projeto Acústico?
+    href: what-is-acoustics.md
+- name: Guia de início rápido
+  items:
+  - name: Introdução
+    href: getting-started.md
+- name: Instruções
+  items:
+  - name: Criar uma Conta de Lote do Azure
+    href: create-azure-account.md
+  - name: Preparar Acústico
+    href: bake-ui-walkthrough.md
+  - name: Planejar Acústico
+    href: design-process.md
+- name: Recursos
+  items:
+  - name: Cena de Exemplo do Acústico
+    href: sample-walkthrough.md
+  - name: Perguntas frequentes
+    href: faq.md
+  - name: Problemas conhecidos
+    href: known-issues.md
+ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40181820"
