@@ -1,46 +1,53 @@
+items:
 - name: Documentação do Video Indexer
 - name: Visão geral
   items:
-    - name: O que é o Video Indexer?
-      href: video-indexer-overview.md
-    - name: Conceitos
-      href: video-indexer-concepts.md
+  - name: O que é o Video Indexer?
+    href: video-indexer-overview.md
+  - name: Conceitos
+    href: video-indexer-concepts.md
 - name: Guia de início rápido
-  expanded: true
   items:
-    - name: Introdução
-      href: video-indexer-get-started.md
+  - name: Introdução
+    href: video-indexer-get-started.md
+  expanded: true
 - name: Guias de como fazer
   items:
-    - name: Migrar de v1 para v2
-      href: migrate-from-v1-to-v2.md
-    - name: Conecte-se ao Azure
-      href: connect-to-azure.md
-    - name: Usar a API do Video Indexer
-      href: video-indexer-use-apis.md
-    - name: Usar a API para carregar e indexar vídeos
-      href: upload-index-videos.md
-    - name: Examinar a saída do Video Indexer
-      href: video-indexer-output-json-v2.md
-    - name: Localizar os minutos exatos nos vídeos
-      href: video-indexer-search.md
-    - name: Exibir e editar informações do Video Indexer
-      href: video-indexer-view-edit.md
-    - name: Criar informações de vídeo de vídeos existentes
-      href: video-indexer-create-new.md
-    - name: Inserir widgets em seu aplicativo
-      href: video-indexer-embed-widgets.md
+  - name: Migrar de v1 para v2
+    href: migrate-from-v1-to-v2.md
+  - name: Conecte-se ao Azure
+    href: connect-to-azure.md
+  - name: Usar a API do Video Indexer
+    href: video-indexer-use-apis.md
+  - name: Usar a API para carregar e indexar vídeos
+    href: upload-index-videos.md
+  - name: Examinar a saída do Video Indexer
+    href: video-indexer-output-json-v2.md
+  - name: Localizar os minutos exatos nos vídeos
+    href: video-indexer-search.md
+  - name: Exibir e editar informações do Video Indexer
+    href: video-indexer-view-edit.md
+  - name: Criar informações de vídeo de vídeos existentes
+    href: video-indexer-create-new.md
+  - name: Inserir widgets em seu aplicativo
+    href: video-indexer-embed-widgets.md
 - name: Referência
   items:
-    - name: API do Video Indexer
-      href: 'https://api-portal.videoindexer.ai/'
+  - name: API do Video Indexer
+    href: https://api-portal.videoindexer.ai/
 - name: Recursos
   items:
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598144-video-indexer
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+ms.openlocfilehash: e35a8352b1ba352c931c66e6c384527d3182c707
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344385"
