@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344742"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714444"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>O que é o controle de acesso baseado em função (RBAC)?
 
@@ -79,16 +79,15 @@ O Azure introduziu as operações de dados (atualmente em versão prévia) que p
 
 *Escopo* é o limite ao qual o acesso se aplica. Quando você atribui uma função, você pode limitar ainda mais as ações permitidas definindo um escopo. Isso será útil se você quiser tornar alguém um [colaborador do site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
-No Azure, você pode especificar um escopo em vários níveis: assinatura, grupo de recursos ou recurso. Escopos são estruturados em uma relação pai-filho no qual todos os filhos terão apenas um pai.
+No Azure, você pode especificar um escopo em vários níveis: [grupo de gerenciamento](../azure-resource-manager/management-groups-overview.md), assinatura, grupo de recursos ou recurso. Os escopos são estruturados em uma relação pai-filho.
 
 ![Escopo para uma atribuição de função](./media/overview/rbac-scope.png)
 
-O acesso que você atribui a um escopo pai é herdado no escopo filho. Por exemplo:
+Quando você concede acesso a um escopo pai, essas permissões são herdadas pelos escopos filho. Por exemplo: 
 
+- Se você atribuir a função [Proprietário](built-in-roles.md#owner) a um usuário no escopo do grupo de gerenciamento, esse usuário poderá gerenciar tudo em todas as assinaturas no grupo de gerenciamento.
 - Se você atribuir a função [Leitor](built-in-roles.md#reader) função a um grupo no escopo da assinatura, os membros desse grupo pode exibir todos os grupo de recursos e recursos na assinatura.
 - Se você atribuir a função [Colaborador](built-in-roles.md#contributor) a um aplicativo no escopo do grupo de recursos, ele pode gerenciar recursos de todos os tipos nesse mesmo grupo de recursos, mas não em outros grupos de recursos na assinatura.
-
-O Azure também inclui um escopo acima das assinaturas chamado [grupos de gerenciamento](../azure-resource-manager/management-groups-overview.md), que está em versão prévia. Grupos de gerenciamento são uma maneira de gerenciar várias assinaturas. Quando você especifica o escopo para o RBAC, você pode especificar um grupo de gerenciamento ou especificar uma assinatura, grupo de recursos ou hierarquia de recursos.
 
 ### <a name="role-assignment"></a>Atribuição de função
 

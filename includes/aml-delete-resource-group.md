@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574951"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513936"
 ---
-Se você não pretende continuar a usar este aplicativo, exclua todos os recursos criados por esse início rápido com as seguintes etapas para não incorrer em alterações:
+>[!IMPORTANT]
+>Os recursos que você criou podem ser usados como pré-requisitos em outros tutoriais e artigos de instruções do Azure Machine Learning. 
 
->[!NOTE]
->Esses recursos são úteis na hora de acompanhar outros tutoriais do serviço Azure Machine Learning.
+
+Se você não pretende usar o que criou aqui, exclua os recursos que acabou de criar com este início rápido para não incorrer em encargos.
 
 1. No portal do Azure, selecione **Grupos de recursos** no canto esquerdo.  
  
    ![Exclusão no Portal do Azure](./media/aml-delete-resource-group/delete-resources.png)
 
-2. Na lista de grupos de recursos, selecione o grupo de recursos que você criou e, em seguida, clique em **Excluir grupo de recursos**.
+1. Selecione o grupo de recursos criado na lista.
 
-3. Digite o nome do grupo de recursos a ser excluído e então clique em **Excluir**.
+1. Selecione **Excluir grupo de recursos**.
 
+1. Digite o nome do grupo de recursos e selecione **Excluir**.
+
+   Se você receber o erro "Não é possível excluir o recurso antes que os recursos aninhados sejam excluídos", primeiro exclua todos os recursos aninhados. [Consulte esta seção de solução de problemas](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) para obter detalhes. 
