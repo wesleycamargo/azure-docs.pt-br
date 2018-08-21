@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448694"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716137"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Gerenciar o acesso do usuário no Azure AD B2C
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerenciar o acesso do usuário no Azure Active Directory B2C
 
 Este artigo descreve como gerenciar o acesso do usuário aos seus aplicativos usando o B2C do Azure Active Directory (Azure AD). O gerenciamento de acesso no seu aplicativo inclui:
 
@@ -27,9 +27,6 @@ Este artigo descreve como gerenciar o acesso do usuário aos seus aplicativos us
 - Capturando um contrato de termos de uso e restrição de acesso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->Este artigo fornece informações que você pode usar para dar suporte às suas obrigações no GDPR. Se você estiver buscando informações gerais sobre o GDPR, confira a [Seção do GDPR do portal de Confiança do Serviço](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="control-minor-access"></a>Controle de acesso de menor
 
@@ -109,7 +106,7 @@ As etapas a seguir descrevem como você pode gerenciar os termos de uso:
 Você pode capturar os termos de uso de aceitação nos seguintes cenários:
 
 - Um novo usuário está se inscrevendo. Os termos de uso são exibidos, e o resultado de aceitação é armazenado.
-- Um usuário está entrando que já aceitou o contrato mais recente ou ativo. Os termos de uso não são exibidos.
+- Um usuário está fazendo login e aceitou os termos de uso mais recentes ou ativos. Os termos de uso não são exibidos.
 - Um usuário está entrando que ainda não aceitou os termos de uso mais recentes ou ativos. Os termos de uso são exibidos, e o resultado de aceitação é armazenado.
 - Um usuário está fazendo login e já aceitou uma versão mais antiga dos termos de uso, que agora são atualizados para a versão mais recente. Os termos de uso são exibidos, e o resultado de aceitação é armazenado.
 

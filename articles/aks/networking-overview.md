@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216097"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714665"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuração de rede no Serviço do Kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ Quando você cria um cluster Serviço do Kubernetes do Azure (AKS), você pode s
 
 ## <a name="basic-networking"></a>Rede básica
 
-A opção de rede **básica** é a configuração padrão para a criação de cluster AKS. A configuração de rede do cluster e seus pods são totalmente gerenciadas pelo Azure e é adequada para implantações que não necessitam de configuração de rede virtual personalizada. Você não tem controle sobre a configuração de rede, como sub-redes ou intervalos de endereço IP atribuídos ao cluster quando você seleciona a rede básica.
+A opção de rede **básica** é a configuração padrão para a criação de cluster AKS. A configuração de rede do cluster e seus pods é gerenciada completamente pelo Azure e é apropriada para implantações que não exigem configuração personalizada de VNet. Você não tem controle sobre a configuração de rede, como sub-redes ou intervalos de endereço IP atribuídos ao cluster quando você seleciona a rede básica.
 
 Os nós em um cluster AKS configurado para o uso básico de rede o plug-in do Kubernetes [kubenet][kubenet].
 
@@ -97,15 +97,14 @@ A criar um cluster do AKS, os parâmetros a seguir serão configuráveis para re
 
 **Subrede**: A sub-rede na VNet onde você deseja implantar o cluster. Se você quiser criar uma nova sub-rede na VNet para o cluster, selecione *Criar nova* e siga as etapas na seção *Criar sub-rede*.
 
-**Intervalo de endereços de serviço Kubernetes**: o *Intervalo de endereços de serviço Kubernetes* é o intervalo de IP do qual os endereços são atribuídos aos serviços Kubernetes em seu cluster (para saber mais sobre os serviços Kubernetes, confira [ Serviços][services] na documentação do Kubernetes).
-
-Intervalo de endereços IP do serviço Kubernetes:
+**Intervalo de endereços do serviço do Kubernetes**: este é o conjunto de IPs virtuais que o Kubernetes atribui aos [serviços][services] do seu cluster. Você pode usar qualquer intervalo de endereço particular que atenda aos seguintes requisitos:
 
 * Não deve estar dentro do intervalo de endereços IP VNet do seu cluster
 * Não deve sobrepor quaisquer outras VNets com as quais a VNet do cluster emparelhe
 * Não deve sobrepor IPs locais
+* Não deve estar dentro dos intervalos `169.254.0.0/16`, `172.30.0.0/16` ou `172.31.0.0/16`
 
-Um comportamento imprevisível pode ocorrer se forem usados intervalos de IP sobrepostos. Por exemplo, se um pod tenta acessar um IP fora do cluster, e esse IP também é um IP do serviço, você poderá enfrentar falhas e comportamentos imprevisíveis.
+Embora seja tecnicamente possível especificar um intervalo de endereço de serviço dentro da mesma rede virtual que o cluster, isso não é recomendado. Um comportamento imprevisível pode ocorrer se forem usados intervalos de IP sobrepostos. Para mais informações, consulte a seção [FAQ](#frequently-asked-questions) deste artigo. Para obter mais informações sobre os serviços do Kubernetes, consulte [Serviços][services] na documentação do Kubernetes.
 
 **Endereço IP do serviço DNS do Kubernetes**: O endereço IP para o serviço DNS do cluster. Esse endereço deve estar dentro do *intervalo de endereços do serviço do Kubernetes*.
 
@@ -154,6 +153,10 @@ As perguntas e respostas a seguir se aplicam à configuração de rede **avança
 * *Como configurar propriedades adicionais para a sub-rede que criei durante a criação do cluster AKS? Por exemplo, pontos de extremidade do serviço.*
 
   A lista completa de propriedades para a VNet e sub-redes que você criar durante a criação do cluster AKS pode ser configurada na página de configuração de VNet padrão no portal do Azure.
+
+* *Posso usar uma sub-rede diferente na VNet do meu cluster para o* **intervalo de endereços de serviço do Kubernetes**?
+
+  Não é recomendado, mas essa configuração é possível. O intervalo de endereços de serviço é um conjunto de IPs virtuais (VIPs) que o Kubernetes atribui aos serviços em seu cluster. O Azure Networking não tem visibilidade do intervalo de IP de serviço do cluster do Kubernetes. Devido à falta de visibilidade no intervalo de endereços de serviço do cluster, é possível criar posteriormente uma nova sub-rede na VNet do cluster que se sobrepõe ao intervalo de endereços de serviço. Se tal sobreposição ocorrer, o Kubernetes poderá atribuir um serviço a um IP que já esteja em uso por outro recurso na sub-rede, causando comportamento ou falhas imprevisíveis. Ao garantir que você use um intervalo de endereços fora da rede virtual do cluster, é possível evitar esse risco de sobreposição.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412405"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716256"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implantar Autenticação Multifator do Microsoft Azure baseada em nuvem
 
@@ -30,7 +30,7 @@ Antes de iniciar, verifique se os pré-requisitos a seguir são cumpridos :
 
 **Habilitado pela política de acesso condicional** - Este método é abordado neste artigo. É o meio mais flexível para habilitar a verificação em duas etapas para os usuários. Habilitar usando política de acesso condicional somente funciona para Azure MFA na nuvem e é um recurso premium do Azure AD.
 
-Habilitado pelo Azure AD Identity Protection - Esse método usa a política de risco do Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos na nuvem. Este método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins)
+Habilitado pelo Azure AD Identity Protection - Esse método usa a política de risco do Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos na nuvem. Este método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
 Habilitado alterando o estado do usuário - esse é o método tradicional para exigir a verificação em duas etapas. Ele funciona tanto para MFA do Azure na nuvem como Servidor de MFA do Azure. O uso desse método exigirá que os usuários realizem a verificação em duas etapas **sempre que** entrarem e substituírem as políticas de acesso condicional. Mais informações sobre esse método podem ser encontradas em [Como exigir a verificação em duas etapas para um usuário](howto-mfa-userstates.md)
 
@@ -109,3 +109,5 @@ Parabéns, você configurou a Autenticação Multifator do Microsoft Azure na nu
 Para definir configurações adicionais, como IPs confiáveis, mensagens de voz personalizadas e alertas de fraudes, consulte o artigo [Definir configurações de Autenticação Multifator do Microsoft Azure](howto-mfa-mfasettings.md)
 
 Informações sobre como gerenciar configurações de usuário para Autenticação Multifator do Microsoft Azure podem ser encontradas no artigo [Gerenciar configurações do usuário com Autenticação Multifator do Microsoft Azure na nuvem](howto-mfa-userdevicesettings.md)
+
+[Habilitar registro convergido para a Autenticação Multifator do Microsoft Azure Active Directory e a redefinição de senha por autoatendimento do Microsoft Azure AD](concept-registration-mfa-sspr-converged.md)

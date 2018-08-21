@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210917"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715273"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
@@ -36,14 +36,14 @@ Conceitos que você precisa entender para seleção de camada incluem definiçõ
 
 ### <a name="capacity"></a>Capacity
 
-A capacidade é estruturada como *réplicas* e *partições*. As réplicas são instâncias do serviço de pesquisa, onde cada réplica hospeda uma cópia com balanceamento de carga de um índice. Por exemplo, um serviço com 6 réplicas tem 6 cópias de cada índice carregado no serviço. As partições armazenam índices e automaticamente dividem os dados pesquisados: duas partições de divisão para o seu índice na metade, três participações em três e assim por diante. Em termos de capacidade, o *tamanho da partição* é o principal recurso de diferenciação em camadas.
+A capacidade é estruturada como *réplicas* e *partições*. 
+
++ As réplicas são instâncias do serviço de pesquisa, onde cada réplica hospeda uma cópia com balanceamento de carga de um índice. Por exemplo, um serviço com 6 réplicas tem 6 cópias de cada índice carregado no serviço. 
+
++ As partições armazenam índices e automaticamente dividem os dados pesquisados: duas partições de divisão para o seu índice na metade, três participações em três e assim por diante. Em termos de capacidade, o *tamanho da partição* é o principal recurso de diferenciação em camadas.
 
 > [!NOTE]
 > Todas as camadas **Padrão** suportam [a réplica de combinações flexíveis e partições](search-capacity-planning.md#chart) para que você possa [pesar seu sistema de armazenamento ou velocidade](search-performance-optimization.md) alterando o equilíbrio. **Básico** oferece até três réplicas para alta disponibilidade, mas possui apenas uma partição. Camadas **Livre** não fornecem recursos dedicados: recursos de computação são compartilhados por vários serviços gratuitos.
-
-### <a name="limits"></a>limites
-
-Serviços de recursos de host, como índices, indexadores e assim por diante. Cada camada impõe [limites de serviço](search-limits-quotas-capacity.md) na quantidade de recursos que você pode criar. Como tal, uma tampa no número de índices (e outros objetos) é o segundo recurso de diferenciação através de camadas. Ao revisar cada opção no portal, observe os limites no número de índices. Outros recursos, como indexadores, fontes de dados e conhecimentos, são vinculados aos limites de índice.
 
 ### <a name="search-units"></a>Unidades de pesquisa
 
@@ -52,6 +52,10 @@ O conceito de cobrança mais importante para entender é uma *unidade de pesquis
 Embora cada camada ofereça a capacidade cada vez maior, você pode trazer uma porção da capacidade online total, mantendo o resto em reserva. Em termos de cobrança, é o número de partições e réplicas que você coloca online, calculado usando a fórmula SU, que determina o que você realmente paga.
 
 A taxa de cobrança é por hora por SU, com cada camada com uma taxa diferente. As taxas de cada camada podem ser encontradas em [Detalhes de Preço](https://azure.microsoft.com/pricing/details/search/).
+
+### <a name="limits"></a>limites
+
+Serviços de recursos de host, como índices, indexadores e assim por diante. Cada camada impõe [limites de serviço](search-limits-quotas-capacity.md) na quantidade de recursos que você pode criar. Como tal, uma tampa no número de índices (e outros objetos) é o segundo recurso de diferenciação através de camadas. Ao revisar cada opção no portal, observe os limites no número de índices. Outros recursos, como indexadores, fontes de dados e conhecimentos, são vinculados aos limites de índice.
 
 ## <a name="consumption-patterns"></a>Padrões de consumo
 
@@ -86,7 +90,7 @@ Requisitos de negócios determinarem normalmente o número de índices, que ser�
 
 Para determinar o tamanho de um índice, você precisa [compilar um](search-create-index-portal.md). A estrutura de dados no Azure Search é principalmente um [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tem características diferentes dos dados de origem. Para um índice invertido, tamanho e complexidade são determinados pelo conteúdo, não necessariamente a quantidade de dados que você alimenta. Uma fonte de dados grande com redundância massiva pode resultar em um índice menor do que um conjunto de dados menor que contém conteúdo altamente variável.  Como tal, é raramente possível inferir o tamanho de índice com base no tamanho do conjunto de dados original.
 
-### <a name="preliminary-estimates-using-the-free-tier"></a>Estimativas preliminares usando a camada gratuita
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Etapa 1: Desenvolver estimativas aproximadas, usando a camada gratuita
 
 Uma abordagem para calcular a capacidade é iniciar com a camada **Livre**. Lembre-se de que o serviço **Livre** oferece até 3 índices, 50 MB de armazenamento e de indexação de 2 minutos. Ele pode ser um desafio para estimar um tamanho de índice projetado com essas restrições, mas o exemplo a seguir ilustra uma abordagem:
 
@@ -96,7 +100,7 @@ Uma abordagem para calcular a capacidade é iniciar com a camada **Livre**. Lemb
 
 Supondo que o exemplo foi representante e dez por cento da fonte de dados inteiro, um índice de 30 MB se tornará aproximadamente 300 MB se todos os documentos forem indexados. Armado com esse número preliminar, você pode dobrar esse valor para o orçamento para dois índices (desenvolvimento e produção), para um total de 600 MB em requisitos de armazenamento. Isso é facilmente atendido pela camada **Básico**, portanto você deve iniciar de lá.
 
-### <a name="advanced-estimates-using-a-billable-tier"></a>Estimativas avançadas usando uma camada faturável
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>Etapa 2: Desenvolver estimativas refinadas usando uma camada faturável
 
 Alguns clientes preferem iniciar com recursos dedicados que podem acomodar amostragem maior e tempos de processamento, e em seguida desenvolve estimativas realistas da quantidade do índice, tamanho e volumes de consulta durante o desenvolvimento. Inicialmente, um serviço é provisionado com base em uma estimativa melhor alternativa e, em seguida, como o projeto de desenvolvimento amadurece, as equipes geralmente sabem se o serviço existente está acima ou abaixo de capacidade para cargas de trabalho de produção projetadas. 
 

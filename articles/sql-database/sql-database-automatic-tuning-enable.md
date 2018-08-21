@@ -8,17 +8,20 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: vvasic
-ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646024"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631088"
 ---
 # <a name="enable-automatic-tuning"></a>Habilitar o ajuste automático
 
-O Banco de Dados SQL do Azure é um serviço de dados gerenciados automaticamente que monitora as consultas constantemente e identifica a ação que pode ser executada para melhorar o desempenho da carga de trabalho. Examine as recomendações e aplique-as manualmente ou permita que o Banco de Dados SQL do Azure aplique as ações corretivas automaticamente – isso é conhecido como **modo de ajuste automático**. O ajuste automático pode ser habilitado no nível do servidor ou do banco de dados.
+O Banco de Dados SQL do Azure é um serviço de dados gerenciados automaticamente que monitora as consultas constantemente e identifica a ação que pode ser executada para melhorar o desempenho da carga de trabalho. Examine as recomendações e aplique-as manualmente ou permita que o Banco de Dados SQL do Azure aplique as ações corretivas automaticamente – isso é conhecido como **modo de ajuste automático**.
+
+O ajuste automático pode ser ativado no nível do servidor ou do banco de dados por meio das chamadas do [Portal do Azure](sql-database-automatic-tuning-enable.md#azure-portal), [API REST](sql-database-automatic-tuning-enable.md#rest-api) e dos comandos [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
 
 ## <a name="enable-automatic-tuning-on-server"></a>Habilitar o ajuste automático no servidor
 No nível do servidor, você pode escolher entre herdar ou não a configuração de ajuste automático de "Padrões do Azure". Os padrões do Azure são: FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
@@ -37,7 +40,9 @@ Selecione as opções de ajuste automático que você deseja habilitar e selecio
 As opções de ajuste automático em um servidor são aplicadas a todos os bancos de dados deste servidor. Por padrão, todos os bancos de dados herdam a configuração de seu servidor pai, mas isso pode ser substituído e especificado para cada banco de dados individualmente.
 
 ### <a name="rest-api"></a>API REST
-[Clique aqui para saber mais sobre como habilitar o ajuste automático em nível de servidor por meio da API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
+
+Saiba mais sobre o uso da API REST para ativar o Ajuste automático em um servidor, consulte [SQL Server, ajuste automático dos métodos UPDATE e GET HTTP](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Habilitar o ajuste automático em um banco de dados individual
 
@@ -60,7 +65,8 @@ Observe que a opção DROP_INDEX no momento não é compatível com aplicativos 
 Depois de selecionar a configuração desejada, clique em **Aplicar**.
 
 ### <a name="rest-api"></a>API Rest
-[Clique aqui para saber mais sobre como habilitar o ajuste automático em um único banco de dados por meio da API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
+
+Saiba mais sobre como usar a API REST para habilitar o ajuste automático em um único banco de dados, consulte [banco de dados ajuste automático do SQL métodos UPDATE e HTTP GET](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -80,12 +86,14 @@ Para configurar opções de ajuste automático individuais por meio do T-SQL, co
    
 Definir a opção de ajuste individual como ON substituirá qualquer configuração de banco de dados herdada e habilitará a opção de ajuste. Defini-la a como OFF substituirá qualquer configuração herdada por esse banco de dados e desabilitará a opção de ajuste. Definir a opção de ajuste automático como DEFAULT fará com que a configuração seja herdada da configuração de ajuste automático do nível de banco de dados.  
 
+Encontre mais sobre como as opções de T-SQL para configurar o ajuste automático, consulte [opções ALTER DATABASE SET (Transact-SQL) para o servidor lógico do banco de dados SQL](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+
 ## <a name="disabled-by-the-system"></a>Desabilitado pelo sistema
 O ajuste automático está monitorando todas as ações que ele realiza no banco de dados e, em alguns casos, ele pode determinar que o ajuste automático não pode funcionar adequadamente no banco de dados. Nessa situação, a opção de ajuste será desabilitada pelo sistema. Na maioria dos casos, isso ocorre porque o Repositório de Consultas não está habilitado ou está em estado somente leitura em um banco de dados específico.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurar o ajuste automático das notificações por email
 
-Consulte [Ajuste automático das notificações por email](sql-database-automatic-tuning-email-notifications.md)
+Ver guia [notificações por e-mail de ajuste automático](sql-database-automatic-tuning-email-notifications.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia o [artigo Ajuste automático](sql-database-automatic-tuning.md) para saber mais sobre o ajuste automático e como ele pode ajudar você a melhorar o desempenho.

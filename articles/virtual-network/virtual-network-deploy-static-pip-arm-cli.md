@@ -13,143 +13,71 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 203c886828fa13433f784d1db9a032b06fab398a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651952"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715192"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Como criar uma VM com um endereço IP público estático usando a CLI do Azure
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Crie uma máquina virtual com um endereço IP público estático usando a CLI do Azure
 
-> [!div class="op_single_selector"]
-> * [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (Clássico)](virtual-networks-reserved-public-ip.md)
+Você pode criar uma máquina virtual com um endereço IP público estático. Um endereço IP público permite que você se comunique com uma máquina virtual pela Internet. Atribua um endereço IP público estático, em vez de um endereço dinâmico, para garantir que o endereço nunca seja alterado. Saiba mais sobre os [endereços IP públicosestáticos ](virtual-network-ip-addresses-overview-arm.md#allocation-method). Para alterar um endereço IP público atribuído a uma máquina virtual existente de dinâmico para estático ou para trabalhar com endereços IP privados, consulte [Adicionar, alterar ou remover endereços IP](virtual-network-network-interface-addresses.md). Endereços IP públicos têm [carga nominal](https://azure.microsoft.com/pricing/details/ip-addresses), e há um [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) para o número de endereços IP públicos que você pode usar por assinatura.
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Este artigo aborda usando o modelo de implantação do Gerenciador de Recursos, que a Microsoft recomenda para a maioria das novas implantações em vez de do modelo de implantação clássico.
+Você pode concluir as etapas a seguir do computador local ou usando o Azure Cloud Shell. Para usar seu computador local, verifique se você tem o [CLI do Azure instalado](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Para usar o Azure Cloud Shell, selecione **Experimente** no canto superior direito de qualquer caixa de comando a seguir. O Cloud Shell entrará no Azure.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. Se usar o Cloud Shell, vá para a etapa 2. Abra uma sessão de comando e entre no Azure com `az login`.
+2. Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos na região Leste do Azure dos EUA:
 
-## <a name = "create"></a>Criação da VM
+   ```azurecli-interactive
+   az group create --name myResourceGroup --location eastus
+   ```
 
-Os valores em "" para as variáveis nas etapas a seguir criam recursos com as configurações do cenário. Altere os valores para adequá-los ao seu ambiente.
+3. Crie uma máquina virtual com o comando [az vm create](/cli/azure/vm#az-vm-create). A opção `--public-ip-address-allocation=static` atribui um endereço IP público estático à máquina virtual. O exemplo a seguir cria uma máquina virtual Ubuntu com um endereço IP público SKU estático e básico chamado *myPublicIpAddress*:
 
-1. Instale a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) se você ainda não tiver instalado.
-2. Siga as etapas em [Como criar um par de chaves público e privado SSH para VMs do Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para criar um par de chaves público e privado SSH para VMs do Linux.
-3. Faça logon com o comando `az login` de um shell de comando.
-4. Execute o script a seguir em um computador Linux ou Mac para criar a VM. O endereço IP público do Azure, a rede virtual, o adaptador de rede e os recursos da VM devem existir no mesmo local. Embora não seja obrigatório que todos os recursos existam no mesmo grupo de recursos, no script a seguir é obrigatório.
+   ```azurecli-interactive
+   az vm create \
+     --resource-group myResourceGroup \
+     --name myVM \
+     --image UbuntuLTS \
+     --admin-username azureuser \
+     --generate-ssh-keys \
+     --public-ip-address myPublicIpAddress \
+     --public-ip-address-allocation static
+   ```
 
-```bash
-RgName="IaaSStory"
-Location="westus"
+   Se o endereço IP público precisar ser um SKU padrão, adicione `--public-ip-sku Standard` ao comando anterior. Saiba mais sobre [endereço IP público SKUs](virtual-network-ip-addresses-overview-arm.md#sku). Se a máquina virtual for adicionada ao pool de back-end de um Azure Load Balancer público, o SKU do endereço IP público da máquina virtual deverá corresponder ao SKU do endereço IP público do balanceador de carga. Para detalhes, consulte [Balanceador de carga do Azure](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-# Create a resource group.
+4. Visualize o endereço IP público atribuído e confirme se ele foi criado como um endereço SKU estático básico, com [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
 
-az group create \
---name $RgName \
---location $Location
+   ```azurecli-interactive
+   az network public-ip show \
+     --resource-group myResourceGroup \
+     --name myPublicIpAddress \
+     --query [ipAddress,publicIpAllocationMethod,sku] \
+     --output table
+   ```
 
-# Create a public IP address resource with a static IP address using the --allocation-method Static option.
-# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
-# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-# Azure location it's created in. Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653#
-# that lists the ranges for each region.
+   O Azure atribuiu um endereço IP público dos endereços usados na região na qual você criou a máquina virtual. Você pode baixar a lista de intervalos (prefixos) para as nuvens [pública](https://www.microsoft.com/download/details.aspx?id=56519), do [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), da [China](https://www.microsoft.com/download/details.aspx?id=57062) e da [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 
-PipName="PIPWEB1"
-DnsName="iaasstoryws1"
-az network public-ip create \
---name $PipName \
---resource-group $RgName \
---location $Location \
---allocation-method Static \
---dns-name $DnsName
+> [!WARNING]
+Não modifique as configurações do endereço IP no sistema operacional da máquina virtual. O sistema operacional não está ciente dos endereços IP públicos do Azure. Embora você possa adicionar configurações de endereço IP privado ao sistema operacional, recomendamos não fazê-lo, a menos que seja necessário, e somente depois de ler [Adicionar um endereço IP privado a um sistema operacional](virtual-network-network-interface-addresses.md#private).
 
-# Create a virtual network with one subnet
+## <a name="clean-up-resources"></a>Limpar recursos
 
-VnetName="TestVNet"
-VnetPrefix="192.168.0.0/16"
-SubnetName="FrontEnd"
-SubnetPrefix="192.168.1.0/24"
-az network vnet create \
---name $VnetName \
---resource-group $RgName \
---location $Location \
---address-prefix $VnetPrefix \
---subnet-name $SubnetName \
---subnet-prefix $SubnetPrefix
+Quando não for mais necessário, você poderá usar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que ele contém:
 
-# Create a network interface connected to the VNet with a static private IP address and associate the public IP address
-# resource to the NIC.
-
-NicName="NICWEB1"
-PrivateIpAddress="192.168.1.101"
-az network nic create \
---name $NicName \
---resource-group $RgName \
---location $Location \
---subnet $SubnetName \
---vnet-name $VnetName \
---private-ip-address $PrivateIpAddress \
---public-ip-address $PipName
-
-# Create a new VM with the NIC
-
-VmName="WEB1"
-
-# Replace the value for the VmSize variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
-VmSize="Standard_DS1"
-
-# Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
-# the `az vm image list` command. 
-
-OsImage="credativ:Debian:8:latest"
-Username='adminuser'
-
-# Replace the following value with the path to your public key file.
-SshKeyValue="~/.ssh/id_rsa.pub"
-
-az vm create \
---name $VmName \
---resource-group $RgName \
---image $OsImage \
---location $Location \
---size $VmSize \
---nics $NicName \
---admin-username $Username \
---ssh-key-value $SshKeyValue
-# If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
 ```
-
-Além de criar uma VM, o script cria:
-- Um único disco gerenciado premium por padrão, mas há outras opções para você criar outros tipos de disco. Veja o artigo [Como criar uma VM do Linux usando a CLI 2.0 do Azure](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais informações.
-- A Rede virtual, a sub-rede, a NIC e os recursos de endereço IP público. Como alternativa, você pode usar uma rede virtual, uma sub-rede, uma NIC ou recursos de endereço IP público *existentes*. Para saber como usar os recursos de rede já existentes em vez de criar recursos adicionais, digite `az vm create -h`.
-
-## <a name = "validate"></a>Como validar a criação da VM e o endereço IP público
-
-1. Digite o comando `az resource list --resouce-group IaaSStory --output table` para ver uma lista dos recursos criados pelo script. Deve haver cinco recursos na saída retornada: um adaptador de rede, um disco, um endereço IP público, uma rede virtual e uma máquina virtual.
-2. Digite o comando `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Na saída retornada, observe o valor do **IpAddress** e o valor do **PublicIpAllocationMethod** é *estático*.
-3. Antes de executar o comando a seguir, remova o <>, substitua *Nome de usuário* pelo nome usado para a variável **Nome de usuário** no script e substitua o *ipAddress* pelo **ipAddress** da etapa anterior. Digite o seguinte comando para conectar com a VM: `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
-
-## <a name= "clean-up"></a>Como remover a VM e os recursos associados
-
-É recomendável excluir os recursos criados neste exercício, caso você não pretenda usá-los em produção. Pode haver cobranças da VM, do endereço IP público e dos recursos de disco enquanto forem provisionados. Para remover os recursos criados durante este exercício, realize as seguintes etapas:
-
-1. Para exibir os recursos do grupo de recursos, execute o comando `az resource list --resource-group IaaSStory`.
-2. Confirme se não existem outros recursos no grupo de recursos, além dos recursos criados pelo script neste artigo. 
-3. Para excluir todos os recursos criados neste exercício, execute o comando `az group delete -n IaaSStory`. O comando exclui o grupo de recursos e todos os recursos que ele contém.
- 
-## <a name="set-ip-addresses-within-the-operating-system"></a>Definir endereços IP no sistema operacional
-
-Nunca atribua manualmente o endereço IP público atribuído a uma máquina virtual do Azure no sistema operacional da máquina virtual. É recomendável que você não atribua estaticamente o IP privado atribuído à máquina virtual do Azure no sistema operacional de uma VM, a menos que seja necessário, como quando [atribuímos vários endereços IP para uma VM do Windows](virtual-network-multiple-ip-addresses-cli.md). Se você definir manualmente o endereço IP privado no sistema operacional, verifique se é o mesmo endereço que o endereço IP privado atribuído ao [adaptador de rede](virtual-network-network-interface-addresses.md#change-ip-address-settings) do Azure ou se é possível perder a conectividade com a máquina virtual. Saiba mais sobre as configurações de [endereço IP privado](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Qualquer tráfego de rede pode fluir de e para a VM criada neste artigo. Você pode definir regras de segurança de entrada e saída de um grupo de segurança de rede que limitam o tráfego que pode fluir de e para o adaptador de rede, a sub-rede ou ambas. Para saber mais sobre grupos de segurança de rede, confira [Visão geral do grupo de segurança de rede](security-overview.md).
+- Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) no Azure
+- Saiba mais sobre todas as [configurações de endereço IP público](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Saiba mais sobre [endereços IP privados](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) e atribua um [endereço IP privado estático](virtual-network-network-interface-addresses.md#add-ip-addresses) a uma máquina virtual do Azure
+- Saiba mais sobre como criar [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquinas virtuais

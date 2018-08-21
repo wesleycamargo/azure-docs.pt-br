@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077731"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630799"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Exibir todas as suas contas de cobrança no portal do Azure  
 
@@ -27,7 +27,7 @@ As contas de cobrança definem as relações de cobrança do Azure. Você pode t
 
 No momento, você pode exibir somente as contas de cobrança pessoais e do Enterprise Agreement. Por padrão, a pagina [Gerenciamento de Custo + Cobrança](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) mostra sua conta de cobrança pessoal. No entanto, você pode navegar para **Contas de cobrança** e alterar a conta.
 
-Para contas de cobrança pessoais, você pode gerenciar e exibir todos os seus encargos no [portal do Azure](https://portal.azure.com). No entanto, para contas do Enterprise Agreement, você pode exibir apenas as compras de instância reservadas, o saldo e os encargos desde o início do mês. Esses recursos do Enterprise Agreement estão em visualização e estarão disponíveis somente se você estiver em uma função de administrador corporativo.
+Para contas de cobrança pessoais, você pode gerenciar e exibir todos os seus encargos no [portal do Azure](https://portal.azure.com). No entanto, para contas do Enterprise Agreement, você só pode exibir as compras de reserva do Azure, o saldo e as cobranças do mês atual. Esses recursos do Enterprise Agreement estão em visualização e estarão disponíveis somente se você estiver em uma função de administrador corporativo.
 
 ## <a name="change-billing-account-view"></a>Alterar a exibição da conta de cobrança 
 

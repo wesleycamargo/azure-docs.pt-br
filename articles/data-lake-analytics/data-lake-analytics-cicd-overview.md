@@ -1,5 +1,5 @@
 ---
-title: Como configurar o pipeline de CI/CD para o Azure Data Lake Analytics | Microsoft Docs
+title: Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics | Microsoft Docs
 description: Saiba como configurar a integração contínua e a implantação contínua para Azure Data Lake Analytics.
 services: data-lake-analytics
 documentationcenter: ''
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: c069bc2a6147a021ea9bdf37e2926d5c8f33281c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145002"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630697"
 ---
-# <a name="how-to-set-up-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar o pipeline de CI/CD para o Azure Data Lake Analytics
+# <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
 
-Neste documento, você aprenderá como configurar o pipeline de CI/CD para trabalhos do U-SQL e para bancos de dados U-SQL.
+Neste artigo, você aprenderá a configurar um pipeline de integração e implantação contínua (CI / CD) para tarefas de U-SQL e bancos de dados U-SQL.  
 
-## <a name="cicd-for-u-sql-job"></a>CI/CD para trabalho do U-SQL
+## <a name="use-cicd-for-u-sql-jobs"></a>Use CI / CD para trabalhos em U-SQL
 
-As Ferramentas do Azure Data Lake para Visual Studio fornecem o tipo de projeto U-SQL que ajuda a organizar scripts U-SQL. O uso do projeto U-SQL para gerenciar seu código U-SQL simplifica os cenários de CI/CD.
+As Ferramentas do Azure Data Lake para Visual Studio fornecem o tipo de projeto U-SQL que ajuda a organizar scripts U-SQL. O uso do projeto U-SQL para gerenciar seu código U-SQL facilita mais os cenários de CI / CD.
 
-## <a name="build-u-sql-project"></a>Compilar um projeto U-SQL
+## <a name="build-a-u-sql-project"></a>Construa um projeto U-SQL
 
-O projeto U-SQL pode ser compilado com o MSBuild passando os parâmetros correspondentes. Siga as etapas abaixo para configurar o processo de compilação para projetos U-SQL.
+Um projeto U-SQL pode ser criado com o Microsoft Build Engine (MSBuild) passando parâmetros correspondentes. Siga as etapas neste artigo para configurar um processo de criação para um projeto U-SQL.
 
 ### <a name="project-migration"></a>Migração do projeto
 
-Antes de configurar a tarefa de build do projeto U-SQL, certifique-se de usar a versão mais recente do projeto U-SQL. Abra o arquivo do projeto U-SQL no editor e verifique se você tem os seguintes itens de importação:
+Antes de configurar uma tarefa de construção para um projeto U-SQL, verifique se você possui a versão mais recente do projeto U-SQL. Abra o arquivo de projeto de U-SQL em seu editor e verificar se você tem estes itens de importação:
 
 ```   
 <!-- check for SDK Build target in current path then in USQLSDKPath-->
@@ -45,14 +45,14 @@ Antes de configurar a tarefa de build do projeto U-SQL, certifique-se de usar a 
 
 Caso contrário, há duas opções para migrar o projeto:
 
-- Opção 1: altere a antiga opção de importação de itens pela opção descrita anteriormente.
-- Opção 2: abra o projeto antigo nas Ferramentas do Azure Data Lake para Visual Studio após a versão 2.3.3000.0. O antigo modelo de projeto será atualizado automaticamente para a versão mais recente. O novo projeto criado após a versão 2.3.3000.0 usa o novo modelo diretamente.
+- Opção 1: altere o item de importação antigo para o anterior.
+- Opção 2: abra o projeto antigo nas Ferramentas do Data Lake do Azure para Visual Studio. Use uma versão mais recente do que 2.3.3000.0. O antigo modelo de projeto será atualizado automaticamente para a versão mais recente. Novos projetos criados com versões mais recentes que 2.3.3000.0 usam o novo modelo.
 
-### <a name="get-nuget-package"></a>Obter o pacote do NuGet
+### <a name="get-nuget"></a>Obter o NuGet
 
-O MSBuild não oferece suporte interno ao tipo de projeto U-SQL. Para adicionar essa capacidade, será preciso adicionar uma referência para sua solução ao [pacote do Nuget Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) que adiciona o serviço de linguagem necessário.
+MSBuild não fornece suporte interno para projetos U-SQL. Para obter esse suporte, você precisa adicionar uma referência para sua solução ao pacote [Microsoft.Azure.DataLake.USQL.SD](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet que adiciona o serviço de idioma necessário.
 
-Para adicionar a referência do pacote do NuGet, clique com botão direito do mouse na solução no Gerenciador de Soluções e escolha **Gerenciar Pacotes do NuGet**. Ou você pode adicionar um arquivo chamado `packages.config` na pasta da solução e adicionar o seguinte conteúdo a ele.
+Para adicionar a referência de pacote NuGet, clique com o botão direito do mouse na solução no Visual Studio Solution Explorer e escolha **Gerenciar pacotes NuGet**. Ou você pode adicionar um arquivo chamado `packages.config` na pasta de solução e colocar o seguinte conteúdo nele:
 
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>
@@ -63,71 +63,71 @@ Para adicionar a referência do pacote do NuGet, clique com botão direito do mo
 
 ### <a name="manage-u-sql-database-references"></a>Gerenciar as referências do banco de dados U-SQL
 
-Se os scripts U-SQL no projeto U-SQL possuírem instruções de consulta para objetos de banco de dados U-SQL, por exemplo, consultar uma tabela U-SQL ou fazer referência a um assembly, será preciso referenciar o projeto de banco de dados U-SQL correspondente que inclui a definição desses objetos antes de compilar este projeto U-SQL.
+Scripts U-SQL em um projeto U-SQL podem ter instruções de consulta para objetos de banco de dados U-SQL. Nesse caso, você precisará referenciar o projeto de banco de dados U-SQL correspondente que inclui a definição de objetos antes de compilar o projeto de U-SQL. Um exemplo é quando você consulta uma tabela de U-SQL ou fazer referência a um assembly. 
 
-[Saiba mais sobre o projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
+Saiba mais sobre [projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
 >O projeto de banco de dados U-SQL atualmente está em visualização pública. Se houver instrução DROP no projeto, a compilação falhará. A instrução DROP será permitida em breve.
 >
 
-### <a name="build-u-sql-project-with-msbuild-command-line"></a>Compilar o projeto U-SQL com a linha de comando MSBuild
+### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>Construa um projeto U-SQL com a linha de comando do MSBuild
 
-Depois de migrar o projeto e obter o pacote do NuGet, você pode chamar a linha de comando padrão do MSBuild com os argumentos adicionais abaixo para criar seu projeto U-SQL:
+Primeiro, migre o projeto e obtenha o pacote NuGet. Em seguida, chame a linha de comando do MSBuild padrão com os seguintes argumentos adicionais para compilar seu projeto de U-SQL: 
 
 ``` 
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
 ``` 
 
-A definição de argumentos e os valores são:
+A definição e os valores dos argumentos são os seguintes:
 
-* USQLSDKPath=<pacote do Nuget do U-SQL>\build\runtime: este parâmetro faz referência ao caminho de instalação do pacote do NuGet para o serviço de linguagem U-SQL.
-* USQLTargetType=Merge ou SyntaxCheck:
-    * Mesclar: o modo Mesclar compila arquivos code-behind, como arquivos .cs, .py e .r, e incorpora a biblioteca de códigos definida pelo usuário resultante (como código binário, Python ou R) no script U-SQL.
-    * SyntaxCheck: o modo SyntaxCheck primeiro mescla arquivos code-behind no script U-SQL e, em seguida, compila o script U-SQL para validar seu código.
-* DataRoot=<DataRoot path>: o DataRoot só é necessário para o modo SyntaxCheck. Ao compilar o script com o modo SyntaxCheck, o MSBuild verifica as referências no script para objetos do banco de dados. Configure um ambiente local correspondente que contenha os objetos referenciados do banco de dados U-SQL na pasta DataRoot da máquina de compilação antes de compilar. Você também pode gerenciar essas dependências de banco de dados ao [fazer referência a um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). Observe que o MSBuild verifica apenas a referência de objetos de banco de dados e não os arquivos.
-* EnableDeployment=true ou false: EnableDeployment indica se é permitido implantar bancos de dados U-SQL referenciados durante o processo de compilação. Se você referenciar o projeto de banco de dados U-SQL e consumir os objetos de banco de dados no script U-SQL, configure esse parâmetro como true.
+* **USQLSDKPath = < pacote Nuget do U-SQL > \build\runtime**. Este parâmetro refere-se ao caminho de instalação do pacote NuGet para o serviço de linguagem U-SQL.
+* **USQLTargetType = mesclagem ou SyntaxCheck**:
+    * **Mesclar**. Modo de mesclagem compila arquivos code-behind. Os exemplos são **. CS**, **. py**, e **. r** arquivos. Ele incorpora a biblioteca de códigos definida pelo usuário resultante no script U-SQL. Exemplos são um código binário, Python ou R da dll.
+    * **SyntaxCheck**. O modo SyntaxCheck primeiro mescla os arquivos code-behind no script U-SQL. Em seguida, ele compila o script U-SQL para validar seu código.
+* **DataRoot =<DataRoot path>**. DataRoot é necessária apenas para o modo SyntaxCheck. Quando ele cria o script com o modo SyntaxCheck, o MSBuild verifica as referências aos objetos do banco de dados no script. Antes de criar, configure um ambiente local correspondente que contenha os objetos referenciados do banco de dados U-SQL na pasta DataRoot da máquina de compilação. Você também pode gerenciar essas dependências de banco de dados ao [fazer referência a um projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild verifica somente as referências de objeto de banco de dados, não arquivos.
+* **EnableDeployment = true** ou **falso**. EnableDeployment indica se é permitido implantar bancos de dados U-SQL referenciados durante o processo de compilação. Se você fizer referência a um projeto de banco de dados U-SQL e consumir os objetos de banco de dados em seu script U-SQL, defina esse parâmetro como **true**.
 
-### <a name="continuous-integration-with-visual-studio-team-service"></a>Integração contínua com o Visual Studio Team Service
+### <a name="continuous-integration-with-visual-studio-team-services"></a>Integração contínua com o Visual Studio Team Services
 
-Além da linha de comando, os clientes também podem usar o Build do Visual Studio ou a tarefa do MSBuild para compilar projetos U-SQL no Visual Studio Team Service. Para configurar a tarefa de compilação, verifique se:
+Além da linha de comando, você também pode usar o Visual Studio Build ou uma tarefa do MSBuild para criar projetos de U-SQL no Visual Studio Team Services (VSTS). Para configurar um pipeline de construção, certifique-se de adicionar duas tarefas no pipeline de construção: uma tarefa de restauração do NuGet e uma tarefa do MSBuild.
 
-1.  Adicione a tarefa de restauração do NuGet para obter a solução referenciada do pacote do NuGet incluindo `Azure.DataLake.USQL.SDK` de modo que o MSBuild possa encontrar os destinos de linguagem do U-SQL. Defina **Avançado > Diretório de destino** como `$(Build.SourcesDirectory)/packages` se quiser usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+![Tarefa do MSBuild para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-    ![Data Lake define tarefa do MSBuild de CI/CD para o projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
+1.  Adicione uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Definir **Advanced** > **diretório de destino** para `$(Build.SourcesDirectory)/packages` se você quiser usar o exemplo de argumentos de MSBuild diretamente na etapa 2.
 
-    ![Data Lake define tarefa do Nuget de CI/CD para projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+    ![Tarefa de restauração do NuGet para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Configure os Argumentos do MSBuild e poderá definir os argumentos no Build do Visual Studio ou na tarefa do MSBuild conforme descrito a seguir ou você pode definir variáveis para esses argumentos na definição do build do VSTS.
+2.  Defina os argumentos do MSBuild nas ferramentas de compilação do Visual Studio ou em uma tarefa do MSBuild, conforme mostrado no exemplo a seguir. Ou você pode definir as variáveis para definição de compilação esses argumentos no VSTS.
+
+    ![Definir as variáveis do MSBuild de CI/CD para um projeto de U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
     /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
-    ![Data Lake define variáveis do MSBuild de CI/CD para o projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
-
 ### <a name="u-sql-project-build-output"></a>Saída da compilação do projeto U-SQL
 
-Depois de executar a compilação, todos os scripts no projeto U-SQL serão criados e enviados a um arquivo zip chamado `USQLProjectName.usqlpack`. A estrutura de pastas do projeto será mantida na saída de compilação compactada.
+Depois de executar uma compilação, todos os scripts no projeto U-SQL são criados e gerados em um arquivo zip chamado `USQLProjectName.usqlpack`. A estrutura de pastas em seu projeto é mantida na saída de compilação zipada.
 
->[!NOTE]
+> [!NOTE]
 >
->O arquivo code-behind para cada script U-SQL será mesclado como uma instrução embutida na saída de compilação do script.
+> Os arquivos code-behind de cada script U-SQL serão mesclados como uma instrução inline à saída de criação do script.
 >
 
-## <a name="test-u-sql-script"></a>Testar o script U-SQL
+## <a name="test-u-sql-scripts"></a>Testar scripts U-SQL
 
-O Azure Data Lake oferece projetos de teste para o script U-SQL e para o UDO/UDAG/UDF de C#:
-* [Saiba como adicionar casos de teste ao script U-SQL e ao código C# estendido](data-lake-analytics-cicd-test.md#test-u-sql-scripts)
-* [Saiba como executar esses casos de teste no Visual Studio Team Service](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-service)
+O Azure Data Lake fornece projetos de teste para scripts U-SQL e C# UDO / UDAG / UDF:
+* Aprenda como [adicionar casos de teste para scripts U-SQL e código C # estendido](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
+* Saiba como [executar casos de teste no Visual Studio Team Services](data-lake-analytics-cicd-test.md#run-test-cases-in-visual-studio-team-service).
 
-## <a name="u-sql-job-deployment"></a>Implantação de trabalhos do U-SQL
+## <a name="deploy-a-u-sql-job"></a>Implantar um trabalho de U-SQL
 
-Depois de verificar o código através da compilação e do processo de testes, você pode enviar trabalhos do U-SQL diretamente do Visual Studio Team Service usando a **Tarefa do Azure PowerShell**. Você também pode implantar o script no Azure Data Lake Store/Armazenamento de Blob do Azure e [executar os trabalhos agendados por meio do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Depois de verificar o código por meio do processo de criação e teste, você pode enviar tarefas do U-SQL diretamente do Visual Studio Team Services por meio de uma tarefa do Azure PowerShell. Você também pode implantar o script no Azure Data Lake Store ou no armazenamento de Blob do Azure e [executar os trabalhos agendados por meio do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-### <a name="submit-u-sql-jobs-through-visual-studio-team-service"></a>Enviar trabalhos do U-SQL por meio do Visual Studio Team Service
+### <a name="submit-u-sql-jobs-through-visual-studio-team-services"></a>Enviar trabalhos de U-SQL por meio do Visual Studio Team Services
 
-A compilação de saída do projeto U-SQL é um arquivo zip chamado **USQLProjectName.usqlpack** que inclui todos os scripts U-SQL do projeto. Você pode usar a [tarefa do Azure PowserShell no Visual Studio Team Service](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) com o script de exemplo do PowserShell abaixo para enviar trabalhos do U-SQL diretamente do build do Visual Studio Team Service ou do pipeline de lançamento.
+A compilação de saída do projeto U-SQL é um arquivo zip chamado **USQLProjectName.usqlpack**. O arquivo zip inclui todos os scripts U-SQL no projeto. Você pode usar a tarefa do [Azure PowerShell](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) no Visual Studio Team Services com o exemplo de script PowerShell a seguir para enviar tarefas U-SQL diretamente do pipeline de criação ou release do Visual Studio Team Services.
 
 ```powershell
 <#
@@ -234,9 +234,9 @@ Main
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>Implantar trabalhos do U-SQL por meio do Azure Data Factory
 
-Além de enviar trabalhos do U-SQL diretamente do Visual Studio Team Service, você também pode carregar os scripts compilados para o Azure Data Lake Store/Armazenamento de Blob do Azure e [executar os trabalhos agendados por meio do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Você pode enviar trabalhos de U-SQL diretamente do Visual Studio Team Services. Ou você pode carregar os scripts criados para o armazenamento do Azure Data Lake Store ou do Azure Blob e [executar os trabalhos agendados pelo Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-Use a [tarefa do Azure PowerShell no Visual Studio Team Service](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) com o script de exemplo do PowerShell abaixo para carregar os scripts U-SQL para a conta do Azure Data Lake Store.
+Use a tarefa do [Azure PowerShell](https://docs.microsoft.com/vsts/pipelines/tasks/deploy/azure-powershell?view=vsts) no Visual Studio Team Services com o seguinte exemplo de script do PowerShell para carregar os scripts U-SQL em uma conta do Azure Data Lake Store:
 
 ```powershell
 <#
@@ -294,17 +294,17 @@ Function GetUsqlFiles()
 UploadResources
 ```
 
-## <a name="cicd-for-u-sql-database"></a>CI/CD para o banco de dados U-SQL
+## <a name="cicd-for-a-u-sql-database"></a>CI/CD para um banco de dados U-SQL
 
-As Ferramentas do Azure Data Lake para Visual Studio oferecem o modelo de projeto de banco de dados U-SQL que ajuda os desenvolvedores a desenvolver, gerenciar e implantar os bancos de dados U-SQL de forma simples e rápida. [Saiba mais sobre o projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
+O Azure Data Lake Tools para Visual Studio fornece modelos de projeto de banco de dados U-SQL que ajudam a desenvolver, gerenciar e implantar bancos de dados U-SQL. Saiba mais sobre um [projeto de banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 ## <a name="build-u-sql-database-project"></a>Compilar o projeto de banco de dados U-SQL
 
-### <a name="get-nuget-package"></a>Obter o pacote do NuGet
+### <a name="get-the-nuget-package"></a>Obtenha o pacote do NuGet
 
-O MSBuild não oferece suporte interno ao tipo de projeto de banco de dados U-SQL. Para adicionar essa capacidade, será preciso adicionar uma referência para sua solução ao [pacote do Nuget Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) que adiciona o serviço de linguagem necessário.
+O MSBuild não oferece suporte interno para projetos de banco de dados U-SQL. Para obter essa habilidade, você precisa adicionar uma referência para sua solução ao pacote [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet que adiciona o serviço de idioma necessário.
 
-Para adicionar a referência do pacote do NuGet, clique com botão direito do mouse na solução no Gerenciador de Soluções e escolha **Gerenciar Pacotes do NuGet** para a Solução e, em seguida, pesquise e instale o pacote do NuGet. Outra opção é adicionar um arquivo chamado "packages.config" na pasta da solução e adicionar o seguinte conteúdo a ele.
+Para adicionar a referência de pacote do NuGet, clique com botão direito a solução no Gerenciador de soluções do Visual Studio. Escolher **gerenciar pacotes NuGet**. Em seguida, procure e instale o pacote do NuGet. Ou você pode adicionar um arquivo chamado **packages.config** na pasta da solução e colocar o seguinte conteúdo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -313,58 +313,59 @@ Para adicionar a referência do pacote do NuGet, clique com botão direito do mo
 </packages>
 ```
 
-### <a name="build-u-sql-database-project-with-msbuild-command-line"></a>Compilar o projeto de banco de dados U-SQL com a linha de comando MSBuild
+### <a name="build-u-sql-a-database-project-with-the-msbuild-command-line"></a>Construa o U-SQL em um projeto de banco de dados com a linha de comando do MSBuild
 
-Você pode chamar a linha de comando do MSBuild padrão e passar a referência do Pacote do NuGet do SDK do U-SQL como argumento adicional conforme descrito abaixo para compilar seu projeto de banco de dados U-SQL:
+Para construir seu projeto de banco de dados U-SQL, chame a linha de comando padrão do MSBuild e passe a referência do pacote NuGet do U-SQL SDK como um argumento adicional. Veja os exemplos a seguir: 
 
 ```
 msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime
 ```
 
-Os argumentos `USQLSDKPath=<U-SQL Nuget package>\build\runtime` fazem referência ao caminho de instalação do pacote do NuGet para o serviço de linguagem U-SQL.
+O argumento `USQLSDKPath=<U-SQL Nuget package>\build\runtime` refere-se ao caminho de instalação do pacote NuGet para o serviço de linguagem U-SQL.
 
-### <a name="continuous-integration-with-visual-studio-team-service"></a>Integração contínua com o Visual Studio Team Service
+### <a name="continuous-integration-with-visual-studio-team-services"></a>Integração contínua com o Visual Studio Team Services
 
-Além da linha de comando, os clientes também podem usar o **Build do Visual Studio** ou a  **tarefa do MSBuild** para compilar projetos banco de dados U-SQL no Visual Studio Team Service. Para configurar a tarefa de compilação, verifique se:
+Além da linha de comando, você pode usar o Visual Studio Build ou uma tarefa do MSBuild para criar projetos de banco de dados U-SQL no Visual Studio Team Services. Para configurar uma tarefa de construção, certifique-se de adicionar duas tarefas no pipeline de construção: uma tarefa de restauração do NuGet e uma tarefa do MSBuild.
 
-1.  Adicione a tarefa de restauração do NuGet para obter a solução referenciada do pacote do NuGet incluindo `Azure.DataLake.USQL.SDK` de modo que o MSBuild possa encontrar os destinos de linguagem do U-SQL. Defina **Avançado > Diretório de destino** como `$(Build.SourcesDirectory)/packages` se quiser usar o exemplo de argumentos do MSBuild diretamente na etapa 2.
+   ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-    ![Data Lake define tarefa do MSBuild de CI/CD para o projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-    ![Data Lake define tarefa do Nuget de CI/CD para projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+1.  Inclua uma tarefa de restauração do NuGet para obter o pacote NuGet referenciado pela solução, que inclui `Azure.DataLake.USQL.SDK`, para que o MSBuild possa localizar os destinos da linguagem U-SQL. Definir **Advanced** > **diretório de destino** para `$(Build.SourcesDirectory)/packages` se você quiser usar o exemplo de argumentos de MSBuild diretamente na etapa 2.
 
-2.  Configure os Argumentos do MSBuild e poderá definir os argumentos no Build do Visual Studio ou na tarefa do MSBuild conforme descrito a seguir ou você pode definir variáveis para esses argumentos na definição do build do VSTS.
+    ![Tarefa CI / CD MSBuild para um projeto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+
+2.  Defina os argumentos do MSBuild nas ferramentas de compilação do Visual Studio ou em uma tarefa do MSBuild, conforme mostrado no exemplo a seguir. Ou você pode definir as variáveis para definição de compilação esses argumentos no VSTS.
+
+   ![Definir variáveis CI / CD MSBuild para um projeto de banco de dados U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
     ```
     /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
-
-    ![O Data Lake define variáveis do MSBuild de CI/CD para o projeto de banco de dados U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
-
+ 
 ### <a name="u-sql-database-project-build-output"></a>Saída de compilação do projeto de banco de dados U-SQL
 
-A saída de build do projeto de banco de dados U-SQL é um pacote de implantação do banco de dados U-SQL nomeado com o sufixo `.usqldbpack`. O pacote `.usqldbpack` é um arquivo zip que inclui todas as instruções DDL em um único script U-SQL na pasta DDL e todos os arquivos .dll e adicionais para assemblies na pasta Temp.
+A saída de build do projeto de banco de dados U-SQL é um pacote de implantação do banco de dados U-SQL nomeado com o sufixo `.usqldbpack`. O pacote `.usqldbpack` é um arquivo zip que inclui todas as instruções DDL em um único script U-SQL em uma pasta DDL. Inclui todos os arquivos **.dlls** e arquivos adicionais para montagem em uma pasta temporária.
 
-## <a name="test-table-valued-function-and-stored-procedure"></a>Testar a função com valor de tabela e o procedimento armazenado
+## <a name="test-table-valued-functions-and-stored-procedures"></a>Funções de valor de tabela de teste e procedimentos armazenados
 
-Neste momento, não há suporte direto para a adição de casos de teste para procedimentos armazenados e funções com valor de tabela. Como alternativa, você pode criar um projeto U-SQL que tem scripts U-SQL que chamam essas funções e gravar casos de teste para elas. Siga as etapas abaixo para configurar casos de teste para funções com valor de tabela e procedimentos armazenados definidos no projeto de banco de dados U-SQL:
+Adicionar casos de teste para funções com valor de tabela e procedimentos armazenados diretamente não é suportado atualmente. Como solução alternativa, você pode criar um projeto U-SQL com scripts U-SQL que chame essas funções e gravar casos de teste para eles. Execute as etapas a seguir para configurar casos de teste para funções com valor de tabela e procedimentos armazenados definidos no projeto de banco de dados U-SQL:
 
-1.  Crie um projeto U-SQL para fins de teste e grave scripts U-SQL chamando os procedimentos armazenados e as funções com valor de tabela.
-2.  Adicione uma referência de banco de dados para este projeto U-SQL. Para obter a definição do procedimento armazenado e da função com valor de tabela, você precisará fazer referência ao projeto de banco de dados que contém a instrução DDL. [Saiba mais sobre a referência de bancos de dados](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
-3.  Adicione casos de teste para os scripts U-SQL que chamam procedimentos armazenados e funções com valor de tabela. [Saiba como adicionar casos de teste ao script U-SQL](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
+1.  Crie um projeto U-SQL para fins de teste e grave scripts U-SQL chamando as funções com valor de tabela e procedimentos armazenados.
+2.  Adicione uma referência de banco de dados ao projeto U-SQL. Para obter a função com valor de tabela e a definição de procedimento armazenado, é necessário referenciar o projeto de banco de dados que contém a instrução DDL. Saiba mais sobre [referências de banco de dados](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
+3.  Adicione casos de teste para scripts de U-SQL que chamam procedimentos armazenados e funções com valor de tabela. Aprenda como [adicionar casos de teste para scripts U-SQL](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
 ## <a name="deploy-u-sql-database-through-visual-studio-team-service"></a>Implantar o banco de dados U-SQL por meio do Visual Studio Team Service
 
-O `PackageDeploymentTool.exe` oferece as interfaces de programação e de linha de comando que ajudam a implantar o pacote de implantação (.usqldbpack) do banco de dados U-SQL. O SDK está incluído no [pacote do NuGet do SDK do U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) localizando em build/runtime/PackageDeploymentTool.exe. Usando o `PackageDeploymentTool.exe`, você pode implantar bancos de dados U-SQL no Azure Data Lake Analytics e a na conta local.
+`PackageDeploymentTool.exe` fornece as interfaces de programação e de linha de comando que ajudam a implementar pacotes de implementação do banco de dados U-SQL, **.usqldbpack**. O SDK está incluído no [pacote NuGet do U-SQL SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), localizado em **build / runtime / PackageDeploymentTool.exe**. Usando `PackageDeploymentTool.exe`, você pode implantar bancos de dados U-SQL no Azure Data Lake Analytics e contas locais.
 
->[!NOTE]
+> [!NOTE]
 >
->O suporte da linha de comando do PowerShell e o suporte da tarefa de liberação do Visual Studio Team Service para a implantação do banco de dados U-SQL estarão disponíveis em breve.
+> O suporte à linha de comando do PowerShell e o suporte a tarefas de versão do Visual Studio Team Services para a implantação do banco de dados U-SQL estão atualmente pendentes.
 >
 
-Siga as etapas abaixo para configurar a tarefa de implantação de banco de dados no Visual Studio Team Service:
+Siga as etapas abaixo para configurar uma tarefa de implantação de banco de dados no Visual Studio Team Services:
 
-1. Adicione uma tarefa de Script do PowerShell no build ou pipeline de lançamento e execute o seguinte script do PowerShell. Esta tarefa ajuda a obter dependências do SDK do Azure para `PackageDeploymentTool.exe` e `PackageDeploymentTool.exe`. É possível definir os parâmetros -AzureSDK e -DBDeploymentTool para carregar as dependências e a ferramenta de implantação em algumas pastas específicas. Passe o caminho -AzureSDK para `PackageDeploymentTool.exe` como o parâmetro -AzureSDKPath na etapa 2. 
+1. Adicione uma tarefa de script do PowerShell em um pipeline de criação ou lançamento e execute o seguinte script do PowerShell. Esta tarefa ajuda a obter dependências do SDK do Azure para `PackageDeploymentTool.exe` e `PackageDeploymentTool.exe`. Você pode definir os parâmetros **-AzureSDK** e **-DBDeploymentTool** para carregar as dependências e a ferramenta de implementação em pastas específicas. Passar o **- AzureSDK** caminho `PackageDeploymentTool.exe` como o **- AzureSDKPath** parâmetro na etapa 2. 
 
     ```powershell
     <#
@@ -377,7 +378,7 @@ Siga as etapas abaixo para configurar a tarefa de implantação de banco de dado
 
     param (
         [string]$AzureSDK = "AzureSDK", # Folder to cache Azure SDK dependencies
-        [string]$DBDeploymentTool = "DBDeploymentTool", # Folder to cache U-SQL dabatase deployment tool
+        [string]$DBDeploymentTool = "DBDeploymentTool", # Folder to cache U-SQL database deployment tool
         [string]$workingfolder = "" # Folder to execute these command lines
     )
 
@@ -425,67 +426,67 @@ Siga as etapas abaixo para configurar a tarefa de implantação de banco de dado
     copy USQLSDK\build\runtime\*.* $DBDeploymentTool
     ```
 
-2. Adicione uma **Tarefa de linha de comando** no build ou no pipeline de lançamento e preencha o script chamando `PackageDeploymentTool.exe`. `PackageDeploymentTool.exe` está localizado na pasta $DBDeploymentTool definida. O script de exemplo é o seguinte: 
+2. Adicionar um **tarefa de linha de comando** em um pipeline de build ou versão e preencha o script chamando `PackageDeploymentTool.exe`. `PackageDeploymentTool.exe` está localizado sob a definido **$DBDeploymentTool** pasta. O script de exemplo é o seguinte: 
 
-    * Implantar banco de dados U-SQL localmente
+    * Implante um banco de dados U-SQL localmente:
 
         ```
         PackageDeploymentTool.exe deploylocal -Package <package path> -Database <database name> -DataRoot <data root path>
         ```
 
-    * Use o modo de autenticação interativa para implantar o banco de dados U-SQL na Conta do Azure Data Lake Analytics:
+    * Use o modo de autenticação interativa para implantar um banco de dados U-SQL em uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -AzureSDKPath <azure sdk path> -Interactive
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Use a autenticação de segredo para implantar o banco de dados U-SQL na Conta do Azure Data Lake Analytics:
+    * Use a autenticação **secreta** para implantar um banco de dados U-SQL em uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
         ```
 
-    * Use a autenticação certFile para implantar o banco de dados U-SQL na Conta do Azure Data Lake Analytics:
+    * Use a autenticação **certFile** para implantar um banco de dados U-SQL em uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tanant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
         ```
 
-**Descrição do parâmetro PackageDeploymentTool.exe:**
+### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Descrições de parâmetro PackageDeploymentTool.exe
 
-**Parâmetros comuns:**
+#### <a name="common-parameters"></a>Parâmetros comuns
+
+| Parâmetro | DESCRIÇÃO | Valor Padrão | Obrigatório |
+|---------|-----------|-------------|--------|
+|Pacote|O caminho do pacote de implantação do banco de dados U-SQL a ser implantado.|nulo|verdadeiro|
+|Banco de dados|O nome do banco de dados a ser implantado ou criado.|master|falso|
+|LogFile|O caminho do arquivo para registro. Padrão para saída padrão (console).|nulo|falso|
+|LogLevel|Nível de registro: Verbose, Normal, Aviso ou Erro.|LogLevel.Normal|falso|
+
+#### <a name="parameter-for-local-deployment"></a>Parâmetro para implantação local
 
 |Parâmetro|DESCRIÇÃO|Valor Padrão|Obrigatório|
 |---------|-----------|-------------|--------|
-|Pacote|Caminho do pacote de implantação de banco de dados U-SQL a ser implantado|nulo|verdadeiro|
-|Banco de dados|Nome do banco de dados a ser implantado em/ou criado|master|falso|
-|LogFile|Caminho do arquivo para registro, padrão para saída padrão (console)|nulo|falso|
-|LogLevel|Nível de log: Detalhado, Normal, Aviso, Erro|LogLevel.Normal|falso|
+|DataRoot|O caminho da pasta raiz de dados local.|nulo|verdadeiro|
 
-**Parâmetro para a implantação local:**
+#### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parâmetros para a implantação do Azure Data Lake Analytics
 
 |Parâmetro|DESCRIÇÃO|Valor Padrão|Obrigatório|
 |---------|-----------|-------------|--------|
-|DataRoot|Caminho da pasta raiz de dados local|nulo|verdadeiro|
-
-**Parâmetro para a implantação do Azure Data Lake Analytics:**
-
-|Parâmetro|DESCRIÇÃO|Valor Padrão|Obrigatório|
-|---------|-----------|-------------|--------|
-|Conta|Especifica a implantação em qual a conta do Azure Data Lake Analytics pelo nome da conta|nulo|verdadeiro|
-|ResourceGroup|Nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics|nulo|verdadeiro|
-|SubscriptionId|ID da assinatura do Azure para a conta do Azure Data Lake Analytics|nulo|verdadeiro|
-|Locatário|Nome do locatário (nome de domínio do AAD, você pode encontrá-la na página de gerenciamento de assinaturas no portal do Azure)|nulo|verdadeiro|
-|AzureSDKPath|Caminho para pesquisar assemblies dependentes no SDK do Azure|nulo|verdadeiro|
-|Interativo|Usar o modo interativo ou não para autenticação|falso|falso|
-|ClientId|ID do aplicativo AAD para nenhuma autenticação interativa, exigida para nenhuma autenticação interativa|nulo|exigida para nenhuma autenticação interativa|
-|Secrete|Segredo/senha para nenhuma autenticação interativa, só deve ser usado em um ambiente seguro/confiável|nulo|exigida para nenhuma autenticação interativa ou use SecreteFile|
-|SecreteFile|O arquivo salva o segredo/senha para nenhuma autenticação interativa, certifique-se de apenas o usuário atual consiga ler|nulo|exigida para nenhuma autenticação interativa ou use Secrete|
-|CertFile|O arquivo salva a certificação X.509 para nenhuma autenticação interativa, o padrão é usar a autenticação de segredo do cliente|nulo|falso|
-|JobPrefix|Prefixo para o trabalho DDL do U-SQL de implementação do banco de dados|Deploy_ + DateTime.Now|falso|
+|Conta|Especifica qual conta do Azure Data Lake Analytics será implantada pelo nome da conta.|nulo|verdadeiro|
+|ResourceGroup|O nome do grupo de recursos do Azure para a conta do Azure Data Lake Analytics.|nulo|verdadeiro|
+|SubscriptionId|O ID de assinatura do Azure para a conta do Azure Data Lake Analytics.|nulo|verdadeiro|
+|Locatário|O nome do inquilino é o nome de domínio do Azure AD (Azure Active Directory). Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|nulo|verdadeiro|
+|AzureSDKPath|Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|nulo|verdadeiro|
+|Interativo|Se deve ou não usar o modo interativo para autenticação.|falso|falso|
+|ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|nulo|Obrigatório para autenticação não interativa.|
+|Segredo|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|nulo|Necessário para a autenticação não interativa, caso contrário, use SecretFile.|
+|SecretFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|nulo|Necessário para autenticação não interativa ou use o segredo.|
+|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação secreta do cliente.|nulo|falso|
+| JobPrefix | O prefixo para a implementação do banco de dados de um trabalho DDL do U-SQL. | Deploy_ + DateTime.Now | falso |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como testar seu código do Azure Data Lake Analytics](data-lake-analytics-cicd-test.md)
-- [Executar um script U-SQL no computador local](data-lake-analytics-data-lake-tools-local-run.md)
-- [Usar o projeto de banco de dados U-SQL para desenvolver o banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
+- [Como testar seu código do Google Analytics do Azure Data Lake](data-lake-analytics-cicd-test.md).
+- [Execute o script U-SQL em sua máquina local](data-lake-analytics-data-lake-tools-local-run.md).
+- [Projeto de banco de dados U-SQL Use para desenvolver o banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7554ef46289600cd15e4675a91f42a2cd735f18
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112654"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714046"
 ---
 # <a name="custom-roles-in-azure"></a>Funções personalizadas no Azure
 
@@ -28,7 +28,7 @@ Se as [funções internas](built-in-roles.md) não atenderem às necessidades es
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
-O seguinte mostra uma função personalizada para monitoramento e reinicialização de máquinas virtuais conforme mostrado usando o Azure PowerShell:
+A seguir, mostra como uma função personalizada se parece, conforme exibida no formato JSON. Essa função personalizada pode ser usada para monitorar e reiniciar máquinas virtuais.
 
 ```json
 {
@@ -65,7 +65,7 @@ O seguinte mostra uma função personalizada para monitoramento e reinicializaç
 }
 ```
 
-Depois de criar uma função personalizada, ela aparece no portal do Azure com um ícone de recurso laranja.
+Quando você cria uma função personalizada, ela aparece no portal do Azure com um ícone de recurso laranja.
 
 ![Ícone personalizado da função](./media/custom-roles/roles-custom-role-icon.png)
 
@@ -82,7 +82,9 @@ Depois de criar uma função personalizada, ela aparece no portal do Azure com u
 
 3. Testar a função personalizada
 
-    Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se houver a necessidade de ajustes, atualize a função personalizada.
+    Quando tiver sua função personalizada, será necessário testá-la para verificar se funciona como o esperado. Se você precisar fazer ajustes mais tarde, você pode atualizar a função personalizada.
+
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: criar uma função personalizada usando o Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutorial: criar uma função personalizada usando a CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades da função personalizada
 
@@ -98,16 +100,16 @@ Uma função personalizada tem as seguintes propriedades.
 | `NotActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Para obter mais informações, consulte [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados permitidas pela função em seus dados dentro desse objeto. Para obter mais informações, consulte [DataActions (versão prévia)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Não  | String[] | Uma matriz de cadeias de caracteres que especifica as operações de dados excluídas do `DataActions` permitido. Para obter mais informações, consulte [NotDataActions (versão prévia)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | SIM | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Não pode ser definido como escopo de raiz (`"/"`). Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes` | SIM | String[] | Uma matriz de cadeias de caracteres que especifica os escopos para os quais a função personalizada está disponível para atribuição. Atualmente não pode ser definido para o escopo raiz (`"/"`) ou um escopo de grupo de gerenciamento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [Organize seus recursos com grupos de gerenciamento do Azure](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
 
-## <a name="assignablescopes-for-custom-roles"></a>AssignableScopes para funções personalizadas
+## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, excluir, atualizar ou exibir uma função personalizada
 
-Assim como funções internas, a propriedade `AssignableScopes` especifica os escopos para os quais a função está disponível para atribuição. No entanto, você não pode usar o escopo raiz (`"/"`) em suas próprias funções personalizadas. Se você tentar, receberá um erro de autorização. A propriedade `AssignableScopes` de uma função personalizada também controla quem pode criar, excluir, modificar ou exibir a função personalizada.
+Assim como funções internas, a propriedade `AssignableScopes` especifica os escopos para os quais a função está disponível para atribuição. A propriedade `AssignableScopes` de uma função personalizada também controla quem pode criar, excluir, atualizar ou exibir a função personalizada.
 
 | Tarefa | Operação | DESCRIÇÃO |
 | --- | --- | --- |
 | Criar/excluir uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os usuários que recebem essa operação em todos os `AssignableScopes` da função personalizada podem criar (ou excluir) funções personalizadas para uso nesses escopos. Por exemplo, os [Proprietários](built-in-roles.md#owner) e os [Administradores de Acesso do Usuário](built-in-roles.md#user-access-administrator) das assinaturas, grupos de recursos e recursos. |
-| Modificar uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os usuários que recebem essa operação em todos os `AssignableScopes` da função personalizada podem modificar as funções personalizadas nesses escopos. Por exemplo, os [Proprietários](built-in-roles.md#owner) e os [Administradores de Acesso do Usuário](built-in-roles.md#user-access-administrator) das assinaturas, grupos de recursos e recursos. |
+| Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinition/write` | Os usuários que recebem essa operação em todos os `AssignableScopes` da função personalizada podem atualizar as funções personalizadas nesses escopos. Por exemplo, os [Proprietários](built-in-roles.md#owner) e os [Administradores de Acesso do Usuário](built-in-roles.md#user-access-administrator) das assinaturas, grupos de recursos e recursos. |
 | Exibir uma função personalizada | `Microsoft.Authorization/ roleDefinition/read` | Os usuários que recebem essa operação em um escopo podem exibir as funções personalizadas que estão disponíveis para atribuição nesse escopo. Todas as funções internas permitem que funções personalizadas estejam disponíveis para atribuição. |
 
 ## <a name="next-steps"></a>Próximas etapas

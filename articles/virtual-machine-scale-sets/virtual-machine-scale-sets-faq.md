@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656434"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715056"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -65,7 +65,7 @@ Obtenha respostas para as perguntas frequentes sobre os conjuntos de dimensionam
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 
-**A.** Uma conjunto de dimensionamento regional (não zonal) usa *grupos de posicionamento* e cada um deles pode ser configurado para atuar como uma conjunto de disponibilidade implícito com cinco domínios de falha e cinco domínios de atualização. Conjuntos de dimensionamento de mais de 100 VMs abrangem vários grupos de posicionamento. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
+**A.** Um conjunto de dimensionamento regional (não zonal) usa *grupos de veiculações*, que agem como um conjunto de disponibilidade implícito com cinco domínios de falha e cinco domínios de atualização. Conjuntos de dimensionamento de mais de 100 VMs abrangem vários grupos de posicionamento. Para saber mais sobre grupos de posicionamento, confira [Como trabalhar com conjuntos de dimensionamento grandes de máquinas virtuais](virtual-machine-scale-sets-placement-groups.md). Um conjunto de disponibilidade de máquinas virtuais pode existir na mesma rede virtual como um conjunto de escala de VMs. Uma configuração comum é colocar as VMs que geralmente exigem configuração exclusiva no conjunto de disponibilidade do nó de controle e colocar nós de dados no conjunto de dimensionamento.
 
 **P.** Os conjuntos de dimensionamento funcionam com as zonas de disponibilidade do Azure?
 
@@ -266,11 +266,11 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
     }
 ```
  
-Nome do elemento linuxConfiguration | Obrigatório | type | DESCRIÇÃO
+Nome do elemento linuxConfiguration | Obrigatório | Tipo | DESCRIÇÃO
 --- | --- | --- | --- |  ---
 ssh | Não  | Coleção | Especifica a configuração da chave SSH para um SO Linux
-caminho | sim | Cadeia de caracteres | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
-keyData | sim | Cadeia de caracteres | Especifica uma chave pública SSH codificada em base64
+caminho | SIM | Cadeia de caracteres | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
+keyData | SIM | Cadeia de caracteres | Especifica uma chave pública SSH codificada em base64
 
 Para obter um exemplo, consulte [o modelo de início rápido do GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

@@ -13,14 +13,14 @@ ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 64245a968eca94518d2e4238b4bc5c93c952563a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29809430"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628776"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar um banco de dados do SQL Server para o SQL Server em uma VM do Azure
 
@@ -85,7 +85,7 @@ Desanexar os banco de dados e arquivos de log e transferi-los para [Armazenament
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>Converter a VM e carregar a URL e implantar como uma nova VM
 Use esse método para migrar todos os sistemas e bancos de dados de usuário em uma instância local do SQL Server para a máquina virtual do Azure. Use as seguintes etapas gerais para migrar de uma instância inteira do SQL Server usando este método manual:
 
-1. Converta máquinas físicas ou virtuais em VHDs do Hyper-V usando o [Conversor de Máquina Virtual da Microsoft](https://technet.microsoft.com/library/dn874008(v=ws.11).aspx).
+1. Converta máquinas físicas ou virtuais em VHDs do Hyper-V.
 2. Carregue arquivos de VHD no armazenamento do Azure usando o [cmdlet Add-AzureVHD](https://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 3. Implante uma nova máquina virtual usando o VHD carregado.
 

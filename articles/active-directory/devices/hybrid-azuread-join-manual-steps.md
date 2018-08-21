@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392603"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630612"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos ingressados no Azure Active Directory híbrido manualmente 
 
-Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais detalhes, consulte [../Introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md).
+Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais detalhes, consulte o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](overview.md).
 
 Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos adicionados ao domínio no Azure AD, você poderá fazer isso configurando dispositivos adicionados ao Azure AD híbrido. Esse artigo fornece as etapas relacionadas. 
 
@@ -35,40 +35,18 @@ Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos
 > Se usar o Azure AD Connect é uma opção para você, consulte [Selecionar o cenário](hybrid-azuread-join-plan.md#select-your-scenario). Usando o Azure AD Connect, é possível simplificar significativamente a configuração de ingresso do Azure AD híbrido.
 
 
-## <a name="before-you-begin"></a>Antes de começar
-
-Antes de começar a configurar dispositivos adicionados ao Azure AD híbrido no seu ambiente, você deve se familiarizar com os cenários com suporte e as restrições.  
-
-Se você estiver dependendo da [Ferramenta de Preparação do Sistema (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), certifique-se de criar imagens de uma instalação do Windows que ainda não foi registrado com o Azure AD.
-
-Todos os dispositivos associados ao domínio eu executam a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure Active Directory no reinício do dispositivo ou na entrada do usuário, quando as etapas de configuração mencionadas a seguir estiverem concluídas. **Se esse comportamento de registro automático não for preferencial, ou se uma distribuição controlada for desejável**, siga as instruções na seção "Etapa 4: Controle de Implantação e Distribuição" abaixo para habilitar ou desabilitar seletivamente a distribuição automática, antes de seguir as outras etapas de configuração.  
-
-Para melhorar a legibilidade das descrições, este artigo usa o termo a seguir: 
-
-- **Dispositivos atuais do Windows** - este termo refere-se aos dispositivos associados ao domínio que executam o Windows 10 ou o Windows Server 2016.
-- **Dispositivos de baixo nível do Windows** - este termo refere-se a todos os dispositivos do Windows associados ao domínio **com suporte** que não estão executando o Windows 10 nem o Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Dispositivos atuais do Windows
-
-- Para os dispositivos que executam o sistema operacional da área de trabalho do Windows, a versão com suporte é a Atualização de Aniversário do Windows 10 (versão 1607) ou posterior. 
-- O registro de dispositivos atuais do Windows **tem** suporte em ambientes não-federados, como configurações de sincronização de hash de senha.  
-
-
-### <a name="windows-down-level-devices"></a>Dispositivos de nível inferior do Windows
-
-- Há suporte para os seguintes dispositivos de nível inferior do Windows:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- **Não há** suporte para o registro de dispositivos de nível inferior do Windows ao usar a autenticação de passagem do Azure AD sem logon único contínuo.
-- O registro de dispositivos de nível inferior do Windows **não tem** suporte para dispositivos que utilizam perfis móveis. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+Este tutorial assume que você está familiarizado com:
+    
+-  [Introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md)
+    
+-  [Como planejar a implementação de ingresso no Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
+
+-  [Como controlar o ingresso no Azure AD híbrido de seus dispositivos](hybrid-azuread-join-control.md)
+
 
 Antes de começar a habilitar dispositivos adicionados ao Azure AD híbrido em sua organização, você precisa se certificar de que:
 
@@ -114,15 +92,14 @@ Use a tabela a seguir para ter uma visão geral das etapas necessárias para o s
 
 | Etapas                                      | Sincronização de hash de senha e do Windows atual | Windows atual e a federação | Nível inferior do Windows |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Etapa 1: configurar o ponto de conexão de serviço | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
-| Etapa 2: configurar a emissão de declarações           |                                        | ![Verificação][1]                    | ![Verificação][1]        |
-| Etapa 3: habilitar dispositivos não Windows 10      |                                        |                                | ![Verificação][1]        |
-| Etapa 4: implantação de controle e distribuição     | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
-| Etapa 5: Verificar os dispositivos adicionados          | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
+| Configurar o ponto de conexão de serviço | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
+| Configurar a emissão de declarações           |                                        | ![Verificação][1]                    | ![Verificação][1]        |
+| Permitir que dispositivos não Windows 10      |                                        |                                | ![Verificação][1]        |
+| Verificar dispositivos ingressados          | ![Verificação][1]                            | ![Verificação][1]                    | ![Verificação][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Etapa 1: configurar o ponto de conexão de serviço
+## <a name="configure-service-connection-point"></a>Configurar o ponto de conexão de serviço
 
 O objeto de ponto de conexão de serviço (SCP) é usado por seus dispositivos durante o registro para descobrir informações de locatário do Azure AD. No seu AD (Active Directory) local, o objeto SCP para dispositivos adicionados ao Azure AD híbrido deve existir na partição do contexto de nomenclatura da configuração da floresta do computador. Há apenas um contexto de nomenclatura de configuração por floresta. Em uma configuração de várias florestas do Active Directory, deverá haver um ponto de conexão de serviço em todas as florestas que tiverem computadores associados ao domínio.
 
@@ -200,7 +177,7 @@ Para obter uma lista dos domínios da empresa verificados, use o cmdlet [Get-Azu
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Etapa 2: configurar a emissão de declarações
+## <a name="setup-issuance-of-claims"></a>Configurar a emissão de declarações
 
 Em uma configuração do Azure AD federada, os dispositivos confiam nos Serviços de Federação do Active Directory (AD FS) ou no serviço de federação local de um terceiro para se autenticar no Azure AD. Os dispositivos são autenticados para obter um token de acesso para se registrar com o Serviço de Registro de Dispositivo (Azure DRS) do Azure Active Directory.
 
@@ -504,7 +481,7 @@ O script a seguir o ajudará com a criação das regras de transformação de em
 
 - Se você já tiver emitido uma declaração **ImmutableID** para contas de usuário, defina o valor de **$immutableIDAlreadyIssuedforUsers** no script para **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Etapa 3: habilitar dispositivos de nível inferior do Windows
+## <a name="enable-windows-down-level-devices"></a>Habilitar dispositivos de nível inferior do Windows
 
 Se alguns dos seus dispositivos ingressados no domínio forem dispositivos de nível inferior do Windows, será necessário:
 
@@ -562,64 +539,25 @@ Para evitar prompts de certificado quando os usuários dos dispositivos de regis
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Etapa 4: implantação de controle e distribuição
 
-Quando você tiver concluído as etapas necessárias, os dispositivos adicionados ao domínio estarão prontos para ingressar automaticamente no Azure AD:
-
-- Todos os dispositivos associados ao domínio que executarem a Atualização de Aniversário do Windows 10 e o Windows Server 2016 serão registrados automaticamente no Azure AD na reinicialização do dispositivo ou no login. 
-
-- Novos dispositivos serão registrados com o Azure AD quando o dispositivo reiniciar depois que a operação de ingresso no domínio for concluída.
-
-- Os dispositivos que foram anteriormente registrados no Azure AD (por exemplo, no Intune) fazem a transição para "*Adicionado ao Domínio, Registrado no AAD*". No entanto, levará algum tempo para que esse processo seja concluído em todos os dispositivos devido ao fluxo normal de atividade do usuário e do domínio.
-
-### <a name="remarks"></a>Comentários
-
-- Você pode usar uma configuração de objeto de Política de Grupo ou de cliente do System Center Configuration Manager para controlar a distribuição do registro automático de computadores Windows 10 e Windows Server 2016 ingressados no domínio. **Se você não quiser que esses dispositivos sejam registrados automaticamente no Azure AD ou se desejar controlar o registro**, primeiro distribua a política de grupo desabilitando o registro automático em todos esses dispositivos ou, se estiver usando o Configuration Manager, defina as configurações do cliente em “Serviços de Nuvem -> Registrar automaticamente os novos dispositivos Windows 10 ingressados no domínio no Azure Active Directory” como "Não", antes de iniciar as etapas de configuração. Depois de terminar a configuração, e quando estiver pronto para testar, implemente a política de grupo habilitando o registro automático somente nos dispositivos de teste, e depois em todos os outros dispositivos que você escolher.
-
-- Para distribuição dos computadores de nível inferior do Windows, você pode implantar um [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) nos computadores que selecionar.
-
-- Se você efetuar push do objeto de Política de Grupo em dispositivos adicionados ao domínio do Windows 8.1, será feita uma tentativa de ingresso. No entanto, é recomendável usar o [pacote do Windows Installer](#windows-installer-packages-for-non-windows-10-computers) para ingressar todos os seus dispositivos de nível inferior do Windows. 
-
-### <a name="create-a-group-policy-object"></a>Criar um objeto de Política de Grupo 
-
-Para controlar a distribuição dos computadores atuais com Windows, você deve implantar o objeto de Política de Grupo **Registrar computadores adicionados ao domínio como dispositivos** nos dispositivos que deseja registrar. Por exemplo, você pode implantar a política em uma unidade organizacional ou um grupo de segurança.
-
-**Para definir a política:**
-
-1. Abra o **Gerenciador do Servidor** e depois vá para `Tools > Group Policy Management`.
-2. Vá para o nó de domínio que corresponde ao domínio em que você deseja ativar o registro automático de computadores atuais do Windows.
-3. Clique com o botão direito do mouse em **Objetos de Política de Grupo** e selecione **Novo**.
-4. Insira um nome para o objeto de Política de Grupo. Por exemplo, *Ingresso no Azure AD híbrido. 
-5. Clique em **OK**.
-6. Clique com o botão direito do mouse em seu novo objeto de Política de Grupo e selecione **Editar**.
-7. Vá para **Configuração do Computador** > **Políticas** > **Modelos Administrativos** > **Componentes do Windows** > **Registro de Dispositivo**. 
-8. Clique com o botão direito do mouse em **Registrar computadores associados ao domínio como dispositivos** e selecione **Editar**.
-   
-   > [!NOTE]
-   > Esse modelo de Política de Grupo foi renomeado de versões anteriores do console de Gerenciamento de Política de Grupo. Se você estiver usando uma versão anterior do console, vá para `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Selecione **Habilitado** e clique em **Aplicar**. Você deve selecionar **Desabilitado**, se quiser que a política bloqueie os dispositivos controlados por essa política de grupo de registrar-se automaticamente com o Azure Active Directory.
-
-8. Clique em **OK**.
-9. Vincule o objeto da Política de Grupo a um local de sua escolha. Por exemplo, você pode vinculá-lo a uma unidade organizacional específica. Você também pode vinculá-lo a um grupo específico de computadores de segurança que ingressam automaticamente no Azure AD. Para definir essa política para todos os computadores com Windows 10 e Windows Server 2016 ingressados no domínio em sua organização, vincule o objeto de Política de Grupo ao domínio.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Pacotes do Windows Installer para computadores que não são do Windows 10
-
-Para ingressar computadores de nível inferior do Windows adicionados ao domínio em um ambiente federado, você pode baixar e instalar esses pacotes do Windows Installer (.msi) do Centro de Download na página [Microsoft Workplace Join para computador sem o Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=53554).
-
-Você pode implantar o pacote usando um sistema de distribuição de software como o System Center Configuration Manager. O pacote dá suporte às opções de instalação silenciosa padrão com o parâmetro *quiet*. O System Center Configuration Manager Current Branch oferece benefícios adicionais em relação às versões anteriores, como a capacidade de monitorar registros concluídos. Para obter mais informações, consulte [System Center 2016](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-O instalador cria uma tarefa agendada no sistema que é executada no contexto do usuário. A tarefa é disparada quando o usuário entra no Windows. A tarefa ingressa silenciosamente o dispositivo no Azure AD com as credenciais do usuário após a autenticação usando a Autenticação Integrada do Windows. Para ver a tarefa agendada, no dispositivo, vá para o **Microsoft** > **Workplace Join** e depois para a biblioteca do Agendador de Tarefas.
-
-## <a name="step-5-verify-joined-devices"></a>Etapa 5: Verificar os dispositivos adicionados
+## <a name="verify-joined-devices"></a>Verificar dispositivos ingressados
 
 Você pode verificar os dispositivos adicionados com sucesso à sua organização usando o cmdlet [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) no [módulo PowerShell do Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 A saída desse cmdlet mostra os dispositivos que foram registrados e adicionados no Azure AD. Para obter todos os dispositivos, use o parâmetro **-Todos** e, em seguida, filtre-os usando a propriedade **deviceTrustType**. Dispositivos associados ao domínio possuem um valor de **Associado ao domínio**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Solucionar problemas de implementação
+
+Se estiver tendo problemas para concluir o ingresso do Azure AD híbrido para dispositivos Windows ingressados no domínio, consulte:
+
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md)
+* [Introdução ao gerenciamento de dispositivos no Azure Active Directory](overview.md)
 
 
 

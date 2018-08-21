@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344623"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715379"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -279,7 +279,7 @@ Para obter mais informações sobre como criar assinaturas usando o Portal do Az
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Para criar uma assinatura usando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use o comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create).
+Para criar uma assinatura usando [a CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), use o comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
 O comando requer a URL do ponto de extremidade que invoca a função. O exemplo a seguir mostra o padrão de URL:
 
@@ -340,7 +340,7 @@ Para testar um gatilho de Grade de Eventos localmente, você deve receber solici
 4. [Gerar uma solicitação](#generate-a-request) e copiar o corpo da solicitação do aplicativo visualizador.
 5. [Postar manualmente a solicitação](#manually-post-the-request) para a URL localhost da sua função de gatilho da Grade de Eventos.
 
-Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
+Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
 ### <a name="create-a-viewer-web-app"></a>Criar um aplicativo Web visualizador
 
@@ -406,7 +406,7 @@ Outra maneira de testar um gatilho de Grade de Eventos localmente é automatizar
 5. [Criar uma assinatura na Grade de Eventos](#create-a-subscription) que envia eventos para o ponto de extremidade ngrok.
 6. [Disparar um evento](#trigger-an-event).
 
-Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
+Quando terminar de testar, você poderá usar a mesma assinatura para a produção atualizando o ponto de extremidade. Use o comando da CLI do Azure[az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
 ### <a name="create-an-ngrok-endpoint"></a>Criar um ponto de extremidade ngrok
 
@@ -432,7 +432,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Você usará a URL https://{subdomain}.ngrok.io para sua assinatura na Grade de Eventos.
+Você usará o URL `https://{subdomain}.ngrok.io` para sua inscrição na grade de eventos.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Executar a função de gatilho de Grade de Eventos
 
@@ -440,12 +440,16 @@ A URL ngrok não recebe tratamento especial pela Grade de Eventos, portanto, sua
 
 ### <a name="create-a-subscription"></a>Criar uma assinatura
 
-Crie uma assinatura na Grade de Eventos do tipo que deseja testar e forneça o ponto de extremidade ngrok, usando o padrão a seguir:
+Crie uma assinatura de grade de eventos do tipo que você deseja testar e forneça seu ponto de extremidade ngrok.
 
+Use este padrão de terminal para Funções 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Use este padrão de terminal para Funções 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 O parâmetro `functionName` deverá ser o nome especificado no atributo `FunctionName`.
 
 Aqui, está um exemplo usando a CLI do Azure:

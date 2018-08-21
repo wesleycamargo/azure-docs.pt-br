@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400099"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630955"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequentes, esporádicas e de arquivo
 
@@ -71,6 +71,9 @@ Blobs em todos os três camadas de armazenamento podem coexistir na mesma conta.
 
 > [!NOTE]
 > O armazenamento de arquivos e as camadas no nível do blob só oferecem suporte aos blobs de bloco. Também não é possível alterar a camada de um blob de blocos que tenha instantâneos.
+
+### <a name="blob-lifecycle-management"></a>Gerenciamento de ciclo de vida de blob
+O gerenciamento do ciclo de vida do armazenamento de blob (visualização) oferece uma política rica e baseada em regras que você pode usar para fazer a transição dos dados para a melhor camada de acesso e para expirar os dados no final do ciclo de vida. Ver [gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) para saber mais.  
 
 ### <a name="blob-level-tiering-billing"></a>Cobrança da camada no nível do blob
 
@@ -187,6 +190,8 @@ O armazenamento de dados e outros limites são definidos no nível da conta e n�
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar os mais acessados, os menos acessados e os arquivados em contas do Armazenamento de Blobs GPv2
 
 [Verificar a disponibilidade de frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
+
+[Gerenciar o ciclo de vida de armazenamento de BLOBs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Avaliar o uso de suas contas de armazenamento atuais, habilitando as métricas do Armazenamento do Azure](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

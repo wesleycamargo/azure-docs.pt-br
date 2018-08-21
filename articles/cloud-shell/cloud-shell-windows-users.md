@@ -12,44 +12,61 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 5e318a0f64033aa0c4b306e547c11e1994afa229
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860957"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630379"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell no Azure Cloud Shell para usuários do Windows
 
-Em maio de 2018, as alterações foram [anunciadas](https://azure.microsoft.com/blog/pscloudshellrefresh/) no PowerShell no Azure Cloud Shell.  A experiência do PowerShell no Azure Cloud Shell agora é PowerShell Core 6 no Linux.
-Com essa alteração, há alguns aspectos do PowerShell no Cloud Shell que podem ser diferentes do esperado no Windows PowerShell 5.1.
+Em maio de 2018, as alterações foram [anunciadas](https://azure.microsoft.com/blog/pscloudshellrefresh/) no PowerShell no Azure Cloud Shell.
+A experiência do PowerShell no Azure Cloud Shell agora executa o [PowerShell Core 6](https://github.com/powershell/powershell) em um ambiente Linux.
+Com essa alteração, pode haver algumas diferenças na experiência do PowerShell no Cloud Shell em comparação com o que é esperado em uma experiência do Windows PowerShell.
 
-## <a name="case-sensitivity"></a>Diferenciar maiúsculas de minúsculas
+## <a name="file-system-case-sensitivity"></a>Diferenciação de sistema de arquivos
 
-No Windows, o sistema de arquivos diferencia maiúsculas de minúsculas.  No Linux, o sistema de arquivos diferencia maiúsculas de minúsculas.
-Isso significa que, anteriormente, `file.txt` e `FILE.txt` foram considerados o mesmo arquivo, agora eles são considerados arquivos diferentes.
-As maiúsculas e minúsculas apropriadas devem ser usadas durante o preenchimento de `tab` no sistema de arquivos.  Experiências específicas do PowerShell, como cmdlets `tab`, não diferenciam maiúsculas de minúsculas. 
+O sistema de arquivos não diferencia maiúsculas de minúsculas no Windows, enquanto no Linux, o sistema de arquivos diferencia maiúsculas de minúsculas.
+Anteriormente, `file.txt` e `FILE.txt` eram considerados o mesmo arquivo, mas agora são considerados arquivos diferentes.
+Uso de maiusculas apropriado deve ser usado enquanto `tab-completing` no sistema de arquivos.
+Experiências específicas do PowerShell, como `tab-completing` nomes de cmdlet, parâmetros e valores, não diferenciam maiusculas de minúsculas.
 
-## <a name="windows-powershell-alias-vs-linux-utilities"></a>Alias do Windows PowerShell versus utilitários Linux
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Vs de aliases do Windows PowerShell utilitários Linux
 
-Comandos existentes no Linux, como `ls`, `sort` e `sleep` têm precedência sobre os aliases do PowerShell.  Veja abaixo os aliases comuns removidos, bem como os comandos equivalentes:  
+Alguns aliases existentes do PowerShell têm os mesmos nomes de comandos internos do Linux, como `cat`,`ls`, `sort`, `sleep`, etc. No PowerShell Core 6, os aliases que colidem com comandos internos do Linux foram removidos.
+Abaixo estão os aliases comuns que foram removidos, bem como seus comandos equivalentes:  
 
 |Alias removido   |Comando equivalente   |
 |---|---|
+|`cat`    | `Get-Content` |
+|`curl`   | `Invoke-WebRequest` |
+|`diff`   | `Compare-Object` |
 |`ls`     | `dir` <br> `Get-ChildItem` |
-|`sort`   | `Sort-Object` |
+|`mv`     | `Move-Item`   |
+|`rm`     | `Remove-Item` |
 |`sleep`  | `Start-Sleep` |
+|`sort`   | `Sort-Object` |
+|`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home-vs-homeclouddrive"></a>Persisting $home versus $home\clouddrive
+## <a name="persisting-home"></a>$HOME persistentes
 
-Para usuários que persistiram scripts e outros arquivos na Unidade de Nuvem, o diretório $HOME agora é persistido entre as sessões.
+Os usuários mais antigos só podiam persistir em scripts e outros arquivos em seu Cloud Drive.
+Agora, o diretório $ HOME do usuário também é persistido nas sessões.
 
 ## <a name="powershell-profile"></a>Perfil do PowerShell
 
-Por padrão, um perfil do PowerShell não é criado.  Para criar seu perfil, crie um diretório `PowerShell` sob `$HOME/.config`.  No `$HOME/.config/PowerShell`, você pode criar seu perfil com o nome `Microsoft.PowerShell_profile.ps1`.
+Por padrão, um perfil de usuário do PowerShell não é criado.
+Para criar seu perfil, crie um diretório `PowerShell` sob `$HOME/.config`.
+
+```azurepowershell-interactive
+mkdir (Split-Path $profile.CurrentUserAllHosts)
+```
+
+Sob `$HOME/.config/PowerShell`, você pode criar seus arquivos de perfil - `profile.ps1` e/ou `Microsoft.PowerShell_profile.ps1`.
 
 ## <a name="whats-new-in-powershell-core-6"></a>O que há de novo no PowerShell Core 6
 
-Para saber mais sobre o que há de novo no PowerShell Core 6, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) e a postagem de blog [Introdução ao PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/)
+Para obter mais informações sobre o que há de novo no PowerShell Core 6, consulte os [documentos do PowerShell](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) e a postagem do blog [Introdução ao PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/).

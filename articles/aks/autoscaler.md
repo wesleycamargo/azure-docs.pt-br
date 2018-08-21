@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d121f2744292ba64436f0722ae60cc3bc2b8dfa7
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186706"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714121"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Dimensionador automático de cluster no AKS (serviço de Kubernetes do Azure) – versão prévia
 
-O AKS (serviço de Kubernetes do Azure) fornece uma solução flexível para implantar um cluster Kubernetes gerenciado no Azure. Conforme as demandas por recursos aumentam, o dimensionador automático do cluster permite que seu cluster aumente para atender a essa demanda com base nas restrições que você define. O AC (dimensionador automático de cluster) faz isso colocando em escala seus nós de agente com base em pods pendentes. Ele examina o cluster periodicamente para verificar se há pods pendentes ou nós vazios e aumenta o tamanho, se possível. Por padrão, o AC examina se há pods pendentes a cada 10 segundos e remove um nó se ele for desnecessário por mais de 10 minutos. Quando usado com o HPA (dimensionador automático de pod horizontal), o HPA atualizará as réplicas e os recursos de pod conforme a demanda. Se não houver nós suficientes ou se houver nós desnecessários seguindo essa colocação em escala do pod, o AC responderá e agendará os pods no novo conjunto de nós.
+O AKS (serviço de Kubernetes do Azure) fornece uma solução flexível para implantar um cluster Kubernetes gerenciado no Azure. Conforme as demandas por recursos aumentam, o dimensionador automático do cluster permite que seu cluster aumente para atender a essa demanda com base nas restrições que você define. O AC (dimensionador automático de cluster) faz isso colocando em escala seus nós de agente com base em pods pendentes. Ele examina o cluster periodicamente para verificar se há pods pendentes ou nós vazios e aumenta o tamanho, se possível. Por padrão, o AC examina se há pods pendentes a cada 10 segundos e remove um nó se ele for desnecessário por mais de 10 minutos. Quando usado com o autoescalador [ horizontalmente ](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), o HPA atualizará réplicas e recursos de pod de acordo com a demanda. Se não houver nós suficientes ou nós desnecessários após esse escalonamento de cápsulas, a autoridade de certificação responderá e agendará os pods no novo conjunto de nós.
+
+Este artigo descreve como implantar o autoescalador de cluster nos nós do agente. No entanto, desde que o dimensionador automático de cluster é implantado no namespace kube-system, o dimensionador automático não será reduzir verticalmente o nó em execução desse pod.
 
 > [!IMPORTANT]
 > Integração do dimensionador automático de cluster do AKS (serviço de Kubernetes do Azure) está atualmente em **versão prévia**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
@@ -32,41 +34,70 @@ Este documento presume que você tenha um cluster do AKS habilitado para RBAC. S
 
 ## <a name="gather-information"></a>Coletar informações
 
-A lista a seguir mostra todas as informações que você deve fornecer na definição do dimensionador automático.
+Para gerar as permissões para que o autoescalador de cluster seja executado em seu cluster, execute este script bash:
 
-- *ID da Assinatura*: a ID correspondente à assinatura usada para este cluster
-- *Nome do Grupo de Recursos*: o nome do grupo de recursos ao qual o cluster pertence 
-- *Nome do Cluster*: nome do cluster
-- *ID do cliente*: a ID do aplicativo concedida pela etapa de geração de permissão
-- *Segredo do Cliente*: segredo do aplicativo concedido pela etapa de geração de permissão
-- *ID do Locatário*: ID do locatário (proprietário da conta)
-- *Grupo de Recursos do Nó*: nome do grupo de recursos que contém os nós de agente no cluster
-- *Nome do Pool de Nós*: nome do pool de nós que você gostaria de escalar
-- *Número Mínimo de Nós*: número mínimo de nós que deve existir no cluster
-- *Número Máximo de Nós*: número máximo de nós que deve existir no cluster
-- *Tipo de VM*: serviço usado para gerar o cluster de Kubernetes
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Obtenha sua ID de assinatura com: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Gere um conjunto de credenciais do Azure executando o seguinte comando:
+Após seguir as etapas do script, o script mostrará seus detalhes na forma de um segredo, da seguinte forma:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-A ID do Aplicativo, a Senha e a ID de Locatário será seu clientID, clientSecret e tenantID nas etapas a seguir.
-
-Obtenha o nome do seu pool de nós executando o comando a seguir. 
+Em seguida, obtenha o nome do seu pool de nós executando o comando a seguir. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Em seguida, extraia o valor da etiqueta **agentpool**. O nome padrão para o pool de nós de um cluster é "nodepool1".
 
-Para obter o nome do seu grupo de recursos do nó, extraia o valor da etiqueta **kubernetes.azure.com<span></span>/cluster**. O nome do grupo de recursos do nó geralmente está na forma MC_ [grupo de recursos]\_[nome do cluster] _ [local].
-
-O parâmetro vmType refere-se ao serviço que está sendo usado, que, aqui, é AKS.
-
-Agora, você deve ter as seguintes informações:
-
-- SubscriptionID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-Em seguida, codifique todos esses valores com base64. Por exemplo, para codificar o valor de VMType com base64:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Criar um segredo
-Usando esses dados, crie um segredo para a implantação usando os valores encontrados nas etapas anteriores no seguinte formato:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Agora, usando o pool de segredo e o nó, você pode criar um gráfico de implantação.
 
 ## <a name="create-a-deployment-chart"></a>Criar um gráfico de implantação
 
@@ -313,7 +302,7 @@ spec:
       restartPolicy: Always
 ```
 
-Copie e cole o segredo criado na etapa anterior e insira-o no início do arquivo.
+Copie e cole o segredo criado na etapa anterior e inseri-lo no início do arquivo.
 
 Em seguida, para definir o intervalo de nós, preencha o argumento para `--nodes` em `command` na forma MIN:MAX:NODE_POOL_NAME. Por exemplo: `--nodes=3:10:nodepool1` define o número mínimo de nós como 3, o número máximo de nós como 10 e o nome do pool de nós como nodepool1.
 
@@ -324,10 +313,10 @@ Em seguida, preencha o campo de imagem em **contêineres** com a versão do dime
 Implante o dimensionador automático de cluster executando
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
-Para verificar se o dimensionador automático de cluster está em execução, use o comando a seguir e verifique a lista de pods. Se há um pod prefixado com "cluster-autoscaler" em execução, o dimensionador automático de cluster foi implantado.
+Para verificar se o dimensionador automático de cluster está em execução, use o comando a seguir e verifique a lista de pods. Deve haver um pod prefixado com "cluster-autoscaler" em execução. Se você vir isso, o autoescalador de cluster foi implantado.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Para exibir o status do dimensionador automático de cluster, execute
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Interpretando o status do escalonamento automático de cluster
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+O status do escalonamento automático de cluster permite que você veja o estado do autoescalador de cluster em dois níveis diferentes: todo o cluster e dentro de cada grupo de nós. Como o AKS atualmente suporta apenas um pool de nós, essas métricas são as mesmas.
+
+* Integridade indica a integridade geral de nós. Se o autoescalador de cluster tiver dificuldades para criar ou remover nós no cluster, esse status será alterado para "Não íntegro". Há também um detalhamento do status de diferentes nós:
+    * "Pronto" significa que um nó está pronto para ter conjuntos de pods agendados nele.
+    * "Desaprovado" significa um nó que quebrou depois de iniciado.
+    * "NotStarted" significa que um nó não for totalmente iniciado ainda.
+    * "LongNotStarted" significa que um nó falhou ao iniciar dentro de um limite razoável.
+    * "Registrado significa que um nó é registrado no grupo
+    * "Não registrado" significa que um nó está presente no lado do provedor do cluster, mas não conseguiu se registrar no Kubernetes.
+  
+* O ScaleUp permite verificar quando o cluster determina que uma ampliação deve ocorrer em seu cluster.
+    * Uma transição é quando o número de nós no cluster muda ou o status de um nó é alterado.
+    * O número de nós prontos é o número de nós disponíveis e prontos no cluster. 
+    * O cloudProviderTarget é o número de nós que o autoescalador de cluster determinou que o cluster precisa para lidar com sua carga de trabalho.
+
+* O ScaleDown permite verificar se há candidatos para redução de escala. 
+    * Um candidato ao scale down é um nó que o autoescalador de cluster determinou que pode ser removido sem afetar a capacidade do cluster de manipular sua carga de trabalho. 
+    * Os tempos de fornecido mostram a última vez que o cluster foi verificado para candidatos de dimensionamento e seu último tempo de transição.
+
+Por fim, em eventos, você pode ver até qualquer escala ou reduzir verticalmente a eventos, com falhas ou êxito e seus tempos, que executou o dimensionador automático de cluster.
 
 ## <a name="next-steps"></a>Próximas etapas
 
