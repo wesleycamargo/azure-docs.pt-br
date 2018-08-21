@@ -1,0 +1,76 @@
+items:
+- name: Documentação do parceiro do Azure Stack
+  href: index.yml
+- name: Visão geral
+  href: index.yml
+  items:
+  - name: Validação como um serviço para o Azure Stack
+    href: azure-stack-vaas-overview.md
+  - name: Notas de versão
+    href: azure-stack-vaas-release-notes.md
+    items:
+    - name: atualização de 2018-04-02
+      href: azure-stack-partner-update-1803.md
+    - name: atualização de 2018-01-30
+      href: azure-stack-partner-update-1802.md
+  - name: Problemas conhecidos
+    href: azure-stack-vaas-known-issues.md
+  expanded: true
+- name: Início rápido
+  items:
+  - name: Agendar sua primeira passagem de teste
+    href: azure-stack-vaas-schedule-your-first-test.md
+- name: Tutorial
+  items:
+  - name: Configurar sua conta com a validação de pilha do Azure
+    href: azure-stack-vaas-set-up-account.md
+  - name: Automatizar a validação de pilha do Azure com o PowerShell
+    href: azure-stack-vaas-automate-with-powershell.md
+  - name: Validar uma nova solução do Azure Stack
+    href: azure-stack-vaas-validate-solution-new.md
+  - name: Validar pacotes de OEM
+    href: azure-stack-vaas-validate-oem-package.md
+  - name: Validar as atualizações de software da Microsoft
+    href: azure-stack-vaas-validate-microsoft-updates.md
+  - name: VMs de teste
+    href: azure-stack-vaas-test-vm.md
+- name: Conceitos
+  items:
+  - name: Monitore um teste
+    href: azure-stack-vaas-monitor-test.md
+  - name: Arquivo de configuração de validação
+    href: azure-stack-vaas-parameters.md
+  - name: Passe parâmetros de teste
+    href: azure-stack-vaas-parameters-test.md
+  - name: Solucionar problemas de validação como um serviço
+    href: azure-stack-vaas-troubleshoot.md
+- name: Referência
+  items:
+  - name: (Item provenientes de JH)
+- name: Relacionados
+  items:
+  - name: Documentação do Azure Stack
+    href: /azure/azure-stack
+  - name: Azure Active Directory
+    href: /azure/active-directory/
+    maintainContext: true
+- name: Recursos
+  items:
+  - name: Roteiro de pilha do Azure
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Fórum do MSDN de pilha do Azure
+    href: https://social.msdn.microsoft.com/Forums/home?forum=AzureStack
+  - name: Comentários de documentação de pilha do Azure
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Informações sobre preço
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Treinamento e certificação
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 15f87b24299726c2390c736a9801306e9dcf945b
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40235182"
