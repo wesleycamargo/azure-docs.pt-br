@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368864"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004371"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar ingresso híbrido do Azure Active Directory para domínios gerenciados
 
@@ -49,6 +49,9 @@ Este tutorial assume que você está familiarizado com:
 -  [Introdução ao gerenciamento de dispositivos no Azure Active Directory](../device-management-introduction.md)
     
 -  [Como planejar a implementação de ingresso no Azure Active Directory híbrido](hybrid-azuread-join-plan.md)
+
+-  [Como controlar o ingresso no Azure AD híbrido de seus dispositivos](hybrid-azuread-join-control.md)
+  
 
 Para configurar o cenário neste artigo, é necessário que a [última versão do Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 ou posterior) esteja instalada. 
  
@@ -101,7 +104,7 @@ Para configurar um ingresso no Azure AD híbrido usando o Azure AD Connect, ser�
 
     ![Opções do dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. Na página **SCP**, para cada floresta que você deseja que o Azure AD Connect ao SCP, execute as etapas a seguir e clique em **Avançar**: 
+6. Na página **SCP**, para cada floresta que você deseja que o Azure Active Directory Connect para configurar o SCP, execute as etapas a seguir e clique em **Avançar**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,8 +159,6 @@ Para concluir com êxito o ingresso no Azure AD híbrido dos dispositivos de ní
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Além disso, é necessário habilitar **Permitir atualizações na barra de status via script** na zona da Intranet Local do usuário.
@@ -191,14 +192,13 @@ Ao usar o cmdlet **Get-MSolDevice** para verificar os detalhes do serviço:
 
 Se estiver tendo problemas para concluir o ingresso do Azure AD híbrido para dispositivos Windows ingressados no domínio, consulte:
 
-- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos atuais do Windows](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos de nível inferior do Windows](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos atuais do Windows](troubleshoot-hybrid-join-windows-current.md)
+- [Solucionar problemas de ingresso no Azure AD Híbrido para dispositivos de nível inferior do Windows](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Configurar ingresso no Azure Active Directory híbrido para domínios federados](hybrid-azuread-join-federated-domains.md)
-> [Configurar ingresso no Azure Active Directory híbrido manualmente](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [Configurar ingresso no Azure Active Directory híbrido manualmente](hybrid-azuread-join-manual-steps.md)
 

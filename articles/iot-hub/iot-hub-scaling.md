@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126687"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003525"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -31,7 +31,7 @@ Cada camada do Hub IoT está disponível em três tamanhos, com base na quantida
 
 A camada Standard do Hub IoT permite todos os recursos e é necessária para qualquer solução de IoT que pretende usar os recursos de comunicação bidirecional. A camada Básica permite um subconjunto dos recursos e destina-se a soluções de IoT que precisam apenas de comunicação unidirecional dos dispositivos para a nuvem. Ambas as camadas oferecem os mesmos recursos de segurança e autenticação.
 
-Após criar o Hub IoT, será possível atualizar da camada Básica para a camada Standard sem interromper suas operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md). Observe que o limite de partições para a camada Básica do Hub IoT é 8. Esse limite permanecerá inalterado quando você migrar da camada Básica para a camada Standard.
+Após criar o Hub IoT, será possível atualizar da camada Básica para a camada Standard sem interromper suas operações existentes. Para obter mais informações, consulte [Como fazer upgrade do Hub IoT](iot-hub-upgrade.md). Observe que o limite máximo de partição para o Hub IoT de camada básica é 8 e para a camada padrão é 32. A maioria dos Hubs IoT precisa apenas de 4 partições. O limite de partição é escolhido quando o Hub IoT é criado e se relaciona as mensagens de dispositivo para a nuvem com o número de leitores simultâneos dessas mensagens. Esse valor permanecerá inalterado quando você migrar da camada Básica para a camada Standard. Observe também que apenas um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser escolhida pelo Hub IoT. Por exemplo, você pode criar um Hub IoT com várias unidades do S1, mas não com uma mistura de unidades de edições diferentes, como S1 e B3, ou S1 e S2.
 
 | Recurso | Camada básica | Camada padrão |
 | ---------- | ---------- | ------------- |
@@ -106,6 +106,9 @@ Além dessas informações sobre produtividade, confira as [Cotas e limites do H
 As operações de Registro de identidade do Hub IoT não devem ser operações em tempo de execução, pois estão relacionadas principalmente com provisionamento do dispositivo.
 
 Para ver número de pico de desempenho específicos, consulte [Cotas e limites do Hub IoT][IoT Hub quotas and throttles].
+
+## <a name="auto-scale"></a>Dimensionamento automático
+Se você está se aproximando o limite permitido de mensagens no Hub IoT, você pode usar essas [etapas para dimensionar automaticamente](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) para incrementar uma unidade de Hub IoT na mesma camada do Hub IoT.
 
 ## <a name="sharding"></a>Fragmentação
 Enquanto um único Hub IoT pode ser dimensionado para milhões de dispositivos, às vezes sua solução exigirá características específicas de desempenho que um único Hub IoT não pode garantir. Nesse caso, é possível particionar os dispositivos em vários Hubs IoT. Vários hubs IoT suavizam picos de tráfego e obtêm a taxa de transferência ou as taxas de operação necessárias.

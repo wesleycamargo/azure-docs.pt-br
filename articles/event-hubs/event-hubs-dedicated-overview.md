@@ -3,7 +3,7 @@ title: Visão geral da capacidade de Hubs de Eventos Dedicados do Azure | Micros
 description: Visão geral da capacidade de Hubs de Eventos Dedicados do Microsoft Azure .
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 1a7a7593e80f08296e3163e528e880f343366b8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311409"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005697"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Visão geral de Hubs de Eventos Dedicados
 
@@ -32,12 +32,12 @@ A tabela a seguir compara os tipos de serviço disponíveis dos Hubs de Eventos.
 | Eventos de entrada | Pagamento por milhão de eventos | Incluso |
 | Unidade de taxa de transferência (entrada de 1 MB/s, saída de 2 MB/s) | Pagamento por hora | Incluso |
 | Tamanho da mensagem | 256 KB | 1 MB |
-| Políticas do publicador | sim | sim |   
+| Políticas do publicador | SIM | SIM |   
 | Grupos de consumidores | 20 | 20 |
-| Reprodução de mensagem | sim | sim |
-| Unidades de produtividade máxima | 20 (flexível até 100)   | 1 CU (Unidade de Capacidade) ≈ 50 |
+| Reprodução de mensagem | SIM | SIM |
+| Unidades de produtividade máxima | 20 (flexível até 100)   | 1 Unidade de Capacidade (CU) ≈ 50 |
 | Conexões orientadas | 1000 incluídos | 100.000 incluídos |
-| Conexões agenciadas adicionais | sim | sim |
+| Conexões agenciadas adicionais | SIM | SIM |
 | Retenção de mensagem | 1 dia incluído | Até 7 dias incluídos |
 | Captura | Pagamento por hora | Incluso |
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 018ca5d0510ef37c58a6d841ac17d2920817e216
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895344"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003807"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -51,9 +51,9 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 
     |Configuração|Obrigatório?|Detalhes|
     |---|---|---|
-    |NOME|sim|Deve ser exclusivo ao adaptador de rede|
-    |type|sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
-    |Método de atribuição de endereço IP privado|sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
+    |NOME|SIM|Deve ser exclusivo ao adaptador de rede|
+    |Tipo|SIM|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+    |Método de atribuição de endereço IP privado|SIM|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
     |Endereço IP público|Não |**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
 
@@ -72,7 +72,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 2. Selecione a interface de rede que você quer para visualizar ou mudar as configurações de endereço IP da lista.
 3. Em **CONFIGURAÇÕES**, selecione **Configurações de IP**.
 4. Selecione a configuração de IP que você deseja modificar na lista.
-5. Altere as configurações, conforme desejado, usando as informações sobre as configurações na etapa 5 de [Adicionar uma configuração de IP](#create-ip-config).
+5. Altere as configurações, conforme desejado, usando as informações sobre as configurações na etapa 5 de [Adicionar uma configuração de IP](#add-ip-addresses).
 6. Clique em **Salvar**.
 
 >[!NOTE]
@@ -170,9 +170,9 @@ Endereços IPv4 e (opcionalmente) IPv6 privados dinâmicos são atribuídos por 
 
 ### <a name="static"></a>estático
 
-Você pode, como opção, atribuir um endereço IPv4 estático público ou privado a uma configuração de IP. Não é possível atribuir um endereço IPv6 estático público ou privado a uma configuração de IP. Para saber mais sobre como o Azure atribui endereços IPv4 estáticos públicos, confira o artigo [Endereço IP público](virtual-network-public-ip-address.md).
+Você pode, como opção, atribuir um endereço IPv4 estático público ou privado a uma configuração de IP. Não é possível atribuir um endereço IPv6 estático público ou privado a uma configuração de IP. Para saber mais sobre como o Azure atribui endereços IPv4 estáticos públicos, confira [Endereço IP público](virtual-network-public-ip-address.md).
 
-- **Somente público**: o Azure atribui o endereço de um intervalo exclusivo a cada região do Azure. Para saber quais intervalos são atribuídos a cada região, consulte [Intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). O endereço não é alterado até que o recurso de endereço IP público ao qual ele foi atribuído seja excluído ou o método de atribuição seja alterado para dinâmico. Se o recurso de endereço IP público estiver associado a uma configuração de IP, ele deverá ser desassociado da configuração de IP antes da alteração de seu método de atribuição.
+- **Somente público**: o Azure atribui o endereço de um intervalo exclusivo a cada região do Azure. Você pode baixar a lista de intervalos (prefixos) para as nuvens [pública](https://www.microsoft.com/download/details.aspx?id=56519), do [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), da [China](https://www.microsoft.com/download/details.aspx?id=57062) e da [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure. O endereço não é alterado até que o recurso de endereço IP público ao qual ele foi atribuído seja excluído ou o método de atribuição seja alterado para dinâmico. Se o recurso de endereço IP público estiver associado a uma configuração de IP, ele deverá ser desassociado da configuração de IP antes da alteração de seu método de atribuição.
 - **Somente privado**: você seleciona e atribui um endereço do intervalo de endereços da sub-rede. O endereço que você atribuir pode ser qualquer endereço no intervalo de endereços da sub-rede que não seja um dos quatro primeiros endereços no intervalo de endereços da sub-rede e não esteja atualmente atribuído a nenhum outro recurso na sub-rede. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo que o endereço não seja o próximo endereço disponível no intervalo de endereços da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ## <a name="ip-address-versions"></a>Versões de endereço IP

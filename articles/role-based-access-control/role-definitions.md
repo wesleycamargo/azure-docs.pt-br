@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116054"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715763"
 ---
 # <a name="understand-role-definitions"></a>Compreender as definições de função
 
@@ -214,7 +214,7 @@ O `NotDataActions` permissão especifica as operações de dados que são exclu�
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-A propriedade `AssignableScopes` especifica os escopos (grupos de gerenciamento (atualmente na versão prévia), assinaturas, grupos de recursos ou recursos) em que a função está disponível para atribuição. Você pode disponibilizar a função para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes. Você deve usar pelo menos um grupo de gerenciamento, uma assinatura, um grupo de recursos ou uma ID de recurso.
+A propriedade `AssignableScopes` especifica os escopos (assinaturas, grupos de gerenciamento ou recursos) em que a função está disponível para atribuição. Você pode disponibilizar a função para atribuição apenas nas assinaturas ou grupos de recursos que a exijam e não sobrecarregar a experiência do usuário nas assinaturas ou grupos de recursos restantes. Você deve usar pelo menos uma assinatura, grupo de recursos ou ID de recurso.
 
 As funções internas têm `AssignableScopes` definido como o escopo raiz (`"/"`). O escopo raiz indica que a função está disponível para atribuição em todos os escopos. Exemplos de escopos válidos que podem ser atribuídos incluem:
 

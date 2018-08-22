@@ -1,25 +1,20 @@
 ---
-title: Dicas para usar o Hadoop no HDInsight baseado em Linux do Azure | Microsoft Docs
+title: Dicas para usar Hadoop no HDInsight baseado em Linux
 description: Obtenha dicas de implementação para usar clusters do HDInsight baseados em Linux (Hadoop) em um ambiente Linux familiar, em execução na nuvem do Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405384"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037890"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre o uso do HDInsight no Linux
 
@@ -28,7 +23,7 @@ Clusters do Azure HDInsight fornecem Hadoop em um ambiente Linux familiar, em ex
 > [!IMPORTANT]
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Muitas das etapas neste documento usam os seguintes utilitários, que talvez precisem ser instalados em seu sistema.
 
@@ -103,18 +98,21 @@ Dados de exemplo e arquivos JAR encontram-se no Sistema de Arquivos Distribuído
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Armazenamento do Azure e Data Lake Store
 
-Na maioria das distribuições do Hadoop, o HDFS é conta com o suporte do armazenamento local nos computadores do cluster. Utilizar armazenamento local pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora ou minuto por recursos cibernéticos.
+Na maioria das distribuições do Hadoop, os dados são armazenados em HDFS, que tem suporte pelo armazenamento local nos computadores no cluster. Utilizar armazenamento local pode ser dispendioso para uma solução baseada em nuvem onde você é cobrado por hora ou minuto por recursos cibernéticos.
 
-O HDInsight usa blobs no Armazenamento do Azure ou o Azure Data Lake Store como repositório padrão. Esses serviços oferecem os seguintes benefícios:
+Ao usar o HDInsight, os arquivos de dados são armazenados de maneira escalonável e resiliente na nuvem usando o Armazenamento de Blobs do Azure e, opcionalmente, o Azure Data Lake Store. Esses serviços oferecem os seguintes benefícios:
 
 * Armazenamento de longo prazo econômico
 * Acessibilidade por meio de serviços externos, como sites, utilitários de upload/download de arquivos, SDKs para vários idiomas e navegadores da Web
+* Grande capacidade de arquivos e grande armazenamento escalonável
 
-Uma conta do Armazenamento do Azure pode conter até 4,75 TB, embora os blobs individuais (ou arquivos de uma perspectiva de HDInsight) podem ter apenas até 195 GB. O Azure Data Lake Store pode crescer dinamicamente para manter trilhões de arquivos, com mais de um petabyte de arquivos individuais. Para saber mais, confira [Noções básicas sobre blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Para saber mais, confira [Noções básicas sobre blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) e [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 Ao usar o Armazenamento do Azure ou o Data Lake Store, você não precisará fazer nada especial no HDInsight para acessar os dados. Por exemplo, o comando abaixo lista arquivos na pasta `/example/data` independentemente se ela está armazenada no Armazenamento do Azure ou no Data Lake Store:
 
     hdfs dfs -ls /example/data
+
+No HDInsight, os recursos de armazenamento de dados (Armazenamento de Blobs do Azure e Azure Data Lake Store) são separados dos recursos de computação. Portanto, é possível criar clusters do HDInsight para fazer cálculos conforme necessário e, posteriormente, excluir o cluster quando o trabalho estiver concluído, mantendo os arquivos de dados persistentemente em segurança no armazenamento em nuvem, enquanto for necessário.
 
 ### <a name="uri-and-scheme"></a>URI e esquema
 

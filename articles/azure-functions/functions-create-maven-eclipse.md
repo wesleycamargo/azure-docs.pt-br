@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400159"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004742"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Crie sua primeira função com Java e Eclipse (Versão prévia)
 
@@ -73,7 +73,7 @@ Encerrar o tempo de execução na janela do console, quando você terminar de te
 
 ### <a name="debug-the-function-in-eclipse"></a>Depurar a função no Eclipse
 
-Em sua configuração Executar como configurada na etapa anterior, altere `azure-functions:run`para`mvn azure-functions:run -DenableDebug` e execute a configuração atualizada para iniciar o aplicativo de função no modo de depuração.
+Em sua configuração **Executar** como configurada na etapa anterior, altere `azure-functions:run` para `mvn azure-functions:run -DenableDebug` e execute a configuração atualizada para iniciar o aplicativo de função no modo de depuração.
 
 Selecione o **executados** menu e open **configurações de depuração**. Escolher **aplicativo Java remoto** e crie um novo. Dê um nome à sua configuração e preencha as configurações. A porta deve ser consistente com a porta de depuração aberta pelo host de função, que por padrão é `5005`. Após a instalação, clique em `Debug` para iniciar a depuração.
 

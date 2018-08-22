@@ -9,14 +9,14 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261093"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003310"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chaves exclusivas no Azure Cosmos DB
 
@@ -128,6 +128,9 @@ Exemplo de documento JSON.
 ## <a name="mongodb-api-sample"></a>Exemplo de API do MongoDB
 
 O exemplo de comando a seguir mostra como criar um índice exclusivo nos campos firstName, lastName e email da coleção de usuários para a API do MongoDB. Isso garante a exclusividade para uma combinação de todos os três campos em todos os documentos na coleção. Para coleções de API do MongoDB, o índice exclusivo é criado depois de a coleção ser criada, mas antes de preencher a coleção.
+
+> [!NOTE]
+> O formato de chave exclusivo para contas da API do MongoDB é diferente das contas de API do SQL, onde você não precisa especificar o caractere de barra invertida (/) antes do nome do campo. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

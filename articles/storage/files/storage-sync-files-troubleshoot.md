@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526735"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005912"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -674,6 +674,12 @@ if ($fileShare -eq $null) {
 2. Verifique se **Serviço de Sincronização de Arquivos Híbridos** aparece na lista com a função **Leitor e o Acesso de Dados**. 
 
     ![Uma captura de tela do principal de serviço do Serviço de Sincronização de Arquivo Híbrido na guia de controle de acesso da conta de armazenamento](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+    Se o **Serviço de Sincronização de Arquivos do Azure híbrido** não aparecer na lista, execute as seguintes etapas:
+
+    - Clique em **Adicionar**.
+    - No campo **Função**, selecione **Leitor e Acesso a Dados**.
+    - No campo **Selecionar**, digite **Sincronização de Arquivos do Azure híbrido**, selecione a função e clique em **Salvar**.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell    

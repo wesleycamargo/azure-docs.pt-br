@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117056"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002671"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Criar sua primeira função com Java e IntelliJ (versão prévia)
 
@@ -74,8 +74,15 @@ O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId
 Feche a caixa de diálogo de execução quando terminar de testar a função. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 
 ### <a name="debug-the-function-in-intellij"></a>Depurar a função no IntelliJ
+Para iniciar o host de função no modo de depuração, adicione **-DenableDebug** como argumento quando ao executar sua função. Você poderia executar a linha de comando no terminal abaixo ou configurá-la no [metas goals](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Em seguida, o host de função abrirá uma porta de depuração na 5005. 
 
-É possível depurar funções no IntelliJ, anexando ao host da função após a inicialização.  Execute o Azure Function localmente usando as etapas acima e, em seguida, no menu **Executar**, selecione **Anexar ao processo local**.  Você deve ver um processo na porta 5005 disponível.  Após anexar, será possível ter pontos de interrupção atingidos e depurar dentro do aplicativo de funções.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Para depurar no IntelliJ, no menu **Executados**, selecione **Editar Configurações**. Clique em **+** para adicionar um **Remoto**. Preencha o **Nome** e as **Configurações**, e em seguida clique em **OK** para salvar a configuração. Após a configuração, clique em **Depurar** 'Seu nome de Configuração Remota' ou pressione **SHIFT+F9** para iniciar a depuração.
+
+![Depurar funções no IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 Quando terminar, pare o depurador e o processo em execução. Apenas um host de função pode estar ativo e em execução localmente de cada vez.
 

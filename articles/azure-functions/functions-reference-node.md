@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391173"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005468"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informa ao tempo de execução que seu código terminou. Você deve chamar `context.done`, ou o tempo de execução nunca saberá que sua função terminou e a execução atingirá o tempo limite. 
+Informa ao tempo de execução que seu código terminou. Se sua função usa a `async function` declaração (disponível usando o Nó 8 + no Functions versão 2.x), você não precisará usar `context.done()`. O `context.done` retorno de chamada é chamado implicitamente.
+
+Se sua função não é uma função assíncrona, **você deve chamar `context.done`** para informar o tempo de execução que sua função é concluída. A execução atingirá o tempo limite se ele estiver ausente.
 
 O método `context.done` permite que você passe um erro definido pelo usuário de volta ao tempo de execução, e um recipiente de propriedades que substitui as propriedades no objeto `context.bindings`.
 

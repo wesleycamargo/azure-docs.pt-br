@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205384"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715822"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 Agora, você pode armazenar as credenciais da entidade de serviço em um [segredo de pull de imagem][image-pull-secret] do Kubernetes, consultado por seu cluster AKS ao executar contêineres.
 
-Use o seguinte comando **kubectl** para criar o segredo do Kubernetes. Substitua `<acr-login-server>` pelo nome totalmente qualificado do registro de contêiner do Azure (está no formato "acrname.azurecr.io"). Substitua `<service-principal-ID>` e `<service-principal-password>` pelos valores obtidos pela execução do script anterior.
+Use o seguinte comando **kubectl** para criar o segredo do Kubernetes. Substitua `<acr-login-server>` pelo nome totalmente qualificado do registro de contêiner do Azure (está no formato "acrname.azurecr.io"). Substitua `<service-principal-ID>` e `<service-principal-password>` pelos valores obtidos pela execução do script anterior. Substitua `<email-address>` por qualquer endereço de email válido.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

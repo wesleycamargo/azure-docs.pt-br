@@ -3,7 +3,7 @@ title: Visão geral dos recursos de Hubs de eventos do Azure | Microsoft Docs
 description: Visão geral e detalhes sobre os recursos de Hubs de Eventos do Azure
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
@@ -11,19 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
-ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: shvija
+ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248734"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006980"
 ---
 # <a name="event-hubs-features-overview"></a>Visão geral dos recursos de Hubs de Eventos
 
 Os Hubs de Evento do Azure é um serviço de processamento de evento escalonável que recebe e processa grandes volumes de eventos e dados, com baixa latência e alta confiabilidade. Confira [O que são Hubs de Eventos?](event-hubs-what-is-event-hubs.md) para obter uma visão geral de alto nível.
 
 Este artigo se baseia nas informações do [artigo de visão geral](event-hubs-what-is-event-hubs.md) e fornece detalhes técnicos e de implementação sobre recursos e componentes dos Hubs de Eventos.
+
+## <a name="namespace"></a>Namespace
+Um namespace de Hubs de Eventos fornece um contêiner de escopo exclusivo, referenciado pelo [nome de domínio totalmente qualificado](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), em que você cria uma ou mais hubs de eventos tópicos Kafka. 
 
 ## <a name="event-publishers"></a>Editores de eventos
 
@@ -145,14 +148,14 @@ Os Hubs de Eventos têm uma arquitetura paralela altamente dimensionável e há 
 
 A capacidade de transferência dos Hubs de Eventos é controlada pelas *unidades de transferência*. As unidades de taxa de transferência são unidades de capacidade pré-adquiridas. Uma única unidade de transferência inclui a seguinte capacidade:
 
-* Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro)
-* Saída: até 2 MB por segundo
+* Entrada: até 1 MB por segundo ou 1000 eventos por segundo (o que ocorrer primeiro).
+* Entrada: até 2 MB por segundo ou 4096 eventos por segundo.
 
 Além da capacidade de unidades de transferência adquiridas, a entrada está limitada e uma [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) é retornada. A saída não gera exceções de limitação, mas ainda é limitada à capacidade das unidades de produtividade adquiridas. Se você receber exceções de taxa de publicação ou estiver esperando ver mais saída, verifique quantas unidades de transferência você comprou para o namespace. Você pode gerenciar unidades de produtividade na folha **Escala** dos namespaces no [portal do Azure](https://portal.azure.com). Você também pode gerenciar unidades de produtividade programaticamente usando as [APIs de Hubs de Eventos](event-hubs-api-overview.md).
 
 As unidades de taxa de transferência são pré-adquiridas e cobradas por hora. Depois de adquiridas, as unidades de taxa de transferência são cobradas por um mínimo de uma hora. Até 20 unidades de produtividade podem ser adquiridas para um namespace de Hubs de Eventos e elas são compartilhadas entre todos os Hubs de Eventos no namespace.
 
-Você poderá adquirir mais unidades de produtividade, em blocos de 20 até 100 unidades de produtividade, entrando em contato com o suporte do Azure. Além disso, você pode comprar blocos de 100 unidades de produtividade.
+Você poderá adquirir mais unidades de produtividade, em blocos de 20 até 100 unidades de produtividade, entrando em contato com o suporte do Azure. Além desse limite, você pode comprar blocos de 100 unidades de produtividade.
 
 É recomendável balancear partições e unidades de produtividade para obter uma escala ideal. Uma única partição tem uma escala máxima de uma unidade de transferência. O número de unidades de taxa de transferência deve ser menor ou igual ao número de partições em um hub de eventos.
 

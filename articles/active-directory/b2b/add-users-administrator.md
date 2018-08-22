@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037220"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004191"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Adicionar usuários de colaboração B2B do Azure Active Directory no Portal do Azure
 
@@ -40,6 +40,9 @@ Para adicionar usuários de colaboração B2B ao diretório, siga estas etapas:
 5. Em **Nome de usuário**, insira o endereço de email do usuário externo. Opcionalmente, inclua uma mensagem de boas-vindas. Por exemplo: 
 
    ![Mostra onde o novo usuário convidado está na interface do usuário](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > Alguns provedores de email permitem que os usuários adicionem um sinal de adição (+) de símbolo e texto adicional aos seus endereços de email para ajudar com coisas como a filtragem de caixa de entrada. No entanto, o Microsoft Azure Active Directory atualmente não dá suporte além para símbolos de adição em endereços de email. Para evitar problemas de entrega, omita o símbolo de adição e quaisquer caracteres seguintes até o símbolo @.
 
 6. Selecione **Convidar** para enviar automaticamente o convite ao usuário convidado. 
  

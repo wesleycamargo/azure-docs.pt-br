@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5b4cd1c592c4cd965a0b5d9e4fb8eef84a6bea91
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362995"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003274"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs do Azure Search
 Este artigo te mostra como configurar o indexador de blob do Azure Search para extrair o conteúdo estruturado de blobs que contêm JSON no armazenamento de Blob do Azure.
@@ -35,7 +35,7 @@ Indexação blobs JSON é semelhante para a extração de documento comum em um 
 
 ### <a name="step-1-create-a-data-source"></a>Etapa 1: Criar uma fonte de dados
 
-A primeira etapa é prover informações de conexão de fonte de dados usadas pelo indexador. O tipo de fonte de dados, especificado como `azureblob`, determina quais comportamentos de extração de dados são invocados pelo indexador. Para indexação de blob de JSON, a fonte de dados é definição é o mesmo para documentos JSON e matrizes. 
+A primeira etapa é prover informações de conexão de fonte de dados usadas pelo indexador. O tipo de fonte de dados, especificado como `azureblob`, determina quais comportamentos de extração de dados são invocados pelo indexador. Para indexação de BLOBs de JSON, a fonte de dados é definição é o mesmo para documentos JSON e matrizes. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
     Content-Type: application/json
@@ -76,7 +76,7 @@ Por padrão, o [indexador de blobs do Azure Search](search-howto-indexing-azure-
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
+            "datePublished" : "2016-04-13",
             "tags" : [ "search", "storage", "howto" ]    
         }
     }
