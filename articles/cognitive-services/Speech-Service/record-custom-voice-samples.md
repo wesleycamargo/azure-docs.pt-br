@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284159"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715100"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Como gravar amostras de voz para uma voz personalizada
 
@@ -68,13 +68,13 @@ O ponto de partida de qualquer sessão de gravação de voz personalizada é o s
 
 Os enunciados no script podem vir de qualquer lugar: ficção, não ficção, transcrições de discursos, relatórios de notícias e qualquer outro material disponível em formato impresso. Para certificar-se de que a voz produz bons resultados com tipos de palavras específicos (como terminologia médica ou jargões de programação), é possível incluir frases de trabalhos acadêmicos ou documentos técnicos. (No entanto, consulte [Legalidades](#legalities) abaixo.) Você também pode gravar seu próprio texto.
 
-Os enunciados não precisam ser originados da mesma fonte ou do mesmo tipo de fonte. Nem precisam ser relacionados entre si. No entanto, se você usar frases configuradas (por exemplo, "Você fez logon com êxito") no aplicativo de fala, inclua-as no script. Isso dará à voz personalizada uma possibilidade melhor de pronunciar bem essas frases. E, caso decida usar uma gravação no lugar da fala sintetizada, você já a terá na mesma voz da fala sintetizada.
+Os enunciados não precisam ser originados da mesma fonte ou do mesmo tipo de fonte. Nem precisam ser relacionados entre si. No entanto, se você usar frases configuradas (por exemplo, "Você fez logon com êxito") no aplicativo de fala, inclua-as no script. Isso dará à voz personalizada uma possibilidade melhor de pronunciar bem essas frases. E, caso decida usar uma gravação no lugar da fala sintetizada, você já a terá na mesma voz.
 
 Embora a consistência seja a chave na escolha do ator de voz, a variedade é a marca registrada de um bom script. O script deve incluir muitas palavras e frases diferentes com uma variedade de comprimentos de frases, estruturas e estados de humor. Cada som no idioma deve ser representado várias vezes e em vários contextos (chamado *cobertura fonética).* 
 
 Além disso, o texto deve incorporar todas as maneiras pelas quais um determinado som pode ser representado por escrito e colocar cada som em lugares diferentes nas frases. Tanto as sentenças declarativas quanto as perguntas devem ser incluídas e lidas com entonação apropriada.
 
-É difícil gravar um script que forneça *apenas dados suficientes* para permitir que o portal de Fala Personalizada crie uma boa voz. Na prática, a maneira mais simples de construir um script que alcance uma cobertura fonética robusta é incluir um grande número de amostras. As vozes padrão da Microsoft foram construídas a partir de dezenas de milhares de enunciados. É necessário estar preparado para gravar de alguns a vários milhares de enunciados para criar uma voz personalizada de qualidade de produção.
+É difícil gravar um script que forneça *apenas dados suficientes* para permitir que o portal de Fala Personalizada crie uma boa voz. Na prática, a maneira mais simples de construir um script que alcance uma cobertura fonética robusta é incluir um grande número de amostras. As vozes padrão da Microsoft foram construídas a partir de dezenas de milhares de enunciados. Você deve estar preparado para gravar de alguns a vários milhares de enunciados, no mínimo, para criar uma voz personalizada de qualidade de produção.
 
 Verifique o script cuidadosamente para observar se há erros. Se possível, solicite a uma outra pessoa que também verifique o script. Ao repassar o script com o ator de voz, provavelmente você localizará alguns erros.
 
@@ -85,7 +85,7 @@ Você pode gravar o script no Microsoft Word. O script é para uso durante a ses
 Um formato de script básico inclui três colunas:
 
 * O número do enunciado, começando em 1. A numeração tornará mais fácil a todos no estúdio para se referir a um enunciado específico ("vamos tentar o número 356 novamente"). É possível usar o recurso de numeração de parágrafo do Word para numerar as linhas da tabela automaticamente.
-* Uma coluna em branco em que você escreverá o número da tomada ou o código de tempo de cada enunciado para ajudar a localizá-lo na gravação finalizada.)
+* Uma coluna em branco na qual você escreverá o número da tomada ou o código de tempo de cada enunciado para ajudar a localizá-lo na gravação finalizada.
 * O texto do próprio enunciado.
 
 ![Script de exemplo](media/custom-voice/script.png)
@@ -113,7 +113,7 @@ Felizmente, é possível evitar completamente esses problemas. Há muitas fontes
 
 ## <a name="recording-your-script"></a>Gravar o script
 
-Preferencialmente, grave o script em um estúdio de gravação profissional especializado em trabalho de voz. Esses estúdios terão uma cabine de gravação, o equipamento certo e as pessoas capacitadas para operá-lo. Vale a pena não economizar na gravação.
+Grave o script em um estúdio de gravação profissional especializado em trabalho de voz. Esses estúdios terão uma cabine de gravação, o equipamento certo e as pessoas capacitadas para operá-lo. Vale a pena não economizar na gravação.
 
 Discuta seu projeto com o engenheiro de gravação do estúdio e ouça os conselhos dele. A gravação deve ter pouca ou nenhuma compressão de gama dinâmica (máximo de 4: 1). É essencial que o áudio tenha um volume consistente e uma alta relação sinal-ruído, além de estar livre de sons indesejados.
 
@@ -142,7 +142,7 @@ Ouça atentamente uma gravação de silêncio na "cabine", descubra onde origina
 > [!TIP]
 > Em alguns casos, você poderá usar um equalizador ou um plug-in de software de redução de ruído para ajudar a remover o ruído das gravações, embora seja sempre melhor interrompê-lo na origem.
 
-Os níveis devem ser definidos de forma que a maior parte da gama dinâmica disponível de gravação digital seja usada sem distorção. Isso significa alto, mas não tão alto que o áudio seja distorcido. Abaixo está um exemplo da forma de onda de uma boa gravação.
+Defina os níveis, de modo que a maior parte do intervalo dinâmico disponível de gravação digital seja usada sem distorção. Isso significa alto, mas não tão alto que o áudio seja distorcido. Abaixo está um exemplo da forma de onda de uma boa gravação.
 
 ![forma de onda de uma boa gravação](media/custom-voice/good-recording.png)
 
@@ -161,7 +161,7 @@ Para evitar desperdiçar tempo de estúdio, repasse o script com o ator de voz a
 > [!NOTE]
 > A maioria dos estúdios de gravação oferece exibição eletrônica de scripts na cabine de gravação. Nesse caso, digite diretamente no documento do script as observações a serem repassadas rapidamente. Ainda será necessário ter uma cópia em papel para fazer anotações durante a sessão. A maioria dos engenheiros também quer uma cópia impressa. Além disso, é necessário ter uma terceira cópia impressa como backup para o ator de voz, caso o computador esteja inoperante!
 
-O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado. Atores chamam isso de "palavra operativa." Diga-lhes que você quer uma leitura natural sem ênfase particular. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
+O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado (a "palavra operativa"). Diga-lhes que você quer uma leitura natural sem ênfase particular. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
 
 Direcione o ator de voz para pronunciar palavras distintamente. Cada palavra do script deve ser pronunciada como escrita. Os sons não devem ser omitidos nem desarticulados, como é comum em fala casual, *a menos que tenham sido escritos dessa maneira no script.*
 
@@ -176,7 +176,7 @@ O ator *não* deve adicionar pausas distintas entre as palavras. A frase ainda d
 
 ### <a name="the-recording-session"></a>A sessão de gravação
 
-Crie uma gravação de referência ou um *arquivo de correspondência,* de um enunciado típica no início da sessão. Peça ao ator que repita essa linha a cada página ou página e meia. A cada vez, compare a nova gravação com a referência. Essa prática ajuda o ator a permanecer consistente em volume, tempo, densidade e entonação. Enquanto isso, o engenheiro pode usar o arquivo correspondente como referência para níveis e consistência geral do som.
+Crie uma gravação de referência ou um *arquivo de correspondência,* de um enunciado típica no início da sessão. Peça ao ator que repita essa linha mais ou menos a cada página. A cada vez, compare a nova gravação com a referência. Essa prática ajuda o ator a permanecer consistente em volume, tempo, densidade e entonação. Enquanto isso, o engenheiro pode usar o arquivo correspondente como referência para níveis e consistência geral do som.
 
 O arquivo correspondente será especialmente importante ao retomar a gravação após um intervalo ou em outro dia. Você reproduzirá algumas vezes para o ator e pedirá que ele repita a cada vez até que esteja correspondendo adequadamente.
 
@@ -185,16 +185,16 @@ Treine o ator para respirar fundo e pausar por um momento antes de cada enunciad
 Grave uns bons cinco segundos de silêncio antes da primeira gravação para capturar o "som do ambiente." Isso ajuda o portal de Voz Personalizada a compensar qualquer ruído restante nas gravações.
 
 > [!TIP]
-> Tudo o que você realmente precisa é das falas do ator de voz, de modo que possa fazer uma gravação monofônica (apenas um canal) das falas. No entanto, se você gravar em estéreo, poderá usar o segundo canal para gravar a conversa na sala de controle e capturar a discussão de determinadas falas ou tomadas. Remova essa faixa da versão enviada para o portal de Voz Personalizada.
+> Tudo o que você realmente precisa é do ator de voz, de modo que possa fazer uma gravação monofônica (apenas um canal) apenas das falas. No entanto, se você gravar em estéreo, poderá usar o segundo canal para gravar a conversa na sala de controle e capturar a discussão de determinadas falas ou tomadas. Remova essa faixa da versão enviada para o portal de Voz Personalizada.
 
 Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você está procurando uma boa dicção natural, pronúncia correta e ausência de sons indesejados. Não hesite em pedir ao ator de voz para regravar um enunciado que não atenda a esses padrões. 
 
 > [!TIP] 
-> Ao gravar um alto volume de enunciados, um único enunciado pode não ter um efeito perceptível na voz personalizada resultante. Por isso, pode ser mais fácil simplesmente anotar quaisquer enunciados com problemas, excluí-los do conjunto de dados e verificar como a voz personalizada é exibida. Você sempre poderá retornar ao estúdio posteriormente e gravar as amostras com falha.
+> Se você estiver usando um alto volume de enunciados, um único enunciado poderá não ter um efeito perceptível na voz personalizada resultante. Por isso, pode ser mais fácil simplesmente anotar quaisquer enunciados com problemas, excluí-los do conjunto de dados e verificar como a voz personalizada é exibida. Você sempre poderá retornar ao estúdio posteriormente e gravar as amostras com falha.
 
 Tome nota do número da tomada ou código de tempo no script para cada enunciado. Pergunte ao engenheiro se ele pode marcar cada um dos enunciados nos metadados da gravação ou na lista cue.
 
-Faça pausas regulares e forneça uma bebida para ajudar o ator de voz a manter uma boa voz.
+Faça pausas regulares e ofereça uma bebida para ajudar o ator de voz a manter uma boa voz.
 
 ### <a name="after-the-session"></a>Após a sessão
 

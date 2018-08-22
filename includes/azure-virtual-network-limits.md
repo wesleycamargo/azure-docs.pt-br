@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39720887"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133200"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo modelo de implantação clássico por assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
@@ -38,7 +38,7 @@ ms.locfileid: "39720887"
 Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure Resource Manager por região e assinatura. Saiba como [exibir seu uso de recursos atual em relação a seus limites de assinatura](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver nenhuma coluna **Limite Máximo**, o recurso não terá limites ajustáveis. Se o suporte aumentou esses limites no passado, mas você não os vê atualizados como abaixo, [abra uma solicitação de suporte do cliente online sem custo adicional](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Recentemente, aumentamos todos os limites padrão para seus limites máximos. Se não houver nenhuma coluna **Limite Máximo**, o recurso não terá limites ajustáveis. Se o suporte aumentou esses limites no passado, mas você não consegue vê-los atualizados como mostrado abaixo, [abra uma solicitação de atendimento ao cliente online sem custo adicional](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Recurso | Limite padrão | 
 | --- | --- |
