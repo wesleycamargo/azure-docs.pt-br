@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, bash, cloudshell, inventário dinâmico
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449410"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037882"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Use o Ansible para gerenciar seus inventários dinâmicos do Azure
 O Ansible pode ser usado para extrair informações de inventário de várias fontes (incluindo as origens de nuvem, como o Azure) em um *inventário dinâmico*. Neste artigo, você usa o [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) para configurar um Inventário Dinâmico do Azure Ansible e assim cria duas máquinas virtuais, marca uma dessas máquinas virtuais e instala o Nginx nela.
@@ -31,6 +31,9 @@ O Ansible pode ser usado para extrair informações de inventário de várias fo
 1. Abra o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Crie um grupo de recursos do Azure para manter as máquinas virtuais para este tutorial.
+
+    > [!IMPORTANT]  
+    > O grupo de recursos do Azure criado nesta etapa deve ter um nome inteiramente em minúsculo. Caso contrário, a geração do inventário dinâmico falhará.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ Esta seção ilustra uma técnica para testar se o Nginx está instalado em sua 
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. O comando [nginx-v](https://nginx.org/en/docs/switches.html) geralmente é usado para imprimir a versão do Nginx. No entanto, ele também pode ser usado para determinar se o Nginx está instalado. Insira-o enquanto estiver conectado à máquina virtual `ansible-inventory-test-vm1`.
+1. Enquanto conectado à máquina virtual `ansible-inventory-test-vm1`, execute o comando [nginx -v](https://nginx.org/en/docs/switches.html) para determinar se o Nginx está instalado.
 
     ```azurecli-interactive
     nginx -v

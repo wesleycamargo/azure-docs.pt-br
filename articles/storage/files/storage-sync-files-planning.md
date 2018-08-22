@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521815"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037867"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -151,7 +151,7 @@ Como os antivírus funcionam com o exame de arquivos em busca de códigos mal-in
 Sabe-se que as seguintes soluções dão suporte à possibilidade de ignorar arquivos offline:
 
 - [O Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - O Windows Defender ignora automaticamente a leitura desses arquivos. Testamos o Defender e identificamos um problema menor: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são recuperados (baixados) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão colocados em camadas, pois não atendem ao requisito de tamanho em camadas (> 64kb).
+    - O Windows Defender ignora automaticamente a leitura de arquivos com o atributo offline definido. Testamos o Defender e identificamos um problema menor: quando você adiciona um servidor a um grupo de sincronização existente, os arquivos com menos de 800 bytes são recuperados (baixados) no novo servidor. Esses arquivos permanecerão no novo servidor e não serão colocados em camadas, pois não atendem ao requisito de tamanho em camadas (> 64kb).
 - [Proteção do Terminal do System Center (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - O SCEP funciona da mesma forma que o Defender; Veja acima
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ A Sincronização de Arquivos do Azure está disponível apenas nas seguintes re
 | Sudeste da Austrália | Vitória |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade de Quebec |
+| Índia Central | Pune |
 | Centro dos EUA | Iowa |
 | Ásia Oriental | Hong Kong |
 | Leste dos EUA | Virgínia |
 | Leste dos EUA 2 | Virgínia |
 | Norte da Europa | Irlanda |
+| Sul da Índia | Chennai |
 | Sudeste Asiático | Cingapura |
 | Sul do Reino Unido | Londres |
 | Oeste do Reino Unido | Cardiff |
@@ -216,11 +218,13 @@ Para dar suporte à integração de failover entre o armazenamento com redundân
 | Sudeste da Austrália | Leste da Austrália     |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
+| Índia Central       | Sul da Índia        |
 | Centro dos EUA          | Leste dos EUA 2          |
 | Ásia Oriental           | Sudeste Asiático     |
 | Leste dos EUA             | Oeste dos EUA            |
 | Leste dos EUA 2           | Centro dos EUA         |
 | Norte da Europa        | Europa Ocidental        |
+| Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
 | Sul do Reino Unido            | Oeste do Reino Unido            |
 | Oeste do Reino Unido             | Sul do Reino Unido           |

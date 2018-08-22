@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938359"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037885"
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 
@@ -60,7 +60,7 @@ Neste artigo, PUT, POST e DELETE referem-se a todas as operações de gravação
 
 ![Diagrama do log de atividades](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-Você pode recuperar os eventos do log de atividades usando o portal do Azure, a [CLI do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), os cmdlets do PowerShell e a [API REST do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Os logs de atividades têm um período de retenção de dados de 19 dias.
+Você pode recuperar os eventos do log de atividades usando o portal do Azure, a [CLI do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli), os cmdlets do PowerShell e a [API REST do Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). Os logs de atividades têm um período de retenção de dados de 90 dias.
 
 Cenários de integração para um evento de log de atividades:
 
@@ -319,34 +319,34 @@ Há quatro maneiras de [coletar logs e métricas para os serviços do Azure](htt
 
 | Serviço | Tipo de recurso | Logs | Métricas | Solução |
 | :------ | :------------ | :--- | :------ | :------- |
-|Gateway de Aplicativo do Azure| Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Análise de Gateway de](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Aplicativo do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
+|Gateway de Aplicativo do Azure| Microsoft.Network/<br>applicationGateways|  Diagnósticos|Diagnósticos|    [Análise de Gateway de](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Aplicativo do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     Conector|  Conector|  [Conector do Application](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Insights (Visualização)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
-|Contas de Automação do Azure| Microsoft.Automation/<br>AutomationAccounts|    Diagnostics||       [Mais informações](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
-|Contas do Lote do Azure|  Microsoft.Batch/<br>batchAccounts|  Diagnostics|    Diagnostics||
+|Contas de Automação do Azure| Microsoft.Automation/<br>AutomationAccounts|    Diagnósticos||       [Mais informações](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
+|Contas do Lote do Azure|  Microsoft.Batch/<br>batchAccounts|  Diagnósticos|    Diagnósticos||
 |Serviços de Nuvem clássicos||       Armazenamento||       [Mais informações](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Serviços Cognitivos|    Microsoft.CognitiveServices/<br>accounts|       Diagnostics|||
-|Análise Azure Data Lake| Microsoft.DataLakeAnalytics/<br>accounts|   Diagnostics|||
-|Repositório Azure Data Lake| Microsoft.DataLakeStore/<br>accounts|   Diagnostics|||
-|Namespace do hub de eventos do Azure| Microsoft.EventHub/<br>namespaces|  Diagnostics|    Diagnostics||
-|Hub IoT do Azure| Microsoft.Devices/<br>IotHubs||     Diagnostics||
-|Cofre da Chave do Azure|   Microsoft.KeyVault/<br>vaults|  Diagnostics  || [Análise do Cofre de Chaves](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
-|Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnostics|||
-|Aplicativo Lógico do Azure|  Microsoft.Logic/<br>workflows|  Diagnostics|    Diagnostics||
+|Serviços Cognitivos|    Microsoft.CognitiveServices/<br>accounts|       Diagnósticos|||
+|Análise Azure Data Lake| Microsoft.DataLakeAnalytics/<br>accounts|   Diagnósticos|||
+|Repositório Azure Data Lake| Microsoft.DataLakeStore/<br>accounts|   Diagnósticos|||
+|Namespace do hub de eventos do Azure| Microsoft.EventHub/<br>namespaces|  Diagnostics|    Diagnósticos||
+|Hub IoT do Azure| Microsoft.Devices/<br>IotHubs||     Diagnósticos||
+|Cofre da Chave do Azure|   Microsoft.KeyVault/<br>vaults|  Diagnósticos  || [Análise do Cofre de Chaves](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Azure Load Balancer|   Microsoft.Network/<br>loadBalancers|    Diagnósticos|||
+|Aplicativo Lógico do Azure|  Microsoft.Logic/<br>workflows|  Diagnósticos|    Diagnósticos||
 ||Microsoft.Logic/<br>integrationAccounts||||
-|Grupos de segurança de rede|   Microsoft.Network/<br>networksecuritygroups|Diagnostics||   [Análise do Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
+|Grupos de segurança de rede|   Microsoft.Network/<br>networksecuritygroups|Diagnósticos||   [Análise do Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Cofres de recuperação|   Microsoft.RecoveryServices/<br>vaults|||[Análise dos Serviços de Recuperação do Azure (Visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-|Serviços Search|   Microsoft.Search/<br>searchServices|    Diagnostics|    Diagnostics||
-|Namespace do Barramento de Serviço| Microsoft.ServiceBus/<br>namespaces|    Diagnostics|Diagnostics|    [Análise do Barramento de Serviço (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
+|Serviços Search|   Microsoft.Search/<br>searchServices|    Diagnósticos|    Diagnósticos||
+|Namespace do Barramento de Serviço| Microsoft.ServiceBus/<br>namespaces|    Diagnostics|Diagnósticos|    [Análise do Barramento de Serviço (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Armazenamento||    [Análise do Service Fabric (visualização)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
-|SQL (v12)| Microsoft.Sql/<br>servers/<br>databases||       Diagnostics||
+|SQL (v12)| Microsoft.Sql/<br>servers/<br>databases||       Diagnósticos||
 ||Microsoft.Sql/<br>servers/<br>elasticPools||||
 |Armazenamento|||         Script| [Análise do Azure Storage (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
 |Máquinas Virtuais do Azure|    Microsoft.Compute/<br>virtualMachines|  Extensão|  Extensão||
-||||Diagnostics||
-|conjuntos de escala de máquina virtual|    Microsoft.Compute/<br>virtualMachines    ||Diagnostics||
+||||Diagnósticos||
+|conjuntos de escala de máquina virtual|    Microsoft.Compute/<br>virtualMachines    ||Diagnósticos||
 ||Microsoft.Compute/<br>virtualMachineScaleSets/<br>virtualMachines||||
-|Farms do servidor Web|Microsoft.Web/<br>serverfarms||   Diagnostics
-|Sites|  Microsoft.Web/<br>sites ||      Diagnostics|    [Mais informações](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
+|Farms do servidor Web|Microsoft.Web/<br>serverfarms||   Diagnósticos
+|Sites|  Microsoft.Web/<br>sites ||      Diagnósticos|    [Mais informações](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webappazure-oms-monitoring)|
 ||Microsoft.Web/<br>sites/<br>slots|||||
 
 
@@ -361,10 +361,10 @@ A Integração do Log dá suporte à integração dos logs de atividades do Azur
 
 | Tipo de log | Log Analytics que dá suporte a JSON (Splunk, ArcSight e IBM QRadar) |
 | :------- | :-------------------------------------------------------- |
-|Logs de auditoria do Azure AD|   sim|
-|Logs de atividade| sim|
-|Alertas da Central de Segurança |sim|
-|Logs de diagnóstico (logs de recurso)|  sim|
+|Logs de auditoria do Azure AD|   SIM|
+|Logs de atividade| SIM|
+|Alertas da Central de Segurança |SIM|
+|Logs de diagnóstico (logs de recurso)|  SIM|
 |Logs da VM|   Sim, por meio de eventos encaminhados e não por meio do JSON|
 
 [Introdução à Integração de Logs do Azure](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): este tutorial explica as etapas de instalação da Integração de Logs do Azure, bem como a integração de logs do armazenamento do Azure, logs de atividades do Azure, alertas da Central de Segurança do Azure e logs de auditoria do Azure AD.

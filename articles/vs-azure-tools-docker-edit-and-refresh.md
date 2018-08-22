@@ -3,7 +3,7 @@ title: Depurando aplicativos em um contêiner de Docker local | Microsoft Docs
 description: Saiba como modificar um aplicativo que está sendo executado em um contêiner do Docker local, atualizar o contêiner usando Editar e Atualizar e configurar os pontos de interrupção de depuração
 services: azure-container-service
 documentationcenter: na
-author: mlearned
+author: ghogen
 manager: douge
 editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781387"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037950"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Depuração de aplicativos em um contêiner de Docker local
 ## <a name="overview"></a>Visão geral
-As Ferramentas do Visual Studio para Docker oferecem uma maneira consistente para desenvolver e validar seu aplicativo localmente em um contêiner de Docker do Linux.
+O Visual Studio 2017 fornece uma maneira consistente de desenvolver em um contêiner do Docker do Linux e validar o aplicativo localmente.
 Você não precisa reiniciar o contêiner sempre que você alterar um código.
 Este artigo ilustra como usar o recurso "Editar e Atualizar" para iniciar um aplicativo Web do ASP.NET Core em um contêiner do Docker local, realizar as alterações necessárias e atualizar o navegador para visualizá-las.
 Ele também mostra como definir pontos de interrupção para depuração.
@@ -33,10 +33,10 @@ Ele também mostra como definir pontos de interrupção para depuração.
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 As ferramentas a seguir devem ser instaladas.
 
-* [Versão mais recente do Visual Studio](https://www.visualstudio.com/downloads/)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * [SDK do Microsoft ASP.NET Core 1.0](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 Para executar os contêineres de Docker localmente, você precisará de um cliente docker local.
@@ -90,13 +90,12 @@ Geralmente, as alterações precisarão de mais inspeção, aproveitando os recu
    ![][2]
 
 ## <a name="summary"></a>Resumo
-Com as [Ferramentas do Visual Studio 2015 para Docker](https://aka.ms/DockerToolsForVS), você poderá obter a produtividade de trabalhar localmente, com o realismo de produção do desenvolvimento em um contêiner do Docker.
+Com o suporte do Docker no Visual Studio 2017, é possível obter a produtividade de trabalhar localmente, com o realismo de produção de desenvolver dentro de um contêiner do Docker.
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>solução de problemas
 [Troubleshooting Visual Studio Docker Development (Solucionar Problemas de Desenvolvimento do Docker do Visual Studio)](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Mais informações sobre o Docker com o Visual Studio, Windows e Azure
-* [Ferramentas do Docker para Visual Studio](http://aka.ms/dockertoolsforvs) – Desenvolvendo seu código do .NET Core em um contêiner
 * [Ferramentas do Docker para o Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) – Criar e Implantar contêineres do docker
 * [Ferramentas do Docker para Visual Studio Code](http://aka.ms/dockertoolsforvscode) – Serviços de linguagem para editar arquivos do docker, com futuros cenários e2e
 * [Informações do Contêiner do Windows](http://aka.ms/containers)– Informações sobre Windows Server e Nano Server

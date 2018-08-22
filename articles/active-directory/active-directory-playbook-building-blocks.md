@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049462"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037964"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -41,7 +41,7 @@ A seguir, estão alguns pré-requisitos necessários para qualquer prova de conc
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Locatário Azure AD definido com uma assinatura Azure válida | [Como obter um locatário do Active Directory do Azure](active-directory-howto-tenant.md)<br/>**Observação:** Se você já tem um ambiente com licenças do Azure AD Premium, é possível obter uma assinatura de limite zero, navegando até https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
+| Locatário Azure AD definido com uma assinatura Azure válida | [Como obter um locatário do Active Directory do Azure](develop/quickstart-create-new-tenant.md)<br/>**Observação:** Se você já tem um ambiente com licenças do Azure AD Premium, é possível obter uma assinatura de limite zero, navegando até https://aka.ms/accessaad <br/>Saiba mais em: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ e https://technet.microsoft.com/library/dn832618.aspx |
 | Domínios definidos e verificados | [Adicionar um nome de domínio personalizado ao Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Observação:** Algumas cargas de trabalho, como o Power BI podem ter provisionado um locatário do Azure AD nos bastidores. Para verificar se um determinado domínio é associado a um locatário, navegue até https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Se você obtiver uma resposta bem-sucedida, então o domínio já está atribuído a um locatário e a tomada de controle pode ser necessária. Nesse caso, contate a Microsoft para obter mais orientações. Saiba mais sobre as opções de tomada de controle em: [O que é Inscrição de Autoatendimento do Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Avaliação do Azure AD Premium ou EMS habilitada | [Azure Active Directory Premium gratuito por um mês](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Você atribuiu licenças do Azure AD Premium ou EMS a usuários de PoC | [Licencie a si mesmo e seus usuários no Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |
@@ -159,7 +159,7 @@ Tempo estimado para Conclusão: 60 minutos
 | Aguarde alguns minutos enquanto o provisionamento é concluído.  Enquanto isso, você pode verificar os relatórios de provisionamento |  |
 | Faça logon no https://myapps.microsoft.com/ como um usuário de teste que tem acesso | [O que é o Painel de Acesso?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Clique no bloco do aplicativo que acabou de ser criado. Confirmar o acesso |  |
-| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -185,13 +185,13 @@ Tempo estimado para Conclusão: 15 minutos
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribua o aplicativo para o grupo identificado nos Pré-requisitos | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Faça logon no https://myapps.microsoft.com/ como um usuário de teste que tem acesso |  |
 | Clique no bloco do aplicativo que acabou de ser criado. | [O que é o Painel de Acesso?: SSO baseado em senha sem provisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Forneça a credencial de aplicativo | [O que é o Painel de Acesso?: SSO baseado em senha sem provisionamento de identidade](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Feche o navegador e repita o logon. Agora, o usuário deve ver acesso transparente ao aplicativo. |  |
-| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -220,10 +220,10 @@ Tempo estimado para Conclusão: 30 minutos
 | --- | --- |
 | Instalar a extensão do navegador | [Extensão do Painel de Acesso do IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extensão do Painel de Acesso do Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extensão do Painel de Acesso do Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurar um Aplicativo da Galeria | [O que há de novo no gerenciamento de Aplicativos Empresariais no Azure Active Directory: A nova e aprimorada galeria de aplicativos](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha ](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurar SSO de Senha | [Gerenciamento de logon único para aplicativos empresariais no novo portal do Azure: Logon baseado em senha](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | Atribua o aplicativo ao grupo identificado nos Pré-requisitos ao atribuir-lhes credenciais | [Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Efetue login como diferentes usuários que acessam o aplicativo como a **mesma conta compartilhada.**  |  |
-| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md) |
+| Opcionalmente, você pode verificar os relatórios de uso do aplicativo. Observe que há alguma latência, portanto, é necessário esperar algum tempo para ver o tráfego nos relatórios. | [Relatórios de atividades de entrada no portal do Azure Active Directory: Uso de aplicativo gerenciado](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Políticas de retenção de relatório do Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>Considerações
@@ -452,9 +452,9 @@ Tempo estimado para Conclusão: 10 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Vá para o Portal de Gerenciamento do Azure AD: Folha de acesso condicional | [Portal de Gerenciamento do Azure AD: Folha de acesso condicional](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Criar política de Acesso Condicional:<br/>-Usuários de PoC de destino em "Usuários e grupos"<br/>-Aplicativo de PoC de destino em "Aplicativos de nuvem"<br/>-Todos os locais de destino exceto os confiáveis em "Condições"-> "Locais" **Observação:** IPs confiáveis são configurados no [Portal MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Exigir autenticação multifator em "Conceder" | [Introdução ao acesso condicional no Azure Active Directory: Etapas de configuração de política](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Aplicativo de acesso de dentro de rede corporativa | [Introdução ao acesso condicional no Azure Active Directory: Testa a polítca](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Aplicativo de acesso de rede pública | [Introdução ao acesso condicional no Azure Active Directory: Testa a polítca](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Criar política de Acesso Condicional:<br/>-Usuários de PoC de destino em "Usuários e grupos"<br/>-Aplicativo de PoC de destino em "Aplicativos de nuvem"<br/>-Todos os locais de destino exceto os confiáveis em "Condições"-> "Locais" **Observação:** IPs confiáveis são configurados no [Portal MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Exigir autenticação multifator em "Conceder" | [Criar sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Aplicativo de acesso de dentro de rede corporativa | [Testar sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Aplicativo de acesso de rede pública | [Testar sua política de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -500,17 +500,17 @@ Tempo estimado para Conclusão: 20 minutos
 | Pré-requisito | Recursos |
 | --- | --- |
 | Dispositivo com Navegador Tor baixado e instalado | [Baixe o Navegador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Acesso ao usuário de POC para fazer o login | [Guia estratégico do Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md) |
+| Acesso ao usuário de POC para fazer o login | [Guia estratégico do Azure Active Directory Identity Protection](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Etapas
 
 | Etapa | Recursos |
 | --- | --- |
 | Abra o navegador Tor | [Baixe o Navegador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Faça logon no https://myapps.microsoft.com com a conta de usuário do POC | [Guia estratégico do Azure Active Directory Identity Protection: Simulação de Eventos de Risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Faça logon no https://myapps.microsoft.com com a conta de usuário do POC | [Guia estratégico do Azure Active Directory Identity Protection: Simulação de Eventos de Risco](identity-protection/playbook.md#simulating-risk-events) |
 | Aguarde de 5 a 7 minutos |  |
 | Faça logon como um administrador global em https://portal.azure.com e abra a folha de Proteção de Identidade | https://aka.ms/aadipgetstarted |
-| Abra a folha de eventos de risco. Você deve ver uma entrada em "Entradas de endereços IP anônimos"  | [Guia estratégico do Azure Active Directory Identity Protection: Simulação de Eventos de Risco](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Abra a folha de eventos de risco. Você deve ver uma entrada em "Entradas de endereços IP anônimos"  | [Guia estratégico do Azure Active Directory Identity Protection: Simulação de Eventos de Risco](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considerações
 
@@ -534,14 +534,14 @@ Tempo estimado para Conclusão: 10 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Faça logon como um administrador global em https://portal.azure.com e abra a folha de Proteção de Identidade | https://aka.ms/aadipgetstarted |
-| Habilite uma política de risco de entrada conforme a seguir:<br/>-Atribuído a: usuário de POC<br/>-Condições: Risco de entrada médio ou superior (entrada de local anônimo é considerada como um nível de risco médio)<br/>-Controles: Exigir MFA | [Guia estratégico do Azure Active Directory Identity Protection: Risco de entrada](active-directory-identityprotection-playbook.md) |
+| Habilite uma política de risco de entrada conforme a seguir:<br/>-Atribuído a: usuário de POC<br/>-Condições: Risco de entrada médio ou superior (entrada de local anônimo é considerada como um nível de risco médio)<br/>-Controles: Exigir MFA | [Guia estratégico do Azure Active Directory Identity Protection: Risco de entrada](identity-protection/playbook.md) |
 | Abra o navegador Tor | [Baixe o Navegador Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Faça logon no https://myapps.microsoft.com com a conta de usuário do POC |  |
-| Observe o desafio MFA | [Experiências de entrada com o Azure AD Identity Protection: Recuperação de entrada de risco](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Observe o desafio MFA | [Experiências de entrada com o Azure AD Identity Protection: Recuperação de entrada de risco](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Considerações
 
-Esse recurso faz parte do Azure AD Premium P2 e/ou EMS E5. Para saber mais sobre eventos de risco, consulte [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md)
+Esse recurso faz parte do Azure AD Premium P2 e/ou EMS E5. Para saber mais sobre eventos de risco, consulte [Eventos de risco do Azure Active Directory](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Configurando autenticação baseada em certificado
 

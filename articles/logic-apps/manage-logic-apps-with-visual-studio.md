@@ -1,26 +1,22 @@
 ---
 title: Gerenciar aplicativos lógicos com Visual Studio - Aplicativo Lógico do Azure | Microsoft Docs
 description: Gerenciar aplicativos lógicos e outros ativos do Azure com o Visual Studio Cloud Explorer
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301109"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037893"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerenciar aplicativos lógicos com Visual Studio
 
@@ -31,7 +27,7 @@ Embora seja possível criar, editar, gerenciar e implantar aplicativos lógicos 
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>.
 
@@ -161,6 +157,9 @@ No Cloud Explorer, abra o menu de atalho do aplicativo lógico e selecione **Des
 
 ![Desabilitar o aplicativo lógico](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> Ao desabilitar um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes continuarão até que sejam concluídas, e isso poderá demorar algum tempo. 
+
 Quando estiver pronto para o aplicativo lógico retomar a operação, o aplicativo lógico poderá ser reativado. No Cloud Explorer, abra o menu de atalho do aplicativo lógico e selecione **Habilitar**.
 
 ![Habilitar o aplicativo lógico](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -170,6 +169,9 @@ Quando estiver pronto para o aplicativo lógico retomar a operação, o aplicati
 Para excluir o aplicativo lógico do Portal do Azure, no Cloud Explorer, abra o menu de atalho do aplicativo lógico e selecione **Excluir**.
 
 ![Excluir seu aplicativo lógico](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+
+> [!NOTE]
+> Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes serão canceladas. Se você tiver milhares de execuções, o cancelamento poderá demorar um tempo significativo até ser concluído. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247309"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037948"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -63,6 +63,26 @@ No Visual Studio:
 2. Altere as configurações de **Detalhamento da saída de compilação do projeto no MSBuild** para **Detalhado** ou **Diagnóstico**.
 
     ![Captura de tela da caixa de diálogo Opções de ferramentas](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>A resolução de nomes DNS falha para uma URL pública associada a um serviço do Azure Dev Spaces
+
+Quando isso ocorre, é possível ver um erro "A página não pode ser exibida" ou "Este site não pode ser acessado" no navegador da Web ao tentar conectar a URL pública associada a um serviço do Azure Dev Spaces.
+
+### <a name="try"></a>Experimente:
+
+Usar o seguinte comando para listar todas as URLs associadas aos serviços do Azure Dev Spaces:
+
+```cmd
+azds list-uris
+```
+
+Se uma URL estiver no estado *Pendente*, isso significa que o Azure Dev Spaces ainda está aguardando a conclusão do registro DNS. Às vezes, leva alguns minutos para que isso ocorra. O Azure Dev Spaces também abre um túnel de localhost para cada serviço, que pode ser usado enquanto aguarda o registro DNS.
+
+Se uma URL permanecer no estado *Pendente* por mais de 5 minutos, isso pode indicar um problema com o controlador de entrada nginx que é responsável pela aquisição do ponto de extremidade público. É possível usar o seguinte comando para excluir o pod executando o controlador nginx. Ele será recriado automaticamente.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>Erro "Ferramentas e configurações necessárias estão ausentes"
 

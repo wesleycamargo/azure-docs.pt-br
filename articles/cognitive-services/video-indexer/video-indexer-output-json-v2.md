@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618321"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40187364"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examine a saída do Video Indexer produzida pela API v2
 
@@ -81,8 +81,8 @@ Esta seção mostra o resumo das informações.
 |shortId|A ID do vídeo. Por exemplo, 63c6d532ff.|
 |privacyMode|Seu detalhamento pode ter um dos seguintes modos: **Particular**, **Público**. **Público**: o vídeo é visível para todos na sua conta e para qualquer pessoa que tenha um link para o vídeo. **Privada** -o vídeo é visível para todos em sua conta.|
 |duration|Contém uma duração que descreve o tempo que uma percepção ocorreu. Duração é em segundos.|
-|thumbnailVideoId|O id do vídeo do qual a miniatura foi feita.
-|thumbnailId|Id de miniatura do vídeo. Para obter a miniatura real, chame Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passe para thumbnailVideoId e thumbnailId.|
+|thumbnailVideoId|A ID do vídeo da qual a miniatura foi tirada.
+|thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passe para thumbnailVideoId e thumbnailId.|
 |faces|Pode conter zero ou mais faces. Para obter mais informações, consulte [faces](#faces).|
 |palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
 |sentiments|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
@@ -95,7 +95,7 @@ Esta seção mostra o resumo das informações.
 
 |NOME|DESCRIÇÃO|
 |---|---|
-|accountId|O ID da conta VI do vídeo.|
+|accountId|A ID da conta VI do vídeo.|
 |ID|ID do vídeo.|
 |Nome|Nome do vídeo.
 |state|Estado do vídeo (carregado, processado, processado, com falha, em quarentena).|
@@ -107,7 +107,7 @@ Esta seção mostra o resumo das informações.
 |metadata|Os metadados externos do vídeo (se especificado pelo usuário).|
 |isAdult|Indica se o vídeo foi revisado manualmente e identificado como um vídeo adulto.|
 |Insights|O objeto de insights. Para obter mais informações, consulte [insights](#insights).|
-|thumbnailId|Id de miniatura do vídeo. Para obter a miniatura real, chame Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passe o ID do vídeo e thumbnailId.|
+|thumbnailId|A ID da miniatura do vídeo. Para obter a miniatura real, chame Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passe-a para a ID do vídeo e para thumbnailId.|
 |publishedUrl|Uma URL para transmitir o vídeo.|
 |publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
 |viewToken|Um símbolo de visualização de curta duração para transmitir o vídeo.|
@@ -670,7 +670,7 @@ Os vídeos que contêm conteúdo adulto ou atraente podem estar disponíveis ape
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[API de indexador de vídeo](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[API de indexador de vídeo](https://api-portal.videoindexer.ai)
 
 Para obter informações sobre como incorporar widgets em seu aplicativo, consulte [Incorporar widgets do Video Indexer aos seus aplicativos](video-indexer-embed-widgets.md). 
 

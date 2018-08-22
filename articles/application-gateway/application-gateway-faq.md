@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399134"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40037963"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -122,6 +122,12 @@ Há suporte para Grupos de segurança de rede na sub-rede do Gateway de Aplicati
 * A conectividade de internet de saída não pode ser bloqueada.
 
 * Tráfego de marca AzureLoadBalancer deve ser permitido.
+
+**P. As rotas definidas pelo usuário têm suporte na sub-rede do gateway de aplicativo?**
+
+As UDRs (rotas definidas pelo usuário) têm suporte na sub-rede do gateway de aplicativo, desde que não alterem a comunicação de solicitação resposta de ponta a ponta.
+
+Por exemplo, é possível configurar uma UDR na sub-rede do gateway de aplicativo para apontar a um dispositivo de firewall para inspeção de pacote, mas é necessário garantir que o pacote possa alcançar a pós-inspeção de destino pretendida. Não fazer isso poderá resultar em uma investigação de integridade ou um comportamento de roteamento de tráfego incorreto. Isso inclui rotas aprendidas ou rotas 0.0.0.0/0 padrão propagadas por ExpressRoute ou Gateways de VPN na rede virtual.
 
 **P. Quais são os limites no Gateway de Aplicativo? Posso aumentar esses limites?**
 
