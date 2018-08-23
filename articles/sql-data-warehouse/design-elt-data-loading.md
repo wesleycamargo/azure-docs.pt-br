@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799440"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141605"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Criação de Extrair, Carregar e Transformar (ELT) para o Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Para formatar os arquivos de texto:
 ## <a name="load-to-a-staging-table"></a>Carregar para uma tabela de preparo
 Para levar os dados para o data warehouse, é uma boa solução carregar primeiro os dados em uma tabela de preparo. Usando uma tabela de preparo, você pode manipular erros sem interferir com as tabelas de produção, e você evita a execução de operações de reversão na tabela de produção. Uma tabela de preparo também oferece a oportunidade de usar o SQL Data Warehouse para executar transformações antes da inserção dos dados em tabelas de produção.
 
-Para carregar com o T-SQL, execute a instrução de T-SQL [CRIAR TABELA COMO SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md). Este comando insere os resultados de uma instrução select em uma nova tabela. Quando a instrução seleciona a partir de uma tabela externa, ela importa dados externos. 
+Para carregar com o T-SQL, execute a instrução de T-SQL [CRIAR TABELA COMO SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Este comando insere os resultados de uma instrução select em uma nova tabela. Quando a instrução seleciona a partir de uma tabela externa, ela importa dados externos. 
 
 No exemplo a seguir, ext.Date é uma tabela externa. Todas as linhas são importadas para uma nova tabela denominada dbo.Date.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264954"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142068"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
@@ -26,7 +26,7 @@ Este artigo aborda as etapas para configurar relatórios para o Backup do Azure 
 4. A frequência de atualização agendada para os relatórios é de 24 horas no Power BI. Você também pode executar uma atualização local dos relatórios no Power BI, nos quais os dados mais recentes na conta de armazenamento do cliente são usados para renderizar relatórios. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
+1. Criar uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md) e configurá-la para relatórios. Essa conta de armazenamento é usada para armazenar dados relacionados a relatórios.
 2. [Criar uma conta do Power BI](https://powerbi.microsoft.com/landing/signin/) para exibir, personalizar e criar seus próprios relatórios usando o portal do Power BI.
 3. Registrar o provedor de recursos **Microsoft.insights** se já não estiver registrado, com a assinatura da conta de armazenamento e também com a assinatura do cofre de Serviços de Recuperação para habilitar os dados de relatório e analisar o fluxo para a conta de armazenamento. Para fazer o mesmo, você deve ir ao portal do Azure > Assinatura > Provedores de recursos e verificar se há esse provedor para registrá-lo. 
 

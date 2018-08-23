@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332602"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142228"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão do navegador do painel de acesso
 
@@ -87,8 +87,8 @@ Você também pode baixar a extensão para o Chrome e para o Microsoft Edge dire
        Os três aplicativos que você usou são exibidos na lista de atalho **Usados recentemente**.
        
 * Para usar URLs internas da empresa ao remoto, faça o seguinte:
-    1. [Configurar Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
-    2. [Publicar o aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
+    1. [Configurar Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
+    2. [Publicar o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
     3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
     4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 

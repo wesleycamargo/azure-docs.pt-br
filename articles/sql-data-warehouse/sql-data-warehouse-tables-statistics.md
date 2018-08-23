@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643423"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142018"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Criação e atualização de estatísticas em tabelas no SQL Data Warehouse do Azure
 Recomendações e exemplos para criar e atualizar as estatísticas de otimização de consulta em tabelas no SQL Data Warehouse do Azure.
@@ -65,7 +65,10 @@ Uma prática recomendada é atualizar as estatísticas em colunas de data por di
 
 O seguinte são recomendações atualizando estatísticas:
 
-| **Frequência de atualizações de estatísticas** | Conservadora: Diária <br></br> Depois de carregar ou transformar os dados | | **Amostragem** | Menos de 1 bilhão de linhas, usar a amostragem padrão (20 por cento) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
+|||
+|-|-|
+| **Frequência de atualizações de estatísticas**  | Conservadora: diária <br></br> Depois de carregar ou transformar os dados |
+| **Amostragem** |  Menos de 1 bilhão de linhas, usar a amostragem padrão (20%) <br></br> Com mais de 1 bilhão de linhas, as estatísticas em uma faixa de 2% são boas |
 
 Uma das primeiras perguntas a serem feitas quando você estiver solucionando problemas em uma consulta é, **"As estatísticas estão atualizadas?"**
 

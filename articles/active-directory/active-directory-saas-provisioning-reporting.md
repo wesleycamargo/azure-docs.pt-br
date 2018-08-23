@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: e3be74fbb571a806fc03a92d0b1b373e35d196be
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363607"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141831"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o provisionamento automático de conta de usuário
 
 
-O Azure Active Directory inclui um [serviço de provisionamento de conta de usuário](active-directory-saas-app-provisioning.md) que ajuda a automatizar o provisionamento e o desprovisionamento de contas de usuário em aplicativos SaaS e outros sistemas para fins de gerenciamento de ciclo de vida da identidade de ponta a ponta. O Azure AD dá suporte a conectores de provisionamento de usuário pré-integrados para todos os aplicativos e sistemas na seção "Em destaque" da [Galeria de aplicativos do Azure AD](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
+O Azure Active Directory inclui um [serviço de provisionamento de conta de usuário](active-directory-saas-app-provisioning.md) que ajuda a automatizar o provisionamento e o desprovisionamento de contas de usuário em aplicativos SaaS e outros sistemas para fins de gerenciamento de ciclo de vida da identidade de ponta a ponta. O Azure AD dá suporte a conectores de provisionamento de usuário pré-integrados para todos os aplicativos e sistemas na seção "Em destaque" da [Galeria de aplicativos do Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 Este artigo descreve como verificar o status de trabalhos de provisionamento depois de eles terem sido configurados e como solucionar problemas com o provisionamento de usuários e grupos individuais.
 

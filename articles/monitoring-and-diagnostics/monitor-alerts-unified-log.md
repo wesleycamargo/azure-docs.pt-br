@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd1fb978fb47c69b2eb672bc27baee73dfdd0a29
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440422"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141656"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertas de log no Azure Monitor - Alertas 
 Este artigo fornece detalhes de alertas de Log, que são um dos tipos de alertas de suporte no novo [Alertas do Azure](monitoring-overview-unified-alerts.md) e permitem que os usuários usem a plataforma de análise do Azure como base para alertas.
@@ -87,7 +87,7 @@ Alerta deve executar a consulta a cada 5 minutos, com 30 minutos de dados - proc
 #### <a name="example"></a>Exemplo
 Considere um cenário em que você deseje um alerta se qualquer computador exceda 90% de utilização do processador por três vezes em 30 minutos.  Você criaria uma regra de alerta com os detalhes a seguir:  
 
-- **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+- **Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Período de tempo:** 30 minutos<br>
 - **Frequência de alerta:** cinco minutos<br>
 - **Valor de agregação:** maior que 90<br>

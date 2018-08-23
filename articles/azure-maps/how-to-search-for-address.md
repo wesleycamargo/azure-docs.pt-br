@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990006"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142012"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa de Mapas do Azure
 
@@ -164,19 +164,11 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     | Chave | Valor |
     |-----|------------|
-    | spatialKeys | verdadeiro |
-
-    Quando o parâmetro de consulta [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta contém a informação geoespacial principal proprietária de um local especificado.
-
-6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
-
-    | Chave | Valor |
-    |-----|------------|
     | returnSpeedLimit | verdadeiro |
     
     Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
 
-7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
     | Chave | Valor |
     |-----|------------|
@@ -184,7 +176,7 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de pesq
 
     Quando o parâmetro de consulta [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna a matriz de uso de estrada para reversegeocodes no nível da rua.
 
-8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
 
     | Chave | Valor |
     |-----|------------|

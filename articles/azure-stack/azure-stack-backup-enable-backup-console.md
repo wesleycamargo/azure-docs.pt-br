@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 08bce6284b672ae092e2cee3c26140e8c6049a34
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242845"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139313"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Habilitar o backup do portal de administração para o Azure Stack
 Habilite o serviço de Backup de infraestrutura por meio do portal de administração para que o Azure Stack pode gerar backups. Você pode usar esses backups para restaurar seu ambiente usando a recuperação no caso de nuvem [uma falha catastrófica](.\azure-stack-backup-recover-data.md). O objetivo de recuperação de nuvem é garantir que seus operadores e usuários podem fazer logon novamente no portal após a conclusão da recuperação. Os usuários terão suas assinaturas restauradas incluindo permissões de acesso baseado em função e funções, originais planos, ofertas e computação definida anteriormente, armazenamento e cotas de rede.
@@ -33,26 +33,60 @@ Os administradores e usuários são responsáveis por fazer backup e restaurar o
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Antes de habilitar o backup por meio do console, você precisará configurar o serviço de backup. Você pode configurar o serviço de backup usando o PowerShell. Para obter mais informações, consulte [habilitar o Backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
+## <a name="enable-or-reconfigure-backup"></a>Habilitar ou reconfigurar o backup
 
-## <a name="enable-backup"></a>Habilitar o backup
-
-1. Abra o portal de administração do Azure Stack em [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Abra o [portal de administração do Azure Stack](azure-stack-manage-portals.md).
 2. Selecione **mais serviços** > **backup da infra-estrutura**. Escolher **Configuration** na **backup de infraestrutura** folha.
-
-    ![O Azure Stack - configurações de controlador de Backup](media\azure-stack-backup\azure-stack-backup-settings.png).
-
 3. Digite o caminho para o **local de armazenamento de Backup**. Use uma cadeia de caracteres de convenção de nomenclatura Universal (UNC) para o caminho para um compartilhamento de arquivos hospedado em um dispositivo separado. Uma cadeia de caracteres UNC Especifica o local dos recursos, como arquivos compartilhados ou dispositivos. Para o serviço, você pode usar um endereço IP. Para garantir a disponibilidade dos dados de backup após um desastre, o dispositivo deve estar em um local separado.
+
     > [!Note]  
     > Se seu ambiente oferece suporte a resolução de nome de rede de infraestrutura do Azure Stack para seu ambiente corporativo, você pode usar um FQDN em vez do IP.
+    
 4. Tipo de **nome de usuário** usando o domínio e o nome de usuário com acesso suficiente para ler e gravar arquivos. Por exemplo, `Contoso\backupshareuser`.
 5. Tipo de **senha** para o usuário.
-5. Digite a senha novamente até **Confirmar senha**.
-6. Fornecer uma chave pré-compartilhada na **chave de criptografia** caixa. Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você defina essa chave pela primeira vez ou gire a chave no futuro, você não pode exibir essa chave dessa interface. Para obter mais instruções gerar uma chave pré-compartilhada, execute os scripts em [habilitar o Backup para o Azure Stack com o PowerShell](azure-stack-backup-enable-backup-powershell.md).
-7. Selecione **Okey** para salvar suas configurações de backup do controlador.
+6. Digite a senha novamente até **Confirmar senha**.
+7. O **frequência nas horas** determina a frequência com que os backups são criados. O valor padrão é 12. O Agendador dá suporte a um máximo de 12 e um mínimo de 4. 
+8. O **período de retenção em dias** determina quantos dias de backups são preservados em local externo. O valor padrão é 7. O Agendador dá suporte a um máximo de 14 e um mínimo de 2. Backups mais antigos que o período de retenção são automaticamente excluídos do local externo.
 
-Para executar um backup, você precisará baixar as ferramentas do Azure Stack e, em seguida, execute o cmdlet do PowerShell **AzSBackup início** no nó de administração do Azure Stack. Para obter mais informações, consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+    > [!Note]  
+    > Se você quiser arquivar backups mais antigos que o período de retenção, certifique-se os arquivos de backup antes que o Agendador exclui os backups. Se você reduzir o período de retenção de backup (por exemplo, de 7 dias para 5 dias), o Agendador excluirá todos os backups mais antigos que o novo período de retenção. Verifique se que você está okey com os backups excluídos antes de atualizar esse valor. 
+
+9. Fornecer uma chave pré-compartilhada na **chave de criptografia** caixa. Arquivos de backup são criptografados usando essa chave. Certifique-se de armazenar essa chave em um local seguro. Depois que você defina essa chave pela primeira vez ou gire a chave no futuro, você não pode exibir a chave dessa interface. Para criar a chave, execute os seguintes comandos do PowerShell do Azure Stack:
+    ```powershell
+    New-AzsEncryptionKeyBase64
+    ```
+10. Selecione **Okey** para salvar suas configurações de backup do controlador.
+
+    ![O Azure Stack - configurações de controlador de Backup](media\azure-stack-backup\backup-controller-settings.png)
+
+## <a name="start-backup"></a>Iniciar o backup
+Para iniciar um backup, clique em **fazer Backup agora** para iniciar um backup sob demanda. Um backup sob demanda não modificará o tempo para o próximo backup agendado. Depois que a tarefa for concluída, você pode confirmar as configurações no **Essentials**:
+
+![O Azure Stack - backup sob demanda](media\azure-stack-backup\scheduled-backup.png).
+
+Você também pode executar o cmdlet do PowerShell **AzsBackup início** em seu computador de administração do Azure Stack. Para obter mais informações, consulte [fazer backup do Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+
+## <a name="enable-or-disable-automatic-backups"></a>Habilitar ou desabilitar backups automáticos
+Os backups são agendados automaticamente quando você habilita o backup. Você pode verificar o próximo horário de backup de agendamento **Essentials**. 
+
+![O Azure Stack - backup sob demanda](media\azure-stack-backup\on-demand-backup.png)
+
+Se você precisar desabilitar futuros backups agendados, clique em **desabilitar Backups automáticos**. Desabilitantes backups automáticos manterão as configurações de backup configuradas e manterão o agendamento de backup. Essa ação simplesmente informa ao Agendador para ignorar os backups futuros. 
+
+![O Azure Stack - desabilitar agendado backups](media\azure-stack-backup\disable-auto-backup.png)
+
+Confirme que os backups futuros agendados foram desabilitados no **Essentials**:
+
+![O Azure Stack - confirmar backups foram desabilitados](media\azure-stack-backup\confirm-disable.png)
+
+Clique em **habilitar Backups automáticos** para informar o Agendador para iniciar backups futuros no horário agendado. 
+
+![O Azure Stack - ativar programada backups](media\azure-stack-backup\enable-auto-backup.png)
+
+
+> [!Note]  
+> Se você tiver configurado o backup de infraestrutura antes de atualizar para 1807, backups automáticos serão desabilitados. Dessa forma os backups iniciados pelo Azure Stack não entrem em conflito com iniciado por uma tarefa externa do mecanismo de agendamento de backups. Depois de desabilitar qualquer Agendador de tarefas externos, clique em **habilitar Backups automáticos**.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,15 +7,16 @@ manager: douge
 tags: azure-resource-manager
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: a43f893c7ee87ffb02179c06ea5786715547e93a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a74e4e10681f6b91e028067d8985408b0745dcd2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781555"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141625"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>O que aconteceu ao meu projeto do ASP.NET (serviço conectado Key Vault do Visual Studio)?
 
@@ -31,7 +32,7 @@ Para obter informações sobre como trabalhar com o serviço conectado, consulte
 
 Afeta as referências de *.NET do arquivo de projeto e `packages.config` (referências de NuGet).
 
-| type | Referência |
+| Tipo | Referência |
 | --- | --- |
 | .NET; NuGet | Microsoft.Azure.KeyVault |
 | .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |

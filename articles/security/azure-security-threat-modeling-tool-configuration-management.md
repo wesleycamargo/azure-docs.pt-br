@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857439"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142221"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Estrutura de segurança: Gerenciamento de configurações | Atenuações 
 | Produto/Serviço | Artigo |
@@ -606,7 +606,7 @@ Para desabilitar o CORS para um controlador ou uma ação, use o atributo [Disab
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Etapas** | <p>Não definir um limite para o uso de recursos do sistema pode resultar no esgotamento de recursos e, por fim, em uma negação de serviço.</p><ul><li>**EXPLICAÇÃO:** o Windows Communication Foundation (WCF) oferece a opção de restringir as solicitações de serviço. Permitir muitas solicitações de clientes pode sobrecarregar o sistema e esgotar seus recursos. Por outro lado, permitir apenas um pequeno número de solicitações para um serviço pode impedir usuários legítimos de usar o serviço. Cada serviço deve ser ajustado e configurado individualmente para permitir a quantidade apropriada de recursos.</li><li>**RECOMENDAÇÕES** Habilite o recurso de limitação de serviços do WCF e defina os limites apropriados para o aplicativo.</li></ul>|
 
 ### <a name="example"></a>Exemplo
@@ -629,7 +629,7 @@ Veja abaixo um exemplo de configuração com a limitação habilitada:
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com) |
 | **Etapas** | Os metadados podem ajudar invasores a obter mais informações sobre o sistema e a planejar uma forma de ataque. Os serviços do WCF podem ser configurados para expor os metadados, que fornecem informações descritivas detalhadas do serviço e que não devem ser transmitidos em ambientes de produção. As propriedades `HttpGetEnabled` / `HttpsGetEnabled` da classe ServiceMetaData definem se um serviço deve expor os metadados. | 
 
 ### <a name="example"></a>Exemplo

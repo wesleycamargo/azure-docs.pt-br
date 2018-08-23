@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724278"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141621"
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 O administrador de TI pode ter recomendado usar o Microsoft Azure Authenticator para entrar e acessar os recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
@@ -89,7 +89,7 @@ Depois de ter instalado o aplicativo Azure Authenticator, você também poderá 
 ### <a name="sending-log-files-to-report-issues"></a>Enviando arquivos de log para relatar problemas
 1. Siga as orientações do Support da Microsoft para relatar um incidente com o aplicativo Azure Authenticator, obtenha um número de incidente e envie os arquivos de log referentes ao número de incidente atribuído da seguinte maneira:
 2. No menu pop-up, clique em **Registrar em log**.
-3. Se você tiver um incidente aberto com o Suporte da Microsoft, anote o número de incidente (ele será necessário para uma etapa posterior). Se você ainda não tiver criado um incidente de suporte e quiser obter assistência, siga as diretrizes no [Suporte da Microsoft](https://support.microsoft.com/en-us/contactus) para abrir um novo incidente.
+3. Se você tiver um incidente aberto com o Suporte da Microsoft, anote o número de incidente (ele será necessário para uma etapa posterior). Se você ainda não tiver criado um incidente de suporte e quiser obter assistência, siga as diretrizes no [Suporte da Microsoft](https://support.microsoft.com/contactus) para abrir um novo incidente.
 4. Na tela de registro em log, clique em **Enviar agora**.
 5. Selecione o provedor de email que você deseja usar.
 6. Se você já tiver um incidente aberto junto ao Suporte da Microsoft, entre em contato com o engenheiro de suporte designado para o seu problema para saber como enviar os dados do log e associá-los ao incidente. O Engenheiro de Suporte fornece informações para a linha do assunto e o endereço de email. Se você não tiver um incidente de suporte, siga as orientações no Suporte da Microsoft para abrir um novo incidente.

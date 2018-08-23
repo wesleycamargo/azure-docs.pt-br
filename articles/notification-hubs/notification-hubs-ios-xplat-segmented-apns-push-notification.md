@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f6096238deb2186edfac2eb9d1c9a9e76db07553
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6db7862a115179552a2dd57c07af66b3b5aa10e3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308512"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141821"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Notificações por push para dispositivos iOS específicos usando Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -37,7 +37,7 @@ Neste tutorial, você deve executar as seguintes etapas:
 > * Enviar notificações do dispositivo
 > * Executar o aplicativo e gerar notificações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este tópico se baseia no aplicativo que você criou no [Tutorial: Notificações por push para aplicativos iOS usando Hubs de Notificação do Azure][get-started]. Antes de iniciar este tutorial, você já deve ter concluído [Tutorial: Notificações por push para aplicativos iOS usando Hubs de Notificação do Azure][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias ao aplicativo
@@ -361,5 +361,5 @@ Neste tutorial, você enviou notificações de notícias a dispositivos iOS espe
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-ios-notify-users.md
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[get-started]: /manage/services/notification-hubs/get-started-notification-hubs-ios/
-[Portal do Azure]: https://portal.azure.com
+[get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[portal do Azure]: https://portal.azure.com

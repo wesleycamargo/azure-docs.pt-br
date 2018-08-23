@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450316"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617242"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de conformidade e segurança do Azure - Aplicativo Web de PaaS para carga de trabalho OFICIAL DO REINO UNIDO
 
@@ -23,7 +23,7 @@ Especificações técnicas do Azure consistem em documentos de diretrizes e mode
 
 ## <a name="overview"></a>Visão geral
 
-Este projeto de conformidade e segurança do Azure fornece scripts de automação e diretrizes para entregar uma plataforma do Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hospedado, arquitetura do aplicativo web apropriada para lidar com cargas de trabalho classificadas como [OFICIAL REINO UNIDO](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Essa classificação de segurança abrange a maioria das informações criada ou processada pelo setor público. Isso inclui operações de rotina de negócios e serviços, que, se perdidos, roubados ou publicados na mídia, alguns doss quais pode ter consequências graves. O perfil de ameaça típico para a classificação OFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. O OFICIAL DO REINO UNIDO prevê a necessidade de se defender contra ameaças ou o comprometimento por invasores, com os serviços ou a dados do governo do Reino Unido limitados, como funções e recursos (mas não está limitado a) hacktivistas, grupos de pressão de edição única, jornalistas investigativos, hackers individuais competentes e a maioria dos indivíduos e grupos criminosos.
+Este projeto de conformidade e segurança do Azure fornece scripts de automação e diretrizes para entregar uma plataforma do Microsoft Azure [plataforma como serviço (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) hospedado, arquitetura do aplicativo web apropriada para lidar com cargas de trabalho classificadas como [OFICIAL REINO UNIDO](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Essa classificação de segurança abrange a maioria das informações criada ou processada pelo setor público. Isso inclui operações de rotina de negócios e serviços, que, se perdidos, roubados ou publicados na mídia, alguns doss quais pode ter consequências graves. O perfil de ameaça típico para a classificação OFICIAL é muito semelhante a uma empresa privada que fornece serviços e informações valiosas. O OFICIAL DO REINO UNIDO prevê a necessidade de se defender contra ameaças ou o comprometimento por invasores, com os serviços ou a dados do governo do Reino Unido limitados, como funções e recursos (mas não está limitado a) hacktivistas, grupos de pressão de edição única, jornalistas investigativos, hackers individuais competentes e a maioria dos indivíduos e grupos criminosos.
 
 Esta especificação técnica foi revisada pela UK NCSC National Cyber Security Centre (NCSC) e se alinha com os princípios de segurança de nuvem do NCSC 14.
 

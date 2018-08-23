@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520921"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141616"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gerenciar os direitos de acesso aos dados do Armazenamento do Microsoft Azure com o RBAC (Versão prévia)
 
@@ -32,7 +32,7 @@ O Armazenamento do Microsoft Azure oferece suporte a funções do RBAC internas 
 
 Para obter mais informações sobre como as funções internas são definidas para o Armazenamento do Microsoft Azure, consulte [Compreender as definições de função](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
-Você também pode definir funções personalizadas para uso com contêineres e filas. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
+Você também pode definir funções personalizadas para uso com contêineres e filas. Para obter mais informações, consulte [Criar funções personalizadas para controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!IMPORTANT]
 > Essa visualização destina-se somente a uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estarão disponíveis até que a integração do Microsoft Azure Active Directory para Armazenamento do Microsoft Azure seja declarada geralmente disponível. Se a integração do Microsoft Azure Active Directory ainda não tiver suporte no seu cenário, continue usando os tokens de autorização ou a chave compartilhada nos aplicativos. Para obter informações adicionais sobre a versão prévia, consulte [Autenticar o acesso ao Armazenamento do Microsoft Azure usando o Azure Active Directory (versão prévia)](storage-auth-aad.md).
