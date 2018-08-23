@@ -3,22 +3,22 @@ title: Conectar-se ao Azure Stack com a CLI | Microsoft Docs
 description: Saiba como usar a interface de linha de comando de plataforma cruzada (CLI) para gerenciar e implantar recursos no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f57a7f1cc255f9c4553384a7568beee1c2ed1752
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436702"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139720"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Use perfis de versão de API com a CLI do Azure 2.0 no Azure Stack
 

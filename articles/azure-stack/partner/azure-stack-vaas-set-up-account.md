@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: f6c78a3e79ac88194e7e34ad8be7a941ee715d39
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3f87721dcf7485e15a473e82597f6bf4baeca659
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235227"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139725"
 ---
 # <a name="set-up-your-validation-as-a-service-account"></a>Configurar sua validação como uma conta de serviço
 
@@ -95,7 +95,7 @@ Estas etapas explicam como configurar e gerar um URI (SAS) de armazenamento como
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-1. Para criar uma conta de armazenamento, siga as instruções [criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/storage-create-storage-account#create-a-storage-account).
+1. Para criar uma conta de armazenamento, siga as instruções [criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 
 2. Ao selecionar o tipo de conta de armazenamento, selecione o **armazenamento de BLOBs** tipo de conta.
 

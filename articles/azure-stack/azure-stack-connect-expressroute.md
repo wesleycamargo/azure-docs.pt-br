@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449965"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139485"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conectar-se a pilha do Azure para o Azure usando o Azure ExpressRoute
 
@@ -180,7 +180,7 @@ Depois de criar o gateway de rede Virtual pode obter o endereço IP público do 
 
 1. No portal do usuário do Azure Stack, selecione **todos os recursos**.
 1. Sob **todos os recursos**, selecione o gateway de rede virtual, que é **GW1** no exemplo.
-1. Sob **gateway de rede Virtual**, selecione **visão geral**. na lista de recursos. Como alternativa, você pode selecionar **propriedades**.
+1. Sob **gateway de rede Virtual**, selecione **visão geral** da lista de recursos. Como alternativa, você pode selecionar **propriedades**.
 1. O endereço IP que você deseja observar está listado em **endereço IP público**. Para a configuração de exemplo, esse endereço é 192.68.102.1.
 
 #### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
@@ -360,7 +360,7 @@ Repita essas etapas para qualquer locatário adicional redes virtuais que você 
 
 ## <a name="configure-the-router"></a>Configurar o roteador
 
-Você pode usar o seguinte *configuração do roteador de ExpressRoute* diagrama como um guia para configurar seu roteador de ExpressRoute. Este diagrama mostra dois locatários (locatário 1 e 2 do Locatário) com suas respectivos circuitos da rota expressa. Cada locatário está vinculado a seu próprio VRF (roteamento Virtual e o encaminhamento) no lado do LAN e WAN do roteador de ExpressRoute. Essa configuração garante o isolamento de ponta a ponta entre os dois locatários. Anote os endereços IP usados em interfaces do roteador que você siga o exemplo de configuração.
+Você pode usar o seguinte *configuração do roteador de ExpressRoute* diagrama como um guia para configurar seu roteador de ExpressRoute. Este diagrama mostra dois locatários (locatário 1 e 2 do Locatário) com suas respectivos circuitos do ExpressRoute. Cada locatário está vinculado a seu próprio VRF (roteamento Virtual e o encaminhamento) no lado do LAN e WAN do roteador de ExpressRoute. Essa configuração garante o isolamento de ponta a ponta entre os dois locatários. Anote os endereços IP usados em interfaces do roteador que você siga o exemplo de configuração.
 
 *Figura 4. Configuração do roteador de ExpressRoute*
 
@@ -368,7 +368,7 @@ Você pode usar o seguinte *configuração do roteador de ExpressRoute* diagrama
 
 Você pode usar qualquer roteador que dá suporte a IKEv2 VPN e BGP para encerrar a conexão VPN Site a Site do Azure Stack. Mesmo roteador é usado para se conectar ao Azure usando um circuito do ExpressRoute.
 
-O seguinte exemplo de configuração do Cisco 1000 de recuperação de Site do Azure dá suporte à infraestrutura de rede, mostrada na *configuração do roteador de ExpressRoute* diagrama.
+O seguinte exemplo de configuração do roteador de serviços de agregação de série Cisco ASR 1000 dá suporte a infraestrutura de rede mostrada a *configuração do roteador de ExpressRoute* diagrama.
 
 **Exemplo de configuração do Cisco ASR 1000**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

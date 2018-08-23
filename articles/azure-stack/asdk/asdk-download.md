@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213020"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139481"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Baixe e extraia o Azure Stack desenvolvimento ASDK (Kit de)
 Depois de garantir que seu computador de host do kit de desenvolvimento atende aos requisitos básicos para instalar o ASDK, a próxima etapa é baixar e extrair o pacote de implantação para obter o Cloudbuilder.vhdx ASDK.
@@ -43,7 +43,7 @@ Depois de garantir que seu computador de host do kit de desenvolvimento atende a
 2. Examine e aceite o contrato de licença exibidos a **contrato de licença** página do Assistente de Self-Extractor e depois clique em **próxima**.
 3. Examine as informações de declaração de privacidade exibidas na **Aviso importante** página do Assistente de Self-Extractor e depois clique em **próxima**.
 4. Selecione o local para arquivos de instalação do Azure Stack a ser extraído para ativado a **Selecionar local de destino** página do Assistente de Self-Extractor e depois clique em **próxima**. O local padrão é *pasta atual*\Azure Kit de desenvolvimento de pilha. 
-5. Examine o resumo de local de destino a **pronto para extrair** página do Assistente de Self-Extractor e depois clique em **extrair** para extrair o CloudBuilder.vhdx (cerca de 25 GB) e ThirdPartyLicenses.rtf arquivos. Esse processo leva algum tempo para concluir.
+5. Examine o resumo de local de destino a **pronto para extrair** página do Assistente de Self-Extractor e depois clique em **extrair** para extrair o CloudBuilder.vhdx (aproximadamente 28 GB) e ThirdPartyLicenses.rtf arquivos. Esse processo leva algum tempo para concluir.
 6. Copiar ou mover o arquivo CloudBuilder.vhdx na raiz da unidade C:\ (C:\CloudBuilder.vhdx) no computador host ASDK.
 
 > [!NOTE]

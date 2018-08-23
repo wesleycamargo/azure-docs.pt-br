@@ -1,70 +1,70 @@
 ---
-title: Usando perfis de versão de API com o GO na pilha do Azure | Microsoft Docs
-description: Saiba mais sobre como usar perfis de versão de API com GO na pilha do Azure.
+title: Usando perfis de versão de API com o GO no Azure Stack | Microsoft Docs
+description: Saiba mais sobre como usar perfis de versão de API com GO no Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ad4402098e938f72cf4b8c61cce8d0d46b5a147
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010057"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139604"
 ---
-# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Use perfis de versão de API com Go na pilha do Azure
+# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Usar perfis de versão de API com o Go no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-## <a name="go-and-version-profiles"></a>Perfis go e versão
+## <a name="go-and-version-profiles"></a>Perfis de ir e versão
 
-Um perfil é uma combinação de diferentes tipos de recursos com versões diferentes de serviços diferentes. Usando um perfil o ajudará a combinação de entre diferentes tipos de recursos. Podem fornecer perfis:
+Um perfil é uma combinação de diferentes tipos de recursos com diferentes versões de serviços diferentes. Usando um perfil ajudará você misturar e combinar entre diferentes tipos de recursos. Podem fornecer perfis:
 
- - Estabilidade de seu aplicativo por meio do bloqueio para versões específicas de API.
- - Compatibilidade do seu aplicativo com a pilha do Azure e datacenters do Azure regional.
+ - Estabilidade do aplicativo, bloqueando a versões específicas de API.
+ - Compatibilidade do aplicativo com o Azure Stack e regionais datacenters do Azure.
 
-No SDK vá perfis estão disponíveis nos perfis / caminho, com a versão no **AAAA-MM-DD** formato. Agora, a pilha do Azure mais recente versão do perfil é **2017-03-09**. Para importar um determinado serviço de um perfil, você precisa importar o módulo correspondente do perfil. Por exemplo, para importar **de computação** serviço **2017-03-09** perfil:
+No SDK Go, perfis estão disponíveis sob os perfis / caminho, com a versão na **AAAA-MM-DD** formato. Agora, a pilha do Azure mais recente versão de perfil está **2017-03-09**. Para importar um determinado serviço de um perfil, você precisará importar o módulo correspondente do perfil. Por exemplo, para importar **Compute** partir **2017-03-09** perfil:
 
 ````go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
-## <a name="install-azure-sdk-for-go"></a>Instalar o SDK do Azure para ir
+## <a name="install-azure-sdk-for-go"></a>Instale o SDK do Azure para linguagem Go
 
-  1. Instale o Git. Para obter instruções, consulte [Introdução - Instalando Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-  2. Instalar o [ir a linguagem de programação](https://golang.org/dl).  
-  Perfis de API do Azure exige ir versão 1,9 ou mais recente.
-  3. Instale o SDK do Azure vá e suas dependências, executando o seguinte comando bash:
+  1. Instale o Git. Para obter instruções, consulte [Introdução - instalação do Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+  2. Instalar o [linguagem de programação Go](https://golang.org/dl).  
+  Perfis de API do Azure exigirá Go versão 1.9 ou mais recente.
+  3. Instale o SDK do ir do Azure e suas dependências, executando o seguinte comando do bash:
   ```
     go get -u -d github.com/Azure/azure-sdk-for-go/...
   ```
 
-### <a name="the-go-sdk"></a>O SDK VÁ
+### <a name="the-go-sdk"></a>O SDK móvel
 
-Você pode encontrar mais informações sobre o SDK do Azure VÁ em:
-- O Azure vá SDK em [instalar o SDK do Azure para ir](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
-- O SDK do Azure ir está disponível publicamente no GitHub em [azure sdk para ir](https://github.com/Azure/azure-sdk-for-go).
+Você pode encontrar mais informações sobre o SDK do Azure ACESSE em:
+- O Azure ir SDK na [instalar o SDK do Azure para linguagem Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
+- O SDK do ir do Azure está disponível publicamente no GitHub em [sdk do azure para go](https://github.com/Azure/azure-sdk-for-go).
 
-### <a name="go-autorest-dependencies"></a>Dependências de go AutoRest
+### <a name="go-autorest-dependencies"></a>Dependências do go-AutoRest
 
-O SDK VÁ depende dos módulos do Azure Go-AutoRest para enviar solicitações REST para pontos de extremidade do Gerenciador de recursos do Azure. Você precisará importar as dependências do módulo Azure Go-AutoRest de [Azure Go-AutoRest no GitHub](https://github.com/Azure/go-autorest). Você pode localizar os comandos bash instalar o **instalar** seção.
+O SDK GO depende dos módulos do Azure Go-AutoRest para enviar solicitações REST para pontos de extremidade do Azure Resource Manager. Você precisará importar as dependências do módulo Azure Go-AutoRest partir [AutoRest-Go do Azure no GitHub](https://github.com/Azure/go-autorest). Você pode encontrar os comandos de bash de instalação nos **instalar** seção.
 
-## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Como usar perfis de SDK VÁ na pilha do Azure
+## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Como usar perfis de SDK GO no Azure Stack
 
-Para executar um exemplo de código Go na pilha do Azure:
-  1. Instale o SDK do Azure para ir e suas dependências. Para obter instruções, consulte a seção anterior, [instalar o SDK do Azure para ir](#install-azure-sdk-for-go).
+Para executar um exemplo de código Go no Azure Stack:
+  1. Instale o SDK do Azure para Go e suas dependências. Para obter instruções, consulte a seção anterior, [instalar o SDK do Azure para Go](#install-azure-sdk-for-go).
   2. Obtenha as informações de metadados do ponto de extremidade do Gerenciador de recursos. O ponto de extremidade retorna um arquivo JSON com as informações necessárias para executar seu código Go.
 
   > [!Note]  
-  > O **ResourceManagerUrl** no Kit de desenvolvimento de pilha para Azure (ASDK) é: `https://management.local.azurestack.external/`  
+  > O **ResourceManagerUrl** no Azure Stack desenvolvimento ASDK (Kit) é: `https://management.local.azurestack.external/`  
   > O **ResourceManagerUrl** em sistemas integrados é: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
   > Para recuperar os metadados necessários: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
@@ -81,16 +81,16 @@ Para executar um exemplo de código Go na pilha do Azure:
   }
   ```
 
-  3. Se não estiver disponível, crie uma assinatura e salve a ID de assinatura a ser usado posteriormente. Para obter informações sobre como criar uma assinatura, consulte [criar assinaturas para ofertas na pilha do Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Criar uma entidade de serviço com o escopo de "Assinatura" e **proprietário** função. Salve as entidades de serviço segredo e ID. Para obter informações sobre como criar uma entidade de serviço para a pilha do Azure, consulte [criar entidade de serviço](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). O ambiente de pilha do Azure está configurado.
-  5. Importe um módulo de serviço de perfil SDK vá em seu código. A versão atual do perfil de pilha do Azure é **2017-03-09**. Por exemplo, para importar o módulo de rede de **2017-03-09** tipo de perfil: 
+  3. Se não estiver disponível, crie uma assinatura e salve a ID da assinatura a ser usado posteriormente. Para obter informações sobre como criar uma assinatura, consulte [criar assinaturas de ofertas no Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+  4. Criar uma entidade de serviço com escopo de "Assinatura" e **proprietário** função. Salve as entidades de serviço de ID e o segredo. Para obter informações sobre como criar uma entidade de serviço para o Azure Stack, consulte [criar entidade de serviço](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Configurar o seu ambiente do Azure Stack.
+  5. Importe um módulo de serviço de perfil SDK Go em seu código. É a versão atual do perfil do Azure Stack **2017-03-09**. Por exemplo, para importar o módulo de rede a partir da **2017-03-09** tipo de perfil: 
 
   ````go
     package main 
     import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
-  6. Em sua função, criar e autenticar um cliente com um **novo** chamada de função do cliente. Para criar um cliente de rede virtual, você pode usar o código a seguir:  
+  6. Em sua função, criar e autenticar um cliente com um **New** chamada de função do cliente. Para criar um cliente de rede virtual, você pode usar o código a seguir:  
 
   ````go
   package main 
@@ -102,11 +102,11 @@ Para executar um exemplo de código Go na pilha do Azure:
       vnetClient.Authorizer = autorest.NewBearerAuthorizer(token)
   ````
 
-  Definir `<baseURI>` para o **ResourceManagerUrl** valor usado na etapa 2.
-  Definir `<subscriptionID>` para o **SubscriptionID** valor salvou da etapa três.
+  Definir `<baseURI>` para o **ResourceManagerUrl** usado na etapa dois do valor.
+  Definir `<subscriptionID>` para o **SubscriptionID** valor salvo na etapa três.
   Para criar um token, consulte autenticação seção abaixo.  
 
-  7. Invocar métodos de API usando o cliente que você criou na etapa anterior. Por exemplo, para criar uma rede virtual por meio de nosso cliente da etapa anterior: 
+  7. Invoca métodos de API usando o cliente que você criou na etapa anterior. Por exemplo, para criar uma rede virtual por meio de nosso cliente da etapa anterior: 
   
 ````go
 package main
@@ -119,26 +119,26 @@ func main() {
   vnetClient .CreateOrUpdate( ) 
 ````
   
-  Para obter um exemplo completo de criação de uma rede virtual na pilha do Azure usando o perfil vá SDK, consulte [exemplo](#example).
+  Para obter um exemplo completo de criação de uma rede virtual no Azure Stack usando o perfil do SDK Go, consulte [exemplo](#example).
 
 ## <a name="authentication"></a>Autenticação
 
-Para obter a propriedade autorizador do Active Directory do Azure usando o SDK vá, instale os módulos de AutoRest Go. Esses módulos já devem ter sido instalados com a instalação "SDK ir"; Se não estiver, instale o [pacote de autenticação no GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Para obter a propriedade autorizador do Azure Active Directory usando o SDK Go, instale os módulos do Go-AutoRest. Esses módulos já devem ter sido instalados com a instalação "SDK Go"; Se não estiver, instale o [pacote de autenticação no GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
-O autorizador deve ser definido como o autorizador para o cliente do recurso. Há métodos diferentes para obter um autorizador; para uma lista completa, consulte aqui.
+O autorizador de deve ser definido como o autorizador de para o cliente do recurso. Há métodos diferentes para obter um autorizador; para uma lista completa, consulte aqui.
 
-Esta seção apresenta uma forma comum de obter tokens autorizador na pilha do Azure usando as credenciais do cliente:
+Esta seção apresenta uma maneira comum de obter tokens de autorizador no Azure Stack, usando as credenciais do cliente:
 
-  1. Se uma entidade de serviço com a função de proprietário na assinatura estiver disponível, ignore esta etapa. Caso contrário, crie uma entidade de serviço [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) e atribuí-la uma função de "proprietário" no escopo à sua assinatura [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salve o segredo e ID de aplicativo principal do serviço. 
+  1. Se uma entidade de serviço com a função de proprietário na assinatura estiver disponível, ignore esta etapa. Caso contrário, crie uma entidade de serviço [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) e atribua a ele uma função de "proprietário" no escopo à sua assinatura [instruções]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Salve o segredo e ID de entidade de segurança de aplicativo de serviço. 
 
-  2. Importação **adal** pacote de AutoRest ir em seu código. 
+  2. Importação **adal** pacote do Go-AutoRest em seu código. 
   
   ````go
   package main
   import "github.com/Azure/go-autorest/autorest/adal" 
   ````
 
-  3. Criar um oauthConfig usando o método NewOAuthConfig de **adal** módulo. 
+  3. Criar um oauthConfig usando o método NewOAuthConfig **adal** módulo. 
   
   ````go
   package main 
@@ -150,10 +150,10 @@ Esta seção apresenta uma forma comum de obter tokens autorizador na pilha do A
       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
   ````
    
-  Definir `<activeDirectoryEndpoint>` como o valor de "loginEndpoint" propriedade dos metadados ResourceManagerUrl recuperado na seção anterior deste documento.
-  Definir `<tenantID>` valor para o ID de locatário de pilha do Azure. 
+  Definir `<activeDirectoryEndpoint>` ao valor de "loginEndpoint" propriedade dos metadados ResourceManagerUrl recuperada na seção anterior deste documento.
+  Definir `<tenantID>` valor à sua ID de locatário do Azure Stack. 
 
-  4. Finalmente, crie um token da entidade de serviço usando o método NewServicePrincipalToken do módulo adal. 
+  4. Por fim, crie um token da entidade de serviço usando o método NewServicePrincipalToken do módulo adal. 
 
   ````go
   package main 
@@ -171,18 +171,18 @@ Esta seção apresenta uma forma comum de obter tokens autorizador na pilha do A
       return token, err
   ````
   
-  Definir `<activeDirectoryResourceID>` para um dos valores no "público" lista dos metadados ResourceManagerUrl recuperado na seção anterior deste documento.  
-  Defina `<clientID>` para o aplicativo de serviço principal ID salvo quando a entidade de serviço foi criada na seção anterior deste documento.  
-  Defina `<clientSecret>` para o aplicativo de serviço principal segredo salvo quando a entidade de serviço foi criada na seção anterior deste documento.  
+  Definir `<activeDirectoryResourceID>` para um dos valores no "público" lista de metadados ResourceManagerUrl recuperada na seção anterior deste documento.  
+  Definir `<clientID>` para o aplicativo de serviço principal ID salvo quando a entidade de serviço foi criada na seção anterior deste documento.  
+  Definir `<clientSecret>` para o aplicativo de serviço principal o segredo salvo quando a entidade de serviço foi criada na seção anterior deste documento.  
 
 ## <a name="example"></a>Exemplo
 
-Esta seção mostra um exemplo de código de ir para criar rede virtual na pilha do Azure. Para obter exemplos de conclusão do SDK vá consulte [repositório de exemplos do SDk do Azure vá](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Exemplos de pilha do Azure estão disponíveis em híbrida / caminho dentro das pastas de serviço do repositório.
+Esta seção mostra um exemplo de código Go para criar a rede virtual no Azure Stack. Para obter exemplos completos de SDK Go, consulte [repositório de exemplos do SDk do Azure acesse](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Exemplos de pilha do Azure estão disponíveis sob híbrida / caminho dentro das pastas de serviço do repositório.
 
 > [!Note]  
-> Para executar o código neste exemplo, verifique se a assinatura usada tem **rede** provedor de recursos listado como **registrado**. Para verificar se ela, procure a assinatura no portal do Azure pilha e clique em **provedores de recursos.**
+> Para executar o código neste exemplo, verifique se tem a assinatura usada **rede** provedor de recursos listado como **registrado**. Para verificá-los, procure a assinatura no portal do Azure Stack e clique em **provedores de recursos.**
 
-1. Importe os pacotes necessários em seu código. Você deve usar o perfil mais recente na pilha do Azure para importar o módulo de rede. 
+1. Importe os pacotes necessários em seu código. Você deve usar o perfil mais recente disponível no Azure Stack para importar o módulo de rede. 
   
   ````go
   package main
@@ -197,7 +197,7 @@ Esta seção mostra um exemplo de código de ir para criar rede virtual na pilha
   )
   ````
 
-2. Defina as variáveis de ambiente. Para criar uma rede virtual, você precisa ter um grupo de recursos. 
+2. Defina as variáveis de ambiente. Para criar uma rede virtual, que você precisa ter um grupo de recursos. 
 
   ````go
   var (
@@ -212,7 +212,7 @@ Esta seção mostra um exemplo de código de ir para criar rede virtual na pilha
   )
   ````
 
-3. Agora que você tiver definido as variáveis de ambiente, adicione um método para criar o token de autenticação usando **adal** pacote. Consulte os detalhes sobre a autenticação na seção anterior.
+3. Agora que você definiu as variáveis de ambiente, adicione um método para criar o token de autenticação por meio **adal** pacote. Consulte os detalhes sobre a autenticação na seção anterior.
   
   ````go
   //CreateToken creates a service principal token
@@ -300,4 +300,4 @@ func main() {
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
-* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](azure-stack-powershell-configure-user.md)  
+* [Configurar o ambiente do PowerShell do usuário do Azure Stack](azure-stack-powershell-configure-user.md)  

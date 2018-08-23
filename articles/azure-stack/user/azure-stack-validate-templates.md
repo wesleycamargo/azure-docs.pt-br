@@ -1,9 +1,9 @@
 ---
-title: Use uma ferramenta de validação de modelo para procurar modelos a pilha do Azure | Microsoft Docs
-description: Modelos de verificação para implantação no Azure pilha
+title: Use uma ferramenta de validação de modelo para verificar os modelos para o Azure Stack | Microsoft Docs
+description: Verificar modelos para implantação no Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,45 +12,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294463"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139510"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Verifique seus modelos de pilha do Azure com a ferramenta de validação de modelo
+# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Verifique seus modelos para o Azure Stack com a ferramenta de validação de modelo
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode usar a ferramenta de validação de modelo para verificar se o Gerenciador de recursos do Azure [modelos](azure-stack-arm-templates.md) está pronto para implantar a pilha do Azure. A ferramenta de validação de modelo está disponível como parte das ferramentas de pilha do Azure. Baixar as ferramentas de pilha do Azure usando as etapas descritas no [baixar as ferramentas do GitHub](azure-stack-powershell-download.md) artigo.
+Você pode usar a ferramenta de validação de modelo para verificar se seu Gerenciador de recursos do Azure [modelos](azure-stack-arm-templates.md) está pronto para implantação no Azure Stack. A ferramenta de validação de modelo está disponível como parte das ferramentas do Azure Stack. Baixe as ferramentas do Azure Stack, usando as etapas descritas a [Baixe as ferramentas do GitHub](azure-stack-powershell-download.md) artigo.
 
 ## <a name="overview"></a>Visão geral
 
-Para validar um modelo, você precisa criar uma nuvem de recursos de arquivo primeiro e, em seguida, execute a ferramenta de validação. Você usa os seguintes módulos do PowerShell de ferramentas do Azure pilha:
+Para validar um modelo, você precisa criar uma nuvem de recursos de arquivo primeiro e, em seguida, execute a ferramenta de validação. Você usar os seguintes módulos do PowerShell de ferramentas do Azure Stack:
 
-- No **CloudCapabilities** pasta:<br>         AzureRM.CloudCapabilities.psm1 cria um arquivo JSON de recursos de nuvem que representa os serviços e as versões em uma nuvem de pilha do Azure.
+- No **CloudCapabilities** pasta:<br>         AzureRM.CloudCapabilities.psm1 cria um arquivo JSON de recursos de nuvem que representam os serviços e as versões em uma nuvem do Azure Stack.
 - No **TemplateValidator** pasta:<br>
-AzureRM.TemplateValidator.psm1 usa um arquivo JSON de recursos de nuvem para testar modelos de implantação na pilha do Azure.
+AzureRM.TemplateValidator.psm1 usa um arquivo JSON de recursos de nuvem para testar modelos para implantação no Azure Stack.
 
-## <a name="build-the-cloud-capabilities-file"></a>Criar o arquivo de recursos de nuvem
+## <a name="build-the-cloud-capabilities-file"></a>Compile o arquivo de recursos de nuvem
 
-Antes de usar o validador de modelo, execute o módulo AzureRM.CloudCapabilities PowerShell para criar um arquivo JSON.
+Antes de usar o validador de modelo, execute o módulo do PowerShell de AzureRM.CloudCapabilities para criar um arquivo JSON.
 
 >[!NOTE]
->Se você atualizar seu sistema, ou adicione novos serviços ou extensões virtual, você deve executar este módulo novamente.
+>Se você atualizar seu sistema integrado, ou adiciona novos serviços ou extensões virtual, você deve executar este módulo novamente.
 
-1. Verifique se que você tem conectividade com a pilha do Azure. Essas etapas podem ser executadas do host do kit de desenvolvimento de pilha do Azure, ou você pode usar um [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar de sua estação de trabalho.
+1. Verifique se que você tem conectividade com o Azure Stack. Essas etapas podem ser executadas do host do kit de desenvolvimento do Azure Stack, ou você pode usar um [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar de sua estação de trabalho.
 2. Importe o módulo do AzureRM.CloudCapabilities PowerShell:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Use o cmdlet Get-CloudCapabilities para recuperar versões de serviço e criar um arquivo JSON de recursos de nuvem. Se você não especificar **- OutputPath**, o arquivo AzureCloudCapabilities.Json é criado no diretório atual. Use o local real:
+3. Use o cmdlet Get-CloudCapabilities para recuperar versões de serviço e crie um arquivo JSON de recursos de nuvem. Se você não especificar **- OutputPath**, o arquivo AzureCloudCapabilities.Json é criado no diretório atual. Use o seu local real:
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,7 +58,7 @@ Antes de usar o validador de modelo, execute o módulo AzureRM.CloudCapabilities
 
 ## <a name="validate-templates"></a>Validar modelos
 
-Siga estas etapas para validar modelos usando o módulo AzureRM.TemplateValidator PowerShell. Você pode usar seus próprios modelos ou validar a [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Use estas etapas para validar modelos usando o módulo do AzureRM.TemplateValidator PowerShell. Você pode usar seus próprios modelos ou validar a [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
 1. Importe o módulo do PowerShell AzureRM.TemplateValidator.psm1:
 
@@ -67,7 +67,7 @@ Siga estas etapas para validar modelos usando o módulo AzureRM.TemplateValidato
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
-2. Execute o validador do modelo:
+2. Execute o validador de modelo:
 
     ```PowerShell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
@@ -75,7 +75,7 @@ Siga estas etapas para validar modelos usando o módulo AzureRM.TemplateValidato
     -Verbose
     ```
 
-Erros ou avisos de validação do modelo estão conectados ao console do PowerShell e um arquivo HTML no diretório de origem. A captura de tela a seguir mostra um exemplo de um relatório de validação:
+Erros ou avisos de validação de modelo estão conectados ao console do PowerShell e um arquivo HTML no diretório de origem. A captura de tela a seguir mostra um exemplo de um relatório de validação:
 
 ![Relatório de validação de modelo](./media/azure-stack-validate-templates/image1.png)
 
@@ -85,17 +85,17 @@ O validador de modelo suporta os seguintes parâmetros.
 
 | Parâmetro | DESCRIÇÃO | Obrigatório |
 | ----- | -----| ----- |
-| TemplatePath | Especifica o caminho para recursivamente encontrar modelos do Gerenciador de recursos do Azure | Sim | 
-| TemplatePattern | Especifica o nome dos arquivos de modelo para fazer a correspondência. | Não  |
+| TemplatePath | Especifica o caminho para recursivamente encontrar modelos do Azure Resource Manager | Sim | 
+| TemplatePattern | Especifica o nome dos arquivos de modelo para corresponder. | Não  |
 | CapabilitiesPath | Especifica o caminho para o arquivo JSON de recursos de nuvem | Sim | 
-| IncludeComputeCapabilities | Inclui a avaliação dos recursos de IaaS como tamanhos de VM e extensões de VM | Não  |
-| IncludeStorageCapabilities | Inclui a avaliação dos recursos de armazenamento como tipos SKU | Não  |
+| IncludeComputeCapabilities | Inclui avaliação de recursos de IaaS, como tamanhos de VM e extensões de VM | Não  |
+| IncludeStorageCapabilities | Inclui avaliação dos recursos de armazenamento assim como os tipos SKU | Não  |
 | Relatório | Especifica o nome do relatório HTML gerado | Não  |
 | Detalhado | Registra erros e avisos para o console | Não |
 
 ### <a name="examples"></a>Exemplos
 
-Este exemplo valida todos os [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates) baixado para o armazenamento local. O exemplo também valida tamanhos de máquina virtual e extensões contra recursos do Kit de desenvolvimento de pilha do Azure.
+Este exemplo valida que todos os [modelos de início rápido do Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) baixado para o armazenamento local. O exemplo também valida tamanhos de máquinas virtuais e extensões em relação aos recursos do Kit de desenvolvimento do Azure Stack.
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
@@ -107,5 +107,5 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar modelos na pilha do Azure](azure-stack-arm-templates.md)
+- [Implantar modelos do Azure Stack](azure-stack-arm-templates.md)
 - [Desenvolver modelos para o Azure Stack](azure-stack-develop-templates.md)

@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857858"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139746"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de começar com o serviço de aplicativo no Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857858"
 Antes de implantar o serviço de aplicativo do Azure no Azure Stack, você deve concluir as etapas de pré-requisito neste artigo.
 
 > [!IMPORTANT]
-> Aplicar a atualização do 1804 ao seu sistema integrado do Azure Stack ou implante o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar o serviço de aplicativo do Azure 1.2.
+> Aplicar a atualização 1807 seu sistema integrado do Azure Stack ou implantar o mais recente do Azure Stack desenvolvimento ASDK (Kit) antes de implantar 1.3 de serviço de aplicativo do Azure.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Baixe os instalador e scripts auxiliares
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>Adicionar o grupo FileShareOwners ao grupo Administradores local
-
-Para o gerenciamento remoto do Windows funcione corretamente, você deve adicionar o grupo FileShareOwners ao grupo Administradores local.
-
-#### <a name="active-directory"></a>Active Directory
-
-Execute os seguintes comandos em um prompt de comando elevado no servidor de arquivos ou em cada servidor de arquivos que atua como um nó de cluster de failover. Substitua o valor de `<DOMAIN>` com o nome de domínio que você deseja usar.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>Grupo de trabalho
-
-Execute o seguinte comando em um prompt de comando elevado no servidor de arquivos:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>Configurar controle de acesso para os compartilhamentos
 
 Execute os seguintes comandos em um prompt de comando elevado no servidor de arquivos ou no nó de cluster de failover, que é o proprietário do recurso de cluster atual. Substitua valores em itálico por valores que são específicas para seu ambiente.
@@ -353,6 +332,7 @@ Siga estas etapas:
 | AzureStackAdminCredential | Obrigatório | Nulo | Credencial de administrador de serviço de AD do Azure. |
 | CertificateFilePath | Obrigatório | Nulo | **Caminho completo** para o arquivo de certificado do aplicativo de identidade gerado anteriormente. |
 | CertificatePassword | Obrigatório | Nulo | Senha que ajuda a proteger a chave privada do certificado. |
+| Ambiente | Opcional | AzureCloud | O nome do ambiente de nuvem com suporte na qual o serviço do Graph do Azure Active Directory de destino está disponível.  Valores permitidos: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Criar um aplicativo de serviços de Federação do Active Directory
 
