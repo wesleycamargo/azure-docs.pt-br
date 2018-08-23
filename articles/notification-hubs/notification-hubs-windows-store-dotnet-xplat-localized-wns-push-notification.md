@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 517e7ae3871a1ed816ea407ad47c9033a1bb5a0e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e78b00e49b2ef468e693abfdcde8a138313ba63
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776882"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918568"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações localizadas para aplicativos Windows usando Hubs de Notificação do Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 > * Atualizar aplicativo de back-end para enviar notificações localizadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Concluir o [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md). 
 
 No [Tutorial: Enviar notificações para dispositivos específicos (Plataforma Universal do Windows)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md), você criou um aplicativo usando **tags** para assinar notificações para diferentes **categorias** de notícias. Neste tutorial, você usa o recurso **modelo** de Hubs de Notificação para entregar facilmente notificações de últimas notícias **localizadas**.
@@ -274,9 +274,9 @@ Neste tutorial, você aprendeu como enviar notificações localizadas por push p
 
 <!-- URLs. -->
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
-[Use Notification Hubs to send breaking news]: /notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039

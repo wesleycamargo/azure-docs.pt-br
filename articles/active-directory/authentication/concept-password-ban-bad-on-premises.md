@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308469"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145056"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Versão prévia: impor proteção por senha do Azure AD ao Windows Server Active Directory
 
@@ -37,7 +37,7 @@ Há três componentes de software que formam a proteção por senha do Azure AD:
 ## <a name="requirements"></a>Requisitos
 
 * Todas os computadores nos quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem estar executando o Windows Server 2012 ou posterior.
-* Todas as máquinas nas quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem ter o tempo de execução Universal C instalado. Preferencialmente, isso é feito pela aplicação de patch totalmente a máquina por meio do Windows Update. Caso contrário, um pacote de atualização específicas do sistema operacional apropriado pode ser instalado - consulte [atualização para o tempo de execução C Universal no Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
+* Todas as máquinas nas quais os componentes de proteção por senha do Azure AD estão instalados, incluindo os controladores de domínio, devem ter o tempo de execução Universal C instalado. Preferencialmente, isso é feito pela aplicação de patch totalmente a máquina por meio do Windows Update. Caso contrário, um pacote de atualização específicas do sistema operacional apropriado pode ser instalado - consulte [atualização para o tempo de execução C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospeda o serviço de proxy de proteção por senha do Azure AD.
 * Qualquer domínio do Active Directory que esteja executando o software de serviço do agente DC deve usar DFSR para replicação sysvol.
 * Uma conta de administrador global para registrar o serviço de proxy de proteção por senha do Azure AD com o Azure AD.

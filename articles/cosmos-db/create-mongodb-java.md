@@ -2,7 +2,7 @@
 title: 'BD Cosmos do Azure: compilar um aplicativo de console com Java e a API do MongoDB | Microsoft Docs'
 description: Apresenta um exemplo de código Java que pode ser usado para se conectar à API do MongoDB do BD Cosmos do Azure e consultá-la
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
-ms.author: sngun
-ms.openlocfilehash: 3c92834085a95ea86dbe5d0c7458f8bef78a34bb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: sclyon
+ms.openlocfilehash: 3309d5d57c4ef32ddf2284dbf4a395bf18b6a70d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299784"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42024218"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>BD Cosmos do Azure: compilar um aplicativo de console da API do MongoDB com Java e o Portal do Azure
 
@@ -24,7 +24,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Este início rápido demonstra como criar uma conta de [API do MongoDB](mongodb-introduction.md) do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Você compilará e implantará um aplicativo de console compilado no [driver MongoDB Java](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
 * JDK 1.7 + (execute `apt-get install default-jdk` se você não tiver o JDK)

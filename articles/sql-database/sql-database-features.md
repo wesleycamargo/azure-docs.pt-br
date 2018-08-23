@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/14/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 0901abe6f973d525220c948f8c32c0b4f342b11a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: b45daafc732a497f9b2daf4e9e7c1a2c54aac501
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092079"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141407"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Banco de Dados SQL do Azure versus SQL Server 
 
@@ -125,7 +125,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Sim | Sim |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Sim | Sim |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Não - veja [Eventos estendidos](sql-database-xevent-db-diff-from-svr.md) | Sim |
-| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Somente assinante de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim - [Replicação com o banco de dados de instância gerenciada do SQL (visualização pública)](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Somente assinante de replicação de instantâneo e transacional](sql-database-cloud-migrate.md) | Sim - [Replicação com o banco de dados de instância gerenciada do SQL (visualização pública)](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não – [consulte Power BI](https://docs.microsoft.com/power-bi/) | Não – [consulte Power BI](https://docs.microsoft.com/power-bi/) |
 | [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sim | Sim |
 | [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - veja funções individuais | Sim – consulte [Diferenças entre procedimentos armazenados, funções e gatilhos](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |

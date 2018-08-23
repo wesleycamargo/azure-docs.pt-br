@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 55b6799960efbed413e24cab1556b1c980e5a695
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 87654132a6ad01ad5e100da09ca6426af46f94b3
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600407"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918714"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de SQL
 > [!div class="op_single_selector"]
@@ -50,7 +50,7 @@ Antes de começar este tutorial de desenvolvimento de aplicativo, você deve ter
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
-* [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
+* [Eclipse IDE para desenvolvedores de Java EE.](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Um site do Azure com um Java runtime environment (por exemplo, Tomcat ou Jetty) habilitado.](../app-service/app-service-web-get-started-java.md)
 
 Se você estiver instalando essas ferramentas pela primeira vez, o coreservlets.com fornecerá um passo a passo do processo de instalação na seção de Início rápido do artigo [Tutorial: Instalar TomCat7 e usá-lo com o Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) .

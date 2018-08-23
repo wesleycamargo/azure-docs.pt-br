@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425112"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: integração do Active Directory do Azure ao Envoy
 
@@ -110,7 +110,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Informações de logon único de Domínio e URLs do Envoy](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.Envoy.com`
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Envoy](https://envoy.com/contact/) para obter esse valor.

@@ -3,19 +3,19 @@ ms.assetid: ''
 title: Azure Key Vault – Como usar a exclusão reversível com PowerShell
 description: Usar exemplos de caso de exclusão reversível com trechos de código do PowerShell
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 08/21/2017
-ms.author: alleonar
-ms.openlocfilehash: 48569e31e6400e3ec8958e0bceda1fd3b72207ea
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.author: bryanla
+ms.openlocfilehash: 174a5b41e6a48ea74cd813746b7c070463a8185b
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927984"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145244"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Como usar a exclusão reversível do Key Vault com o PowerShell
 
@@ -24,7 +24,7 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 - Suporte à exclusão reversível de cofres de chaves
 - Suporte à exclusão reversível de objetos do cofre de chaves, chaves, segredos e certificados
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Azure PowerShell 4.0.0 ou posterior – se você ainda não tiver configurado isso, instale o Azure PowerShell e associe-o à sua assinatura do Azure, veja [Como instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
 

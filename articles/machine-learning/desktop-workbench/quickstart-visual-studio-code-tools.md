@@ -2,22 +2,20 @@
 title: Artigo de início rápido para Ferramentas do Visual Studio Code para o Machine Learning no Azure | Microsoft Docs
 description: Este artigo descreve como começar a usar as ferramentas do Visual Studio Code para o Machine Learning, desde a criação de um experimento e o treinamento de um modelo até a operacionalização de um serviço Web.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: chris-lauren
+ms.author: chris.lauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: 16379b94a751ccd61a76ce1d3dda6a3ff1515751
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a215c562ad15b69dcec20c1951fe8bc3fe80c6ff
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767061"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023929"
 ---
 # <a name="visual-studio-code-tools-for-ai"></a>Ferramentas do Visual Studio Code para IA
 Ferramentas do Visual Studio para IA é uma extensão de desenvolvimento para criar, testar e implantar soluções de IA e de aprendizagem profunda. Ele apresenta uma integração perfeita com o Azure Machine Learning, especialmente uma exibição de histórico de execução, detalhando o desempenho de métricas personalizadas e treinamentos anteriores. Ele oferece uma exibição de gerenciador de amostras, que permite procurar e inicializar um novo projeto com o [Kit de Ferramentas Cognitivas Microsoft (anteriormente conhecido como CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e outras estruturas de aprendizagem profunda. Por fim, ele fornece um gerenciador para destinos de computação, o que habilita você a enviar trabalhos para treinar modelos em ambientes remotos como Máquinas Virtuais do Azure ou servidores Linux com GPU. 

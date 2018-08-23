@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446758"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246383"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Linux CentOS no Azure
 
@@ -38,7 +38,7 @@ A máquina virtual de Ciência de Dados do Linux é uma máquina virtual do Azur
   * [Kit de Ferramentas Cognitivas](https://github.com/Microsoft/CNTK): um kit de ferramentas de software de aprendizado profundo da Microsoft Research.
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): um sistema de machine learning rápido com suporte a técnicas como online, hash, allreduce, reduções, learning2search, ativo e aprendizado interativo.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uma ferramenta que fornece implementação de árvore aumentada rápida e precisa.
-  * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
+  * [Rattle](https://togaware.com/rattle/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
 * SDK do Azure em Java, Python, node.js, Ruby, PHP
 * Bibliotecas em R e Python para uso no Azure Machine Learning e outros serviços do Azure
 * Ferramentas de desenvolvimento e editores (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -63,7 +63,7 @@ Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md) também está disponível, com muit
 Antes de criar uma Máquina Virtual de Ciência de Dados Linux, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**: para obter uma, confira [Obter avaliação gratuita do Azure](https://azure.microsoft.com/free/).
-* **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account). Como alternativa, se você não quiser usar uma conta existente, a conta de armazenamento poderá ser criada como parte do processo de criação da VM.
+* **Uma conta de armazenamento do Azure**: para criar uma, confira [Criar uma conta de armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md). Como alternativa, se você não quiser usar uma conta existente, a conta de armazenamento poderá ser criada como parte do processo de criação da VM.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Criar sua Máquina Virtual de Ciência de Dados Linux
 Veja as etapas para criar uma instância da Máquina Virtual de Ciência de Dados Linux:

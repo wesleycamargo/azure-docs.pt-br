@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2126ff7ffd503e1d7b30997f3f32f30429cffefb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477917"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140609"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
@@ -55,7 +55,7 @@ A lista de verificação da configuração a seguir descreve as informações qu
 * Baixe a [Lista de verificação da configuração do servidor de arquivos do StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Baixe a [Lista de verificação da configuração do servidor iSCSI do StorSimple Virtual Array](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Aqui você encontra os pré-requisitos de configuração para seu serviço Gerenciador de Dispositivos StorSimple, sua Matriz Virtual StorSimple e a rede de datacenter.
 
@@ -144,7 +144,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 Esta é uma etapa opcional e deve ser executada somente se você não habilitou a criação automática de uma conta de armazenamento com seu serviço.
 
-Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para obter instruções passo a passo.
+Se precisar criar uma conta de armazenamento do Azure em uma região diferente, veja [Como criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter instruções passo a passo.
 
 Execute as etapas a seguir no [Portal do Azure](https://ms.portal.azure.com/) na página do serviço Gerenciador de Dispositivos StorSimple para adicionar uma conta de armazenamento do Microsoft Azure existente.
 

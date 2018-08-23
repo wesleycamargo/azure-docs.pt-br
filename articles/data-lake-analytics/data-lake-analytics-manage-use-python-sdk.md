@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6f97f7bad6eada962623e7efc5d7ed010dc9ebe
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261453"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145448"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Gerenciar o Azure Data Lake Analytics usando o Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -26,7 +26,7 @@ Este artigo descreve como gerenciar contas, fontes de dados, usuários e trabalh
 
 * Use uma versão de 64 bits do Python.
 * Você pode usar a distribuição padrão do Python encontrada nos  **[downloads do Python.org](https://www.python.org/downloads/)**. 
-* Muitos desenvolvedores consideram conveniente usar a  **[Distribuição do Anaconda Python](https://www.continuum.io/downloads)**.  
+* Muitos desenvolvedores consideram conveniente usar a  **[Distribuição do Anaconda Python](https://www.anaconda.com/download/)**.  
 * Este artigo foi escrito usando o Python versão 3.6 da distribuição padrão do Python
 
 ## <a name="install-azure-python-sdk"></a>Instalar o SDK do Python do Azure

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420338"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Tutorial: Integração do Azure Active Directory com o FieldGlass
 
@@ -121,7 +121,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Fieldglass](http://www.fieldglass.com/solutions/support) para obter esses valores.
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Entre em contato com a [equipe de suporte do Fieldglass](https://www.fieldglass.com/customer-support) para obter esses valores.
  
 1. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
@@ -135,7 +135,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. Para configurar logon único no lado do **Fieldglass**, você precisa enviar o **Certificado (Base64)** baixado e a **URL de Logoff, ID da Entidade SAML** para a [equipe de suporte do Fieldglass](http://www.fieldglass.com/solutions/support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Para configurar logon único no lado do **Fieldglass**, você precisa enviar o **Certificado (Base64)** baixado e a **URL de Logoff, ID da Entidade SAML** para a [equipe de suporte do Fieldglass](https://www.fieldglass.com/customer-support). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
  
 ### <a name="creating-a-fieldglass-test-user"></a>Criar um usuário de teste do FieldGlass
 
-O objetivo desta seção é criar um usuário chamado Brenda Fernandes no FieldGlass. Trabalhe com a [equipe de suporte do Fieldglass](http://www.fieldglass.com/solutions/support) para adicionar os usuários na conta do Fieldglass.
+O objetivo desta seção é criar um usuário chamado Brenda Fernandes no FieldGlass. Trabalhe com a [equipe de suporte do Fieldglass](https://www.fieldglass.com/customer-support) para adicionar os usuários na conta do Fieldglass.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 

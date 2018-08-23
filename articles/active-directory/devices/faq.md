@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597146"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140196"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -99,12 +99,12 @@ Para versões do sistema operacional do Windows de nível inferior que são ingr
 
 **P: Meus usuários não conseguem procurar impressoras em dispositivos ingressados no Azure AD. Como habilitar a impressão usando dispositivos ingressados no Azure AD?**
 
-**R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
+**R:** Para implantar impressoras para dispositivos ingressados no Azure AD, confira [Hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (Impressão de nuvem híbrida). Você precisará de um Windows Server local para implantar a impressão de nuvem híbrida. Atualmente, o serviço de impressão baseado em nuvem não está disponível. 
 
 ---
 
 **P: Como fazer para conectar um dispositivo associado do Azure AD remoto?**
-**R:** Consulte o artigo https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
+**R:** Consulte o artigo https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc para obter mais detalhes.
 
 ---
 

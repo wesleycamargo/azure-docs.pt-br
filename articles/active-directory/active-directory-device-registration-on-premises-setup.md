@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629065"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146299"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -48,7 +48,7 @@ Essas funcionalidades estão disponíveis para os clientes que compram uma licen
 * Licença do Azure Active Directory Premium
 * Serviços de Federação do Windows Server 2012 R2, configurados para logon único ao Azure AD
 * Proxy de Aplicativo Web do Windows Server 2012 R2 
-* Azure AD Connect (Microsoft Azure Active Directory Connect) [(Baixar o Azure AD Connect)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Azure AD Connect (Microsoft Azure Active Directory Connect) [(Baixar o Azure AD Connect)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Domínio verificado
 
 ## <a name="known-issues-in-this-release"></a>Problemas conhecidos nesta versão

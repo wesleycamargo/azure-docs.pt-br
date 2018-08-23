@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901051"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146083"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Pools de agentes DC/OS para Serviço de Contêiner do Azure
 Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em dois pools, um público e um privado. Um aplicativo pode ser implantado em qualquer um dos pools, afetando a acessibilidade entre computadores no seu serviço de contêiner. Os computadores podem ser expostos à Internet (público) ou mantidos internamente (privado). Este artigo fornece uma visão geral sobre o motivo da existência de pools público e privado.
@@ -24,7 +24,7 @@ Os clusters DC/OS no Serviço de Contêiner do Azure contêm nós de agente em d
 
 * **Agentes públicos**: nós de agente público executam aplicativos e serviços DC/OS por meio de uma rede acessível publicamente. 
 
-Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+Para obter mais informações sobre segurança de rede DC/OS, confira a [documentação do DC/OS](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## <a name="deploy-agent-pools"></a>Implantar pools de agentes
 

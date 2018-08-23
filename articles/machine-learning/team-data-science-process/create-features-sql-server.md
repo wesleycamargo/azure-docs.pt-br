@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 432f7b9bb27c1dee396677c54edf48d9fdb027a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eb81d6726b083d864a58b6c11eed67f95aeda350
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836327"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141223"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
 Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
@@ -34,10 +34,10 @@ Este **menu** leva você até os tópicos que descrevem como criar recursos para
 > 
 > 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md)
 * Armazenou seus dados no SQL Server. Se não tiver feito isso, veja [Mover dados para um Banco de Dados SQL do Azure para o Azure Machine Learning](move-sql-azure.md) para obter instruções sobre como mover os dados para lá.
 
 ## <a name="sql-featuregen"></a>Geração de recursos com o SQL

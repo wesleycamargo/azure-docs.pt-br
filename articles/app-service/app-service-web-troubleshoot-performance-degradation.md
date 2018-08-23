@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b71aa004095a94bea84623fd2b5dbdfc1f81af0
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461835"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42139768"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Solucionar problemas de desempenho de aplicativo Web lento no Serviço de Aplicativo do Azure
 Este artigo ajuda você a solucionar problemas de desempenho de aplicativo Web lento no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -67,7 +67,7 @@ Algumas das métricas que deseja monitorar para seu aplicativo Web são
 
 ![monitorar o desempenho do aplicativo Web](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, confira:
+Para obter mais informações, consulte:
 
 * [Monitorar aplicativos Web no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Receber notificações de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
@@ -91,7 +91,7 @@ Cada aplicativo Web do Serviço de Aplicativo fornece um ponto de extremidade de
 - Editores de código-fonte, como o [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Ferramentas de gerenciamento de recursos conectados, tais como um banco de dados MySQL conectado a um aplicativo Web.
 
-[Azure Application Insights](/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) é uma extensão de site para monitoramento de desempenho que também está disponível. Para usar o Application Insights, você deve recompilar seu código com um SDK. Você também pode instalar uma extensão que forneça acesso a dados adicionais. O SDK permite que você escreva código para monitorar o uso e o desempenho de seu aplicativo em mais detalhes. Para obter mais informações, consulte [Monitorar desempenho em aplicativos Web](../application-insights/app-insights-web-monitor-performance.md).
 
 <a name="collect" />
 

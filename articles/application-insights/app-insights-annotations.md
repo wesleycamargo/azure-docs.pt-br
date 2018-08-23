@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036390"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145050"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações sobre gráficos de métricas no Application Insights
 As anotações de versão nos gráficos do [Metrics Explorer](app-insights-metrics-explorer.md) mostram onde você implantou uma nova compilação ou outro evento relevante. Elas facilitam ver se suas alterações tinham qualquer efeito sobre o desempenho do aplicativo. Elas podem ser criadas automaticamente pelo [sistema de compilação do Visual Studio Team Services](https://docs.microsoft.com/vsts/pipelines/tasks/). Você também pode criar anotações para sinalizar eventos desejados [criando-as no PowerShell](#create-annotations-from-powershell).
@@ -34,7 +34,7 @@ As anotações de versão são um recurso de compilação baseado em nuvem e ser
 ### <a name="install-the-annotations-extension-one-time"></a>Instalar a extensão Annotations (uma vez)
 Para poder criar anotações de versão, você precisará instalar uma das muitas extensões de Team Service disponíveis no Visual Studio Marketplace.
 
-1. Entre no seu projeto do [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
+1. Entre no seu projeto do [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/).
 2. No Visual Studio Marketplace, [obtenha a extensão Anotações de Versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)e adicione-a à sua conta do Team Services.
 
 ![Na parte superior direita da página da Web do Team Services, abra o Marketplace. Selecione Visual Team Services e, em Compilação e Versão, escolha Ver mais.](./media/app-insights-annotations/10.png)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: hero-article
 ms.date: 07/24/2018
-ms.openlocfilehash: e6d84229af459d18df8d9dfd7f048f6075ea47f3
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: fd7f9095d7ac00de3ad031f08db49785863176a1
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594566"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918427"
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Criar um cluster Hadoop com contas de armazenamento para transferência segura no Azure HDInsight
 
@@ -24,7 +24,7 @@ O recurso [Transferência segura exigida](../storage/common/storage-require-secu
 Antes de começar este tutorial, você deverá ter o seguinte:
 
 * **Assinatura do Azure**: para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* **Uma conta de Armazenamento do Azure com transferência segura habilitada**. Para obter as instruções, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) e [Exigir transferência segura](../storage/common/storage-require-secure-transfer.md).
+* **Uma conta de Armazenamento do Azure com transferência segura habilitada**. Para obter as instruções, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) e [Exigir transferência segura](../storage/common/storage-require-secure-transfer.md).
 * **Um contêiner de Blob na conta de armazenamento**. 
 
 ## <a name="create-cluster"></a>Criar cluster

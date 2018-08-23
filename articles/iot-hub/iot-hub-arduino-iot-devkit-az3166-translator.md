@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592084"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140202"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>Usar o Kit de Desenvolvimento da IoT AZ3166 com um Azure Functions e os Serviços Cognitivos para criar um tradutor de idiomas
 
@@ -122,10 +122,6 @@ Na tela de resultados da tradução, você pode:
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 O esboço do Arduino grava sua voz e, em seguida, envia uma solicitação HTTP para disparar o Azure Functions. O Azure Functions chama a API de tradução de fala do serviço cognitivo para fazer a tradução. Depois que o Azure Functions obtém o texto de tradução, ele envia uma mensagem C2D (nuvem para dispositivo) para o dispositivo. Em seguida, a tradução é exibida na tela.
-
-## <a name="change-device-id"></a>Alterar ID do dispositivo
-
-A ID do dispositivo padrão registrada no Hub IoT do Azure é **AZ3166**. Para modificar a ID do dispositivo, consulte como [Personalizar a ID do dispositivo IoT para o Kit de desenvolvimento](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## <a name="problems-and-feedback"></a>Comentários e problemas
 

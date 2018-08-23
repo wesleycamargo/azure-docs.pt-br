@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 92b505e698f2d56a2678ac53f42bb49dbaf22463
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: cc87985404ef8c9ee625f32b359e6ac1a29e73ae
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046763"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144751"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o JIRA da Microsoft
 
@@ -148,7 +148,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon1.png)
 
-8. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/en-us/servicesagreement/).
+8. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56506). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/).
 
     ![Configurar o logon único](./media/jiramicrosoft-tutorial/addon12.png)
 

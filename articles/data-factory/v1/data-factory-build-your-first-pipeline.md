@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050039"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246353"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: crie seu primeiro pipeline para processar dados usando cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -81,11 +81,11 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 Das linhas de exemplo mostradas acima, a primeira (com 2016-01-01) é gravada no arquivo 000000_0 na pasta month=1. Da mesma forma, a segunda é gravada no arquivo na pasta do mês = 2 e a terceira é gravada no arquivo na pasta do mês = 3.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 1. **Uma assinatura do Azure** - se você não tiver uma, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) para ver como você pode obter uma conta de avaliação gratuita.
-2. **Armazenamento do Azure** – você usa uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Depois de você ter criado a conta de armazenamento, anote o **nome da conta** e a **chave de acesso**. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+2. **Armazenamento do Azure** – você usa uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de você ter criado a conta de armazenamento, anote o **nome da conta** e a **chave de acesso**. Consulte [Exibir, copiar e regenerar chaves de acesso de armazenamento](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 3. Faça o download e leia o arquivo de consulta de Hive (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Essa consulta transforma os dados de entrada para gerar dados de saída. 
 4. Faça o download e leia o arquivo de entrada de exemplo (**HQL**) localizado em: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Crie um contêiner de blobs denominado **adfgetstarted** em seu armazenamento de blobs do Azure. 
@@ -94,7 +94,7 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 
 
-- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+- [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)

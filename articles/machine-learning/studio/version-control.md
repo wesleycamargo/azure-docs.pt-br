@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835858"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140796"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gerenciamento do Ciclo de Vida do Aplicativo no Azure Machine Learning Studio
 O Azure Machine Learning Studio é uma ferramenta para desenvolvimento de testes de aprendizado de máquina que é operacionalizada na plataforma da nuvem no Azure. Ele é parecido com o IDE do Visual Studio e o serviço de nuvem escalável mesclados em uma única plataforma. Você pode incorporar práticas padrão de ALM (Gerenciamento do Ciclo de Vida do Aplicativo), desde controle de versão de vários ativos até a execução implantação automatizada, ao Azure Machine Learning Studio. Este artigo discute algumas das opções e abordagens.
@@ -80,7 +80,7 @@ Com o tempo, será possível criar vários pontos de extremidade no mesmo servi�
 Também é possível criar vários pontos de extremidade de serviço Web idênticos e, em seguida, aplicar versões diferentes do arquivo iLearner ao ponto de extremidade para obter um efeito semelhante. [Este artigo](create-models-and-endpoints-with-powershell.md) explica com mais detalhes sobre como fazer isso.
 
 ### <a name="new-web-service"></a>Novo serviço Web
-Se você criar um novo serviço Web baseado no Azure Resource Manager, a construção do ponto de extremidade não estará mais disponível. Em vez disso, você pode gerar arquivos WSD (definição de serviço Web), no formato JSON, a partir de seu teste de previsão usando o cmdlet do PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) ou usando o cmdlet do PowerShell [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) a partir de um serviço Web baseado no Resource Manager implantado.
+Se você criar um novo serviço Web baseado no Azure Resource Manager, a construção do ponto de extremidade não estará mais disponível. Em vez disso, você pode gerar arquivos WSD (definição de serviço Web), no formato JSON, a partir de seu teste de previsão usando o cmdlet do PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) ou usando o cmdlet do PowerShell [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) a partir de um serviço Web baseado no Resource Manager implantado.
 
 Depois de exportar o arquivo WSD e controlar a versão dele, você também poderá implantar o WSD como um novo serviço Web em um plano de serviço Web diferente, em uma região diferente do Azure. Apenas forneça a configuração apropriada da conta de armazenamento, bem como a nova ID do plano do serviço Web. Para aplicar arquivos de iLearner diferentes, modifique o arquivo WSD e atualize a referência ao local do modelo treinado, e implante-o como um novo serviço Web.
 

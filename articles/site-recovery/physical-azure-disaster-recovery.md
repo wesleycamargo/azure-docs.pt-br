@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3a82fa0464cd98c1e056e097018ba22ac19d72ac
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704893"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246354"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação de desastre de servidores físicos locais para o Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra como configurar a recuperação de desastre de servidores W
 
 [revisar a arquitetura](concepts-hyper-v-to-azure-architecture.md) para esse cenário de recuperação de desastre.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -76,7 +76,7 @@ Configurar uma [rede do Azure](../virtual-network/quick-create-portal.md).
 
 ## <a name="set-up-an-azure-storage-account"></a>Configure uma conta de armazenamento do Azure
 
-Configure uma [conta de armazenamento do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Configure uma [conta de armazenamento do Azure](../storage/common/storage-quickstart-create-account.md).
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
 - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
@@ -135,7 +135,7 @@ Verifique se o computador pode acessar estas URLs com base no ambiente:
 As regras de firewall baseadas em endereço IP devem permitir a comunicação com todas as URLs do Azure listadas acima pela porta HTTPS (443). Para simplificar e limitar os Intervalos de IP, é recomendável fazer a filtragem de URL.
 
 - **IPs comerciais** – permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443). Permita que os intervalos de endereços IP para a região do Azure de sua assinatura deem suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
-- **IPs Governamentais** – permita os [Intervalos de IP do Datacenter do Azure Governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e a porta HTTPS (443) em todas as regiões USGov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
+- **IPs Governamentais** – permita os [Intervalos de IP do Datacenter do Azure Governamental](https://www.microsoft.com/en-us/download/details.aspx?id=57063) e a porta HTTPS (443) em todas as regiões US Gov (Virgínia, Texas, Arizona e Iowa) para dar suporte ao AAD, ao Backup, à Replicação e às URLs de Armazenamento.  
 
 #### <a name="run-setup"></a>Executar a instalação
 Execute a Instalação Unificada como Administrador Local, para instalar o servidor de configuração. O servidor de processo e o servidor de destino mestre também são instalados, por padrão, no servidor de configuração.

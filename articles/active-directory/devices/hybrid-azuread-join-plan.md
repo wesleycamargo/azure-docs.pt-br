@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629643"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145058"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção híbrida do Active Directory do Azure
 
@@ -97,7 +97,7 @@ Se você estiver contando com um instantâneo de Máquina Virtual (VM) para cria
 
 O registro de dispositivos de baixo nível do Windows não é suportado para dispositivos configurados para roaming de perfil de usuário ou credenciais roaming. Se você depender da mobilidade de perfis ou configurações, use o Windows 10.
 
-- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+- O registro de dispositivos de nível inferior do Windows **tem** suporte em ambientes não federados por meio do Logon Único Contínuo [Logon Único Contínuo do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
  
 - **Não há** suporte para o registro de dispositivos de nível inferior do Windows ao usar a autenticação de passagem do Azure AD sem logon único contínuo.
 

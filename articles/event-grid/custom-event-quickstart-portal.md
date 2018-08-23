@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869136"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42024220"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Criar e rotear eventos personalizados com o portal do Azure e a Grade de Eventos
 
@@ -41,7 +41,7 @@ Um tópico de grade de evento fornece um ponto de extremidade definido pelo usu�
 
    ![Etapas de início](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Selecione uma das [regiões com suporte](overview.md). Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
+1. Forneça um nome exclusivo para o tópico personalizado. O nome do tópico deve ser exclusivo, pois é representado por uma entrada DNS. Não use o nome mostrado na imagem. Em vez disso, crie seu próprio nome. Forneça um nome para um novo grupo de recursos. Selecione **Criar**.
 
    ![Fornecer valores de tópico de grade de eventos](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

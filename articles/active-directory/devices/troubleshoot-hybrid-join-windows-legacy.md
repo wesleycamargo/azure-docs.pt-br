@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1121bc9e34f0e544ba5d7acb9179944ee2382efd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: aad2b4c3edcdc488257940062e8861613ece25e8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415729"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141420"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Solução de problemas do Azure Active Directory híbrido ingressado em dispositivos de nível inferior 
 
@@ -57,7 +57,7 @@ Este artigo fornece orientação para solução de possíveis problemas.
 
 - Você pode obter várias entradas para um dispositivo na guia Informações do usuário devido a uma reinstalação do sistema operacional ou a um novo registro manual. 
 
-- Certifique-se de que o [KB4284842](https://support.microsoft.com/en-us/help/4284842) está instalado, no caso do Windows 7 SP1 ou Windows Server 2008 R2 SP1. Essa atualização evita futuras falhas de autenticação devido à perda de acesso do cliente a chaves protegidas após a alteração da senha.
+- Certifique-se de que o [KB4284842](https://support.microsoft.com/help/4284842) está instalado, no caso do Windows 7 SP1 ou Windows Server 2008 R2 SP1. Essa atualização evita futuras falhas de autenticação devido à perda de acesso do cliente a chaves protegidas após a alteração da senha.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>Etapa 1: Recuperar o status do registro 
 

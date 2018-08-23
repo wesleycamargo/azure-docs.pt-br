@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 5610a4ec726b296f54beca65a58d6c0e63a5b375
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: fd056a0eb0a4e35b30d246274372b61a0806d48c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084861"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917891"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -60,7 +60,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de origem. Se você não tiver um banco de dados SQL, consulte [Criar um banco de dados SQL](../sql-database/sql-database-get-started-portal.md) para saber as etapas para criar um.
-* **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
+* **Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de coletor. Se você não tiver uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para saber as etapas para criar uma. Crie um contêiner denominado adftutorial. 
 * **Azure PowerShell**. Siga as instruções em [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Criar uma tabela de fonte de dados no banco de dados SQL

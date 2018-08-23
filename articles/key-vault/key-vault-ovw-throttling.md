@@ -3,7 +3,7 @@ title: Diretrizes de limitação do Azure Key Vault
 description: A limitação do Azure Key Vault limita o número de chamadas simultâneas para evitar o uso excessivo de recursos.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: ''
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
@@ -11,13 +11,13 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: alleonar
-ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: bryanla
+ms.openlocfilehash: 28756cf28305927246d82f1f006f02b2e9b96469
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067683"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140790"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 

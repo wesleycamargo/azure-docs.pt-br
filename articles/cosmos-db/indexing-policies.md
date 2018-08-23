@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618760"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146101"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Como o Azure Cosmos DB indexa dados?
 
@@ -36,6 +36,22 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * Como configurar a indexação para executar consultas ORDER BY ou de intervalo?
 * Como fazer alterações à política de indexação de uma coleção?
 * Como posso comparar armazenamento e desempenho de políticas de indexação diferentes?
+
+## <a id="Indexing"></a> Indexação do Cosmos DB
+
+O objetivo de índices de bancos de dados é atender a consultas em suas diversas formas com um consumo mínimo de recursos (como CPU, entrada/saída), oferecendo alta produtividade e baixa latência. Frequentemente, a escolha do índice correto para consultar um banco de dados requer muito planejamento e experimentação. Esta abordagem representa um desafio para bancos de dados sem esquemas, nos quais os dados não seguem um esquema rígido e evoluem rapidamente. 
+
+Portanto, quando criamos o subsistema de indexação do Cosmos DB, definimos os seguintes objetivos:
+
+* Indexar documentos sem precisar de um esquema: o subsistema de indexação não requer nenhuma informação de esquema e não faz suposições sobre o esquema dos documentos.  
+
+* Suporte para pesquisas hierárquicas e relacionais avançadas e eficientes: o índice dá suporte à linguagem de pesquisa do Cosmos DB de maneira eficiente, incluindo suporte para projeções hierárquicas e relacionais.  
+
+* Suporte para consultas consistentes diante do grande volume de gravações: para possibilitar cargas de trabalho com alta produtividade de gravação com consultas consistentes, o índice é atualizado gradativamente, eficientemente e online, em face de um volume contínuo de gravações. A atualização consistente do índice é crucial para atender às consultas no nível de consistência em que o usuário configurou o sistema.  
+
+* Suporte a multilocatário: dado o modelo baseado em reserva para a governança de recurso entre os locatários, as atualizações do índice são realizadas dentro do orçamento dos recursos do sistema (CPU, memória e operações de entrada/saída por segundo) alocados por réplica.  
+
+* Eficiência no armazenamento: para manter um bom custo-benefício, a sobrecarga do armazenamento em disco do índice é vinculada e previsível. Isto é fundamental porque o Cosmos DB permite que o desenvolvedor faça compensações baseadas em custo entre a sobrecarga do índice em relação ao desempenho da consulta.  
 
 ## Personalizar a política de indexação de uma coleção <a id="CustomizingIndexingPolicy"></a>  
 É possível personalizar as compensações entre armazenamento, desempenho de consultas e gravação e consistência de consultas, substituindo a política de indexação padrão em uma coleção do Azure Cosmos DB. É possível configurar os seguintes aspectos:

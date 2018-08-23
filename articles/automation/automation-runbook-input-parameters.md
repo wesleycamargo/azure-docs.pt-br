@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193886"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145655"
 ---
 # <a name="runbook-input-parameters"></a>Parâmetros de entrada do Runbook
 
@@ -30,7 +30,7 @@ O PowerShell e [runbooks de Fluxo de Trabalho do PowerShell](automation-first-ru
 
 | **Propriedade** | **Descrição** |
 |:--- |:--- |
-| type |Obrigatório. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
+| Tipo |Obrigatório. O tipo de dados esperado para o valor do parâmetro. Qualquer tipo .NET é válido. |
 | NOME |Obrigatório. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
 | Obrigatório |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você definir isso como **$true**, um valor deverá ser fornecido quando o runbook for iniciado. Se você definir isso como **$false**, um valor será opcional. |
 | Valor padrão |Opcional. Especifica um valor que é usado para o parâmetro se um valor não for transmitido ao iniciar o runbook. Um valor padrão pode ser definido para qualquer parâmetro e tornará automaticamente o parâmetro opcional, independentemente da configuração obrigatória. |
@@ -80,7 +80,7 @@ Para [configurar um runbook gráfico](automation-first-runbook-graphical.md) com
 
 [**Autenticar runbooks com uma conta Executar como do Azure**](automation-sec-configure-azure-runas-account.md) para autenticar com o Azure.
 
-[**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) para obter as propriedades de uma máquina virtual.
+[**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) para obter as propriedades de uma máquina virtual.
 
 Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) para gerar os nomes das máquinas virtuais. A atividade **Get-AzureRmVm** aceitará dois parâmetros: o **nome da máquina virtual** e o **nome do grupo de recursos**. Uma vez que esses parâmetros exigiriam valores diferentes sempre que você iniciasse o runbook, você pode adicionar parâmetros de entrada ao runbook. Aqui estão as etapas para adicionar parâmetros de entrada:
 
@@ -94,7 +94,7 @@ Você pode usar a atividade [**Write-Output**](https://technet.microsoft.com/lib
    |:--- |:--- |
    | NOME |Obrigatório. O nome do parâmetro. Deve ser exclusivo no runbook e pode conter apenas letras, números ou caracteres de sublinhado. Deve começar com uma letra. |
    | DESCRIÇÃO |Opcional. Descrição da finalidade do parâmetro de entrada. |
-   | type |Opcional. O tipo de dados esperado para o valor do parâmetro. Os tipos de parâmetro com suporte são **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se um tipo de dados não estiver selecionado, será usado **String**por padrão. |
+   | Tipo |Opcional. O tipo de dados esperado para o valor do parâmetro. Os tipos de parâmetro com suporte são **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime** e **Object**. Se um tipo de dados não estiver selecionado, será usado **String**por padrão. |
    | Obrigatório |Opcional. Especifica se deve ser fornecido um valor para o parâmetro. Se você escolher **sim**, um valor deverá ser fornecido quando o runbook for iniciado. Se você escolher **não**, um valor não será necessário quando o runbook for iniciado, e um valor padrão poderá ser definido. |
    | Valor Padrão |Opcional. Especifica um valor que é usado para o parâmetro se um valor não for transmitido ao iniciar o runbook. Um valor padrão pode ser definido para um parâmetro que não é obrigatório. Para definir um valor padrão, escolha **personalizado**. Esse valor será usado a menos que outro valor seja fornecido quando o runbook for iniciado. Escolha **Nenhum** se não quiser fornecer nenhum valor padrão. |
    
@@ -147,7 +147,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Como iniciar um runbook publicado usando cmdlets do PowerShell e atribuir parâmetros
 
-* **Cmdlets do Azure Resource Manager:** você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+* **Cmdlets do Azure Resource Manager:** você pode iniciar um runbook de Automação criado em um grupo de recursos usando [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
   **Exemplo:**
   
@@ -156,7 +156,7 @@ No rótulo abaixo da caixa de entrada, você pode ver os atributos que foram def
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Cmdlets de modelo de implantação clássico do Azure:** você pode iniciar um runbook de automação criado em um grupo de recursos padrão usando [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Cmdlets de modelo de implantação clássico do Azure:** você pode iniciar um runbook de automação criado em um grupo de recursos padrão usando [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
   **Exemplo:**
   

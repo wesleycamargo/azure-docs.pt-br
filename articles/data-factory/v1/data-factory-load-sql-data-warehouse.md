@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045160"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246361"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Carregar 1 TB no SQL Data Warehouse do Azure em menos de 15 minutos com o Data Factory
 > [!NOTE]
@@ -46,8 +46,8 @@ Este artigo fornece instruções passo a passo para mover dados no Azure SQL Dat
 >
 >
 
-## <a name="prerequisites"></a>pré-requisitos
-* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+## <a name="prerequisites"></a>Pré-requisitos
+* Armazenamento de Blobs do Azure: esse teste usa o Armazenamento de Blobs do Azure (GRS) para armazenar o conjunto de dados de teste do TPC-H.  Se você não tiver uma conta de armazenamento do Azure, aprenda [como criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 * Dados do [TPC-H](http://www.tpc.org/tpch/): usaremos o TPC-H como o conjunto de dados de teste.  Para fazer isso, você precisa usar `dbgen` do kit de ferramentas do TPC-H, o que ajuda você a gerar o conjunto de dados.  Você pode baixar código-fonte para `dbgen` de [Ferramentas TPC](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) e compilá-lo por conta própria ou então baixar o binário compilado de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Execute dbgen.exe com os comandos a seguir para gerar um arquivo simples de 1 TB para a tabela `lineitem` dividido em 10 arquivos:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`

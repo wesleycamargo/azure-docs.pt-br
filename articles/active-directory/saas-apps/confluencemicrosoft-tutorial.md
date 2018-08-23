@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 856809d6eb480d0112eb7ed85c33560950be7d64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421981"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o Confluence da Microsoft
 
@@ -150,7 +150,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon1.png)
 
-1. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Baixe o plug-in no [Centro de Download da Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Carregar manualmente o plug-in fornecido pela Microsoft usando o menu **Carregar complemento**. O download do plug-in está coberto pelo [Contrato de Serviço da Microsoft](https://www.microsoft.com/servicesagreement/). 
     
     ![Configurar o logon único](./media/confluencemicrosoft-tutorial/addon12.png)
 

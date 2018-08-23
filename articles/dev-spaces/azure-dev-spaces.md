@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14b51cc2ad2e8e0f294e5e73e542001e30d21c9d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823037"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918715"
 ---
 # <a name="azure-dev-spaces"></a>Espaços de Desenvolvimento do Azure
 O Azure Dev Spaces fornece uma experiência de desenvolvimento Kubernetes rápida e iterativa para equipes. Com algumas poucas configurações de máquina de desenvolvimento, você pode executar e depurar contêineres de forma iterativa diretamente no Azure Kubernetes Service (AKS). Desenvolva no Windows, Mac ou Linux usando ferramentas familiares como o Visual Studio, Visual Studio Code ou a linha de comando.

@@ -10,19 +10,19 @@ ms.custom: ''
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: viviswan
-ms.openlocfilehash: f8c8d068a188052b5e8b66ccb4486a0fc75e2af9
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: 90c8d73e32f4c99c6871ce9cdb7839cd1d380b9b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796658"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42139990"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Como distribuir globalmente leituras usando Preferência de Leitura com API MongoDB do Azure Cosmos DB 
 
 Este artigo mostra como distribuir globalmente operações de leitura usando configurações de [Preferência de Leitura do MongoDB](https://docs.mongodb.com/manual/core/read-preference/) com API MongoDB do Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 341b5f5aea5211963f35ecf64d1af61dc8e760b3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037868"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140611"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 
@@ -82,7 +82,7 @@ A função na tabela a seguir é usada para acessar credenciais em um runbook em
 
 Os comandos de exemplo a seguir mostram como criar uma nova credencial de automação. Um objeto PSCredential é criado pela primeira vez com o nome e a senha e, em seguida, é usado para criar o ativo de credencial. Como alternativa, você pode usar o cmdlet **Get-Credential** para ser solicitado a digitar um nome e uma senha.
 
-```azurepowershell
+```powershell
 $user = "MyDomain\MyUser"
 $pw = ConvertTo-SecureString "PassWord!" -AsPlainText -Force
 $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $user, $pw

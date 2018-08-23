@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262677"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141011"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir aos eventos de armazenamento de Blobs
 
@@ -21,7 +21,7 @@ Eventos de Armazenamento do Azure permitem que aplicativos reajam à criação e
 
 Os cenários comuns de eventos de armazenamento de Blobs incluem processamento de vídeo ou imagem, indexação de pesquisa ou qualquer fluxo de trabalho orientado a arquivos.  Os carregamentos de arquivo assíncronos são uma excelente opção para eventos.  Quando as alterações não forem frequentes, mas seu cenário exigir uma capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficaz.
 
-A disponibilidade para eventos de Armazenamento está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, como a Grade de Eventos. Dê uma olhada em [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - CLI](storage-blob-event-quickstart.md) ou [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - PowerShell](storage-blob-event-quickstart-powershell.md) para obter um exemplo rápido. 
+Dê uma olhada em [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - CLI](storage-blob-event-quickstart.md) ou [Encaminhar eventos de armazenamento de Blob para um ponto de extremidade da Web personalizado - PowerShell](storage-blob-event-quickstart-powershell.md) para obter um exemplo rápido. 
 
 ![Modelo da Grade de Eventos](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

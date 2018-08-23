@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1ad1d6662d276039ae1e01e49c60fc06682cb54a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b71dd51547365503ac4ce76f07d6c783d26acd50
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622809"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145464"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no HDInsight baseado no Windows
 
@@ -88,7 +88,7 @@ Selecionar um link na seção **Resumo da topologia** exibirá as seguintes info
 
   * **Reequilibrar**: ajusta o paralelismo da topologia. Você deve reequilibrar topologias em execução depois de alterar o número de nós no cluster. Isso permite que a topologia ajuste o paralelismo para compensar o aumento/diminuição do número de nós no cluster.
 
-      Para saber mais, consulte [Noções básicas sobre o paralelismo de uma topologia do Storm (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Para obter mais informações, consulte [Noções básicas sobre o paralelismo de uma topologia Storm](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)
 
   * **Eliminar**: encerra uma topologia Storm após o tempo limite especificado.
 

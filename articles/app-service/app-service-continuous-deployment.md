@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233837"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141408"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 Este artigo mostra como configurar a implantação contínua para o [Serviço de Aplicativo do Azure](app-service-web-overview.md). O Serviço de Aplicativo habilita a implantação contínua do BitBucket, do GitHub e do [VSTS (Visual Studio Team Services)](https://www.visualstudio.com/team-services/) extraindo as atualizações mais recentes do seu repositório existente em um desses serviços.
@@ -62,7 +62,7 @@ Na página **Configurar**, na seção **Build**, configure uma nova conta do VST
 
 Na página **Teste**, escolha se deseja habilitar testes de carga. Em seguida, clique em **Continuar**.
 
-Dependendo do [tipo de preço](/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja [habilitar slots de implantação](web-sites-staged-publishing.md) e clique em **Continuar**.
+Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja [habilitar slots de implantação](web-sites-staged-publishing.md) e clique em **Continuar**.
 
 ### <a name="finish-configuration"></a>Concluir configuração
 
@@ -119,7 +119,7 @@ Na página **Configurar**, na seção **Build**, especifique a estrutura de ling
 
 Na página **Teste**, escolha se deseja habilitar testes de carga. Em seguida, clique em **Continuar**.
 
-Dependendo do [tipo de preço](/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja [habilitar slots de implantação](web-sites-staged-publishing.md) e clique em **Continuar**. 
+Dependendo do [tipo de preço](https://azure.microsoft.com/pricing/details/app-service/plans/) do seu plano do Serviço de Aplicativo, talvez você possa ver uma página **Implantar no preparo**. Escolha se deseja [habilitar slots de implantação](web-sites-staged-publishing.md) e clique em **Continuar**. 
 
 ### <a name="finish-configuration"></a>Concluir configuração
 

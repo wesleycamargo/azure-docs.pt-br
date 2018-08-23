@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c61a6efaa4a56636400acfe5a212cddad47f4f0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb408765a1185ac64a664cee458432bfce061c91
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652738"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917646"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>Tutorial: Enviar notificações para dispositivos Windows Phone específicos usando Hubs de Notificação do Azure
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Enviar notificações marcadas
 > * Testar o aplicativo
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Concluir o [Tutorial: Enviar notificações para aplicativos do Windows Phone usando Hubs de Notificação do Azure](notification-hubs-windows-mobile-push-notifications-mpns.md). Neste tutorial, você atualiza o aplicativo móvel para poder se registrar nas categorias de últimas notícias que desejar e receber notificações por push apenas para essas categorias. 
 
 ## <a name="add-category-selection-to-the-mobile-app"></a>Adicionar a seleção de categorias ao aplicativo móvel
@@ -321,9 +321,9 @@ Neste tutorial, você aprendeu como enviar notificações por push para disposit
 
 
 <!-- URLs.-->
-[Introdução aos Hubs de Notificação]: /manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[Use Notification Hubs to broadcast localized breaking news]: ../breakingnews-localized-wp8.md
-[Notify users with Notification Hubs]: /manage/services/notification-hubs/notify-users/
+[Introdução aos Hubs de Notificação]: notification-hubs-windows-mobile-push-notifications-mpns.md
+[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Windows Phone]: ??

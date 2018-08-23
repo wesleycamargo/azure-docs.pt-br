@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: c727df985f3285f5def9bfdc249ee27b4d748a01
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837041"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246348"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorar dados no repositório de blob do Azure com o Pandas
 Este documento aborda como explorar dados armazenados no contêiner de blob do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/) .
 
-Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Essa tarefa é uma etapa no [Processo de Ciência de Dados]().
+Os links do **menu** a seguir levam a tópicos que descrevem como usar as ferramentas para explorar dados de vários ambientes de armazenamento. Essa tarefa é uma etapa no [Processo de Ciência de Dados](overview.md).
 
 [!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este artigo supõe que você:
 
-* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* Criou uma conta de armazenamento do Azure. Se precisar de instruções, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-quickstart-create-account.md)
 * Armazenar seus dados em uma conta de armazenamento de blob do Azure. Se você precisar de instruções, consulte [Movimentação de dados de e para o Armazenamento do Azure](../../storage/common/storage-moving-data.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregar os dados em um DataFrame Pandas

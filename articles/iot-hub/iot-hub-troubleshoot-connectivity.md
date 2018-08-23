@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446557"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145662"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detectar e solucionar problemas de desconexões com o Hub do Azure IoT
 
@@ -77,7 +77,7 @@ Quando os registros e alertas de diagnóstico dos dispositivos conectados estão
     | DeviceConnectionClosedRemotely 404104 | A conexão foi fechada pelo dispositivo, mas o IoT Hub não sabe por quê. Causas comuns incluem tempo limite de MQTT / AMQP e perda de conectividade com a Internet. | Certifique-se de que o dispositivo possa se conectar ao Hub IoT até [testar a conexão](tutorial-connectivity.md). Se a conexão estiver boa, mas o dispositivo desconectar de forma intermitente, certifique-se de implementar a lógica adequada do dispositivo keep alive para sua escolha de protocolo (MQTT / AMPQ). |
     | IoTHubUnauthorized 401003 | O IoT Hub não foi possível autenticar a conexão. | Certifique-se de que o SAS ou outro token de segurança usado não esteja expirado. Os [SDKs IoT do Azure](iot-hub-devguide-sdks.md) geram automaticamente tokens sem exigir configuração especial. |
     | LinkCreationConflict 409002 | Existem mais de uma conexão para o mesmo dispositivo. Quando uma nova solicitação de conexão chega para um dispositivo, o Hub IoT fecha a anterior com esse erro. | No caso mais comum, um dispositivo detecta uma desconexão e tenta restabelecer a conexão, mas o Hub IoT não considerou ainda desconectado para que ele fecha a conexão anterior e registra esse erro. Portanto, esse erro geralmente é exibido como um efeito colateral de um problema transitório diferente, procure outros erros nos logs para solucionar outros problemas. Caso contrário, certifique-se de emitir uma nova solicitação de conexão somente se a conexão cair. |
-    | ServerError 500001 | O Hub IoT encontrou um problema no lado do servidor. Muito provavelmente, o problema é transitório. Embora a equipe do Hub IoT trabalhe arduamente para manter [o SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), pequenos subconjuntos de nós do Hub IoT podem ocasionalmente sofrer falhas transitórias. Quando o dispositivo tenta se conectar a um nó com problemas, você recebe esse erro. | Para atenuar a falha transitória, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](iot-hub-devguide-sdks.md).<br><br>Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults.md).  <br><br>Se o problema persistir após várias tentativas, verifique [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) e [Status do Azure](https://azure.microsoft.com/status/history/) para ver se o IoT Hub tem um problema conhecido. Se não há nenhum problema conhecido e o problema persistir, [entre em contato com o suporte](https://azure.microsoft.com/support/options/) para uma investigação adicional. |
+    | ServerError 500001 | O Hub IoT encontrou um problema no lado do servidor. Muito provavelmente, o problema é transitório. Embora a equipe do Hub IoT trabalhe arduamente para manter [o SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), pequenos subconjuntos de nós do Hub IoT podem ocasionalmente sofrer falhas transitórias. Quando o dispositivo tenta se conectar a um nó com problemas, você recebe esse erro. | Para atenuar a falha transitória, emita uma nova tentativa do dispositivo. Para [gerenciar automaticamente as novas tentativas](iot-hub-reliability-features-in-sdks.md#connection-and-retry), certifique-se de usar a versão mais recente dos [SDKs do Azure IoT](iot-hub-devguide-sdks.md).<br><br>Como prática recomendada no tratamento de falhas transitórias e novas tentativas, consulte [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).  <br><br>Se o problema persistir após várias tentativas, verifique [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) e [Status do Azure](https://azure.microsoft.com/status/history/) para ver se o IoT Hub tem um problema conhecido. Se não há nenhum problema conhecido e o problema persistir, [entre em contato com o suporte](https://azure.microsoft.com/support/options/) para uma investigação adicional. |
     | GenericTimeout 500008 | O Hub IoT não pôde concluir a solicitação de conexão antes do tempo limite. Como 500001 ServerError, esse erro provavelmente é transitório. | Siga as etapas de solução de problemas para 500001 ServerError para a causa raiz e resolva esse erro.|
 
 ## <a name="other-steps-to-try"></a>Outras etapas para experimentar
@@ -92,7 +92,7 @@ Para ajudar a melhorar a documentação para todos, deixe um comentário abaixo 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como resolver problemas transitórios, consulte [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults.md).
+* Para saber mais sobre como resolver problemas transitórios, consulte [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 * Para saber mais sobre o SDK do IoT do Azure e gerenciar repetições, consulte [Como gerenciar a conectividade e mensagens confiáveis usando SDKs de dispositivo do Hub IoT do Azure](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->

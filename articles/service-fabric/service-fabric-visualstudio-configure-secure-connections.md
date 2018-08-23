@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
-ms.openlocfilehash: e2772cc2c59b93c7e523eaa0127dcf4ea0bc589e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208678"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141401"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar conexões seguras para um cluster do Service Fabric do Visual Studio
 Saiba mais sobre como usar o Visual Studio para acessar com segurança um cluster do Service Fabric do Azure com políticas de controle de acesso configuradas.
@@ -46,7 +46,7 @@ A caixa de diálogo **Publicar Aplicativo do Service Fabric** valida automaticam
    
    Como você está editando manualmente o arquivo XML do Perfil de Publicação a fim de especificar as informações do certificado, anote o nome do repositório de certificados, do local de armazenamento e a impressão digital do certificado. Você precisará fornecer esses valores para o nome e o local do repositório do certificado. Confira [Como recuperar a impressão digital de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para saber mais.
    
-   Você pode usar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros do PowerShell a serem usados na conexão ao cluster do Service Fabric. Os parâmetros válidos são aqueles aceitos pelo cmdlet Connect-ServiceFabricCluster. Confira [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx) para obter uma lista dos parâmetros disponíveis.
+   Você pode usar os parâmetros *ClusterConnectionParameters* para especificar os parâmetros do PowerShell a serem usados na conexão ao cluster do Service Fabric. Os parâmetros válidos são aqueles aceitos pelo cmdlet Connect-ServiceFabricCluster. Confira [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista dos parâmetros disponíveis.
    
    Se você estiver publicando em um cluster remoto, será necessário especificar os parâmetros adequados para o cluster específico. A seguir, um exemplo de conexão a um cluster não seguro:
    

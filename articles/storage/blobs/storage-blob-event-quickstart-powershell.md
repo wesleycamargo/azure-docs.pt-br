@@ -8,12 +8,12 @@ ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262745"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140810"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Encaminhar eventos de armazenamento de Blobs para um ponto de extremidade da Web personalizado com PowerShell
 
@@ -36,9 +36,6 @@ Faça logon na sua assinatura do Azure com o comando `Connect-AzureRmAccount` e 
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> A disponibilidade para eventos de Armazenamento está vinculada à [disponibilidade](../../event-grid/overview.md) da Grade de Eventos e estará disponível em outras regiões, como a Grade de Eventos.
 
 Este exemplo usa **westus2** e armazena a seleção em uma variável para uso.
 

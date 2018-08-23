@@ -7,16 +7,17 @@ manager: douge
 assetId: 4a58e2c6-7a79-4051-8a2c-99182ff8b881
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: c02e80a97fe5943019f446299e370bf029a01ff4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f82663f6b53c6d4e32b8d655dcbd67a321d91ed
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795085"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140605"
 ---
 # <a name="retain-a-constant-virtual-ip-address-for-an-azure-cloud-service"></a>Reter um endereço IP virtual constante para um serviço de nuvem do Azure
 Quando você atualiza um serviço de nuvem que é hospedado no Azure, você precisará garantir que o VIP (endereço IP virtual) do serviço não mude. Muitos serviços de gerenciamento de domínio usam o DNS (sistema de nome de domínio) para o registro de nomes de domínio. O DNS só funciona se o VIP permanece o mesmo. Você pode usar o **Assistente de Publicação** nas Ferramentas do Azure para garantir que o VIP do seu serviço de nuvem não seja alterado quando você atualizá-lo. Para obter mais informações sobre como usar o gerenciamento de domínio DNS para serviços de nuvem, consulte [Configurando um nome de domínio personalizado para um serviço de nuvem do Azure](cloud-services/cloud-services-custom-domain-name-portal.md).

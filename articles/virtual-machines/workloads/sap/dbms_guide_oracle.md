@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075054"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140389"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação do DBMS de Máquinas Virtuais do Oracle Azure para carga de trabalho do SAP
 
@@ -311,7 +311,7 @@ ms.locfileid: "39075054"
 
 
 ## <a name="specifics-to-oracle-database"></a>Informações específicas do Banco de Dados Oracle
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados no documento. Como uma pré-leitura para este documento, você deve ler o documento [Considerações para implantação de DBMS de Máquinas Virtuais do Azure para carga de trabalho do SAP](dbms_guide_general.md), bem como outros guias de [carga de trabalho do SAP na documentação do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -384,7 +384,7 @@ Para implantações do Oracle no Windows, é altamente recomendável usar a func
 Todas as outras áreas gerais, como o monitoramento do SAP ou Conjuntos de Disponibilidade do Azure se aplicam como descritas no documento [Considerações para a implantação DBMS de Máquinas Virtuais do Azure para carga de trabalho SAP](dbms_guide_general.md) para implantações de VMs com o Banco de Dados Oracle também.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Especificidades do Oracle Database no Oracle Linux
-O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure com Linux Oracle como OS convidado. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+O software Oracle tem suporte pela Oracle para ser executado no Microsoft Azure com Linux Oracle como OS convidado. Para obter detalhes sobre o suporte geral do Windows Hyper-V e Azure, consulte: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Após o suporte geral, o cenário específico de aplicativos SAP que utilizam os Bancos de Dados Oracle também tem suporte. Os detalhes são indicados nesta parte do documento.
 

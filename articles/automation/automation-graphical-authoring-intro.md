@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437868"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146089"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 
@@ -322,17 +322,17 @@ Isso abre o controle **Entrada e saída**, em que você pode editar um parâmetr
 
 Cada parâmetro de entrada é definido pelas propriedades na tabela a seguir:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | NOME |O nome exclusivo do parâmetro. Pode conter apenas caracteres alfanuméricos e não pode conter espaços. |
 | DESCRIÇÃO |Uma descrição opcional para o parâmetro de entrada. |
-| type |Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. |
+| Tipo |Tipo de dados esperado para o valor do parâmetro. O Portal do Azure fornece um controle apropriado para o tipo de dados para cada parâmetro quando a entrada for solicitada. |
 | Obrigatório |Especifica se deve ser fornecido um valor para o parâmetro. O runbook não poderá ser iniciado se você não fornecer um valor para cada parâmetro obrigatório que não tenha um valor padrão definido. |
 | Valor Padrão |Especifica o valor que será usado para o parâmetro, se nenhum for fornecido. Pode ser Nulo ou um valor específico. |
 
 ### <a name="runbook-output"></a>Saída de runbook
 
-Os dados criados por qualquer atividade que não tenha um link de saída são salvos na [saída do runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). A saída é salva com o trabalho do runbook e está disponível para um runbook pai quando o runbook é usado como filho.
+Os dados criados por qualquer atividade que não tenha um link de saída são salvos na [saída do runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). A saída é salva com o trabalho do runbook e está disponível para um runbook pai quando o runbook é usado como filho.
 
 ## <a name="powershell-expressions"></a>Expressões do PowerShell
 

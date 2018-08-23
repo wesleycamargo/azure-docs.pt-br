@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308046"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141403"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerenciar um conjunto de dimensionamento de máquina virtual com a CLI do Azure 2.0
 Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI do Azure 2.0 que permitem executar essas tarefas.
@@ -92,7 +92,7 @@ Demora alguns minutos para atualizar a capacidade do seu conjunto de dimensionam
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Parar e iniciar VMs em um conjunto de dimensionamento
-Para parar uma ou mais VMs em um conjunto de dimensionamento, use [az vmss stop](/cli/azure/vmss/stop). O parâmetro `--instance-ids` permite que você especifique uma ou mais VMs a serem paradas. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar várias VMs, separe cada ID de instância com um espaço.
+Para parar uma ou mais VMs em um conjunto de dimensionamento, use [az vmss stop](/cli/azure/vmss#az-vmss-stop). O parâmetro `--instance-ids` permite que você especifique uma ou mais VMs a serem paradas. Se você não especificar uma ID de instância, todas as VMs no conjunto de dimensionamento são paradas. Para parar várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo a seguir para a instância *0* no conjunto de dimensionamento chamado *myScaleSet* e o grupo de recursos *myResourceGroup*. Use seus próprios valores, da seguinte maneira:
 

@@ -11,16 +11,16 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 11e8f34bf409d6c158e84d6f92baaf59ad4a1e94
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110075"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42210794"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>Início Rápido: Implantar um aplicativo de serviços confiáveis do .NET no Service Fabric
 
@@ -87,8 +87,8 @@ Agora, você pode adicionar um conjunto de opções de votação e começar a vo
 
 O aplicativo de votação consiste em dois serviços:
 
-* Serviço de front-end da Web (VotingWeb) – um serviço de front-end da Web do ASP.NET Core, que fornece a página da Web e expõe APIs Web para se comunicar com o serviço de back-end.
-* Serviço de back-end (VotingData) – um serviço Web do ASP.NET Core, que expõe uma API para armazenar os resultados da votação em um dicionário confiável persistido em disco.
+* Serviço de front-end da Web (VotaçãoWeb) – Um serviço de front-end da Web do ASP.NET Core, que fornece a página da Web e expõe APIs Web para se comunicar com o serviço de back-end.
+* Serviço de back-end (DadosVotação) – Um serviço Web do ASP.NET Core, que expõe uma API para armazenar os resultados da votação em um dicionário confiável persistido em disco.
 
 ![Diagrama de aplicativo](./media/service-fabric-quickstart-dotnet/application-diagram.png)
 
@@ -145,7 +145,7 @@ Entre e [ingresse em um cluster do Windows](http://aka.ms/tryservicefabric). Bai
 ![PFX e ponto de extremidade de conexão](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
 > [!Note]
-> Há um número limitado de party clusters disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de equipe, você poderá aguardar um período e tentar novamente, ou você pode seguir estas etapas no tutorial [Implantar um aplicativo .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster do Service Fabric em sua assinatura do Azure e implantar o aplicativo nele. Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de implantar e verificar o aplicativo em seu cluster, pule para [Dimensionar aplicativos e serviços em um cluster](#scale-applications-and-services-in-a-cluster) deste guia de início rápido.
+> Há um número limitado de clusters de equipe disponíveis por hora. Se você receber um erro ao tentar se inscrever para um cluster de equipe, você poderá aguardar um período e tentar novamente, ou você pode seguir estas etapas no tutorial [Implantar um aplicativo .NET](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) para criar um cluster do Service Fabric em sua assinatura do Azure e implantar o aplicativo nele. Se você ainda não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Depois de implantar e verificar o aplicativo em seu cluster, pule para [Dimensionar aplicativos e serviços em um cluster](#scale-applications-and-services-in-a-cluster) deste guia de início rápido.
 >
 
 No computador com Windows, instale o PFX no repositório de certificados *CurrentUser\My*.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2016
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7957fdf245090cbca3726cb1e4788ec34f63faca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1801fe9695aa15850d600300b957df2c7d7cd9ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440412"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141421"
 ---
 # <a name="azure-active-directory-b2c-threat-management"></a>Azure Active Directory B2C: gerenciamento de ameaças
 
@@ -29,4 +29,4 @@ O Azure AD B2C usa técnicas de detecção e de mitigação como cookies SYN e l
 
 O Azure AD B2C também tem técnicas de mitigação prontas para ataques de senha. A mitigação inclui ataques de senhas de força bruta e ataques de senhas de dicionário. As senhas definidas pelos usuários devem ser de complexidade razoável. Ao usar vários sinais, o Azure AD B2C analisa a integridade das solicitações. O Azure AD B2C foi projetado para diferenciar, de forma inteligente, os usuários pretendidos de hackers e botnets. O Azure AD B2C oferece uma estratégia sofisticada para bloquear contas com base nas senhas digitadas, na probabilidade de um ataque.
 
-Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/en-us/trustcenter/default.aspx).
+Para obter mais informações, consulte o [Centro de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/default.aspx).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2d4ddc91911b9481c9bd21346c3c06325edf1afd
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 5e5e8c3a81d911cb47edfcb5432bc423872a29ec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037872"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141018"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Mover dados de um SQL Server local para o SQL Azure com o Azure Data Factory
 Este tópico mostra como mover dados de um banco de dados do SQL Server local para um banco de dados do SQL Azure por meio do Armazenamento de Blobs do Azure usando o ADF (Azure Data Factory).
@@ -54,7 +54,7 @@ Criamos um pipeline do ADF que compõe duas atividades de migração de dados. J
 Este tutorial presume que você tenha:
 
 * Uma **assinatura do Azure**. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Uma **conta de armazenamento do Azure**. Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) . Depois de criar a conta de armazenamento, você precisa obter a chave de conta usada para acessar o armazenamento. Consulte [Manage your storage access keys (Gerenciar as chaves de acesso de armazenamento)](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Acesso a um **Banco de dados do SQL Azure**. Se você precisar configurar um Banco de Dados SQL do Azure, consulte o tópico [Guia de Introdução ao Banco de Dados SQL do Microsoft Azure ](../../sql-database/sql-database-get-started.md) para obter informações sobre como provisionar uma nova instância de um Banco de Dados SQL do Azure.
 * **Azure PowerShell** instalado e configurado localmente. Para saber mais, confira [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 

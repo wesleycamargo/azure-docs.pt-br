@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 24b0c6873721ef196b1c0dc6d6a357f87a4a5e39
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846359"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141197"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Rotear o tráfego por meio de uma solução de virtualização de rede
 
@@ -36,7 +36,7 @@ Este exemplo de script cria uma rede virtual com sub-redes de front-end e back-e
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-network/route-traffic-through-nva/route-traffic-through-nva.sh "Route traffic through a network virtual appliance")]
 
-## <a name="clean-up-deployment"></a>Limpar implantação 
+## <a name="clean-up-deployment"></a>Limpar a implantação 
 
 Execute o comando a seguir para remover o grupo de recursos, a VM e todos os recursos relacionados.
 
@@ -48,7 +48,7 @@ az group delete --name MyResourceGroup --yes
 
 Este script usa os comandos a seguir para criar um grupo de recursos, uma rede virtual e grupos de segurança de rede. Cada comando na tabela redireciona para a documentação específica do comando.
 
-| Get-Help | Observações |
+| Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Cria uma rede virtual do Azure e uma sub-rede front-end. |
@@ -58,8 +58,8 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma rede v
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Cria um grupo de segurança de rede (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Cria regras de NSG que permitem as portas HTTP e HTTPS de entrada para a VM. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associa os NSGs e tabelas de rotas às sub-redes. |
-| [az network route-table create](/cli/azure/network/route-table#az_network_route_table_create)| Cria uma tabela de rotas com todas as rotas. |
-| [az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)| Cria as rotas para rotear o tráfego entre sub-redes e a Internet por meio da VM. |
+| [az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)| Cria uma tabela de rotas com todas as rotas. |
+| [az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)| Cria as rotas para rotear o tráfego entre sub-redes e a Internet por meio da VM. |
 | [az vm create](/cli/azure/vm#az_vm_create) | Cria uma máquina virtual e anexa o NIC a ela. Este comando também especifica a imagem de máquina virtual a ser usada e as credenciais administrativas. |
 | [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos e todos os seus recursos contidos nele. |
 

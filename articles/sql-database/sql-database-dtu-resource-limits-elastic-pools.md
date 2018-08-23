@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 128b4bc787cd882e719ee3332d285af44b15dfe2
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412983"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145052"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de recursos para pools elásticos usando o modelo de compra com base em DTU 
 
@@ -23,7 +23,7 @@ Este artigo fornece os limites de recursos detalhados para pools elásticos do B
 Para limites de recurso de modelo de compra com base em DTU para bancos de dados únicos, consulte [Limites de recurso com base em DTU - bancos de dados únicos](sql-database-vcore-resource-limits-elastic-pools.md). Para saber os limites de recurso vCore, confira [Limites de recurso baseados em vCore  – bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md) e [Limites de recurso baseados em vCore do Banco de Dados SQL - pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 ## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool elástico: tamanhos de armazenamento e níveis de desempenho
 
@@ -128,6 +128,7 @@ A tabela a seguir descreve as propriedades dos bancos de dados em pool.
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
+- Veja [limites de recursos de visão geral do Banco de Dados SQL do Azure](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e a assinatura.
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, automação do azure
-ms.openlocfilehash: 489676736e0a3dcff463fae954f0250d90ba3d0f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6bc860e328d6968dedda5090bb9a817b9bba6b69
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195430"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145659"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
@@ -25,7 +25,7 @@ Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Voc�
 
 Neste tópico, criamos um runbook do PowerShell que usa um modelo do Resource Manager armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -57,6 +57,13 @@ Em um editor de texto, copie o seguinte texto:
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -66,8 +73,8 @@ Em um editor de texto, copie o seguinte texto:
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },

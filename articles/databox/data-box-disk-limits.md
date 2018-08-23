@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012114"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141198"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limites de Disco do Azure Data Box (Versão Prévia)
 
@@ -64,7 +64,7 @@ Para obter as informações mais recentes sobre os limites de serviço de armaze
 
 ## <a name="azure-storage-account-size-limits"></a>Limites de tamanho da conta de armazenamento do Azure
 
-Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Abaixo, são informados os limites do tamanho dos dados que são copiados para a conta de armazenamento. Verifique se os dados carregados por você estão em conformidade com esses limites. Para obter as informações mais atualizadas sobre esses limites, acesse [Destinos de escala de Armazenamento de Blobs do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) e [Destinos de escala de Arquivos do Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Tamanho dos dados copiados para a conta de armazenamento do Azure                      | Limite padrão          |
 |---------------------------------------------------------------------|------------------------|
@@ -86,4 +86,4 @@ Aqui estão os tamanhos dos objetos do Azure que podem ser gravados. Verifique s
 | Entidade                                       | Convenções                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Nomes de contêiner de blob de blocos e blob de páginas | Precisa ser um nome DNS válido com tamanho de 3 a 63 caracteres. <br>  Deve começar com uma letra ou número. <br> Pode conter apenas letras minúsculas, números e o hífen (-). <br> Cada hífen (-) precisa ser imediatamente precedido e seguido por uma letra ou um número. <br> Hifens consecutivos não são permitidos em nomes. |
-| Nomes de blob para blob de blocos e blob de páginas      | Nomes de blob diferenciam maiúsculas de minúsculas e podem conter qualquer combinação de caracteres. <br> O nome do blob deve ter entre 1 e 1.024 caracteres. <br> Caracteres reservados de URL precisam ser escapados corretamente. <br>O número de segmentos de caminho que incluem o nome do blob não pode exceder 254. Um segmento de caminho é a cadeia de caracteres entre caracteres delimitadores consecutivos (por exemplo, a barra '/') que correspondem ao nome de um diretório virtual. |
+| Nomes de blob para blob de blocos e blob de páginas      | Nomes de blob diferenciam maiúsculas de minúsculas e podem conter qualquer combinação de caracteres. <br> O nome do blob deve ter entre 1 e 1.024 caracteres. <br> Os caracteres reservados de URL precisam ser escapados corretamente. <br>O número de segmentos de caminho que incluem o nome do blob não pode exceder 254. Um segmento de caminho é a cadeia de caracteres entre caracteres delimitadores consecutivos (por exemplo, a barra '/') que correspondem ao nome de um diretório virtual. |

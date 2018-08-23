@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129196"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166334"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster Kubernetes habilitado para Azure Dev Spaces
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129196"
     - **DETALHES do CLUSTER**: insira um nome, região (no momento, você deve escolher EastUS, Centro dos EUA, WestEurope, WestUS2, CanadaCentral ou CanadaEast), versão e o prefixo de nome DNS para o cluster AKS.
     - **ESCALA**: selecione um tamanho de VM para os nós de agente AKS e o número de nós. Se você não tiver experiência com o Azure Dev Spaces, um nó é o suficiente para explorar todos os recursos. A contagem de nós pode ser facilmente ajustada a qualquer momento após a implantação do cluster. Observe que o tamanho da VM não pode ser alterado após a criação de um cluster AKS. No entanto, quando um cluster AKS tiver sido implantado, você pode facilmente criar um novo cluster AKS com VMs maiores e usar o Dev Spaces para reimplantar nesse cluster maior se você precisar escalar verticalmente.
 
-   Escolha o Kubernetes versão 1.10.3 ou posterior.
+   Certifique-se de escolher o Kubernetes versão 1.9.6 ou posterior.
 
    ![Definições de configuração do Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

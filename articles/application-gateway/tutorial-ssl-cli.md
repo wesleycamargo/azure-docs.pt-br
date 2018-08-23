@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8a75736dc574c591f3f59c3ecf6ef7a2435e8111
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 57ef2bc1adbd65525c1801e67459a7d1832f79df
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447849"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41917518"
 ---
 # <a name="tutorial-create-an-application-gateway-with-ssl-termination-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicativo com terminação SSL usando a CLI do Azure
 
@@ -65,7 +65,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Você pode adicionar a sub-rede denominada *myBackendSubnet* que é necessária para os servidores de back-end usando [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -89,7 +89,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Você pode usar [az network application-gateway creat](/cli/azure/application-gateway#create) para criar o gateway do aplicativo. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. 
+Você pode usar [az network application-gateway creat](/cli/azure/network/application-gateway#create) para criar o gateway do aplicativo. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. 
 
 O gateway de aplicativo é atribuído a *myAGSubnet* e *myAGPublicIPAddress* que você criou anteriormente. Neste exemplo, você associa o certificado que você criou e sua senha ao criar o gateway de aplicativo. 
 

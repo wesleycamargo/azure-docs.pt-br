@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
 ms.author: victorh
-ms.openlocfilehash: ebe22f72d25b8f181e75a263df63fd5a0b4a6a6f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 90c589bce48db11278d034249d1a7a7cc918a074
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436182"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42139976"
 ---
 # <a name="create-an-application-gateway-using-the-azure-cli"></a>Criar um gateway de aplicativo usando a CLI do Azure
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Criar a rede virtual e a sub-rede usando [az network vnet create](/cli/azure/vnet#az-vnet-create). Criar o endereço IP público usando [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
+Criar a rede virtual e a sub-rede usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Criar o endereço IP público usando [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -133,7 +133,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Crie um gateway de aplicativo usando [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. Os endereços IP privados das interfaces de rede são adicionados como servidores no pool de back-end do gateway de aplicativo.
+Crie um gateway de aplicativo usando [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. Os endereços IP privados das interfaces de rede são adicionados como servidores no pool de back-end do gateway de aplicativo.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

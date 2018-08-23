@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188646"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141201"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Esquema de evento de Grade de Eventos do Azure para Registro de Contêiner
 
@@ -117,8 +117,6 @@ O objeto de dados tem as seguintes propriedades:
 | ação | string | A ação que abrange o evento fornecido. |
 | destino | objeto | O destino do evento. |
 | solicitação | objeto | A solicitação que gerou o evento. |
-| actor | objeto | O agente que iniciou o evento. Para a maioria das situações, esse valor pode ser do contexto de autorização da solicitação. |
-| fonte | objeto | O nó do registro que gerou o evento. Em outras palavras, enquanto o ator inicia o evento, a origem o gera. |
 
 O objeto de destino tem as seguintes propriedades:
 
@@ -129,7 +127,6 @@ O objeto de destino tem as seguintes propriedades:
 | digest | string | O resumo da mensagem, conforme definido pela Especificação API HTTP do Registry V2. |
 | length | inteiro | O número de bytes do conteúdo. O mesmo que o campo Tamanho. |
 | repository | string | Nome do repositório. |
-| url | string | A URL direta para o conteúdo. |
 | marca | string | O nome da marca. |
 
 O objeto solicitado tem as seguintes propriedades:
@@ -141,19 +138,6 @@ O objeto solicitado tem as seguintes propriedades:
 | host | string | O nome de host acessível externamente da instância de registro, conforme especificado pelo cabeçalho do host http em solicitações de entrada. |
 | estático | string | O método de solicitação que gerou o evento. |
 | useragent | string | O cabeçalho do agente de usuário da solicitação. |
-
-O objeto do ator tem as seguintes propriedades:
-
-| Propriedade | Tipo | DESCRIÇÃO |
-| -------- | ---- | ----------- |
-| Nome | string | O assunto ou o nome de usuário associado ao contexto da solicitação que gerou o evento. |
-
-O objeto de origem tem as seguintes propriedades:
-
-| Propriedade | Tipo | DESCRIÇÃO |
-| -------- | ---- | ----------- |
-| addr | string | O IP ou o nome de host e a porta do nó do registro que gerou o evento. Em geral, esse valor será resolvido por os.Hostname() junto com a porta em execução. |
-| instanceID | string | A instância em execução de um aplicativo. Muda após cada reinicialização. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,17 +8,18 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720222"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442734"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Introdução ao Armazenamento de Blobs do Azure e aos Serviços Conectados do Visual Studio (ASP.NET Core)
 
@@ -69,7 +70,7 @@ Esta seção orienta a configuração do ambiente de desenvolvimento. Ela inclui
 1. Na caixa de diálogo **Armazenamento do Microsoft Azure**, selecione a conta do Armazenamento do Azure a ser usada para este tutorial. Para criar uma nova conta do Armazenamento do Azure, selecione **Criar uma Nova Conta de Armazenamento** e preencha o formulário. Depois de selecionar uma conta de armazenamento existente ou criar uma nova, selecione **Adicionar**. O Visual Studio instala o pacote NuGet para o Armazenamento do Azure, e uma cadeia de conexão de armazenamento para **appSettings.json**.
 
 > [!TIP]
-> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Para saber como criar uma conta de armazenamento com o [portal do Azure](https://portal.azure.com), consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 >
 > Você também pode criar uma conta de armazenamento usando o [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), a [CLI do Azure](../storage/common/storage-azure-cli.md) ou o [Azure Cloud Shell](../cloud-shell/overview.md).
 

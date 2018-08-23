@@ -8,23 +8,24 @@ manager: craigg
 ms.assetid: 7398c0c9-7a03-4628-94b3-f2aaef4a72c5
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 02c9d3715d8c4632bf19512cd9ffee64e4a22e8a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 41ffd50f791cd380cd66a6eb5cb3c013da9bc43a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047013"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42282306"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Como criar uma data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
+> * [portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,7 +33,7 @@ ms.locfileid: "37047013"
 
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Se estiver usando a versão atual do serviço Data Factory, confira [Início rápido: Criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Se estiver usando a versão atual do serviço Data Factory, confira [Início rápido: Criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Este tutorial mostra como criar um Azure data factory usando o Visual Studio. Crie um projeto do Visual Studio usando o modelo de projeto de Data Factory, defina as entidades da Data Factory (serviços vinculados, conjuntos de dados e pipeline) no formato JSON e, em seguida, publique/implante essas entidades à nuvem. 
 
@@ -59,7 +60,7 @@ Eis as etapas executadas como parte deste tutorial:
 4. Crie uma data factory denominada **DataFactoryUsingVS**. Implante o data factory e todas as entidades de Data Factory (serviços vinculados, tabelas e pipeline).
 5. Depois de publicar, use as folhas do portal do Azure e aplicativos de gerenciamento e monitoramento para monitorar o pipeline. 
   
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-build-your-first-pipeline.md) e concluir as etapas de **pré-requisito** . Você também pode selecionar a opção **Visão geral e Pré-requisitos** na lista suspensa, na parte superior, para alternar para o artigo. Depois de concluir os pré-requisitos, alterne de volta para este artigo, selecionando a opção **Visual Studio** na lista suspensa.
 2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.  
 3. Você deve ter os seguintes itens instalados no seu computador:

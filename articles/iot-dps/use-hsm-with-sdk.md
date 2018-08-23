@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630418"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141214"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Como usar mecanismo de atestado diferentes com o SDK do Cliente de Serviço de Provisionamento de Dispositivos para C
 
 Este artigo mostra como usar diferentes [mecanismos de atestado](concepts-security.md#attestation-mechanism) com o SDK de cliente do Serviço de Provisionamento de Dispositivos para C. Você também pode usar um dispositivo físico ou um simulador. O serviço de provisionamento oferece suporte à autenticação de dois tipos de mecanismos de atestado: X **.** 509 e TPM (Trusted Platform Module).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Prepare o ambiente de desenvolvimento de acordo com a seção "Preparar o ambiente de desenvolvimento" no guia [Criar e provisionar dispositivo simulado](./quick-create-simulated-device.md).
 
@@ -147,7 +147,7 @@ Se você estiver usando o TPM, siga as instruções em ["Criar e provisionar um 
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço DPS.
+2. Entre no portal do Azure, clique no botão **Todos os recursos** no menu esquerdo e abra o serviço de Provisionamento de Dispositivos.
    - Registro individual do X **.** 509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros Individuais** guia e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade e carregue o certificado do signatário conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
    - Registro em grupo  X **.** 509: na folha de provisionamento de dispositivos, selecione **Gerenciar registros**. Selecione a guia **Registros em grupo** e clique no botão **Adicionar** na parte superior. Selecione **X**. **509** como o *Mecanismo* de atestado de identidade, insira o nome do grupo e o nome da certificação e carregue o certificado de Autoridade de Certificação/Intermediário conforme exigido pela folha. Uma vez concluído, clique no botão **Salvar**. 
 

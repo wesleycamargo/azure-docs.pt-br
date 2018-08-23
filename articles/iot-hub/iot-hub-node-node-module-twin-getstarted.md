@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: e1fcca7f37f928c488b1111d6d3299cb03c73cc1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: fa77e117b8045be4ef0566e388c4e8df08c95fe2
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034297"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140792"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando back-end Node.js e dispositivo Node.js
 
@@ -38,7 +38,6 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Agora, você criou seu hub IoT e tem o nome de host e a cadeia de conexão de Hub IoT que precisa para concluir o restante deste tutorial.
 
-<a id="DeviceIdentity_csharp"></a>
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade do dispositivo e uma identidade do módulo no Hub IoT
 
 Nesta seção, você criará um aplicativo Node.js que cria uma identidade do dispositivo e uma identidade do módulo no registro de identidade no Hub IoT. Um dispositivo ou módulo não pode se conectar ao Hub IoT, a menos que ele tenha uma entrada no Registro de identidade. Para obter mais informações, consulte a seção "Registro de identidade" do [Guia do Desenvolvedor do Hub IoT][lnk-devguide-identity]. Quando você executa esse aplicativo de console, ele gera ID e chave exclusivas para o dispositivo e o módulo. O dispositivo e o módulo usam esses valores para se identificar ao enviar mensagens de dispositivo para nuvem para o Hub IoT. As IDs diferenciam minúsculas e maiúsculas.
@@ -114,8 +113,6 @@ Esse aplicativo cria uma identidade do dispositivo com a ID **myFirstDevice** e 
     > [!NOTE]
     > O Registro de identidade do Hub IoT armazena apenas as identidades de dispositivo e módulo para habilitar o acesso seguro ao Hub IoT. O registro de identidade armazena IDs de dispositivo e chaves para usar como credenciais de segurança. O registro de identidade também armazena um sinalizador de habilitado/desabilitado para cada dispositivo que você pode usar para desabilitar o acesso ao dispositivo. Se seu aplicativo precisar armazenar outros metadados específicos do dispositivo, ele deverá usar um repositório específico do aplicativo. Não há nenhum sinalizador habilitado/desabilitado para as identidades do módulo. Para saber mais, confira [Guia de Desenvolvedor do Hub IoT][lnk-devguide-identity].
 
-
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>Atualizar o módulo gêmeo usando o SDK do dispositivo Node.js
 
 Nesta seção, você criará um aplicativo Node.js no dispositivo simulado que atualiza as propriedades relatadas do módulo gêmeo.

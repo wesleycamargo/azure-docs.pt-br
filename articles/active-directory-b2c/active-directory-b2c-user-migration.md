@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390479"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141418"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: migração do usuário
 Quando você planeja migrar seu provedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também é necessário migrar a conta de usuário. Este artigo explica como migrar as contas de usuário existentes de qualquer provedor de identidade para o Azure AD B2C. Este artigo não se destina a ser prescritivo, mas a descrever alguns cenários. O desenvolvedor é responsável por escolher o mais adequado.
@@ -363,7 +363,7 @@ Você pode monitorar e exibir informações de log quase em tempo real.
 Depois de concluir o passo a passo [Introdução às políticas personalizadas][B2C-GetStartedCustom], recomendamos que você crie o cenário usando seus próprios arquivos de política personalizados. Fornecemos os [Arquivos de política de exemplo][UserMigrationSample] como referência.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started

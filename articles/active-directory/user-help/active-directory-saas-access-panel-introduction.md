@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345936"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145672"
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -79,7 +79,7 @@ Para entrar com logon único baseado em senha, você deve usar a extensão. Depo
 - Você pode entrar em um aplicativo diretamente usando a **URL de logon** do aplicativo. Quando você usa a URL do aplicativo, a extensão detecta a ação e oferece a opção de entrar a partir da extensão.
 - Você também pode iniciar qualquer um de seus aplicativos no painel de acesso usando o recurso de *pesquisa rápida* da extensão. 
 - A extensão mostra os três últimos aplicativos iniciados na seção **Usados Recentemente**.
-- Você pode usar URLs internas da empresa ao remoto por meio de [Proxy de aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- Você pode usar URLs internas da empresa ao remoto por meio de [Proxy de aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Recursos adicionais estão disponíveis apenas para Microsoft Edge, Chrome e Firefox.
@@ -97,8 +97,8 @@ Caso esteja usando uma URL dos Meus Aplicativos diferente de `https://myapps.mic
 5. Selecione **Entrar para começar**.
 
 Para usar URLs internas da empresa ao remota usando a extensão, faça o seguinte:
-1. [Configurar Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
-2. [Publicar o aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
+1. [Configurar Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) no seu locatário
+2. [Publicar o aplicativo](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) e a URL por meio do Application Proxy
 3. Instale a extensão, conecte-se a ela selecionando Conectar-se para começar
 4. Agora você pode navegar para a URL interna da empresa, mesmo em remoto
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 5c0252e42dd3dd53a0a95684553b193b983e95ee
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c3bc9f04777a9153fd8683b221e7d0aeef4609b3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30166867"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246352"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-on-premises-to-azure"></a>Usar o PowerShell para criar um pipeline do data factory para copiar dados do local para o Azure
 
@@ -25,10 +25,10 @@ Este script de exemplo do PowerShell cria um pipeline no Azure Data Factory que 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **SQL Server**. Um banco de dados do SQL Server local é usado como um armazenamento de dados de **origem** neste exemplo.
-- **Conta de Armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
+- **Conta de Armazenamento do Azure**. O Armazenamento de Blobs do Azure é usado como um armazenamento de dados de **destino/coletor** neste exemplo. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar um.
 - **Tempo de execução de integração auto-hospedada**. Baixe o arquivo MSI do [Centro de Download](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um tempo de execução de integração auto-hospedado no seu computador.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Criar o banco de dados de exemplo no SQL Server
@@ -80,7 +80,7 @@ Este script usa os seguintes comandos:
 | Comando | Observações |
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Criar uma fábrica de dados. |
+| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Criar um data factory. |
 | [New-AzureRmDataFactoryV2LinkedServiceEncryptCredential](/powershell/module/azurerm.datafactoryv2/new-azurermdatafactoryv2linkedserviceencryptedcredential) | Criptografa as credenciais em um serviço vinculado e gera uma nova definição de serviço vinculado com a credencial criptografada. 
 | [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2linkedservice) | Cria um serviço vinculado no data factory. Um serviço vinculado vincula um armazenamento de dados ou uma computação a um data factory. |
 | [Set-AzureRmDataFactoryV2Dataset](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2dataset) | Cria um conjunto de dados no data factory. Um conjunto de dados representa a entrada/saída para uma atividade em um pipeline. | 

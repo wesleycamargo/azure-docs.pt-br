@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297828"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145469"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurar contas de armazenamento para Gerenciamento de Custos
 
@@ -23,11 +23,11 @@ ms.locfileid: "35297828"
 
 Você pode salvar relatórios de gerenciamento de custo no portal de Cloudyn, armazenamento do Azure ou AWS buckets de armazenamento. Salvar seus relatórios no portal de Cloudyn é gratuito. No entanto, salvar seus relatórios para o armazenamento de seu provedor serviço de nuvem é opcional e incorre em custos adicionais. Este artigo o ajudará a configurar contas de armazenamento do Azure e buckets de armazenamento Amazon Web Services (AWS) para armazenar seus relatórios.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você deve ter uma conta de armazenamento do Azure ou uma bucket de armazenamento da Amazon.
 
-Se você não tiver uma conta de armazenamento do Azure, você precisa criar uma. Para saber mais sobre como criar uma nova conta de armazenamento, confira [Criar uma nova conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Se você não tiver uma conta de armazenamento do Azure, você precisa criar uma. Para saber mais sobre como criar uma nova conta de armazenamento, confira [Criar uma nova conta de armazenamento](../storage/common/storage-quickstart-create-account.md).
 
 Se você não tiver um bucket de serviço de armazenamento AWS (S3), você precisa criar um. Para saber mais sobre como criar um bucket S3, confira [Criar um Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html).
 

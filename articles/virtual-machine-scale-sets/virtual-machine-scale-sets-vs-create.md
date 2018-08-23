@@ -2,6 +2,8 @@
 title: Implantar um conjunto de dimensionamento de máquinas virtuais usando o Visual Studio | Microsoft Docs
 description: Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager
 services: virtual-machine-scale-sets
+ms.custom: H1Hack27Feb2017
+ms.workload: na
 documentationcenter: ''
 author: gatneil
 manager: jeconnoc
@@ -9,19 +11,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: negat
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: f0bd57836d6d54fe3e3460af27ebea4cffe3ee40
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26782139"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443925"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.

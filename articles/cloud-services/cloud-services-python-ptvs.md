@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003635"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917519"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções Web e de trabalho do Python com Ferramentas Python para Visual Studio
 
@@ -42,7 +42,7 @@ Para saber mais, confira [O que é um Serviço de Nuvem?].
 
 > [!NOTE]
 > *Procurando criar um site simples?*
-> Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o <a href="/develop/python/">Centro de Desenvolvedores do Python</a> para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure.
+> Se o seu cenário envolver apenas um front-end de site simples, considere usar um recurso Aplicativos Web leve no Serviço de Aplicativo do Azure. Você pode atualizar facilmente para um serviço de nuvem conforme o site cresce e suas necessidades mudam. Consulte o [Centro de Desenvolvedores do Python](https://azure.microsoft.com/develop/python/) para obter artigos que abordem o desenvolvimento do recurso Aplicativos Web no Serviço de Aplicativo do Azure.
 > <br />
 > 
 > 

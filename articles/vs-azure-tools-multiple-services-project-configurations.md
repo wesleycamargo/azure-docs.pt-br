@@ -7,16 +7,17 @@ manager: douge
 assetId: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 9047d7a8a6efdd41a48b6fa83b43a8c87d05d1de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 56b01855a5996bb62f721bda2bfc207684227854
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798532"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140396"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurando seu projeto do Azure no Visual Studio para usar várias configurações de serviço
 
@@ -52,7 +53,7 @@ A opção de **ponto de extremidade HTTPS** está disponível somente se você j
 
 Se você já tiver adicionado um ponto de extremidade HTTPS, a opção de ponto de extremidade HTTPS será habilitada por padrão e o Visual Studio iniciará um navegador para esse ponto de extremidade quando você iniciar a depuração, além de um navegador para o ponto de extremidade HTTP, supondo que as opções de inicialização estejam habilitadas.
 
-### <a name="diagnostics"></a>Diagnostics
+### <a name="diagnostics"></a>Diagnósticos
 
 Por padrão, o diagnóstico é habilitado para a função web. A conta de armazenamento e o projeto de serviço de nuvem do Azure são definidos para usar o emulador de armazenamento local. Quando você estiver pronto para implantar no Azure, selecione o botão de construtor (**...**) para usar o armazenamento do Azure. Você pode transferir os dados de diagnóstico para a conta de armazenamento sob demanda ou em intervalos agendados automaticamente. Para saber mais sobre o diagnóstico do Azure, veja [Habilitando o Diagnóstico nos Serviços de Nuvem do Azure e nas Máquinas Virtuais](cloud-services/cloud-services-dotnet-diagnostics.md).
 

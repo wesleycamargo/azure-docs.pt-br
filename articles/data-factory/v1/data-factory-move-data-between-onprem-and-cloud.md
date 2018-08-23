@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048542"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140204"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes locais e a nuvem com o Gateway de Gerenciamento de Dados
 > [!NOTE]
@@ -48,7 +48,7 @@ Neste passo a passo, você realizará as seguintes etapas:
 Antes de iniciar este passo a passo, é necessário ter os seguintes pré-requisitos:
 
 * **Assinatura do Azure**.  Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Consulte o artigo [Avaliação gratuita](http://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
-* **Conta de Armazenamento do Azure**. Você utiliza o armazenamento de Blobs como um armazenamento de dados **destino/coletor** neste tutorial. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar um.
+* **Conta de Armazenamento do Azure**. Você utiliza o armazenamento de Blobs como um armazenamento de dados **destino/coletor** neste tutorial. Se você não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar um.
 * **SQL Server**. Neste tutorial, você utiliza um Banco de Dados do SQL Server local como um armazenamento de dados de **origem**. 
 
 ## <a name="create-data-factory"></a>Criar um data factory

@@ -8,24 +8,25 @@ manager: craigg
 ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
+ms.custom: vs-azure
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 135cfbb148f2e47819c41c7874e4a5e08335f6bf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 475199ebe04a62a3c26860ea13820ae3a7ffdf07
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452559"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424379"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Criar um pipeline com a Atividade de Cópia usando o Visual Studio
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md)
-> * [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -46,7 +47,7 @@ Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividade
 > [!NOTE] 
 > O pipeline de dados neste tutorial copia os dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, veja [Tutorial: Criar um pipeline para transformar dados usando o cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 1. Leia o artigo [Visão geral do tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) e concluir as etapas de **pré-requisito** .       
 2. Para criar instâncias de Data Factory, você deve ser um membro da função [Colaborador de Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) no nível de assinatura/grupo de recursos.
 3. Você deve ter os seguintes itens instalados no seu computador: 

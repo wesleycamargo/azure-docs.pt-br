@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 2d6d387ed12e7261d09669686c0710786a4302dd
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025046"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141017"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificados e segurança em clusters do Linux
 
@@ -31,7 +31,7 @@ Malha do serviço espera geralmente certificados x. 509 no */var/lib/sfcerts* di
 
 Para clusters do Linux, o Service Fabric espera certificados deve existir como um arquivo. PEM que contém o certificado e a chave privada ou como um arquivo. crt que contém o certificado e um arquivo de chave que contém a chave privada. Todos os arquivos devem estar no formato PEM. 
 
-Se você instalar o certificado do Cofre de chaves do Azure usando um [modelo do Gerenciador de recursos](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template) ou [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) comandos, o certificado é instalado no formato correto no */var/ lib/sfcerts* diretório em cada nó. Se você instalar um certificado por outro método, você deve garantir que o certificado está instalado corretamente em nós de cluster.
+Se você instalar o certificado do Cofre de chaves do Azure usando um [modelo do Gerenciador de recursos](./service-fabric-cluster-creation-create-template.md) ou [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) comandos, o certificado é instalado no formato correto no */var/ lib/sfcerts* diretório em cada nó. Se você instalar um certificado por outro método, você deve garantir que o certificado está instalado corretamente em nós de cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificados referenciados no manifesto de aplicativo
 

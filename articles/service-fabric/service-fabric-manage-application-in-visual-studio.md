@@ -11,15 +11,16 @@ ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: na
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: 25c7f0e8d6ebc31121e29870026a735495ef7900
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2e7b7d9b0a194b13de9bdf759f4f3be645ed7c2e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206492"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442162"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Usar o Visual Studio para simplificar a escrita e o gerenciamento de seus aplicativos do Service Fabric
 É possível gerenciar os serviços e aplicativos do Service Fabric do Azure por meio do Visual Studio. Depois de [configurar o ambiente de desenvolvimento](service-fabric-get-started.md),você pode usar o Visual Studio para criar aplicativos do Service Fabric, adicionar serviços, ou pacotes, registrar e implantar aplicativos no cluster de desenvolvimento local.

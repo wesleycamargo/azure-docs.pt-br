@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 09250a3ffc851b97c64642eb3076e9f40621a588
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8003f76c9483c06fbc7f594e98c3cd0e6fc8acf7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082693"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918426"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar incrementalmente os dados do Banco de Dados SQL do Azure para o Armazenamento de Blobs do Azure usando informações de controle de alterações 
 Neste tutorial, você cria um data factory do Azure com um pipeline que carrega dados delta com base em informações de  **controle de alterações** no Banco de Dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -71,7 +71,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 ## <a name="prerequisites"></a>Pré-requisitos
 * PowerShell do Azure. Instale os módulos mais recentes do Azure PowerShell seguindo as instruções em [Como instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps).
 * **Banco de dados SQL do Azure**. Você usa o banco de dados como um armazenamento de dados de **origem**. Se você não tiver um Banco de Dados SQL do Azure, veja o artigo [Criar um Banco de Dados SQL do Azure](../sql-database/sql-database-get-started-portal.md) para conhecer as etapas para criar um.
-* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
+* **Conta de Armazenamento do Azure**. Você usa o Armazenamento de Blobs como um armazenamento de dados de **coletor**. Se você não tiver uma conta de Armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para conhecer as etapas para criar uma. Crie um contêiner denominado **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Criar uma tabela de fonte de dados no Banco de Dados SQL do Azure
 1. Inicie o **SQL Server Management Studio** e conecte-se ao SQL Server do Azure. 

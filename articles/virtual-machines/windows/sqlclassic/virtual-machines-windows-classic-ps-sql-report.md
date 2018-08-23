@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c688de79c985eda9b0898d0f7d989de58f7dbc71
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 32be46fb0c41909ce8a8014b13843970555d366f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037884"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145709"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Use o PowerShell para criar uma VM do Azure com um servidor de relatório em modo nativo
 > [!IMPORTANT] 
@@ -599,7 +599,6 @@ A tabela a seguir resume algumas opções disponíveis para publicação de rela
 ## <a name="more-information"></a>Mais informações
 ### <a name="resources"></a>Recursos
 * Para obter um conteúdo semelhante relacionado a uma implantação de servidor único do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Usar o Windows PowerShell para Criar uma VM do Azure com o BI do SQL Server e o SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/).
-* Para obter um conteúdo semelhante relacionado a uma implantação com vários servidores do Business Intelligence do SQL Server e do SharePoint 2013, consulte [Implantar o Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](https://msdn.microsoft.com/library/dn321998.aspx).
 * Para obter informações gerais relacionadas às implantações do Business Intelligence do SQL Server nas Máquinas Virtuais do Azure, consulte [Business Intelligence do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-classic-ps-sql-bi.md).
 * Para saber mais sobre o custo dos encargos de computação do Azure, consulte a guia Máquinas Virtuais da [Calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines).
 

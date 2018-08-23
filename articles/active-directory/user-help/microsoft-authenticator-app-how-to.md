@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346480"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145470"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introdução ao aplicativo Microsoft Authenticator
 
-O aplicativo Microsoft Authenticator ajuda a impedir o acesso não autorizado a contas ea interromper transações fraudulentas, oferecendo um nível adicional de segurança para sua conta do trabalho ou da escola (por exemplo, alain@contoso.com) ou sua conta pessoal da Microsoft (por exemplo, alain@outlook.com) . Você pode usá-lo como um segundo método de verificação ou como um substituto para a sua senha ao usar o login por telefone. Para obter mais informações sobre como configurar e usar o login sem senha, consulte [Faça login com seu telefone, não sua senha](microsoft-authenticator-app-phone-signin-faq.md).
+O aplicativo Microsoft Authenticator ajuda a impedir o acesso não autorizado a contas ea interromper transações fraudulentas, oferecendo um nível adicional de segurança para sua conta do trabalho ou da escola (por exemplo, alain@contoso.com) ou sua conta pessoal da Microsoft (por exemplo, alain@outlook.com) .
 
 Ao usar o aplicativo para verificação em duas etapas, ele pode funcionar de duas maneiras:
 
@@ -110,8 +110,6 @@ Se você optar por usar códigos de verificação no aplicativo, começará a v�
 ## <a name="next-steps"></a>Próximas etapas
 
 - Se você tiver mais dúvidas gerais sobre o aplicativo, consulte [Perguntas frequentes sobre o Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-- Se você tiver dúvidas sobre como usar o login por telefone, consulte [Fazer login com seu telefone, não sua senha](microsoft-authenticator-app-phone-signin-faq.md)
 
 - Se você quiser mais informações sobre a verificação em duas etapas, consulte [Configurar minha conta para a verificação em duas etapas](multi-factor-authentication-end-user-first-time.md)
 

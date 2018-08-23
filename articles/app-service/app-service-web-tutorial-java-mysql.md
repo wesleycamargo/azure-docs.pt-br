@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424381"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918295"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutorial: compilar um aplicativo Web Java e MySQL no Azure
 
@@ -243,7 +243,7 @@ Quando o plano estiver pronto, a CLI do Azure mostra uma saída semelhante ao ex
 
 ### <a name="create-an-azure-web-app"></a>Criar um aplicativo Web do Azure
 
-No Cloud Shell, use o comando da CLI [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) para criar uma definição de aplicativo Web no Plano do Serviço de Aplicativo `myAppServicePlan`. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
+No Cloud Shell, use o comando da CLI [`az webapp create`](/cli/azure/webapp#az-webapp-create) para criar uma definição de aplicativo Web no Plano do Serviço de Aplicativo `myAppServicePlan`. A definição de aplicativo Web fornece uma URL para acessar seu aplicativo e define várias opções para implantar seu código no Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Antes de executar o aplicativo de exemplo, defina as configurações do aplicativo no aplicativo Web para usar o banco de dados MySQL do Azure criado no Azure. Essas propriedades são expostas ao aplicativo Web como variáveis de ambiente e substituem os valores definidos em application.properties dentro do aplicativo Web empacotado. 
 
-No Cloud Shell, defina configurações de aplicativo usando [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) na CLI:
+No Cloud Shell, defina configurações de aplicativo usando [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) na CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>Obter credenciais de implantação FTP 
 É possível implantar seu aplicativo no serviço de aplicativo do Azure de várias maneiras, incluindo FTP, Git local, GitHub, Visual Studio Team Services e BitBucket. Para este exemplo, o FTP para implantar o arquivo .WAR criado anteriormente no computador local para o Serviço de Aplicativo do Azure.
 
-Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) no Cloud Shell: 
+Para determinar as credenciais a serem passadas em um comando ftp para o aplicativo Web, use o comando [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) no Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json

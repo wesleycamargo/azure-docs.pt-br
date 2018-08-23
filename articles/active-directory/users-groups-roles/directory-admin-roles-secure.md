@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627926"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140806"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Proteger o acesso privilegiado para implantações de nuvem híbrida no Azure AD
 
 A segurança da maioria ou todos os ativos de negócios da organização moderna depende a integridade das contas com privilégios que administram e gerenciam os sistemas de TI. Atores mal-intencionados, incluindo ataques cibernéticos geralmente são destinados contas de administrador e a outros elementos de acesso privilegiado ao tentar obter rapidamente o acesso a dados confidenciais e sistemas usando ataques de roubo de credenciais. Para serviços de nuvem, prevenção e resposta são as responsabilidades conjuntas do provedor de serviços de nuvem e do cliente. Para obter mais informações sobre as ameaças mais recentes aos pontos de extremidade e à nuvem, consulte o [Relatório de Inteligência de Segurança da Microsoft](https://www.microsoft.com/security/sir/default.aspx). Este artigo pode ajudá-lo a desenvolver um roteiro para fechar as lacunas entre os planos atuais e as diretrizes descritas aqui.
 
 > [!NOTE] 
-> A Microsoft está comprometida com os mais altos níveis de confiança, transparência, conformidade com os padrões e conformidade normativa. Saiba mais sobre como a equipe de resposta a incidentes globais da Microsoft atenua os efeitos de ataques contra serviços de nuvem e como a segurança é criada em produtos comerciais da Microsoft e serviços de nuvem no [Microsoft Trust Center - Segurança](https://www.microsoft.com/en-us/trustcenter/security)e destinos de conformidade da Microsoft em [Microsoft Trust Center - Conformidade](https://www.microsoft.com/en-us/trustcenter/compliance).
+> A Microsoft está comprometida com os mais altos níveis de confiança, transparência, conformidade com os padrões e conformidade normativa. Saiba mais sobre como a equipe de resposta a incidentes globais da Microsoft atenua os efeitos de ataques contra serviços de nuvem e como a segurança é criada em produtos comerciais da Microsoft e serviços de nuvem no [Microsoft Trust Center - Segurança](https://www.microsoft.com/trustcenter/security)e destinos de conformidade da Microsoft em [Microsoft Trust Center - Conformidade](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Além de gerenciar suas contas de acesso privilegiado, recomendamos que você re
 * Apenas conceda acesso privilegiado quando necessário e removê-o posteriormente (just-in-time).
 * Mantenha e analise as atividades de auditoria relacionadas a contas privilegiadas.
 
-Para obter mais informações sobre a criação de um roteiro de segurança completa, consulte [recursos de arquitetura de TI de nuvem da Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre atrair os serviços da Microsoft para ajudá-lo em qualquer um desses tópicos, entre em contato com seu representante da Microsoft ou visite [ Construir defesas cibernéticas essenciais para proteger a sua empresa](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Para obter mais informações sobre a criação de um roteiro de segurança completa, consulte [recursos de arquitetura de TI de nuvem da Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Para obter mais informações sobre atrair os serviços da Microsoft para ajudá-lo em qualquer um desses tópicos, entre em contato com seu representante da Microsoft ou visite [ Construir defesas cibernéticas essenciais para proteger a sua empresa](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Essa etapa final do roteiro Secured Privileged Access inclui os seguintes componentes.
 
@@ -440,16 +440,16 @@ Para obter mais informações sobre como o Microsoft Office 365 trata os inciden
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Microsoft Trust Center for Product Security](https://www.microsoft.com/en-us/trustcenter/security) - Produtos e serviços de nuvem de recursos de segurança da Microsoft
+* [Microsoft Trust Center for Product Security](https://www.microsoft.com/trustcenter/security) - Produtos e serviços de nuvem de recursos de segurança da Microsoft
 
-* [Microsoft Trust Center - Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – conjunto abrangente da Microsoft de ofertas de conformidade para serviços de nuvem
+* [Microsoft Trust Center - Compliance](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – conjunto abrangente da Microsoft de ofertas de conformidade para serviços de nuvem
 
-* [Orientação sobre como realizar uma avaliação de risco](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - gerenciar requisitos de conformidade e segurança para serviços de nuvem da Microsoft
+* [Orientação sobre como realizar uma avaliação de risco](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - gerenciar requisitos de conformidade e segurança para serviços de nuvem da Microsoft
 
 ### <a name="other-ms-online-services"></a>Outros serviços MS Online 
 
-* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) - O Microsoft Intune oferece recursos de gerenciamento de dispositivo móvel, gerenciamento de aplicativo móvel e gerenciamento de PC na nuvem.
+* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) - O Microsoft Intune oferece recursos de gerenciamento de dispositivo móvel, gerenciamento de aplicativo móvel e gerenciamento de PC na nuvem.
 
-* [Microsoft Dynamics 365 security](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) – O Dynamics 365 é a solução baseada em nuvem da Microsoft que unifica o gerenciamento de relacionamento com clientes (CRM) e recursos de planejamento de recursos empresariais (ERP).
+* [Microsoft Dynamics 365 security](https://www.microsoft.com/trustcenter/security/dynamics365-security) – O Dynamics 365 é a solução baseada em nuvem da Microsoft que unifica o gerenciamento de relacionamento com clientes (CRM) e recursos de planejamento de recursos empresariais (ERP).
 
  

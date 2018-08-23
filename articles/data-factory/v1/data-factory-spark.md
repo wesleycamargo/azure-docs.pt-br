@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440619"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246379"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -56,7 +56,7 @@ Estas são as etapas típicas para criar um pipeline do data factory com uma ati
 * Crie um pipeline com a atividade do Spark que se refere ao serviço vinculado do HDInsight criado. A atividade está configurada com o conjunto de dados que você criou na etapa anterior como um conjunto de dados de saída. O conjunto de dados de saída é o que aciona o agendamento (por hora, diariamente). Portanto, é necessário especificar o conjunto de dados de saída mesmo que a atividade não produza efetivamente uma saída.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-1. Crie uma conta de armazenamento de uso geral seguindo as instruções descritas em [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Crie uma conta de armazenamento de uso geral seguindo as instruções descritas em [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 
 1. Crie um cluster Spark no HDInsight seguindo as instruções descritas no tutorial [Criar um cluster Spark no HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associe a conta de armazenamento criada na etapa 1 a esse cluster.
 

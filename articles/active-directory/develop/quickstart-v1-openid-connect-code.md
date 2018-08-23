@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 91cb7df9d38432d660930c21f6a9d0d64215d6e6
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 1f8f19944f64a5dfd5421a99734c5fd0fc3be1bc
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577432"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145711"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Introdução ao aplicativo Web Node.js do Azure AD
 Aqui usaremos o Passport para:
@@ -195,8 +195,8 @@ Aqui, configuramos o Express para usar o protocolo de autenticação OpenID Conn
     ```JavaScript
     // configure Express (section 2)
 
-        var app = express();
-        app.configure(function() {
+      var app = express();
+      app.configure(function() {
       app.set('views', __dirname + '/views');
       app.set('view engine', 'ejs');
       app.use(express.logger());
@@ -408,9 +408,9 @@ Por fim, compile e execute seu aplicativo. Executar `node app.js`e, em seguida, 
 
 Entre com uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante e observe como a identidade do usuário é exibida na lista /account. Agora você tem um aplicativo Web protegido por protocolos padrão do setor, que podem autenticar usuários com as respectivas contas pessoais e corporativas ou de estudante.
 
-Para referência, o exemplo completo (sem seus valores de configuração) é [fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/complete.zip). Como alternativa, você pode cloná-lo do GitHub:
+Para referência, o exemplo completo (sem seus valores de configuração) é [fornecido como um arquivo .zip](https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS/archive/master.zip). Como alternativa, você pode cloná-lo do GitHub:
 
-```git clone --branch complete https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
+```git clone --branch master https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS.git```
 
 Agora você pode ir para tópicos mais avançados. Você pode desejar experimentar:
 
