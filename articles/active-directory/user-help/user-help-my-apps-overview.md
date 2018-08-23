@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: dc3a34698daf9e74c73522895faa174f3fec0bad
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b3c5a81fe6572498ab2d4502225af24702a60cba
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347204"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023043"
 ---
 # <a name="my-apps-portal-overview"></a>Visão geral do portal Meus Aplicativos
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Caso você tenha uma conta corporativa e seu administrador lhe concedeu acesso, você pode usar o portal Meus Aplicativos para exibir e iniciar aplicativos baseados em nuvem.
 

@@ -3,9 +3,8 @@ title: Comparação do Serviço de Aplicativo, Máquinas Virtuais, Service Fabri
 description: Saiba como escolher entre o Serviço de Aplicativo, as Máquinas Virtuais, o Service Fabric e os Serviços de Nuvem do Azure para hospedar aplicativos Web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224948"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022805"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
-## <a name="overview"></a>Visão geral
+
 O Azure oferece várias maneiras de hospedar sites da Web: [Serviço de Aplicativo do Azure][Azure App Service], [Máquinas Virtuais][Virtual Machines], [Service Fabric][Service Fabric] e [Serviços de Nuvem][Cloud Services]. Este artigo ajuda você a entender as opções e fazer a escolha certa para seu aplicativo Web.
 
 O Serviço de Aplicativo do Azure é a melhor opção para a maioria dos aplicativos Web. A implantação e o gerenciamento estão integrados na plataforma, os sites podem ser dimensionados rapidamente para suportar altas cargas de tráfego e o gerenciador de balanceamento de carga e tráfego integrado oferece alta disponibilidade. Você pode mover sites existentes para o Serviço de Aplicativo do Azure facilmente com uma [ferramenta de migração online][migrate-tool], usar um aplicativo de software livre da Galeria de Aplicativos Web ou criar um novo site usando a estrutura e as ferramentas de sua escolha. O recurso [WebJobs][WebJobs] facilita a adição do processamento de trabalhos em segundo plano ao seu aplicativo Web do Serviço de Aplicativo.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247220"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919730"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o SQL do Azure
 
@@ -44,7 +44,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
 
-Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
+Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode ativar a identidade de serviço gerenciado em uma VM existente.
 
 1.  Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
 2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
@@ -55,13 +55,13 @@ Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habi
 
     ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a identidade do serviço gerenciado na sua VM 
 
 Uma Identidade de Serviço Gerenciada de VM permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade de Serviço Gerenciada informa ao Azure para criar uma identidade gerenciada para sua VM. Em segundo plano, habilitar a Identidade de Serviço Gerenciada faz duas coisas: registra sua VM com o Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
 
 1.  Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.  
 2.  Na barra de navegação à esquerda, clique em **Configuração**. 
-3.  Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não. 
+3.  Você verá **Identidade de Serviço Gerenciado**. Para registrar e ativar a Identidade do serviço gerenciado, selecione **Sim**, se desejar desativá-la, escolha Não. 
 4.  Lembre-se de clicar em **Salvar** para salvar a configuração.  
     ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -147,8 +147,8 @@ Agora que você criou o grupo e adicionou a Identidade de Serviço Gerenciada da
 
 Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
 
-- [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [Autenticação Universal com o Banco de Dados SQL e o SQL Data Warehouse (suporte de SSMS para MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurar e gerenciar o Azure Active Directory para autenticação com o Banco de Dados SQL ou o SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  Inicie o SQL Server Management Studio.
 2.  Na caixa de diálogo **Conectar-se ao servidor**, insira o nome de seu SQL Server no campo **Nome do servidor**.

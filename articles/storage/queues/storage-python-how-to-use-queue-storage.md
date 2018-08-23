@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 975f76fa15507874a16b2b14c2988d618daf2b29
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8779b067c33ce76cd60b020e2952bcbccf0dd944
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520479"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141409"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "39520479"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Visão geral
-Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python](SDK do Armazenamento do Microsoft Azure para Python). Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
+Este guia mostra como executar cenários comuns usando o serviço de armazenamento de Fila do Azure. Os exemplos são escritos em Python e usam o [SDK do Armazenamento do Microsoft Azure para Python]. Os cenários abrangidos incluem **inserir**, **exibir**, **obter** e **excluir** mensagens da fila, bem como **criar e excluir filas**. Para obter mais informações sobre filas, consulte a seção [Próximas etapas].
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -127,7 +127,7 @@ queue_service.delete_queue('taskqueue')
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do Armazenamento de Filas, siga estes links para saber mais.
 
-* [Centro de desenvolvedores do Python](/develop/python/)
+* [Centro de desenvolvedores do Python](https://azure.microsoft.com/develop/python/)
 * [API REST de serviços de armazenamento do Azure](http://msdn.microsoft.com/library/azure/dd179355)
 * [Blog da equipe de Armazenamento do Azure]
 * [SDK do Armazenamento do Microsoft Azure para Python]

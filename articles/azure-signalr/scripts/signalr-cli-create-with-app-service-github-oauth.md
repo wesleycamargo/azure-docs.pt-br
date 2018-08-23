@@ -15,12 +15,12 @@ ms.workload: signalr
 ms.date: 04/22/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: ec095572dc8fe20c913d543ffcf926355b5715df
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 76094a816fc7698994b77507c2a3dcf3dcf9880b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38600121"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41924711"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>Criar um aplicativo Web que usa a autenticação do Serviço SignalR e GitHub
 
@@ -53,8 +53,8 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 | Comando | Observações |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az signalr create](/cli/azure/signalr#az-signalr-create) | Cria um recurso de Serviço Azure SignalR. |
-| [az signalr key list](/cli/azure/signalr/key#az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
+| [az signalr create](/cli/azure/ext/signalr/signalr#ext-signalr-az-signalr-create) | Cria um recurso de Serviço Azure SignalR. |
+| [az signalr key list](/cli/azure/ext/signalr/signalr/key#ext-signalr-az-signalr-key-list) | Lista as chaves que serão usadas pelo seu aplicativo ao enviar atualizações de conteúdo em tempo real com o SignalR. |
 | [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create) | Cria um Plano de Serviço de Aplicativo do Azure para hospedar aplicativos web. |
 | [az webapp create](/cli/azure/webapp#az-webapp-create) | Cria um aplicativo Web do Azure usando o plano de hospedagem do Serviço de Aplicativo. |
 | [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) | Adiciona novas configurações de aplicativo para o aplicativo web. Essas configurações de aplicativo são usadas para armazenar a cadeia de conexão SignalR e segredos do aplicativo GitHub OAuth. |

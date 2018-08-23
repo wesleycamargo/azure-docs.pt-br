@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641315"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924718"
 ---
 # <a name="azure-service-bus"></a>Barramento de Serviço do Azure
 
@@ -36,7 +36,12 @@ Dentro de um namespace, você pode usar uma ou mais instâncias de três mecanis
 * *Tópicos*, que fornecem comunicação unidirecional usando *assinaturas*. Um único tópico pode ter várias assinaturas. Como uma fila, um tópico age como um agente, mas cada assinatura pode, opcionalmente, usar um filtro para receber apenas as mensagens que correspondem a critérios específicos.
 * *Retransmissões*, que fornece comunicação bidirecional. Ao contrário das filas e dos tópicos, uma retransmissão não armazena as mensagens em trânsito. Ela não é um agente. Em vez disso, ele só as passa para o aplicativo de destino.
 
-Ao criar uma fila, um tópico ou uma retransmissão, você atribui um nome a ele/ela. Esse nome combinado com qualquer é chamado seu espaço para nome, cria um identificador exclusivo para o objeto. Os aplicativos podem fornecer esse nome ao Barramento de Serviço e usar essa fila, tópico ou retransmissão para se comunicar uns com os outros. 
+Ao criar uma fila, um tópico ou uma retransmissão, você atribui um nome a ele/ela. Esse nome combinado com qualquer é chamado seu espaço para nome, cria um identificador exclusivo para o objeto. Os aplicativos podem fornecer esse nome ao Barramento de Serviço e usar essa fila, tópico ou retransmissão para se comunicar uns com os outros.
+
+ >**Exemplo:**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 Para usar qualquer um desses objetos no cenário de retransmissão, os aplicativos do Windows podem usar o WCF (Windows Communication Foundation). Esse serviço é conhecido como [Retransmissão WCF](../service-bus-relay/relay-what-is-it.md). Para as filas e os tópicos, os aplicativos do Windows podem usar as APIs de mensagens definidas pelo Barramento de Serviço. Para tornar esses objetos mais fáceis de usar a partir de aplicativos que não são do Windows, a Microsoft fornece SDKs para Java, Node.js e outras linguagens. Você também pode acessar as filas e os tópicos usando as [APIs REST](/rest/api/servicebus/) no(s) HTTP(s). 
 

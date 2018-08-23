@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931721"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920946"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento em uma VM Linux no Azure com o Jenkins, o GitHub e o Docker
 
@@ -151,7 +151,7 @@ No seu site do Jenkins, selecione **Criar novos trabalhos** na página inicial:
 - Na seção **Geral**, selecione o **projeto do GitHub** e insira a URL do repositório bifurcado, como *https://github.com/cynthn/nodejs-docs-hello-world*
 - Na seção **Gerenciamento de código-fonte**, selecione **Git** e insira a URL *.git* do repositório bifurcado, por exemplo, *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Na seção **Gatilhos de Build**, selecione **Gatilho de gancho do GitHub para sondagem de GITscm**.
-- Na seção **Compilar**, clique em **Adicionar etapa de compilação**. Selecione **Executar shell** e, em seguida, digite `echo "Testing"` na janela de comando.
+- Na seção **Compilar**, clique em **Adicionar etapa de compilação**. Selecione **Executar shell** e, em seguida, digite `echo "Test"` na janela de comando.
 - Selecione **Salvar** na parte inferior da janela de trabalhos.
 
 

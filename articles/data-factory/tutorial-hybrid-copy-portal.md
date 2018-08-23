@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436001"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920668"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copie os dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure
 Neste tutorial, você usa a interface do usuário (IU) do Azure Data Factory para criar um pipeline de data factory que copia dados de um banco de dados do SQL Server local para o Armazenamento de Blobs do Azure. Você cria e usa um tempo de execução de integração auto-hospedado, o qual movimenta os dados entre armazenamentos de dados locais e da nuvem.
@@ -75,7 +75,7 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
 1. No modo de exibição de árvore, clique com o botão direito do mouse no banco de dados que você criou e selecione **Nova Consulta**.
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de uso geral do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account). O pipeline no data factory que você cria neste tutorial copia dados do banco de dados do SQL Server local (origem) para este armazenamento de Blobs do Azure (coletor). 
+Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de uso geral do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md). O pipeline no data factory que você cria neste tutorial copia dados do banco de dados do SQL Server local (origem) para este armazenamento de Blobs do Azure (coletor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
 Use o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, realize as etapas a seguir: 
@@ -269,15 +269,15 @@ O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem 
 
 1. Você deve ter voltado para a janela com o conjunto de dados do coletor aberto. Na guia **Conexão**, siga estas etapas: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. Confirme se **AzureStorageLinkedService** está selecionado como **Serviço vinculado**.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. Para a parte da **pasta**/ **Diretório** do **Caminho do arquivo**, insira **adftutorial/fromonprem**. Se a pasta de saída não existir no contêiner adftutorial, o serviço Data Factory criará essa pasta automaticamente.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. Para a parte **nome de arquivo** do **caminho do arquivo**, selecione **Adicionar conteúdo dinâmico**.   
 
     ![valor de nome de arquivo dinâmico](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Adicione `@CONCAT(pipeline().RunId, '.txt')`, selecione **Concluir**. Isso irá renomear o arquivo para PipelineRunID.txt. 
 
     ![expressão dinâmica para resolução de nomes de arquivo](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

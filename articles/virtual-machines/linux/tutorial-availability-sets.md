@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc6fba89571515d0d2d7ed3ecc35c3065405056b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 44faad125053f9292f97f8794b14eb8f842c6b4b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696796"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920000"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli-20"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com a CLI 2.0 do Azure
 
@@ -94,7 +94,7 @@ A distribuição do conjunto de disponibilidade pode ser exibida no portal, vá 
 
 ## <a name="check-for-available-vm-sizes"></a>Conferir os tamanhos de VM disponíveis
 
-VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/availability-set#az_availability_set_list_sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
+VMs adicionais podem ser adicionadas ao conjunto de disponibilidade mais tarde, onde os tamanhos de VM estão disponíveis no hardware. Use [az vm availability-set list-sizes](/cli/azure/vm/availability-set#az-vm-availability-set-list-sizes) para listar todos os tamanhos disponíveis no cluster de hardware para o conjunto de disponibilidade:
 
 ```azurecli-interactive
 az vm availability-set list-sizes \

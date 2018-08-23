@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: e9ace23108b33c1e03db2159dd1da68be8d88e0a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f47582cf9fa1a58295c9d32c480ed894179cd92d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421987"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918723"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie dados de um banco de dados do SQL Server local para um Armazenamento de Blobs do Azure usando a ferramenta Copy Data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ Neste tutorial, você usa um banco de dados do SQL Server local como um armazena
     ```
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de fins gerais, confira [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para obter instruções sobre como criar uma. O pipeline no data factory criado neste tutorial copia dados do banco de dados do SQL Server local (origem) para este Armazenamento de blobs (coletor). 
+Neste tutorial, você usa uma conta de armazenamento do Azure para fins gerais (especificamente o Armazenamento de blobs) como armazenamento de dados de destino/coletor. Se você não tiver uma conta de armazenamento de fins gerais, confira [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para obter instruções sobre como criar uma. O pipeline no data factory criado neste tutorial copia dados do banco de dados do SQL Server local (origem) para este Armazenamento de blobs (coletor). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
 Use o nome e a chave da sua conta de armazenamento neste tutorial. Para obter o nome e a chave da sua conta de armazenamento, realize as etapas a seguir: 

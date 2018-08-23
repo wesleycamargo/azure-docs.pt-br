@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e12b8153494eaefb1f7e2d27fc667ef0070c68d0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932171"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919094"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -83,7 +83,7 @@ Esta tabela mostra algumas maneiras de encontrar as informações de uma imagem.
 | Método | DESCRIÇÃO |
 | --- | --- |
 | Portal do Azure |Os valores são especificados automaticamente quando você seleciona uma imagem a ser usada. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -local "local"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -local "local"-"publisherName" do editor<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimagepublisher) -local "local"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmimageoffer) -local "local"-"publisherName" do editor<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | APIs REST |[Listar editores de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus de imagem](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 | CLI do Azure |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
@@ -103,11 +103,11 @@ Os recursos nesta tabela são usados por VM e precisam existir ou ser criados qu
 
 | Recurso | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
-| [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |sim |A VM deve estar contida em um grupo de recursos. |
-| [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |sim |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |
-| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |sim |A VM deve ser membro de uma rede virtual. |
+| [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |SIM |A VM deve estar contida em um grupo de recursos. |
+| [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |SIM |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |
+| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |SIM |A VM deve ser membro de uma rede virtual. |
 | [Endereço IP público](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Não  |A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente. |
-| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |sim |A VM precisa de interface de rede para se comunicar na rede. |
+| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |SIM |A VM precisa de interface de rede para se comunicar na rede. |
 | [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não  |A VM pode incluir discos de dados para expandir os recursos de armazenamento. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>Como criar minha primeira VM?

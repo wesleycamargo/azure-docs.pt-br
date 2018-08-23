@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091043"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023717"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
 
@@ -50,14 +50,14 @@ Criar seu aplicativo no grupo de recursos usando o comando `az mesh deployment c
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-O comando anterior implanta um Linux usando o [modelo mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Se você desejar implantar um aplicativo do Windows, use o [modelo mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Imagens de contêiner do Windows são maiores do que as imagens de contêiner do Linux e podem levar mais tempo para implantar.
+O comando anterior implanta um aplicativo Linux usando o [modelo mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Se você desejar implantar um aplicativo do Windows, use o [modelo mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Imagens de contêiner do Windows são maiores do que as imagens de contêiner do Linux e podem levar mais tempo para implantar.
 
 Em alguns minutos, o comando retorna:
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Abrir o aplicativo
-Depois que o aplicativo é implantado com êxito, copie o endereço IP público para o ponto de extremidade de serviço da saída da CLI.  Abra o endereço IP em um navegador da Web. Uma página da Web com o logotipo da Malha do Azure Service Fabric é exibida.
+Depois que o aplicativo é implantado com êxito, copie o endereço IP público para o ponto de extremidade de serviço da saída da CLI. Abra o endereço IP em um navegador da Web. Uma página da Web com o logotipo da Malha do Azure Service Fabric é exibida.
 
 ## <a name="check-the-application-details"></a>Verifique os detalhes do aplicativo
 Você pode verificar o status do aplicativo usando o comando `az mesh app show`. Esse comando fornece informações úteis que você pode acompanhar.

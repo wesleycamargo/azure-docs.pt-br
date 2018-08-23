@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e61c96d754c240df89607db0cf84dca0e0ccd17e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: de5c9810b234a93643321d1ba299a66a3ae965a3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347212"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022882"
 ---
 # <a name="two-step-verification-overview"></a>Visão geral da verificação em duas etapas
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Você recebeu um email de alguém da TI ou do seu chefe informando que a organização adicionou uma verificação de segurança adicional à sua conta. O que isso significa? Isso significa que sua organização está criando etapas extras para garantir que você é quem diz ser ao entrar na conta. Essa verificação extra, também conhecida como verificação em duas etapas, é feita por meio de uma combinação de seu nome de usuário, sua senha e um dispositivo móvel ou telefone.
 

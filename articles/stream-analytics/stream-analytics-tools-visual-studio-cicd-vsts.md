@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074069"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918867"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Tutorial: implantar um trabalho do Azure Stream Analytics com CI/CD usando o VSTS
 Esse tutorial descreve como configurar a integração e a implantação contínua para um trabalho do Azure Stream Analytics usando o Visual Studio Team Services. 
@@ -32,8 +32,8 @@ Antes de começar, verifique se você tem:
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho de **Desenvolvimento do Azure** ou **Armazenamento e processamento de dados**.
-* Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Crie uma conta do [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Crie um [projeto do Stream Analytics no Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Crie uma conta do [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/).
 
 ## <a name="configure-nuget-package-dependency"></a>Configurar a dependência do pacote NuGet
 Para realizar a compilação e a implantação automáticas em um computador aleatório, você precisa usar o pacote do NuGet `Microsoft.Azure.StreamAnalytics.CICD`. Ele fornece as ferramentas de MSBuild, execução local e implantação que dão suporte ao processo de implantação e integração contínua de projetos do Stream Analytics para Visual Studio. Para obter mais informações, consulte [Ferramentas de CI/CD do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md).

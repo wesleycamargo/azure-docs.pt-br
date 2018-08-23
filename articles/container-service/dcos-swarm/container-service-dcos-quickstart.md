@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429319"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022879"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Implantar um cluster de DC/SO
 
@@ -78,7 +78,7 @@ Se o túnel SSH tiver sido criado com êxito, o portal de DC/SO será retornado.
 
 ## <a name="install-dcos-cli"></a>Instalar CLI de DC/SO
 
-A interface de linha de comando do DC/SO é usada para gerenciar um cluster de DC/SO na linha de comando. Instale a CLI de DC/SO usando o comando [az acs dcos install-cli](/azure/acs/dcos#install-cli). Se você estiver usando o Azure CloudShell, a CLI do DC/SO já estará instalada. 
+A interface de linha de comando do DC/SO é usada para gerenciar um cluster de DC/SO na linha de comando. Instale a CLI de DC/SO usando o comando [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Se você estiver usando o Azure CloudShell, a CLI do DC/SO já estará instalada. 
 
 Se você estiver executando a CLI do Azure em macOS ou Linux, talvez precise executar o comando com sudo.
 

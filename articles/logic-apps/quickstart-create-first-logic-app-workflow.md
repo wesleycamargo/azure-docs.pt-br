@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125732"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022878"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os Aplicativos Lógico do Azure - Portal do Azure
 
@@ -171,6 +171,9 @@ Quando você não precisar mais deste exemplo, exclua o grupo de recursos que co
 2. Insira o nome do grupo de recursos como confirmação e escolha **Excluir**.
 
    ![Confirmar exclusão](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> Ao excluir um aplicativo lógico, nenhuma nova execução será instanciada. Todas as execuções em andamento e pendentes serão canceladas. Se você tiver milhares de execuções, o cancelamento poderá demorar um tempo significativo até ser concluído.
 
 ## <a name="get-support"></a>Obtenha suporte
 

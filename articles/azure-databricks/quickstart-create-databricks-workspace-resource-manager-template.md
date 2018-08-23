@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 03/23/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 8c1d4dd01d489413d1e0a0121b25e9506e5d6139
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 573d8f6927cbd17c0f095bccf5132674faf94928
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233669"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023723"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: executar um trabalho do Spark no Azure Databricks usando o modelo do Azure Resource Manager
 
@@ -83,7 +83,7 @@ Para obter mais informações sobre como criar clusters, consulte [Criar um clus
 
 Antes de iniciar esta seção, você deve concluir os pré-requisitos a seguir:
 
-* [Criar uma conta de Armazenamento de Blobs do Azure](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
+* [Criar uma conta de Armazenamento de Blobs do Azure](../storage/common/storage-quickstart-create-account.md). 
 * Baixar um arquivo JSON de exemplo [do Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
 * Carregar o arquivo JSON de exemplo na conta de armazenamento de Blobs do Azure que você criou. Você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos.
 

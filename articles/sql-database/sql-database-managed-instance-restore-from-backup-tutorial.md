@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949876"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41924714"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Restaurar um backup de banco de dados em uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -27,9 +27,9 @@ Este tutorial demonstra como restaurar um backup de um banco de dados armazenado
 > * Criar conta de armazenamento do Azure e carregar o arquivo de backup
 > * Restaurar o banco de dados da Wide World Importers de um arquivo de backup
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial usa como ponto de partida os recursos criados neste tutorial: [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-create-tutorial-portal.md).
+Este tutorial usa como ponto de partida os recursos criados neste tutorial: [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-get-started.md).
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Baixar arquivo Wide World Importers - backup padrão
 
@@ -81,7 +81,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLM
 9. Copie e salve o **token SAS** e a **URL SAS do servidor de blobs**.
 10. Em **Configurações**, clique em **Contêineres**.
 
-    ![contêineres](./media/sql-database-managed-instance-tutorial/containers.png)
+    ![containers](./media/sql-database-managed-instance-tutorial/containers.png)
 
 11. Clique em **+ Contêiner** para criar um contêiner e armazenar o arquivo de backup.
 12. Preencha o formulário de contêiner com as informações solicitadas, usando as informações na tabela abaixo:

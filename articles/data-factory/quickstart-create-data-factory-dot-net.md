@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d5858ba7d10093264e1565d88ae518055b814d34
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085735"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920661"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Criar um data factory e um pipeline usando o SDK do .NET
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Para criar instâncias de Data Factory, a conta de usuário usada para fazer logon no Azure deve ser um membro das funções **colaborador** ou **proprietário**, ou um **administrador** da assinatura do Azure. No Portal do Azure, clique no seu **nome de usuário** no canto superior direito e selecione **Permissões** para exibir as permissões que você tem com a assinatura. Se tiver acesso a várias assinaturas, selecione a que for adequada. Para obter instruções de exemplo sobre como adicionar um usuário a uma função, consulte o artigo [Adicionar funções](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Use uma Conta de Armazenamento do Azure para fins gerais (especificamente o Armazenamento de Blobs) como armazenamento de dados de **fonte** e **destino** neste guia de início rápido. Se você não tiver uma conta de fins gerais de armazenamento do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md#create-a-storage-account) para saber sobre como criar uma. 
+Use uma Conta de Armazenamento do Azure para fins gerais (especificamente o Armazenamento de Blobs) como armazenamento de dados de **fonte** e **destino** neste guia de início rápido. Se você não tiver uma conta de fins gerais de armazenamento do Azure, consulte [Criar uma conta de armazenamento](../storage/common/storage-quickstart-create-account.md) para saber sobre como criar uma. 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
 Você usa o nome e a chave da sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome e a chave da sua conta de armazenamento. 
@@ -314,7 +314,7 @@ Dictionary<string, object> parameters = new Dictionary<string, object>
     { "inputPath", inputBlobPath },
     { "outputPath", outputBlobPath }
 };
-CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters).Result.Body;
+CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters: parameters).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 

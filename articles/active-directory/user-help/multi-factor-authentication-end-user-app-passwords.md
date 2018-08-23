@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343281"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145677"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerenciar senhas de aplicativos para verificação em duas etapas
 
@@ -38,7 +38,7 @@ Ao usar senhas de aplicativos, é importante lembrar:
 
 Você recebe uma senha do aplicativo durante o registro inicial da verificação em duas etapas. Se você precisar de mais do que uma senha, poderá criar senhas adicionais com base em como você usa a verificação em duas etapas:
 
-- **Você usa a verificação em duas etapas com sua conta do Microsoft Azure.** Crie e exclua suas senhas de aplicativos usando o [portal do Azure](https://portal.azure.com). Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Você usa a verificação em duas etapas com sua conta do Microsoft Azure.** Crie e exclua suas senhas de aplicativos usando o [portal do Azure](https://portal.azure.com). Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
 - **Você usa a verificação em duas etapas com sua conta pessoal da Microsoft.** Crie e exclua suas senhas de aplicativos usando a página [Noções básicas de segurança](https://account.microsoft.com/account/) com sua conta da Microsoft. Para mais informações, consulte o artigo [Senhas do aplicativo e verificação em duas etapas](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 

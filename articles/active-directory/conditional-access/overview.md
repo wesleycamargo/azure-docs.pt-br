@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 08/15/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b191e041d219ad629c2f3ac6a0ac689551187eca
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3e96e251e655c7c7ad862fbf875111e08c0dfbdf
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630201"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022802"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>O que é o acesso condicional no Azure Active Directory?
 
@@ -47,7 +47,7 @@ A seguir, são apresentadas algumas preocupações de acesso comuns em que o ace
 
 
 
-- **[Risco de entrada](conditions.md#sign-in-risk)**: o Azure AD Identity Protection detecta riscos de entrada. Como você restringe o acesso caso um risco de entrada detectado indique um mau ator? E se você quisesse obter prova mais sólida de que uma entrada foi realizada pelo usuário legítimo? E se a dúvida é forte o suficiente para até mesmo impedir que usuários específicos acessem um aplicativo? Configurando 
+- **[Risco de entrada](conditions.md#sign-in-risk)**: o Azure AD Identity Protection detecta riscos de entrada. Como você restringe o acesso caso um risco de entrada detectado indique um mau ator? E se você quisesse obter prova mais sólida de que uma entrada foi realizada pelo usuário legítimo? E se a dúvida é forte o suficiente para até mesmo impedir que usuários específicos acessem um aplicativo?  
 
 - **[Local de rede](location-condition.md)**: o Azure AD é acessível de qualquer lugar. E se uma tentativa de acesso for realizada em um local de rede que não esteja sob o controle do departamento de TI? O uso de uma combinação de nome de usuário e senha pode ser bom o suficiente como prova de identidade para tentativas de acesso aos recursos da rede corporativa. E se você exigir uma prova de identidade mais forte para tentativas de acesso iniciadas de outros países ou regiões do mundo inesperados? E se você ainda quiser bloquear tentativas de acesso de determinados locais?  
 

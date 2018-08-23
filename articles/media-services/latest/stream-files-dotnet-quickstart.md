@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701031"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023044"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Início Rápido: Transmissão de arquivos de vídeo - .NET
 
@@ -33,7 +33,7 @@ Ao final do início rápido, você poderá transmitir um vídeo por streaming.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -42,7 +42,7 @@ Se o Visual Studio não estiver instalado, você poderá obter o [Visual Studio 
 Clone um repositório do GitHub que contém o exemplo de streaming de .NET em sua máquina usando o comando a seguir:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 O exemplo está localizado na pasta [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505706"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41920942"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Introdução ao Cofre da Chave do Azure
 Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o orienta quanto às seguintes atividades:
@@ -28,9 +28,6 @@ Este artigo ajuda a começar a usar o Azure Key Vault usando o PowerShell e o or
 - Como um aplicativo pode usar essa chave ou senha.
 
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
-
-> [!NOTE]
-> Este artigo não inclui instruções sobre como gravar um aplicativo do Azure. Você pode usar o [Aplicativo de exemplo do Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) para essas etapas.
 
 Para obter instruções de interface de linha de comando entre diferentes plataformas, consulte [este tutorial equivalente](key-vault-manage-with-cli2.md).
 
@@ -269,7 +266,7 @@ Para alterar a autorização de um aplicativo a fim de usar chaves ou segredos:
 ## <a id="HSM"></a>Trabalhando com um HSM (módulo de segurança de hardware)
 Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete).
 
-Para criar essas chaves protegidas por HSM, você deverá usar a [Camada de serviço Premium do Cofre de Chaves do Azure para dar suporte a chaves protegidas por HSM](https://azure.microsoft.com/pricing/free-trial/). Além disso, observe que essa funcionalidade não está disponível para o Azure China.
+Para criar essas chaves protegidas por HSM, você deverá usar a [Camada de serviço Premium do Cofre de Chaves do Azure para dar suporte a chaves protegidas por HSM](https://azure.microsoft.com/pricing/details/key-vault/). Além disso, observe que essa funcionalidade não está disponível para o Azure China.
 
 Ao criar o cofre de chaves, adicione o parâmetro **-SKU**:
 

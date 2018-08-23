@@ -2,20 +2,20 @@
 title: Artigo de tutorial para recursos de versão prévia do Azure Machine Learning – interface de linha de comando | Microsoft Docs
 description: Este tutorial percorre todas as etapas necessárias para concluir uma classificação de íris de ponta a ponta usando a interface de linha de comando.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920012"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: classificando a íris usando a interface de linha de comando
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -28,7 +28,7 @@ Neste tutorial, você aprenderá a usar as ferramentas da CLI (interface de linh
 > * Promover e registrar um modelo treinado
 > * Implantar um serviço Web para pontuar novos dados
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará:
 - Acesso a uma assinatura do Azure e permissões para criar recursos nessa assinatura. 
   
@@ -252,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 Usando a ID do serviço Web da saída da etapa anterior, chame o serviço Web e teste-o. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

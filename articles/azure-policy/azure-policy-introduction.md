@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364421"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023040"
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -119,19 +119,7 @@ Por exemplo, você pode criar uma lista de opções de valor em uma definição 
 
 ## <a name="maximum-count-of-policy-objects"></a>Contagem máxima de objetos do Policy
 
-Há uma contagem máxima para cada tipo de objeto do Azure Policy. Uma entrada de _Escopo_ significa a assinatura ou o grupo de gerenciamento.
-
-| Where | O que | Contagem máxima |
-|---|---|---|
-| Escopo | Definições de Política | 250 |
-| Escopo | Definições de iniciativa | 100 |
-| Locatário | Definições de iniciativa | 1000 |
-| Escopo | Atribuições de Política/Iniciativa | 100 |
-| Definição de política | parâmetros | 20 |
-| Definição de iniciativa | Políticas | 100 |
-| Definição de iniciativa | parâmetros | 100 |
-| Atribuições de Política/Iniciativa | Exclusões (notScopes) | 100 |
-| Regra de política | Condicionais aninhadas | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Recomendações para o gerenciamento de políticas
 
