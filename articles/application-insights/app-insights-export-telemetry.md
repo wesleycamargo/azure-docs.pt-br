@@ -10,19 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144156"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. Ali, você pode baixar os dados e gravar qualquer código de que você precisa para processá-los.  
-
-Usar a exportação contínua pode incorrer em um custo adicional. Verifique o [modelo de preços](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Antes de configurar a exportação contínua, há algumas alternativas que você talvez queira considerar:
 
@@ -177,7 +176,7 @@ Em escalas maiores, considere usar o [HDInsight](https://azure.microsoft.com/ser
     Não, infelizmente. Nosso mecanismo de exportação funciona apenas com o armazenamento do Azure no momento.  
 * *Há qualquer limite para a quantidade de dados que você coloca em meu repositório?*
 
-    Nº Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.  
+    Não. Continuaremos a enviar dados por push até que você exclua a exportação. Interromperemos o envio se atingirmos os limites externos para o armazenamento de blob, mas são limites enormes. Cabe a você controlar a quantidade de armazenamento que usa.  
 * *Quantos blobs devo ver no armazenamento?*
 
   * Para cada tipo de dados selecionado para exportação, um novo blob é criado a cada minuto (se os dados estiverem disponíveis).

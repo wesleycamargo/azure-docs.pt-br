@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b06ee0c37d52f81db1a3bad6907690619002ef7c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205496"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41929722"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Início Rápido da API de Tradução de Fala da Microsoft com Java 
 <a name="HOLTop"></a>
@@ -277,4 +277,4 @@ Um resultado com êxito é a criação de um arquivo chamado "speak2.wav". O arq
 ## <a name="see-also"></a>Consulte também 
 
 [Visão geral da Tradução de Fala](../overview.md)
-[Referência de API](http://docs.microsofttranslator.com/speech-translate.html)
+[Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

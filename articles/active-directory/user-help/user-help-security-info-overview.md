@@ -11,19 +11,19 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: b2a7ce113b509bb734edb204896f2ee5603e8e80
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 77756a062d02b723444e5cc9e3a45df1f3719378
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389728"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022371"
 ---
 # <a name="security-info-preview-overview"></a>Visão geral das informações de segurança (versão prévia)
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Configure a verificação em duas etapas e informações de redefinição de senha em **Informações de segurança**. Depois de configurar as informações de segurança inicialmente, você não precisará fazê-lo novamente. No entanto, é possível editar as informações e alterar o método padrão a qualquer momento.
 

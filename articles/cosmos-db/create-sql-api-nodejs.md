@@ -2,7 +2,7 @@
 title: 'Azure Cosmos DB: compilar um aplicativo com o Node.js e com a API do SQL | Microsoft Docs'
 description: Apresenta um exemplo de código Node.js que pode ser usado para se conectar e consultar a API do SQL do Azure Cosmos DB
 services: cosmos-db
-author: SnehaGunda
+author: deborahc
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
@@ -10,13 +10,13 @@ ms.custom: quick start connect, mvc
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
-ms.author: sngun
-ms.openlocfilehash: 78aaba91851d118c45d6796a99b704de8e8a3e04
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: dech
+ms.openlocfilehash: fb54d0acba3f0ad2e633f1f32732ef3180e866a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667804"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022513"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-nodejs-and-the-azure-portal"></a>Azure Cosmos DB: compilar um aplicativo de API do SQL com o Node.js e com o Portal do Azure
 
@@ -24,7 +24,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 Este início rápido demonstra como criar uma conta [API do SQL](sql-api-introduction.md) do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, crie e execute um aplicativo de console criado na [API do Node.js do SQL](sql-api-sdk-node.md).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]

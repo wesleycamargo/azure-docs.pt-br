@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c2f70e5404f50f1ea6d4b83e34e6c8ea1d4d8de5
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d73048c9941ff3f0684effba6b913e04ade5c930
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308772"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41929364"
 documentType: LandingData
 title: Documentação do Banco de Dados do Azure Cosmos
 metadata:
@@ -12,14 +12,14 @@ metadata:
   title: Documentação do Azure Cosmos DB - Tutoriais, Referência de API
   description: Saiba como usar o Banco de Dados do Azure Cosmos para criar bancos de dados de vários modelos distribuídos globalmente. Os tutoriais mostram como criar e consultar documentos, chave/valor e bancos de dados do grafo.
   services: cosmos-db
-  author: mimig1
+  author: SnehaGunda
   manager: kfile
   ms.service: cosmos-db
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 04/26/2018
-  ms.author: mimig
+  ms.author: sngun
 abstract:
   description: O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente. Use esses guias de início rápido, tutoriais e exemplos para desenvolver documento, chave-valor, toda a coluna e bancos de dados do grafo usando APIs populares e modelos de programação. Em seguida, saiba como replicar os dados em qualquer número de regiões do Azure e dimensionar a taxa de transferência independente do armazenamento, ao mesmo tempo em que usa SLAs abrangentes.
   aside:
@@ -101,7 +101,7 @@ sections:
       values:
       - href: /azure/cosmos-db/create-sql-api-java
       - href: /azure/cosmos-db/create-sql-api-dotnet
-      - href: /azure/cosmos-db/create-sql-api-nodejs
+      - href: /azure/cosmos-db/create-sql-api-nodejs-preview
       - href: /azure/cosmos-db/create-sql-api-python
       - href: 
       - href: 

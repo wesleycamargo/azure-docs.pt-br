@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324564"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929727"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no Windows Desktop usando o SDK de Fala
 
@@ -55,7 +55,7 @@ No canto superior direito, no campo **Origem do Pacote e**, escolha "Nuget.org".
 Na guia **Procurar**, pesquise o pacote "Microsoft.CognitiveServices.Speech", selecione-o e marque as caixas **Projeto** e **helloworld** à direita e selecione **Instalar** para instalá-lo no projeto helloworld.
 
 > [!NOTE]
-> A versão atual do SDK de Fala dos Serviços Cognitivos é `0.5.0`.
+> A versão atual do SDK de Fala dos Serviços Cognitivos é `0.6.0`.
 
 ![Instalar o pacote NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 

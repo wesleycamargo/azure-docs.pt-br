@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 41513f89838aca2dfabbc19072e973aa12cd0010
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 155aa8ac1ee01ba46297e66763e0c0501ead32e2
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436379"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144744"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Tutorial: integração do Azure Active Directory com o Workfront
 
@@ -117,7 +117,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Workfront](https://www.workfront.com/contact-us/) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Workfront](https://www.workfront.com/services-and-support) para obter esses valores. 
  
 1. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 

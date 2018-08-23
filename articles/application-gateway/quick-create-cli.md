@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 23ab97918d7def744f9ac3427faa3743b15124eb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435257"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022509"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar o tráfego da Web com o Gateway de Aplicativo do Azure – CLI do Azure
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 Você precisa criar uma rede virtual para o gateway de aplicativo conseguir se comunicar com outros recursos. Você pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicativo. Duas sub-redes são criadas neste exemplo: uma para o gateway de aplicativo e a outra para as máquinas virtuais. 
 
-Criar a rede virtual e a sub-rede usando [az network vnet create](/cli/azure/vnet#az-vnet-create). Criar o endereço IP público usando [az network public-ip create](/cli/azure/public-ip#az-public-ip-create).
+Criar a rede virtual e a sub-rede usando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Criar o endereço IP público usando [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Criar o gateway de aplicativo
 
-Crie um gateway de aplicativo usando [az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create). Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. Os endereços IP privados das interfaces de rede são adicionados como servidores no pool de back-end do gateway de aplicativo.
+Crie um gateway de aplicativo usando [az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create). Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. Os endereços IP privados das interfaces de rede são adicionados como servidores no pool de back-end do gateway de aplicativo.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')

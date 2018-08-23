@@ -1,54 +1,62 @@
+items:
 - name: Documentação do Firewall do Azure
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Firewall do Azure?
-      href: overview.md
+  - name: O que é o Firewall do Azure?
+    href: overview.md
 - name: Tutoriais
   items:
-    - name: 1. Implantar e configurar
-      href: tutorial-firewall-deploy-portal.md
-    - name: 2. Logs de diagnóstico do Monitor
-      href: tutorial-diagnostics.md
+  - name: 1. Implantar e configurar
+    href: tutorial-firewall-deploy-portal.md
+  - name: 2. Logs de diagnóstico do Monitor
+    href: tutorial-diagnostics.md
+  expanded: true
 - name: Exemplos
   items:
-    - name: Azure PowerShell
-      href: sample-powershell.md
+  - name: Azure PowerShell
+    href: sample-powershell.md
 - name: Guias de instruções
   items:
-    - name: Inscreva-se para a versão prévia pública
-      href: public-preview.md
-    - name: Implantar usando um modelo
-      href: deploy-template.md
+  - name: Inscreva-se para a versão prévia pública
+    href: public-preview.md
+  - name: Implantar usando um modelo
+    href: deploy-template.md
 - name: Referência
   items:
-    - name: CLI do Azure
-      href: /cli/azure/network
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: .NET
-      href: /dotnet/api
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/firewall
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+  - name: CLI do Azure
+    href: /cli/azure/network
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/firewall
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Recursos
   items:
-    - name: Perguntas frequentes
-      href: firewall-faq.md
-    - name: Modelos de autor
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Modelos da comunidade
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Preços
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Disponibilidade regional
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: Perguntas frequentes
+    href: firewall-faq.md
+  - name: Modelos de autor
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Modelos da comunidade
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Preços
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Disponibilidade regional
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 5b4ec962353e1d948725839dfd3b7ef72f883ee1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41929197"

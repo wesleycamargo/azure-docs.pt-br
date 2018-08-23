@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422409"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144161"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
 > [!NOTE]
@@ -91,10 +91,10 @@ A solução de exemplo é intencionalmente simples. Ela foi projetada para mostr
 Se você não tem uma assinatura do Azure, crie uma conta de avaliação gratuita rapidamente. Para obter mais informações, consulte [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Conta de Armazenamento do Azure
-Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo usa o armazenamento de blobs.
+Use uma conta de armazenamento para armazenar os dados deste tutorial. Se você não tem uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
-Crie uma conta do Lote usando o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Também use o cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para criar uma conta do Lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
+Crie uma conta do Lote usando o [portal do Azure](http://portal.azure.com/). Para obter mais informações, consulte [Criar e gerenciar uma conta do Lote](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote. Também use o cmdlet [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) para criar uma conta do Lote. Para obter instruções sobre como usar esse cmdlet, consulte [Introdução aos cmdlets do PowerShell do Lote](../../batch/batch-powershell-cmdlets-get-started.md).
 
 A solução de exemplo usa o Lote (indiretamente por meio de um pipeline do data factory) para processar dados de forma paralela em um pool de nós de computação (uma coleção gerenciada de VMs).
 

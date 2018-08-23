@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618889"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144155"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](http://azure.github.io/azure-documentdb-js-server/).  
+O objeto de contexto fornece acesso a todas as operações que podem ser realizadas no armazenamento do Cosmos DB, bem como o acesso aos objetos de solicitação e resposta. Nesse caso, você deve usar o objeto de resposta para definir o corpo da resposta que foi enviada ao cliente. Para obter mais informações, consulte a [documentação do SDK do servidor do JavaScript do Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Vamos ampliar esse exemplo e adicionar mais funcionalidades relativas ao banco de dados ao procedimento armazenado. Procedimentos armazenados podem criar, atualizar, ler, consultar e excluir documentos e anexos dentro da coleção.    
 
@@ -591,7 +591,7 @@ Os seguintes constructos do JavaScript não são otimizados pelos índices do Az
 * Fluxo de controle (por exemplo, if, for, while)
 * Chamadas de função
 
-Para saber mais, consulte [Server-Side JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Para saber mais, consulte [Server-Side JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Exemplo: Escrever um procedimento armazenado usando a API de consulta JavaScript
 O exemplo de código a seguir mostra como a API de Consulta JavaScript pode ser usada no contexto de um procedimento armazenado. O procedimento armazenado insere um documento, fornecido por um parâmetro de entrada e atualiza um documento de metadados usando o método `__.filter()` com minSize, maxSize e totalSize baseados na propriedade de tamanho do documento de entrada.
@@ -674,7 +674,7 @@ As descrições a seguir explicam cada consulta na tabela acima.
 
 
 ## <a name="runtime-support"></a>Suporte de tempo de execução
-A [API do lado do servidor de JavaScript](http://azure.github.io/azure-documentdb-js-server/) do Azure Cosmos DB dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme padronizado pelo [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+A [API do lado do servidor de JavaScript](https://azure.github.io/azure-cosmosdb-js-server/) do Azure Cosmos DB dá suporte para a maioria dos principais recursos de linguagem JavaScript conforme padronizado pelo [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Segurança
 Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área restrita para que os efeitos de um script não vazem para o outro sem passar pelo isolamento da transação de captura instantânea no nível do banco de dados. Os ambientes de tempo de execução são colocados em pools, porém, seu contexto é limpo após cada execução. Portanto, sua segurança é garantida e cada um deles está livre de qualquer efeito colateral inesperado advindo do outro.
@@ -683,7 +683,7 @@ Procedimentos armazenados e gatilhos de JavaScript são colocados em uma área r
 Os procedimentos armazenados, gatilhos e UDFs são pré-compilados implicitamente para o formato de código de bytes a fim de evitar o custo de compilação no momento da invocação de cada script. A pré-compilação assegura que a chamada de procedimentos armazenados seja rápida e possua baixa pegada.
 
 ## <a name="client-sdk-support"></a>Suporte de SDK de cliente
-Além da API [Node.js](sql-api-sdk-node.md) do Azure Cosmos DB, o Azure Cosmos DB tem SDKs do [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](http://azure.github.io/azure-documentdb-js/) e [Python](sql-api-sdk-python.md) também para a API do SQL. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
+Além da API [Node.js](sql-api-sdk-node.md) do Azure Cosmos DB, o Azure Cosmos DB tem SDKs do [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript](sql-api-sdk-node.md) e [Python](sql-api-sdk-python.md) também para a API do SQL. Os procedimentos armazenados, gatilhos e UDFs também podem ser criados e executados usando qualquer um desses SDKs. O exemplo a seguir mostra como criar e executar um procedimento armazenado usando o cliente .NET. Observe como os tipos .NET são transferidos para o procedimento armazenado como JSON e lidos novamente.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ Gatilhos, diferentemente dos procedimentos armazenados, não podem ser executado
 Aqui, o pré-gatilho a ser executado com a solicitação é especificado no cabeçalho x-ms-documentdb-pre-trigger-include. Da mesma forma, qualquer pós-gatilho é fornecido no cabeçalho x-ms-documentdb-post-trigger-include. Pré e pós-gatilhos podem ser especificados para uma determinada solicitação.
 
 ## <a name="sample-code"></a>Exemplo de código
-Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) no [repositório GitHub](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+Você pode encontrar mais exemplos de código do lado do servidor (incluindo [bulk-delete](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js) e [update](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) no [repositório GitHub](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Deseja compartilhar o incrível procedimento armazenado? contribuir para o repositório e criar uma solicitação pull! 
 

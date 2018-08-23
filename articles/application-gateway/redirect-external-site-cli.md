@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: b19f3f52340501076d896d1f9f7cc6cb755bdc69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea4fd94a00e1d22021417373da0b3fcffea4d120
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432660"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144724"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicativo com redirecionamento externo usando a CLI do Azure
 
@@ -48,7 +48,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos da rede 
 
-Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
+Criar a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* usando [az network vnet create](/cli/azure/network/vnet#az-net). Crie o endereço IP público denominado *myAGPublicIPAddress* usando [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create). Esses recursos são usados para fornecer conectividade de rede ao gateway de aplicativo e seus recursos associados.
 
 ```azurecli-interactive
 az network vnet create \
@@ -65,7 +65,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway"></a>Criar um Gateway de Aplicativo
 
-Você pode usar [az network application-gateway create](/cli/azure/application-gateway#create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
+Você pode usar [az network application-gateway create](/cli/azure/network/application-gateway#create) para criar o gateway do aplicativo denominado *myAppGateway*. Quando você cria um gateway de aplicativo usando a CLI do Azure, você pode especificar informações de configuração, como configurações de HTTP, sku e capacidade. O gateway de aplicativo é atribuído a *myAGSubnet* e *myPublicIPAddress* que você criou anteriormente. 
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -106,7 +106,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-a-listener-and-routing-rule"></a>Adicionar um ouvinte e uma regra de roteamento
 
-Um ouvinte é necessário para permitir ao gateway de aplicativo rotear o tráfego de maneira adequada. Crie o ouvinte usando [az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create) com a porta de front-end criada com [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create). Uma regra é necessária para que o ouvinte saiba para onde enviar o tráfego de entrada. Crie uma regra básica, denominada *redirectRule*, usando [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create).
+Um ouvinte é necessário para permitir ao gateway de aplicativo rotear o tráfego de maneira adequada. Crie o ouvinte usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway#az-network_application_gateway_http_listener_create) com a porta de front-end criada com [az network application-gateway frontend-port create](/cli/azure/network/application-gateway#az-network_application_gateway_frontend_port_create). Uma regra é necessária para que o ouvinte saiba para onde enviar o tráfego de entrada. Crie uma regra básica, denominada *redirectRule*, usando [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

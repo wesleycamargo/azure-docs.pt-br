@@ -9,18 +9,18 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363843"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41929972"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Chamar ponto de extremidade da Pesquisa Personalizada do Bing (C#)
 
 Este início rápido mostra como solicitar resultados de pesquisa da instância de pesquisa personalizada usando C# para chamar o ponto de extremidade da Pesquisa Personalizada do Bing. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 -  Uma instância de pesquisa personalizada pronta para uso. Consulte [Criar a primeira instância da Pesquisa Personalizada do Bing](quick-start.md).
 -  [.NET Core](https://www.microsoft.com/net/download/core) instalado.
@@ -119,10 +119,12 @@ Para executar esse exemplo, siga estas etapas:
     }
     ```
 6. Compile o aplicativo usando o comando a seguir. Observe o caminho de dll referenciado pela saída do comando.
+
     <pre>
     dotnet build 
     </pre>
 7. Execute o aplicativo usando o comando a seguir substituindo **PATH TO OUTPUT** pelo caminho referido na etapa de compilação.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>

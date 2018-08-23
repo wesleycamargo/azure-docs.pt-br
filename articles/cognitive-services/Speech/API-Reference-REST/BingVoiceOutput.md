@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363730"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929724"
 ---
 # <a name="bing-text-to-speech-api"></a>API de conversão de texto em fala do Bing
 
@@ -234,11 +234,10 @@ hr-HR | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Sp
 hu-HU | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (hu-HU, Szabolcs)”
 id-ID | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (id-ID, Andika)”
 it-IT | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (it-IT, Cosimo, Apollo)”
+it-IT | Feminino | "Conversão de Texto em Fala do Microsoft Server (it-IT, LuciaRUS)"
 ja-JP | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ja-JP, Ayumi, Apollo)”
 ja-JP | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ja-JP, Ichiro, Apollo)”
 ja-JP | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ja-JP, HarukaRUS)”
-ja-JP | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ja-JP, LuciaRUS)”
-ja-JP | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ja-JP, EkaterinaRUS)”
 ko-KR | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ko-KR, HeamiRUS)”
 ms-MY | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ms-MY, Rizwan)”
 nb-NO | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (nb-NO, HuldaRUS)”
@@ -250,6 +249,7 @@ pt-PT | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Spe
 ro-RO | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ro-RO, Andrei)”
 ru-RU | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ru-RU, Irina, Apollo)”
 ru-RU | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (ru-RU, Pavel, Apollo)”
+ru-RU | Feminino | "Conversão de Texto em Fala do Microsoft Server (ru-RU, EkaterinaRUS)"
 sk-SK | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (sk-SK, Filip)”
 sl-SI | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (sl-SI, Lado)”
 sv-SE | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (sv-SE, HedvigRUS)”

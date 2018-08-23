@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 23ea129f4f755f312789f481a05eab9c1a6fd085
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dc255a36e2347aac204f7bd32fe3e9cf25d54b19
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215947"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022650"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Início Rápido: Enviar telemetria de um dispositivo para um Hub IoT, e ler a telemetria do hub com um aplicativo de back-end (Node.js)
 
@@ -29,7 +29,7 @@ O início rápido usa dois aplicativos Node.js previamente escritos, um para env
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os dois exemplos de aplicativo executados neste início rápido são escritos usando o Node.js. Você precisa do Node.js v4.x.x ou posterior em seu computador de desenvolvimento.
 
@@ -71,7 +71,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 1. Você também precisa de uma _cadeia de conexão de serviço_ para permitir que aplicativos de back-end se conectem ao seu hub IoT e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
     Anote a cadeia de conexão de serviço, que se parece com `Hostname=...=`. Você usará esse valor posteriormente no início rápido. A cadeia de conexão do serviço é diferente da cadeia de conexão do dispositivo.
@@ -93,7 +93,7 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
     node SimulatedDevice.js
     ```
 
-    A captura de tela a seguir mostra a saída à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
+    A captura de tela a seguir mostra o resultado à medida que o aplicativo de dispositivo simulado envia telemetria para o seu hub IoT:
 
     ![Executar o dispositivo simulado](media/quickstart-send-telemetry-node/SimulatedDevice.png)
 

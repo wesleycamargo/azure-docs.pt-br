@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363653"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41929695"
 ---
 # <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Tutorial: aplicativo WPF do Microsoft Translator em C#
 
@@ -30,7 +30,7 @@ Este tutorial é um tour de uma ferramenta de conversão de fala interativa que 
 
 Um arquivo de solução do Visual Studio para este aplicativo está [disponível no GitHub](https://github.com/MicrosoftTranslator/SpeechTranslator).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para esse tutorial, você precisa de qualquer edição do Visual Studio 2017, incluindo a Community Edition. 
 
@@ -357,7 +357,7 @@ private void Connect()
 }
 ```
 
-Uma parte significativa do `Connect()` envolve a criação de uma `SpeechClientOptions` instância (consulte `SpeechClientOptions.cs`) para manter as opções de conversão. As opções incluem as informações necessárias para se conectar ao serviço (como chave de autenticação e o nome do host) e os recursos usados para a tradução. Aqui, os campos mapeiam para os campos de cabeçalho e parâmetros HTTP expostos pela [API de Tradução de Fala](http://docs.microsofttranslator.com/speech-translate.html).
+Uma parte significativa do `Connect()` envolve a criação de uma `SpeechClientOptions` instância (consulte `SpeechClientOptions.cs`) para manter as opções de conversão. As opções incluem as informações necessárias para se conectar ao serviço (como chave de autenticação e o nome do host) e os recursos usados para a tradução. Aqui, os campos mapeiam para os campos de cabeçalho e parâmetros HTTP expostos pela [API de Tradução de Fala](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
 `Connect()` também cria e inicializa o dispositivo de entrada de áudio (variável `sampleProvider`) que serve como a fonte de fala a ser traduzida. Este dispositivo é um dispositivo de entrada de hardware, como um microfone, ou um arquivo que contém dados de áudio WAVE.
 
@@ -431,4 +431,4 @@ Os dados binários são áudio (saída de texto em fala) enviado pelo serviço q
 Este exemplo de código é um aplicativo de recursos que demonstra o uso da API de Tradução de Fala Assim, há um número razoável de partes móveis para entender. Você já percorreu os bits mais importantes. Para o restante, é instrutivo definir alguns pontos de interrupção no Visual Studio e percorrer o processo de tradução. Quando você entende o aplicativo de exemplo, você está pronto para usar o serviço de conversor de fala em seus próprios aplicativos.
 
 > [!div class="nextstepaction"]
-> [Referência da API de Tradução de Fala da Microsoft](http://docs.microsofttranslator.com/speech-translate.html)
+> [Referência da API de Tradução de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

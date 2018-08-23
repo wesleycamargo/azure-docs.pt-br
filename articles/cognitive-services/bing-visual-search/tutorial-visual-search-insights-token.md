@@ -9,17 +9,17 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753567"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929811"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutorial: SDK de Pesquisa Visual Bing ImageInsightsToken e resultados
 O SDK de Pesquisa Visual inclui uma opção para encontrar imagens online de uma pesquisa anterior que retorna em `ImageInsightsToken`.  Este exemplo obtém um `ImageInsightsToken` e usa o token em uma pesquisa subsequente.  O código envia o `ImageInsightsToken` para o Bing e retorna os resultados que incluem as URLs de Pesquisa do Bing e URLs de imagens semelhantes encontradas online.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Visual Studio 2017. Se necessário, você pode baixar versão gratuita da comunidade aqui: https://www.visualstudio.com/vs/community/.
 Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma avaliação gratuita. A chave de avaliação é boa para sete dias com uma chamada por segundo. Para cenários de produção, compre uma chave de acesso. Consulte também as informações de preço.
 A habilidade de executar .NET núcleo SDK, aplicativos .net núcleo 1.1. Você consegue pegar CORE, Framework e Runtime aqui: https://www.microsoft.com/net/download/.
@@ -283,4 +283,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Próximas etapas
-[Resposta de Pesquisa Visual](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Resposta de Pesquisa Visual](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb487314b8695f3676fdb22a9d7e3ec5ca3ed9f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363516"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41929742"
 ---
 # <a name="create-video-reviews-using-net"></a>Criar análises de vídeo usando .NET
 
@@ -26,7 +26,7 @@ Este artigo fornece informações e exemplos de código para ajudá-lo a começa
 - Obter o status e os detalhes da análise
 - Publicar a análise
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha [moderado o vídeo (consulte o guia de início rápido)](video-moderation-api.md) e tenha os dados de resposta. Ele é necessário para a criação de análises baseadas em quadro para moderadores humanos.
 
@@ -160,7 +160,7 @@ Crie uma análise de vídeo com **ContentModeratorClient.Reviews.CreateVideoRevi
 
 **CreateVideoReviews** tem os seguintes parâmetros necessários:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json". 
-1. Nome da sua equipe do Content Moderator.
+1. O nome da sua equipe do Content Moderator.
 1. Um objeto **IList<CreateVideoReviewsBodyItem>**. Cada objeto **CreateVideoReviewsBodyItem** representa uma análise de vídeo. Este guia de início rápido cria uma análise de cada vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. Defina, no mínimo, as propriedades a seguir:
@@ -215,7 +215,7 @@ Você pode adicionar quadros de vídeo a uma análise de vídeo com **ContentMod
 
 **AddVideoFrameUrl** tem os seguintes parâmetros necessários:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "application/json".
-1. Nome da sua equipe do Content Moderator.
+1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
 1. Um objeto **IList<VideoFrameBodyItem>**. Cada objeto **VideoFrameBodyItem** representa um quadro de vídeo.
 
@@ -310,7 +310,7 @@ Adicione a seguinte definição de método ao namespace VideoReviews, classe Pro
     {
         Console.WriteLine("Getting frames for the review with ID {0}.", review_id);
 
-        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0, Int32.MaxValue);
+        Frames result = client.Reviews.GetVideoFrames(TeamName, review_id, 0);
         Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
 
         Thread.Sleep(throttleRate);
@@ -343,7 +343,7 @@ Adicione a seguinte definição de método ao namespace VideoReviews, classe Pro
 ## <a name="publish-video-review"></a>Publicar a análise de vídeo
 
 Você pode publicar uma análise de vídeo com **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** tem os seguintes parâmetros necessários:
-1. Nome da sua equipe do Content Moderator.
+1. O nome da sua equipe do Content Moderator.
 1. A ID da análise de vídeo retornada por **CreateVideoReviews**.
 
 Adicione a seguinte definição de método ao namespace VideoReviews, classe Programa.

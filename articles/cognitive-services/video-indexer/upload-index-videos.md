@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390962"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41929927"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -47,15 +47,15 @@ Uma URL DE POSTAGEM para notificar quando a indexação é concluída. O Video I
 
 Também é possível adicionar mais parâmetros à URL antes de postar a chamada no Video Indexer, e esses parâmetros estarão incluídos no retorno de chamada. Posteriormente, em seu código, é possível analisar a cadeia de consulta e obter de volta todos os parâmetros especificados na cadeia de consulta (dados que você tinha originalmente acrescentado à URL mais as informações fornecidas do Video Indexer.) 
 
-### <a name="streamingpereset"></a>streamingPereset
+### <a name="streamingpreset"></a>streamingPreset
 
 Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalmente o vídeo. Em seguida, passe para a indexação e análise do vídeo. Quando o Video Indexer terminar a análise, você receberá uma notificação com a ID do vídeo.  
 
-Ao usar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se você definir `streamingPereset` como `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação será disparado. Depois que os trabalhos de indexação e codificação forem concluídos, o vídeo será publicado para que você também possa transmiti-lo. O Ponto de extremidade de streaming do qual você deseja transmitir o vídeo deve estar no estado **Executando**.
+Ao usar a API [Carregar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Reindexar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), um dos parâmetros opcionais é `streamingPreset`. Se você definir `streamingPreset` como `Default`, `SingleBitrate` ou `AdaptiveBitrate`, o processo de codificação será disparado. Depois que os trabalhos de indexação e codificação forem concluídos, o vídeo será publicado para que você também possa transmiti-lo. O Ponto de extremidade de streaming do qual você deseja transmitir o vídeo deve estar no estado **Executando**.
 
 Para executar trabalhos de indexação e de codificação, a [conta dos Serviços de Mídia do Azure conectada à sua conta do Video Indexer](connect-to-azure.md), requer unidades reservadas. Para obter mais informações, consulte [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) (Colocação em escala do processamento de mídia). Como esses são trabalhos com uso intensivo de computação, o tipo de unidade S3 é altamente recomendável. O número de RUs define o número máximo de trabalhos que podem ser executados em paralelo. A recomendação de linha de base é de 10 RUs de S3. 
 
-Se você apenas deseja indexar seu vídeo, mas não o codificar, defina `streamingPereset` como `NoStreaming`.
+Se você apenas deseja indexar seu vídeo, mas não o codificar, defina `streamingPreset` como `NoStreaming`.
 
 ## <a name="code-sample"></a>Exemplo de código
 

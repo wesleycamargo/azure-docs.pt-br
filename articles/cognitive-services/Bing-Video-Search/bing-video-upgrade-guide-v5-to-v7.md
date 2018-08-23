@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 62646d026e141d0549c68e18f9318fa32d3e00df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363437"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41936755"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Vídeo
 
@@ -25,7 +25,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para a v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0**/videos/search.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -38,17 +38,17 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Os códigos de erro da v5 foram substituídos pelos possíveis valores `code` e `subCode` a seguir.
 
-|Código|SubCode|DESCRIÇÃO
+|Código|Subcódigo|DESCRIÇÃO
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O Bing retorna ServerError sempre que ocorrer qualquer uma das condições de subcódigo. A resposta inclui esses erros se o código de status HTTP for 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retorna InvalidRequest sempre que uma parte da solicitação não é válida. Por exemplo, um parâmetro necessário está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP será 410.
-|RateLimitExceeded||O Bing retorna RateLimitExceeded sempre que você excede a cota de QPS (consultas por segundo) ou QPM (consultas por mês).<br/><br/>O Bing retorna o código de status HTTP 429 se o QPS foi excedido e 403 se o QPM foi excedido.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>Ocorre uma redundância se você especifica mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP é 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O Bing retornará ServerError sempre que ocorrer qualquer uma das condições do subcódigo. A resposta incluirá esses erros se o código de status HTTP for 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP será 410.
+|RateLimitExceeded||O Bing retornará RateLimitExceeded sempre que você exceder a cota de consultas por segundo (QPS) ou consultas por mês (QPM).<br/><br/>O Bing retornará código de status HTTP 429 se QPS exceder, e 403 se QPM exceder.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
-- Os códigos a seguir mapeiam os códigos de erro anteriores para os novos códigos. Se você obteve uma dependência nos códigos de erro da v5, atualize o código de acordo.
+- Os códigos a seguir mapeiam os códigos de erro anteriores para os novos códigos. Se você obteve uma dependência nos códigos de erro da v5, atualize o código adequadamente.
 
-|code da versão 5|code.subCode da versão 7
+|Código da versão 5|Code.subCode da versão 7
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: fae9f0aaa001c233a6687dda5cd5b7c0128ff8b0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b8c1a0a0c4f2b3b33338f1f76245fd4bcb66ad61
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037849"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144738"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU 
 
@@ -42,7 +42,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 
 ### <a name="standard-service-tier"></a>Camada de serviço Standard
 | **Nível de desempenho** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | Número máximo de DTUs | 10 | 20 | 50 | 100 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -53,7 +53,7 @@ Para bancos de dados individuais, as tabelas a seguir mostram os recursos dispon
 
 ### <a name="standard-service-tier-continued"></a>Camada de serviço Standard (continuação)
 | **Nível de desempenho** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | Número máximo de DTUs | 200 | 400 | 800 | 1600 | 3000 |
 | Armazenamento incluído (GB) | 250 | 250 | 250 | 250 | 250 |
 | Opções de espaço de armazenamento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -124,6 +124,7 @@ Um tamanho máximo maior que 1 TB para o banco de dados P11 e P15 tem suporte na
 ## <a name="next-steps"></a>Próximas etapas
 
 - Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) para obter respostas para as perguntas frequentes.
+- Veja [limites de recursos de visão geral do Banco de Dados SQL do Azure](sql-database-resource-limits.md) para obter informações sobre os limites nos níveis de servidor e a assinatura.
 - Para saber mais sobre limites gerais do Azure, confira [Assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).
 - Para saber mais sobre DTUs e eDTUs, confira [DTUs e eDTUs](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Para obter informações sobre limites de tamanho de tempdb, consulte https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

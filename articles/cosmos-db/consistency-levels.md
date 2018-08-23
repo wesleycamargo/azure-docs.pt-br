@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9503759b776bb045c4dc0357b1ab88be1294013
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8d95790dc09f6d26c6ae749ed0cd386053c5cb35
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037892"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144729"
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>Níveis ajustáveis de consistência de dados no Azure Cosmos DB
 O Azure Cosmos DB é projetado desde o início pensando em distribuição global para cada modelo de dados. Ele se destina a oferecer garantias de baixa latência previsíveis e vários modelos de consistência amena bem definidos. Atualmente, o Azure Cosmos DB fornece cinco níveis de consistência: forte, desatualização limitada, sessão, prefixo consistente e eventual. Desatualização limitada, sessão, prefixo consistente e eventual são chamados de "modelos de consistência amena", pois fornecem menos consistência de alta segurança, que é o modelo mais consistente disponível. 
@@ -132,7 +132,7 @@ Se você quiser ler mais sobre níveis de consistência e tradeoffs, recomendamo
 * [Replicated Data Consistency explained through baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
 * [Replicated Data Consistency explained through baseball (whitepaper) by Doug Terry](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 * [Session Guarantees for Weakly Consistent Replicated Data](http://dl.acm.org/citation.cfm?id=383631)
-* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is only part of the story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 * [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf) (PBS (Probabilistic Bounded Staleness) para quóruns parciais práticos)
 * [Eventual Consistent - Revisited](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 * [The Load, Capacity, and Availability of Quorum Systems, SIAM Journal on Computing](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
