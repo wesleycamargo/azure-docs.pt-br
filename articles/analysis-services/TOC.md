@@ -34,6 +34,7 @@
 ### [Configurar um alias de nome de servidor](analysis-services-server-alias.md)
 ### [Configurar a expansão](analysis-services-scale-out.md)
 ### [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)
+### [Usar gateway para fontes de dados em uma Rede Virtual do Azure](analysis-services-vnet-gateway.md)
 ### [Gerenciar um servidor](analysis-services-manage.md)
 ### [Monitorar métricas do servidor](analysis-services-monitor.md)
 ### [Configurar o log de diagnósticos](analysis-services-logging.md)

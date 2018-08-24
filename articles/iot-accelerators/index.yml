@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e901ba81b92a5d7a7454fbfaca96902e1e8008a8
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929196"
 documentType: LandingData
-title: Documentação dos aceleradores de soluções de IoT
+title: Documentação dos Aceleradores de Solução do IoT
 metadata:
   title: Documentação dos aceleradores de soluções de IoT
-  meta.description: Get started quickly building your IoT solutions with the IoT solution accelerators. Add new devices and connect existing ones using device SDKs for multiple platforms, including Linux, Windows, and real-time operating systems. Easily scale from just a few sensors to millions of simultaneously connected devices and rely on the global availability of Azure, no matter how large or small your project.
+  meta.description: Learn how to use the IoT solution accelerators. These articles show you how to use the solution accelerators to kick-start your implementation of common IoT scenarios such as remote monitoring, industrial IoT, predictive maintenance, and device simulation.
   services: iot-accelerators
   author: dominicbetts
   manager: timlt
@@ -11,16 +17,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/19/2018
+  ms.date: 07/24/2018
   ms.author: dobett
-  ms.openlocfilehash: 23eeb56e071eb06d4a740e268c1de29f96dd05d8
-  ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 07/19/2018
-  ms.locfileid: "39143982"
 abstract:
-  description: Comece a criar rapidamente soluções IoT com os aceleradores de solução do IoT. Inclua novos dispositivos e conecte os existentes usando SDKs de dispositivos para diversas plataformas, incluindo Linux, Windows e sistemas operacionais em tempo real. Dimensione com facilidade, desde apenas alguns sensores até milhões de dispositivos conectados simultaneamente, e conte com a disponibilidade global do Azure, não importando o tamanho de seu projeto.
+  description: Saiba como usar os aceleradores de solução do IoT. Esses artigos mostram como usar os aceleradores de solução para iniciar sua implementação de cenários de IoT comuns, como monitoramento remoto, IoT industrial, manutenção preditiva e simulação de dispositivos.
 sections:
 - title: Guia de início rápido de 5 minutos
   items:

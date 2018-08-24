@@ -1,51 +1,60 @@
+items:
 - name: Terraform na Documentação do Azure
   href: index.yml
 - name: Visão geral
   items:
-    - name: Sobre o Terraform no Azure
-      href: terraform-overview.md
+  - name: Sobre o Terraform no Azure
+    href: terraform-overview.md
 - name: Guia de início rápido
-  expanded: true
   items:
-    - name: Instalar e configurar o Terraform
-      href: /azure/virtual-machines/linux/terraform-install-configure
-      maintainContext: true
-    - name: Criar uma VM do Linux
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
-      maintainContext: true
+  - name: Instalar e configurar o Terraform
+    href: /azure/virtual-machines/linux/terraform-install-configure
+    maintainContext: true
+  - name: Criar uma VM do Linux
+    href: /azure/virtual-machines/linux/terraform-create-complete-vm
+    maintainContext: true
+  expanded: true
 - name: Tutoriais
   items:
-    - name: Criar um cluster Kubernetes com AKS e Terraform
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Slots de implantação dos provedores Terraform e Azure
-      href: terraform-slot-walkthru.md
-    - name: Criar uma VM Terraform com MSI habilitada
-      href: terraform-vm-msi.md
-    - name: Criar um cluster de VMs com módulos do Terraform
-      href: terraform-create-vm-cluster-module.md
-    - name: Criar um cluster de VMs com Terraform e HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Provisionar conjunto de dimensionamento de VMs com infraestrutura
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Provisionar conjunto de dimensionamento de Máquina Virtual de uma imagem personalizada do Packer
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Criar um cluster Kubernetes com AKS e Terraform
+    href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Slots de implantação dos provedores Terraform e Azure
+    href: terraform-slot-walkthru.md
+  - name: Criar uma VM Terraform com MSI habilitada
+    href: terraform-vm-msi.md
+  - name: Criar um cluster de VMs com módulos do Terraform
+    href: terraform-create-vm-cluster-module.md
+  - name: Criar um cluster de VMs com Terraform e HCL
+    href: terraform-create-vm-cluster-with-infrastructure.md
+  - name: Provisionar conjunto de dimensionamento de VMs com infraestrutura
+    href: terraform-create-vm-scaleset-network-disks-hcl.md
+  - name: Provisionar conjunto de dimensionamento de Máquina Virtual de uma imagem personalizada do Packer
+    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Conceitos
   items:
-    - name: Integração do Cloud Shell
-      href: terraform-cloud-shell.md
+  - name: Integração do Cloud Shell
+    href: terraform-cloud-shell.md
 - name: Exemplos
   items:
-    - name: Modelos de configuração
-      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+  - name: Modelos de configuração
+    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Referência
   items:
-    - name: Registro do módulo do Azure
-      href: 'https://registry.terraform.io/modules/Azure'
-    - name: Referência do Terraform
-      href: 'http://aka.ms/terraform'
+  - name: Registro do módulo do Azure
+    href: https://registry.terraform.io/modules/Azure
+  - name: Referência do Terraform
+    href: http://aka.ms/terraform
+  - name: Extensão do VS Code do Azure Terraform
+    href: terraform-vscode-extension.md
 - name: Recursos
   items:
-    - name: Azure e Terraform
-      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+  - name: Azure e Terraform
+    href: https://azure.microsoft.com/solutions/devops/terraform/
+  - name: Roteiro do Azure
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41927024"

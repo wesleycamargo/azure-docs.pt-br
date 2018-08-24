@@ -74,9 +74,9 @@
 #### [Controle de versão de cliente e servidor](app-service-mobile-client-and-server-versioning.md)
 
 ### Ambiente do Serviço de Aplicativo
-#### [Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Como criar um ASE ILB usando modelos do Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Usar um balanceador de carga interno](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Criar um aplicativo Web em um Ambiente de Serviço de Aplicativo](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Criar e usar um balanceador de carga interno](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Criar um ASE usando um modelo](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Implantar
 ### [Implantação de sincronização da nuvem](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
