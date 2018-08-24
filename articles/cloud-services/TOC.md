@@ -71,7 +71,7 @@
 #### [PowerShell do Azure](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
-### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json )
+### [Armazenar e exibir dados de diagnóstico no Armazenamento do Azure](cloud-services-dotnet-diagnostics-storage.md)
 ### [Rastrear um Serviço de Nuvem com o Diagnóstico](cloud-services-dotnet-diagnostics-trace-flow.md)
 
 ## Solucionar problemas
