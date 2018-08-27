@@ -18,7 +18,7 @@ ms.locfileid: "39324248"
 ---
 # <a name="about-the-text-to-speech-api"></a>API de Conversão de Texto em Fala
 
-Na API de TTS **(Conversão de Texto em Fala)** o serviço do Speech converte texto de entrada em fala de som natural (também nomeada *	sintetização de voz*).
+Na API de TTS **(Conversão de Texto em Fala)** o serviço do Speech converte texto de entrada em fala de som natural (também nomeada *sintetização de voz*).
 
 Para gerar fala, o aplicativo envia solicitações HTTP POST para o serviço do Speech. Lá, o texto é sintetizado em voz humana e retornado como um arquivo de áudio. Há suporte para uma variedade de vozes e idiomas.
 
