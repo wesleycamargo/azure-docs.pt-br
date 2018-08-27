@@ -1,6 +1,6 @@
 ---
-title: Validar os certificados de infraestrutura de chave pública do Azure pilha para implantação de sistemas de pilha do Azure integradas | Microsoft Docs
-description: Descreve como validar os certificados PKI de pilha do Azure para sistemas de pilha do Azure integradas. Aborda como usar o verificador de certificado de pilha do Azure.
+title: Validar certificados de infraestrutura de chave pública do Azure Stack para implantação de sistemas integrados do Azure Stack | Microsoft Docs
+description: Descreve como validar os certificados PKI de pilha do Azure para sistemas integrados do Azure Stack. Aborda como usar o verificador de certificado do Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,62 +15,62 @@ ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605603"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917076"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Validar certificados PKI de pilha do Azure
 
-A ferramenta do verificador de preparação do Azure pilha descrita neste artigo está disponível [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). Você pode usar a ferramenta para validar que o [gerado certificados PKI](azure-stack-get-pki-certs.md) são adequadas para antes da implantação. Você deve validar certificados deixando tempo suficiente para testar e emitir novamente os certificados, se necessário.
+A ferramenta de verificador de preparação do Azure Stack descrita neste artigo está disponível [da Galeria do PowerShell](https://aka.ms/AzsReadinessChecker). Você pode usar a ferramenta para validar que o [gerados certificados PKI](azure-stack-get-pki-certs.md) são adequadas para antes da implantação. Você deve validar certificados por deixar tempo suficiente para testar e emitir novamente os certificados, se necessário.
 
-O verificador de preparação executa as validações de certificado a seguir:
+A ferramenta de verificação de preparação executa as validações de certificado a seguir:
 
 - **Ler PFX**  
-    Verifica o arquivo PFX, senha correta e avisa se informações públicas não estão protegidas por senha. 
+    Verifica se há um arquivo PFX válido senha correta e avisa se informações públicas não são protegidas por senha. 
 - **Algoritmo de assinatura**  
     Verifica se o algoritmo de assinatura não é SHA1.
 - **Chave privada**  
     Verifica se a chave privada está presente e é exportada com o atributo do computador local. 
 - **Cadeia de certificados**  
-    Verificações de cadeia de certificados está intacta incluindo uma verificação para certificados autoassinados.
-- **Nomes de DNS**  
-    Verifica a SAN contém nomes DNS relevantes para cada ponto de extremidade, ou se um suporte curinga está presente.
+    Verificações de cadeia de certificados está intacta, incluindo uma verificação para os certificados autoassinados.
+- **Nomes DNS**  
+    Verifica a SAN contém nomes DNS relevantes para cada ponto de extremidade, ou se a dar suporte a curinga está presente.
 - **Uso de chave**  
-    Verifica se o uso da chave contém a assinatura digital e a codificação de chave e uso avançado de chave contém a autenticação do servidor e autenticação de cliente.
+    Verifica se o uso da chave contém assinatura digital e codificação de chave e o uso avançado de chave contém a autenticação do servidor e autenticação de cliente.
 - **Tamanho da chave**  
-    Verifica se o tamanho da chave é de 2.048 ou maior.
+    Verifica se o tamanho da chave é de 2048 ou superior.
 - **Ordem da cadeia**  
-    Verifica a ordem dos certificados validar que a ordem é correta.
+    Verifica a ordem dos certificados validando se o pedido está correto.
 - **Outros certificados**  
-    Certifique-se de que não há outros certificados foram agrupados em PFX que não seja o certificado de folha relevantes e sua cadeia.
+    Certifique-se de que nenhum outro certificado foram empacotado em PFX que não seja o certificado de folha relevantes e sua cadeia.
 - **Nenhum perfil**  
-    Verifica que um novo usuário pode carregar os dados PFX sem um perfil de usuário carregado, imitando o comportamento de gMSA contas durante a manutenção do certificado.
+    Verifica que um novo usuário pode carregar os dados PFX sem um perfil de usuário carregado, imitando o comportamento de contas gMSA durante a manutenção do certificado.
 
 > [!IMPORTANT]  
 > O certificado PKI é um arquivo PFX e senha deve ser tratada como informações confidenciais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O sistema deve atender aos seguintes pré-requisitos antes de validar os certificados PKI para uma implantação de pilha do Azure:
+O sistema deve atender aos seguintes pré-requisitos antes de validar os certificados PKI para uma implantação do Azure Stack:
 
-- Verificador de preparação de pilha do Microsoft Azure
-- Certificado SSL exportado seguindo o [instruções de preparação](azure-stack-prepare-pki-certs.md)
+- Verificador de preparação do Microsoft Azure Stack
+- Certificados SSL exportado seguindo o [instruções de preparação](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 ou Windows Server 2016
 
-## <a name="perform-core-services-certificate-validation"></a>Executar a validação do certificado de serviços de núcleo
+## <a name="perform-core-services-certificate-validation"></a>Executar a validação de certificado do core services
 
-Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure para a implantação e a rotação de segredo:
+Use estas etapas para preparar e validar os certificados PKI de pilha do Azure para a implantação e a rotação do segredo:
 
-1. Instalar **AzsReadinessChecker** de um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
+1. Instale **AzsReadinessChecker** em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
     ````PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
-2. Crie a estrutura de diretórios do certificado. No exemplo a seguir, você pode alterar `<c:\certificates>` para um novo caminho de diretório de sua escolha.
+2. Crie a estrutura de diretório de certificado. No exemplo a seguir, você pode alterar `<c:\certificates>` para um novo caminho de diretório de sua escolha.
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
@@ -83,14 +83,14 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure 
     ````
     
     > [!Note]  
-    > O AD FS e gráfico são necessários se você estiver usando o AD FS como seu sistema de identidade.
+    > AD FS e o gráfico serão necessárias se você estiver usando o AD FS como seu sistema de identidade.
     
-     - Coloque seu certificado nas pastas apropriadas criadas na etapa anterior. Por exemplo:   
+     - Coloque os certificados nos diretórios apropriados criados na etapa anterior. Por exemplo:   
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
-3. Na janela do PowerShell, altere os valores de **RegionName** e **FQDN** apropriado para o ambiente de pilha do Azure e execute o seguinte:
+3. Na janela do PowerShell, altere os valores das **RegionName** e **FQDN** apropriado ao ambiente do Azure Stack e execute o seguinte:
 
     ````PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -99,7 +99,7 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure 
 
     ````
 
-4. Verifique a saída e todos os certificados passarem em todos os testes. Por exemplo: 
+4. Verifique a saída e todos os certificados passarem todos os testes. Por exemplo: 
 
     ````PowerShell
     AzsReadinessChecker v1.1803.405.3 started
@@ -140,9 +140,9 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure 
 
 **Sintoma**: testes são ignorados
 
-**Causa**: AzsReadinessChecker ignorará certos testes se uma dependência não for atendida:
+**Causa**: AzsReadinessChecker ignora determinados testes se uma dependência não for atendida:
 
- - Outros certificados são ignorados se falhar de cadeia de certificados.
+ - Outros certificados serão ignorados se a cadeia de certificados falhará.
 
     ````PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
@@ -167,19 +167,19 @@ Siga estas etapas para preparar e validar os certificados PKI de pilha do Azure 
     AzsReadinessChecker Completed
     ````
 
-**Resolução**: siga a orientação da ferramenta na seção de detalhes em cada conjunto de testes para cada certificado.
+**Resolução**: siga as diretrizes da ferramenta na seção de detalhes em cada conjunto de testes para cada certificado.
 
-## <a name="perform-platform-as-a-service-certificate-validation"></a>Executar plataforma como uma validação de certificado de serviço
+## <a name="perform-platform-as-a-service-certificate-validation"></a>Executar a plataforma como uma validação de certificado de serviço
 
-Use estas etapas para preparar e validar os certificados PKI de pilha do Azure para plataforma como certificados de serviço (PaaS), se planejados implantações de SQL/MySQL ou serviços de aplicativos.
+Use estas etapas para preparar e validar os certificados PKI de pilha do Azure para plataforma como um certificados de serviço (PaaS), se as implantações de SQL/MySQL ou serviços de aplicativos são planejadas.
 
-1.  Instalar **AzsReadinessChecker** de um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
+1.  Instale **AzsReadinessChecker** em um prompt do PowerShell (5.1 ou superior), executando o seguinte cmdlet:
 
     ````PowerShell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
     ````
 
-2.  Crie uma tabela de hash aninhada que contêm caminhos e uma senha para cada certificado de PaaS necessidade da validação. Na janela do PowerShell que execute:
+2.  Crie uma tabela de hash aninhada que contêm caminhos e a senha para cada certificado de PaaS que precisam de validação. Na janela do PowerShell execute:
 
     ```PowerShell
         $PaaSCertificates = @{
@@ -191,7 +191,7 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
         }
     ```
 
-3.  Alterar os valores de **RegionName** e **FQDN** para coincidir com seu ambiente de pilha do Azure para iniciar a validação. Em seguida, execute:
+3.  Altere os valores das **RegionName** e **FQDN** para corresponder ao seu ambiente do Azure Stack para iniciar a validação. Em seguida, execute:
 
     ```PowerShell
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
@@ -245,11 +245,11 @@ Use estas etapas para preparar e validar os certificados PKI de pilha do Azure p
 
 ## <a name="using-validated-certificates"></a>Usando certificados validados
 
-Depois que os certificados foram validados pelo AzsReadinessChecker, você está pronto para usá-los em sua implantação do Azure pilha ou para rotação de segredo de pilha do Azure. 
+Depois que os certificados foram validados pela AzsReadinessChecker, você está pronto para usá-los em sua implantação do Azure Stack ou para a rotação do segredo do Azure Stack. 
 
- - Para implantação, transfira com segurança seus certificados para seu engenheiro de implantação para que eles podem ser copiada para o host de implantação como especificado no [documentação de requisitos de PKI de pilha do Azure](azure-stack-pki-certs.md).
- - Para rotação secreta, você pode usar os certificados para atualizar certificados antigos para pontos de extremidade de infraestrutura pública do seu ambiente de pilha do Azure seguindo o [documentação de rotação de segredo do Azure pilha](azure-stack-rotate-secrets.md).
- - Para serviços de PaaS, você pode usar os certificados para instalar o SQL, MySQL e provedores de recursos de serviços de aplicativo na pilha do Azure seguindo o [visão geral da oferta de serviços na documentação do Azure pilha](azure-stack-offer-services-overview.md).
+ - Para a implantação, transfira com segurança seus certificados ao seu engenheiro de implantação para que eles podem ser copiada para o host de implantação conforme especificado na [documentação de requisitos do Azure Stack PKI](azure-stack-pki-certs.md).
+ - Para rotação do segredo, você pode usar os certificados para atualizar o antigos certificados para pontos de extremidade de infraestrutura pública do seu ambiente do Azure Stack, seguindo a [documentação do Azure Stack segredo rotação](azure-stack-rotate-secrets.md).
+ - Para serviços de PaaS, você pode usar os certificados para instalar o SQL, MySQL e provedores de recursos de serviços de aplicativo no Azure Stack, seguindo a [visão geral da oferta de serviços na documentação do Azure Stack](azure-stack-offer-services-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
