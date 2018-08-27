@@ -47,7 +47,7 @@ Cache de Armazenamento Premium: com suporte
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 8 / 28.000                                     |
 | Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 8 / 30,000                                     |
 
-<sup>1</sup> *A tecnologia Intel® Hyper-Threading da VM série Fsv2
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Fsv2
 
 <sup>2</sup> Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 ou Oracle Linux 7.3 com LIS 4.2.1
 
