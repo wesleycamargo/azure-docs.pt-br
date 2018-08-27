@@ -108,7 +108,7 @@ Para acessar os serviços dos Mapas, basta navegar até o [portal do Azure](http
 Os Mapas do Azure usam um esquema de autenticação baseado em chave. Sua conta é fornecida com duas chaves geradas previamente para você. Comece integrando esses recursos de localização diretamente em seus aplicativos usando qualquer uma de suas chaves nas solicitações para o serviço dos Mapas do Azure.
 
 ## <a name="supported-regions"></a>Regiões com suporte
-Atualmente, a API dos Mapas do Azure não está disponível em alguns países, exceto os seguintes: 
+Atualmente, a API dos Mapas do Azure está disponível em todos os países, exceto nos seguintes: 
 
 * Argentina
 * China
