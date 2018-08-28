@@ -1,5 +1,5 @@
 ---
-title: Este início rápido mostra como provisionar um dispositivo simulado TPM no Hub IoT do Azure usando C | Microsoft Docs
+title: Provisionar um dispositivo simulado TPM no Hub IoT do Azure usando C | Microsoft Docs
 description: Neste início rápido, você criará e provisionará um dispositivo TPM simulado usando o SDK do dispositivo C para o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091458"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023720"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Início Rápido: Provisionar um dispositivo TPM simulado usando o SDK de C do IoT do Azure
 
@@ -46,7 +46,7 @@ Nesta seção, você preparará um ambiente de desenvolvimento usado para compil
     True
     ```
 
-    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos, e verificação do download, instale o sistema de compilação CMake.
+    É importante que os pré-requisitos do Visual Studio (Visual Studio e a carga de trabalho de "Desenvolvimento para Desktop com C++") estejam instalados em seu computador, **antes** da instalação de `CMake`. Após a instalação dos pré-requisitos e verificação do download, instale o sistema de compilação CMake.
 
 2. Abra um prompt de comando ou o shell Bash do Git. Execute o seguinte comando para clonar o repositório do GitHub [SDK de C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c):
     
@@ -147,7 +147,7 @@ Nesta seção, você configurará o exemplo de código para usar o [AMQP (Advanc
 
 1. No Portal do Azure, selecione a guia **Visão Geral** do Serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_**.
 
-    ![Extrair informações de ponto de extremidade do DPS no portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo do portal](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. Na janela *Gerenciador de Soluções* do Visual Studio, navegue até a pasta **Provisionar\_Exemplos**. Expanda o projeto de exemplo chamado **prov\_dev\_client\_sample**. Expanda **Arquivos de Origem** e abra **prov\_dev\_client\_sample.c**.
 

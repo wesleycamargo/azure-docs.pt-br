@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: e1f55b26e7e9f76ae4bc3f6d4af98c8110c3d37a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3004e2e4db12b7b5beb7ab024562d4e285c99a50
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399967"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40237163"
 ---
 |  |
 |--|
-|A Identidade de Serviço Gerenciada é a versão prévia pública de um recurso do Azure Active Directory. Examine os [problemas conhecidos](/azure/active-directory/managed-service-identity/known-issues) antes de começar. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|A Identidade de Serviço Gerenciada é um recurso do Azure Active Directory. Cada um dos [serviços do Azure que dão suporte à identidade de serviço gerenciada](/azure/active-directory/managed-service-identity/services-support-msi) estão sujeitos à própria linha do tempo. Não deixe de examinar o status de [disponibilidade](/azure/active-directory/managed-service-identity/services-support-msi) das identidades gerenciadas do seu recurso e os [problemas conhecidos](/azure/active-directory/managed-service-identity/known-issues) antes de começar.|
 |  |

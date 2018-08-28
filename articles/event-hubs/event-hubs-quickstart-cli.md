@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure - Processar fluxos de eventos usando a CLI do Azure | Microsoft Docs
-description: Neste início rápido, você aprenderá como processar fluxos de eventos usando a CLI do Azure.
+title: Início Rápido do Azure - Criar um hub de eventos usando a CLI do Azure | Microsoft Docs
+description: Este início rápido descreve como criar um hub de eventos usando a CLI do Azure e, em seguida, enviar e receber eventos usando Java.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 0607c9a65febdb5890eb49808a0fcef582deb37e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004555"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022654"
 ---
-# <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Início rápido: Processar fluxos de eventos do processo usando a CLI do Azure e Java
+# <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Início Rápido: criar um hub de eventos usando a CLI do Azure
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente escalonável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar recursos de Hubs de Eventos usando a CLI do Azure, em seguida, enviar e receber fluxos de eventos de um hub de eventos usando código Java.
 

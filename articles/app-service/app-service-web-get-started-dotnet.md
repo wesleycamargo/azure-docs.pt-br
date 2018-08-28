@@ -1,6 +1,6 @@
 ---
-title: Como criar um aplicativo Web ASP.NET Core no Azure | Microsoft Docs
-description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure com a implantação do aplicativo Web do ASP.NET padrão.
+title: Criar um aplicativo Web ASP.NET Core no C# | Microsoft Docs
+description: Saiba como executar aplicativos Web no Serviço de Aplicativo do Azure com a implantação do aplicativo Web do ASP.NET no C# padrão.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432048"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -35,17 +36,13 @@ Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
-* Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com as cargas de trabalho a seguir:
-    - **Desenvolvimento Web e do ASP.NET**
-    - **Desenvolvimento do Azure**
+Instalar o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho **ASP.NET e desenvolvimento Web**.
 
-    ![ASP.NET, desenvolvimento Web e desenvolvimento do Azure (na Web e na nuvem)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Se você já instalou o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
+Se você já instalou o Visual Studio, adicione a carga de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Recursos**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar um aplicativo Web ASP.NET Core
 
@@ -62,10 +59,6 @@ Você pode implantar qualquer tipo de aplicativo Web ASP.NET Core no Azure. Para
 Selecione **OK**.
 
 ![Caixa de diálogo Novo Projeto ASP .NET](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Após a criação do projeto do ASP.NET Core, a página de boas-vinda do ASP.NET Core será exibida fornecendo vários links para recursos que o ajudarão a começar. 
-
-![Página de boas-vindas](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 No menu, selecione **Depurar > Iniciar sem depuração** para executar o aplicativo Web localmente.
 
@@ -85,11 +78,10 @@ Isso abre a caixa de diálogo **Criar Serviço de Aplicativo**, que ajuda a cria
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Na caixa de diálogo **Criar Serviço de Aplicativo**, selecione **Adicionar uma conta** e entre com sua assinatura do Azure. Se você já estiver conectado, selecione a conta que contém a assinatura desejada na lista suspensa.
+Na caixa de diálogo **Criar Serviço de Aplicativo**, clique em **Adicionar uma conta** e faça logon em sua assinatura do Azure. Se você já estiver conectado, selecione a conta que contém a assinatura desejada na lista suspensa.
 
 > [!NOTE]
 > Se você já estiver conectado, não selecione **Criar** ainda.
->
 >
    
 ![Entrar no Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -151,7 +143,8 @@ Encontre o rótulo HTML `<div id="myCarousel" class="carousel slide" data-ride="
 
 Para implantar novamente no Azure, clique com o botão direito do mouse no projeto **myFirstAzureWebApp**, no **Gerenciador de Soluções** e selecione **Publicar**.
 
-Na página de publicação, selecione **Publicar**.
+Na página de resumo da publicação, selecione **Publicar**.
+![Página de resumo da publicação do Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Quando a publicação está concluída, o Visual Studio inicia um navegador para a URL do aplicativo Web.
 

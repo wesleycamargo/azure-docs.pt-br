@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582294"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924723"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Tutorial: implantar aplicativo Web do Registro de Contêiner do Azure
 
@@ -42,11 +42,13 @@ Nesta etapa, você cria uma instância de Aplicativo Web para Contêineres na re
 
 Entre no [portal do Azure](https://portal.azure.com) e navegue até o registro que você criou no tutorial anterior.
 
-Selecione **Repositórios** > **acr-helloworld**, clique com o botão direito do mouse na marca **v1** em **Marcas** e selecione **Implantar no aplicativo Web**.
+Selecione **Repositórios** > **acr-helloworld**, clique com o botão direito do mouse na marca **v1** em **Marcas** e selecione **Implantar no aplicativo Web**:
 
 ![Implantar no serviço de aplicativo no portal do Azure][deploy-app-portal-01]
 
-No **Aplicativo Web para Contêineres** exibido, especifique os seguintes valores para cada configuração:
+Se "Implantar no aplicativo Web" estiver desabilitada, talvez você não tenha habilitado o usuário de administrador de Registro, conforme indicado em [Criar um registro de contêiner](container-registry-tutorial-prepare-registry.md#create-a-container-registry) no primeiro tutorial. Você pode habilitar o usuário administrador em **Configurações** > **Chaves de acesso** no portal do Azure.
+
+No **Aplicativo Web para Contêineres** exibido após a seleção de "Implantar no aplicativo Web", especifique os seguintes valores para cada configuração:
 
 | Configuração | Valor |
 |---|---|

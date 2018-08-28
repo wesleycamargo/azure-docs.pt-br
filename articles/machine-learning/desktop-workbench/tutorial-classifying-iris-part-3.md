@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445529"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919099"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Tutorial 3: Classificar Iris – implantar um modelo
 O Azure Machine Learning (versão prévia) é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais. Os cientistas de dados podem usá-los para preparar dados, desenvolver experimentos e implantar modelos em escala de nuvem.
@@ -247,7 +247,7 @@ Agora você está pronto para criar o serviço Web em tempo real.
    >[!IMPORTANT]
    >O nome do serviço, que também é o novo nome de imagem do Docker, deverá ser composto somente de letras minúsculas. Caso contrário, você obterá um erro. 
 
-1. Quando você executar o comando, o modelo e o arquivo de pontuação serão carregados para a conta de armazenamento que você criou como parte da configuração do ambiente. O processo de implantação cria uma imagem do Docker com o modelo, o esquema e o arquivo de pontuação e envia-o por push para o registro de contêiner do Azure: **\<ACR_name\>.azureacr.io/\<imagename\>:\<version\>**. 
+1. Quando você executar o comando, o modelo e o arquivo de pontuação serão carregados para a conta de armazenamento que você criou como parte da configuração do ambiente. O processo de implantação cria uma imagem do Docker com o modelo, o esquema e o arquivo de pontuação e envia-o por push para o registro de contêiner do Azure: **\<ACR_name\>.azurecr.io/\<imagename\>:\<version\>**. 
 
    O comando efetua pull dessa imagem localmente para seu computador e inicia um contêiner do Docker com base nessa imagem. Se seu ambiente estiver configurado no modo de cluster, o contêiner do Docker será implantado no cluster Kubernetes dos Serviços de Nuvem do Azure em vez disso.
 
@@ -313,7 +313,7 @@ Para testar o serviço Web **irisapp** em execução, use um registro codificado
 1. Para testar o serviço, execute o comando de execução de serviço retornado:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    A saída é **“Iris-setosa”**, que é a classe prevista. (O seu resultado pode ser diferente.) 

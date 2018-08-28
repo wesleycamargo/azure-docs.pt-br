@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145529"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918043"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar recursos de nuvem para provisionamento de dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -48,7 +48,7 @@ Siga estas etapas para criar uma nova instância do Serviço de Provisionamento 
    | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Localidade** | Qualquer local válido | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |   
 
-   ![Inserir as informações básicas sobre seu DPS no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Inserir as informações básicas sobre seu serviço Provisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Clique em **Criar**. Após alguns instantes, a instância do serviço de provisionamento do dispositivo é criada e a página **Visão geral** é exibida.
 6. Na página **Visão geral** para a nova instância de serviço, copie o valor para o **escopo da ID** para uso posterior. Esse valor é usado para identificar as IDs de registro e fornece uma garantia de que a ID do registro é exclusiva.
@@ -71,7 +71,7 @@ A próxima etapa é vincular o Serviço de Provisionamento de Dispositivos e o H
     * **Hub IoT:** Escolha o nome do Hub IoT que você deseja vincular a essa instância de serviço de provisionamento do dispositivo.
     * **Política de acesso:** Selecione **iothubowner** como as credenciais para estabelecer o link com o Hub IoT.
 
-   ![Vincular o nome do Hub a ser vinculado à instância do DPS no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Vincular o nome do hub para vincular ao serviço Provisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Definir a política de alocação no Serviço de Provisionamento de Dispositivos
 

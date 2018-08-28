@@ -7,15 +7,15 @@ manager: shivamg
 keywords: backup do windows server; fazer backup do windows server; backup e recuperação de desastre
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609011"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616182"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -29,9 +29,9 @@ Você pode usar o Backup do Azure para proteger seu Windows Server de corrupçõ
 > * Executar um backup ad hoc
 
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em http://portal.azure.com.
+Entre no Portal do Azure em http://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -41,11 +41,11 @@ Antes que possa fazer backup do Windows Server, você deverá criar um local par
 
    ![Abra o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
+2. No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
 
    ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  No menu **Cofre dos Serviços de Recuperação**,
+3. No menu **Cofre dos Serviços de Recuperação**,
 
     - Digite *myRecoveryServicesVault* em **Nome**.
     - A ID da assinatura atual aparecerá em **Assinatura**.
@@ -59,27 +59,28 @@ Depois que o cofre é criado, ele aparece na lista de cofres dos Serviços de Re
 
 O Agente MARS (Serviços de Recuperação do Microsoft Azure) cria uma associação entre o Windows Server e o seu Cofre dos Serviços de Recuperação. O procedimento a seguir explica como baixar o agente em seu servidor.
 
-1.  Na lista de Cofres dos Serviços de Recuperação, selecione **myRecoveryServicesVault** para abrir seu painel.
+1. Na lista de Cofres dos Serviços de Recuperação, selecione **myRecoveryServicesVault** para abrir seu painel.
 
    ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  No menu do painel do cofre, clique em **Backup**.
+2. No menu do painel do cofre, clique em **Backup**.
 
-3.  No menu **Meta de Backup**:
+3. No menu **Meta de Backup**:
 
-    - Em **Onde sua carga de trabalho é executada?**, selecione **Localmente**, 
-    - Em **Do que você deseja fazer backup?**, selecione **Arquivos e pastas** e **Estado do Sistema** 
+   * em **Onde sua carga de trabalho é executada?**, selecione **Localmente**, 
+   * Em **Do que você deseja fazer backup?**, selecione **Arquivos e pastas** e **Estado do Sistema**
 
-    ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  Clique em **Preparar Infraestrutura** para abrir o menu **Preparar Infraestrutura**.
-5.  No menu **Preparar infraestrutura**, clique em **Baixar agente do Windows Server ou do Windows Client** para baixar o *MARSAgentInstaller.exe*. 
+   ![Forneça informações para o cofre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Clique em **Preparar Infraestrutura** para abrir o menu **Preparar Infraestrutura**.
+
+5. No menu **Preparar infraestrutura**, clique em **Baixar agente do Windows Server ou do Windows Client** para baixar o *MARSAgentInstaller.exe*. 
 
     ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     O instalador abrirá um navegador separado e baixará o **MARSAgentInstaller.exe**.
  
-6.  Antes de executar o arquivo baixado, clique no botão **Baixar** na folha Preparar Infraestrutura para baixar e salvar o arquivo **Credenciais do Cofre**. Esse arquivo é necessário para conectar o Agente MARS com o Cofre dos Serviços de Recuperação.
+6. Antes de executar o arquivo baixado, no menu de Preparar infraestrutura, clique em **Baixar** e salve o arquivo **Credenciais do Cofre**. As credenciais do cofre são necessárias para conectar o Agente MARS com o cofre dos Serviços de Recuperação.
 
     ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ Você pode usar o Agente de Serviços de Recuperação do Microsoft Azure para a
 
 5. Clique em **Próximo**.
 
-6. Na página **Especificar Agendamento de Backup (Estado do Sistema)**, especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar** 
+6. Na página **Especificar Agendamento de Backup (Estado do Sistema)**, especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar**.
 
-7.  Na página **Selecionar Política de Retenção (Estado do Sistema)**, selecione a Política de Retenção para a cópia de backup do Estado do Sistema e clique em **Avançar**
+7. Na página **Selecionar Política de Retenção (Estado do Sistema)**, selecione a Política de Retenção para a cópia de backup do Estado do Sistema e clique em **Avançar**.
+
 8. Da mesma forma, selecione o agendamento de backup e a política de retenção para as pastas e os arquivos selecionados. 
-8.  Na página **Escolher Tipo Inicial de Backup**, deixe a opção **Automaticamente pela rede** selecionada e, em seguida, clique em **Avançar**.
-9.  Na página **Confirmação**, examine as informações e clique em **Concluir**.
-10. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
+
+9. Na página **Escolher Tipo Inicial de Backup**, selecione **Automaticamente pela rede** e clique em **Avançar**.
+
+10. Na página **Confirmação**, examine as informações e clique em **Concluir**.
+
+11. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Executar um backup ad hoc
 

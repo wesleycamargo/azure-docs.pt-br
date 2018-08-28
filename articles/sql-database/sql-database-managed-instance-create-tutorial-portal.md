@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850603"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920659"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Criar uma Instância Gerenciada do Banco de Dados SQL no portal do Azure
 
@@ -33,15 +33,17 @@ Este tutorial demonstra como criar uma Instância Gerenciada do Banco de Dados S
 > * Conectar-se à máquina virtual
 > * Instalar o SSMS e conectar-se à Instância Gerenciada
 
+> [!Note]
+> Este tutorial explica como configurar a rede, sub-redes, instância e máquina virtual usando o portal do Azure, o que pode ser um processo mais longo. Se você precisar de um tutorial de início rápido mais curto, no qual a rede e a máquina virtual usadas para acessam a instância são criadas usando um clique no botão "Implantar no Azure", você pode dar uma olhada em [Tutorial de introdução](sql-database-managed-instance-get-started.md).
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 > [!IMPORTANT]
 > Para obter uma lista de regiões nas quais a Instância Gerenciada está disponível no momento, consulte [Migrar os bancos de dados para um serviço totalmente gerenciado com a Instância Gerenciada do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## <a name="log-in-to-the-azure-portal"></a>Faça logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Faça logon no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Entre no [Portal do Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## <a name="whitelist-your-subscription"></a>Colocar sua assinatura na lista de permissões
 
@@ -160,7 +162,7 @@ As etapas a seguir mostram como criar sua Instância Gerenciada depois que a ver
 2. Localize **Instância Gerenciada** e selecione **Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia)**.
 3. Clique em **Criar**.
 
-   ![managed instance create](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![criar instância gerenciada](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Selecione sua assinatura e verifique se os termos da versão prévia mostram a opção **Aceito**.
 
@@ -302,7 +304,7 @@ As etapas a seguir mostram como baixar e instalar o SSMS e conectar-se à sua In
 8. Quando solicitado, clique em **Instalar** para começar.
 9. Quando a instalação for concluída, clique em **Fechar**.
 10. Abra o SSMS.
-11. Na caixa de diálogo **Conectar ao Servidor**, digite o **nome do host* da sua Instância Gerenciada na caixa **Nome do servidor**, selecione **Autenticação do SQL Server** , forneça o logon e a senha e, em seguida, clique em **Conectar**.
+11. Na caixa de diálogo **Conectar ao Servidor**, digite o **nome do host** da sua Instância Gerenciada na caixa **Nome do servidor**, selecione **Autenticação do SQL Server** , forneça o logon e a senha e, em seguida, clique em **Conectar**.
 
     ![conexão ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

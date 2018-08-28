@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869552"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920248"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo do Azure IoT Central
 
@@ -43,7 +43,7 @@ Neste tutorial, você aprenderá como:
 > * Usar configurações do dispositivo
 > * Usar comandos
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisa de um aplicativo Azure IoT Central. Se você concluiu o início rápido [Criar um aplicativo Azure IoT Central](quick-deploy-iot-central.md), você pode reutilizar o aplicativo criado no início rápido. Caso contrário, conclua as seguintes etapas para criar um aplicativo Azure IoT Central vazio:
 
@@ -342,8 +342,8 @@ Use _comandos_ para habilitar um operador a executar comandos diretamente no dis
     | Nome de exibição         | Comando echo    |
     | Nome do campo           | echo            |
     | Tempo limite padrão      | 30              |
-    | Nome de exibição         | Exibir texto    |
-    | Exibir tipo         | text            |  
+    | Exibir tipo         | text            |
+    | DESCRIÇÃO          | Comando do dispositivo  |  
 
 Você pode adicionar outras entradas no comando clicando em **+** para entradas.
 

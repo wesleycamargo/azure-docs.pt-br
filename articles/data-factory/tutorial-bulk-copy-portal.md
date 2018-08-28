@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6d7b926a414c95d4e05834bafc91a2aa9c047fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433503"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919736"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
@@ -239,7 +239,7 @@ O **GetTableListAndTriggerCopyData** usa uma lista de tabelas, como um parâmetr
 
     ![Configurações da atividade ForEach](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
 
-    c. Na página **Adicionar conteúdo dinâmico**, recolha a seção de Variáveis e funções do sistema, clique em **tableList** em **Parâmetros** que preencherá automaticamente a caixa de texto de expressão na parte superior `@pipeline().parameter.tableList`, em seguida, clique em **Concluir**. 
+    c. Na página **Adicionar conteúdo dinâmico**, recolha a seção de Variáveis e Funções do Sistema, clique em **tableList** em **Parâmetros** que preencherá automaticamente a caixa de texto de expressão na parte superior `@pipeline().parameter.tableList`, em seguida, clique em **Concluir**. 
 
     ![Construtor do parâmetro foreach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     
@@ -265,7 +265,7 @@ O **GetTableListAndTriggerCopyData** usa uma lista de tabelas, como um parâmetr
     1. Clique em caixa de entrada para o VALOR do parâmetro DWTableName -> selecione **Adicionar conteúdo dinâmico** abaixo, insira a expressão `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` como script -> selecione **Concluir**.
     1. Expanda **Configurações do Polybase** e selecione **Permitir Polybase**. 
     1. Apague a opção **Usar Tipo padrão**. 
-    1. Clique na caixa de entrada **Limpar script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> insira a seguinte expressão como script -> selecione **Concluir**. 
+    1. Clique na caixa de entrada **Pré-copiar Script** -> selecione **Adicionar conteúdo dinâmico** abaixo -> insira a seguinte expressão como script -> selecione **Concluir**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]

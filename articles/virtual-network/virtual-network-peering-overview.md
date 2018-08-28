@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257864"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919734"
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -77,6 +77,11 @@ Você também pode solucionar os problemas de conectividade com uma máquina vir
 
 ## <a name="requirements-and-constraints"></a>Requisitos e restrições
 
+As seguintes restrições se aplicam quando as redes virtuais estão pareadas globalmente:
+- As redes virtuais podem existir em qualquer região de nuvem pública do Azure, mas não em nuvens nacionais do Azure.
+- Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno do Azure em uma rede virtual com cobertura global. O balanceador de carga e os recursos que se comunicam com ele devem estar na mesma região.
+- Você não pode usar gateways remotos ou permitir o tráfego de gateway. Para usar gateways remotos ou permitir trânsito de gateway, as redes virtuais emparelhadas devem estar na mesma região.
+
 Para saber mais sobre requisitos e restrições, confira [Restrições e requisitos de emparelhamento de redes virtuais](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites de número de emparelhamentos que você pode criar para uma rede virtual, confira [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>Permissões
@@ -102,3 +107,4 @@ Tráfego de gateway é uma propriedade de emparelhamento que permite que uma red
 
 * Saiba como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Saiba mais sobre todas as [configurações de emparelhamento de rede virtual e como alterá-las](virtual-network-manage-peering.md).
+* Obtenha respostas para perguntas comuns de emparelhamento VNet e o emparelhamento VNet Global por meio de nossas [Perguntas frequentes sobre o Emparelhamento VNet](virtual-networks-faq.md#vnet-peering)

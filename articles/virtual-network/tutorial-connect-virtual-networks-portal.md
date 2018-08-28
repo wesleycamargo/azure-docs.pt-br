@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841781"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918042"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Tutorial: conectar redes virtuais ao emparelhamento de rede virtual usando o Portal do Azure
 
-Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste tutorial, você aprenderá como:
+Você pode conectar redes virtuais entre si ao emparelhamento de rede virtual. Essas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecido como emparelhamento VNet Global). Depois que as redes virtuais são emparelhadas, os recursos de ambas as redes virtuais podem se comunicar entre si, com a mesma latência e largura de banda como se os recursos estivessem na mesma rede virtual. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Criar duas redes virtuais
@@ -82,7 +82,7 @@ Faça logon no Portal do Azure em https://portal.azure.com.
     |---|---|
     |NOME|myVirtualNetwork1-myVirtualNetwork2|
     |Assinatura| Selecione sua assinatura.|
-    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual**, em seguida, selecione **myVirtualNetwork2**.|
+    |Rede virtual|myVirtualNetwork2 - Para selecionar a rede virtual *myVirtualNetwork2*, selecione **Rede virtual**, em seguida, selecione **myVirtualNetwork2**. Você pode selecione uma rede virtual na mesma região ou em uma região diferente.|
 
     ![Configurações de emparelhamento](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -118,7 +118,7 @@ Crie uma VM em cada rede virtual para que seja possível comunicar-se entre elas
     |Nome de usuário| Insira um nome de usuário de sua escolha.|
     |Senha| Insira uma senha de sua escolha. A senha deve ter no mínimo 12 caracteres e atender a [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Grupo de recursos| Clique em **Usar existente** e selecione **myResourceGroup**.|
-    |Local padrão| Selecione **Leste dos EUA**.|
+    |Localização| Selecione **Leste dos EUA**.|
 4. Selecione um tamanho da VM em **Escolher um tamanho**.
 5. Selecione os seguintes valores para **Configurações** e selecione **OK**:
     |Configuração|Valor|

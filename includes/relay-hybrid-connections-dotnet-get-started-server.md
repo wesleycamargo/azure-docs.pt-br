@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40183386"
+---
 ### <a name="create-a-console-application"></a>Criar um aplicativo de console
 
 N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framework)**.
@@ -5,8 +22,10 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
 ### <a name="add-the-relay-nuget-package"></a>Adicione o pacote NuGet de retransmissão
 
 1. Clique com o botão direito do mouse no projeto recém-criado e selecione **Gerenciar Pacotes NuGet**.
-2. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Retransmissão do Microsoft Azure**. 
-3. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
+2. Selecione a opção **Incluir pré-lançamento**. 
+3. Selecione **Procurar** e, em seguida, procure **Microsoft.Azure.Relay**. Nos resultados da pesquisa, selecione **Retransmissão do Microsoft Azure**.
+4. Para obter a versão, selecione **2.0.0-preview1-20180523**. 
+5. Selecione **Instalar** para concluir a instalação. Feche a caixa de diálogo.
 
 ### <a name="write-code-to-receive-messages"></a>Gravar código para receber mensagens
 
@@ -17,6 +36,7 @@ N o Visual Studio, crie um novo projeto de **Aplicativo de Console (.NET Framewo
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Adicione constantes à classe `Program` para os detalhes da conexão híbrida. Substitua os espaços reservados entre colchetes pelos valores obtidos quando você criou a conexão híbrida. Use o nome totalmente qualificado do namespace.

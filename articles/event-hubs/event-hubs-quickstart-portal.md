@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Azure - Fluxos de eventos do processo usando o portal do Azure | Microsoft Docs
-description: Neste início rápido, você aprenderá como processar fluxos de eventos usando o portal do Azure.
+title: Início Rápido do Azure – Criar um hub de eventos usando o portal do Azure | Microsoft Docs
+description: Neste início rápido, você aprenderá a criar um hub de eventos do Azure usando o portal do Azure e, em seguida, enviar e receber eventos usando o SDK do .NET Standard.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2c2c02d7f06fdca2f92dd9e2324b10b2a712b81f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004303"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42024014"
 ---
-# <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Início rápido: Processar fluxos de eventos do processo usando o portal do Azure e .NET
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: criar um hub de eventos usando o portal do Azure
 
 Os Hubs de Eventos do Azure são uma plataforma de fluxo de dados altamente escalonável e um serviço de ingestão capaz de receber e processar milhões de eventos por segundo. Este início rápido mostra como criar um hub de eventos usando o [portal do Azure](https://portal.azure.com)e, em seguida, enviar e receber de um hub de eventos usando o SDK do .NET Standard.
 

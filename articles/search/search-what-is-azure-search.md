@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002197"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023475"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
-O Azure Search é uma solução de pesquisa como serviço na nuvem que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada para conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais.
+O Azure Search é uma solução de pesquisa como serviço na nuvem que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada para conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais. A execução de consulta ocorre sobre um índice definido pelo usuário.
+
++ Crie um corpus de pesquisa que contém apenas seus dados, provenientes de várias plataformas e tipos de conteúdo. 
++ Aproveite a indexação capacitada por IA para extrair texto e recursos de arquivos de imagem, ou entidades e frases-chave de texto não processado.
++ Crie experiências de pesquisa intuitivas com navegação por faceta, filtros, sinônimos, preenchimento automático e análises de texto para termos de pesquisa corrigidos automaticamente por "você quis dizer".
++ Adicione pesquisa geográfica para "encontrar ao meu redor", analisadores de idioma diferentes do inglês para pesquisa de texto completo e lógica de pontuação para classificação de pesquisa.
 
 A funcionalidade é exposta por meio de uma [API REST](/rest/api/searchservice/) ou um [SDK do .NET](search-howto-dotnet-sdk.md) simples que mascara a complexidade inerente da tecnologia de pesquisa. Além das APIs, o portal do Azure fornece suporte de administração e gerenciamento de conteúdo, com as ferramentas de criação para protótipos e consultas de seus índices. Porque o serviço é executado na nuvem, infraestrutura e disponibilidade são gerenciados pela Microsoft.
 
@@ -51,7 +56,7 @@ Antes de carregar o conteúdo pesquisável, primeiro é necessário definir um �
 
 Um esquema pode ser criado no portal do Azure ou de forma programática usando o [SDK do .NET](search-howto-dotnet-sdk.md) ou a [API REST](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Etapa 3: Indexar dados
+### <a name="step-3-load-data"></a>Etapa 3: carregar dados
 Depois de definir um índice, você estará pronto para carregar o conteúdo. É possível usar um modelo push ou pull.
 
 O modelo pull recupera dados de fontes de dados externas. Há suporte para ele por meio de *indexadores* que simplificam e automatizam aspectos da ingestão de dados, como se conectar a dados, lê-los ou serializá-los. Os [indexadores](/rest/api/searchservice/Indexer-operations) estão disponíveis para o Azure Cosmos DB, Banco de Dados SQL do Azure, Armazenamento de Blobs do Azure e SQL Server hospedado em uma VM do Azure. É possível configurar um indexador para uma atualização de dados sob demanda ou agendada.
@@ -61,7 +66,7 @@ O modelo de push é fornecido por meio do SDK ou APIs REST usados para enviar do
 ### <a name="step-4-search"></a>Etapa 4: Pesquisar
 Depois de popular um índice, você pode [emitir consultas de pesquisa](/rest/api/searchservice/Search-Documents) para o ponto de extremidade de serviço usando solicitações HTTP simples com a API REST ou o SDK do .NET.
 
-## <a name="how-azure-search-compares"></a>Como o Azure Search é comparado
+## <a name="how-it-compares"></a>Como ele se compara
 
 Os clientes frequentemente perguntam como o Azure Search é comparado com outras soluções relacionadas à pesquisa. A tabela a seguir resume as principais diferenças.
 
@@ -104,13 +109,16 @@ Se preferir, você pode [ativar benefícios para assinantes do MSDN](https://azu
 
 ## <a name="how-to-get-started"></a>Como começar
 
-1. Crie um serviço na [Camada gratuita](search-create-service-portal.md).
+1. Crie um [serviço grátis](search-create-service-portal.md). Todos os tutoriais e inícios rápidos podem ser concluídos no serviço gratuito.
 
-2. Execute em etapas um ou mais dos tutoriais a seguir. 
+2. Percorra os [tutoriais sobre como usar ferramentas internas para indexação e consultas](search-get-started-portal.md). Aprenda conceitos importantes e se familiarize com as informações fornecidas pelo portal.
 
-  + [Como usar o SDK do .NET](search-howto-dotnet-sdk.md) demonstra as principais etapas no código gerenciado.  
-  + [Introdução à API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra as mesmas etapas usando a API REST.  
-  + [Crie seu primeiro índice no portal](search-get-started-portal.md) usando os recursos internos de indexação e protótipo.   
+3. Avance com o código usando a API REST ou .NET:
+
+  + [Como usar o SDK do .NET](search-howto-dotnet-sdk.md) demonstra o fluxo de trabalho principal no código gerenciado.  
+  + [Introdução à API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra as mesmas etapas usando a API REST. Também é possível usar este início rápido para chamar APIs REST do Postman ou Fiddler: [Explorar APIs REST do Azure Search](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Assista a este vídeo
 
 Os mecanismos de pesquisa são os drivers comuns de recuperação de informações nos aplicativos móveis, na Web e nos armazenamentos de dados corporativos. O Azure Search fornece ferramentas para criar uma experiência de pesquisa semelhante aos grandes sites comerciais.
 
@@ -122,5 +130,3 @@ Neste vídeo de 9 minutos com o gerente de programa Liam Cavanagh, saiba como a 
 + O vídeo de 3-4 minutos aborda o provisionamento de serviços. 
 + O vídeo de 4-6 minutos aborda o Assistente para Importar Dados usado para criar um índice com o conjunto de dados interno de imóveis.
 + O vídeo de 6 a 9 minutos aborda o Gerenciador de pesquisa e várias consultas.
-
-

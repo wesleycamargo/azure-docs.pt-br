@@ -12,30 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 970ad90aa14d5778e8b232e32aa1dacf32789988
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9809b51f1279c99de69cd1c219ffc57351ff21ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38593096"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41920947"
 ---
 # <a name="create-an-ios-app"></a>Criar um aplicativo do iOS
+
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Visão geral
-Este tutorial mostra como adicionar os [Aplicativos Móveis do Azure](app-service-mobile-value-prop.md), um serviço de back-end da nuvem, a um aplicativo iOS. Primeiro, criaremos um novo back-end móvel. Em seguida, usaremos um simples aplicativo iOS *Lista de tarefas* para armazenar os dados no Azure.
+
+Este tutorial mostra como adicionar os [Aplicativos Móveis do Serviço de Aplicativo do Azure](app-service-mobile-value-prop.md), um serviço de back-end da nuvem, a um aplicativo iOS. A primeira etapa é criar um novo back-end móvel no Azure. Depois, baixe um aplicativo simples de exemplo para iOS de *Lista de tarefas pendentes* que armazena dados no Azure.
 
 Para concluir este tutorial, você precisa de um Mac e [uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Etapa I: criar um novo back-end do aplicativo móvel do Azure
+
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## <a name="step-ii-configure-the-backend-project"></a>Etapa II: configurar o projeto de back-end
+
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="step-iii-download-and-run-the-ios-app"></a>Etapa III: baixar e executar o aplicativo iOS
+
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->

@@ -1,6 +1,6 @@
 ---
-title: Tutorial para configurar um aplicativo Web do Azure para ler um segredo do Cofre de Chaves | Microsoft Docs
-description: 'Tutorial: Configurar um aplicativo Node.js para ler um segredo do Key Vault'
+title: Início Rápido - Definir e recuperar um segredo do Azure Key Vault usando um Aplicativo Web do Node | Microsoft Docs
+description: Início Rápido - Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412235"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023557"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Início Rápido: Como configurar e ler um segredo do Key Vault em um aplicativo Web Node 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Início Rápido - Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET 
 
-Este início rápido mostra como armazenar um segredo no Key Vault e como recuperá-lo usando um aplicativo Web. Este aplicativo Web pode ser executado localmente ou no Azure. O início rápido usa Node.js e MSIs (identidades de serviço gerenciadas)
+Este início rápido mostra como armazenar um segredo no Key Vault e como recuperá-lo usando um aplicativo Web. Para ver o valor do segredo, seria necessário executar isso no Azure. O início rápido usa Node.js e MSIs (identidades de serviço gerenciadas)
 
 > [!div class="checklist"]
 > * Criar um Cofre de Chaves.
@@ -31,6 +31,9 @@ Este início rápido mostra como armazenar um segredo no Key Vault e como recupe
 > * Conceda as permissões necessárias para o aplicativo Web ler dados do Key Vault.
 
 Antes de prosseguir, familiarize-se com o [conceitos básicos](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Para entender o porquê do tutorial abaixo ser a melhor prática, precisamos entender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas, para fazer isso, os aplicativos/usuários precisam autenticar primeiro o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, esse primeiro segredo também deve ser girado periodicamente. Mas com a [Identidade de Serviço Gerenciada](../active-directory/managed-service-identity/overview.md), os aplicativos executados no Azure recebem uma identidade gerenciada automaticamente pelo Azure. Isso ajuda a resolver o **Problema de Introdução do Segredo**, no qual os usuários/aplicativos podem seguir as melhores práticas e não precisam se preocupar em girar o segredo primeiro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#az-group-create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
 Selecione um nome para o grupo de recursos e preencha o espaço reservado.
 O exemplo a seguir cria um grupo de recursos denominado *<YourResourceGroupName>* no local *eastus*.
@@ -123,8 +126,6 @@ Abaixo estão as etapas que precisamos realizar
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     Quando o aplicativo Web for criado, a CLI do Azure mostrará um resultado semelhante ao seguinte exemplo:
     ```

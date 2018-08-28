@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216959"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918722"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -31,7 +31,7 @@ Neste tutorial, você aprenderá como:
 > * Agendar uma implantação de atualização
 > * Exibir os resultados de uma implantação
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -126,9 +126,6 @@ Para personalizar o assunto do email de alerta, em **Criar regra**, em **Persona
 
 Em seguida, agende uma implantação que siga o agendamento de versão e o período de serviço para instalar as atualizações. Você pode escolher quais tipos de atualização deseja incluir na implantação. Por exemplo, você pode incluir atualizações críticas ou de segurança e excluir pacotes cumulativos de atualizações.
 
-> [!WARNING]
-> Para atualizações que exigem uma reinicialização, a VM é reiniciada automaticamente.
-
 Para agendar uma nova implantação de atualização para a VM, vá para **Gerenciamento de atualizações** e selecione **Agendar implantação de atualização**.
 
 Em **Nova implantação de atualização**, especifique as seguintes informações:
@@ -137,11 +134,13 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Sistema operacional**: escolha o sistema operacional de destino para a implantação de atualização.
 
+* **Computadores para atualização**: selecione uma Pesquisa salva, um Grupo importado ou selecione Computador na lista suspensa e selecione computadores individuais. Se você escolher **Computadores**, a preparação do computador será exibida na coluna **PREPARAÇÃO PARA ATUALIZAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, confira [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+
 * **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluiu na implantação. Para este tutorial, deixe todos os tipos selecionados.
 
   Os tipos de classificação são:
 
-   |SO  |type  |
+   |SO  |Tipo  |
    |---------|---------|
    |Windows     | Atualizações críticas</br>Atualizações de segurança</br>Pacotes cumulativos de atualização</br>Feature packs</br>Service packs</br>Atualizações de definição</br>Ferramentas</br>Atualizações        |
    |Linux     | Atualizações críticas ou de segurança</br>Outras atualizações       |
@@ -154,9 +153,17 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Janela de manutenção (minutos)**: deixe o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
+* **Opções de reinicialização**: esta configuração determina como a reinicializações deve ser tratada. As opções disponíveis são:
+  * Reinicialização, se necessário (Padrão)
+  * Sempre reinicializar
+  * Nunca reinicializar
+  * Somente reinicialização - não instalará as atualizações
+
+Quando terminar de configurar a agenda, selecione **Criar**.
+
 ![Painel Configurações de agendamento de atualizações](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Quando terminar de configurar a agenda, selecione **Criar**. Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
+Você é retornado ao painel de status. Selecione **Implantações de atualização agendadas** para mostrar a agenda de implantação que você criou.
 
 ## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 

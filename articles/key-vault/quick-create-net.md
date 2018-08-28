@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido do Azure: Configurar um aplicativo Web do Azure para definir e recuperar um segredo do Key Vault | Microsoft Docs'
-description: Início Rápido que mostra como configurar um aplicativo ASP.NET Core para definir e recuperar um segredo do Key Vault
+title: Início Rápido - Definir e recuperar um segredo do Azure Key Vault usando um Aplicativo Web do Node | Microsoft Docs
+description: Início Rápido - Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do Node
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480195"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022649"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando um aplicativo Web do .NET
 
@@ -28,7 +28,10 @@ Neste tutorial, você examinará as etapas necessárias para obter um aplicativo
 > * [Habilitar identidades de serviço gerenciadas](../active-directory/managed-service-identity/overview.md).
 > * Conceda as permissões necessárias para o aplicativo Web ler dados do Key Vault.
 
-Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-concepts), especialmente sobre a [Identidade de Serviço Gerenciada](../active-directory/managed-service-identity/overview.md)
+Antes de continuarmos, leia os [conceitos básicos](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Para entender o porquê do tutorial abaixo ser a melhor prática, precisamos entender alguns conceitos. O Key Vault é um repositório central para armazenar segredos de forma programática. Mas, para fazer isso, os aplicativos/usuários precisam autenticar primeiro o Key Vault, ou seja, apresentar um segredo. Para seguir as melhores práticas de segurança, esse primeiro segredo também deve ser girado periodicamente. Mas com a [Identidade de Serviço Gerenciada](../active-directory/managed-service-identity/overview.md), os aplicativos executados no Azure recebem uma identidade gerenciada automaticamente pelo Azure. Isso ajuda a resolver o **Problema de Introdução do Segredo**, no qual os usuários/aplicativos podem seguir as melhores práticas e não precisam se preocupar em girar o segredo primeiro
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -165,6 +168,8 @@ Em seguida, execute o comando usando o nome do seu Key Vault e o valor do Princi
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**Agora que você executou o aplicativo, deverá ver o valor do segredo recuperado**
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um Balanceador de Carga Básico público – portal do Azure | Microsoft Docs'
+title: Tutorial - Criar um Balanceador de Carga Básico público – portal do Azure | Microsoft Docs
 description: Este tutorial mostra como criar um Balanceador de Carga Básico interno usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7c1e56b7c94c51a00fabdac56dd2d8c3eb621ae0
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097471"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42139587"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Tutorial: Balancear a carga do tráfego interno com o Balanceador de Carga Básico para VMs usando o portal do Azure
 

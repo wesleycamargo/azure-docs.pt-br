@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403783"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42024219"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Guia de início rápido: executar um fluxo de trabalho por meio do serviço do Microsoft Genomics
 
@@ -57,7 +57,9 @@ Os usuários precisam instalar o Python e o cliente Microsoft Genomics Python em
 
 ### <a name="install-python"></a>Instalar o Python
 
-O cliente Microsoft Genomics Python é compatível com o Python 2.7. É recomendável usar a versão 2.7.12 ou posterior; a versão sugerida é 2.7.14. Você pode encontrar o download [aqui](https://www.python.org/downloads/). 
+O cliente Microsoft Genomics Python é compatível com o Python 2.7. A versão 12 ou 2.7.xx posterior; 2.7.15 era a versão mais recente quando este artigo foi escrito; 2.7.14 é a versão sugerida. Você pode encontrar o download [aqui](https://www.python.org/downloads/). 
+
+OBSERVAÇÃO: Python 3.x não é compatível com Python 2.7.xx.  MSGen é um aplicativo Python 2.7. Ao executar o MSGen, verifique se o ambiente ativo do Python está usando uma versão 2.7.xx do Python. Talvez você receba erros ao tentar usar o MSGen com uma versão 3.x do Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Instalar o cliente do Microsoft Genomics

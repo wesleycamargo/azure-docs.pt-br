@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722772"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924717"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Tutorial 2: Classificar Iris – criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -35,7 +35,7 @@ Este tutorial é a **parte dois de uma série de três partes**. Nessa parte do 
 
 Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 - Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
@@ -442,7 +442,7 @@ Para executar o script em um contêiner do Docker em um computador Linux remoto,
    >A área de endereço IP também pode ser um FQDN (nome de domínio totalmente qualificado) publicamente endereçável, como `vm-name.southcentralus.cloudapp.azure.com`. É uma boa prática adicionar um FQDN à sua DSVM e usá-lo no lugar de um endereço IP. Essa prática é uma boa ideia de como você pode desativar a VM em algum momento para economizar custos. Além disso, na próxima vez que você iniciar a VM, o endereço IP poderá ter sido alterado.
 
    >[!NOTE]
-   >Além da autenticação de usuário e senha, você pode especificar uma chave privada e a senha correspondente (se houver) usando as opções `--private-key-file` e (opcionalmente) `--private-key-passphrase`.
+   >Além da autenticação de usuário e senha, você pode especificar uma chave privada e a senha correspondente (se houver) usando as opções `--private-key-file` e (opcionalmente) `--private-key-passphrase`. Se você quiser usar a chave privada que você usou ao criar DSVM, especifique a opção `--use-azureml-ssh-key`.
 
    Em seguida, prepare o destino de computação **myvm** executando este comando.
    

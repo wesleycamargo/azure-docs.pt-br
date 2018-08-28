@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109385"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919725"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implantar um aplicativo com CI/CD em um cluster do Service Fabric
 
@@ -50,7 +50,7 @@ Antes de começar este tutorial:
 * [Instale o Visual Studio 2017](https://www.visualstudio.com/) e instale as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
 * [Instalar o SDK do Service Fabric](service-fabric-get-started.md)
 * Crie um cluster do Service Fabric do Windows no Azure; você pode [seguir este tutorial](service-fabric-tutorial-create-vnet-and-windows-cluster.md) como exemplo
-* Crie uma [conta do Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Crie uma [conta do Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>Baixar o aplicativo de exemplo Votação
 
@@ -94,7 +94,13 @@ Uma definição de versão do Team Services descreve um fluxo de trabalho que im
 
 Abra um navegador da web e navegue até seu novo projeto de equipe em: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecione a guia **Build e versão** e então **Compilações** e **+ Nova definição**.  Em **selecionar um modelo de**, selecione o **aplicativo do Azure Service Fabric** modelo e clique em **aplicar**.
+Selecione a guia **Build e versão**, **Builds** e clique em **Novo Pipeline**.
+
+![Novo Pipeline][new-pipeline]
+
+Selecione **Git do VSTS** como fonte, projeto **Voting** Team, Repositório **voting** e o branch Padrão **mestre** ou builds manuais e agendados.  Clique em **Continuar**.
+
+Em **Selecionar um modelo**, selecione o modelo **Aplicativo do Azure Service Fabric** e clique em **Aplicar**.
 
 ![Escolher o modelo de build][select-build-template]
 
@@ -102,7 +108,9 @@ Em **Tarefas**, digite "VS2017 Hospedado" como a **Fila do agente**.
 
 ![Selecionar tarefas][save-and-queue]
 
-Em **Gatilhos**, habilite a integração contínua definindo o **Status do gatilho**.  Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente.
+Em **Gatilhos**, habilite a integração contínua marcando **Habilitar a integração contínua**. Dentro de **Filtros de ramificação**, clique em **+ Adicionar** e **Especificação de branch** assumirá como padrão **mestre**. Selecione **Salvar e enfileirar** para iniciar uma compilação manualmente.
+
+Na **caixa de diálogo Salvar pipeline de build e enfileirar**, clique em **Salvar e enfileirar**.
 
 ![Selecionar gatilhos][save-and-queue2]
 
@@ -110,7 +118,7 @@ A compilação também é disparada durante o push ou o check-in. Para verificar
 
 ### <a name="create-a-release-definition"></a>Criar uma definição de versão
 
-Selecione o **Build e versão** guia, em seguida, **versões**, em seguida, **+ nova definição**.  Em **Selecionar um modelo**, selecione o modelo **Implantação do Azure Service Fabric** na lista e **Aplicar**.
+Selecione o **Build e versão** guia, em seguida, **versões**, em seguida, **+ Novo pipeline**.  Em **Selecionar um modelo**, selecione o modelo **Implantação do Azure Service Fabric** na lista e **Aplicar**.
 
 ![Escolher modelo de versão][select-release-template]
 
@@ -134,7 +142,9 @@ Habilite um gatilho de implantação contínua para que uma versão seja criada 
 
 ![Habilitar gatilho][enable-trigger]
 
-Selecione **+ Versão** -> **Criar Versão** -> **Criar** para criar manualmente uma versão.  Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
+Selecione **+ Versão** -> **Criar uma Versão** -> **Criar** para criar manualmente uma versão. Você pode monitorar o andamento da versão na guia **Versões**.
+
+Verifique se a implantação foi bem-sucedida e o aplicativo está em execução no cluster.  Abra um navegador da Web e navegue até [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Observe a versão do aplicativo, neste exemplo é "1.0.0.20170616.3".
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Confirmar e enviar alterações por push, disparar uma versão
 
@@ -188,6 +198,7 @@ Prosseguir para o próximo tutorial:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523352"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924716"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
@@ -149,7 +149,7 @@ A última etapa é codificar um aplicativo de registro que usa o SDK de cliente 
 
 1. No portal do Azure, selecione a folha **Visão Geral** do Serviço de Provisionamento de Dispositivos e anote o valor de **_Escopo da ID_**. O *escopo da ID* é gerado pelo serviço e assegura a exclusividade. É imutável e é usado para identificar exclusivamente as IDs de registro.
 
-    ![Extrair informações de ponto de extremidade do DPS na folha do portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![Extrair informações do ponto de extremidade do Serviço de Provisionamento de Dispositivo na folha do portal](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. No *Gerenciador de Soluções* do Visual Studio em seu computador, navegue até a pasta **Provisionar\_Amostras**. Selecione o projeto de exemplo chamado **prov\_dev\_client\_sample** e abra o arquivo **prov\_dev\_client\_sample.c**.
 

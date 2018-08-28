@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: abba75e731d2550b4719eec70d475884bd7f3c8e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990856"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022315"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicar uma VM do Azure para outra região do Azure
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) mantendo seus aplicativos de negócios em execução durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 
-Este guia de início rápido descreve como replicar uma VM do Azure para uma região do Azure diferente. 
+Este guia de início rápido descreve como replicar uma VM do Azure para uma região do Azure diferente.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -62,8 +62,7 @@ A VM na região primária deixa de replicar quando você desabilita a replicaç�
 Interrompa a replicação da seguinte maneira:
 
 1. Selecione a VM.
-2. Em **Recuperação de desastres**, clique em **Mais**.
-3. Clique em **Desabilitar a Replicação**.
+2. Em **Recuperação de desastres**, clique em **Desabilitar Replicação**.
 
    ![Desabilitar a replicação](media/azure-to-azure-quickstart/disable2-replication.png)
 

@@ -1,69 +1,200 @@
 ---
-title: Usar o Ansible para criar uma VM do Linux básica no Azure | Microsoft Docs
-description: Saber como usar o Ansible para criar e gerenciar uma máquina virtual básica do Linux no Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
+title: Usar o Ansible para criar uma máquina virtual do Linux no Azure
+description: Saiba como usar o Ansible para criar uma máquina virtual do Linux no Azure
+ms.service: ansible
+keywords: ansible, azure, devops, máquina virtual
+author: tomarcher
 manager: jeconnoc
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 05/30/2018
-ms.author: cynthn
-ms.openlocfilehash: 35dfe8348718e0edf8683f7eeddf286831697d89
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 08/21/2018
+ms.openlocfilehash: a60ba863dbbd308219f4229319fb98c72180114d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931422"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40250624"
 ---
-# <a name="create-a-basic-virtual-machine-in-azure-with-ansible"></a>Criar uma máquina virtual básica no Azure com o Ansible
-O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar suas máquinas virtuais (VMs) no Azure, da mesma forma que faria com qualquer outro recurso. Este artigo mostra como criar uma VM básica com o Ansible. Você também pode aprender a [Criar um ambiente completo de VM com o Ansible](ansible-create-complete-vm.md).
+# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Usar o Ansible para criar uma máquina virtual do Linux no Azure
+Usando uma linguagem declarativa, o Ansible permite automatizar a criação, configuração e implantação dos recursos do Azure por meio dos *guias estratégicos* do Ansible. Cada seção deste artigo mostra a aparência de cada seção de um guia estratégico do Ansible para criar e configurar os diferentes aspectos de uma máquina virtual do Linux. O [guia estratégico completo do Ansible](#complete-sample-ansible-playbook) está listado no final deste artigo.
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="prerequisites"></a>pré-requisitos
-Para gerenciar recursos do Azure com o Ansible, você precisará do seguinte:
+- **Assinatura do Azure** - Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Ansible e os módulos do SDK do Python do Azure instalados no sistema host.
-    - Instalar o Ansible no [CentOS 7.4](ansible-install-configure.md#centos-74), [Ubuntu 16.04 LTS](ansible-install-configure.md#ubuntu-1604-lts), e [SLES 12 SP2](ansible-install-configure.md#sles-12-sp2)
-- Credenciais do Azure e o Ansible configurados para usá-las.
-    - [Criar credenciais do Azure e configurar o Ansible](ansible-install-configure.md#create-azure-credentials)
-- CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. 
-    - Se você precisar atualizar, confira [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). Também é possível usar o [Azure Cloud Shell](/azure/cloud-shell/quickstart) no navegador da Web.
+- **Configurar o Azure Cloud Shell** ou **Instalar e configurar o Ansible em uma máquina virtual do Linux**
 
+  **Configurar o Azure Cloud Shell**
 
-## <a name="create-supporting-azure-resources"></a>Criar recursos de suporte do Azure
-Neste exemplo, crie um runbook que implanta uma VM em uma infraestrutura existente. Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#az-group-create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+  1. **Configurar o Azure Cloud Shell** - Se o Azure Cloud Shell for uma novidade para você, o artigo [Início rápido para Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart) ilustra como começar a usar e configurar o Cloud Shell. 
 
-```azurecli
-az group create --name myResourceGroup --location eastus
+  **--OU--**
+
+  **Instalar e configurar o Ansible em uma máquina virtual do Linux**
+
+  1. **Instalar o Ansible** - Instalar o Ansible em uma [plataforma com suporte para Linux](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+O Ansible precisa de um grupo de recursos para implantar todos os seus recursos. A seção do guia estratégico de exemplo do Ansible a seguir cria um grupo de recursos denominado `myResourceGroup` no local `eastus`:
+
+```yaml
+- name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: eastus
 ```
 
-Crie a rede virtual para sua VM com [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). O exemplo a seguir cria uma rede virtual chamada *myVnet* e uma sub-rede chamada *mySubnet*:
+## <a name="create-a-virtual-network"></a>Criar uma rede virtual
+Ao criar uma máquina virtual do Azure, você deve criar uma [rede virtual](/azure/virtual-network/virtual-networks-overview) ou usar uma rede virtual existente. Você também precisa decidir como suas máquinas virtuais devem ser acessadas na rede virtual. A seção a seguir do guia estratégico de exemplo do Ansible cria uma rede virtual chamada `myVnet` no espaço de endereço `10.0.0.0/16`:
 
-```azurecli
-az network vnet create \
-  --resource-group myResourceGroup \
-  --name myVnet \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name mySubnet \
-  --subnet-prefix 10.0.1.0/24
+```yaml
+- name: Create virtual network
+  azure_rm_virtualnetwork:
+    resource_group: myResourceGroup
+    name: myVnet
+    address_prefixes: "10.0.0.0/16"
+```
+
+Todos os recursos do Azure implantados em uma rede virtual são implantados em uma [sub-rede](/azure/virtual-network/virtual-network-manage-subnet) dentro de uma rede virtual. 
+
+A seção a seguir do guia estratégico de exemplo do Ansible cria uma sub-rede chamada `mySubnet` na rede virtual `myVnet`:
+
+```yaml
+- name: Add subnet
+  azure_rm_subnet:
+    resource_group: myResourceGroup
+    name: mySubnet
+    address_prefix: "10.0.1.0/24"
+    virtual_network: myVnet
+```
+
+## <a name="create-a-public-ip-address"></a>Criar um endereço IP público
+[Endereços IP públicos](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) permitem recursos de Internet para comunicar a entrada para recursos do Azure. Endereços IP públicos também habilitam recursos do Azure para comunicar a saída à Internet e serviços do Azure voltados ao público com um endereço IP atribuído ao recurso. O endereço é dedicado para o recurso, até que ele seja desatribuído por você. Se um endereço IP público não está atribuído a um recurso, o recurso ainda pode comunicar a saída à Internet, mas o Azure atribui dinamicamente um endereço IP disponível que não é dedicado ao recurso. 
+
+A seção a seguir do guia estratégico de exemplo do Ansible cria um endereço IP público chamado `myPublicIP`:
+
+```yaml
+- name: Create public IP address
+  azure_rm_publicipaddress:
+    resource_group: myResourceGroup
+    allocation_method: Static
+    name: myPublicIP
+```
+
+## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
+Um [grupo de segurança de rede](/azure/virtual-network/security-overview) permite filtrar o tráfego de rede de e para recursos do Azure em uma rede virtual do Azure. Um grupo de segurança de rede contém regras de segurança que permitem ou negam o tráfego de rede de entrada ou de saída em relação a vários tipos de recursos do Azure. 
+
+A seção do guia estratégico de exemplo do Ansible a seguir cria um grupo de segurança de rede denominado `myNetworkSecurityGroup` e define uma regra para permitir o tráfego de SSH na porta TCP 22:
+
+```yaml
+- name: Create Network Security Group that allows SSH
+  azure_rm_securitygroup:
+    resource_group: myResourceGroup
+    name: myNetworkSecurityGroup
+    rules:
+      - name: SSH
+        protocol: Tcp
+        destination_port_range: 22
+        access: Allow
+        priority: 1001
+        direction: Inbound
 ```
 
 
-## <a name="create-and-run-ansible-playbook"></a>Criar e executar o guia estratégico do Ansible
-Crie um guia estratégico do Ansible chamado *azure_create_vm.yml* e cole o seguinte conteúdo. Este exemplo cria uma única VM e configura as credenciais de SSH. Insira seus próprios dados de chave pública completos no par *key_data* da seguinte maneira:
+## <a name="create-a-virtual-network-interface-card"></a>Criar uma placa de adaptador de rede virtual
+Uma placa de adaptador de rede virtual conecta-se à máquina virtual para uma determinada rede virtual, um endereço IP público e um grupo de segurança de rede. 
+
+A seção a seguir do guia estratégico de exemplo do Ansible cria uma placa de adaptador da rede virtual denominada `myNIC` conectada aos recursos da rede virtual que você criou:
+
+```yaml
+- name: Create virtual network inteface card
+  azure_rm_networkinterface:
+    resource_group: myResourceGroup
+    name: myNIC
+    virtual_network: myVnet
+    subnet: mySubnet
+    public_ip_name: myPublicIP
+    security_group: myNetworkSecurityGroup
+```
+
+## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
+A etapa final é criar uma máquina virtual que usa todos os recursos que você criou nas seções anteriores deste artigo. 
+
+A seção de guia estratégico de exemplo do Ansible apresentada nesta seção cria uma máquina virtual denominada `myVM` e anexa a placa de adaptador de rede virtual denominada `myNIC`. Substitua o espaço reservado &lt;your-key-data> pelos seus próprios dados de chave pública completos.
+
+```yaml
+- name: Create VM
+  azure_rm_virtualmachine:
+    resource_group: myResourceGroup
+    name: myVM
+    vm_size: Standard_DS1_v2
+    admin_username: azureuser
+    ssh_password_enabled: false
+    ssh_public_keys:
+      - path: /home/azureuser/.ssh/authorized_keys
+        key_data: <your-key-data>
+    network_interfaces: myNIC
+    image:
+      offer: CentOS
+      publisher: OpenLogic
+      sku: '7.5'
+      version: latest
+```
+
+## <a name="complete-sample-ansible-playbook"></a>Guia estratégico de exemplo do Ansible completo
+
+Esta seção lista todo o guia estratégico de exemplo do Ansible que você criou ao longo deste artigo. 
 
 ```yaml
 - name: Create Azure VM
   hosts: localhost
   connection: local
   tasks:
+  - name: Create resource group
+    azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: eastus
+  - name: Create virtual network
+    azure_rm_virtualnetwork:
+      resource_group: myResourceGroup
+      name: myVnet
+      address_prefixes: "10.0.0.0/16"
+  - name: Add subnet
+    azure_rm_subnet:
+      resource_group: myResourceGroup
+      name: mySubnet
+      address_prefix: "10.0.1.0/24"
+      virtual_network: myVnet
+  - name: Create public IP address
+    azure_rm_publicipaddress:
+      resource_group: myResourceGroup
+      allocation_method: Static
+      name: myPublicIP
+    register: output_ip_address
+  - name: Dump public IP for VM which will be created
+    debug:
+      msg: "The public IP is {{ output_ip_address.state.ip_address }}."
+  - name: Create Network Security Group that allows SSH
+    azure_rm_securitygroup:
+      resource_group: myResourceGroup
+      name: myNetworkSecurityGroup
+      rules:
+        - name: SSH
+          protocol: Tcp
+          destination_port_range: 22
+          access: Allow
+          priority: 1001
+          direction: Inbound
+  - name: Create virtual network inteface card
+    azure_rm_networkinterface:
+      resource_group: myResourceGroup
+      name: myNIC
+      virtual_network: myVnet
+      subnet: mySubnet
+      public_ip_name: myPublicIP
+      security_group: myNetworkSecurityGroup
   - name: Create VM
     azure_rm_virtualmachine:
       resource_group: myResourceGroup
@@ -71,9 +202,10 @@ Crie um guia estratégico do Ansible chamado *azure_create_vm.yml* e cole o segu
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
-          key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
+          key_data: <your-key-data>
+      network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
@@ -81,27 +213,82 @@ Crie um guia estratégico do Ansible chamado *azure_create_vm.yml* e cole o segu
         version: latest
 ```
 
-Para criar a VM com o Ansible, execute o guia estratégico da seguinte maneira:
+## <a name="run-the-sample-ansible-playbook"></a>Executar o guia estratégico de exemplo do Ansible
 
-```bash
-ansible-playbook azure_create_vm.yml
-```
+Esta seção orienta você na execução do guia estratégico de exemplo do Ansible apresentado neste artigo.
 
-A saída é semelhante ao seguinte exemplo que mostra que a máquina virtual foi criada com êxito:
+1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-```bash
-PLAY [Create Azure VM] ****************************************************
+1. Abra o [Cloud Shell](/azure/cloud-shell/overview).
 
-TASK [Gathering Facts] ****************************************************
-ok: [localhost]
+1. Crie um arquivo (para conter seu guia estratégico) chamado `azure_create_complete_vm.yml`, e abra-o no editor VI da seguinte maneira:
 
-TASK [Create VM] **********************************************************
-changed: [localhost]
+  ```azurecli-interactive
+  vi azure_create_complete_vm.yml
+  ```
 
-PLAY RECAP ****************************************************************
-localhost                  : ok=2    changed=1    unreachable=0    failed=0
-```
+1. Entre no modo de inserção selecionando a tecla **I**.
 
+1. Cole [todo o guia estratégico de exemplo do Ansible](#complete-sample-ansible-playbook) no editor.
+
+1. Saia do modo de inserção selecionando a tecla **Esc**.
+
+1. Salve o arquivo e saia do editor vi, inserindo o comando a seguir:
+
+    ```bash
+    :wq
+    ```
+
+1. Execute o guia estratégico de exemplo do Ansible.
+
+  ```bash
+  ansible-playbook azure_create_complete_vm.yml
+  ```
+
+1. A saída é semelhante ao seguinte exemplo, onde você pode ver que uma máquina virtual foi criada com êxito:
+
+  ```bash
+  PLAY [Create Azure VM] ****************************************************
+
+  TASK [Gathering Facts] ****************************************************
+  ok: [localhost]
+
+  TASK [Create resource group] *********************************************
+  changed: [localhost]
+
+  TASK [Create virtual network] *********************************************
+  changed: [localhost]
+
+  TASK [Add subnet] *********************************************************
+  changed: [localhost]
+
+  TASK [Create public IP address] *******************************************
+  changed: [localhost]
+
+  TASK [Dump public IP for VM which will be created] ********************************************************************
+  ok: [localhost] => {
+      "msg": "The public IP is <ip-address>."
+  }
+
+  TASK [Create Network Security Group that allows SSH] **********************
+  changed: [localhost]
+
+  TASK [Create virtual network inteface card] *******************************
+  changed: [localhost]
+
+  TASK [Create VM] **********************************************************
+  changed: [localhost]
+
+  PLAY RECAP ****************************************************************
+  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+  ```
+
+1. O comando SSH é usado para acessar sua VM do Linux. Substitua o espaço reservado &lt;ip-address> pelo endereço IP da etapa anterior.
+
+  ```bash
+  ssh azureuser@<ip-address>
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Este exemplo cria uma máquina virtual em um grupo de recursos existente e com uma rede virtual já implantada. Para obter um exemplo mais detalhado sobre como usar o Ansible para criar recursos de suporte, como uma rede virtual e regras do grupo de segurança de rede, veja [Criar um ambiente completo de VM com o Ansible](ansible-create-complete-vm.md).
+> [!div class="nextstepaction"] 
+> [Usar o Ansible para gerenciar uma máquina virtual do Linux no Azure](./ansible-manage-linux-vm.md)

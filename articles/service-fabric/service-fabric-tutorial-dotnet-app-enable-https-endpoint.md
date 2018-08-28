@@ -1,6 +1,6 @@
 ---
-title: Adicionar um ponto de extremidade HTTPS a um aplicativo Service Fabric no Azure | Microsoft Docs
-description: Neste tutorial, você aprenderá a adicionar um ponto de extremidade HTTPS a um serviço Web de front-end do ASP.NET Core e a implantar o aplicativo em um cluster.
+title: Adicionar um ponto de extremidade HTTPS usando Kestrel a um aplicativo do Service Fabric no Azure | Microsoft Docs
+description: Neste tutorial, você aprenderá a adicionar um ponto de extremidade HTTPS a um serviço Web de front-end do ASP.NET Core usando Kestrel e a implantar o aplicativo em um cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130043"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920002"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: adicionar um ponto de extremidade HTTPS a um serviço de front-end de API Web do ASP.NET Core usando Kestrel
 
 Este tutorial é a parte três de uma série.  Você aprenderá a habilitar HTTPS em um serviço ASP.NET Core em execução no Service Fabric. Quando você terminar, terá um aplicativo de votação com um front-end Web do ASP.NET Core habilitado para HTTPS escutando na porta 443. Se você não quiser criar manualmente o aplicativo de votação em [Criar um aplicativo do Service Fabric no .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md), [baixe o código-fonte](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) do aplicativo concluído.
 
@@ -44,7 +44,7 @@ Nesta série de tutoriais, você aprenderá a:
 > * [Configurar CI/CD usando o Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar monitoramento e diagnóstico para o aplicativo](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar este tutorial:
 

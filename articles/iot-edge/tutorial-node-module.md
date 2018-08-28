@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6922262856d6fba97349377d5d1b18b75638d88f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6c47deebfe9617cdb21f473b282dd6ea2b912dc0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436804"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920510"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Node.js em seu dispositivo simulado
 
@@ -36,7 +36,6 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 Um dispositivo do Azure IoT Edge:
 
 * Você pode usar seu computador de desenvolvimento ou uma máquina virtual como um dispositivo do Edge seguindo as etapas no início rápido para os [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md).
-* O módulo de aprendizado de máquina do Azure não oferece suporte a processadores ARM.
 
 Recursos de nuvem:
 
@@ -87,8 +86,14 @@ Use **npm** para criar um modelo de solução em Node.js para usar de base.
    3. Escolha **Módulo Node.js** como o modelo de módulo. 
    4. Nomeie seu módulo **NodeModule**. 
    5. Especifique o Registro de Contêiner do Azure que você criou na seção anterior como o repositório de imagens do primeiro módulo. Substitua **localhost:5000** pelo valor de servidor de logon que você copiou. A cadeia de caracteres final se parece com **\<nome do registro\>.azurecr.io/nodemodule**.
- 
-A janela do VS Code carregará seu espaço de trabalho da solução IoT Edge. Há uma pasta **.vscode**, uma pasta **modules**, um arquivo **.env** e um arquivo de modelo de manifesto de implantação
+
+   ![Fornecer o repositório de imagem do Docker](./media/tutorial-node-module/repository.png)
+
+A janela do VS Code carregará seu espaço de trabalho da solução IoT Edge. O espaço de trabalho da solução contém cinco componentes de nível superior. Você não editará a pasta **\.vscode** ou o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código Node.js para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
+
+Se você não especifica um registro de contêiner durante a criação de sua solução, mas aceita o valor de localhost:5000, você não terá um arquivo \.env. 
+
+   ![Espaço de trabalho da solução de Node.js](./media/tutorial-node-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
@@ -107,7 +112,7 @@ Cada modelo é fornecido com código de exemplo incluído, que usa dados de sens
 5. Adicione uma variável de limite de temperatura abaixo dos módulos de nó obrigatórios. O limite de temperatura define o valor que a temperatura medida deve exceder para que os dados sejam enviados para o Hub IoT.
 
     ```javascript
-    var temperatureThreshold = 30;
+    var temperatureThreshold = 25;
     ```
 
 6. Substitua toda a função `PipeMessage` pela função `FilterMessage`.
@@ -183,7 +188,7 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
         }
     ```
 5. Salve o arquivo.
-6. No gerenciador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar solução IoT Edge**. 
+6. No explorador do VS Code, clique com o botão direito do mouse no arquivo **deployment.template.json** e selecione **Compilar e enviar por push solução IoT Edge**. 
 
 Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo `deployment.json` em uma nova pasta **config**. Em seguida, ele executará dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam o código Node.js e enviam por push para o registro de contêiner que você especificou ao inicializar a solução. 
 
@@ -191,23 +196,21 @@ Você pode obter o endereço de imagem de contêiner completo com marca no coman
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 
-Você pode usar o portal do Azure para implantar o módulo Node.js em um dispositivo IoT Edge como foi feito no guia de início rápido, mas também pode implantar e monitorar os módulos do Visual Studio Code. As seções a seguir usam a extensão do Azure IoT Edge para VS Code que estava listada nos pré-requisitos. Caso ainda não o tenha feito, instale-a agora. 
+O artigo de início rápido que você usou para configurar seu dispositivo do IoT Edge, você implantou um módulo usando o portal do Azure. Também é possível implantar módulos usando a extensão Kit de ferramentas do Azure IoT para Visual Studio Code. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json**. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
 
-1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
+1. Na paleta de comandos do VS Code, execute **Hub IoT do Azure: selecionar Hub IoT**. 
 
-2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na conta do Azure. 
+2. Escolha a assinatura e o hub IoT que contêm o dispositivo do IoT Edge que você deseja configurar. 
 
-3. Na paleta de comandos, pesquise e execute o comando **Hub IoT do Azure: Selecionar Hub IoT**. 
+3. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
 
-4. Selecione a assinatura que contém seu Hub IoT e selecione a que você deseja acessar.
+4. Clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **Criar Implantação para Dispositivo Único**. 
 
-5. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
+   ![Criar implantação para dispositivo único](./media/tutorial-node-module/create-deployment.png)
 
-6. Clique com o botão direito do mouse no nome do seu dispositivo IoT Edge e selecione **Criar Implantação de dispositivo IoT Edge**. 
+5. Selecione o arquivo **deployment.json** na pasta **config** e clique em **Selecionar Manifesto de Implantação do Edge**. Não use o arquivo deployment.template.json. 
 
-7. Navegue até a pasta de solução que contém NodeModule. Abra a pasta **config** e selecione o arquivo **deployment.json**. Clique em **Selecionar Manifesto de Implantação do Edge**.
-
-8. Atualize a seção **Dispositivos Hub IoT do Azure**. Você deve ver o novo **NodeModule** sendo executado junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**. 
+6. Clique no botão Atualizar. Você deve ver o novo **NodeModule** sendo executado junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**. 
 
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
@@ -220,32 +223,14 @@ Você pode usar o portal do Azure para implantar o módulo Node.js em um disposi
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Se você pretende continuar para o próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los.
+Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 
 Caso contrário, você pode excluir as configurações locais e os recursos do Azure criados neste artigo para evitar encargos. 
 
-> [!IMPORTANT]
-> A exclusão de recursos do Azure e do grupo de recursos é irreversível. Depois de excluídos, o grupo de recursos e todos os recursos contidos nele serão excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. Caso tenha criado o Hub IoT dentro de um grupo de recursos existente que contém recursos que você deseja manter, exclua apenas o próprio recurso do Hub IoT em vez de excluir o grupo de recursos.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Para excluir apenas o Hub IoT, execute o comando abaixo usando seu nome de hub e do grupo de recursos:
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Para excluir o grupo de recursos inteiro por nome:
-
-1. Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
-
-2. Na caixa de texto **Filtrar por nome...**, digite o nome do grupo de recursos que contém seu Hub IoT. 
-
-3. À direita do seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
-
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Digite o nome do grupo de recursos novamente para confirmar e clique em **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

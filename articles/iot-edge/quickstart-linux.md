@@ -4,17 +4,17 @@ description: Neste início rápido, aprenda a implantar código pré-compilado r
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413007"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023477"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Início Rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux x64
 
@@ -54,7 +54,9 @@ Recursos de nuvem:
    az group create --name IoTEdgeResources --location westus
    ```
 
-* Uma máquina virtual Linux para agir como o dispositivo IoT Edge. 
+Dispositivo IoT Edge:
+
+* Uma máquina virtual ou dispositivo com Linux para agir como o dispositivo IoT Edge. Se você quiser criar uma máquina virtual no Azure, use o comando a seguir para começar rapidamente:
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,7 +64,7 @@ Recursos de nuvem:
 
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
-Comece o início rápido criando o seu Hub IoT com a CLI do Azure. 
+Comece o início rápido criando o Hub IoT com a CLI do Azure. 
 
 ![Criar Hub IoT][3]
 
@@ -78,10 +80,12 @@ O código a seguir cria um hub **F1** gratuito no grupo de recursos **IoTEdgeRes
 
 ## <a name="register-an-iot-edge-device"></a>Registrar um dispositivo IoT Edge
 
-Registre um dispositivo IoT Edge no Hub IoT recém-criado.
+Registre um dispositivo IoT Edge no Hub IoT recém-criado. 
 ![Registrar um dispositivo][4]
 
-Crie uma identidade de dispositivo para seu dispositivo simulado para que ele possa se comunicar com o hub IoT. Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentemente de dispositivos IoT comuns, declare esse para ser um dispositivo de IoT Edge desde o início. 
+Crie uma identidade de dispositivo para seu dispositivo simulado para que ele possa se comunicar com o hub IoT. A identidade do dispositivo reside na nuvem e você usa uma cadeia de conexão de dispositivo exclusiva para associar um dispositivo físico a uma identidade do dispositivo. 
+
+Como os dispositivos IoT Edge se comportam e podem ser gerenciados diferentemente de dispositivos IoT comuns, declare esse para ser um dispositivo de IoT Edge desde o início. 
 
 1. No Azure Cloud Shell, digite o seguinte comando para criar um dispositivo denominado **myEdgeDevice** no seu hub.
 
@@ -100,12 +104,14 @@ Crie uma identidade de dispositivo para seu dispositivo simulado para que ele po
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o tempo de execução do IoT Edge
 
-Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo. 
+Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo IoT Edge. 
 ![Registrar um dispositivo][5]
 
 O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge é iniciado e inicializa o dispositivo inicializando o agente do IoT Edge. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
 
-Siga as etapas a seguir no computador Linux ou VM que você preparou para este início rápido. 
+Durante a configuração do tempo de execução, você precisa fornecer uma cadeia de conexão do dispositivo. Use a cadeia de caracteres que você recuperou da CLI do Azure. Essa cadeia de caracteres associa seu dispositivo físico à identidade do dispositivo IoT Edge no Azure. 
+
+Conclua as etapas a seguir no computador ou na VM do Linux que você preparou para funcionar como um dispositivo IoT Edge. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Registrar o dispositivo para usar o repositório de software
 
@@ -131,19 +137,19 @@ As etapas nesta seção são para dispositivos que executam **16.04 Ubuntu**. Pa
 
 O tempo de execução do IoT Edge é um conjunto de contêineres, e a lógica que você implanta em seu dispositivo IoT Edge é empacotada como contêineres. Prepare o dispositivo para esses componentes instalando um tempo de execução do contêiner.
 
-Atualize **apt-get**.
+1. Atualize **apt-get**.
 
    ```bash
    sudo apt-get update
    ```
 
-Instale o **Moby**, um tempo de execução de contêiner.
+2. Instale o **Moby**, um tempo de execução de contêiner.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Instale os comandos da CLI para Moby. 
+3. Instale os comandos da CLI para Moby. 
 
    ```bash
    sudo apt-get install moby-cli
@@ -166,19 +172,26 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Adicione a cadeia de conexão do dispositivo do IoT Edge. Procure a variável **device_connection_string** e atualize seu valor com a cadeia de caracteres que você copiou após registrar seu dispositivo.
+3. Adicione a cadeia de conexão do dispositivo do IoT Edge. Procure a variável **device_connection_string** e atualize seu valor com a cadeia de caracteres que você copiou após registrar seu dispositivo. Essa cadeia de conexão associa seu dispositivo físico à identidade do dispositivo que você criou no Azure.
 
 4. Salve e feche o arquivo. 
 
    `CTRL + X`, `Y`, `Enter`
 
-4. Reinicie o daemon de segurança do IoT Edge.
+5. Reinicie o daemon de segurança do IoT Edge para aplicar suas alterações.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Verifique se o daemon de segurança do Edge está em execução como um serviço do sistema.
+>[!TIP]
+>Você precisa de privilégios elevados para executar comandos `iotedge`. Depois que você sair da sua máquina e fizer login novamente na primeira vez após instalar o tempo de execução do IoT Edge, suas permissões serão atualizadas automaticamente. Até lá, use **sudo** na frente dos comandos. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>Veja o status do tempo de execução do IoT Edge
+
+Verifique se o tempo de execução foi instalado e configurado com êxito.
+
+1. Verifique se o daemon de segurança do Edge está em execução como um serviço do sistema.
 
    ```bash
    sudo systemctl status iotedge
@@ -186,22 +199,21 @@ O daemon de segurança é instalado como um serviço do sistema para que o tempo
 
    ![Veja o Daemon do Edge em execução como um serviço do sistema](./media/quickstart-linux/iotedged-running.png)
 
-   Você também pode ver os logs do Daemon de Segurança do Edge executando o seguinte comando:
+2. Se você precisar solucionar problemas do serviço, recupere os logs de serviço. 
 
    ```bash
    journalctl -u iotedge
    ```
 
-6. Visualizar os módulos em execução no seu dispositivo. 
-
-   >[!TIP]
-   >Você precisa usar *sudo* para executar comandos `iotedge` inicialmente. Saia do seu computador e entre novamente para atualizar as permissões, em seguida execute os comandos `iotedge` sem privilégios elevados. 
+3. Visualizar os módulos em execução no seu dispositivo. 
 
    ```bash
    sudo iotedge list
    ```
 
    ![Exibir um módulo no dispositivo](./media/quickstart-linux/iotedge-list-1.png)
+
+Seu dispositivo IoT Edge agora está configurado. Ele está pronto para executar os módulos implantados na nuvem. 
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
@@ -214,12 +226,11 @@ Gerencie o dispositivo Azure IoT Edge na nuvem para implantar um módulo que env
 
 Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o Portal do Azure para enviar por push um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais. 
 
-Abra o prompt de comando no computador executando o seu dispositivo simulado novamente. Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge:
+Abra novamente o prompt de comando em seu dispositivo IoT Edge. Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge:
 
    ```bash
    sudo iotedge list
    ```
-   Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
    ![Exibir três módulos no seu dispositivo](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -234,7 +245,7 @@ Após fazer logoff e logon, *sudo* não é necessário para o comando acima.
 
 O módulo de sensor de temperatura poderá estar aguardando para se conectar ao Hub do Edge se a última linha que você vê no log for `Using transport Mqtt_Tcp_Only`. Tente eliminar o módulo e deixar que o agente do Edge o reinicie. Você pode encerrá-la com o comando `sudo docker stop tempSensor`.
 
-Você também pode exibir a telemetria que o dispositivo está enviando usando a [ferramenta exploradora do Hub IoT] [ lnk-iothub-explorer] ou a [extensão Kit de ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
+Você também pode exibir a telemetria recebidas pelo seu Hub IoT usando a [extensão do Kit de Ferramentas do Azure IoT para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -278,7 +289,8 @@ Exclua os contêineres que foram criados no seu dispositivo pelo tempo de execu�
 Remova o tempo de execução do contêiner.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -305,10 +317,9 @@ Este guia de início rápido é pré-requisito para todos os tutoriais do IoT Ed
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

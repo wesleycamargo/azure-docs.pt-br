@@ -6,47 +6,35 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725234"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022449"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
-A Grade de Eventos do Azure permite compilar facilmente aplicativos com as arquiteturas baseadas em evento. Você seleciona o recurso do Azure que quer assinar e fornece o manipulador de eventos ou o ponto de extremidade do WebHook ao qual enviar o evento. A Grade de Eventos tem suporte interno para eventos provenientes de serviços do Azure, como blobs de armazenamento e grupos de recursos. A Grade de Eventos também tem suporte personalizado para eventos de aplicativo e de terceiros, usando webhooks e tópicos personalizados. 
+A Grade de Eventos do Azure permite compilar facilmente aplicativos com as arquiteturas baseadas em evento. Primeiro, selecione o recurso do Azure que você quer assinar e forneça o manipulador de eventos ou o ponto de extremidade do WebHook ao qual enviar o evento. A Grade de Eventos tem suporte interno para eventos provenientes de serviços do Azure, como blobs de armazenamento e grupos de recursos. A Grade de Eventos também tem suporte para seus próprios eventos usando os tópicos personalizados. 
 
-Você pode usar filtros para encaminhar eventos específicos a pontos de extremidade diferentes, multicast para vários pontos de extremidade e verificar se os eventos são distribuídos de forma confiável. A Grade de Eventos também tem suporte interno para eventos personalizados e de terceiros.
+Você pode usar filtros para encaminhar eventos específicos a pontos de extremidade diferentes, multicast para vários pontos de extremidade e verificar se os eventos são distribuídos de forma confiável.
 
-No momento, a Grade de Eventos oferece suporte às seguintes regiões:
+Atualmente, a Grade de Eventos do Azure está disponível em todas as regiões públicas. Ainda não está disponível nas nuvens do Azure Alemanha, Azure China ou Azure Governamental.
 
-* Sudeste da Ásia
-* Leste da Ásia
-* Leste da Austrália
-* Sudeste da Austrália
-* Centro dos EUA
-*   Leste dos EUA
-*   Leste dos EUA 2
-* Europa Ocidental
-* Norte da Europa
-* Leste do Japão
-* Oeste do Japão
-*   Centro-Oeste dos EUA
-*   Oeste dos EUA
-*   Oeste dos EUA 2
-
-Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). A imagem a seguir mostra como a Grade de Eventos conecta fontes e manipuladores, mas não fornece uma lista abrangente de opções com suporte.
+Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md). 
 
 ![Modelo funcional da Grade de Eventos](./media/overview/functional-model.png)
 
+Observação: essa imagem mostra como a Grade de Eventos conecta fontes e manipuladores, mas não fornece uma lista abrangente de integrações com suporte.
+
 ## <a name="event-sources"></a>Origens de eventos
 
-Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
+Para obter detalhes completos sobre os recursos de cada origem, bem como artigos relacionados, confira [origens do evento](event-sources.md). Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à Grade de Eventos:
 
 * Assinaturas do Azure (operações de gerenciamento)
+* Registro de Contêiner
 * Tópicos personalizados
 * Hubs de Eventos
 * Hub IoT
@@ -56,11 +44,9 @@ Atualmente, os serviços do Azure a seguir dão suporte para envio de eventos à
 * Blob de Armazenamento
 * Uso geral v2 (GPv2) do Armazenamento
 
-Para obter links para artigos que mostram como usar cada origem de evento, consulte [Origens de evento na Grade de Eventos do Azure](event-sources.md).
-
 ## <a name="event-handlers"></a>Manipuladores de eventos
 
-Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
+Para obter detalhes completos sobre os recursos de cada manipulador, bem como artigos relacionados, confira [manipuladores de evento](event-handlers.md). Atualmente, os serviços do Azure a seguir dão suporte para manipulação de eventos da Grade de Eventos: 
 
 * Automação do Azure
 * Funções do Azure
@@ -70,8 +56,6 @@ Atualmente, os serviços do Azure a seguir dão suporte para manipulação de ev
 * Microsoft Flow
 * Armazenamento de Filas
 * WebHooks
-
-Para obter links para artigos que mostram como usar cada manipulador de evento, consulte [Manipuladores de evento na Grade de Eventos do Azure](event-handlers.md).
 
 ## <a name="concepts"></a>Conceitos
 

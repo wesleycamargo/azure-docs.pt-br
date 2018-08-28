@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186731"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918570"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Tutorial: Depurar um aplicativo Web da Malha do Service Fabric
 
@@ -74,9 +74,17 @@ Após a conclusão da implantação local, e quando o Visual Studio estiver exec
 
 **Dicas de depuração**
 
-* Se você receber o erro **Não há um cluster local do Service Fabric em execução**, verifique se o SLCM (Gerenciador de Cluster Local do Serviço) está em execução e clique com o botão direito no ícone do SLCM na barra de tarefas, depois clique em **Iniciar Cluster Local**. Depois de iniciado, retorne ao Visual Studio e pressione **F5**.
-* Se você receber um erro **404** quando o aplicativo for iniciado, ele provavelmente significará que suas variáveis de ambiente em **service.yaml** estão incorretas. Certifique-se de que `ApiHostPort` e `ServiceName` estejam definidas corretamente de acordo com as instruções em [Criar variáveis de ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
-* Se você receber erros de compilação em **service.yaml**, use espaços, e não guias, para recuar linhas. Além disso, por enquanto, você deve compilar o aplicativo usando a localidade de inglês.
+Atualmente, há um problema que faz com que a chamada para `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` não se conecte ao serviço. Isso pode ocorrer sempre que seu endereço IP do host for alterado. Para resolver esse problema:
+
+1. Remova o aplicativo do cluster local (no Visual Studio, **Compilar** > **Limpar Solução**).
+2. No Gerenciador de Cluster Local do Service Fabric, selecione **Parar Cluster Local** e depois **Iniciar Cluster Local**.
+3. Reimplante o aplicativo (no Visual Studio, **F5**).
+
+Se você receber o erro **Não há um cluster local do Service Fabric em execução**, verifique se o LCM (Gerenciador de Cluster Local) do Service Fabric está em execução e clique com o botão direito no ícone do LCM na barra de tarefas, depois clique em **Iniciar Cluster Local**. Depois de iniciado, retorne ao Visual Studio e pressione **F5**.
+
+Se você receber um erro **404** quando o aplicativo for iniciado, talvez suas variáveis de ambiente em **service.yaml** estejam incorretas. Certifique-se de que `ApiHostPort` e `ToDoServiceName` estejam definidas corretamente de acordo com as instruções em [Criar variáveis de ambiente](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables).
+
+Se você receber erros de compilação em **service.yaml**, use espaços, e não guias, para recuar linhas. Além disso, por enquanto, você deve compilar o aplicativo usando a localidade de inglês.
 
 ### <a name="debug-in-visual-studio"></a>Depuração no Visual Studio
 

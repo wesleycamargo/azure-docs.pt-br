@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185662"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918872"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Tutorial: Criar, depurar e implantar um aplicativo Web de vários serviços na malha do Service Fabric
 
@@ -314,7 +314,8 @@ Substitua o conteúdo de todo o arquivo pelo seguinte HTML que define uma tabela
 </div>
 ```
 
-Abra o código da página de índice no **Gerenciador de Soluções** abrindo **index. cshtml** e abrindo **Index.cshtml.cs**. Na parte superior de **Index.cshtml.cs**, adicione `using System.Net.Http;`
+Abra o código da página de índice no **Gerenciador de Soluções** abrindo **index. cshtml** e abrindo **Index.cshtml.cs**.
+Na parte superior de **Index.cshtml.cs**, adicione `using System.Net.Http;`
 
 Substitua o conteúdo de `public class IndexModel` por:
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 A URL para o serviço de back-end é necessária para se comunicar com o serviço. Para fins deste tutorial, o seguinte trecho de código (que é definido acima como parte de IndexModel) lê as variáveis de ambiente para compor o URL:
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

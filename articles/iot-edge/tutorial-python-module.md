@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5766f9708d2439f42f9ad77169fd1fe7f7dc451e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6cf3a721dfd601fc4d4beb122f56b4a4de5fe426
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439105"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918569"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python em seu dispositivo simulado
 
@@ -37,7 +37,7 @@ O módulo IoT Edge que criado neste tutorial filtra os dados de temperatura gera
 Um dispositivo do Azure IoT Edge:
 
 * Você pode usar seu computador de desenvolvimento ou uma máquina virtual como um dispositivo do Edge seguindo as etapas no início rápido do [Linux](quickstart-linux.md).
-* Os módulos de Python do IoT Edge não dão suporte a processadores ARM ou a dispositivos Windows.
+* Os módulos de Python para IoT Edge não dão suporte a dispositivos Windows.
 
 Recursos de nuvem:
 
@@ -51,6 +51,9 @@ Recursos de desenvolvimento:
 * [CE do Docker](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
 * [PIP](https://pip.pypa.io/en/stable/installing/#installation) para instalar os pacotes do Python (normalmente incluídos com a instalação do Python).
+
+>[!Note]
+>Verifique se a sua pasta `bin` está dentro do caminho para sua plataforma. Normalmente, `~/.local/` para UNIX e macOS ou `%APPDATA%\Python` no Windows.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 Neste tutorial, você utiliza a extensão do Azure IoT Edge do Visual Studio Code para compilar um módulo e criar uma **imagem de contêiner** dos arquivos. Em seguida, você efetua push dessa imagem para um **registro** que armazena e gerencia suas imagens. Finalmente, você implanta a imagem do seu registro para executar no dispositivo IoT Edge.  
@@ -78,6 +81,8 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
     ```cmd/sh
     pip install --upgrade --user cookiecutter
     ```
+   >[!Note]
+   >Verifique se o diretório onde o cookiecutter será instalado está no `Path` do seu ambiente para que seja possível invocá-lo em um prompt de comando.
 
 3. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
@@ -91,7 +96,13 @@ Use o pacote do Python **cookiecutter** para criar um modelo de solução em Pyt
    4. Nomeie seu módulo **PythonModule**. 
    5. Especifique o registro de contêiner do Azure que você criou na seção anterior como o repositório de imagens do primeiro módulo. Substitua **localhost:5000** pelo valor de servidor de logon que você copiou. A cadeia de caracteres final se parece com \<nome do registro\>.azurecr.io/pythonmodule.
  
-A janela do VS Code carrega seu espaço de trabalho da solução IoT Edge: uma pasta de módulos, um arquivo de modelo do manifesto de implantação e um arquivo \.env. 
+   ![Fornecer o repositório de imagem do Docker](./media/tutorial-python-module/repository.png)
+
+A janela do VS Code carregará seu espaço de trabalho da solução IoT Edge. O espaço de trabalho da solução contém cinco componentes de nível superior. Você não editará o arquivo **\.gitignore** neste tutorial. A pasta **módulos** contém o código Python para o seu módulo, bem como Dockerfiles para a compilação de seu módulo como uma imagem de contêiner. O arquivo **\.env** armazena suas credenciais de registro de contêiner. O arquivo **deployment.template.json** contém as informações que o tempo de execução do IoT Edge usa para implantar módulos em um dispositivo. 
+
+Se você não especifica um registro de contêiner durante a criação de sua solução, mas aceita o valor de localhost:5000, você não terá um arquivo \.env. 
+
+   ![Espaço de trabalho da solução em Python](./media/tutorial-python-module/workspace.png)
 
 ### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
 
@@ -200,7 +211,7 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 
 4. Salve o arquivo.
 
-5. No explorador do VS Code, clique com o botão direito do mouse no arquivo deployment.template.json e selecione **Compilar solução IoT Edge**. 
+5. No explorador do VS Code, clique com o botão direito do mouse no arquivo deployment.template.json e selecione **Compilar e enviar por push solução IoT Edge**. 
 
 Quando você solicitar ao Visual Studio Code para compilar sua solução, primeiro ele usará as informações no modelo de implantação e gerará um arquivo deployment.json em uma nova pasta chamada **config**. Em seguida, ele executará dois comandos no terminal integrado: `docker build` e `docker push`. Esses dois comandos compilam seu código, conteinerizam o código em Python e enviam o código por push para o registro de contêiner especificado ao inicializar a solução. 
 
@@ -208,23 +219,21 @@ Você pode obter o endereço de imagem de contêiner completo com marca no coman
 
 ## <a name="deploy-and-run-the-solution"></a>Implantar e executar a solução
 
-Você pode usar o portal do Azure para implantar o módulo Python em um dispositivo IoT Edge como foi feito nos inícios rápidos. Você também pode implantar e monitorar os módulos no Visual Studio Code. As seções a seguir usam a extensão do Azure IoT Edge para VS Code que estava listada nos pré-requisitos. Instale a extensão agora, caso ainda não tenha feito isso. 
+O artigo de início rápido que você usou para configurar seu dispositivo do IoT Edge, você implantou um módulo usando o portal do Azure. Também é possível implantar módulos usando a extensão Kit de ferramentas do Azure IoT para Visual Studio Code. Você já tem um manifesto de implantação preparado para o seu cenário, o arquivo **deployment.json**. Agora, tudo o que você precisa fazer é selecionar um dispositivo para receber a implantação.
 
-1. Abra a paleta de comandos do VS Code selecionando **Exibir** > **Paleta de comandos**.
+1. Na paleta de comandos do VS Code, execute **Hub IoT do Azure: selecionar Hub IoT**. 
 
-2. Pesquise e execute o comando **Azure: Entrar**. Siga as instruções para entrar na conta do Azure. 
+2. Escolha a assinatura e o hub IoT que contêm o dispositivo do IoT Edge que você deseja configurar. 
 
-3. Na paleta de comandos, pesquise e execute o comando **Hub IoT do Azure: Selecionar Hub IoT**. 
+3. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
 
-4. Selecione a assinatura que contém seu hub IoT e selecione o hub IoT que você deseja acessar.
+4. Clique com o botão direito no nome do seu dispositivo IoT Edge e selecione **Criar Implantação para Dispositivo Único**. 
 
-5. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
+   ![Criar implantação para dispositivo único](./media/tutorial-python-module/create-deployment.png)
 
-6. Clique com o botão direito do mouse no nome do seu dispositivo IoT Edge e escolha **Criar implantação de dispositivo IoT Edge**. 
+5. Selecione o arquivo **deployment.json** na pasta **config** e clique em **Selecionar Manifesto de Implantação do Edge**. Não use o arquivo deployment.template.json. 
 
-7. Navegue até a pasta de solução que contém **PythonModule**. Abra a pasta de configuração, escolha o arquivo deployment.json e escolha **Selecionar manifesto de implantação do Edge**.
-
-8. Atualize a seção **Dispositivos Hub IoT do Azure**. Você deve ver o novo **PythonModule** sendo executado junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**. 
+6. Clique no botão Atualizar. Você deve ver o novo **PythonModule** sendo executado junto com o módulo **TempSensor** em **$edgeAgent** e **$edgeHub**. 
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
@@ -236,32 +245,42 @@ Você pode usar o portal do Azure para implantar o módulo Python em um disposit
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los.
+Se você pretende continuar no próximo artigo recomendado, pode manter os recursos e as configurações já criados e reutilizá-los. Você também pode continuar usando o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 
 Caso contrário, você pode excluir as configurações locais e os recursos do Azure criados neste artigo para evitar encargos. 
 
-> [!IMPORTANT]
-> A exclusão de recursos do Azure e dos grupos de recursos é irreversível. Quando os itens são excluídos, o grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente grupo de recursos ou recursos incorretos. Caso tenha criado o hub IoT dentro de um grupo de recursos existente com recursos que você deseja manter, exclua o próprio recurso hub IoT em vez de excluir o grupo de recursos.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Para excluir apenas o hub IoT, execute o comando abaixo usando o nome do hub e do grupo de recursos:
+### <a name="delete-local-resources"></a>Excluir recursos locais
 
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
+Se você quiser remover o tempo de execução do IoT Edge e os recursos relacionados de seu dispositivo, use os comandos a seguir. 
 
+Remova o tempo de execução do IoT Edge.
 
-Para excluir o grupo de recursos inteiro por nome:
+   ```bash
+   sudo apt-get remove --purge iotedge
+   ```
 
-1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
+Quando o tempo de execução do IoT Edge for removido, os contêineres criados por ele são interrompidos, mas ainda existem no seu dispositivo. Visualizar todos os contêineres.
 
-2. Na caixa de texto **Filtrar por nome**, insira o nome do grupo de recursos que contém seu Hub IoT. 
+   ```bash
+   sudo docker ps -a
+   ```
 
-3. À direita do seu grupo de recursos na lista de resultados, selecione as reticências (**...**) e selecione **Excluir grupo de recursos**.
+Exclua os contêineres de tempo de execução que foram criados no dispositivo.
 
-4. Você receberá uma solicitação para confirmar a exclusão do grupo de recursos. Insira novamente o nome do grupo de recursos para confirmar e selecione **Excluir**. Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
+   ```bash
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
+
+Exclua todos os contêineres adicionais que foram listados na saída `docker ps` fazendo referência aos nomes de contêiner. 
+
+Remova o tempo de execução do contêiner.
+
+   ```bash
+   sudo apt-get remove --purge moby
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
