@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139697"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046843"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Implantar um cluster Kubernetes no Azure Stack
 
@@ -88,9 +88,9 @@ Para começar, verifique se você tiver as permissões corretas e que o Azure St
 
 Conceder acesso à entidade de serviço à sua assinatura para que a entidade de segurança possa criar recursos.
 
-1.  Entrar para o [portal de administração](https://adminportal.local.azurestack.external).
+1.  Entrar para o [portal do Azure Stack](https://portal.local.azurestack.external/).
 
-1. Selecione **mais serviços** > **assinaturas do usuário** > **+ adicionar**.
+1. Selecione **mais serviços** > **assinaturas**.
 
 1. Selecione a assinatura que você criou.
 

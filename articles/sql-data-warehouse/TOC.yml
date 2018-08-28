@@ -5,8 +5,18 @@ items:
   items:
   - name: Sobre o SQL Data warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: Arquitetura do SQL Data Warehouse
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Unidades de data warehouse
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Roteiro
     href: cheat-sheet.md
+  - name: Práticas recomendadas
+    href: sql-data-warehouse-best-practices.md
+  - name: Limites de capacidade
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: Perguntas frequentes
+    href: sql-data-warehouse-overview-faq.md
 - name: Notas de versão
   items:
   - name: Agosto de 2018
@@ -27,13 +37,13 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Pausar e retomar computação
+  - name: Pausar e retomar
     items:
     - name: Portal
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Computação de escala
+  - name: Escala
     items:
     - name: Portal
       href: quickstart-scale-compute-portal.md
@@ -78,18 +88,6 @@ items:
     items:
     - name: Visão geral
       href: sql-data-warehouse-overview-develop.md
-    - name: Componentes do data warehouse
-      href: sql-data-warehouse-overview-workload.md
-    - name: Práticas recomendadas
-      href: sql-data-warehouse-best-practices.md
-    - name: Arquitetura MPP
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Unidades de data warehouse
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Limites de capacidade
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: Perguntas frequentes
-      href: sql-data-warehouse-overview-faq.md
     - name: Tabelas
       items:
       - name: Visão geral
@@ -112,14 +110,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporário
         href: sql-data-warehouse-tables-temporary.md
-    - name: Consultas
-      items:
-      - name: SQL dinâmico
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Agrupar por opções
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Rótulos
-        href: sql-data-warehouse-develop-label.md
     - name: Elementos da linguagem T-SQL
       items:
       - name: Loops
@@ -136,13 +126,21 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Modos de exibição
         href: sql-data-warehouse-develop-views.md
-  - name: Gerenciamento da Carga de Trabalho
+  - name: Consultas
+    items:
+    - name: SQL dinâmico
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Agrupar por opções
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Rótulos
+      href: sql-data-warehouse-develop-label.md
+  - name: Gerenciamento de carga de trabalho
     items:
     - name: Classes de recursos e gerenciamento de carga de trabalho
       href: resource-classes-for-workload-management.md
     - name: Memória e limites de simultaneidade
       href: memory-and-concurrency-limits.md
-  - name: Capacidade de gerenciamento e monitoramento
+  - name: Gerenciamento e monitoramento
     items:
     - name: Atividade de Consulta e Utilização de Recursos
       href: sql-data-warehouse-manage-monitor.md
@@ -178,7 +176,7 @@ items:
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Detecção de ameaças
       href: sql-data-warehouse-security-threat-detection.md
-  - name: Carregar Dados
+  - name: Carregar dados
     items:
     - name: Dados dos táxis em Nova Iorque
       href: load-data-from-azure-blob-storage-using-polybase.md
@@ -208,11 +206,11 @@ items:
       href: sql-data-warehouse-query-visual-studio.md
     - name: Instalar Visual Studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Ajustar Carga de Trabalho
+  - name: Gerenciar carga de trabalho
     items:
     - name: Analisar sua carga de trabalho
       href: analyze-your-workload.md
-  - name: Gerenciar e Monitorar
+  - name: Monitorar e ajustar
     items:
     - name: Restauração – Portal
       href: sql-data-warehouse-restore-database-portal.md
@@ -278,9 +276,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gerenciamento de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 8ae5810cabf2154d6c91c2d520479beb29f925bd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41927073"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915118"

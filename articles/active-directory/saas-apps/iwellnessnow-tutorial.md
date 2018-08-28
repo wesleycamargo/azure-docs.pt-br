@@ -29,7 +29,7 @@ Neste tutorial, você aprenderá a integrar o iWellnessNow ao Azure AD (Azure Ac
 A integração do iWellnessNow ao Azure AD oferece os seguintes benefícios:
 
 - No Azure AD, você pode controlar quem tem acesso ao iWellnessNow.
-- You can enable your users to automatically get signed-on to iWellnessNow (Single Sign-On) with their Azure AD accounts.
+- Pode habilitar a entrada automática para seus usuários no iWellnessNow (Logon Único) com as suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
