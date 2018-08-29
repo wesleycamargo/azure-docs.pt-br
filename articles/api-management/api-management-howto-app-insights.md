@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001796"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145247"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar o Gerenciamento de API do Azure ao Azure Application Insights
 
@@ -111,9 +111,15 @@ Uma solicitação com falha é aquela que:
 
 Com base nos testes de carga internos, a habilitação desse recurso causou uma redução de 40% a 50% na produtividade quando a taxa de solicitação excedeu 1.000 solicitações por segundo. O Azure Application Insights foi projetado para usar a análise estatística para avaliar o desempenho do aplicativo. Ele não deve ser um sistema de auditoria e não é adequado para registrar cada solicitação individual para APIs de alto volume.
 
-Você pode manipular o número de solicitações que estão sendo registradas, ajustando a configuração **Amostragem** (confira as etapas acima). O valor 100% significa que todas as solicitações são registradas, enquanto 0% não reflete nenhum registro. A **amostragem** ajuda a reduzir o volume de telemetria, impedindo efetivamente uma degradação significativa do desempenho, embora ainda ofereça os benefícios do registro.
+Você pode manipular o número de solicitações que estão sendo registradas, ajustando a configuração **Amostragem** (confira as etapas acima). O valor 100% significa que todas as solicitações são registradas, enquanto 0% não reflete nenhum registro. **Amostragem** ajuda a reduzir o volume de telemetria, evitando efetivamente a degradação significativa do desempenho, enquanto continua carregando os benefícios do registro em log.
 
 Ignorar o registro do cabeçalho e do corpo das solicitações e respostas também terá um impacto positivo atenuando problemas de desempenho.
+
+## <a name="video"></a>Vídeo
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -3,7 +3,7 @@ title: Monitorar e gerenciar a criação de certificados
 description: Os cenários demonstram uma gama de opções para a criação, monitoramento e interação com o processo de criação de certificado com o Key Vault.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011818"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139771"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorar e gerenciar a criação de certificados
 Aplica-se ao Azure  
@@ -46,7 +46,7 @@ Os cenários / operações descritas neste artigo são:
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-Os exemplos a seguir exigem que um objeto chamado "mydigicert" já esteja disponível em seu Key Vault com o provedor de emissor como DigiCert. Para obter mais informações sobre como trabalhar com emissores, consulte [Emissores de certificado](/rest/api/keyvault/certificate-issuers.md).  
+Os exemplos a seguir exigem que um objeto chamado "mydigicert" já esteja disponível em seu Key Vault com o provedor de emissor como DigiCert. O emissor do certificado é uma entidade representada no Azure Key Vault (KV) como um recurso CertificateIssuer. Ele é usado para fornecer informações sobre a origem de um certificado KV; nome do emissor, provedor, credenciais e outros detalhes administrativos.  
 
 ### <a name="request"></a>Solicitação  
 
@@ -427,9 +427,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```  
 
-|Nome do elemento|Obrigatório|type|Versão|DESCRIÇÃO|  
+|Nome do elemento|Obrigatório|Tipo|Versão|DESCRIÇÃO|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|sim|matriz|\<introdução à versão >|Cadeia confiável x509 como matriz de cadeia de caracteres de base 64.|  
+|x5c|SIM|matriz|\<introdução à versão >|Cadeia confiável x509 como matriz de cadeia de caracteres de base 64.|  
 
 ### <a name="response"></a>Response  
 

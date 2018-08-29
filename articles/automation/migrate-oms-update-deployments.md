@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116996"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145253"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrar as implantações de atualização do OMS para Azure
 
@@ -57,14 +57,16 @@ O painel **Nova implantação de atualizações** é aberto. Insira valores para
 
 Para que os Computadores atualizem, selecione a pesquisa salva usada pela implantação do OMS existente.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 | --- | --- |
-|NOME |Nome exclusivo para identificar a Implantação de Atualizações. |
+|Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Selecione **Linux** ou **Windows**.|
-|Computadores para atualizar |Para que os Computadores atualizem, selecione a pesquisa salva usada pela implantação do OMS existente. |
+|Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização que você precisa. CentOS não oferece suporte para isso fora da caixa.|
 |Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o artigo KB sem o prefixo **KB**. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
 |Configurações de agendamento|Selecione o tempo para iniciar e selecione **Uma Vez** ou **Recorrente** para a recorrência.|| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos ou superior a 6 horas. |
+| Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não superior a 6 horas |
+| Reinicialize o controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (padrão)</br>Sempre reinicializar</br>Nunca reinicialização</br>Somente reboot - não instalará as atualizações|
 
 Clique em **Implantações de atualização agendadas** para exibir o status da implantação da atualização criada recentemente.
 

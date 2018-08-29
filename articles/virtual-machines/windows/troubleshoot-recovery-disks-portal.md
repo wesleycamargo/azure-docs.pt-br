@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/07/2018
+ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: db6a2279347b5746da706e7ad3629b141afd205b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 09e7a729dbb3e82bce08c06a1af1f0bf3f9c5c2f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271157"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139776"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original.
@@ -32,7 +32,7 @@ O processo de solução de problemas é o seguinte:
 4. Desmonte e desanexe o disco rígido virtual da VM de solução de problemas.
 5. Crie uma VM usando o disco rígido virtual original.
 
-Para a máquina virtual que usa o disco gerenciado, consulte [Solucionar problemas de uma VM de disco gerenciado anexando um novo disco de SO](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
+Para a VM, esse disco gerenciado de usos, podemos agora pode usar o Azure PowerShell para alterar o disco do sistema operacional para uma máquina virtual. Não precisamos mais excluir e recriar a VM. Para obter mais informações, consulte [solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM usando o PowerShell do Azure de recuperação](troubleshoot-recovery-disks.md).
 
 ## <a name="determine-boot-issues"></a>Determinar problemas de inicialização
 Para determinar por que a VM não pode ser inicializada corretamente, examine a captura de tela da VM do diagnóstico de inicialização. Um exemplo comum seria uma atualização de aplicativo com falha ou um disco rígido virtual subjacente que está sendo excluído ou movido.
@@ -98,9 +98,9 @@ Para as próximas etapas, você pode usar outra VM para fins de solução de pro
 
 ## <a name="mount-the-attached-data-disk"></a>Montar o disco de dados anexado
 
-1. Abra uma conexão de Área de Trabalho Remota para a VM. Selecione a VM no portal e clique em **Conectar**. Baixe e abra o arquivo de conexão RDP. Insira suas credenciais para fazer logon na VM da seguinte maneira:
+1. Abra uma conexão de Área de Trabalho Remota para a VM. Selecione a VM no portal e clique em **Conectar**. Baixe e abra o arquivo de conexão RDP. Insira suas credenciais para entrar em sua VM da seguinte maneira:
 
-    ![Fazer logon na VM usando a Área de Trabalho Remota](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
+    ![Entrar em sua VM usando a área de trabalho remota](./media/troubleshoot-recovery-disks-portal/open-remote-desktop.png)
 
 2. Abra **Gerenciador do Servidor** e selecione **Serviços de Arquivo e Armazenamento**. 
 
@@ -146,13 +146,6 @@ O modelo é carregado no portal do Azure para implantação. Insira os nomes da 
 Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de inicialização poderá não ser habilitado automaticamente. Para verificar o status do diagnóstico de inicialização e ativá-lo, se necessário, selecione a VM no portal. Em **Monitoramento**, clique em **Configurações de diagnóstico**. Verifique se o status é **Ativado** e se a marca de seleção ao lado de **Diagnóstico de inicialização** está marcada. Se fizer alguma alteração, clique em **Salvar**:
 
 ![Atualizar as configurações do diagnóstico de inicialização](./media/troubleshoot-recovery-disks-portal/reenable-boot-diagnostics.png)
-
-## <a name="troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk"></a>Solucionar problemas de uma VM de disco gerenciado anexando um novo disco de SO
-1. Interrompa a VM do Windows de disco gerenciado afetado.
-2. [Criar um instantâneo de disco gerenciado](snapshot-copy-managed-disk.md) do disco do sistema operacional da VM de disco gerenciado.
-3. [Crie um novo disco gerenciado com base no instantâneo](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Anexar o disco gerenciado como um disco de dados da VM](attach-disk-ps.md).
-5. [Alterar o disco de dados da etapa 4 para o disco do sistema operacional](os-disk-swap.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 Se estiver tendo problemas para se conectar à VM, consulte [Troubleshoot RDP connections to an Azure VM](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Solucionar conexões RDP a uma VM do Azure). Para problemas com o acesso a aplicativos executados na VM, consulte [Solucionar problemas de conectividade do aplicativo em uma VM do Windows](troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

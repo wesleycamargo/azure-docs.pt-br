@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298824"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139970"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
 
@@ -67,6 +67,7 @@ Veja os itens necessários:
 
     ![Selecione Corpo e Cabeçalhos de saídas de Solicitação](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>Detalhes do decodificador AS2
 
 O conector Decodificar AS2 executa estas tarefas: 
@@ -75,6 +76,7 @@ O conector Decodificar AS2 executa estas tarefas:
 * Verifica a assinatura (se configurado)
 * Descriptografa as mensagens (se configurado)
 * Descompacta as mensagens (se configurado)
+* Verificar e não permitir duplicatas de ID de mensagem (se configuradas)
 * Reconcilia um MDN recebido com a mensagem de saída original
 * Atualiza e correlaciona os registros no banco de dados de não repúdio
 * Grava os registros para o relatório de status do AS2
@@ -82,6 +84,13 @@ O conector Decodificar AS2 executa estas tarefas:
 * Determina se um MDN é necessário e se ele deve ser síncrono ou assíncrono com base na configuração no contrato do AS2
 * Gera um MDN síncrono ou assíncrono (com base nas configurações do contrato)
 * Define as propriedades e os tokens de correlação no MDN
+
+
+  > [!NOTE]
+  > Se você usar o Azure Key Vault para o gerenciamento de certificado, certifique-se de que você configurar as chaves para permitir que o **descriptografar** operação.
+  > Caso contrário, a decodificação de AS2 falhará.
+  >
+  > ![Cofre de chaves descriptografa](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Experimente este exemplo
 

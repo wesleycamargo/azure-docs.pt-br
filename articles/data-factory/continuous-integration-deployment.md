@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448434"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145065"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Integração e implementação contínuas no Azure Data Factory
 
@@ -47,6 +47,10 @@ Essa ação leva você até o Portal do Azure, onde você pode importar o modelo
 Selecione **Carregar arquivo** para selecionar o modelo do Resource Manager exportado e forneça todos os valores de configuração (por exemplo, serviços vinculados).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Cadeias de caracteres de Conexão**. Você pode encontrar as informações necessárias para criar strings de conexão nos artigos sobre os conectores individuais. Por exemplo, para o Banco de Dados SQL do Azure, consulte [Copiar dados para ou do Banco de Dados SQL do Azure usando o Azure Data Factory](connector-azure-sql-database.md). Para verificar a cadeia de conexão correta – para um serviço vinculado, por exemplo, você também pode abrir a exibição de código para o recurso na IU do Data Factory. No modo de exibição de código, no entanto, a parte da chave de senha ou conta da seqüência de conexão é removida. Para abrir a visualização de código, selecione o ícone realçado na captura de tela a seguir.
+
+![Abra a visualização de código para ver a string de conexão](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Ciclo de vida da integração contínua
 Este é todo o ciclo de vida de integração e implementação contínuas que você pode usar depois de habilitar a integração do GIT do VSTS na interface de usuário do Data Factory:
@@ -174,11 +178,7 @@ A implantação poderá falhar se você tentar atualizar gatilhos ativos. Para a
 
 Você pode seguir etapas semelhantes e usar um código semelhante (com a função `Start-AzureRmDataFactoryV2Trigger`) para reiniciar os gatilhos depois da implantação.
 
-## <a name="sample-template-and-script"></a>Exemplo de modelo e script
-Estes são dois exemplos que você pode usar para começar a integração contínua e a implantação para o Data Factory:
-
--   Um exemplo de modelo de implantação que você pode importar no VSTS.
--   Um exemplo de script para interromper gatilhos antes da implantação e para reiniciar gatilhos depois. O script também inclui o código para excluir os recursos que foram removidos.
+## <a name="sample-deployment-template"></a>Modelo de implantação de exemplo
 
 Este é um exemplo de modelo de implantação que você pode importar no VSTS.
 
@@ -718,7 +718,9 @@ Este é um exemplo de modelo de implantação que você pode importar no VSTS.
 }
 ```
 
-Este é um exemplo de script para interromper gatilhos antes da implantação e para reiniciar gatilhos depois:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Script de amostra para parar e reiniciar gatilhos e limpar
+
+Aqui está um exemplo de script para parar os gatilhos antes da implantação e reiniciar os gatilhos posteriormente. O script também inclui código para excluir recursos que foram removidos.
 
 ```powershell
 param

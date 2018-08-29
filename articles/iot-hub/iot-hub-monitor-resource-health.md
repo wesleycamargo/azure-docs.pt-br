@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611364"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139770"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente
 
@@ -155,7 +155,7 @@ Essa categoria não pode capturar erros que ocorrem diretamente enquanto o dispo
 
 #### <a name="cloud-to-device-twin-operations"></a>Operações de dispositivo gêmeo para nuvem
 
-A categoria de operações de gêmeos de nuvem para dispositivo rastreia eventos iniciados pelo serviço em dispositivos gêmeos. Essas operações podem incluir obter gêmeo, atualizar propriedades relatadas e inscrever em propriedades desejadas
+A categoria de operações de gêmeos de nuvem para dispositivo rastreia eventos iniciados pelo serviço em dispositivos gêmeos. Essas operações podem incluir obter gêmeo, atualizar ou substituir marcas e atualizar ou substituir propriedades desejadas. 
 
 ```json
 {
@@ -172,7 +172,7 @@ A categoria de operações de gêmeos de nuvem para dispositivo rastreia eventos
 
 #### <a name="device-to-cloud-twin-operations"></a>Operações de nuvem gêmea para dispositivo
 
-A categoria de operações de gêmeos de dispositivo para nuvem rastreia eventos iniciados pelo dispositivo em dispositivos gêmeos. Essas operações podem incluir obter gêmeo, atualizar ou substituir marcas e atualizar ou substituir propriedades desejadas. 
+A categoria de operações de gêmeos de dispositivo para nuvem rastreia eventos iniciados pelo dispositivo em dispositivos gêmeos. Essas operações podem incluir gêmeos, atualizar as propriedades relatadas e assinar as propriedades desejadas.
 
 ```json
 {
@@ -223,7 +223,7 @@ A categoria de operações de trabalhos relata sobre solicitações de trabalho 
 
 #### <a name="direct-methods"></a>Métodos diretos
 
-A categoria de métodos diretos rastreia as interações de resposta de solicitações enviadas aos dispositivos individuais. Essas solicitações são iniciadas na nuvem. 
+A categoria de métodos diretos rastreia as interações solicitação-resposta enviadas a dispositivos individuais. Essas solicitações são iniciadas na nuvem. 
 
 ```json
 {

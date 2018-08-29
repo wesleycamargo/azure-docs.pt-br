@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521924"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139780"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Monitorar a integridade do contêiner do AKS (Serviço do Kubernetes do Azure) (versão prévia)
 
 Este artigo descreve como configurar e usar a integridade de contêiner do Azure Monitor para monitorar o desempenho das cargas de trabalho implantadas em ambientes do Kubernetes e hospedadas no AKS (serviço do Kubernetes do Azure). Monitorar os contêineres e clusters do Kubernetes é fundamental, principalmente ao executar um cluster de produção em grande escala e com vários aplicativos.
 
-A integridade do contêiner oferece capacidade de monitoramento de desempenho coletando métricas de processador e memória de controladores, nós e contêineres disponíveis no Kubernetes por meio da API de Métricas. Depois de habilitar a integridade do contêiner, essas métricas são automaticamente coletadas para você por meio de uma versão em contêineres do agente do OMS (Operations Management Suite) para Linux e armazenadas em seu espaço de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md). Os modos de exibição predefinidos incluídos mostram as cargas de trabalho de contêiner residentes e o que afeta a integridade do desempenho do cluster do Kubernetes para que você possa:  
+A integridade do contêiner oferece capacidade de monitoramento de desempenho coletando métricas de processador e memória de controladores, nós e contêineres disponíveis no Kubernetes por meio da API de Métricas. Depois de ativar a integridade do contêiner, essas métricas são coletadas automaticamente para você por meio de uma versão em contêiner do agente do Log Analytics para Linux e armazenadas em sua área de trabalho do [Log Analytics](../log-analytics/log-analytics-overview.md). Os modos de exibição predefinidos incluídos mostram as cargas de trabalho de contêiner residentes e o que afeta a integridade do desempenho do cluster do Kubernetes para que você possa:  
 
 * Identificar contêineres que estão em execução no nó e sua utilização média de processador e memória. Esse conhecimento pode ajudá-lo a identificar gargalos de recursos.
 * Identificar em que local o contêiner reside em um controlador ou em um pod. Esse conhecimento pode ajudá-lo a exibir o desempenho geral do controlador ou do pod. 
@@ -38,13 +38,15 @@ Se você estiver interessado em monitorar e gerenciar hosts de contêiner Docker
 Antes de começar, verifique se você tem o seguinte:
 
 - Um cluster AKS novo ou existente.
-- Um Agente do OMS em contêineres para Linux versão microsoft/oms:ciprod04202018 ou posteriores. O número de versão é representado por uma data no formato a seguir: *mmddaaaa*. Esse agente é instalado automaticamente durante a integração da integridade do contêiner. 
+- Um agente do Log Analytics em contêineres para a versão do Linux microsoft / oms:ciprod04202018 ou posterior. O número de versão é representado por uma data no formato a seguir: *mmddaaaa*. Esse agente é instalado automaticamente durante a integração da integridade do contêiner. 
 - Um espaço de trabalho do Log Analytics. É possível criá-lo ao habilitar o monitoramento do novo cluster do AKS ou permitir que a experiência de integração crie um espaço de trabalho padrão no grupo de recursos padrão da assinatura de cluster do AKS. Se optar por criá-lo por conta própria, será possível criá-lo por meio do [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), do [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) ou no [portal do Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 - A função de colaborador do Log Analytics, para habilitar o monitoramento de contêiner. Para obter mais informações sobre como controlar o acesso a um espaço de trabalho do Log Analytics, veja [Gerenciar espaços de trabalho](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>Componentes 
 
-Sua capacidade de monitorar o desempenho depende de um Agente do OMS para Linux em contêineres, que coleta dados de desempenho e eventos de todos os nós no cluster. O agente é automaticamente implantado e registrado no espaço de trabalho do Log Analytics especificado depois que o monitoramento de contêiner é habilitado. 
+Sua capacidade de monitorar o desempenho depende de um agente de Log Analytics contido no container para Linux, que coleta dados de desempenho e de eventos de todos os nós no cluster. O agente é automaticamente implantado e registrado no espaço de trabalho do Log Analytics especificado depois que o monitoramento de contêiner é habilitado. 
 
 >[!NOTE] 
 >Se você já implantou um cluster do AKS, habilite o monitoramento usando a CLI do Azure ou um modelo do Azure Resource Manager fornecido, conforme demonstrado posteriormente neste artigo. Não é possível usar `kubectl` para atualizar, excluir, implantar ou reimplantar o agente. 
@@ -59,7 +61,7 @@ Durante a implantação, você poderá habilitar o monitoramento de um novo clus
 Para habilitar o monitoramento de um novo cluster do AKS criado com a CLI do Azure, siga a etapa no artigo de início rápido na seção [Criar cluster do AKS](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.27 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CLI localmente. Você deve estar executando a CLI do Azure versão 2.0.43 ou posterior. Para identificar sua versão, execute `az --version`. Caso precise instalar ou atualizar a CLI do Azure, veja [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 Depois de habilitar o monitoramento e todas as tarefas de configuração terem sido concluídas com sucesso, você poderá monitorar o desempenho do cluster de uma destas duas maneiras:
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Versão do agente anterior a 06072018
 
-Para verificar se a versão do agente OMS liberada antes de *06072018* foi implantada adequadamente, execute o comando a seguir:  
+Para verificar se a versão do agente do Log Analytics liberada antes de *06072018* está implementada corretamente, execute o seguinte comando:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

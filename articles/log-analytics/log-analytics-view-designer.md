@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131844"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145296"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Criar exibições personalizadas usando o Designer de Exibição no Log Analytics
 Ao usar o Designer de Exibição no [Azure Log Analytics](log-analytics-overview.md), é possível criar uma variedade de exibições personalizadas no Portal do Azure que podem ajudá-lo a visualizar dados no espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -55,7 +55,7 @@ As opções estão descritas na tabela a seguir:
 | Opção | DESCRIÇÃO |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Análise | Abre o [portal de Análise Avançada](log-analytics-log-search-portals.md#advanced-analytics-portal) para analisar dados com pesquisas de logs. |
+| Análise | Abre o [portal do Advanced Analytics](log-analytics-log-search-portals.md) para analisar dados com consultas de log. |
 | Editar       | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
 | Clone      | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 | Intervalo de datas | Define um filtro de data e tempo para os dados incluídos na exibição. |

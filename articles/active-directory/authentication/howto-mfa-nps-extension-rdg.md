@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160096"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139795"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -226,7 +226,7 @@ Para garantir que haja tempo para validar as credenciais do usuário, executar a
 Por padrão, quando você configurar o Gateway de Área de Trabalho Remota para usar um repositório central de política para políticas de autorização de conexão, o Gateway de Área de Trabalho Remota está configurado para encaminhar solicitações de CAP para o servidor NPS. O servidor NPS com a extensão Azure MFA instalada, processa a solicitação de acesso RADIUS. As etapas a seguir mostram como verificar a política de solicitação de conexão padrão. 
 
 1. No Gateway de Área de Trabalho Remota, no console do NPS (Local), expanda **Políticas** e selecione **Políticas de Solicitação de Conexão**.
-2. Clique com o botão direito em **Políticas de Solicitação de Conexão** e clique duas vezes em **POLÍTICA DE AUTORIZAÇÃO DE GATEWAY TS**.
+2. Clique duas vezes em **política de autorização de GATEWAY TS**.
 3. Na caixa de diálogo **Propriedades da POLÍTICA DE AUTORIZAÇÃO DE GATEWAY TS**, clique na guia **Configurações**.
 4. Na guia **Configurações**, em Encaminhamento de Solicitação de Conexão, clique em **Autenticação**. O cliente RADIUS está configurado para encaminhar solicitações para autenticação.
 
@@ -266,8 +266,8 @@ O Gateway de Área de Trabalho Remota deve ser configurado como um cliente RADIU
 ### <a name="configure-network-policy"></a>Configurar Política de Rede
 Lembre-se de que o servidor NPS com a extensão do MFA do Azure é o repositório de política central designado para a CAP (Política de Autorização de Conexão). Portanto, você precisa implementar uma CAP no servidor NPS para autorizar solicitações de conexão válidas.  
 
-1. No console do NPS (Local), expanda **Políticas** e clique em **Políticas de Rede**.
-2. Clique com botão direito em **Conexões com outros servidores de acesso** e clique em **Duplicar política**. 
+1. No Servidor NPS, abra o console NPS (Local), expanda **Políticas** e clique em **Políticas de Rede**.
+2. Clique com o botão direito em **Conexões com outros servidores de acesso** e clique em **Duplicar Política**. 
 
  ![Duplicar Política](./media/howto-mfa-nps-extension-rdg/image19.png)
 
@@ -275,7 +275,7 @@ Lembre-se de que o servidor NPS com a extensão do MFA do Azure é o repositóri
 
  ![Propriedades da Rede](./media/howto-mfa-nps-extension-rdg/image20.png)
 
-4. Na caixa de diálogo **Cópia de Conexões para outros servidores de acesso**, em **Nome da Política**, insira um nome adequado, como _RDG_CAP_. Marque **Política habilitada** e selecione **Conceder acesso**. Opcionalmente, em **Tipo de servidor de acesso à rede**, selecione **Gateway de Área de Trabalho Remota** ou você pode deixá-lo como **Não especificado**.
+4. Na caixa de diálogo **Cópia de conexões com outros servidores de acesso**, em **Nome da política**, insira um nome adequado, como _RDG_CAP_. Marque **Política habilitada** e selecione **Conceder acesso**. Opcionalmente, em **Tipo de servidor de acesso à rede**, selecione **Gateway de Área de Trabalho Remota** ou você pode deixá-lo como **Não especificado**.
 
  ![Cópia de Conexões](./media/howto-mfa-nps-extension-rdg/image21.png)
 

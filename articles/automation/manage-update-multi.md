@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946050"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145705"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -25,7 +25,7 @@ ms.locfileid: "36946050"
 - Agendar a instalação de atualizações necessárias
 - Examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais nas quais o Gerenciamento de Atualizações está habilitado
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para usar o Gerenciamento de Atualizações, você precisa de:
 
@@ -104,11 +104,11 @@ Os agentes instalados em máquinas virtuais e computadores coletam dados sobre a
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Com suporte | DESCRIÇÃO |
+| Fonte conectada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |sim |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
+| Agentes do Windows |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes para Linux e, em seguida, inicia a instalação das atualizações necessárias nas distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |SIM |O Gerenciamento de Atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
 | Conta de Armazenamento do Azure |Não  |O Armazenamento do Microsoft Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
@@ -127,7 +127,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Nome**: insira um nome exclusivo para identificar a implantação de atualizações.
 - **Sistema operacional**: selecione **Windows** ou **Linux**.
-- **Computadores a atualizar**: selecione as máquinas virtuais que você deseja atualizar. A preparação do computador é mostrada no **PREPARAÇÃO para atualização do agente** coluna. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização.
+- **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para aprender sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,10 +150,16 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
    ![Caixa de diálogo Configurações de agendamento](./media/manage-update-multi/update-set-schedule.png)
 - **Janela de manutenção (minutos)**: especifique o período de tempo em que deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
-Ao terminar de configurar o agendamento, selecione o botão **Criar** para retornar ao painel de status. A tabela **Agendado** mostra o agendamento de implantação que você criou.
+- **Reinicialize o controle** -essa configuração determina como as reinicializações são tratadas para a implantação de atualização.
 
-> [!WARNING]
-> Para atualizações que exigem um reinício, a máquina virtual será reiniciada automaticamente.
+   |Opção|DESCRIÇÃO|
+   |---|---|
+   |Reinicialização, se necessário| **(padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
+   |Sempre reinicializar|Uma reinicialização for iniciada, independentemente se é necessário. |
+   |Nunca reinicialização|Independentemente de se uma reinicialização é necessária, as reinicializações são suprimidas.|
+   |Apenas reinicialize - não instalará atualizações|Essa opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
+
+Ao terminar de configurar o agendamento, selecione o botão **Criar** para retornar ao painel de status. A tabela **Agendado** mostra o agendamento de implantação que você criou.
 
 ## <a name="view-results-of-an-update-deployment"></a>Exibir resultados de uma implantação de atualização
 

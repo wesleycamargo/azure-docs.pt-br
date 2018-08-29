@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128547"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139785"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
+
+> [!NOTE]
+> Este artigo descreve como analisar o uso de dados no Log Analytics.  Consulte os artigos a seguir para informações relacionadas.
+> - [Gerenciar custos controlando o volume e a retenção de dados no Log Analytics](log-analytics-manage-cost-storage.md) descreve como controlar seus custos alterando o período de retenção de dados.
+> - [Monitorando o uso e os custos estimados](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descreve como visualizar o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços. Também descreve como alterar seu modelo de preços.
+
 O Log Analytics inclui informações sobre a quantidade de dados coletados, quais fontes enviaram os dados e os tipos diferentes de dados enviados.  Use o painel **Uso do Log Analytics** para revisar e analisar o uso dos dados. O painel mostra quantos dados são coletados por cada solução e quantos dados são enviados pelos seus computadores.
 
 ## <a name="understand-the-usage-dashboard"></a>Entender o painel Uso
@@ -36,7 +42,7 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
     - Computadores enviando dados
     - Computadores sem dados nas últimas 24 horas
 - Ofertas
-    - Nós Insight e de Análise
+    - Nós de Insight e Análise
     - Nós de automação e controle
     - Nós de segurança  
 - Desempenho
@@ -48,7 +54,7 @@ O painel **Uso de Log Analytics** exibe as seguintes informações:
 
 ### <a name="to-work-with-usage-data"></a>Para trabalhar com dados de uso
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![Portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.<br><br> ![portal do Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 3. Na lista de espaços de trabalho do Log Analytics, selecione um espaço de trabalho.
 4. Selecione **Uso e custos estimados** na lista no painel esquerdo.
 5. No painel **Uso e custos estimados**, você pode modificar o intervalo de tempo selecionando **Tempo: últimas 24 horas** e alterando o intervalo de tempo.<br><br> ![intervalo de tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

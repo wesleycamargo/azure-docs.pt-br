@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: a832f45027fc5337d9e76ec9cc4898286121278c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: 4f488128b3f7a9aa06be9358439536d78615430e
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658870"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145269"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Use pontos de extremidade de serviço e regras da Rede virtual para o Banco de Dados do Azure para PostgreSQL
 
@@ -25,7 +25,7 @@ Para criar uma regra de rede virtual, deve haver primeiro uma VNet ([rede virtua
 ![Exemplo de como funciona um ponto de extremidade de serviço de VNet](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Para o Banco de Dados do Azure para PostgreSQL, esse recurso está disponível em versão prévia pública em todas as regiões da nuvem pública do Azure em que o Banco de Dados do Azure para PostgreSQL foi implantado.
+> Esse recurso está disponível em todas as regiões da nuvem pública do Azure nas quais o Banco de Dados do Azure para PostgreSQL é implantado para servidores de Finalidade Geral e Otimizado por Memória.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -69,7 +69,7 @@ No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e �
 
 Se o servidor **Microsoft.Sql** fosse um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual poderiam se comunicar com seu servidor do Banco de Dados do Azure para PostgreSQL. Nesse caso, suas VMs podem se comunicar com o Banco de Dados do Azure para PostgreSQL sem a necessidade de nenhuma regra de rede virtual ou regras de IP.
 
-No entanto, até maio de 2018, o serviço do Banco de Dados do Azure para PostgreSQL ainda não estava entre os serviços que poderiam ser atribuídos diretamente a uma sub-rede.
+No entanto, a partir de agosto de 2018, o serviço Banco de Dados do Azure para PostgreSQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -117,8 +117,6 @@ Para o Banco de Dados do Azure para PostgreSQL, o recurso de regras de rede virt
 
 - Ativar pontos de extremidade de serviço de rede virtual para o Banco de Dados do Azure para PostgreSQL usando a marcação de serviço **Microsoft.Sql** também habilita os pontos de extremidade para todos os serviços de Banco de Dados do Azure: Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure.
 
-- No momento da versão prévia pública, não há nenhum suporte para operações de movimentação de VNet. Para mover uma regra de rede virtual, remova-a e recrie-a.
-
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
@@ -131,12 +129,18 @@ Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expres
 
 Para permitir a comunicação do seu circuito com o Banco de Dados do Azure para PostgreSQL, é necessário criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um tique de suporte com o ExpressRoute por meio do Portal do Azure.
 
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de Firewall da VNET ao servidor sem a ativação de pontos de extremidade de serviço da VNET
+
+Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para a rede virtual. Você também deve ativar os pontos de extremidade de serviço da VNet **em** para que a segurança entre em vigor. Quando você ativa endpoints de serviço **Em**, sua sub-rede Vnet passa por um período de inatividade até concluir a transição de **Off** para **On**. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+
+Você pode definir as **IgnoreMissingServiceEndpoint** sinalizador usando a CLI do Azure ou o portal.
+
 ## <a name="related-articles"></a>Artigos relacionados
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter artigos sobre como criar regras de VNet, confira:
+Para obter artigos sobre como criar regras de VNet, consulte:
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para PostgreSQL usando o portal do Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerenciar regras de VNet do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure](howto-manage-vnet-using-cli.md)
 

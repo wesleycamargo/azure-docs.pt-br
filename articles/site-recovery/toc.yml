@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Suporte multilocatário para a replicação do VMware no Azure
         href: vmware-azure-multi-tenant-overview.md
-      - name: Sobre o Serviço de mobilidade
-        href: vmware-azure-install-mobility-service.md
       - name: Opções de local de failback
         href: concepts-types-of-failback.md
     - name: Replicação para um site secundário
@@ -190,26 +188,26 @@ items:
       items:
       - name: Replicar as máquinas virtuais VMware para o Azure com o PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Recuperação de desastres de servidores físicos para o Azure
-        href: physical-azure-disaster-recovery.md
       - name: Configurar o ambiente de origem das VMs VMware
         href: vmware-azure-set-up-source.md
-      - name: Configurar o ambiente de origem para servidores físicos
-        href: physical-azure-set-up-source.md
       - name: Implantar o servidor de configuração para replicação do VMware
         href: vmware-azure-deploy-configuration-server.md
       - name: Configurar o ambiente de origem de VMs do VMware
         href: vmware-azure-set-up-target.md
-      - name: Configurar o ambiente de origem para servidores físicos
-        href: physical-azure-set-up-target.md
       - name: Definir configurações de replicação
         href: vmware-azure-set-up-replication.md
-      - name: Excluir discos da replicação
-        href: vmware-azure-exclude-disk.md
       - name: Habilitar a replicação de VM do VMware
         href: vmware-azure-enable-replication.md
+      - name: Excluir discos da replicação
+        href: vmware-azure-exclude-disk.md
       - name: Multilocação com CSP para VMs VMWare
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Configurar o ambiente de origem para servidores físicos
+        href: physical-azure-set-up-source.md
+      - name: Configurar o ambiente de origem para servidores físicos
+        href: physical-azure-set-up-target.md
+      - name: Recuperação de desastres de servidores físicos para o Azure
+        href: physical-azure-disaster-recovery.md
     - name: Implantar o serviço de Mobilidade
       items:
       - name: Visão geral do serviço de Mobilidade
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Failover e failback
       items:
-      - name: Realizar uma análise detalhada da recuperação de desastre para o Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Configurar planos de recuperação
         href: site-recovery-create-recovery-plans.md
       - name: Adicionar runbooks do Azure aos planos de recuperação
         href: site-recovery-runbook-automation.md
+      - name: Realizar uma análise detalhada da recuperação de desastre para o Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Executar um failover para o Azure
+        href: site-recovery-failover.md
+      - name: Proteger novamente do Azure para VMware local
+        href: vmware-azure-reprotect.md
+      - name: Failback do Azure para VMware
+        href: vmware-azure-failback.md
       - name: Configurar e gerenciar servidor de processo de failback no Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Configurar um servidor de destino mestre Linux para failback
         href: vmware-azure-install-linux-master-target.md
-      - name: Executar um failover para o Azure
-        href: site-recovery-failover.md
       - name: Executar um failover e failback para servidores físicos
         href: physical-to-azure-failover-failback.md
-      - name: Failback do Azure para VMware
-        href: vmware-azure-failback.md
-      - name: Proteger novamente do Azure para VMware local
-        href: vmware-azure-reprotect.md
     - name: Gerenciar
       items:
       - name: Gerenciar o servidor de configuração para replicação do VMware
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Atualizações de serviço
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914911"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126063"

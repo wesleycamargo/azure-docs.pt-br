@@ -1,6 +1,6 @@
 ---
 title: Como implantar certificados X.509 no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Como implantar certificados X.509 com a instância de serviço de provisionamento do dispositivo
+description: Como distribuir certificados x. 509 com sua instância de serviço de provisionamento de dispositivos
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024551"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145260"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Como implantar certificados de dispositivo X.509
 
@@ -46,7 +46,7 @@ Se você estiver gerenciando seus próprios certificados de dispositivo, você p
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Implantar o certificado no Hub IoT
 
-O certificado do dispositivo pode ser adicionado manualmente para um Hub IoT. O certificado também pode ser automatizado usando uma instância do Serviço de Provisionamento de Dispositivos. Neste artigo, vamos supor que uma instância de serviço de provisionamento está sendo usada para dar suporte ao provisionamento automático.
+O certificado do dispositivo pode ser adicionado manualmente para um Hub IoT. O certificado também pode ser automatizado usando uma instância de serviço de provisionamento de dispositivos. Neste artigo, presumiremos que uma instância do serviço de provisionamento de dispositivo está sendo usada para oferecer suporte ao provisionamento automático.
 
 Quando um dispositivo for inicialmente provisionado por meio do provisionamento automático, ele é inicializado para cima e entra em contato com o serviço de provisionamento. O serviço de provisionamento responde ao executar uma verificação de identidade antes de criar uma identidade de dispositivo em um Hub IoT usando o certificado de folha do dispositivo como a credencial. O serviço de provisionamento, em seguida, informa o dispositivo, ele é atribuído a qual Hub IoT e o dispositivo, em seguida, usa seu certificado de folha para autenticar e conectar-se ao Hub IoT. 
 
@@ -104,7 +104,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 #### <a name="update-compromised-root-ca-certificates"></a>Atualizar certificados de autoridade de certificação de raiz comprometido
 
-1. Clique na guia **Certificados** para sua instância de serviço de provisionamento.
+1. Clique o **certificados** guia para sua instância de serviço de provisionamento de dispositivos.
 
 2. Clique no certificado comprometido na lista e, em seguida, clique no botão **Excluir**. Confirme a exclusão digitando o nome do certificado e clique em **OK**. Repita esse processo para todos os certificados comprometidos.
 
@@ -112,7 +112,7 @@ Para atualizar um registro de grupo em resposta a uma violação de segurança, 
 
 3. Siga as etapas descritas em [Configura Certificados de Autoridade de Certificação](how-to-verify-certificates.md) para adicionar e verificar os novos certificados de autoridade de certificação raiz.
 
-4. Clique na guia **Gerenciar registros** para sua instância de serviço de provisionamento e, em seguida, clique na lista **Grupos de Registro**. Clique no nome do grupo de registro na lista.
+4. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
 5. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de Autoridade de Certificação raiz. Em seguida, clique em **Salvar**. 
 
@@ -149,13 +149,13 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 1. Siga as etapas descritas em [Configura Certificados de Autoridade de Certificação](how-to-verify-certificates.md) para adicionar e verificar os novos certificados de autoridade de certificação raiz.
 
-2. Clique na guia **Gerenciar registros** para sua instância de serviço de provisionamento e, em seguida, clique na lista **Grupos de Registro**. Clique no nome do grupo de registro na lista.
+2. Clique na guia **Gerenciar inscrições** para a instância do serviço de provisionamento de dispositivos e clique na lista **Grupos de inscrição**. Clique no nome do grupo de registro na lista.
 
 3. Clique em **Certificado de Autoridade de Certificação**e selecione o novo certificado de autoridade de certificação raiz na configuração do **Certificado Secundário**. Em seguida, clique em **Salvar**. 
 
     ![Selecione o novo certificado de Autoridade de Certificação raiz](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Posteriormente, quando o certificado primário tiver expirado, clique na guia **Certificados** para sua instância de serviço de provisionamento. Clique no certificado comprometido na lista e, em seguida, clique no botão **Excluir**. Confirme a exclusão digitando o nome do certificado e clique em **OK**.
+4. Posteriormente, quando o certificado principal expirar, clique na guia **Certificados** para a instância do serviço de provisionamento de dispositivo. Clique no certificado comprometido na lista e, em seguida, clique no botão **Excluir**. Confirme a exclusão digitando o nome do certificado e clique em **OK**.
 
     ![Excluir o certificado de Autoridade de Certificação](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -177,7 +177,7 @@ Mais tarde quando o certificado secundário também se aproximar da expiração 
 
 ## <a name="reprovision-the-device"></a>Reprovisionar o dispositivo
 
-Depois que o certificado for implantado no dispositivo e o serviço de provisionamento de dispositivo, o dispositivo pode Reprovisionar a si mesmo, contatando o Serviço de Provisionamento de Dispositivos. 
+Depois que o certificado for lançado no dispositivo e no Serviço de provisionamento de dispositivos, o dispositivo poderá ser reprovado entrando em contato com o serviço de provisionamento de dispositivos. 
 
 Uma maneira fácil de programação de dispositivos para reprovisionar é programar o dispositivo para contatar o serviço de provisionamento para percorrer o fluxo de provisionamento se o dispositivo recebe um erro "não autorizado" de tentar se conectar ao hub IoT.
 

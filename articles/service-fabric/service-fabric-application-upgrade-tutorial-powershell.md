@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205477"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139986"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Atualização do aplicativo do Service Fabric usando o PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205477"
 
 O mais usado e o método de atualização recomendado é a atualização sem interrupção monitorada.  O Service Fabric do Azure monitora a integridade do aplicativo que está sendo atualizado com base em um conjunto de políticas de integridade. Quando um UD (domínio de atualização) for atualizado, o Service Fabric avaliará a integridade do aplicativo e prosseguirá para o próximo domínio de atualização ou retornará um erro para a atualização dependendo das políticas de integridade.
 
-Uma atualização do aplicativo monitorada pode ser executada usando APIs, PowerShell ou REST nativos ou gerenciados. Para obter instruções sobre como executar uma atualização usando o Visual Studio, confira [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Uma atualização do aplicativo monitorada pode ser executada usando o gerenciado ou nativo APIs, PowerShell, CLI do Azure, Java ou REST. Para obter instruções sobre como executar uma atualização usando o Visual Studio, confira [Atualização do aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Com as atualizações monitoradas sem interrupção do Service Fabric, o administrador de aplicativos pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falha (por exemplo, uma reversão automática). Esta seção fornece um passo a passo de uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell. O vídeo do Microsoft Virtual Academy a seguir também explica o processo de atualização de um aplicativo: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

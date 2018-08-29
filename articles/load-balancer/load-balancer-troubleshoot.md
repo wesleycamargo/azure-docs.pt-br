@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890624"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145041"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Solucionar problemas do Azure Load Balancer
 
@@ -87,7 +87,7 @@ Se uma VM do pool de back-end estiver listada como íntegra e responder às inve
 * A VM do pool de back-end do Load Balancer não está escutando na porta de dados 
 * O grupo de segurança de rede está bloqueando a porta na VM do pool de back-end do Load Balancer  
 * Acessando o Load Balancer da mesma VM e NIC 
-* Acessando o VIP do Load Balancer na Internet da VM do pool de back-end do Load Balancer participante 
+* Acessando o frontend do Load Balancer da Internet a partir da VM participante do pool de back-end do Load Balancer 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Causa 1: A VM do pool de back-end do Load Balancer não está escutando na porta de dados 
 Se uma VM não responder ao tráfego de dados, pode ser porque a porta de destino não está aberta na VM participante ou porque a VM não está escutando nessa porta. 
@@ -119,10 +119,11 @@ Se seu aplicativo hospedado na VM de back-end de um Load Balancer estiver tentan
 * Configure VMs de pool de back-end separadas por aplicativo. 
 * Configure o aplicativo em VMs de NIC dupla para que cada aplicativo use sua própria interface de rede e seu endereço IP. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: Como acessar o VIP do Load Balancer Interno da VM do pool de back-end do Load Balancer participante
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Causa 4: acesso ao front end interno do Load Balancer a partir da VM participante do pool de back-end do Load Balancer
 
-Se um VIP ILB estiver configurado dentro de uma VNet e uma das VMs de back-end participantes estiver tentando acessar o VIP do Load Balancer Interno, isso resultará em falha. Esse é um cenário sem suporte.
-**Resolução** Avalie o Gateway de Aplicativo ou outros proxies (por exemplo, nginx ou haproxy) para dar suporte a esse tipo de cenário. Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
+Se um Balanceador de Carga interno estiver configurado dentro de uma Rede Virtual e uma das VMs de backend do participante estiver tentando acessar o frontend interno do Load Balancer, poderão ocorrer falhas quando o fluxo for mapeado para a VM de origem. Não há suporte para esse cenário. Analise as [limitações](load-balancer-overview.md#limitations) para uma discussão detalhada.
+
+**Resolução** há várias maneiras para desbloquear este cenário, incluindo o uso de um proxy. Avalie o Gateway de aplicativo ou outros proxies 3ª de terceiros (por exemplo, nginx ou haproxy). Para saber mais sobre o Gateway de Aplicativo, confira [Visão geral do Gateway de Aplicativo](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Capturas de rede adicionais
 Se você optar por abrir um caso de suporte, colete as informações a seguir para uma resolução mais rápida. Escolha uma única VM de back-end para executar os seguintes testes:

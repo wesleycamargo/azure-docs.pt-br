@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325472"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140203"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Azure Load Balancer?
 
@@ -86,15 +86,11 @@ O Azure Load Balancer fornece os seguintes recursos fundamentais para aplicativo
 
 * **Investigações de integridade**
 
-     Para determinar a integridade das instâncias no pool de back-end, o Load Balancer usa investigações de integridade definidas por você. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para as instâncias não íntegras. Conexões existentes não são afetadas e continuam até que o aplicativo encerre o fluxo, que o tempo limite de ociosidade seja atingido ou que a VM seja desligada.
+    Para determinar a integridade das instâncias no pool de back-end, o Load Balancer usa investigações de integridade definidas por você. Quando uma investigação não responde, o balanceador de carga interrompe o envio de novas conexões para as instâncias não íntegras. Conexões existentes não são afetadas e continuam até que o aplicativo encerre o fluxo, que o tempo limite de ociosidade seja atingido ou que a VM seja desligada.
+     
+    O Load Balancer fornece [diferentes tipos de sondagem de integridade](load-balancer-custom-probe-overview.md#types) para pontos de extremidade TCP, HTTP e HTTPS.
 
-    Existem três tipos de investigação com suporte:
-
-    - **Investigação personalizada de HTTP**: use esta investigação para criar sua própria lógica personalizada para determinar a integridade de uma instância do pool de back-end. O balanceador de carga investiga regularmente seu ponto de extremidade (por padrão, a cada 15 segundos). A instância será considerada íntegra se responder com um HTTP 200 dentro do tempo limite (padrão de 31 segundos). Qualquer status diferente de HTTP 200 faz com que esse teste falhe. Essa investigação é útil para implementar sua própria lógica para remover instâncias da rotação do balanceador de carga. Por exemplo, é possível configurar a instância para retornar um status diferente de 200 caso esteja acima de 90% da CPU.  Essa investigação substitui a investigação de agente convidado padrão.
-
-    - **Investigação personalizada de TCP**: esta investigação depende do estabelecimento de uma sessão de TCP bem-sucedida em uma porta de investigação definida. Enquanto o ouvinte especificado na VM existir, a investigação será bem-sucedida. Se a conexão for recusada, a investigação falhará. Essa investigação substitui a investigação de agente convidado padrão.
-
-    - **Investigação de agente convidado**: o balanceador de carga também pode utilizar o agente convidado dentro da VM. O agente convidado escuta e responde com uma resposta HTTP 200 OK somente quando a instância está no estado Pronto. Se o agente não responder com HTTP 200 OK, o balanceador de carga marcará a instância como sem resposta e interromperá o envio de tráfego para essa instância. O Azure Load Balancer continuará tentando alcançar a instância. Se o agente convidado responder com um HTTP 200, o Balanceador de Carga enviará o tráfego para essa instância novamente. Testes de agente convidado estão um _último recurso e não é recomendável_ quando são possíveis configurações de investigação personalizada de HTTP ou TCP. 
+    Além disso, ao usar os serviços em nuvem Classic, um tipo adicional é permitido: [Agente convidado](load-balancer-custom-probe-overview.md#guestagent).  Isso deve ser considera uma investigação de integridade de último recurso e não é recomendado quando outras opções são viáveis.
     
 * **Conexões de saída (SNAT)**
 
@@ -133,7 +129,7 @@ Para obter mais informações, confira [Limites de serviço do Load Balancer](ht
 
 Um balanceador de carga público mapeia o endereço IP público e o número da porta do tráfego de entrada até o endereço IP privado e o número da porta da VM, e vice-versa no caso do tráfego de resposta da VM. Aplicando regras de balanceamento de carga, você pode distribuir tipos de tráfego específicos entre várias VMs ou serviços. Por exemplo, você pode difundir a carga de tráfego de solicitação da web em vários servidores web.
 
-A figura a seguir mostra um ponto de extremidade com balanceamento de carga para tráfego da Web compartilhado entre três VMs para a porta TCP pública e privada de número 80. Essas três VMs estão em um conjunto com balanceamento de carga.
+A figura a seguir mostra um ponto de extremidade com balanceamento de carga para tráfego da Web compartilhado entre três VMs para a porta TCP pública de número 80. Essas três VMs estão em um conjunto com balanceamento de carga.
 
 ![Exemplo de balanceador de carga público](./media/load-balancer-overview/IC727496.png)
 
@@ -170,7 +166,7 @@ Para obter informações sobre o SLA do Load Balancer Standard, visite a página
 ## <a name="limitations"></a>Limitações
 
 - O Load Balancer é um produto de TCP ou UDP para balanceamento de carga e encaminhamento de porta para esses protocolos IP específicos.  As regras de balanceamento de carga e as regras de NAT de entrada são compatíveis com TCP e UDP, mas não com outros protocolos IP, incluindo ICMP. O Load Balancer não encerra, responde ou, de outra forma, interage com a carga de um fluxo UDP ou TCP. Ele não é um proxy. A validação bem-sucedida da conectividade com um front-end deve ocorrer na banda, com o mesmo protocolo usado em uma regra de NAT de entrada ou de balanceamento de carga (TCP ou UDP) _e_ pelo menos uma de suas máquinas virtuais deve gerar uma resposta para um cliente para ver uma resposta de um front-end.  Não receber uma resposta na banda do front-end do Load Balancer indica que nenhuma máquina virtual foi capaz de responder.  Não é possível interagir com um front-end do Load Balancer sem que uma máquina virtual possa responder.  Isso também se aplica a conexões de saída em que o [SNAT de representação de porta](load-balancer-outbound-connections.md#snat) é compatível apenas com TCP e UDP; outros protocolos IP, incluindo ICMP, também falharão.  Atribua um endereço IP público em nível da instância para mitigar esse problema.
-- Diferente dos Load Balancers públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os Load Balancers internos não convertem conexões originárias da saída para o front-end de um Load Balancer interno, uma vez que ambos estão em um espaço de endereços IP privado.  Isso evita o potencial de esgotamento de SNAT dentro de espaços de endereço IP internos exclusivos, em que a conversão não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar estabelecer um fluxo para o front-end do Load Balancer interno no pool em que reside _e_ for mapeado de volta para si mesmo, os dois lados do fluxo não serão correspondentes e o fluxo falhará.  Se o fluxo não tiver sido mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, ele será bem-sucedido.   Quando o fluxo é mapeado de volta para si mesmo, o fluxo de saída parece ser originado da VM para o front-end e o fluxo de entrada correspondente parece ser originado da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e de saída do mesmo fluxo não são correspondentes dentro da máquina virtual. A pilha TCP não reconhece essas metades do mesmo fluxo como parte do mesmo fluxo, pois a origem e o destino não são correspondentes.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo são correspondentes e a VM pode responder ao fluxo com êxito.  O sintoma desse cenário são tempos limite de conexão intermitentes. Há várias soluções alternativas comuns para alcançar esse cenário de forma confiável (originar fluxos de um pool de back-end para seu respectivo front-end de Load Balancer interno), que incluem a inserção de um proxy de terceiros por trás do balanceador de carga interno ou o [uso de regras de estilo de DSR](load-balancer-multivip-overview.md).  Embora você possa usar um balanceador de carga público para mitigar esse problema, o cenário resultante será propenso ao [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deverá ser evitado, a menos que seja gerenciado atentamente.
+- Diferente dos Load Balancers públicos que fornecem [conexões de saída](load-balancer-outbound-connections.md) durante a transição de endereços IP privados dentro da rede virtual para endereços IP públicos, os Load Balancers internos não convertem conexões originárias da saída para o front-end de um Load Balancer interno, uma vez que ambos estão em um espaço de endereços IP privado.  Isso evita o potencial de esgotamento da porta SNAT dentro do espaço de endereço IP interno exclusivo, onde a tradução não é necessária.  O efeito colateral é que, se um fluxo de saída de uma VM no pool de back-end tentar estabelecer um fluxo para o front-end do Load Balancer interno no pool em que reside _e_ for mapeado de volta para si mesmo, os dois lados do fluxo não serão correspondentes e o fluxo falhará.  Se o fluxo não tiver sido mapeado de volta para a mesma VM no pool de back-end que criou o fluxo para o front-end, ele será bem-sucedido.   Quando o fluxo é mapeado de volta para si mesmo, o fluxo de saída parece ser originado da VM para o front-end e o fluxo de entrada correspondente parece ser originado da VM para si mesmo. Do ponto de vista do SO convidado, as partes de entrada e de saída do mesmo fluxo não são correspondentes dentro da máquina virtual. A pilha TCP não reconhece essas metades do mesmo fluxo como parte do mesmo fluxo, pois a origem e o destino não são correspondentes.  Quando o fluxo é mapeado para qualquer outra VM no pool de back-end, as metades do fluxo são correspondentes e a VM pode responder ao fluxo com êxito.  O sintoma para esse cenário é tempos limite de conexão de intermitente quando o fluxo retorna para o mesmo back-end que originou o fluxo. Há diversas soluções alternativas comuns para alcançar este cenário de forma confiável (fluxos de origem de um pool de back-end para os respectivos pools de back-end internos do Load Balancer) que incluem a inserção de uma camada proxy atrás do Load Balancer interno ou [usando regras de estilo DSR](load-balancer-multivip-overview.md).  Os clientes podem combinar um Load Balancer interno com qualquer proxy de terceiros ou substituir o [Application Gateway](../application-gateway/application-gateway-introduction.md) interno por cenários de proxy limitados a HTTP / HTTPS. Embora você possa usar um balanceador de carga público para mitigar esse problema, o cenário resultante será propenso ao [esgotamento de SNAT](load-balancer-outbound-connections.md#snat) e deverá ser evitado, a menos que seja gerenciado atentamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 08/16/2018
 ms.author: mtillman
-ms.openlocfilehash: fa7b7430377def58f20daabc15e501321954befe
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a28db1d9c7f14e03e124537b60a3384a4baafe1c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887543"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126725"
 ---
 # <a name="azure-active-directory-documentation"></a>Documentação do Azure Active Directory
 
@@ -115,7 +115,7 @@ O Azure AD (Azure Active Directory) é um serviço de gerenciamento de identidad
                     <div class="cardText">
                         <h3>Dispositivos</h3>
                         <p>
-                        <a href="/azure/active-directory/device-management-introduction">Gerenciamento de dispositivos</a><br/>
+                        <a href="/azure/active-directory/devices/index">Gerenciamento de dispositivos</a><br/>
                         <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Dispositivos com Windows 10</a><br/>
                         <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Dispositivos associados</a>
                         </p>

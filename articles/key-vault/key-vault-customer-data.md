@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235526"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145045"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Recursos de dados de cliente do Azure Key Vault
 
@@ -48,11 +48,11 @@ A exclusão reversível permite recuperar os dados excluídos por 90 dias após 
 
 ## <a name="exporting-customer-data"></a>Exportando os dados do cliente
 
-As mesmas APIs REST, experiência do Portal e SDKs usados para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciado também permitem que você visualize e exporte esses objetos.
+As mesmas APIs REST, experiência de portal e SDKs usadas para criar cofres, chaves, segredos, certificados e contas de armazenamento gerenciadas também permitem visualizar e exportar esses objetos.
 
 O logging de acesso do Azure Key Vault é um recurso opcional que pode ser ativado para gerar os logs para cada chamada API REST. Esses logs serão transferidos para uma conta de armazenamento em sua assinatura em que você aplica a política de retenção que atenda aos requisitos da sua organização.
 
-Os logs de diagnóstico do Azure Key Vault contem dados pessoas que podem ser recuperados fazendo uma solicitação de exportação no portal Privacidade do Usuário. Essa solicitação deve ser feita pelo administrador do locatário.
+Os logs de diagnóstico do Azure Key Vault que contêm dados pessoais podem ser recuperados fazendo uma solicitação de exportação no portal User Privacy. Essa solicitação deve ser feita pelo administrador do locatário.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -60,14 +60,10 @@ Os logs de diagnóstico do Azure Key Vault contem dados pessoas que podem ser re
 
 - [Visão geral de exclusão reversível do Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Vaults](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Operações de chave do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Operações de segredo do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Certificados e políticas do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Emissores de certificado](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Chaves de conta de Armazenamento do Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960001"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145454"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
 
@@ -43,7 +43,7 @@ Há um limite para o número de tabelas de rotas que você pode criar por assina
 
 1. No canto superior esquerdo do Portal, selecione **+ Criar um recurso**.
 2. Selecione **Rede** e, em seguida, selecione **Tabela de rotas**.
-3. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. A opção **Desabilitar propagação de rotas BGP** impede que rotas locais sejam propagadas por meio de BGP para as interfaces de rede em qualquer sub-rede a qual a tabela de rotas esteja associada. Se sua rede virtual não está conectada a um gateway de rede do Azure (ExpressRoute ou VPN), deixe a opção *Desabilitada*.
+3. Insira um **Nome** para a tabela de rotas, selecione sua **Assinatura**, crie um novo **Grupo de recursos** ou selecione um grupo de recursos existente, selecione um **Local** e, em seguida, selecione **Criar**. Se você planeja associar a tabela de rotas a uma sub-rede em uma rede virtual que está conectada à sua rede local por meio de um gateway de VPN e desabilitar **propagação de rotas BGP**, suas rotas locais não são propagadas para o interfaces de rede na sub-rede.
 
 **Comandos**
 
