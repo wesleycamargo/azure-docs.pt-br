@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283129"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424362"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Introdução ao SDK de Dispositivos de Fala
 
@@ -44,11 +44,11 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
 ## <a name="set-up-the-development-kit"></a>Configurar o kit de desenvolvimento
 
-1. Conecte o adaptador de energia do kit de desenvolvimento. Um indicador de energia verde deve acender sob o quadro superior.
+1. Potencialize o kit de desenvolvimento usando um cabo mini USB conectado a um PC ou um adaptador de energia. Um indicador de energia verde deve acender sob o quadro superior.
 
-1. Conecte o kit de desenvolvimento ao computador usando um cabo mini USB.
+1. Conecte o kit de desenvolvimento a um computador usando um segundo cabo mini USB.
 
-    ![conectar o kit de desenvolvimento](media/speech-devices-sdk/qsg-1.jpg)
+    ![conectar o kit de desenvolvimento](media/speech-devices-sdk/qsg-1.png)
 
 1. Posicione o kit de desenvolvimento adequadamente.
 
@@ -57,7 +57,7 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
     |Circular|Na vertical, com microfones voltada para o teto|
     |Linear|Em seu lado, com microfones voltada para você (mostrado abaixo)|
 
-    ![orientação do kit de desenvolvimento linear](media/speech-devices-sdk/qsg-2.jpg)
+    ![orientação do kit de desenvolvimento linear](media/speech-devices-sdk/qsg-2.png)
 
 1. Instalar os certificados e o arquivo de tabela (palavra-chave) do word de ativação e defina as permissões do dispositivo de som. Digite os seguintes comandos em uma janela de comando.
 
@@ -82,9 +82,22 @@ Antes de iniciar o desenvolvimento com o SDK de Dispositivos de Fala, obtenha as
 
 1.  O dispositivo deve estar listado em "Escolher um dispositivo". Clique no botão **Exibir** ao lado dele. 
  
-1.  Conecte-se à sua rede sem fio clicando em **Configurações**, em seguida, **WLAN**.
+1.  Conecte-se à rede sem fio clicando no ícone de pasta, depois em **Configurações** e, em seguida, **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > Se a sua empresa tem políticas relacionadas à conexão de dispositivos ao sistema Wi-Fi, é necessário obter o Endereço Mac e entrar em contato com o departamento de TI para saber como conectar-se ao sistema Wi-Fi. Para localizar o Endereço Mac do kit de desenvolvimento, clique no ícone de pasta de arquivo na área de trabalho do kit de desenvolvimento, depois em **Configurações**, pesquise "Endereço Mac" e, sem seguida, clique em **Endereço Mac** para acessar **WLAN Avançada** e anote o endereço Mac encontrado na parte inferior. Além disso, algumas empresas podem ter um tempo limite de quanto tempo um dispositivo pode ser conectado a seus sistemas Wi-Fi. Talvez seja necessário estender o registro do kit de desenvolvimento com o sistema Wi-Fi após um determinado número de dias.  
+ 
+ 
+   ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Endereço Mac do Vysor](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > Se você quiser conectar um alto-falante ao o kit de desenvolvimento, você pode conectá-lo à saída de linha de Áudio. Você também deve escolher um alto-falante de 3,5 mm de boa qualidade.
+ 
+   ![Áudio do Vysor](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>Executar um aplicativo de exemplo
 
@@ -126,7 +139,7 @@ Para executar os testes Roobo e validar sua instalação do kit de desenvolvimen
         exit
         ```
 
-    * Copie os arquivos `kws.table`, `kws_g.fst`, `kws_k.fst`, e `words_kw.txt`) para a pasta de \data\keyword\ do dispositivo. Execute os seguintes comandos em uma janela de comando.
+    * Copie os arquivos `kws.table`, `kws_g.fst`, `kws_k.fst`, e `words_kw.txt`) para a pasta de \data\keyword\ do dispositivo. Execute os seguintes comandos em uma janela de comando. Se você tiver criado uma [palavra de ativação personalizada](speech-devices-sdk-create-kws.md), o arquivo kws.table gerado a partir da Web estará no mesmo diretório que os arquivos `kws.table`, `kws_g.fst`, `kws_k.fst` e `words_kw.txt`. Use adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table/data/palavra-chave de comando para efetuar push do arquivo kws.table para o kit de desenvolvimento.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ Para executar os testes Roobo e validar sua instalação do kit de desenvolvimen
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Se houver falhas de certificado ao usar o serviço de Fala, verifique se o dispositivo tem a data e hora corretas.
+Se houver falhas de certificado ao usar o serviço de Fala, verifique se o dispositivo tem a data e hora corretas. Vá para **Configurações**, clique em **Data e hora** em Sistema e **Selecionar fuso horário** para ser o fuso horário atual. Mantenha **Data e hora automática** ativada (ON). Ao ver que a hora do kit de desenvolvimento corresponde à hora do seu PC, você saberá que o kit de desenvolvimento está conectado à internet. 
+
+ ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Pasta de arquivo do Vysor](media/speech-devices-sdk/qsg-13.png)
 
 Para obter informações de desenvolvimento, consulte [guia de desenvolvimento](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf) do Roobo.
 

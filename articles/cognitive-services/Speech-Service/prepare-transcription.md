@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: a219db14d659348ef3ed4de1dffa640a948f1954
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283327"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41929948"
 ---
 # <a name="transcription-guidelines-for-using-speech-service"></a>Diretrizes de transcrição para usar o serviço Fala
 
@@ -154,7 +154,7 @@ Aplique a normalização a seguir ao texto antes de importá-lo.
 *   Ponto decimal deve ser "," e não "."
 *   O separador de tempo entre as horas e minutos deve ser ":" e não ".": 12:00 Uhr
 *   Abreviações como 'ca.' não são substituídas. Recomendamos que você use a forma completa.
-*   Os cinco principais operadores matemáticos são removidos: +, -, \*, /. É recomendável substituí-los pelas formas literais: plus, minus, mal, geteilt.
+*   Os quatro principais operadores matemáticos são removidos: +, -, \*, /. É recomendável substituí-los pelas formas literais: plus, minus, mal, geteilt.
 *   O mesmo aplica-se a operadores de comparação (=, <, >) – gleich, kleiner als, grösser als
 *   Usar frações, como 3/4, na forma de palavra (por exemplo, 'drei viertel' em vez de ¾)
 *   Substitua o símbolo € pela forma da palavra "Euro"

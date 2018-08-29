@@ -2,18 +2,18 @@
 title: Práticas Recomendadas para a Sincronização de Dados SQL do Azure | Microsoft Docs
 description: Conheça as práticas recomendadas para configurar e executar a Sincronização de Dados SQL do Azure.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620793"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141658"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Práticas recomendadas para a Sincronização de Dados SQL 
 
@@ -75,17 +75,16 @@ Esta seção discute as limitações do provisionamento da Sincronização de Da
 
 #### <a name="autoprovisioning-limitations"></a>Limitações de provisionamento automático
 
-A Sincronização de Dados SQL tem as seguintes limitações em provisionamento automático:
+A Sincronização de Dados SQL tem as seguintes limitações para provisionamento automático:
 
--   Selecione somente as colunas que são criadas na tabela de destino.  
-    As colunas que não fazem parte do grupo de sincronização não são provisionadas nas tabelas de destino.
--   Índices são criados somente para as colunas selecionadas.  
-    Se o índice da tabela de origem tem colunas que não fazem parte do grupo de sincronização, esses índices não são provisionados nas tabelas de destino.  
+-   Selecione somente as colunas que são criadas na tabela de destino. As colunas que não fazem parte do grupo de sincronização não são provisionadas nas tabelas de destino.
+-   Índices são criados somente para as colunas selecionadas. Se o índice da tabela de origem tem colunas que não fazem parte do grupo de sincronização, esses índices não são provisionados nas tabelas de destino.  
 -   Índices em colunas de tipo XML não são provisionados.  
 -   Restrições CHECK não são provisionadas.  
 -   Os gatilhos existentes nas tabelas de origem não são provisionados.  
 -   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
 -   EM UPDATE CASCADE e ON DELETE CASCADE ações em restrições de chave estrangeira não são recriadas nas tabelas de destino.
+-   Se você tiver colunas decimais ou numéricas com uma precisão maior que 28, a Sincronização de Dados SQL poderá encontrar um problema de estouro de conversão durante a sincronização. É recomendável que você limite a precisão de colunas decimais ou numéricas a 28 ou menos.
 
 #### <a name="recommendations"></a>Recomendações
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412178"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140998"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Espaços de Trabalho do Power BI
 
@@ -32,7 +32,7 @@ As Coleções de Espaços de Trabalho do Power BI usam **Chaves** e **Tokens de 
 
 ## <a name="two-ways-to-authenticate"></a>Duas maneiras de autenticar
 
-**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre use a chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de espaço de trabalho específica.
+**Chave** – você pode usar chaves para todas as chamadas à API de REST das Coleções de Espaços de Trabalho do Power BI. As chaves podem ser encontradas no **Portal do Microsoft Azure** selecionando **Todas as configurações** e **Chaves de acesso**. Sempre trate sua chave como se fosse uma senha. Essas chaves têm permissões para fazer qualquer chamada à API REST em uma coleção de espaço de trabalho específica.
 
 Para usar uma chave em uma chamada REST, adicione o seguinte cabeçalho de autorização:
 
@@ -44,10 +44,10 @@ Os tokens de aplicativo são um JWT (Token Web JSON) assinado por uma das suas c
 
 O token de seu aplicativo pode conter as seguintes declarações:
 
-| Declaração | DESCRIÇÃO |
+| Declaração | DESCRIÇÃO |    
 | --- | --- |
 | **ver** |A versão do token do aplicativo. A versão atual é 0.2.0. |
-| **aud** |O destinatário pretendido do token. Para Coleções de Espaço de Trabalho do Power BI use: “https://analysis.windows.net/powerbi/api.” |
+| **aud** |O destinatário pretendido do token. Para o uso de coleções de espaços de trabalho do Power BI: *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Uma cadeia de caracteres que indica o aplicativo que emitiu o token. |
 | **tipo** |O tipo de token de aplicativo que está sendo criado. O único tipo com suporte atualmente é **incorporar**. |
 | **wcn** |Nome da coleção de espaços de trabalho para o qual o token foi emitido. |

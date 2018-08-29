@@ -1,6 +1,6 @@
 ---
-title: Visão geral do ponto de extremidade de serviços vnet do servidor do Banco de Dados do Azure para MySQL | Microsoft Docs
-description: Descreve como os pontos de extremidade de serviço de vnet funcionam no servidor do Banco de Dados do Azure para MySQL.
+title: Visão geral do ponto de extremidade de serviços VNet do servidor do Banco de Dados do Azure para MySQL | Microsoft Docs
+description: Descreve como os pontos de extremidade de serviço de VNet funcionam no servidor do Banco de Dados do Azure para MySQL.
 services: mysql
 author: mbolz
 ms.author: mbolz
@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: 652657c8891f2320c026251ffa32e4787028ee18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658868"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141655"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usar regras e pontos de extremidade de serviço de Rede Virtual para Banco de Dados do Azure para MySQL
 
@@ -25,7 +25,7 @@ Para criar uma regra de rede virtual, deve haver primeiro uma VNet ([rede virtua
 ![Exemplo de como funciona um ponto de extremidade de serviço de VNet](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Para o Banco de Dados do Azure para MySQL, esse recurso está disponível em visualização pública em todas as regiões da nuvem pública do Azure em que o Banco de Dados do Azure para MySQL foi implantado.
+> Esse recurso está disponível em todas as regiões do Azure nas quais o Banco de Dados do Azure para MySQL é implantado para servidores de Uso Geral e Otimizado por Memória.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -69,7 +69,7 @@ No entanto, a abordagem de IP estático pode se tornar difícil de gerenciar e �
 
 Se seu servidor **Microsoft.Sql** fosse um nó em uma sub-rede em sua rede virtual, todos os nós dentro da rede virtual poderiam se comunicar com seu servidor do Banco de Dados do Azure para MySQL. Nesse caso, suas VMs podem se comunicar com o Banco de Dados do Azure para MySQL sem a necessidade de nenhuma regra de rede virtual ou regras de IP.
 
-No entanto, a partir de maio de 2018, o serviço do Banco de Dados do Azure para MySQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
+No entanto, a partir de agosto de 2018, o serviço do Banco de Dados do Azure para MySQL ainda não está entre os serviços que podem ser atribuídos diretamente a uma sub-rede.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -117,9 +117,7 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras de rede virtual t
 
 - Ativar pontos de extremidade de serviço de rede virtual para o Banco de Dados do Azure para MySQL usando a marca de serviço **Microsoft.Sql** também habilita os pontos de extremidade para todos os serviços de Banco de Dados do Azure: Banco de Dados do Azure para MySQL, Banco de Dados do Azure para PostgreSQL, Banco de Dados SQL do Azure e SQL Data Warehouse do Azure.
 
-- Atualmente, na visualização pública não há suporte para operações de movimentação da VNet. Para mover uma regra de rede virtual, descarte e recrie-a.
-
-- O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizado para memória.
+- O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
     - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
@@ -130,6 +128,12 @@ Para o Banco de Dados do Azure para MySQL, o recurso de regras de rede virtual t
 Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expressroute-indexmd-744v], cada circuito é configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para se conectar aos serviços da Microsoft, como o Armazenamento do Azure, usando o emparelhamento público do Azure.
 
 Para permitir a comunicação do seu circuito com o Banco de Dados do Azure para MySQL, é necessário criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um tique de suporte com o ExpressRoute por meio do Portal do Azure.
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adicionando uma regra de Firewall da VNET ao servidor sem a ativação de pontos de extremidade de serviço da VNET
+
+Simplesmente definir uma regra de firewall não ajuda a proteger o servidor para a VNet. Você também deve **ativar** os pontos de extremidade de serviço da VNet para que a segurança entre em vigor. Quando você **ativa** endpoints de serviço, sua sub-rede VNet passa por um período de inatividade até concluir a transição de **Desativado** para **Ativado**. Isso é especialmente verdadeiro no contexto de VNETs grandes. Use o sinalizador **IgnoreMissingServiceEndpoint** para reduzir ou eliminar o tempo de inatividade durante a transição.
+
+Você pode definir o sinalizador **IgnoreMissingServiceEndpoint** usando a CLI do Azure ou o portal.
 
 ## <a name="related-articles"></a>Artigos relacionados
 - [Redes virtuais do Azure][vm-virtual-network-overview]

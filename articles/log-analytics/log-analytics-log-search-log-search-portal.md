@@ -11,28 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127543"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140404"
 ---
-# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Crie pesquisas de logs no Azure Log Analytics utilizando o portal de Pesquisa de Logs
-
-> [!NOTE]
-> Este artigo descreve o portal de Pesquisa de Logs no Azure Log Analytics utilizando a nova linguagem de consulta.  Você pode saber mais sobre a nova linguagem e obter o procedimento para fazer upgrade do espaço de trabalho em [Fazer upgrade do espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs](log-analytics-log-search-upgrade.md).  
->
-> Se o seu espaço de trabalho não tiver sido atualizado para a nova linguagem de consulta, você deverá consultar [Localizar dados usando pesquisas de logs no Log Analytics](log-analytics-log-searches.md) para obter informações sobre a versão atual do portal de Pesquisa de Logs.
+# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar pesquisas de logs no Azure Log Analytics usando o portal de Pesquisa de logs
 
 Este artigo inclui um tutorial que descreve como criar pesquisas de logs e analisar dados armazenados em seu espaço de trabalho do Log Analytics utilizando o portal de Pesquisa de Logs.  O tutorial inclui executar algumas consultas simples para retornar diferentes tipos de dados e analisar os resultados.  Ele concentra-se em recursos no portal de Pesquisa de Logs para modificar a consulta em vez de modificá-la diretamente.  Para obter detalhes sobre a edição direta da consulta, consulte a [Referência de linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
 Para criar pesquisas no portal de Análise Avançada em vez do portal de Pesquisa de Logs, consulte [Introdução ao Portal de Análise](https://go.microsoft.com/fwlink/?linkid=856587).  Ambos os portais utilizam a mesma linguagem de consulta para acessar os mesmos dados no espaço de trabalho do Log Analytics.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Este tutorial assume que você já possui um espaço de trabalho do Log Analytics com pelo menos uma fonte conectada que gera dados para as consultas a serem analisadas.  
 
 - Se você não possuir um espaço de trabalho, poderá criar um livre utilizando o procedimento em [Introdução a um espaço de trabalho do Log Analytics](log-analytics-get-started.md).

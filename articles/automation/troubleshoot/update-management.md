@@ -4,20 +4,44 @@ description: Aprenda a solucionar problemas com o Gerenciamento de Atualizaçõe
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 08/08/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b77d1210ff48a4bd30834fcbad64173bf77b1290
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064222"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139980"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 
-Este artigo discute soluções para resolver problemas que você pode encontrar ao usar o Gerenciamento de Atualizações
+Este artigo discute soluções para resolver problemas que você pode encontrar ao usar o Gerenciamento de Atualizações.
+
+## <a name="general"></a>Geral
+
+### <a name="components-enabled-not-working"></a>Cenário: Os componentes da solução de 'Gerenciamento de Atualizações' foram habilitados e, agora, esta máquina virtual está sendo configurada
+
+#### <a name="issue"></a>Problema
+
+Você continua a ver a seguinte mensagem em uma máquina virtual 15 minutos após a integração:
+
+```
+The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
+```
+
+#### <a name="cause"></a>Causa
+
+Esse erro pode ser causado pelos seguintes motivos:
+
+1. A comunicação com a Conta de Automação está sendo bloqueada.
+2. A VM que está sendo integrada pode ter vindo de um computador clonado sem sysprep com o Microsoft Monitoring Agent instalado.
+
+#### <a name="resolution"></a>Resolução
+
+1. Visite [Planejamento de rede](../automation-hybrid-runbook-worker.md#network-planning) para saber mais sobre quais endereços e portas devem ter permissão para que Gerenciamento de Atualizações funcione.
+2. Se estiver usando uma imagem clonada, primeiro faça sysprep da imagem e instale o agente MMA em seguida.
 
 ## <a name="windows"></a>Windows
 
@@ -31,7 +55,7 @@ A seção a seguir destaca mensagens de erro específicas e uma possível resolu
 
 Você vê a seguinte mensagem de erro:
 
-```error
+```
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 

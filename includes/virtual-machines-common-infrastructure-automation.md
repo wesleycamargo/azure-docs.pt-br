@@ -19,8 +19,8 @@ Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é i
 Saiba como:
 
 - [Instalar e configurar o Ansible no Linux para usar com o Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Criar uma VM básica](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Criar um ambiente de VM completo, incluindo recursos de suporte](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Crie uma máquina virtual do Linux](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Gerencie uma máquina virtual do Linux](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
@@ -37,7 +37,7 @@ O [Puppet](https://www.puppet.com) é uma plataforma de automação pronta para 
 
 Saiba como:
 
-- [Implantar o Puppet no Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Implantar o Puppet no Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
 
 
 ## <a name="cloud-init"></a>Cloud-init

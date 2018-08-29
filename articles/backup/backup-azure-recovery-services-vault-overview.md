@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606158"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42140585"
 ---
 # <a name="recovery-services-vaults-overview"></a>Visão geral dos cofres dos Serviços de Recuperação
 
@@ -38,11 +38,17 @@ Cofres de Serviços de Recuperação são baseados no modelo do Azure Resource M
 - **Restauração instantânea para VMs da IaaS**: usando os cofres de Serviços de Recuperação, você pode restaurar arquivos e pastas em uma VM IaaS sem restaurar toda a VM, o que permite tempos de restauração mais rápidos. Restauração instantânea para VMs da IaaS está disponível para VMs Linux e Windows. [Saiba mais](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gerenciando os cofres de Serviços de Recuperação no portal
-É fácil criar e gerenciar cofres de Serviços de Recuperação no portal do Azure porque o serviço de Backup está integrado no menu de Configurações do Azure. Essa integração significa que você pode criar ou gerenciar um cofre de Serviços de Recuperação *no contexto do serviço de destino*. Por exemplo, para exibir os pontos de recuperação para uma VM, selecione-o e clique em **Backup** no menu Configurações. As informações de backup específicas para VM são exibidas. No exemplo a seguir, **ContosoVM** é o nome da máquina virtual. **ContosoVM-demovault** é o nome do cofre de Serviços de Recuperação. Você não precisa se lembrar do nome do cofre de Serviços de Recuperação que armazena os pontos de recuperação; essas informações estão disponíveis na máquina virtual.  
+A criação e o gerenciamento de cofres dos Serviços de Recuperação no portal do Azure são fáceis porque o serviço de Backup integra-se a outros serviços do Azure. Essa integração significa que você pode criar ou gerenciar um cofre de Serviços de Recuperação *no contexto do serviço de destino*. Por exemplo, para exibir os pontos de recuperação de uma VM, selecione a VM e clique em **Backup** no menu Operações. 
 
-![O cofre de Serviços de Recuperação detalha a VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![O cofre de Serviços de Recuperação detalha a VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-Se vários servidores forem protegidos usando o mesmo cofre de Serviços de Recuperação, talvez seja mais lógico consultar o cofre de Serviços de Recuperação. Você pode pesquisar em todos os cofres de Serviços de Recuperação na assinatura e escolher um na lista.
+Se a VM não tiver o backup configurado, será solicitado que você configure o backup. Se o backup estiver configurado, você verá informações de backup sobre a VM, incluindo uma lista de pontos de restauração.  
+
+![O cofre de Serviços de Recuperação detalha a VM](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+No exemplo anterior, **ContosoVM** é o nome da máquina virtual. **ContosoVM-demovault** é o nome do cofre de Serviços de Recuperação. Você não precisa se lembrar do nome do cofre de Serviços de Recuperação que armazena os pontos de recuperação; essas informações estão disponíveis na máquina virtual.  
+
+Se um cofre dos Serviços de Recuperação proteger vários servidores, talvez seja mais lógico examinar a área segura dos Serviços de Recuperação. Você pode pesquisar em todos os cofres de Serviços de Recuperação na assinatura e escolher um na lista.
 
 As seções a seguir contêm links para artigos que explicam como usar um cofre de Serviços de Recuperação em cada tipo de atividade.
 

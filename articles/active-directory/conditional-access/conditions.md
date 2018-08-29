@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627535"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142032"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são as condições no acesso condicional do Active Directory do Azure? 
 
-Você pode controlar como usuários autorizados acessam seus aplicativos na nuvem usando [acesso condicional do Azure AD (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). Em uma política de acesso condicional, você define a resposta ao motivo para acionar sua política. Um exemplo de resposta é **Então faça isso**. Um motivo de exemplo é **Quando isso acontece**.
+Você pode controlar como usuários autorizados acessam seus aplicativos na nuvem usando [acesso condicional do Azure AD (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Em uma política de acesso condicional, você define a resposta ("Então, faça isso") para o motivo do acionamento de sua política ("Quando isso acontecer"). 
 
 ![Motivo e resposta](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ Especificar determinados conjuntos de usuários é útil para a implantação de
 
 ## <a name="cloud-apps"></a>Aplicativos na nuvem 
 
-Um aplicativo na nuvem é um site ou serviço. Os sites protegidos pelo Proxy de Aplicativo do Azure AD também são aplicativos na nuvem. Para uma descrição detalhada dos aplicativos na nuvem compatíveis, consulte [atribuições de aplicativos em nuvem](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+Um aplicativo na nuvem é um site ou serviço. Os sites protegidos pelo Proxy de Aplicativo do Azure AD também são aplicativos na nuvem. Para uma descrição detalhada dos aplicativos na nuvem compatíveis, consulte [atribuições de aplicativos em nuvem](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 A condição **de aplicativos na nuvem** é obrigatória em uma política de acesso condicional. Em sua política, é possível selecionar **Todos os aplicativos em nuvem** ou escolher aplicativos específicos.
 
 ![Incluir aplicativos de nuvem](./media/conditions/03.png)
 
-- Selecione **Todos os aplicativos na nuvem** para as políticas de linha de base a serem aplicadas a toda a organização. Um caso de uso comum para essa seleção é uma política que exige autenticação multifator quando o risco de entrada for detectado para qualquer aplicativo de nuvem. Uma política aplicada a **Todos os aplicativos na nuvem** se aplica ao acesso a todos os sites e serviços. Essa configuração não se limita aos aplicativos em nuvem exibidos na lista **Selecionar aplicativos**. 
+Selecione:
 
-- Selecione aplicativos individuais na nuvem para segmentar serviços específicos por política. Por exemplo, você pode exigir que os usuários tenham um [dispositivo compatível](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acessar o SharePoint Online. Essa política também é aplicada a outros serviços quando eles acessam o conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
+- **Todos os aplicativos na nuvem** para as políticas de linha de base a serem aplicadas a toda a organização. Um caso de uso comum para essa seleção é uma política que exige autenticação multifator quando o risco de entrada for detectado para qualquer aplicativo de nuvem. Uma política aplicada a **Todos os aplicativos na nuvem** se aplica ao acesso a todos os sites e serviços. Essa configuração não se limita aos aplicativos em nuvem exibidos na lista **Selecionar aplicativos**. 
+
+- Aplicativos de nuvem individuais para atingir serviços específicos pela política. Por exemplo, você pode exigir que os usuários tenham um [dispositivo compatível](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acessar o SharePoint Online. Essa política também é aplicada a outros serviços quando eles acessam o conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
 
 Você pode excluir aplicativos específicos de uma política. No entanto, esses aplicativos ainda estão sujeitos às políticas aplicadas aos serviços que acessam. 
 
@@ -80,18 +82,18 @@ Você pode excluir aplicativos específicos de uma política. No entanto, esses 
 
 ## <a name="sign-in-risk"></a>Risco de entrada
 
-Um risco de login é um indicador da alta, média ou baixa probabilidade de que uma tentativa de login não tenha sido feita pelo proprietário legítimo de uma conta de usuário. O Azure AD calcula o nível de risco de entrada durante a entrada do usuário. O nível de risco de login calculado pode ser uma condição em uma política de acesso condicional. 
+Um risco de login é um indicador de probabilidade (alta, média ou baixa) de que uma tentativa de login não tenha sido feita pelo proprietário legítimo de uma conta de usuário. O Azure AD calcula o nível de risco de entrada durante a entrada do usuário. Você pode usar o nível de risco de conexão calculado como uma condição em uma política de acesso condicional.
 
 ![Níveis de risco de login](./media/conditions/22.png)
 
-Para usar essa condição, você precisa ter a [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable) habilitada.
+Para usar essa condição, você precisa ter a [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable) habilitada.
  
 Casos de uso comuns para essa condição são políticas que possuem as seguintes proteções: 
 
 - Bloquear usuários com alto risco de login. Essa proteção impede que usuários potencialmente não legítimos acessem seus aplicativos na nuvem. 
 - Exigir autenticação multifatorial para usuários com risco médio de login. Ao aplicar a autenticação multifator, você pode fornecer confiança adicional de que o login é feito pelo proprietário legítimo de uma conta.
 
-Para obter mais informações, consulte [Entradas de risco](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Para obter mais informações, consulte [Entradas de risco](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Plataformas de dispositivo
 
@@ -114,7 +116,7 @@ A condição de estado do dispositivo exclui dispositivos e dispositivos associa
 
 ![Configurar o estado do dispositivo](./media/conditions/112.png)
 
-Se você quiser bloquear o acesso de dispositivos não gerenciados, implemente [acesso condicional baseado em dispositivo](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Se você quiser bloquear o acesso de dispositivos não gerenciados, implemente [acesso condicional baseado em dispositivo](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## <a name="locations"></a>Locais
@@ -148,7 +150,7 @@ Para obter uma lista dos aplicativos cliente que você pode usar na política de
 
 Casos de uso comuns para essa condição são políticas com as seguintes proteções: 
 
-- Exigir um dispositivo [compatível](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aplicativos móveis e de área de trabalho que baixem grandes quantidades de dados para o dispositivo. Ao mesmo tempo, permita o acesso do navegador a partir de qualquer dispositivo.
+- Exigir um dispositivo [compatível](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aplicativos móveis e de área de trabalho que baixem grandes quantidades de dados para o dispositivo. Ao mesmo tempo, permita o acesso do navegador a partir de qualquer dispositivo.
 
 - Bloqueie o acesso de aplicativos da Web, mas permita o acesso de aplicativos móveis e de desktop.
 
@@ -163,7 +165,7 @@ A seleção do **Exchange ActiveSync** como uma condição de aplicativos client
  
 ![Aplicar política apenas a plataformas suportadas](./media/conditions/33.png)
 
-A aplicação dessa condição apenas a plataformas suportadas é igual a todas as plataformas de dispositivos em uma condição de [plataforma de dispositivos](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+A aplicação dessa condição apenas a plataformas suportadas é igual a todas as plataformas de dispositivos em uma condição de [plataforma de dispositivos](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Configurar plataformas de dispositivos](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ A aplicação dessa condição apenas a plataformas suportadas é igual a todas 
 
 - [Configure o SharePoint Online e o Exchange Online para acesso condicional do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
  
-- [Acesso condicional baseado no aplicativo do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). 
+- [Acesso condicional baseado no aplicativo do Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). 
 
 
 ### <a name="legacy-authentication"></a>Autenticação herdada  

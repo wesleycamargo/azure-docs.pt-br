@@ -1,5 +1,5 @@
 ---
-title: Serviço de Fala da Microsoft | Microsoft Docs
+title: Serviço de Fala do Bing da Microsoft | Microsoft Docs
 description: Use o API de Fala da Microsoft para adicionar ações controladas por voz para seus aplicativos, incluindo interação em tempo real com os usuários.
 services: cognitive-services
 author: zhouwangzw
@@ -9,19 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363626"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929974"
 ---
-# <a name="microsoft-speech-api-overview"></a>Visão geral da API de Tradução de Fala da Microsoft
+# <a name="microsoft-bing-speech-api-overview"></a>Visão geral da API de Fala do Bing da Microsoft
 
-A API de Tradução de Fala da Microsoft baseada em nuvem fornece aos desenvolvedores uma forma fácil de criar recursos  avançados habilitados para fala em seus aplicativos, como controle de comando de voz, diálogo do usuário usando conversa de fala natura e transcrição e ditado de fala. A API de Fala da Microsoft dá suporte a *Conversão de fala em texto* e *Texto em fala*.
+A API de Fala do Bing da Microsoft baseada em nuvem fornece aos desenvolvedores uma forma fácil de criar recursos avançados habilitados para fala em seus aplicativos, como controle de comando de voz, diálogo do usuário usando conversa de fala natura e transcrição e ditado de fala. A API de Fala da Microsoft dá suporte a *Conversão de fala em texto* e *Texto em fala*.
 
 - **A API de conversão de fala em texto** converte a fala humana em texto que pode ser usado como entrada ou comandos para controlar o seu aplicativo.
 - **A API de Conversão de Texto em Fala**I converte o texto em fluxos de áudio que podem ser reproduzidos para o usuário do seu aplicativo.
+
+> [!NOTE] 
+> Em maio de 2018, lançamos o novo [Serviço de Fala](/speech-service/overview.md) em visualização pública. É recomendável [experimentá-lo gratuitamente](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversão de fala em texto (reconhecimento de fala)
 
@@ -32,10 +35,10 @@ A API de reconhecimento de fala da Microsoft *transcreve* transmissões por stre
 
 | Casos de uso | [APIs REST](GetStarted/GetStartedREST.md) | [Bibliotecas de cliente](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Converter um áudio curto falado, por exemplo, comandos (tamanho do áudio < 15 s) sem resultados intermediários | sim | sim |
-| Converter um áudio longo (> 15 s) | Não  | sim |
-| Fluxo de áudio desejado com resultados intermediários | Não  | sim |
-| Entender o texto convertido de áudio usando LUIS | Não  | sim |
+| Converter um áudio curto falado, por exemplo, comandos (tamanho do áudio < 15 s) sem resultados intermediários | SIM | SIM |
+| Converter um áudio longo (> 15 s) | Não  | SIM |
+| Fluxo de áudio desejado com resultados intermediários | Não  | SIM |
+| Entender o texto convertido de áudio usando LUIS | Não  | SIM |
 
 Qualquer que seja a abordagem que os desenvolvedores escolham (APIs REST ou bibliotecas de cliente), o serviço de fala Microsoft suporta o seguinte:
 
@@ -43,7 +46,7 @@ Qualquer que seja a abordagem que os desenvolvedores escolham (APIs REST ou bibl
 - Reconhecimento contínuo em tempo real. A API de reconhecimento de fala permite aos usuários transcrever áudio em texto em tempo real e oferece suporte para receber os resultados intermediários de palavras que foram reconhecidas até o momento. O serviço de fala também oferece suporte à detecção final de fala. Além disso, os usuários também podem escolher recursos de formatação adicionais, como capitalização e pontuação, mascaramento de profanidade e normalização do texto.
 - Suporta resultados de reconhecimento de fala otimizados para cenários *interativos*, *de conversa*, e *ditado*. Para cenários de usuário que requerem modelos personalizados e modelos acústicos, o [Serviço de Fala Personalizado](../custom-speech-service/cognitive-services-custom-speech-home.md) permite que você crie modelos de fala personalizado para seu aplicativo e seus usuários.
 - Suporte para muitos idiomas falados em múltiplos dialetos. Para obter uma lista completa dos idiomas com suporte em cada modo de reconhecimento, consulte [Idiomas com reconhecimento](api-reference-rest/supportedlanguages.md).
-- Integração com a compreensão de idioma. Além de converter o áudio de entrada em texto, a *conversão de fala em texto* fornece aos aplicativos uma capacidade adicional para entender o que o texto significa. Ele usa o [Serviço Inteligente de Reconhecimento Vocal (LUIS)](../LUIS/Home.md) para extrair as entidades e intenções do texto reconhecido.
+- Integração com a compreensão de idioma. Além de converter o áudio de entrada em texto, a *conversão de fala em texto* fornece aos aplicativos uma capacidade adicional para entender o que o texto significa. Ele usa o [Serviço Inteligente de Reconhecimento Vocal (LUIS)](../LUIS/what-is-luis.md) para extrair as entidades e intenções do texto reconhecido.
 
 ### <a name="next-steps"></a>Próximas etapas
 

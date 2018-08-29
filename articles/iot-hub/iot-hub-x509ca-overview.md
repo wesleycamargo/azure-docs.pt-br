@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185485"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141827"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticação de dispositivo usando certificados de AC X.509
 
@@ -64,7 +64,7 @@ Saiba aqui como [registrar seu certificado de autoridade de certificação](iot-
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Como criar um dispositivo no Hub IoT
 
-Para impedir a representação do dispositivo, o Hub IoT exige que você o informe quais dispositivos esperar.  Você pode fazer isso criando uma entrada de dispositivo no registro de dispositivos do Hub IoT.  Este processo é automatizado ao usar o [Serviço de provisionamento do dispositivo](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS) do Hub IoT. 
+Para impedir a representação do dispositivo, o Hub IoT exige que você o informe quais dispositivos esperar.  Você pode fazer isso criando uma entrada de dispositivo no registro de dispositivos do Hub IoT.  Este processo é automatizado ao usar o [Serviço de provisionamento do dispositivo](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) do Hub IoT. 
 
 Saiba mais aqui como [criar manualmente um dispositivo no Hub IoT](iot-hub-security-x509-get-started.md#createdevice).
 

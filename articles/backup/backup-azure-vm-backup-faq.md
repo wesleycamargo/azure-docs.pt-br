@@ -7,21 +7,21 @@ manager: shreeshd
 keywords: backup de vm do Azure, política de backup e restauração de vm do Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: d637a98029b33be890b31f32c3080650b251f7a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58b0622da2ef617e652c8bb9dacbf7daa2d79966
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606368"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140392"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup de VM do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Configurar o backup
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Os cofres de Serviços de Recuperação dão suporte a VMs clássicas ou VMs com base no Gerenciador de Recursos? <br/>
-Os cofres dos Serviços de Recuperação dão suporte a ambos os modelos.  Você pode fazer backup de uma VM clássica (criada no portal Clássico) ou uma VM do Resource Manager (criada no portal do Azure) em um cofre dos Serviços de Recuperação.
+Os cofres dos Serviços de Recuperação dão suporte a ambos os modelos.  É possível fazer backup de uma VM clássica ou uma VM do Gerenciador de Recursos em um cofre dos Serviços de Recuperação.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Quais configurações não têm suporte pelo backup de VM do Azure?
 Confira os [Sistemas operacionais com suporte](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) e [Limitações de backup de VM](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
@@ -33,7 +33,7 @@ No Assistente de backup de configuração, o Backup do Azure lista apenas as VMs
 
 ## <a name="backup"></a>Backup
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>O trabalho de backup sob demanda seguirá o mesmo agendamento de retenção que os backups agendados?
-Nº Você deve especificar o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado do portal. 
+Não. Você deve especificar o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado do portal. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Eu recentemente habilitei a Criptografia de Disco do Azure em algumas VMs. Meus backups continuarão a funcionar?
 Você precisa conceder permissões para o serviço de Backup do Azure acessar o Key Vault. Você pode fornecer essas permissões no PowerShell usando as etapas mencionadas na seção *Habilitar Backup* da documentação do [PowerShell](backup-azure-vms-automation.md).
@@ -51,9 +51,9 @@ Sim. Você poderá cancelar o trabalho de backup se ele estiver na fase "Criando
 Se o usuário bloqueia o Grupo de Recursos, o serviço de Backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end. Se os seus backups estiverem falhando com um erro interno após o bloqueio do Grupo de Recursos, siga estas [etapas para remover a coleção do ponto de restauração](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>A política de Backup leva em conta o horário de verão (DST)?
-Nº Lembre-se que a data e hora no computador local são exibidas em sua hora local e com o horário de verão atual. Portanto o tempo configurado para backups agendados pode ser diferente da sua hora local devido ao horário de verão.
+Não. Lembre-se que a data e hora no computador local são exibidas em sua hora local e com o horário de verão atual. Portanto o tempo configurado para backups agendados pode ser diferente da sua hora local devido ao horário de verão.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurar
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como decidir entre a restauração de discos em comparação com a restauração completa da VM?
 Pense na restauração completa da VM do Azure como uma opção de criação rápida. A opção de restauração de VM altera os nomes dos discos, os contêineres usados por esses discos, os endereços IP públicos e os nomes de adaptadores de rede. A alteração é necessária para manter a exclusividade de recursos criados durante a criação da VM. Mas ele não adicionará a VM ao conjunto de disponibilidade. 
 
@@ -73,6 +73,9 @@ Neste cenário, por padrão, o trabalho de restauração de VM criará uma VM co
 2. [Converta os discos restaurados em discos gerenciados](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
 3. [Criar uma VM com discos gerenciados](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
 Para obter cmdlets do PowerShell, acesse [aqui](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>Posso restaurar a VM se minha VM for excluída?
+Sim. O ciclo de vida da VM e seu item de backup correspondente são diferentes. Portanto, mesmo se você excluir a VM, você pode ir até o item de backup correspondente no cofre dos Serviços de Recuperação e disparar uma restauração usando um dos pontos de recuperação. 
 
 ## <a name="manage-vm-backups"></a>Gerenciar backups de VM
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>O que acontece quando altero uma política de backup nas VMs?

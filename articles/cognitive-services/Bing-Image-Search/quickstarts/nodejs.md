@@ -1,6 +1,6 @@
 ---
-title: Chamada e resposta – Início Rápido do Node.js para os Serviços Cognitivos do Azure, API de Pesquisa de Imagem do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Imagem do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: enviar consultas de pesquisa usando a API REST para a API de Pesquisa de Imagem do Bing usando Node.js'
+description: Neste início rápido, você pode enviar consultas de pesquisa à API de Pesquisa do Bing para obter uma lista de imagens relevantes usando Node.js.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,32 +9,32 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 00408677d15a00d58720c142cabed96e310c69b2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 975275bea61a5903c06da394b762b1aceb18023f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364395"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41937515"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-for-nodejs"></a>Chamada e resposta: sua primeira consulta da Pesquisa de Imagem do Bing no Node.js
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-nodejs"></a>Início Rápido: enviar consultas de pesquisa usando a API REST e Node.js
 
 A API de Pesquisa de Imagem do Bing proporciona uma experiência semelhante a Bing.com/Images, permitindo que você envie uma consulta de pesquisa de usuário ao Bing e obtenha uma lista de imagens relevantes.
 
 Este artigo inclui um aplicativo de console simples que executa uma consulta da API de Pesquisa de Imagem do Bing e exibe os resultados brutos da pesquisa, que estão no formato JSON. Embora esse aplicativo seja escrito no JavaScript e executado no Node.js, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [Node.js 6](https://nodejs.org/en/download/) para executar esse código.
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Executando o aplicativo
 
-Para executar o aplicativo, siga estas etapas.
+Para executar esse aplicativo, siga estas etapas.
 
 1. Crie um projeto Node.js em seu IDE ou editor favorito.
 2. Adicione o código fornecido.
-3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `subscriptionKey` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```javascript

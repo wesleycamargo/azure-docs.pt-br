@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112744"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146104"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Saída do Azure Stream Analytics para Azure Cosmos DB  
 O Stream Analytics pode direcionar o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) para uma saída em JSON, possibilitando o arquivamento de dados e consultas de baixa latência em dados JSON não estruturados. Este documento aborda algumas práticas recomendadas para implementar essa configuração.
@@ -40,6 +40,8 @@ O Stream Analytics utiliza uma abordagem upsert otimista, na qual as atualizaç�
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Particionamento de dados no Cosmos DB
 O Microsoft Azure Cosmos DB [ilimitado](../cosmos-db/partition-data.md) é a abordagem recomendada para particionar seus dados, como o Microsoft Azure Cosmos DB automaticamente dimensiona partições com base em sua carga de trabalho. Ao gravar os contêineres ilimitados, o Stream Analytics usa tantos gravadores paralelos como etapa de consulta anterior ou entrada de esquema de particionamento.
+> [!Note]
+> No momento, o Azure Stream Analytics dá suporte apenas a coleções ilimitadas com chaves de partição no nível superior. Por exemplo, `/region` tem suporte. Não há suporte para chaves de partição aninhadas (por exemplo, `/region/name`). 
 
 Para coleções do Microsot Azure Cosmos DB fixas, o Stream Analytics permite que nenhuma maneira de escalar vertical ou horizontalmente, depois que estão cheias. Eles têm um limite de 10 GB e taxa de transferência de 10.000 RU/s.  Para migrar dados de um contêiner fixo para um contêiner ilimitado (por exemplo, um com pelo menos 1.000 RU/s e uma chave de partição), você precisa usar a [ferramenta de migração de dados](../cosmos-db/import-data.md) ou a [biblioteca de feed de alterações](../cosmos-db/change-feed.md).
 

@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: 43b7b71ee1cce3d0f9f8d9f955004825d6b1a3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9095ef443e406c0f3e40ae575cdf6d6484726e0f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364765"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41929786"
 ---
 # <a name="bing-visual-search-sdk"></a>SDK de Pesquisa Visual do Bing
 
@@ -32,3 +32,8 @@ A Pesquisa Visual do Bing fornece a seguinte SDKs cliente que você pode usar pa
     * [Bibliotecas Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) para definições e dependências
 
 Amostras do SDK para cada idioma incluem um arquivo Leiame com pré-requisitos para usar o SDK junto com as etapas para instalar e executar as amostras.
+
+### <a name="sdk-tools"></a>Ferramentas do SDK
+As ferramentas do SDK para explorar os recursos de Pesquisa Visual do Bing podem ser encontradas neste Repositório Git: [ferramentas de Pesquisa Visual do Bing](https://github.com/Azure-Samples/bing-visualsearch-tools)
+
+

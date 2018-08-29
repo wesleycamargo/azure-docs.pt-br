@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989904"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145658"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 
 Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de declaração para a declaração de função no token de resposta recebido após a autorização de um aplicativo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Uma assinatura do Microsoft Azure AD com configuração de diretório.
-- Uma assinatura do logon único habilitado. Você precisa configurar o SSO com o aplicativo.
+- Uma assinatura com logon único habilitado. Você precisa configurar o SSO com o aplicativo.
 
 ## <a name="when-to-use-this-feature"></a>Quando usar esse recurso
 
@@ -66,7 +66,10 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     c. Selecione as permissões da lista a seguir (se você já não tiver) e clique em **Modificar Permissões**.
 
-      ![Lista de permissões e botão "Modificar permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+      ![Lista de permissões e botão "Modificar Permissões"](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > A função de Administrador do Aplicativo na Nuvem e de Administrador do Aplicativo não funcionarão neste cenário, pois são necessárias as permissões de Administrador Global para Leitura e Gravação do Diretório.
 
     d. Aceite a solicitação de consentimento. Você está conectado ao sistema novamente.
 
@@ -96,7 +99,7 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
 
     h. Gere novas funções para o aplicativo.
 
-      O JSON a seguir é um exemplo do objeto **appRoles**. Crie um objeto semelhante para adicionar as funções desejadas para o aplicativo.
+      O JSON a seguir é um exemplo do objeto **appRoles**. Crie um objeto semelhante para adicionar as funções desejadas no aplicativo.
 
       ```
       {
@@ -128,11 +131,11 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
       ```
 
       > [!Note]
-      > Você só pode adicionar novas funções depois do msiam_access para a operação patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua organização. O Azure AD enviará o valor dessas funções como o valor da solicitação na resposta SAML. Para gerar os valores de GUID para a ID das novas funções, use ferramentas da Web como [esta](https://www.guidgenerator.com/)
+      > Você só pode adicionar novas funções depois do msiam_access para a operação patch. Além disso, você pode adicionar quantas regras quiser de acordo com a necessidade da sua organização. O Azure AD enviará o valor dessas funções como o valor da declaração na resposta SAML. Para gerar os valores de GUID para a ID das novas funções, use ferramentas da Web como [esta](https://www.guidgenerator.com/)
 
-    i. Volte ao Explorador do Graph e altere o método de **GET** para **PATCH**. Faça patch do objeto da entidade de serviço para ter as funções desejadas atualizando a propriedade **appRoles** como mostrado no exemplo anterior. Clique em **Executar Consulta** para executar o operação patch. Uma mensagem confirma a criação da função.
+    i. Volte ao Explorador do Graph e altere o método de **GET** para **PATCH**. Execute o patch no objeto da entidade de serviço para obter as funções desejadas após a atualização da propriedade **appRoles**, conforme exemplo anterior. Clique em **Executar Consulta** para executar a operação de patch. Uma mensagem confirma a criação da função.
 
-      ![Operação patch com mensagem de êxito](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+      ![Operação de patch bem-sucedida](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
 
 7. Após a atualização da entidade de serviço com mais funções, será possível atribuir usuários às respectivas funções. Você pode atribuir os usuários acessando o portal e navegando até o aplicativo. Selecione a guia **Usuários e grupos**. Essa guia relaciona todos os usuários e grupos que já foram atribuídos ao aplicativo. Você pode adicionar novos usuários às novas funções. Você também pode selecionar um usuário existente e selecionar **Editar** para alterar a função.
 
@@ -203,7 +206,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
     b. Copie as funções existentes e cole-as em **Corpo da Solicitação**.
 
-    c. Atualize o valor de uma função atualizando a descrição da função, valor da função ou nome de exibição da função, conforme necessário.
+    c. Atualize o valor de uma função atualizando a descrição da função, o valor da função ou o nome de exibição da função, conforme necessário.
 
     d. Depois de atualizar todas as funções necessárias, selecione **Executar Consulta**.
 
@@ -231,7 +234,7 @@ Para excluir uma função existente, execute as seguintes etapas:
 
 5. Extraia a propriedade **appRoles** do objeto da entidade de serviço.
 
-    ![Detalha a propriedade appRoles do objeto da entidade de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
+    ![Detalhes da propriedade appRoles do objeto da entidade de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
 6. Para excluir a função existente, use as etapas a seguir.
 
@@ -241,14 +244,14 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     b. Copie as funções existentes do aplicativo e cole-as em **Corpo da Solicitação**.
 
-    c. Defina o valor **IsEnabled** como **falso** para a função que deseja excluir.
+    c. Defina o valor **IsEnabled** como **false** para a função que deseja excluir.
 
     d. Selecione **Executar Consulta**.
 
     > [!NOTE]
-    > Verifique se você tem a função msiam_access e se a ID corresponde na função gerada.
+    > Verifique se você tem a função msiam_access e se a ID corresponde com a função gerada.
 
-7. Depois que a função é desabilitada, exclua esse bloco de função na seção **appRoles**. Mantenha o método como **PATCH**e selecione **Executar Consulta**.
+7. Depois que a função é desabilitada, exclua esse bloco de função na seção **appRoles**. Mantenha o método como **PATCH** e selecione **Executar Consulta**.
 
 8. Depois que a consulta é executada, a função é excluída.
 

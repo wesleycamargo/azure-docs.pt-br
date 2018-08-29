@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171976"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145660"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matriz de suporte para replicação de Hyper-V no Azure
 
@@ -25,7 +25,7 @@ Este artigo resume os componentes compatíveis e as configurações de recupera�
 
 **Cenário** | **Detalhes**
 --- | ---
-Hyper-V com Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que são gerenciados na malha do System Center Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell.<br/><br/> Quando hosts Hyper-V são gerenciadas pelo Virtual Machine Manager, você também pode executar a recuperação de desastres em um site local secundário. Para saber mais sobre este cenário, leia [este tutorial](tutorial-vmm-to-vmm.md).
+Hyper-V com Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que são gerenciados na malha do System Center Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell.<br/><br/> Quando hosts Hyper-V são gerenciadas pelo Virtual Machine Manager, você também pode executar a recuperação de desastres em um site local secundário. Para saber mais sobre este cenário, leia [este tutorial](hyper-v-vmm-disaster-recovery.md).
 Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de desastres para o Azure para VMs em execução em hosts Hyper-V que não são gerenciados pelo Virtual Machine Manager.<br/><br/> É possível implantar este cenário no portal do Azure ou usando o PowerShell.
 
 
@@ -44,8 +44,8 @@ A tabela a seguir resume o suporte de VMs. O Site Recovery é compatível com qu
 
  **Componente** | **Detalhes**
 --- | ---
-Configuração da VM | VMs que são replicadas para o Azure devem atender aos [requisitos do Azure](#failed-over-azure-vm-requirements).
-Sistema operacional convidado | Qualquer SO convidado compatível com o Azure.<br/><br/> O Windows Server 2016 Nano Server não é compatível.
+Configuração da VM | VMs que são replicadas para o Azure devem atender aos [requisitos do Azure](#azure-vm-requirements).
+Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> O Windows Server 2016 Nano Server não é compatível.
 
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
@@ -113,7 +113,8 @@ RDM | ND | ND
 Disco >1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: setor de lógica e física de 4K | Não compatível: Gen 1/Gen 2 | Não compatível: Gen 1/Gen 2
 Disco: setor de lógica e física de 4K e 512 bytes | SIM |  SIM
-Volume com discos distribuídos >1 TB<br/><br/> Gerenciamento de volumes lógicos (LVM) | SIM | SIM
+Gerenciamento de volumes lógicos (LVM). Há suporte para o LVM para discos de dados somente. As VMs do Azure tem apenas um único disco de sistema operacional. | SIM | SIM
+Volume com discos distribuídos >1 TB | SIM | SIM
 Espaços de Armazenamento | SIM | SIM
 Adição/remoção de disco a quente | Não  | Não 
 Exclusão de disco | SIM | SIM

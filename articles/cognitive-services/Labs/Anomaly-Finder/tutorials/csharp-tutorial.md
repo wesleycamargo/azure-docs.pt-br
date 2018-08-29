@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317672"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41931328"
 ---
 # <a name="anomaly-detection-c-application"></a>Aplicativo em C# de Detecção de Anomalias
 
 Explore um aplicativo básico do Windows que usa a API de Detecção de Anomalias para detectar anomalias da entrada. O exemplo envia os dados de série temporal para a API de Detecção de Anomalias com sua chave de assinatura, em seguida, obtém todos os pontos de anomalias e o valor esperado para cada ponto de dados da API.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
@@ -48,7 +48,7 @@ Pressione Ctrl+Shift+B, ou clique em Compilar no menu de faixa de opções, ent�
 
 1. Após a compilação, pressione **F5** ou clique em **Iniciar** no menu de faixa de opções para executar o exemplo.
 2. Localize a janela de interface de usuário de Detecção de Anomalias com a caixa de edição de texto com "{sua_chave_de_assinatura}".
-3. Substitua o arquivo request.json, que contém os dados de exemplo, com seus próprios dados e então clique em "Enviar". A Microsoft recebe os dados carregados e os utiliza para detectar todos os pontos de anomalia entre eles. Os dados atualizados não serão persistentes no servidor da Microsoft. Para detectar o ponto de anomalias novamente, você precisa carregar os dados novamente.
+3. Substitua o arquivo request.json, que contém os dados de exemplo, com seus próprios dados e então clique em "Enviar". A Microsoft recebe os dados carregados e os utiliza para detectar todos os pontos de anomalia entre eles. Os dados que você carregar não serão persistentes no servidor da Microsoft. Para detectar o ponto de anomalias novamente, você precisa carregar os dados novamente.
 4. Se os dados forem bons, você encontrará o resultado da detecção de anomalias no campo "Resposta". Se ocorrer algum erro, as informações de erro também serão mostradas no campo Resposta.
 
 <a name="Review"></a>
@@ -77,7 +77,8 @@ Analisar como a API Restful é usada no aplicativo de exemplo, vamos examinar um
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)**  A seguir, o trecho de código mostra como usar o HttlClient para enviar sua assinatura chave e pontos de dados para o ponto de extremidade da API de Detecção de Anomalias.
+### <a name="request"></a>**Solicitação**
+O trecho de código abaixo mostra como usar o HttpClient para enviar sua assinatura chave e pontos de dados para o ponto de extremidade da API de Detecção de Anomalias.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

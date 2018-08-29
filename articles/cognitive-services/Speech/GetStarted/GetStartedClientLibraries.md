@@ -1,5 +1,5 @@
 ---
-title: Introdução à API de Reconhecimento de Fala da Microsoft usando a biblioteca de área de trabalho | Microsoft Docs
+title: Introdução à API de Reconhecimento de Fala da Microsoft usando bibliotecas de clientes de Fala do Bing | Microsoft Docs
 description: Use a as bibliotecas de cliente dos Serviços de Fala da Microsoft nos Serviços Cognitivos da Microsoft para desenvolver aplicativos que convertem áudio falado para texto.
 services: cognitive-services
 author: zhouwangzw
@@ -9,28 +9,31 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 5abe5bc48c2bd73d0facf33e41a8076df2972153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363617"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42357503"
 ---
-# <a name="get-started-with-speech-service-client-libraries"></a>Introdução com bibliotecas de cliente do Serviço de Fala
+# <a name="get-started-with-bing-speech-service-client-libraries"></a>Introdução às bibliotecas de clientes do Serviço de Fala do Bing
 
-Além de fazer solicitações HTTP diretas por meio de uma API REST, o serviço de fala fornece aos desenvolvedores bibliotecas de cliente de fala em idiomas diferentes. As bibliotecas de cliente de voz:
+Além de fazer solicitações HTTP diretas por meio de uma API REST, o Serviço de Fala do Bing fornece aos desenvolvedores bibliotecas de clientes de Fala em diferentes linguagens. As bibliotecas de cliente de voz:
 
 - Suportam recursos mais avançados em reconhecimento de voz, como resultados intermediários em tempo real, streaming de áudio longo (até 10 minutos) e reconhecimento contínuo.
 - Fornece uma API simples e idiomática no idioma de sua preferência.
 - Oculte detalhes de comunicação de baixo nível.
 
-Atualmente, as bibliotecas de cliente fala a seguir estão disponíveis:
+Atualmente, as seguintes bibliotecas de clientes de Fala do Bing estão disponíveis:
 
 - [Biblioteca de área de trabalho do C#](GetStartedCSharpDesktop.md)
 - [Biblioteca de serviço do C#](GetStartedCSharpServiceLibrary.md)
 - [Biblioteca do JavaScript](GetStartedJSWebsockets.md)
 - [Biblioteca do Java para Android](GetStartedJavaAndroid.md)
 - [Biblioteca do Objective-C para iOS](Get-Started-ObjectiveC-iOS.md)
+
+> [!NOTE] 
+Em maio de 2018, também lançamos o novo [Serviço de Fala](/speech-service/overview.md) em visualização pública. É recomendável [experimentá-lo gratuitamente](/speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

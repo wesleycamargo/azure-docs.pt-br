@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Java do SDK de Pesquisa de Imagem do Bing | Microsoft Docs
-description: Saiba como configurar o aplicativo de console do SDK de Pesquisa de Imagem do Bing.
+title: 'Início Rápido: Solicitar e filtrar imagens usando o SDK em Java'
+description: Neste início rápido, você solicita e filtra as imagens retornadas pela Pesquisa de Imagem do Bing com o uso de Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364644"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929905"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Início rápido do Java do SDK de Pesquisa de Imagem do Bing
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Início Rápido: solicitar e filtrar imagens usando SDK e Java
 
 O SDK de Pesquisa de Imagem do Bing fornece a funcionalidade da API REST para consultas de imagem e resultados de análise. 
 

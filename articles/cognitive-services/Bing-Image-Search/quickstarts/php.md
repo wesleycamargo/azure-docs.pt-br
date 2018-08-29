@@ -1,6 +1,6 @@
 ---
-title: Chamada e resposta – Início Rápido do PHP para os Serviços Cognitivos do Azure, API de Pesquisa de Imagem do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Imagem do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: enviar consultas de pesquisa usando a API REST para a API de Pesquisa de Imagem do Bing usando PHP'
+description: Neste início rápido, você pode enviar consultas de pesquisa à API de Pesquisa do Bing para obter uma lista de imagens relevantes usando PHP.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,33 +9,33 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b3b7e082eeca5fbccb8729ab8abdf7ec933b4197
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d91021c4bd5e0f78e518811f3794055b397c1a39
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364397"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929762"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-php"></a>Chamada e resposta: sua primeira consulta da Pesquisa de Imagem do Bing no PHP
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-php"></a>Início Rápido: enviar consultas de pesquisa usando a API REST e PHP
 
 A API de Pesquisa de Imagem do Bing proporciona uma experiência semelhante a Bing.com/Images, permitindo que você envie uma consulta de pesquisa de usuário ao Bing e obtenha uma lista de imagens relevantes.
 
 Este artigo inclui um aplicativo de console simples que executa uma consulta da API de Pesquisa de Imagem do Bing e exibe os resultados brutos da pesquisa, que estão no formato JSON. Embora esse aplicativo seja escrito no PHP, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 É necessário ter o [PHP 5.6.x](http://php.net/downloads.php) para executar esse código.
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Executando o aplicativo
 
-Para executar o aplicativo, siga estas etapas.
+Para executar esse aplicativo, siga estas etapas.
 
 1. Verifique se o suporte a HTTP seguro está habilitado em `php.ini`, conforme descrito no comentário do código. No Windows, esse arquivo está em `C:\windows`.
 2. Crie um projeto PHP em seu IDE ou editor favorito.
 3. Adicione o código fornecido.
-4. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+4. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
 5. Execute o programa.
 
 ```php

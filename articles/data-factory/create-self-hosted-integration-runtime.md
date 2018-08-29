@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341572"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443383"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -27,17 +27,20 @@ Um Integration Runtime auto-hospedado é capaz de executar as atividades de cóp
 Este documento apresenta como você pode criar e configurar o IR auto-hospedado.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Etapas de alto nível para instalar o IR auto-hospedado
-1.  Crie um Integration Runtime auto-hospedado. Aqui está um exemplo do PowerShell:
+1. Crie um Integration Runtime auto-hospedado. É possível usar a interface do usuário do ADF para criar o IR auto-hospedado. Aqui está um exemplo do PowerShell:
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2.  Baixe e instale o Integration Runtime auto-hospedado (no computador local).
-3.  Recupere a chave de autenticação e registre o Integration Runtime auto-hospedado com a chave. Aqui está um exemplo do PowerShell:
+2. Baixe e instale o Integration Runtime auto-hospedado (no computador local).
+3. Recupere a chave de autenticação e registre o Integration Runtime auto-hospedado com a chave. Aqui está um exemplo do PowerShell:
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
+
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Configurar IR auto-hospedado na VM do Azure usando modelo do Azure Resource Manager (automação)
+É possível automatizar a configuração de IR auto-hospedado em uma VM do Azure usando [este modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Isso fornece uma maneira fácil de ter um IR auto-hospedado totalmente funcional dentro da VNet do Azure com recurso de Escalabilidade e Alta Disponibilidade (contanto que defina a contagem de nós como 2 ou superior).
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
 Quando você move os dados entre a nuvem e o local, a atividade usa um Integration Runtime auto-hospedado para transferir os dados da fonte de dados local para a nuvem e vice-versa.
@@ -48,9 +51,9 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 
 1. O desenvolvedor de dados cria um Integration Runtime auto-hospedado dentro de um Azure Data Factory usando o cmdlet do PowerShell. Atualmente, o Portal do Azure não dá suporte a esse recurso.
 2. O desenvolvedor de dados cria um serviço vinculado para um armazenamento de dados local especificando a instância de Integration Runtime auto-hospedado que ele deve usar para se conectar a armazenamentos de dados. Como parte da configuração do serviço vinculado, o desenvolvedor de dados usa o aplicativo ‘Gerenciador de Credenciais’ (sem suporte no momento) para configurar as credenciais e os tipos de autenticação. A caixa de diálogo do aplicativo Gerenciador de Credenciais se comunica com o armazenamento de dados para testar a conexão e o Integration Runtime auto-hospedado para salvar as credencias.
-4.  O nó do Integration Runtime auto-hospedado criptografa a credencial usando a DPAPI (Interface de Programação do Aplicativo de Proteção de Dados) do Windows e a salva localmente. Se vários nós forem definidos para alta disponibilidade, as credenciais serão mais sincronizadas em outros nós. Cada nó a criptografa usando DPAPI e a armazena localmente. A sincronização de credenciais é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.    
-5.  O serviço Data Factory se comunica com o Integration Runtime auto-hospedado para o agendamento e o gerenciamento de trabalhos por meio de um **canal de controle** que usa uma fila do Barramento de Serviço do Azure compartilhado. Quando um trabalho de atividade precisa ser executado, o Data Factory enfileira a solicitação juntamente com quaisquer informações de credenciais (no caso de as credenciais ainda não estarem armazenadas no Integration Runtime auto-hospedado). O Integration Runtime auto-hospedado inicia o trabalho depois da sondagem da fila.
-6.  O Integration Runtime auto-hospedado copia dados de um repositório local para um armazenamento na nuvem, ou vice-versa, dependendo de como a atividade de cópia estiver configurada no pipeline de dados. Para esta etapa, o Integration Runtime auto-hospedado se comunica diretamente com os serviços de armazenamento baseado na nuvem, como Armazenamento de Blobs do Azure por um canal seguro (HTTPS).
+   - O nó do Integration Runtime auto-hospedado criptografa a credencial usando a DPAPI (Interface de Programação do Aplicativo de Proteção de Dados) do Windows e a salva localmente. Se vários nós forem definidos para alta disponibilidade, as credenciais serão mais sincronizadas em outros nós. Cada nó a criptografa usando DPAPI e a armazena localmente. A sincronização de credenciais é transparente para o desenvolvedor de dados e é tratada pelo IR auto-hospedado.    
+   - O serviço Data Factory se comunica com o Integration Runtime auto-hospedado para o agendamento e o gerenciamento de trabalhos por meio de um **canal de controle** que usa uma fila do Barramento de Serviço do Azure compartilhado. Quando um trabalho de atividade precisa ser executado, o Data Factory enfileira a solicitação juntamente com quaisquer informações de credenciais (no caso de as credenciais ainda não estarem armazenadas no Integration Runtime auto-hospedado). O Integration Runtime auto-hospedado inicia o trabalho depois da sondagem da fila.
+   - O Integration Runtime auto-hospedado copia dados de um repositório local para um armazenamento na nuvem, ou vice-versa, dependendo de como a atividade de cópia estiver configurada no pipeline de dados. Para esta etapa, o Integration Runtime auto-hospedado se comunica diretamente com os serviços de armazenamento baseado na nuvem, como Armazenamento de Blobs do Azure por um canal seguro (HTTPS).
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Considerações para o uso do IR auto-hospedado
 
@@ -64,7 +67,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 - Você deverá usar o Integration Runtime auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma **máquina virtual de IaaS do Azure**.
 - As tarefas podem falhar em um Microsoft Integration Runtime auto-hospedado instalado em um Windows Server no qual a criptografia compatível com FIPS está habilitada. Para contornar esse problema, desabilite a criptografia compatível com FIPS no servidor. Para desabilitar a criptografia compatível com FIPS, altere o valor de registro de 1 (habilitado) a seguir para 0 (desabilitado): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - As versões de **Sistema Operacional** com suporte são Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. A instalação do Integration Runtime auto-hospedado em um **controlador de domínio não tem suporte**.
 - O **.NET Framework 4.6.1 ou superior** é necessário. Se você estiver instalando o Integration Runtime auto-hospedado em um computador com Windows 7, instale o .NET Framework 4.6.1 ou posterior. Confira [Requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
@@ -113,7 +116,20 @@ Você pode associar vários nós simplesmente instalando o software de Integrati
 > [!NOTE]
 > Antes de adicionar outro nó para **Alta Disponibilidade e Escalabilidade**, verifique se a opção **"Acesso remoto à intranet"** está **Habilitada** no primeiro nó (Gerenciador de Configurações do Microsoft Integration Runtime -> Configurações -> Acesso remoto à intranet). 
 
+### <a name="scale-considerations"></a>Considerações de escala
+
+#### <a name="scale-out"></a>Expansão
+
+Quando a **memória disponível no IR auto-hospedado for baixa** e o **uso da CPI for alto**, adicionar um novo nó ajuda a dimensionar a carga entre os computadores. Se as atividades falharem devido ao tempo limite ou o nó do IR auto-hospedado ficar offline, ajudará se você adicionar um nó ao gateway.
+
+#### <a name="scale-up"></a>Escalar verticalmente
+
+Quando a memória disponível e a CPU não são bem utilizadas, mas a execução de tarefas simultâneas está atingindo o limite, você deve aumentar o número de tarefas simultâneas que podem ser executadas em um nó. Convém também escalar verticalmente quando as atividades estiverem atingindo o tempo limite porque o IR auto-hospedado está sobrecarregado. Conforme mostrado na imagem a seguir, você pode aumentar a capacidade máxima de um nó.  
+
+![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
+
 Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comunicações entre os nós do tempo de execução de integração:
 
 - O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
@@ -121,9 +137,57 @@ Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comu
 - Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
 - Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
-- Não há suporte para certificado usando chaves CNG. Não dá suporte a certificados que usam chaves CNG.
+- Não há suporte para certificado usando chaves CNG.  
+
+## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>Compartilhar o tempo de execução (IR) da integração auto-hospedada com vários data factories
+
+É possível reutilizar uma infraestrutura de IR auto-hospedado existente que já tenha configurado em um data factory. Isso permite que você crie um **tempo de execução da integração auto-hospedada vinculado** em um data factory diferente, referenciando um IR auto-hospedado já existente (Compartilhado).
+
+#### <a name="terminologies"></a>**Terminologias**
+
+- **IR Compartilhado** – O IR auto-hospedado original executando em uma infraestrutura física.  
+- **IR Vinculado** – O tempo de execução de integração que faz referência a outro IR Compartilhado. Esse é um IR lógico e usa a infraestrutura de outro IR auto-hospedado (compartilhado).
+
+#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Etapas de alto nível para criar um IR auto-hospedado vinculado
+
+No IR auto-hospedado a ser compartilhado,
+
+1. Conceda permissão para o Data Factory no qual você gostaria de criar o IR Vinculado. 
+
+   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+
+2. Observe a **ID do Recurso** do IR auto-hospedado a ser compartilhado.
+
+   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+
+No Data Factory para o qual as permissões foram concedidas,
+
+3. Crie um novo IR auto-hospedado (vinculado) e insira a **ID do Recurso**
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas do compartilhamento de IR auto-hospedado
+
+1. O número padrão de IR vinculado que pode ser criado sob um único IR auto-hospedado é **20**. Se você precisar de mais, contate o Suporte. 
+
+2. O data factory no qual o IR vinculado deve ser criado deve ter uma MSI ([identidade de serviço gerenciada](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por padrão, os data factories criados no portal do Ibiza ou nos cmdlets do PowerShell terão a MSI criada implicitamente. No entanto, em alguns casos, quando o data factory é criado usando um modelo ou SDK do Azure Resorce Manager, a propriedade “**Identity**” **deverá ser definida** explicitamente para garantir que o Azure Resorce Manager crie um data factory contendo uma MSI. 
+
+3. A versão do IR auto-hospedado deve ser igual ou superior a 3.8.xxxx.xx. [Baixe a última versão](https://www.microsoft.com/download/details.aspx?id=39717) do IR auto-hospedado
+
+4. O data factory no qual o IR vinculado deve ser criado deve ter uma MSI ([identidade de serviço gerenciada](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Por padrão, os data factories criados no portal do Ibiza ou nos cmdlets do PowerShell terão a MSI ([identidade de serviço gerenciada](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)).
+criada implicitamente, no entanto, data factories criados com o modelo do ARM (Azure Resource Manager) ou SDK exigem que a propriedade "Identity" seja definida para garantir que uma MSI seja criada.
+
+5. O ADF .Net SDK que dá suporte a esse recurso é a versão> = 1.1.0
+
+6. O Azure PowerShell que dá suporte a esse recurso é a versão> = 6.6.0 (AzureRM.DataFactoryV2> = 0.5.7)
+
+  > [!NOTE]
+  > Esse recurso está disponível apenas na versão 2 do Azure Data Factory 
 
 ## <a name="system-tray-icons-notifications"></a>Ícones/notificações da bandeja do sistema
+
 Se você mover o cursor sobre o ícone de bandeja do sistema/mensagem de notificação, poderá encontrar detalhes sobre o estado do Integration Runtime auto-hospedado.
 
 ![Notificações da bandeja do sistema](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
@@ -180,10 +244,10 @@ O Serviço de Host do Integration Runtime é reiniciado automaticamente depois q
 
 Depois que o Integration Runtime auto-hospedado tiver sido registrado com êxito, se você quiser exibir ou atualizar as configurações de proxy, use o Gerenciador de Configurações do Integration Runtime.
 
-1.  Inicie o **Gerenciador de Configuração do Integration Runtime da Microsoft**.
-2.  Alterne para a guia **Configurações** .
-3.  Clique no link **Alterar** na seção **Proxy HTTP** para iniciar a caixa de diálogo **Configurar Proxy HTTP**.
-4.  Depois de clicar no botão **Avançar**, você verá uma caixa de diálogo de aviso solicitando sua permissão para salvar a configuração de proxy e reiniciar o Serviço de Host do Integration Runtime.
+1. Inicie o **Gerenciador de Configuração do Integration Runtime da Microsoft**.
+   - Alterne para a guia **Configurações** .
+   - Clique no link **Alterar** na seção **Proxy HTTP** para iniciar a caixa de diálogo **Configurar Proxy HTTP**.
+   - Depois de clicar no botão **Avançar**, você verá uma caixa de diálogo de aviso solicitando sua permissão para salvar a configuração de proxy e reiniciar o Serviço de Host do Integration Runtime.
 
 Você pode exibir e atualizar o proxy HTTP usando a ferramenta Gerenciador de Configurações.
 
@@ -229,8 +293,8 @@ Além dos desses pontos, você também precisa verificar se o Microsoft Azure es
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Possíveis sintomas de problemas relacionados ao firewall e ao servidor proxy
 Se você encontrar erros similares aos descritos a seguir, eles provavelmente se deverão à configuração incorreta do servidor proxy ou firewall, que impedirá o Integration Runtime auto-hospedado de se conectar ao Data Factory para se autenticar. Confira a seção anterior para garantir que seu firewall e servidor proxy estejam configurados corretamente.
 
-1.  Quando você tenta registrar o Integration Runtime auto-hospedado, recebe o seguinte erro: “Falha ao registrar esse nó do Integration Runtime. Confirme se a chave de autenticação é válida e o serviço de host de serviço de integração está em execução neste computador. "
-2.  Ao abrir o Gerenciador de Configurações do Integration Runtime, você vê o status "**Desconectado"** ou "**Conectando**". Ao exibir os logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Microsoft Integration Runtime", você vê mensagens de erro como as do seguinte:
+1. Quando você tenta registrar o Integration Runtime auto-hospedado, recebe o seguinte erro: “Falha ao registrar esse nó do Integration Runtime. Confirme se a chave de autenticação é válida e o serviço de host de serviço de integração está em execução neste computador. "
+   - Ao abrir o Gerenciador de Configurações do Integration Runtime, você vê o status "**Desconectado"** ou "**Conectando**". Ao exibir os logs de eventos do Windows, em "Visualizador de Eventos" > "Logs de Aplicativos e Serviços" > "Microsoft Integration Runtime", você vê mensagens de erro como as do seguinte:
 
     ```
     Unable to connect to the remote server

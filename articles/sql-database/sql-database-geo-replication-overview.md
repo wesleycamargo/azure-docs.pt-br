@@ -10,21 +10,27 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037877"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144157"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Visão geral: grupos de failover automático e replicação geográfica ativa
+
+Replicação geográfica ativa é o recurso de Banco de Dados SQL do Azure que permite que você crie réplicas legíveis no mesmo data center (região) ou em um data center diferente.
+
+![Replicação geográfica](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 A replicação geográfica ativa foi projetada como uma solução de continuidade de negócios que permite que o aplicativo execute a recuperação de desastres rápida no caso de uma interrupção na escala do data center. Se a replicação geográfica estiver habilitada, o aplicativo poderá iniciar o failover para um banco de dados secundário em uma região do Azure diferente. Há suporte para até quatro secundários na mesma região ou em regiões diferentes, e os secundários também podem ser usados para consultas de acesso somente leitura. O failover deve ser iniciado manualmente pelo aplicativo ou pelo usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
 
 > [!NOTE]
 > A replicação geográfica ativa agora está disponível para todos os bancos de dados em todas as camadas de serviço e em todas as regiões.
+> A Replicação Geográfica ativa não está disponível na Instância Gerenciada.
 >  
 
-Grupos de failover automático são uma extensão da replicação geográfica ativa. Ele foi projetado para gerenciar o failover de vários bancos de dados com replicação geográfica usando um failover iniciado pelo aplicativo ou delegando o failover para ser feito pelo serviço do Banco de Dados SQL com base em critérios definidos pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
+Os grupos de failover automático são uma extensão da replicação geográfica ativa. Ele foi projetado para gerenciar o failover de vários bancos de dados com replicação geográfica usando um failover iniciado pelo aplicativo ou delegando o failover para ser feito pelo serviço do Banco de Dados SQL com base em critérios definidos pelo usuário. A última opção permite que você recupere automaticamente vários bancos de dados relacionados em uma região secundária após uma falha catastrófica ou outro evento não planejado que resulte em perda total ou parcial de disponibilidade do serviço de Banco de Dados SQL na região primária. Além disso, eles podem usar os bancos de dados secundários legíveis para descarregar cargas de trabalho de consulta somente leitura. Como os grupos de failover automático incluem vários bancos de dados, esses bancos de dados devem ser configurados no servidor primário. Servidores primários e secundários para bancos de dados no grupo de failover devem estar na mesma assinatura. Os grupos de failover automático oferecem suporte à replicação de todos os bancos de dados no grupo para apenas um servidor secundário em uma região diferente.
 
 > [!NOTE]
 > Use a replicação geográfica ativa se vários secundários forem necessários.

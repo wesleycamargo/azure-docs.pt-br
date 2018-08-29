@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099630"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146092"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usar feed de alterações do Azure Cosmos DB para visualizar análise de dados em tempo real
 
 O feed de alterações do Azure Cosmos DB é um mecanismo para obter um feed contínuo e incremental de registros de um contêiner do Azure Cosmos DB à medida que esses registros são criados ou modificados. O suporte do feed de alterações funciona através de escuta de contêiner para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. Para saber mais sobre o feed de alterações, consulte o artigo [trabalhando com feed de alterações](change-feed.md). 
 
-Este artigo descreve como o feed de alterações pode ser usado por uma empresa de varejo para reconhecer padrões de usuário, executar análise de dados em tempo real e visualização. Você analisará eventos como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item. Quando um desses eventos ocorre, um novo registro é criado e o feed de alterações registra em log esse registro. O feed de alterações dispara uma série de etapas, resultando na visualização de métricas que analisam o desempenho e a atividade da empresa. As métricas de exemplo possíveis de serem visualizadas incluem receita, visitantes do site exclusivo, itens mais populares e preço médio dos itens que são visualizados versus adicionados a um carrinho versus comprados. Essas métricas de exemplo podem ajudar uma empresa de comércio eletrônico a avaliar a popularidade do site, desenvolver estratégias de preços e publicidade e tomar decisões sobre qual estoque investir.
+Este artigo descreve como o feed de alterações pode ser usado por uma empresa de comércio eletrônico para reconhecer padrões de usuário, executar análise de dados em tempo real e visualização. Você analisará eventos como um usuário visualizando um item, adicionando um item ao carrinho ou comprando um item. Quando um desses eventos ocorre, um novo registro é criado e o feed de alterações registra em log esse registro. O feed de alterações dispara uma série de etapas, resultando na visualização de métricas que analisam o desempenho e a atividade da empresa. As métricas de exemplo possíveis de serem visualizadas incluem receita, visitantes do site exclusivo, itens mais populares e preço médio dos itens que são visualizados versus adicionados a um carrinho versus comprados. Essas métricas de exemplo podem ajudar uma empresa de comércio eletrônico a avaliar a popularidade do site, desenvolver estratégias de preços e publicidade e tomar decisões sobre qual estoque investir.
 
 Se estiver interessado em assistir a um vídeo sobre a solução antes de começar, assista ao seguinte vídeo:
 
@@ -315,7 +315,7 @@ O Power BI é um conjunto de ferramentas de análise de negócios para analisar 
    * Para Receita, seria interessante elaborar um gráfico de linhas com o tempo como o eixo e a soma dos preços como o valor. A janela de tempo a ser exibida deve ser a maior possível para fornecer o máximo possível de informações.  
    * Para Visitantes Exclusivos, faria sentido fazer uma visualização de cartão com o número de visitantes exclusivos como o valor.
 
-   O painel será semelhante a estes gráficos:
+   Um painel de amostra é semelhante a estes gráficos:
 
    ![visualizações](./media/changefeed-ecommerce-solution/visualizations.png)
 

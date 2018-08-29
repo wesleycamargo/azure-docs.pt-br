@@ -9,20 +9,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 766534bfa02146e894916e2f9c953ef631913764
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6166161f6d50e747681217281a0afc6514df78fb
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024508"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617444"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Implantar recursos na assinatura do Azure
 
 Normalmente, você deve implantar recursos para um grupo de recursos em sua assinatura do Azure. No entanto, alguns recursos podem ser implantados no nível da sua assinatura do Azure. Esses recursos são aplicados em sua assinatura. [As políticas](../azure-policy/azure-policy-introduction.md), [controle de acesso baseado em função](../role-based-access-control/overview.md), e [Central de Segurança do Azure](../security-center/security-center-intro.md) são serviços que talvez você queira aplicar no nível da assinatura, em vez de nível de grupo de recursos.
 
-Este artigo usa a CLI do Azure para implantar os modelos. Atualmente, o PowerShell não dá suporte para implantar um modelo para uma assinatura.
+Este artigo usa a CLI do Azure e o PowerShell para implantar os modelos.
+
+## <a name="name-and-location-for-deployment"></a>Nome e local para implantação
+
+Ao implantar em sua assinatura, você deverá fornecer um local para a implantação. Você também pode fornecer um nome para a implantação. Se você não especificar um nome para a implantação, o nome do modelo será usado como o nome da implantação. Por exemplo, implantar um modelo chamado **azuredeploy.json** cria um nome de implantação padrão de **azuredeploy**.
+
+O local das implantações em nível de assinatura é imutável. Você não pode criar uma implantação em um local quando há uma implantação existente com o mesmo nome, mas local diferente. Se você receber o código de erro `InvalidDeploymentLocation`, use um nome diferente ou o mesmo local que a implantação anterior para esse nome.
+
+## <a name="using-template-functions"></a>Usando funções de modelo
+
+Para implantações em nível de assinatura, há algumas considerações importantes ao usar funções de modelo:
+
+* A função [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) **não** é suportada.
+* A função [resourceId()](resource-group-template-functions-resource.md#resourceid) é suportada. Use-a para obter a ID de recurso para recursos que são usados em implantações de nível de assinatura. Por exemplo, obtenha a ID de recurso para uma definição de política com `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* A funções [reference()](resource-group-template-functions-resource.md#reference) e [list()](resource-group-template-functions-resource.md#list) são suportadas.
 
 ## <a name="assign-policy"></a>Atribuir política
 
@@ -73,6 +87,19 @@ az deployment create \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName auditRGLocation
+```
+
 Para aplicar uma política interna a sua assinatura do Azure, use os seguintes comandos da CLI do Azure. Neste exemplo, a política tem parâmetros.
 
 ```azurecli-interactive
@@ -84,6 +111,23 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
+```
+
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+
+$locations = @("westus", "westus2")
+$policyParams =@{listOfAllowedLocations = @{ value = $locations}}
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName setLocation `
+  -policyParameters $policyParams
 ```
 
 ## <a name="define-and-assign-policy"></a>Definir e atribuir política
@@ -140,6 +184,15 @@ az deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name definePolicy `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+```
+
 ## <a name="assign-role"></a>Atribuir função
 
 O exemplo a seguir atribui uma função a um usuário ou grupo.
@@ -178,7 +231,7 @@ Para atribuir um grupo do Active Directory a uma função para sua assinatura, u
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
 # Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group tomfitzexample --query objectId --output tsv)
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
   -n demoRole \
@@ -187,8 +240,24 @@ az deployment create \
   --parameters principalId=$principalid roleDefinitionId=$role
 ```
 
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id
+```
+
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter um exemplo de implantação de configurações de espaço de trabalho para a Central de Segurança do Azure, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Para criar um grupo de recursos, consulte [Criar grupos de recurso nos modelos do Azure Resource Manager](create-resource-group-in-template.md).
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).
 

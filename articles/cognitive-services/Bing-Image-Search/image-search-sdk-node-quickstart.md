@@ -1,6 +1,6 @@
 ---
-title: Início rápido do Node do SDK de Pesquisa de Imagem | Microsoft Docs
-description: Configuração para o aplicativo do console do SDK de Pesquisa de Imagem.
+title: 'Início Rápido: solicitar e filtrar imagens usando o SDK em Node.js'
+description: Neste início rápido, você solicita e filtra as imagens retornadas pela Pesquisa de Imagem do Bing com o uso de Node.js.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: e4c8303e39accbb7caec15c0ef47d701971ce632
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e88c045b220192a617e6b8caf5d8d53f70a25b5e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364642"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929968"
 ---
-# <a name="image-search-sdk-node-quickstart"></a>Início rápido do Node do SDK de Pesquisa de Imagem
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-nodejs"></a>Início Rápido: solicitar e filtrar imagens usando o SDK e Node.js
 
 O SDK da Pesquisa de Imagem do Bing contém a funcionalidade da API REST para consultas de imagem e resultados de análise. 
 

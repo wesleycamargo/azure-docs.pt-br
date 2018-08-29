@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 644a7414365ded53acb20bb2f9ae9d086f263765
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911363"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42143931"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Como configurar a replicação geográfica para o Cache Redis do Azure
 
@@ -35,7 +35,9 @@ Para configurar a replicação geográfica entre dois caches, os seguintes pré-
 - Se o cache vinculado primário tiver clustering habilitado, o cache vinculado secundário deverá ter clustering habilitado com o mesmo número de fragmentos que o cache vinculado primário.
 - Ambos os caches devem ser criados em um estado de execução.
 - A persistência não deve ser habilitada em nenhum dos caches.
-- Há suporte para a replicação geográfica entre caches na mesma VNET. Também há suporte para replicação geográfica entre caches em VNETs diferentes, desde que as duas VNETs sejam configuradas de forma que recursos nas VNETs sejam capazes de alcançar uns aos outros por meio de conexões TCP.
+- Há suporte para a replicação geográfica entre caches na mesma VNET. 
+- A replicação geográfica entre caches em VNETs emparelhadas na mesma região é um recurso de visualização. As duas VNETs precisam ser configuradas de forma que os recursos nas VNETs sejam capazes de acessar uns aos outros por meio de conexões TCP.
+- A replicação geográfica entre caches em VNETs emparelhadas em regiões diferentes ainda não é suportada, mas estará em versão prévia em breve.
 
 Depois de configurar a replicação geográfica, as seguintes restrições se aplicam para o par de caches vinculados:
 

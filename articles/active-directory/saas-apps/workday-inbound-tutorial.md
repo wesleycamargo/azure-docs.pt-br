@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334319"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445653"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutorial: Configurar o Workday para provisionamento automático de usuário (versão prévia)
 
 O objetivo deste tutorial é mostrar as etapas necessárias para importar pessoas do Workday tanto no Active Directory como no Azure Active Directory, com write-back opcional de alguns atributos para Workday.
 
@@ -31,9 +31,9 @@ O [serviço de provisionamento de usuário do Azure Active Directory](../active-
 
 * **Provisionamento de usuários para Active Directory** - Sincronizar conjuntos de usuários selecionados do Workday em uma ou mais florestas do Active Directory.
 
-* **Provisionamento de usuários somente na nuvem para Azure Active Directory** - Usuários híbridos existentes tanto no Active Directory como no Azure Active Directory podem ser provisionados no último utilizando o [AAD Connect](../connect/active-directory-aadconnect.md). No entanto, os usuários que estão somente na nuvem podem ser provisionados diretamente do Workday para o Azure Active Directory utilizando o serviço de provisionamento de usuário do Azure AD.
+* **Provisionamento de usuários somente na nuvem para o Azure Active Directory** - Nos cenários em que o Active Directory local não for usado, os usuários poderão ser provisionados diretamente do Workday para o Azure Active Directory usando o serviço de provisionamento de usuário do Microsoft Azure AD. 
 
-* **Fazer write-back de endereços de email para Workday** - O serviço de provisionamento de usuário do Azure AD pode gravar atributos de usuário do AD Azure selecionados de volta ao Workday, como o endereço de email.
+* **Fazer write-back de endereços de email para Workday** - O serviço de provisionamento de usuário do Microsoft Azure AD pode gravar os endereços de email dos usuários do Microsoft Azure AD de volta no Workday. 
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>Quais cenários de recursos humanos ele cobre?
 
@@ -67,7 +67,7 @@ Essa solução de provisionamento de usuário do Workday está atualmente em ver
 
 Antes de iniciar sua integração no Workday, verifique os pré-requisitos abaixo e leia as seguintes orientações sobre como corresponder sua arquitetura do Active Directory atual e os requisitos de provisionamento de usuário com a(s) solução(ões) fornecida(s) pelo Azure Active Directory.
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -281,7 +281,7 @@ Antes de configurar o provisionamento de usuário para uma floresta do Active Di
 
    * **Senha do administrador –** Digite a senha da conta do sistema de integração do Workday
 
-   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde contoso4 é substituído pelo nome do locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta.
+   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde contoso4 é substituído pelo nome do locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta.
 
    * **Florestas do Active Directory -** O "Nome" da sua floresta do Active Directory, conforme retornado pelo comando do powershell Get-ADForest. Geralmente, é uma cadeia de caracteres como: *contoso.com*
 
@@ -407,6 +407,9 @@ Após instalar o agente, execute os comandos do Powershell a seguir para configu
 * Entrada: para "Nome do Diretório", digite o nome da floresta do AD, conforme inserido na parte \#2
 * Entrada: nome de usuário e senha de administrador para floresta do Active Directory
 
+>[!TIP]
+> Se você receber a mensagem de erro "o relacionamento entre o domínio primário e o domínio confiável falhou", é porque o computador local está em um ambiente em que vários domínios ou florestas do Active Directory estão configurados e pelo menos uma relação de confiança configurada está falhando ou não operacional. Para resolver o problema, corrija ou remova a relação de confiança quebrada.
+
 **Comando #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -418,7 +421,6 @@ Após instalar o agente, execute os comandos do Powershell a seguir para configu
 
 >[!IMPORTANT]
 >Atualmente, há um problema conhecido com credenciais de administrador global que não funcionarão se a autenticação multifator delas estiver habilitada. Como alternativa, desabilite a autenticação multifator para o administrador global.
-
 
 **Comando #4**
 
@@ -537,7 +539,7 @@ As seções a seguir descrevem a configuração de uma conexão entre o Workday 
 
    * **Senha do administrador –** Digite a senha da conta do sistema de integração do Workday
 
-   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde contoso4 é substituído pelo nome do locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
+   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde contoso4 é substituído pelo nome do locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta. Se essa URL não for conhecida, trabalhe com seu representante de suporte ou parceiro de integração do Workday para determinar a URL correta a ser usada.
 
    * **Email de notificação –** Digite seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
 
@@ -640,7 +642,7 @@ Siga essas instruções para configurar o write-back de endereços de email do u
 
    * **Senha do administrador –** Digite a senha da conta do sistema de integração do Workday
 
-   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4, onde contoso4 é substituído pelo seu nome de locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta (se necessário).
+   * **URL do locatário –** Digite a URL para o ponto de extremidade de serviços Web do Workday para seu locatário. Isso deve ser semelhante a: https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, onde contoso4 é substituído pelo seu nome de locatário correto e wd3-impl é substituído pela cadeia de caracteres de ambiente correta (se necessário).
 
    * **Email de notificação –** Digite seu endereço de email e marque a caixa de seleção "enviar email se ocorrer falha".
 
@@ -654,7 +656,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 
 2. No campo **Escopo do Objeto de Origem** é possível, opcionalmente, filtrar quais conjuntos de usuários no Azure Active Directory devem fazer write-back dos endereços de email para o Workday. O escopo padrão é "todos os usuários no Azure AD". 
 
-3. Na seção **Mapeamentos de atributos** é possível definir como os atributos individuais do Workday mapeiam atributos do Active Directory. Há um mapeamento para o endereço de email por padrão. No entanto, um ID de correspondência deve ser atualizado para correspondente usuários no Azure AD com suas entradas correspondentes no Workday. Um método de correspondência popular é sincronizar o ID de Trabalho do Workday ou o ID de Funcionário para extensionAttribute1-15 no Azure AD e, em seguida, utilizar esse atributo no Azure AD para corresponder os usuários no Workday.
+3. Na seção **Mapeamentos de atributo**, atualize a ID correspondente para indicar o atributo no Azure Active Directory em que a ID de trabalho do Workday ou a ID de funcionário é armazenada. Um método de correspondência popular é sincronizar o ID de Trabalho do Workday ou o ID de Funcionário para extensionAttribute1-15 no Azure AD e, em seguida, utilizar esse atributo no Azure AD para corresponder os usuários no Workday. 
 
 4. Para salvar seus mapeamentos, clique em **Salvar** na parte superior da seção Mapeamento de Atributos.
 
@@ -794,6 +796,10 @@ Para fazer isso, você deve usar o [Workday Studio](https://community.workday.co
 
 * Atualmente, ao executar o comando **Add-ADSyncAgentAzureActiveDirectoryConfiguration** do Powershell há um problema conhecido com credenciais de administrador global que não funcionam se um domínio personalizado for usado (exemplo: admin@contoso.com) . Como alternativa, criar e usar uma conta de administrador global no Azure AD com um domínio onmicrosoft.com (exemplo: admin@contoso.onmicrosoft.com).
 
+* Atualmente, não há suporte para a gravação de dados para o atributo de usuário thumbnailPhoto no Active Directory local.
+
+* O conector "Workday para Microsoft Azure AD" não tem suporte no momento em locatários do Microsoft Azure AD em que o AAD Connect está habilitado.  
+
 * Um problema antigo com logs de auditoria que não eram exibidos nos locatários do Azure AD localizados na União Europeia foi resolvido. No entanto, uma configuração de agente adicional é necessária para locatários do Azure AD na UE. Para obter detalhes, consulte [Parte 3: Configurar o agente de sincronização local](#Part 3: Configure the on-premises synchronization agent)
 
 ## <a name="managing-personal-data"></a>Gerenciando dados pessoais
@@ -805,3 +811,4 @@ A solução de provisionamento do dia útil para o Active Directory exige que um
 * [Saiba como fazer revisão de logs e obter relatórios sobre atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
 * [Saiba como configurar o logon único entre o Workday e o Azure Active Directory](workday-tutorial.md)
 * [Saiba como integrar outros aplicativos SaaS com o Azure Active Directory](tutorial-list.md)
+

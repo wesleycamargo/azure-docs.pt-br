@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308859"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144141"
 ---
 # <a name="sql-database-application-development-overview"></a>Visão geral do desenvolvimento de aplicativos de Banco de Dados SQL
 Este artigo apresenta as considerações básicas sobre as quais um desenvolvedor deve estar ciente ao escrever código para se conectar ao Banco de Dados SQL do Azure.
@@ -35,10 +35,10 @@ Você pode aproveitar as ferramentas de software livre, como [cheetah](https://g
 ## <a name="resource-limitations"></a>Limitações de recursos
 O Banco de Dados SQL do Azure gerencia os recursos disponíveis para um banco de dados usando dois mecanismos diferentes: Governança de recursos e imposição de limites. Para obter mais informações, consulte:
 
-- [Limites de modelo de recursos baseado em DTU – Banco de dados individual](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limites de modelo de recursos baseado em DTU – Banco de dados individual](sql-database-dtu-resource-limits-elastic-pools.md)
-- [Limites de modelo de recursos baseado em vCore – Banco de dados individual](sql-database-vcore-resource-limits-single-databases.md)
-- [Limites de recurso baseados em vCore – pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
+- [Limites de modelo de recursos baseado em DTU – Banco de Dados Individual](sql-database-dtu-resource-limits-single-databases.md)
+- [Limites de modelo de recursos baseado em DTU – Pools Elásticos](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de recursos baseados em vCore – Bancos de Dados Individuais](sql-database-vcore-resource-limits-single-databases.md)
+- [Limites de recurso baseados em vCore – Pools Elásticos](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Segurança
 O Banco de Dados SQL do Azure fornece recursos para limitar o acesso, proteger os dados e monitorar atividades em um Banco de Dados SQL.

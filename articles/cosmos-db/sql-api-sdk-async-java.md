@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 08/16/2018
 ms.author: sngun
-ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990269"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146304"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK Java Assíncrono SQL do Azure Cosmos DB para a API SQL: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 
 <tr><td>**Baixe o SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**Documentação da API**</td><td>[Documentação de referência de API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribuir para o SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -52,6 +52,10 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* Corrigido um bug para localidades que não são de língua inglesa ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Adicionado métodos auxiliares no Recurso de Conflito.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Substituição da dependência org.json por jackson por motivos de desempenho e licenciamento ([github nº 29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -99,6 +103,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [2.0.1](#2.0.1) |16 de agosto de 2018|--- |
 | [2.0.0](#2.0.0) |20 de junho de 2018|--- |
 | [1.0.2](#1.0.2) |18 de maio de 2018|--- |
 | [1.0.1](#1.0.1) |20 de abril de 2018|--- |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850130"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141856"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -35,7 +35,7 @@ Monitor de Desempenho de Rede (NPM) é um conjunto de recursos, cada um deles é
 * Microsserviços/aplicativos multiníveis críticos à missão
 * Aplicativos baseado em web e locais de usuários (HTTP/HTTPs) 
 
-O Monitor de Desempenho, Monitor do ExpressRoute e Monitor do Ponto de Extremidade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
+O Monitor de Desempenho, Monitor do ExpressRoute e Monitor da Conectividade de Serviço estão monitorando os recursos dentro do NPM e são descritos abaixo.
 
 ## <a name="performance-monitor"></a>Monitorar Desempenho
 
@@ -73,9 +73,9 @@ Para obter mais informações, consulte os seguintes artigos:
 * [Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)
 * [Postagem no blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Monitor de Ponto de Extremidade de Serviço
+## <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
-Com o monitoramento de ponto de extremidade de serviço, você pode testar a acessibilidade de aplicativos e detectar gargalos de desempenho entre locais, redes de transporte e data centers de nuvem/privada.
+Com o monitoramento da Conectividade de Serviço, você pode testar a acessibilidade de aplicativos e detectar gargalos de desempenho entre locais, redes de transporte e data centers de nuvem/privada.
 
 * Monitorar a conectividade de rede de ponta a ponta para aplicativos
 * Correlacionar a entrega de aplicativos com o desempenho da rede, detectar o local exato de degradação ao longo do caminho entre o usuário e o aplicativo

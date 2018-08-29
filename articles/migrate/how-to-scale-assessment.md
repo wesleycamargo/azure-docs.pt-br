@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215172"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140188"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Descobrir e avaliar um grande ambiente VMware
 
@@ -75,7 +75,7 @@ Se tiver vários vCenter Servers no ambiente e o número total de máquinas virt
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Vários servidores vCenter com mais de 1500 VMs
 
-Se tiver vários vCenter Servers com menos de 1500 máquinas virtuais por vCenter Server, mas mais de 1500 VMs em todos os servidores vCenter, será necessário criar vários projetos de migração (um projeto de migração pode conter apenas 1500 VMs). É possível conseguir isso criando um projeto de migração por vCenter Server e dividindo as descobertas. Você pode usar um único coletor para descobrir cada vCenter Server (um após o outro). Caso queira que as descobertas iniciem ao mesmo tempo, também será possível implementar vários dispositivos e executar as descobertas em paralelo.
+Se você tiver vários vCenter Servers com menos de 1500 máquinas virtuais por vCenter Server, mas mais de 1500 VMs em todos os vCenter Servers, será necessário criar vários projetos de migração (um projeto de migração pode conter apenas 1500 VMs). É possível conseguir isso criando um projeto de migração por vCenter Server e dividindo as descobertas. Você pode usar um único coletor para descobrir cada vCenter Server (um após o outro). Caso queira que as descobertas iniciem ao mesmo tempo, também será possível implementar vários dispositivos e executar as descobertas em paralelo.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Mais de 1500 computadores em um único vCenter Server
 
@@ -94,7 +94,7 @@ Quando estiver pronto com o plano, você poderá iniciar a descoberta das máqui
 Crie um projeto Migrações para Azure de acordo com suas necessidades:
 
 1. No Portal do Azure, selecione **Criar um recurso**.
-2. Procure **Migrações para Azure** e selecione o serviço **Migrações para Azure (versão prévia)** nos resultados da pesquisa. Em seguida, selecione **Criar**.
+2. Procure **Migrações para Azure** e selecione o serviço de **Migrações para Azure** nos resultados da pesquisa. Em seguida, selecione **Criar**.
 3. Especifique um nome de projeto e a assinatura do Azure para o projeto.
 4. Crie um novo grupo de recursos.
 5. Especifique o local no qual você deseja criar o projeto e, em seguida, selecione **Criar**. Observe que você ainda pode avaliar suas VMs para um local de destino diferente. O local especificado para o projeto é usado para armazenar os metadados coletados das VMs locais.

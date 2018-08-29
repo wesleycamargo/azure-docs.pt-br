@@ -1,8 +1,8 @@
 ---
-title: "Integração do SCOM com o Application Insights | Microsoft Docs"
-description: "Se você for um usuário do SCOM, monitore o desempenho e diagnostique problemas com o Application Insights. Painéis abrangentes, alertas inteligentes, poderosas ferramentas de diagnóstico e de consultas de análise."
+title: Integração do SCOM com o Application Insights | Microsoft Docs
+description: Se você for um usuário do SCOM, monitore o desempenho e diagnostique problemas com o Application Insights. Painéis abrangentes, alertas inteligentes, poderosas ferramentas de diagnóstico e de consultas de análise.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 606e9d03-c0e6-4a77-80e8-61b75efacde0
@@ -10,19 +10,23 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 08/12/2016
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 35ea37b751909e14e616a965462b832e4e51bae0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8880fbeaad85bc2615292820527c6a9e87000d66
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246350"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>Monitoramento de desempenho de aplicativos usando o Application Insights para SCOM
 Se você usar o SCOM (System Center Operations Manager) para gerenciar seus servidores, poderá monitorar o desempenho e diagnosticar os problemas de desempenho com a ajuda do [Azure Application Insights](app-insights-asp-net.md). O Application Insights monitora solicitações de entrada do seu aplicativo Web, chamadas REST e SQL de saída, exceções e rastreamentos de log. Ele fornece painéis com gráficos de métricas e alertas inteligentes, bem como poderosas consultas analíticas e pesquisa de diagnóstico sobre essa telemetria. 
 
 Você pode ativar o monitoramento do Application Insights usando um pacote de gerenciamento do SCOM.
+
+> [!IMPORTANT]
+> Este Pacote de Gerenciamento do System Center Operations Manager agora está **preterido**. Ele não dá suporte aos SDKs do Application Insights mais recentes e não é mais recomendado.
 
 ## <a name="before-you-start"></a>Antes de começar
 Supomos que:
@@ -73,7 +77,7 @@ No computador em que você executa o Operations Manager:
      ![Na guia de configurações do Application Insights, clique em 'entrar' e forneça suas credenciais de conta da Microsoft para o Azure. Em seguida, escolha uma assinatura, um grupo de recursos e um recurso.](./media/app-insights-scom/060.png)
 3. Conclua o assistente.
    
-    ![Clicar em Criar](./media/app-insights-scom/070.png)
+    ![Clique em Criar. ](./media/app-insights-scom/070.png)
 
 Repita esse procedimento para cada aplicativo que você deseja monitorar.
 

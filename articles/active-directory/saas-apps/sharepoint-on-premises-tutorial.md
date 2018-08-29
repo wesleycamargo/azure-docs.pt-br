@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: f30b2356b9d3d8ecf7afcdd8ad039a1f02c47550
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438232"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140440"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -99,11 +99,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Link Configurar logon único][4]
 
-1. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
 
     ![Caixa de diálogo Logon único](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
-1. Na seção **URLs e domínio do SharePoint local**, execute as seguintes etapas:
+3. Na seção **URLs e domínio do SharePoint local**, execute as seguintes etapas:
 
     ![Informações de logon único de Domínio e URLs do SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
@@ -111,26 +111,32 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     b. Na caixa de texto **Identificador**, digite a URL: `urn:sharepoint:federation`
 
-1. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
     ![O link de download do Certificado](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
-1. Clique no botão **Salvar** .
+    > [!Note]
+    > Anote o caminho do arquivo em que você baixou o arquivo de certificado, pois será necessário utilizá-lo posteriormente no script do PowerShell para configuração.
+
+5. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
-1. Na seção **Configuração do SharePoint local**, clique em **Configurar SharePoint local** para abrir a janela **Configurar logon**. Copie a **URL do Serviço de Logon Único** da **seção de Referência Rápida.**
+6. Na seção **Configuração do SharePoint local**, clique em **Configurar SharePoint local** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML** da **seção Referência Rápida.** Para a **URL do Serviço de Logon Único**, use um valor do seguinte padrão: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
+
+    > [!Note]
+    > _my_directory_id_ é a ID do locatário da assinatura do Azure AD.
 
     ![Configuração do SharePoint local](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > O aplicativo SharePoint local usa SAML 1.1 token, portanto o Azure AD espera a solicitação WS Fed de servidor do SharePoint e após a autenticação, ele emite SAML 1.1. token.
 
-1. Em outra janela do navegador da Web, faça logon em seu site de empresa do SharePoint local como um administrador.
+7. Em outra janela do navegador da Web, faça logon em seu site de empresa do SharePoint local como um administrador.
 
-1. **Configurar um novo provedor de identidade confiável no SharePoint Server 2016**
+8. **Configurar um novo provedor de identidade confiável no SharePoint Server 2016**
 
-    Faça logon no servidor do SharePoint Server 2016 e abra o Shell de Gerenciamento do SharePoint 2016. Preencha os valores de $realm, $wsfedurl e $filepath do portal do Azure e execute os comandos a seguir para configurar um novo provedor de identidade confiável.
+    Faça logon no servidor do SharePoint Server 2016 e abra o Shell de Gerenciamento do SharePoint 2016. Preencha os valores de $realm (valor do Identificador da seção Domínio e URLs locais do SharePoint no portal do Azure), $wsfedurl (URL do Serviço de Logon Único) e $filepath (caminho do arquivo em que você baixou o arquivo de certificado) do portal do Azure e execute os comandos a seguir para configurar um novo provedor de identidade confiável.
 
     > [!TIP]
     > Se você for novo no uso do PowerShell ou se quiser saber mais sobre como funciona o PowerShell, veja [PowerShell do SharePoint](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps). 
@@ -138,7 +144,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
-    $filepath="<Full path to SAML signing certificate file which you have copied from the Azure portal>"
+    $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
     New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
@@ -161,6 +167,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     e. Clique em **OK**.
 
     ![Como configurar seu provedor de autenticação](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+
+    > [!NOTE]
+    > Alguns usuários externos não poderão usar essa integração de logon único, já que o UPN terá um valor danificado como `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Em breve, permitiremos que os clientes configurem o aplicativo sobre como tratar o UPN, dependendo do tipo de usuário. Depois disso, todos os usuários convidados deverão ser capazes de usar o SSO diretamente como os funcionários da organização.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -200,27 +209,27 @@ Os usuários que irão fazer logon no Azure AD e acessar o SharePoint precisam t
 
 1. Na Administração Central, clique em **Gerenciamento de Aplicativos**.
 
-1. Na página **Gerenciamento de Aplicativos**, na seção **Aplicativos Web**, clique em **Gerenciar aplicativos Web**.
+2. Na página **Gerenciamento de Aplicativos**, na seção **Aplicativos Web**, clique em **Gerenciar aplicativos Web**.
 
-1. Clique no aplicativo Web apropriado e, em seguida, clique em **Política de Usuário**.
+3. Clique no aplicativo Web apropriado e, em seguida, clique em **Política de Usuário**.
 
-1. Na Política de Aplicativo Web, clique em **Adicionar Usuários**.
+4. Na Política de Aplicativo Web, clique em **Adicionar Usuários**.
 
     ![Procurando por um usuário pelo nome dele](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
-1. Na caixa de diálogo **Adicionar usuários**, clique na zona apropriada em **Zonas** e, em seguida, clique em **Próximo**.
+5. Na caixa de diálogo **Adicionar usuários**, clique na zona apropriada em **Zonas** e, em seguida, clique em **Próximo**.
 
-1. Na caixa de diálogo **Policy for Web Application**, na seção **Escolher Usuários**, clique no ícone **Procurar**.
+6. Na caixa de diálogo **Policy for Web Application**, na seção **Escolher Usuários**, clique no ícone **Procurar**.
 
-1. Na caixa de texto **Encontrar**, digite o valor do **Nome UPN** para o qual você configurou o aplicativo do SharePoint local no Azure AD e clique em **Pesquisar**. </br>Exemplo: *brittasimon@contoso.com*.
+7. Na caixa de texto **Encontrar**, digite o valor do **Nome UPN** para o qual você configurou o aplicativo do SharePoint local no Azure AD e clique em **Pesquisar**. </br>Exemplo: *brittasimon@contoso.com*.
 
-1. Sob o cabeçalho AzureAD na exibição de lista, selecione a propriedade name e clique em **Add** e, em seguida, clique em **OK** para fechar a caixa de diálogo.
+8. Sob o cabeçalho AzureAD na exibição de lista, selecione a propriedade name e clique em **Add** e, em seguida, clique em **OK** para fechar a caixa de diálogo.
 
-1. Em Permissões, clique em **Controle Total**.
+9. Em Permissões, clique em **Controle Total**.
 
     ![Concedendo Controle Total a um Usuário de Reclamações](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
-1. Clique em **, clique em Concluir**  e, em seguida, clique em **OK** .
+10. Clique em **, clique em Concluir**  e, em seguida, clique em **OK** .
 
 ### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>Configurando um provedor de identidade confiável para vários aplicativos Web
 
@@ -228,22 +237,22 @@ A configuração funciona para um único aplicativo Web, mas precisa de configur
 
 1. No portal do Azure, abra o diretório do Azure AD. Clique em **Registros de aplicativo** e, em seguida, clique em **Exibir todos os aplicativos**. Clique no aplicativo que você criou anteriormente (integração SAML do SharePoint).
 
-1. Clique em **Configurações**.
+2. Clique em **Configurações**.
 
-1. Na folha de configurações, clique em **URLs de Resposta**. 
+3. Na folha de configurações, clique em **URLs de Resposta**. 
 
-1. Adicione a URL do aplicativo Web adicional com `/_trust/default.aspx` anexado à URL (como `https://sales.contoso.local/_trust/default.aspx`) e clique em **Salvar**.
+4. Adicione a URL do aplicativo Web adicional com `/_trust/default.aspx` anexado à URL (como `https://sales.contoso.local/_trust/default.aspx`) e clique em **Salvar**.
 
-1. No servidor do SharePoint, abra o **Shell de Gerenciamento do SharePoint 2016** e execute os comandos a seguir, usando o nome do emissor do token de identidade confiável que você usou anteriormente.
+5. No servidor do SharePoint, abra o **Shell de Gerenciamento do SharePoint 2016** e execute os comandos a seguir, usando o nome do emissor do token de identidade confiável que você usou anteriormente.
 
     ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-1. Em Administração Central, vá para o aplicativo Web e habilite o provedor de identidade confiável existente. Lembre-se de também configurar a URL da página de entrada como uma página de entrada personalizada `/_trust/`.
+6. Em Administração Central, vá para o aplicativo Web e habilite o provedor de identidade confiável existente. Lembre-se de também configurar a URL da página de entrada como uma página de entrada personalizada `/_trust/`.
 
-1. Em Administração Central, clique no aplicativo Web e escolha **Política de Usuário**. Adicione um usuário com as permissões apropriadas, conforme demonstrado anteriormente neste artigo.
+7. Em Administração Central, clique no aplicativo Web e escolha **Política de Usuário**. Adicione um usuário com as permissões apropriadas, conforme demonstrado anteriormente neste artigo.
 
 ### <a name="fixing-people-picker"></a>Como corrigir o Seletor de Pessoas
 
@@ -268,23 +277,23 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure, c
 
     ![Atribuir usuário][201]
 
-1. Na lista de aplicativos, selecione **SharePoint local**.
+2. Na lista de aplicativos, selecione **SharePoint local**.
 
     ![O link do SharePoint na lista de aplicativos](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
-1. No menu à esquerda, clique em **usuários e grupos**.
+3. No menu à esquerda, clique em **usuários e grupos**.
 
     ![O link “Usuários e grupos”][202]
 
-1. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
     ![O painel Adicionar Atribuição][203]
 
-1. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
-1. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-1. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 

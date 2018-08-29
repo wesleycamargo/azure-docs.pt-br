@@ -5,18 +5,24 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264275"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141206"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Monitorar uso e custos estimados
+
+> [!NOTE]
+> Este artigo descreve como exibir o uso e os custos estimados nos vários recursos de monitoramento do Azure para diferentes modelos de preços.  Consulte os seguintes artigos para informações relacionadas.
+> - [Gerenciar o custo controlando a retenção e o volume de dados no Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) descreve como controlar os custos, alterando seu período de retenção de dados.
+> - [Analisar o uso de dados no Log Analytics](../log-analytics/log-analytics-usage.md) descreve como analisar e alertar sobre o uso de dados.
+> - [Gerenciar preços e volume de dados no Application Insights](../application-insights/app-insights-pricing.md) descreve como analisar o uso de dados no Application Insights.
 
 No hub do Monitor do Portal do Azure, a página **Uso e custos estimados** explica o uso dos principais recursos de monitoramento, como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para clientes nos planos de preços disponíveis antes de abril de 2018, isso também inclui o uso do Log Analytics adquirido por meio das ofertas do Insights e do Analytics.
 
@@ -53,8 +59,8 @@ A nova página mostra uma versão semelhante da página anterior com uma faixa v
 
 A página mostra também um conjunto diferente de medidores que correspondem ao novo modelo de preços. Essa lista é um exemplo:
 
-- Insight e Analytics\Excedente por Nó
-- Insight e Analytics\Incluído por Nó
+- Insight e Análise\Excedente por Nó
+- Insight e Análise\Incluído por Nó
 - Application Insights\Dados Excedentes Básicos
 - Application Insights\Dados Incluídos
 

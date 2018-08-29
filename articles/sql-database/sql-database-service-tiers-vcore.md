@@ -6,33 +6,43 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/15/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 68343f3fcdd2275012207d7ac5a5f3bcdc71d1b8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414367"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443575"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço, recursos de E/S, armazenamento, memória e computação de vCore
 
-As camadas de serviço são diferenciadas por intervalo de níveis de desempenho, design de alta disponibilidade, isolamento de falhas, tipos de armazenamento e intervalo de E/S. O cliente deve configurar separadamente o período necessário de armazenamento e retenção para backups. Com o modelo vCore, os bancos de dados individuais e os pools elásticos são qualificados para economias de até 30% com o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+O modelo de compra baseado em vCore permite que você dimensione recursos de computação e armazenamento de forma independente, corresponda ao desempenho local e otimize o preço. Também permite escolher a geração de hardware:
+- Ger 4 - Até 24 CPUs lógicas baseadas nos processadores Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (núcleo físico), 7 GB por núcleo, SSD anexado
+- Ger 5 - Até 80 CPUs lógicas baseadas nos processadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. GB por núcleo, SSD eNVM rápido
+
+O modelo vCore também permite que você use o [Benefício de Uso Híbrido do Azure para SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) para obter economia de custos.
+
+## <a name="service-tier-characteristics"></a>Características de camada de serviço
+
+O modelo vCore fornece duas camadas de serviço, Uso Geral e Comercialmente Crítico. As camadas de serviço são diferenciadas por intervalo de níveis de desempenho, design de alta disponibilidade, isolamento de falhas, tipos de armazenamento e intervalo de E/S. O cliente deve configurar separadamente o período necessário de armazenamento e retenção para backups.
 
 A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 
 ||**Uso geral**|**Comercialmente Crítico**|
 |---|---|---|
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
-|Computação|1 a 80 vCores, Gen4 e Gen5 |1 a 80 vCores, Gen4 e Gen5|
+|Computação|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|
 |Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo |
-|Armazenamento|Armazenamento remoto Premium, 5 GB – 4 TB|Armazenamento SSD local, 5 GB – 4 TB|
-|Taxa de transferência de E/S (aproximada)|500 IOPS por vCore com máximo de 7.000 IOPS|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
-|Disponibilidade|1 réplica, sem escala de leitura|3 réplica, 1 [escala de leitura](sql-database-read-scale-out.md), HA com redundância de zona|
-|Backups|RA-GRS, 7-35 dias (7 dias por padrão)|RA-GRS, 7-35 dias (7 dias por padrão)|
+|Armazenamento|[Armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Banco de dados Singleton: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Armazenamento SSD local,<br/>Banco de Dados Individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 4 TB |
+|Taxa de transferência de E/S (aproximada)|Banco de Dados Singleton: 500 IOPS por vCore com 7000 IOPS máximo</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
+|Disponibilidade|1 réplica, sem escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|
+|Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|
 |Em Memória|N/D|Com suporte|
 |||
+
+Para obter mais informações, consulte [limites de recursos vCore no Banco de Dados Singleton](sql-database-vcore-resource-limits-single-databases.md) e [limites de recurso vCore na Instância Gerenciada](sql-database-managed-instance.md#vcore-based-purchasing-model). 
 
 > [!IMPORTANT]
 > Se você precisar de menos de um vCore de capacidade de computação, use o modelo de compra baseado em DTU.
@@ -43,9 +53,10 @@ Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) pa
 
 Considere o seguinte:
 - O armazenamento alocado é usado por arquivos de arquivos de dados (MDF) e arquivos de log (LDF).
-- Cada nível de desempenho dá suporte a um tamanho máximo de banco de dados, com um tamanho máximo padrão de 32 GB.
-- Ao configurar o tamanho do banco de dados necessário (tamanho do MDF), 30% do armazenamento adicional é adicionado automaticamente para dar suporte ao LDF
-- É possível selecionar qualquer tamanho de banco de dados entre 10 GB e o máximo com suporte
+- Cada nível de desempenho do Banco de Dados Singleton dá suporte a um tamanho máximo de banco de dados, com um tamanho máximo padrão de 32 GB.
+- Quando você configura o tamanho desejado do banco de dados Singleton (tamanho de MDF), 30% do armazenamento adicional é automaticamente adicionado para dar suporte a LDF
+- O tamanho do armazenamento na Instância Gerenciada deve ser especificado em múltiplos de 32 GB.
+- É possível selecionar qualquer tamanho de banco de dados Singleton entre 10 GB e o máximo com suporte
  - Para armazenamento Standard, aumente ou diminua o tamanho em incrementos de 10 GB
  - Para armazenamento Premium, aumente ou diminua o tamanho em incrementos de 250 GB
 - Na camada de serviço de Uso Geral, `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço do vCore.
@@ -57,13 +68,13 @@ Considere o seguinte:
 Para monitorar o tamanho total atual do MDF e do LDF, use [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Para monitorar o tamanho atual dos arquivos MDF e LDF individuais, use [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
-> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [Gerenciar espaço no arquivo no Banco de Dados SQL do Azure](sql-database-file-space-management.md).
+> Em algumas circunstâncias, talvez seja necessário reduzir um banco de dados para recuperar o espaço não utilizado. Para obter mais informações, consulte [gerenciar o espaço de arquivo no banco de dados SQL](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Backups e armazenamento
 
-O armazenamento para backups de banco de dados é alocado para dar suporte aos recursos PITR (Recuperação Pontual) e LTR (Retenção em Longo Prazo) do Banco de Dados SQL. Esse armazenamento é alocado separadamente para cada banco de dados e faturado como duas cobranças separadas por banco de dados. 
+O armazenamento para backups de banco de dados é alocado para dar suporte a recursos de PITR (Recuperação Pontual) e [LTR (Retenção de Longo Prazo)](sql-database-long-term-retention.md) do Banco de Dados SQL. Esse armazenamento é alocado separadamente para cada banco de dados e faturado como duas cobranças separadas por banco de dados. 
 
-- **PITR**: os backups de banco de dados individuais são copiados para o armazenamento RA-GRS automaticamente. O tamanho do armazenamento aumenta dinamicamente conforme os novos backups são criados.  O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor de armazenamento mínimo igual a 1x de tamanho de dados é fornecido sem nenhum custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
+- **PITR**: backups de banco de dados individuais são copiados para [armazenamento RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente conforme os novos backups são criados.  O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção. É possível configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor de armazenamento mínimo igual a 1x de tamanho de dados é fornecido sem nenhum custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
 - **LTR**: o Banco de Dados SQL oferece a opção de configurar a retenção em longo prazo de backups completos por até 10 anos. Se a política de LTR estiver habilitada, esses backups serão armazenados no armazenamento RA-GRS automaticamente, mas você poderá controlar com que frequência os backups serão copiados. Para atender a diferentes requisitos de conformidade, é possível selecionar diferentes períodos de retenção para backups semanais, mensais e/ou anuais. Essa configuração definirá quanto armazenamento será usado para os backups de LTR. É possível usar a calculadora de preços de LTR para estimar o custo do armazenamento LTR. Para obter mais informações, consulte [Retenção de longo prazo](sql-database-long-term-retention.md).
 
 ## <a name="azure-hybrid-use-benefit"></a>Benefício de Uso do Azure Híbrido
@@ -72,7 +83,9 @@ No modelo de compra baseado em vCore, é possível trocar suas licenças existen
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 
-## <a name="migration-of-single-databases-with-geo-replication-links"></a>Migrar dos bancos de dados individuais com links de replicação geográfica
+## <a name="migration-from-dtu-model-to-vcore-model"></a>Migração do modelo DTU para modelo vCore
+
+### <a name="migration-of-single-databases-with-geo-replication-links"></a>Migrar dos bancos de dados individuais com links de replicação geográfica
 
 A migração do modelo baseado em DTU para o modelo baseado em vCore é semelhante ao upgrade ou downgrade dos relacionamentos de replicação geográfica entre os bancos de dados Standard e Premium. Ele não requer a replicação geográfica final, mas o usuário deve observar as regras de sequenciamento. Ao atualizar, será necessário primeiro fazer upgrade do banco de dados secundário e, em seguida, upgrade do primário. Ao fazer downgrade, inverta a ordem: primeiro, você deverá fazer downgrade do banco de dados primário e, em seguida, fazer downgrade do secundário. 
 
@@ -94,15 +107,15 @@ A tabela a seguir fornece orientação para os cenários de migração específi
 
 \* Cada 100 DTU na camada Standard requer pelo menos 1 vCore e cada 125 DTU na camada Premium requer pelo menos 1 vCore
 
-## <a name="migration-of-failover-groups"></a>Migração de grupos de failover 
+### <a name="migration-of-failover-groups"></a>Migração de grupos de failover 
 
 A migração de grupos de failover com vários bancos de dados requer a migração individual dos bancos de dados primário e secundário. Durante esse processo, as mesmas considerações e regras de sequenciamento se aplicam. Depois que os bancos de dados forem convertidos para o modelo baseado em vCore, o grupo de failover permanecerá em vigor com as mesmas configurações de política. 
 
-## <a name="creation-of-a-geo-replication-secondary"></a>Criação de um secundário para replicação geográfica
+### <a name="creation-of-a-geo-replication-secondary"></a>Criação de um secundário para replicação geográfica
 
 Somente é possível criar um secundário geográfico usando a mesma camada de serviço que o primário. Para bancos de dados com alta taxa de geração de logs, recomendamos que o secundário seja criado com o mesmo nível de desempenho que o primário. Se você estiver criando um secundário geográfico no pool elástico para um banco de dados primário individual, recomendamos que o pool tenha a configuração `maxVCore` que corresponde ao nível de desempenho do banco de dados primário. Se você estiver criando um secundário geográfico no pool elástico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`
 
-## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Usando a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore.
+### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Usando a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore.
 
 É possível copiar qualquer banco de dados com um nível de desempenho baseado em DTU para um banco de dados com um nível de desempenho baseado em vCore sem restrições ou sequenciamento especial, desde que o nível de desempenho de destino dê suporte ao tamanho máximo do banco de dados de origem. Isso ocorre porque a cópia do banco de dados cria um instantâneo de dados a partir do horário de início da operação de cópia e não executa a sincronização de dados entre a origem e o destino. 
 

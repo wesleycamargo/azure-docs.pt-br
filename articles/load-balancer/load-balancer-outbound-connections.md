@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824992"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145458"
 ---
 # <a name="outbound-connections-in-azure"></a>Conexões de saída no Azure
 
@@ -220,7 +220,7 @@ Ao utilizar o Load Balancer Standard púbico, você atribui [vários endereços 
 
 Por exemplo, 2 máquinas virtuais no pool de back-end teriam 1024 portas SNAT disponíveis por configuração de IP, permitindo um total de 2048 portas SNAT para a implantação.  Se a implantação for aumentada para 50 máquinas virtuais, mesmo que o número de portas pré-alocas permaneça constante por máquina virtual, um total de portas SNAT 51.200 (50 x 1024) podem ser usadas pela implantação.  Se você deseja expandir sua implantação, verifique o número de [portas pré-alocadas](#preallocatedports) por nível para certificar-se que você dimensionou ao máximo para a camada respectiva.  No exemplo anterior, se você escolheu dimensionar para 51 em vez de 50 instâncias, você avançaria para a próxima camada e terminaria com menos portas SNAT por VM, bem como no total.
 
-Por outro lado, dimensione para a próxima camada de pool de back-end potencialmente para conexões de saída se as portas alocadas forem realocadas.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
+Se você escalar horizontalmente para a próxima camada de tamanho maior de pool de back-end, há potencial para que algumas das conexões de saída atinjam tempo limite se as portas alocadas precisarem ser realocadas.  Se você estiver usando apenas algumas das portas SNAT, escalar horizontalmente no próximo tamanho maior de pool de back-end é irrelevante.  Metade das portas existentes será realocada cada vez que você mover para a próxima camada de pool de back-end.  Se não desejar que isso ocorra, é necessário formatar sua implantação para o tamanho da camada.  Ou, verifique se seu aplicativo pode detectar e repita conforme necessário.  TCP keepalives podem ajudá-lo a detectar quando as portas SNAT não funcionam mais devido a terem sido realocadas.
 
 ### <a name="idletimeout"></a>Usar keepalives para redefinir o tempo limite ocioso de saída
 

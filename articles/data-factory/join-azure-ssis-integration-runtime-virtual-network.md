@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aa723fb765d4432d9bcdd56e4b520bf00660f84c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444842"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140797"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Una o IR (tempo de execução de integração) do Azure-SSIS a uma rede virtual do Azure nos cenários a seguir: 
@@ -86,11 +86,11 @@ As seguintes etapas são recomendadas:
 Para obter mais informações, consulte [Resolução de nome usando seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 ### <a name="nsg"></a>Grupo de Segurança de Rede
-Se você precisar implementar o NSG (Grupo de Segurança de Rede) em uma rede virtual ingressada por seu tempo de execução de integração do Azure-SSIS, permita o tráfego de entrada/saída pelas portas a seguir: 
+Se for necessário implementar um NSG (grupo de segurança de rede) para a sub-rede usada pelo Azure-SSIS Integration Runtime, permita tráfego de entrada/saída através das seguintes portas: 
 
 | Direção | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
-| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)| Os serviços do Azure Data Factory usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. <br/><br/> Se você especificar um NSG, ou não, o Data Factory sempre configurará um NSG no nível das NICs (placas de adaptador de rede) anexadas às máquinas virtuais que hospedam o IR do Azure-SSIS. Somente o tráfego de entrada dos endereços IP do Data Factory é permitido. Mesmo se você abrir essas portas para o tráfego da Internet, o tráfego de endereços IP que não é de endereços IP do Data Factory será bloqueado no nível da NIC. |
+| Entrada | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se você unir o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se você unir o IR a uma rede virtual clássica)| Os serviços do Azure Data Factory usam essas portas para comunicarem-se com os nós de seu tempo de execução de integração do Azure-SSIS na rede virtual. <br/><br/> Se você criar um NSG no nível de sub-rede ou não, o Data Factory sempre configurará um NSG no nível dos adaptadores de rede anexados às máquinas virtuais que hospedam o Azure-SSIS IR. Somente o tráfego de entrada dos endereços IP do Data Factory nas portas especificadas é permitido pelo NSG no nível do adaptador de rede. Mesmo se você abrir essas portas para o tráfego da Internet no nível de sub-rede, o tráfego de endereços IP que não sejam endereços IP do Data Factory será bloqueado no nível do adaptador de rede. |
 | Saída | TCP | VirtualNetwork | * | Internet | 443 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essa porta para acessar os serviços do Azure, como o Armazenamento do Microsoft Azure e Hubs de Eventos do Azure. |
 | Saída | TCP | VirtualNetwork | * | Internet ou Sql | 1433, 11000-11999, 14000-14999 | Os nós do tempo de execução de integração do Azure-SSIS na rede virtual usam essas portas para acessar o SSISDB hospedado pelo servidor do Banco de Dados SQL do Azure - essa finalidade não é aplicável ao SSISDB hospedado pela Instância Gerenciada (versão prévia). |
 ||||||||

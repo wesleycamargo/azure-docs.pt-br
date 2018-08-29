@@ -13,46 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 83436fe7f47c156f70995d66922e9fc0564ef872
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601190"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140406"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Como certificar o AppSource para o Azure AD
+
 O [Microsoft AppSource](https://appsource.microsoft.com/) é um local onde os usuários de negócios podem descobrir, experimentar e gerenciar aplicativos SaaS de linha de negócios (SaaS autônomos e o complemento para produtos SaaS da Microsoft existentes).
 
-Para listar um aplicativo SaaS autônomo no AppSource, seu aplicativo deve aceitar logon único de contas corporativas de qualquer empresa ou organização que possua o Azure Active Directory. O processo de entrada deve usar o protocolo [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md). A integração SAML não é aceita para certificação AppSource.
+Para listar um aplicativo SaaS autônomo no AppSource, o aplicativo deve aceitar logon único a partir de contas corporativas de qualquer empresa ou organização que possua o Azure Active Directory (Azure AD). O processo de entrada deve usar o protocolo [OpenID Connect](v1-protocols-openid-connect-code.md) ou [OAuth 2.0](v1-protocols-oauth-code.md). A integração SAML não é aceita para certificação AppSource.
 
 ## <a name="guides-and-code-samples"></a>Guias e exemplos de código
-Se você quiser saber mais sobre como integrar seu aplicativo com o Azure Active Directory usando Open ID Connect, siga nossos guias e exemplos de código no [guia do desenvolvedor do Azure Active Directory](azure-ad-developers-guide.md#get-started "Introdução ao Azure AD para desenvolvedores").
+
+Se você quiser saber mais sobre como integrar seu aplicativo ao Azure AD usando Open ID Connect, siga nossos guias e exemplos de código no [Guia do desenvolvedor do Azure Active Directory](azure-ad-developers-guide.md#get-started "Introdução ao Azure AD para desenvolvedores").
 
 ## <a name="multi-tenant-applications"></a>Aplicativos multilocatários
 
-Um aplicativo que aceita entradas de usuários de qualquer empresa ou organização que tenha o Azure Active Directory sem a necessidade de uma instância, configuração ou implantação separada é conhecido como *aplicativo multilocatário*. O AppSource recomenda que os aplicativos implementem multilocação para habilitar a experiência de avaliação com um *clique simples*.
+Um *aplicativo multilocatário* é aquele que aceita entradas de usuários de qualquer empresa ou organização que tenha o Azure AD sem a necessidade de uma instância, configuração ou implantação separada. O AppSource recomenda que os aplicativos implementem multilocação para habilitar a experiência de avaliação com um *clique simples*.
 
-Para habilitar a multilocação em seu aplicativo:
-- Defina a propriedade `Multi-Tenanted` como `Yes` nas informações do registro do aplicativo no [Portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (por padrão, os aplicativos criados no Portal do Azure são configurados como *único locatário*)
-- Atualize seu código para enviar solicitações para o ponto de extremidade '`common`' (atualize o ponto de extremidade de *https://login.microsoftonline.com/{yourtenant}* para *https://login.microsoftonline.com/common*)
-- Para algumas plataformas, como o ASP.NET, você também precisa atualizar seu código para aceitar vários emissores
+Para habilitar a multilocação em seu aplicativo, siga estas etapas:
+1. Definir a propriedade `Multi-Tenanted` para `Yes` nas informações do registro do aplicativo no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Por padrão, os aplicativos criados no portal do Azure são configurados como *[locatário único](#single-tenant-applications)*.
+1. Atualize o código para enviar solicitações ao ponto de extremidade `common`. Para fazer isso, atualize o ponto de extremidade de `https://login.microsoftonline.com/{yourtenant}` para `https://login.microsoftonline.com/common*`.
+1. Em algumas plataformas, como o ASP.NET, também é necessário atualizar o código para aceitar vários emissores.
 
-Para saber mais sobre multilocação, confira: [Como conectar qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md).
+Para obter mais informações sobre multilocação, consulte: [Como conectar qualquer usuário do Azure Active Directory (Azure AD) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Aplicativos de locatário único
-Aplicativos que só aceitam entradas de usuários de uma instância definida do Azure Active Directory são conhecidos como *aplicativo de locatário único*. Os usuários externos (incluindo as contas corporativas ou de estudante de outras organizações, ou conta pessoal) podem entrar em um aplicativo de locatário único depois de adicionar cada usuário como *conta convidado* à instância do Azure Active Directory em que o aplicativo está registrado. Você pode adicionar usuários como contas de convidado a um Azure Active Directory por meio de [ *colaboração B2B do Azure AD* ](../b2b/what-is-b2b.md), e isso pode ser feito [programaticamente](../../active-directory-b2c/code-samples.md). Quando você adiciona um usuário como conta de convidado a um Azure Active Directory, um email de convite é enviado para o usuário, que tem de aceitar o convite clicando no link no email de convite. Convites enviados para um usuário adicional em uma organização que convida e também é membro da organização do parceiro não são necessários para se aceitar um convite para entrar.
 
-Os aplicativos de único locatário podem habilitar a experiência *Entre em Contato Comigo*, mas se você deseja habilitar a experiência de avaliação gratuita/clique simples recomendada pelo AppSource, habilite a multilocação em seu aplicativo.
+Um *aplicativo de locatário único* é aquele que somente aceita entradas de usuários de uma instância definida do Azure AD. Os usuários externos (incluindo as contas corporativas ou de estudante de outras organizações, ou contas pessoais) podem entrar em um aplicativo de locatário único após adicionar cada usuário como conta convidado à instância do Azure AD em que o aplicativo está registrado. 
 
+É possível adicionar usuários como contas convidado ao Azure AD por meio de [Colaboração B2B do Azure AD](../b2b/what-is-b2b.md), sendo que isso pode ser feito [programaticamente](../../active-directory-b2c/code-samples.md). Ao usar o B2B, os usuários podem criar um portal de autoatendimento que não requer um convite para entrar. Para obter mais informações, consulte [Portal de autoatendimento para inscrição de colaboração B2B do Azure AD](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+
+Os aplicativos de locatário único podem habilitar a experiência *Entre em Contato Comigo*, mas se você quer habilitar a experiência de avaliação gratuita/clique simples recomendada pelo AppSource, em vez disso, habilite a multilocação no aplicativo.
 
 ## <a name="appsource-trial-experiences"></a>Experiências de avaliação do AppSource
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Avaliação gratuita (experiência de avaliação orientada pelo cliente) 
-A *avaliação orientada pelo cliente* é a experiência que o AppSource recomenda, pois oferece acesso a seu aplicativo com um clique simples. Abaixo, uma ilustração de como essa experiência se parece:<br/><br/>
+
+A avaliação orientada pelo cliente é a experiência que o AppSource recomenda, pois oferece acesso a o aplicativo com um clique simples. Abaixo, uma ilustração de como essa experiência se parece:<br/><br/>
 
 <table >
 <tr>
@@ -68,7 +73,8 @@ A *avaliação orientada pelo cliente* é a experiência que o AppSource recomen
 </table>
 
 ### <a name="contact-me-partner-led-trial-experience"></a>Entre em Contato Comigo (experiência de avaliação orientada pelo parceiro)
-A *experiência de avaliação do parceiro* pode ser usada quando uma operação de longo prazo ou manual precisa ser feita para provisionar o usuário ou a empresa: por exemplo, seu aplicativo precisa provisionar máquinas virtuais, instâncias de banco de dados ou operações que levam muito tempo para serem concluídas. Nesse caso, após o usuário selecionar o botão *'Solicitar avaliação'* e preencher um formulário, o AppSource enviará as informações de contato do usuário. Depois de receber essas informações, provisione o ambiente e envie instruções para o usuário sobre como acessar a experiência de avaliação:<br/><br/>
+
+Você pode usar a experiência de avaliação do parceiro quando uma operação manual ou de longo prazo precisa ser feita para provisionar o usuário/empresa - por exemplo, seu aplicativo precisa provisionar máquinas virtuais, instâncias de banco de dados ou operações que levam muito tempo para serem concluídas. Nesse caso, após o usuário selecionar o botão **Solicitar avaliação** e preencher um formulário, o AppSource enviará as informações de contato do usuário. Depois de receber essas informações, você provisiona o ambiente e envia as instruções para o usuário sobre como acessar a experiência de avaliação:<br/><br/>
 
 <table valign="top">
 <tr>
@@ -101,17 +107,18 @@ A *experiência de avaliação do parceiro* pode ser usada quando uma operação
 </table>
 
 ### <a name="more-information"></a>Mais informações
+
 Para saber mais sobre a experiência de avaliação do AppSource, confira [este vídeo](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais sobre como criar aplicativos que dão suporte a logons do Azure Active Directory, confira [Cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
-
+- Para obter mais informações sobre como compilar aplicativos que dão suporte a entradas do Azure AD, consulte [Cenários de autenticação do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Para saber mais sobre como listar seu aplicativo SaaS no AppSource, confira [Informações de parceiro do AppSource](https://appsource.microsoft.com/partners)
 
 
 ## <a name="get-support"></a>Obtenha suporte
-Para a integração do Azure Active Directory, usamos [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para suporte. 
+
+Para a integração do Azure AD, usamos [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) com a comunidade para fornecer suporte. 
 
 Recomendamos fazer suas perguntas no Stack Overflow primeiro e navegar pelos problemas existentes para ver se alguém já fez sua pergunta antes. Verifique se suas perguntas ou comentários estão marcados com [`[azure-active-directory]` e `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 

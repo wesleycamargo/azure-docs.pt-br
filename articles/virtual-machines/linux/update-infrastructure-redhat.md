@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426744"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140407"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de Atualização do Red Hat para as VMs Red Hat Enterprise do Linux sob demanda no Azure
  A RHUI ([Infraestrutura de Atualização do Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure)) permite que os provedores de nuvem, como o Azure, espelhem o conteúdo do repositório hospedado pelo Red Hat, criem repositórios personalizados com conteúdo específico ao Azure e o disponibilizem para as VMs do usuário final.
@@ -29,7 +29,7 @@ As imagens PAYG (Pagas conforme o uso) do RHEL (Red Hat Enterprise Linux) vêm p
 ## <a name="important-information-about-azure-rhui"></a>Informações importantes sobre o RHUI do Azure
 * Atualmente, o RHUI do Azure é compatível apenas com última versão secundária em cada família do RHEL (RHEL6 ou RHEL7). Para atualizar uma instância VM do RHEL conectada ao RHUI para a versão secundária mais recente, execute `sudo yum update`.
 
-    Por exemplo, se você provisionar uma VM com base em uma imagem PAYG do RHEL 7.2 e executar `sudo yum update`, você acabará com uma VM do RHEL 7.4 (a versão secundária mais recente da família RHEL7).
+    Por exemplo, se você provisionar uma VM com base em uma imagem PAYG do RHEL 7.2 e executar `sudo yum update`, você acabará com uma VM do RHEL 7.5 (a versão secundária mais recente da família RHEL7).
 
     Para evitar esse comportamento, você precisa criar sua própria imagem conforme descrito no artigo [Criar e carregar uma máquina virtual com base em Red Hat para o Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Em seguida, você precisa conectar-se para uma infraestrutura de atualização diferente ([diretamente aos servidores de entrega de conteúdo do Red Hat](https://access.redhat.com/solutions/253273) ou a um [servidor do Red Hat Satellite](https://access.redhat.com/products/red-hat-satellite)).
 

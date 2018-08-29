@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39278046"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42358425"
 ---
 | Recurso | Destino | Limite rígido |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39278046"
 | Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 25 milhões de objetos | Não  |
 | Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 200.000 objetos | SIM |
 | Tamanho máximo do nome do objeto (diretórios e arquivos) | 255 caracteres | SIM |
+| Tamanho máximo do descritor de segurança (diretórios e arquivos) do objeto | 4 KiB | SIM |
 | Tamanho do arquivo | 100 GiB | Não  |
 | Tamanho mínimo do arquivo para que um arquivo seja colocado em camadas | 64 KiB | SIM |

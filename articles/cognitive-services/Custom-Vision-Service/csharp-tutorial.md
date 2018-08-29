@@ -9,22 +9,28 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363847"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617427"
 ---
 # <a name="use-the-custom-vision-service-from-a-c35-application"></a>Usar o Serviço de Visão Personalizada de um aplicativo C&#35;
 
 Saiba como usar o Serviço de Visão Personalizada de um aplicativo C#. Depois de criada, você poderá adicionar marcas, carregar imagens, treinar o projeto, obter a URL de ponto de extremidade de previsão do projeto padrão e usar o ponto de extremidade para testar programaticamente uma imagem. Use este exemplo de código-fonte aberto como um modelo para criar seu próprio aplicativo para o Windows usando a API de Serviço de Visão Personalizada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do Visual Studio 2015 ou 2017 para Windows.
+* Qualquer edição do Visual Studio 2017 para Windows.
 
-* O [SDK do Serviço de Visão Personalizada](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). Isso inclui o exemplo e as imagens usadas neste documento.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Obter o SDK de Visão Personalizada e amostras
+Para compilar este exemplo, é necessário ter os Pacotes do NuGet do SDK de Visão Personalizada:
+
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+Você pode baixar as imagens junto com as [Amostras de C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 ## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de treinamento e previsão
 

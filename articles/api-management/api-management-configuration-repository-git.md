@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857524"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142222"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 
@@ -259,8 +259,8 @@ A pasta `templates` contém a configuração dos [modelos de email](api-manageme
 Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, confira:
 
 * Gerenciar a instância de seu serviço usando os seguintes cmdlets do PowerShell
-  * [Referência de cmdlets do PowerShell para implantação de serviços](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Referência de cmdlets do PowerShell para implantação de serviços](https://docs.microsoft.com/powershell/module/wds)
+  * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gerenciar a instância de seu serviço usando a API REST
   * [Referência de API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

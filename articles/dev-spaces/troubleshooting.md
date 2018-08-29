@@ -11,12 +11,12 @@ ms.topic: article
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037948"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139983"
 ---
 # <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
 
@@ -78,9 +78,10 @@ azds list-uris
 
 Se uma URL estiver no estado *Pendente*, isso significa que o Azure Dev Spaces ainda está aguardando a conclusão do registro DNS. Às vezes, leva alguns minutos para que isso ocorra. O Azure Dev Spaces também abre um túnel de localhost para cada serviço, que pode ser usado enquanto aguarda o registro DNS.
 
-Se uma URL permanecer no estado *Pendente* por mais de 5 minutos, isso pode indicar um problema com o controlador de entrada nginx que é responsável pela aquisição do ponto de extremidade público. É possível usar o seguinte comando para excluir o pod executando o controlador nginx. Ele será recriado automaticamente.
+Se uma URL permanecer no estado *Pendente* por mais de 5 minutos, isso pode indicar um problema com o pod DNS externo que cria o ponto de extremidade público e/ou o pod controlador de entrada nginx que adquire o ponto de extremidade público. Você pode usar os comandos a seguir para excluir esses pods. Eles serão recriados automaticamente.
 
 ```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
 ```
 
@@ -139,6 +140,14 @@ Iniciar o depurador de VS Code pode, às vezes, resultar nesse erro. Esse é um 
 1. Feche e abra novamente o VS Code.
 2. Pressione F5 novamente.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Depurar erro 'Falha ao localizar a extensão do depurador para type:coreclr'
+Executar o depurador de VS Code relata o erro: `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Motivo
+Você não tem a extensão do VS Code para C# instalada no computador de desenvolvimento que inclui o suporte à depuração para o .Net Core (CoreCLR).
+
+### <a name="try"></a>Experimente:
+Instalar a [extensão do VS Code para C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Erro de depuração 'não há suporte para tipo de depuração configurado 'coreclr' '
 Executar o depurador de VS Code relata o erro: `Configured debug type 'coreclr' is not supported.`

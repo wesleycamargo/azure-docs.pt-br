@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398964"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142240"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 Antes de carregar uma VM (máquina virtual) Windows do local para o Microsoft Azure, você deve preparar o VHD (disco rígido virtual) ou VHDX. O Azure oferece suporte a **somente VMs de geração 1** que estão no formato de arquivo VHD e possuem um disco de tamanho fixo. O tamanho máximo permitido para o VHD é 1.023 GB. Você pode converter uma VM de geração 1 do sistema de arquivos VHD para VHDX e de um disco de expansão dinâmica para um disco de tamanho fixo. No entanto, não é possível alterar a geração de uma VM. Para obter mais informações, consulte [Devo criar uma VM de geração 1 ou 2 no Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -67,7 +67,7 @@ Na VM que você pretende carregar no Azure, execute todos os comandos nas seguin
 1. Remova qualquer rota persistente estática na tabela de roteamento:
    
    * Para exibir a tabela de rotas, execute `route print` no prompt de comando.
-   * Verifique as seções **Rotas de Persistência** . Se houver uma rota persistente, use [route delete](https://technet.microsoft.com/library/cc739598.apx) para removê-la.
+   * Verifique as seções **Rotas de Persistência** . Se houver uma rota persistente, use o comando **route delete** para removê-la.
 2. Remova o proxy de WinHTTP:
    
     ```PowerShell
@@ -90,7 +90,7 @@ Na VM que você pretende carregar no Azure, execute todos os comandos nas seguin
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Defina o perfil de energia para o **Alto Desempenho**:
 
@@ -102,17 +102,17 @@ Na VM que você pretende carregar no Azure, execute todos os comandos nas seguin
 Verifique se cada um dos seguintes serviços do Windows está definido como os **valores padrão do Windows**. Esse é o número mínimo de serviços que deve ser configurado para garantir que a VM tenha conectividade. Para redefinir as configurações de inicialização, execute os seguintes comandos:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Atualizar configurações de registro da Área de Trabalho Remota
@@ -307,11 +307,22 @@ Verifique se as seguintes configurações estão configuradas corretamente para 
     - Configuração do Computador\Configurações do Windows\Configurações de Segurança\Políticas Locais\Atribuição de direitos de usuário\Negar logon pelos Serviços de Área de Trabalho Remota
 
 
-9. Reinicie a VM para garantir que o Windows ainda está íntegro e pode ser acessado usando a conexão RDP. Neste ponto, talvez você deseje criar uma VM no Hyper-V local para verificar se a VM está iniciando por completo e, em seguida, testar se ela é acessível por RDP.
+9. Verifique a seguinte política do AD para se certificar de que você não esteja removendo nenhuma das seguintes contas de acesso necessárias:
 
-10. Remova os filtros extras da Interface do Driver de Transporte, como software que analisa pacotes TCP ou firewalls extras. Você também poderá examinar isso em um estágio posterior depois que a VM for implantada no Azure, se necessário.
+    - Configuração do Computador\Configurações do Windows\Configurações de Segurança\Políticas Locais\Atribuição de direitos de usuário\Acessar este computador pela rede
 
-11. Desinstale outros softwares e drivers de terceiros relacionados a componentes físicos ou a qualquer outra tecnologia de virtualização.
+    Os grupos a seguir devem ser listados nesta política:
+
+    - Administradores
+    - Operadores de Backup
+    - Todos
+    - Usuários
+
+10. Reinicie a VM para garantir que o Windows ainda está íntegro e pode ser acessado usando a conexão RDP. Neste ponto, talvez você deseje criar uma VM no Hyper-V local para verificar se a VM está iniciando por completo e, em seguida, testar se ela é acessível por RDP.
+
+11. Remova os filtros extras da Interface do Driver de Transporte, como software que analisa pacotes TCP ou firewalls extras. Você também poderá examinar isso em um estágio posterior depois que a VM for implantada no Azure, se necessário.
+
+12. Desinstale outros softwares e drivers de terceiros relacionados a componentes físicos ou a qualquer outra tecnologia de virtualização.
 
 ### <a name="install-windows-updates"></a>Instalar atualizações do Windows
 A configuração ideal é **ter o último nível de patch do computador**. Se isso não for possível, verifique se as seguintes atualizações estão instaladas:

@@ -1,5 +1,5 @@
 ---
-title: Transcrição de lote API do Lote do Microsoft Azure
+title: API de transcrição de Lote do Azure
 description: Exemplos
 services: cognitive-services
 author: PanosPeriorellis
@@ -8,27 +8,27 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5af829ca076b39758973c28a44d918b9ba5782b1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281932"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42351243"
 ---
 # <a name="batch-transcription"></a>Transcrição de lote
 
-Transcrição de lote é ideal para casos de uso com grandes quantidades de áudio. Ele permite que o desenvolvedor apontam para arquivos de áudio e voltar transcrições no modo assíncrono.
+A transcrição de Lote será ideal, se você tiver grandes quantidades de áudio. Você pode apontar para arquivos de áudio e recuperar transcrições no modo assíncrono.
 
 ## <a name="batch-transcription-api"></a>Transcrição de lote API
 
-A transcrição do lote API possibilita o cenário acima. Oferece fala assíncrona para transcrição de texto, juntamente com recursos adicionais.
+A API de transcrição de Lote oferece transcrição de conversão de fala em texto em conjunto com recursos adicionais.
 
 > [!NOTE]
-> A transcrição do lote API é ideal para Call Centers que normalmente se acumulam milhares de horas de áudio. A filosofia Fire & Forget da API facilita a transcrição de grandes volumes de gravações de áudio.
+> A API de transcrição de Lote é ideal para call centers, que normalmente acumulam milhares de horas de áudio. A API é guiada por uma filosofia "disparar e esquecer", o que facilita a transcrição de grandes volumes de gravações de áudio.
 
 ### <a name="supported-formats"></a>Formatos com suporte
 
-A API de transcrição em lote tem como objetivo tornar-se de fato para todos os cenários relacionados ao call center off-line e oferecer suporte para todos os formatos relacionados. Formatos atualmente suportados:
+A API de transcrição de Lote dá suporte aos seguintes formatos:
 
 NOME| Canal  |
 ----|----------|
@@ -37,7 +37,7 @@ mp3 |  Estéreo  |
 WAV |   Mono   |
 WAV |  Estéreo  |
 
-Para transmissões de áudio estéreo, a transcrição em lote dividirá os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra a saída de um canal.
+Para transmissões de áudio estéreo, a transcrição de Lote divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. A amostra JSON a seguir mostra a saída de um canal.
 
 ```json
        {
@@ -55,28 +55,28 @@ Para transmissões de áudio estéreo, a transcrição em lote dividirá os cana
 ```
 
 > [!NOTE]
-> A API de transcrição em lote está usando um serviço REST para solicitar transcrições, seus status e resultados associados. A API pode ser usada em qualquer idioma. A próxima seção descreve como ela é usada.
+> A API de transcrição em lote está usando um serviço REST para solicitar transcrições, seus status e resultados associados. É possível usar a API de qualquer linguagem. A próxima seção descreve como ela é usada.
 
 ## <a name="authorization-token"></a>Token de autorização
 
-Assim como todos os recursos do Unified Speech Service, o usuário precisa criar uma chave de assinatura no [Portal do Azure](https://portal.azure.com). Além disso, uma chave de API precisa ser adquirida no portal de fala. As etapas para gerar uma chave de API:
+Como acontece com todos os recursos do Serviço de Fala Unificado, você cria uma chave de assinatura no [portal do Azure](https://portal.azure.com). Além disso, você adquire uma chave de API no portal do Speech: 
 
-1. Faça o login em https://customspeech.ai.
+1. Entre em [Fala Personalizada](https://customspeech.ai).
 
-2. Clique em Assinaturas.
+2. Selecione **Assinaturas**.
 
-3. Clique na opção `Generate API Key`.
+3. Selecione **Gerar chave de API**.
 
-    ![A exibição de upload](media/stt/Subscriptions.jpg)
+    ![Captura de tela da página Assinaturas de Fala Personalizada](media/stt/Subscriptions.jpg)
 
-4. Copie e cole essa chave no código do cliente no exemplo abaixo.
+4. Copie e cole essa chave no código do cliente no exemplo a seguir.
 
 > [!NOTE]
-> Se você planeja usar um modelo personalizado, também precisará do ID desse modelo. Observe que essa não é a ID de implantação ou de terminal que você encontra na visualização Detalhes do terminal, mas o ID do modelo que pode recuperar ao clicar nos Detalhes desse modelo
+> Se você planeja usar um modelo personalizado, também precisará da ID desse modelo. Observe que essa não é a ID do ponto de extremidade nem de implantação que você encontra no modo de exibição Detalhes do Ponto de Extremidade. É a ID do modelo que você pode recuperar ao selecionar os detalhes desse modelo.
 
 ## <a name="sample-code"></a>Exemplo de código
 
-Fazendo uso da API é bastante simples. É necessário que o código de exemplo abaixo seja personalizado com uma chave de assinatura e uma chave de API que, por sua vez, permitirão que o desenvolvedor obtenha um token de portador, como mostra o trecho de código a seguir:
+Personalize o seguinte código de exemplo com uma chave de API e chave de assinatura. Isso permite que você obtenha um token de portador.
 
 ```cs
     public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
@@ -93,7 +93,7 @@ Fazendo uso da API é bastante simples. É necessário que o código de exemplo 
         }
 ```
 
-Quando o token for obtido, o desenvolvedor deverá especificar Uri de SAS apontando para o arquivo de áudio que requer a transcrição. O restante do código simplesmente percorre o status e exibe os resultados.
+Após obter o token, será necessário especificar o URI do SAS apontando para o arquivo de áudio que requer a transcrição. O restante do código percorre o status e exibe os resultados.
 
 ```cs
    static async Task TranscribeAsync()
@@ -152,28 +152,27 @@ Quando o token for obtido, o desenvolvedor deverá especificar Uri de SAS aponta
 ```
 
 > [!NOTE]
-> A chave de assinatura mencionada no snippet de código acima é a chave do recurso Speech (Preview) que você cria no portal do Azure. As chaves obtidas do recurso Custom Speech Service não funcionarão.
+> No código anterior, a chave de assinatura é do recurso de Fala (versão prévia) que você cria no portal do Azure. Chaves obtidas do recurso de Serviço de Fala Personalizado não funcionam.
 
+Observe a configuração assíncrona para postar o status de transcrição de áudio e recebimento. O cliente criado é um cliente Http .NET. Existe um método `PostTranscriptions`para enviar os detalhes do arquivo de áudio e um método`GetTranscriptions` para receber os resultados. `PostTranscriptions` retorna um identificador e `GetTranscriptions` usa esse identificador para criar um identificador para obter o status de transcrição.
 
-Observe a configuração assíncrona para postar o status de transcrição de áudio e recebimento. O cliente criado é um cliente Http .NET. Existe um método `PostTranscriptions`para enviar os detalhes do arquivo de áudio e um método`GetTranscriptions` para receber os resultados. `PostTranscriptions`retorna um identificador e o método`GetTranscriptions` está usando esse identificador para criar um identificador para obter o status de transcrição.
+O código de amostra atual não especifica nenhum modelo personalizado. O serviço usa os modelos de linha de base para transcrever o arquivo ou arquivos. Para especificar os modelos, é possível passar o mesmo método para as IDs do modelo de linguagem e acústico. 
 
-O código de amostra atual não especifica nenhum modelo personalizado. O serviço usará os modelos de linha de base para transcrever o (s) arquivo (s). Se o usuário desejar especificar os modelos, pode-se passar o mesmo método para os modelIDs para o modelo acústico e de linguagem. 
-
-Se não desejar usar a linha de base, é preciso passar os IDs do modelo para os modelos acústicos e de linguagem.
+Se você não quiser usar a linha de base, deverá passar as IDs do modelo para ambos os modelos de linguagem e acústicos.
 
 > [!NOTE]
-> Para transcrição de linha de base, o usuário não precisa declarar os pontos finais dos modelos de linha de base. Se o usuário quiser usar modelos personalizados, ele deverá fornecer seus IDs de pontos de extremidade como [Amostra](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Se o usuário quiser usar uma linha de base acústica com um modelo de idioma de linha de base, ele só terá que declarar o ID de terminal do modelo personalizado. Internamente, nosso sistema descobrirá o modelo de linha de base do parceiro (seja ele acústico ou de linguagem) e o usará para preencher a solicitação de transcrição.
+> Para a transcrição de linha de base, não é necessário declarar os pontos de extremidade dos modelos de linha de base. Se quiser usar modelos personalizados, forneça as IDs dos pontos de extremidade como o [Exemplo](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Se quiser usar uma linha de base acústica com um modelo de linguagem de linha de base, será necessário somente declarar a ID do ponto de extremidade do modelo personalizado. A Microsoft detecta o modelo de linha de base do parceiro (seja ele acústico ou de linguagem) e usa isso para atender à solicitação de transcrição.
 
 ### <a name="supported-storage"></a>Armazenamento suportado
 
-Atualmente, o único armazenamento suportado é o blob do Azure.
+Atualmente, o único armazenamento com suporte é o Armazenamento de Blobs do Azure.
 
-## <a name="downloading-the-sample"></a>Download da amostra
+## <a name="downloading-the-sample"></a>Baixar o exemplo
 
-O exemplo exibido aqui está no [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+O exemplo mostrado aqui está no [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Normalmente, uma transcrição de áudio requer um intervalo de tempo igual à duração do arquivo de áudio mais uma sobrecarga de 2 a 3 minutos.
+> Normalmente, uma transcrição de áudio requer um intervalo de tempo igual à duração do arquivo de áudio, além de uma sobrecarga de 2 a 3 minutos.
 
 ## <a name="next-steps"></a>Próximas etapas
 

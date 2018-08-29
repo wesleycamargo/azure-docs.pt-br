@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525375"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143928"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Introdução ao Azure Data Lake Storage Gen2 Preview
 
@@ -33,6 +33,8 @@ No passado, a análise baseada na nuvem tinha que se comprometer em áreas de de
 
 - **Gerenciamento** é mais fácil porque você pode organizar e manipular arquivos por meio de diretórios e subdiretórios.
 
+- **Segurança** é aplicável porque você pode definir as permissões POSIX em arquivos individuais ou pastas.
+
 - **A efetividade de custo** é possível porque o Data Lake Storage Gen2 é construído sobre o [ armazenamento de Blob do Azure de baixo custo ](../blobs/storage-blobs-introduction.md). Os recursos adicionais reduzem ainda mais o custo total de propriedade para executar a análise de big data no Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Principais recursos do Data Lake Storage Gen2
@@ -43,9 +45,7 @@ No passado, a análise baseada na nuvem tinha que se comprometer em áreas de de
 
 - **Acesso compatível com Hadoop**: Data Lake Storage O Gen2 permite gerenciar e acessar dados como faria com um [ Hadoop Distributed File System (HDFS) ](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [ driver ABFS ](./abfs-driver.md) está disponível em todos os ambientes Apache Hadoop, incluindo [ Azure HDInsight ](../../hdinsight/index.yml) e [ Azure Databricks ](../../azure-databricks/index.yml) para acessar dados armazenados no Data Lake Storage Gen2.
 
-- **Acesso a dados multiprotocolo e multimodal**: Data Lake Storage O Gen2 é considerado um **serviço de armazenamento multimodal**, pois fornece as interfaces do armazenamento de objetos e do sistema de arquivos aos mesmos dados **} ao mesmo tempo**. Isso é obtido fornecendo vários terminais de protocolo que podem acessar os mesmos dados. 
-
-    Ao contrário de outras soluções de análise, os dados armazenados no Data Lake Storage Gen2 não precisam ser movidos ou transformados antes que você possa executar uma variedade de ferramentas de análise. Você pode acessar os dados por meio das tradicionais [ APIs de armazenamento de blobs ](../blobs/storage-blobs-introduction.md) (por exemplo: ingest data via [ Event Hubs Capture ](../../event-hubs/event-hubs-capture-enable-through-portal.md)) e processar esses dados usando o HDInsight ou Azure Databricks ao mesmo tempo. 
+- **Um superconjunto de permissões POSIX**: o modelo de segurança para o Data Lake Gen2 é totalmente compatível com as permissões ACL e POSIX, juntamente com alguma granularidade extra específica para o Data Lake Storage Gen2. As configurações podem ser definidas por meio de ferramentas de administração ou por meio de estruturas, como Hive e Spark.
 
 - **Econômico**: Data Lake Storage O Gen2 apresenta capacidade de armazenamento e transações de baixo custo. À medida que os dados transitam por todo o seu ciclo de vida, as taxas de faturamento mudam, mantendo os custos no mínimo por meio de recursos integrados, como [ ciclo de vida de armazenamento do Blur do Azure ](../common/storage-lifecycle-managment-concepts.md).
 

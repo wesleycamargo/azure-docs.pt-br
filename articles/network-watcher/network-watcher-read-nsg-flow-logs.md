@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056793"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141422"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -28,7 +28,7 @@ Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de bl
 
 ## <a name="scenario"></a>Cenário
 
-No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos percorrer como você pode ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, usaremos PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todos as linguagens com suporte na APIs de armazenamento do Azure
+No cenário a seguir, você tem um exemplo de log de fluxo que é armazenado em uma conta de armazenamento. Vamos ver como ler os eventos mais recentes seletivamente nos logs de fluxo NSG. Neste artigo, você usa o PowerShell, no entanto, os conceitos abordados no artigo não estão limitados à linguagem de programação e são aplicáveis a todas as linguagens com suporte na APIs de Armazenamento do Microsoft Azure.
 
 ## <a name="setup"></a>Configuração
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Ler o blob de blocos
 
-Em seguida, precisamos ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Usamos o método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) para recuperar os dados.
+Em seguida, você precisa ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Use o método [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) para recuperar os dados.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Agora a matriz `$valuearray` contém o valor de cadeia de caracteres de cada bloco. Para verificar a entrada, obtenha do segundo ao último valor da matriz executando `$valuearray[$valuearray.Length-2]`. Não queremos o último valor, ele é apenas o colchete de fechamento.
+Agora a matriz `$valuearray` contém o valor de cadeia de caracteres de cada bloco. Para verificar a entrada, obtenha do segundo ao último valor da matriz executando `$valuearray[$valuearray.Length-2]`. Você não quer o último valor, pois é apenas o colchete de fechamento.
 
 Os resultados desse valor são mostrados no exemplo a seguir:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Esse cenário é um exemplo de como ler entradas nos logs de fluxo NSG sem precisar analisar o log inteiro. Você pode ler as novas entradas no log conforme elas são gravadas usando a ID do bloco ou acompanhando o tamanho dos blocos armazenados no blob de blocos. Isso permite que você leia apenas as novas entradas.
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

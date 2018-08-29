@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916733"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141398"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Redes virtuais de mapas em regiões do Azure diferentes
 
 
 Este artigo descreve como mapear duas instâncias da Rede Virtual do Azure localizadas em regiões do Azure diferentes entre si. O mapeamento de rede garante que quando uma máquina virtual replicada for criada na região do Azure de destino, ela também será criada em uma rede virtual que é mapeada para a rede virtual da máquina virtual de origem.  
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de mapear as redes, verifique se você criou uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md) nas regiões do Azure de origem e de destino.
 
 ## <a name="map-virtual-networks"></a>Mapear redes virtuais
@@ -88,16 +88,36 @@ Se a interface de rede da máquina virtual de origem estiver usando DHCP, a inte
 ### <a name="static-ip-address"></a>Endereço IP estático
 Se a interface de rede da máquina virtual de origem estiver usando um endereço IP estático, a interface de rede da máquina virtual de destino também será definida como usando um endereço IP estático. As seções a seguir descrevem como um endereço IP estático é definido.
 
-#### <a name="same-address-space"></a>Mesmo espaço de endereço
+### <a name="ip-assignment-behavior-during-failover"></a>Comportamento de atribuição de IP durante o Failover
+#### <a name="1-same-address-space"></a>1. Mesmo espaço de endereço
 
 Se a sub-rede de origem e a sub-rede de destino tiverem o mesmo espaço de endereço, o endereço IP da interface de rede da máquina virtual de origem será definido como o endereço IP de destino. Se o mesmo endereço IP não estiver disponível, o próximo endereço IP disponível será definido como o endereço IP de destino.
 
-#### <a name="different-address-spaces"></a>Espaços de endereços diferentes
+#### <a name="2-different-address-spaces"></a>2. Espaços de endereços diferentes
 
 Se a sub-rede de origem e a sub-rede de destino tiverem espaços de endereço diferentes, o próximo endereço IP disponível na sub-rede de destino será definido como o endereço IP de destino.
 
-Para modificar o IP de destino em cada interface de rede, vá para as configurações de **Computação e Rede** da máquina virtual.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>Comportamento de atribuição de IP durante o Failover de Teste
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Se a rede de destino escolhida for a vNet de produção
+- O IP de recuperação (IP de destino) será um endereço IP estático, mas ele **não será o mesmo endereço IP** como reservado para Failover.
+- O endereço IP atribuído será o próximo IP disponível a partir do final do intervalo de endereços de sub-rede.
+- Por exemplo, se o IP estático da VM de origem for configurado para ser: 10.0.0.19 e Failover de Teste tiver sido tentado com a rede de produção configurada: ***dr-PROD-nw***, com um intervalo de sub-rede como 10.0.0.0/24. </br>
+A VM de failover seria atribuída com - O próximo IP disponível do final do intervalo de endereços de sub-rede é: 10.0.0.254 </br>
+
+**Observação:** a terminologia **vNet de produção** é chamada de “Rede de destino” mapeada durante a configuração de recuperação de desastre.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Se a rede de destino escolhida não é vNet de produção, mas tiver o mesmo intervalo de sub-rede que a rede de produção 
+
+- O IP de recuperação (IP de Destino) será um endereço IP estático com o **mesmo endereço IP** (ou seja, endereço IP estático configurado) como reservado para Failover. Desde que o mesmo endereço IP esteja disponível.
+- Se o endereço IP estático configurado já estiver atribuído a algum outro dispositivo/VM, o IP de recuperação será o próximo IP disponível a partir do final do intervalo de endereços de sub-rede.
+- Por exemplo, se o IP estático da VM de origem for configurado para ser: 10.0.0.19 e Failover de Teste tiver sido tentado com uma rede de teste: ***dr-PROD-nw***, com o mesmo intervalo de sub-rede da rede de produção - 10.0.0.0/24. </br>
+  A VM de failover seria atribuída com o seguinte endereço IP estático </br>
+    - IP estático configurado: 10.0.0.19 se IP estiver disponível.
+    - Próximo IP disponível: 10.0.0.254 se o endereço IP 10.0.0.19 já estiver em uso.
+
+
+Para modificar o IP de destino em cada interface de rede, vá para as configurações de **Computação e Rede** da máquina virtual.</br>
+Como melhor prática, é sempre aconselhável escolher uma rede de teste para executar o Failover de Teste.
 ## <a name="next-steps"></a>Próximas etapas
 
 * Analise as [diretrizes de rede para replicar máquinas virtuais do Azure](site-recovery-azure-to-azure-networking-guidance.md).

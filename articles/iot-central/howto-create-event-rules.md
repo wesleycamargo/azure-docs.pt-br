@@ -1,86 +1,102 @@
 ---
 title: Criar e gerenciar regras de eventos no aplicativo Azure IoT Central | Microsoft Docs
 description: As regras de eventos do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email, quando a regra é disparada.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: c5697f6d4ca2c9d9948b7cdd005a6a75bdabb246
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 08/14/2018
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222558"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141425"
 ---
-# <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Criar uma regra de Eventos e configurar uma ação no aplicativo Azure IoT Central
+# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de eEvent e configurar notificações no aplicativo Azure IoT Central
 
-É possível usar o Microsoft Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o fluxo de trabalho no Microsoft Flow quando as condições da regra são atendidas. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação a ser invocada. Este artigo explica a regra de monitoramento de eventos em detalhes.
+É possível usar o Azure IoT Central para monitorar remotamente os dispositivos conectados. As regras do Azure IoT Central permitem monitorar os dispositivos quase em tempo real e invocar ações automaticamente, como enviar um email ou disparar o Microsoft Flow. Com apenas alguns cliques, você pode definir a condição para monitorar os dados do dispositivo e configurar a ação correspondente. Este artigo explica como criar regras para monitorar eventos enviados pelo dispositivo.
 
-O Azure IoT Central usa a [medida de evento](howto-set-up-template.md) para capturar dados do dispositivo. Cada tipo de medida possui atributos de chave que definem a medida. É possível criar regras para monitorar cada tipo de medida de dispositivo e gerar alertas quando a regra for disparada. Uma regra de eventos é disparada quando o evento de dispositivo selecionado é relatado pelo dispositivo.
+Dispositivos podem usar a medição de evento para enviar eventos de dispositivo importantes ou informativos. Uma regra de eventos é disparada quando o evento de dispositivo selecionado é relatado pelo dispositivo.
 
 ## <a name="create-an-event-rule"></a>Criar uma regra de eventos
 
-Esta seção mostra como criar uma regra de eventos. Este exemplo usa um dispositivo de máquina de venda refrigerada que relata um evento de erro do motor da ventoinha. A regra monitora o evento relatado pelo dispositivo e enviará um email sempre que o evento for relatado.
+Para criar uma regra de evento, o modelo do dispositivo deve ter pelo menos um evento de medida definido. Este exemplo usa um dispositivo de máquina de venda refrigerada que relata um evento de erro do motor da ventoinha. A regra monitora o evento relatado pelo dispositivo e enviará um email sempre que o evento for relatado.
 
-1. Navegue até a página de detalhes do dispositivo para o dispositivo ao qual você está adicionando a regra.
+1. Usando o Device Explorer, navegue até o modelo de dispositivo para o qual você está adicionando a regra.
+
+1. Sob o modelo selecionado, clique em um dispositivo existente. 
+
+    >[!TIP] 
+    >Se o modelo não tiver todos os dispositivos, adicione um novo dispositivo pela primeira vez.
 
 1. Se você ainda não criou regras, a tela a seguir será exibida:
 
-    ![Não há regras](media/howto-create-event-rules/image1.png)
+    ![Não há regras](media\howto-create-event-rules\Rules_Landing_Page.png)
 
-1. Na guia **Regras**, escolha **+ Nova Regra** para ver os tipos de regras que você pode criar.
 
-    ![Tipos de regras](media/howto-create-event-rules/image2.png)
+1. Na guia **Regras**, clique em **+ Nova Regra** para ver os tipos de regras que você pode criar.
 
-1. Clique em **Evento** para abrir o formulário para criar a regra.
 
-    ![Regra de eventos](media/howto-create-event-rules/image3.png)
+1. Clique no bloco **Evento** para criar uma regra.
 
-1. Escolha um nome que ajude-o a identificar a regra neste modelo de dispositivo.
+    ![Tipos de regras](media\howto-create-event-rules\Rule_Types.png)
 
-1. Para habilitar imediatamente a regra para todos os dispositivos criados a partir desse modelo, alterne **Habilitar regra**.
+    
+1. Digite um nome que o ajude a identificar a regra neste modelo de dispositivo.
 
-### <a name="configure-the-rule-condition"></a>Configurar a condição de regra
+1. Para habilitar imediatamente a regra para todos os dispositivos criados a partir desse modelo, alterne **Habilitar regra para todos os dispositivos deste modelo**.
 
-Esta seção mostra como adicionar uma condição para monitorar a medida de evento de erro do motor da ventoinha.
+    ![Detalhes da Regra](media\howto-create-event-rules\Rule_Detail.png)
 
-1. Escolha **+** próximo à **Condição**.
+    A regra se aplica automaticamente a todos os dispositivos sob o modelo de dispositivo.
 
-1. Escolha a medida de evento na lista suspensa que você deseja monitorar. Neste exemplo, foi selecionado o evento **Erro de Motor da Ventoinha**.
+### <a name="configure-the-rule-conditions"></a>Configurar as condições de regra
 
-1. Opcionalmente, também é possível fornecer um valor se você quiser monitorar um valor específico do evento que está sendo relatado pelo dispositivo. Por exemplo, se o dispositivo relatar o mesmo evento com códigos de erro diferentes, fornecer o código de erro como um valor na condição da regra garantirá que a regra seja disparada somente quando o dispositivo enviar esse valor específico como carga do evento. Deixar em branco significa que a regra será disparada sempre que o dispositivo enviar o evento, independentemente do valor do evento.
+A condição define os critérios que são monitorados pela regra.
 
-    ![Adicionar a condição de evento](media/howto-create-event-rules/image4.png)
+1. Escolha **+** próximo a **Condições** para adicionar uma nova condição.
 
-    > [!NOTE]
-    > É necessário selecionar pelo menos uma medida de evento ao definir uma condição de regra de eventos.
+1. Escolha o evento que deseja monitorar na lista suspensa Medida. Neste exemplo, foi selecionado o evento **Erro do Motor do Ventilador**.
 
-1. Clique em **Salvar** para salvar a regra. A regra entra em ação em alguns minutos e começa a monitorar eventos enviados ao aplicativo.
+   ![Condição](media\howto-create-event-rules\Condition_Filled_Out.png) 
 
-### <a name="add-an-action"></a>Adicionar uma ação
 
-Esse exemplo mostra como adicionar uma ação a uma regra. Isso mostra como adicionar a ação de email, mas também é possível adicionar outras ações:
--  [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada
-- [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
+1. Opcionalmente, você também pode definir **Contagem** como **Agregação** e fornecer o limite correspondente.
 
-> [!NOTE]
-> Somente uma ação pode ser associada a uma única regra neste momento.
+    - Sem agregação, a regra dispara para cada ponto de dados de evento que atenda à condição. Por exemplo, se você configurar a condição da regra para disparar quando ocorrer um evento de “Erro do Motor do Ventilador”, a regra será disparada quase que imediatamente quando o dispositivo relatar esse evento.
+    - Se a Contagem for usada como uma função de agregação, você precisará fornecer um **Limite** e uma **Janela de tempo de agregação** por meio dos quais a condição precisa ser avaliada. Nesse caso, a contagem de eventos é agregada, e a regra será disparar apenas se a contagem de eventos agregados corresponder ao limite.
+ 
+    Por exemplo, se você quiser alertar quando há mais de três eventos de dispositivo em cinco minutos, selecione o evento e defina a função de agregação como "contagem", o operador como "maior que" e "limite" como 3. Defina "Período de tempo de agregação" como "5 minutos". A regra dispara quando mais de três eventos são enviados pelo dispositivo em cinco minutos. A frequência de avaliação da regra é igual à **Janela de tempo de agregação**, o que significa que, neste exemplo, a regra é avaliada uma vez a cada cinco minutos. 
 
-1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis.
+    ![Adicionar a condição de evento](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
 
-    ![Adicionar Ação](media/howto-create-event-rules/image5.png)
+    >[!NOTE] 
+    >Mais de uma medida de evento pode ser adicionada em **Condição**. Quando várias condições são especificadas, todas as condições devem ser atendidas para que a regra seja disparada. Cada condição é unida por uma cláusula 'AND' implicitamente. Ao usar a agregação, cada medida deve ser agregada.
+
+### <a name="configure-actions"></a>Configurar ações
+
+Esta seção mostra como configurar as ações a serem executadas quando a regra é acionada. Ações chamadas quando todas as condições especificadas na regra são avaliadas como true.
+
+1. Escolha **+** próximo a **Ações**. Aqui, você vê a lista de ações disponíveis. 
+
+    ![Adicionar Ação](media\howto-create-event-rules\Add_Action.png)
 
 1. Escolha a ação **Email**, insira um endereço de email válido no campo **Para** e forneça uma observação para aparecer no corpo do email quando a regra for disparada.
 
     > [!NOTE]
     > Os emails serão enviados apenas aos usuários que foram adicionados ao aplicativo e fizeram logon pelo menos uma vez. Saiba mais sobre o [gerenciamento de usuários](howto-administer.md) no Azure IoT Central.
 
-   ![Configurar Ação](media/howto-create-event-rules/image6.png)
+   ![Configurar Ação](media\howto-create-event-rules\Configure_Action.png)
 
-1. Clique em **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
+1. Para salvar a regra, escolha **Salvar**. A regra entra em ação em alguns minutos e começa a monitorar os eventos enviados ao aplicativo. Quando a condição especificada na regra corresponde, a regra dispara a ação de email configurada.
+
+Você pode adicionar outras ações à regra, como o Microsoft Flow e webhooks. Você pode adicionar até cinco ações por regra.
+
+- [Ação do Microsoft Flow](howto-add-microsoft-flow.md) para iniciar um fluxo de trabalho no Microsoft Flow quando uma regra é disparada 
+- [Ação do Webhook](howto-create-webhooks.md) para notificar outros serviços quando uma regra é disparada
 
 ## <a name="parameterize-the-rule"></a>Parametrizar a regra
 
@@ -92,7 +108,7 @@ Se você não precisar mais de uma regra, exclua-a, abrindo a regra e escolhendo
 
 ## <a name="enable-or-disable-a-rule-for-a-device-template"></a>Habilitar ou desabilitar uma regra para um modelo de dispositivo
 
-Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alternar o botão **Habilitar regra para todos os dispositivos deste modelo** na regra, habilita ou desabilita a regra para todos os dispositivos associados ao modelo de dispositivo.
+Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desabilitar. Alterne o botão **Habilitar regra para todos os dispositivos deste modelo** para habilitar ou desabilitar a regra para todos os dispositivos associados ao modelo de dispositivo.
 
 ## <a name="enable-or-disable-a-rule-for-a-device"></a>Habilitar ou desabilitar uma regra para um dispositivo
 
@@ -100,8 +116,8 @@ Navegue até o dispositivo e escolha a regra que você deseja habilitar ou desab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, a próxima etapa sugerida é apresentada:
+Agora que você aprendeu como criar regras no aplicativo Azure IoT Central, estas são algumas das próximas etapas:
 
-> [!div class="nextstepaction"]
-> [Como adicionar uma ação do Microsoft Flow a uma regra](howto-add-microsoft-flow.md)
-> [Como gerenciar seus dispositivos](howto-manage-devices.md).
+- [Adicionar ação do Microsoft Flow em regras](howto-add-microsoft-flow.md)
+- [Adicionar ação de Webhook em regras](howto-create-webhooks.md)
+- [Como gerenciar seus dispositivos](howto-manage-devices.md)

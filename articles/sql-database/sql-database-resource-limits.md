@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412103"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141861"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Visão geral dos Limites de recursos do Banco de Dados SQL do Azure 
 
@@ -22,15 +22,15 @@ Este artigo fornece uma visão geral do recurso de banco de dados SQL limita e f
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Qual é o número máximo de servidores e bancos de dados?
 
-| Máximo | Valor |
-| :--- | :--- |
-| Bancos de dados por servidor | 5.000 |
-| Número padrão de servidores por assinatura por região | 20 |
-| Número máximo padrão de servidores por assinatura por região | 200 |
-| DTU / cota de eDTU por servidor | 54.000 |
-| cota de vCore por servidor | 540 |
-| Pools de máx por servidor | limitado pelo número de DTUs ou vCores |
-|||
+| Máximo | Servidor lógico | Instância gerenciada |
+| :--- | :--- | :--- |
+| Bancos de dados por servidor/instância | 5.000 | 100 |
+| Número padrão de servidores por assinatura por região | 20 | N/D |
+| Número máximo padrão de servidores por assinatura por região | 200 | N/D | 
+| DTU / cota de eDTU por servidor | 54.000 | N/D |  
+| Cota de vCore por servidor/instância | 540 | 80 |
+| Pools de máx por servidor | Limitado pelo número de DTUs ou vCores | N/D |
+||||
 
 > [!NOTE]
 > Para obter mais cotas DTU / eDTU, vCore ou mais servidores do que o valor padrão, uma nova solicitação de suporte pode ser enviada no portal do Azure para a assinatura com o tipo de problema "Cota". O DTU / eDTU limite de cota e o banco de dados por servidor restringe o número de pools Elásticos por servidor. 

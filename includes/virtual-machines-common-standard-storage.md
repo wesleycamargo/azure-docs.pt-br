@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806291"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258531"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Armazenamento Standard econômico e discos de VM do Azure gerenciados e não gerenciados
 
@@ -42,7 +42,7 @@ Para obter informações sobre como criar uma VM com Managed Disks, consulte um 
 
 Vamos dar uma olhada em alguns dos recursos do Armazenamento Standard. Para saber mais, confira [Introdução ao Armazenamento do Azure](../articles/storage/common/storage-introduction.md).
 
-**Armazenamento Standard**: o Armazenamento Standard do Azure oferece suporte a discos do Azure, blobs do Azure, arquivos do Azure, tabelas do Azure e filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Armazenamento Standard**: o Armazenamento Standard do Azure oferece suporte a discos do Azure, blobs do Azure, arquivos do Azure, tabelas do Azure e filas do Azure. Para usar os serviços de Armazenamento Standard, o primeiro passo é [Criar uma conta de armazenamento do Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Discos padrão do SSD:** os discos padrão SSD proporcionam um desempenho mais confiável do que discos de HDD Standard e estão disponíveis atualmente no modo de visualização. Para obter mais informações sobre a disponibilidade de região de discos Padrão SSD, consulte [disponibilidade de região de discos padrão SSD (versão prévia)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
@@ -119,7 +119,12 @@ Ao usar o Armazenamento Standard, as seguintes considerações de cobrança se a
 
 **Tamanho de discos e dados de armazenamento não gerenciados:** para discos e outros dados não gerenciados (blobs, tabelas, filas e arquivos), você é cobrado apenas pela quantidade de espaço que estiver usando. Por exemplo, se você tiver uma VM cujo blob de páginas é provisionado como 127 GB, mas a VM usa apenas 10 GB de espaço, você será cobrado por 10 GB de espaço. Há suporte para armazenamento padrão até 8191 GB e discos padrão não gerenciados até 4095 GB. 
 
-**Discos gerenciados:** discos gerenciados serão cobrados no tamanho provisionado. Se o seu disco for provisionado como um disco de 10 GB e você estiver usando apenas 5 GB, você ainda será cobrado pelo tamanho de provisão de 10 GB.
+**Discos gerenciados**: a cobrança de discos gerenciados padrão depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GiB, você será cobrado de acordo com o preço do tipo de disco S15.
+
+| **Standard HDD Managed <br>Tipo de Disco** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Tamanho do disco        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
+
 
 **Instantâneos**: os instantâneos de discos padrão serão cobrados pela capacidade adicional usada pelos instantâneos. Para saber mais sobre instantâneos, consulte [Criando um instantâneo de um Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 

@@ -3,7 +3,7 @@ title: Sobre Chaves, Segredos e Certificados
 description: Visão geral da interface REST e detalhes de desenvolvedor KV
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/14/2018
+ms.author: bryanla
+ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359182"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141410"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 O Cofre da Chave do Azure permite aos usuários armazenar e usar chaves de criptografia no ambiente do Microsoft Azure. O Cofre de chaves dá suporte a vários tipos de chave e algoritmos e permite o uso de módulos de segurança de Hardware (HSM) para chaves de alto valor. Além disso, o Cofre de Chaves permite que os usuários armazenem segredos de forma segura. Os segredos são objetos de octetos de tamanho limitado sem semântica específica. O Cofre de Chaves também oferece suporte a certificados, que são criados sobre chaves e segredos e adicionam um recurso de renovação automática.
@@ -28,26 +28,26 @@ Para obter mais informações gerais sobre o Cofre da Chave do Azure, consulte [
 
 **Detalhes gerais do Cofre de Chaves**
 
--   [Padrões de suporte](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [Objetos, identificadores e controle de versão](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [Padrões de suporte](#BKMK_Standards)
+-   [Tipos de dados](#BKMK_DataTypes)  
+-   [Objetos, identificadores e controle de versão](#BKMK_ObjId)  
 
 **Sobre as chaves**
 
--   [Chaves e tipos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [Algoritmos RSA](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [Algoritmos RSA-HSM](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [Proteção criptográfica](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [Operações de chave](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [Atributos de chave](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [Marcas de chave](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [Chaves e tipos de chave](#BKMK_KeyTypes)  
+-   [Algoritmos RSA](#BKMK_RSAAlgorithms)  
+-   [Algoritmos RSA-HSM](#BKMK_RSA-HSMAlgorithms)  
+-   [Proteção criptográfica](#BKMK_Cryptographic)
+-   [Operações de chave](#BKMK_KeyOperations)  
+-   [Atributos de chave](#BKMK_KeyAttributes)  
+-   [Marcas de chave](#BKMK_Keytags)  
 
 **Sobre segredos** 
 
--   [Como trabalhar com os segredos](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [Atributos de segredos](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [Marcas de segredos](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [Controle de acesso a segredo](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [Como trabalhar com os segredos](#BKMK_WorkingWithSecrets)  
+-   [Atributos de segredos](#BKMK_SecretAttrs)  
+-   [Marcas de segredos](#BKMK_SecretTags)  
+-   [Controle de acesso a segredo](#BKMK_SecretAccessControl)  
 
 **Sobre certificados**
 
@@ -133,7 +133,7 @@ O Cofre de Chaves do Azure oferece suporte a chaves RSA de tamanhos 2048, 3072 e
 
 ### <a name="BKMK_Cryptographic"></a> Proteção criptográfica
 
-Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+Os módulos de criptografia usado pelo Cofre de Chaves do Azure, se o HSM ou software, são validados do FIPS. Você não precisa fazer nada especial para executar no modo FIPS. Se você **criar** ou **importar** chaves como protegida por HSM, elas são garantidas de serem processadas dentro dos HSMs validados para FIPS 140-2 nível 2 ou superior. Se você **criar** ou **importar** chaves como protegida por software, elas são processadas dentro de módulos criptográficos validados para FIPS 140-2 nível 1 ou superior. Para obter mais informações, confira [Chaves e tipos de chaves](#BKMK_KeyTypes).
 
 ###  <a name="BKMK_ECAlgorithms"></a> Algoritmos EC
  Os seguintes identificadores de algoritmo são suportados com chaves EC e EC-HSM no Cofre de Chaves do Azure. 
@@ -174,7 +174,7 @@ O Cofre de Chaves do Azure suporta as seguintes operações em objetos de chave:
 -   **Backup**: exporta uma chave de forma protegida.  
 -   **Restaurar**: importa uma chave de backup anterior.  
 
-Para saber mais, confira [Operações de chave](/rest/api/keyvault/key-operations).  
+Para obter mais informações, consulte [Operações de chave na referência de API REST do Key Vault](/rest/api/keyvault).  
 
 Quando uma chave tiver sido criada no Cofre de Chaves do Azure, as seguintes operações criptográficas podem ser executadas usando a chave:  
 
@@ -194,22 +194,22 @@ Para obter mais informações sobre objetos JWK, consulte [Chave de Web JSON (JW
 
 Além do material de chave, os seguintes atributos podem ser especificados. Em uma solicitação de JSON, a palavra-chave e as chaves, '{' '}', são necessárias, mesmo se não houver nenhum atributo especificado.  
 
-- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *habilitado* é usado em conjunto com *nbf* e *exp*. Quando ocorre uma operação entre *nbf* e *exp*, ele só será permitido se *habilitado* estiver definido como **true**. As operações fora da janela *nbf* / *exp* não são automaticamente permitidas, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops).
-- *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *EXP*: IntDate, opcional, o padrão é “infinito”. O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e pode ser utilizada para operações de criptografia. O atributo *habilitado* é usado em conjunto com *nbf* e *exp*. Quando ocorre uma operação entre *nbf* e *exp*, ele só será permitido se *habilitado* estiver definido como **true**. As operações fora da janela *nbf* / *exp* não são automaticamente permitidas, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops).
+- *nbf*: IntDate, opcional, o padrão é agora. O atributo *nbf* (not before) identifica o tempo anterior que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
+- *EXP*: IntDate, opcional, o padrão é “infinito”. O atributo *exp* (expiration time) identifica o tempo de expiração em que ou depois que a chave NÃO DEVE ser usada para operações de criptografia, exceto para determinados tipos de operação em [determinadas condições](#BKMK_key-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 
 Há mais atributos somente leitura que são incluídos em qualquer resposta que inclui os atributos de chave:  
 
 - *criado*: IntDate, opcional. O atributo *criado* indica quando esta versão da chave foi criada. Esse valor é nulo para chaves criadas antes da adição deste atributo. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 - *atualizado*: IntDate, opcional. O atributo *atualizado* indica quando esta versão da chave foi atualizada. Esse valor é nulo para chaves que foram atualizadas antes da adição deste atributo. Seu valor DEVE ser um número que contenha um valor de IntDate.  
 
-Para obter mais informações sobre IntDate e outros tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+Para obter mais informações sobre IntDate e outros tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a> Operações de data e hora controladas
 
 Chaves expiradas e ainda não válidas, aquelas que estão fora da janela *nbf* / *exp*, funcionarão para operações **descriptografar**, **unwrap** e **verificar** (não retornará 403, proibido). A lógica para usar o estado de não válido ainda é permitir que uma chave seja testada antes do uso de produção. A lógica para usar o estado expirado é permitir operações de recuperação de dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Cofre de Chaves, ou atualizando o atributo de chave *habilitado* para **false**.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes).
+Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes).
 
 Para obter mais informações sobre outros atributos possíveis, consulte a [Chave de Web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
@@ -256,9 +256,9 @@ O Cofre de Chaves do Azure também oferece suporte a um campo contentType para s
 
 Além dos dados de segredo, os seguintes atributos podem ser especificados:  
 
-- *exp*: IntDate, opcional, o padrão é **infinito**. O atributo *exp* (tempo de expiração) identifica o tempo de expiração em que ou depois que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). O processamento do atributo *exp* requer que a data/hora atual DEVE ser anterior a data/hora de expiração listada no atributo *exp*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *nbf*: IntDate, opcional, o padrão é **agora**. O atributo *nbf* (not before) identifica o tempo anterior que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). O processamento do atributo *nbf* requer que a data/hora atual DEVE ser posterior ou igual a data/hora não-anterior listada no atributo *nbf*. Cofre de Chaves do Azure PODE fornecer alguma reserva pequena, geralmente não mais do que alguns minutos, para compensar distorção do relógio. Seu valor DEVE ser um número que contenha um valor de IntDate.  
-- *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo especifica se os dados secretos podem ser recuperados. O atributo habilitado é usado em conjunto com *exp* quando ocorre uma operação entre exp, ele só será permitido se habilitado estiver definido como **true**. As operações fora da janela *nbf* e *exp* são automaticamente não permitidas, exceto em [determinadas situações](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
+- *exp*: IntDate, opcional, o padrão é **infinito**. O atributo *exp* (tempo de expiração) identifica o tempo de expiração em que ou depois que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops). Esse campo é para fins **informativos** somente, visto que ele informa os usuários do serviço de cofre de que um segredo específico não pode ser usado. Seu valor DEVE ser um número que contenha um valor de IntDate.   
+- *nbf*: IntDate, opcional, o padrão é **agora**. O atributo *nbf* (not before) identifica o tempo anterior que os dados de segredo NÃO DEVEM ser recuperados, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops). Este documento serve apenas para fins **informativos**. Seu valor DEVE ser um número que contenha um valor de IntDate. 
+- *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo especifica se os dados secretos podem ser recuperados. O atributo habilitado é usado em conjunto com *exp* quando ocorre uma operação entre exp, ele só será permitido se habilitado estiver definido como **true**. As operações fora da janela *nbf* e *exp* são automaticamente não permitidas, exceto em [determinadas situações](#BKMK_secret-date-time-ctrld-ops).  
 
 Há mais atributos somente leitura que são incluídos em qualquer resposta que inclui os atributos de segredo:  
 
@@ -269,7 +269,7 @@ Há mais atributos somente leitura que são incluídos em qualquer resposta que 
 
 Uma operação **obter** do segredo funcionará para segredos ainda não válidos e expirados, fora da janela *nbf* / *exp*. Chamar uma operação **obter** do segredo, para um segredo ainda não válido, pode ser usada para fins de teste. Recuperar (**obter**) um segredo expirado, pode ser usado para operações de recuperação.
 
-Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](about-keys-secrets-and-certificates.md#BKMK_DataTypes).  
+Para obter mais informações sobre tipos de dados, consulte [Tipos de dados](#BKMK_DataTypes).  
 
 ###  <a name="BKMK_SecretAccessControl"></a> Controle de acesso a segredo
 
@@ -283,7 +283,7 @@ As seguintes permissões podem ser usadas, por entidade de segurança, na entrad
 -   *excluir*: excluir o segredo  
 -   *todas*: todas as permissões  
 
-Para obter mais informações sobre como trabalhar com segredos, consulte [Operações de segredo](/rest/api/keyvault/secret-operations).  
+Para obter mais informações sobre como trabalhar com segredos, consulte [Operações de segredo na referência de API REST do Key Vault](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Marcas de segredos  
 Você pode especificar mais metadados específicos do aplicativo na forma de marcas. O Cofre de Chaves do Azure oferece suporte a até 15 marcas, cada um deles pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -436,18 +436,14 @@ Se uma política de certificado for definida como renovação automática, uma n
 -   *criar*: permite criar um certificado de Chave de Cofre.  
 -   *importar*: permite a importação de material de certificado em um Certificado de Cofre de Chaves.  
 -   *atualizar*: permite a atualização de um certificado.  
--   *manageconnects*: permite o gerenciamento de contatos de certificados de Cofre de Chaves  
+-   *managecontacts*: permite o gerenciamento de contatos de certificados de Cofre de Chaves  
 -   *getissuers*: permite obter de emissores de um certificado  
 -   *listissuers*: permite listar emissores do certificado  
 -   *setissuers*: permite criar ou atualizar emissores de certificado do Cofre de Chaves  
 -   *deletissuers*: permite excluir emissores de certificado do Cofre de Chaves  
 -   *todas*: concede todas as permissões  
 
-## <a name="additional-information-for-certificates"></a>Informações adicionais sobre certificados
-
-- [Certificados e políticas](/rest/api/keyvault/certificates-and-policies)
-- [Emissores de certificado](/rest/api/keyvault/certificate-issuers)
-- [Contatos de certificado](/rest/api/keyvault/certificate-contacts)
+Para obter mais informações, consulte [Operações de certificado na referência de API REST do Key Vault](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Veja também
 

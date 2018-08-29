@@ -1,6 +1,6 @@
 ---
 title: Conceitos de serviço no Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs
-description: Descreve conceitos de provisionamento de serviço específicos para dispositivos com DPS e Hub IoT
+description: Descreve conceitos de provisionamento de serviços específicos para dispositivos com o Serviço de Provisionamento de Dispositivos e Hub IoT
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628293"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146294"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Conceitos do Serviço de Provisionamento de Dispositivos no Hub IoT
 
@@ -29,17 +29,20 @@ O ponto de extremidade das operações de serviço é o ponto de extremidade par
 
 ## <a name="device-provisioning-endpoint"></a>Ponto de extremidade de provisionamento do dispositivo
 
-O ponto de extremidade de provisionamento de dispositivos é o ponto de extremidade único que todos os dispositivos usam para provisionamento automático. A URL é a mesma para todas as instâncias de serviços de provisionamento, para eliminar a necessidade de atualizar novamente os dispositivos com novas informações de conexão nos cenários da cadeia de fornecedores. O [escopo da ID](#id-scope) garante o isolamento de locatários.
+O ponto de extremidade de provisionamento de dispositivos é o ponto de extremidade único que todos os dispositivos usam para provisionamento automático. A URL é a mesma para todas as instâncias de serviços de provisionamento, para eliminar a necessidade de atualizar novamente os dispositivos com novas informações de conexão nos cenários da cadeia de fornecedores. O escopo da ID garante o isolamento de locatários.
 
 ## <a name="linked-iot-hubs"></a>Hubs IoT vinculados
 
-O Serviço de Provisionamento de Dispositivos só pode provisionar dispositivos para Hubs IoT que foram vinculados a ele. Vincular um Hub IoT ao Serviço de Provisionamento de Dispositivos concede as permissões de leitura/gravação de serviço para registro de dispositivo do Hub IoT. Com o link, o Serviço de Provisionamento de Dispositivos pode registrar uma ID de dispositivo e definir a configuração inicial nos dispositivos gêmeos. Hubs de IoT vinculados podem estar em qualquer região do Azure. Você pode vincular hubs em outras assinaturas ao seu serviço de provisionamento.
+O Serviço de Provisionamento de Dispositivos somente pode provisionar dispositivos para hubs de IoT que tenham sido vinculados a ele. Vincular um Hub IoT a uma instância do serviço de Provisionamento de Dispositivo fornece as permissões de leitura/gravação de serviço ao registro de dispositivo do Hub IoT e, com o vínculo, um serviço de Provisionamento de Dispositivos pode registrar uma ID do dispositivo e definir a configuração inicial no dispositivo gêmeo. Hubs de IoT vinculados podem estar em qualquer região do Azure. Você pode vincular hubs em outras assinaturas ao seu serviço de provisionamento.
 
 ## <a name="allocation-policy"></a>Política de alocação
 
 A configuração de nível de serviço determina como o Serviço de Provisionamento de Dispositivos atribui dispositivos a um Hub IoT. Há três políticas de alocação com suporte:
+
 * **Distribuição igualmente ponderada**: Hubs IoT vinculados têm probabilidades iguais de ter dispositivos provisionados a eles. A configuração padrão. Se estiver provisionando dispositivos a apenas um Hub IoT, você poderá manter essa configuração.
+
 * **Menor latência**: dispositivos são provisionados para um Hub IoT com a menor latência para o dispositivo. Se vários Hubs IoT vinculados fornecerem a mesma menor latência, o serviço de provisionamento reciclará dispositivos entre esses hubs
+
 * **Configuração estática por meio da lista de registro**: a especificação do Hub IoT desejado na lista de registro tem prioridade sobre a política de alocação no nível do serviço.
 
 ## <a name="enrollment"></a>Registro
@@ -54,7 +57,7 @@ Há dois tipos de registros com suporte pelo Serviço de Provisionamento de Disp
 
 ### <a name="enrollment-group"></a>Grupo de registro
 
-Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos no grupo de registros apresentam certificados X.509 que foram assinados pela mesma autoridade de AC intermediária ou raiz. Grupos de registro só podem usar o mecanismo de atestado de X.509. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
+Um grupo de registro é um grupo de dispositivos que compartilham um mecanismo de atestado específico. Todos os dispositivos no grupo de registro apresentam certificados X.509 que foram assinados pela mesma raiz ou AC (Autoridade de Certificação) intermediária. Grupos de registro só podem usar o mecanismo de atestado de X.509. O nome do grupo de registro e o nome do certificado devem ter caracteres alfanuméricos, letras minúsculas e podem conter hifens.
 
 > [!TIP]
 > É recomendável usar um grupo de registro para um grande número de dispositivos que compartilhem uma configuração inicial desejada ou para dispositivos que vão todos para o mesmo locatário.
@@ -68,7 +71,7 @@ Um registro individual é uma entrada para um único dispositivo que pode regist
 
 ## <a name="registration"></a>Registro
 
-Um registro é o registro de um dispositivo com registro/provisionamento bem-sucedido para um Hub IoT por meio do Serviço de Provisionamento de Dispositivos. Registros são criados automaticamente. Eles podem ser excluídos, mas não podem ser atualizados.
+Um registro é o registro de um dispositivo com registro/provisionamento com êxito para um Hub IoT por meio do Serviço de Provisionamento de Dispositivos. Registros são criados automaticamente. Eles podem ser excluídos, mas não podem ser atualizados.
 
 ## <a name="operations"></a>Operações
 

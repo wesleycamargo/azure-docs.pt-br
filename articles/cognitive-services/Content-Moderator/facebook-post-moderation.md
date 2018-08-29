@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 316c7212c30e9fe1151cdf5ceabf875439ad4c65
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363513"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41929828"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Moderação de conteúdo do Facebook com o Content Moderator
 
@@ -85,7 +85,7 @@ Entrar no [Portal de Gerenciamento do Microsoft Azure](https://portal.azure.com/
     6. Clique em **Criar**.
     7. Substitua o conteúdo do **run.csx** com o conteúdo do [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
-6. Crie uma nova função **HttpTrigger-CSharp** nomeada **CMListener**. Esta função recebe eventos do Facebook. Execute estas etapas para criar esta função.
+6. Crie uma nova função **HttpTrigger-CSharp** nomeada **CMListener**. Esta função recebe eventos do Content Moderator. Execute estas etapas para criar esta função.
 
     1. Mantenha a página [Criação do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) aberta para referência.
     2. Clique em **+** adicionar para criar a nova função.

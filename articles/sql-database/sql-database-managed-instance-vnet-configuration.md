@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258092"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246374"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar VNet para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -29,7 +29,7 @@ A Instância Gerenciada do Banco de Dados SQL do Azure (versão prévia) deve se
 Planeje como implantar uma Instância Gerenciada na rede virtual, usando as respostas para as seguintes perguntas: 
 - Você planeja implantar Instâncias Gerenciadas simples ou múltiplas? 
 
-  O número de Instâncias Gerenciadas determina o tamanho mínimo da sub-rede para alocar suas Instâncias Gerenciadas. Para obter mais informações, consulte [Determinar o tamanho da sub-rede para Instância Gerenciada](#create-a-new-virtual-network-for-managed-instances). 
+  O número de Instâncias Gerenciadas determina o tamanho mínimo da sub-rede para alocar suas Instâncias Gerenciadas. Para obter mais informações, consulte [Determinar o tamanho da sub-rede para Instância Gerenciada](#determine-the-size-of-subnet-for-managed-instances). 
 - Você precisa implantar a Instância Gerenciada em uma rede virtual existente ou você está criando uma nova rede? 
 
    Se você planeja utilizar uma rede virtual existente, será necessário modificar essa configuração de rede para acomodar sua Instância Gerenciada. Para obter mais informações, consulte [Modificar a rede virtual existente para Instância Gerenciada](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -38,7 +38,7 @@ Planeje como implantar uma Instância Gerenciada na rede virtual, usando as resp
 
 ## <a name="requirements"></a>Requisitos
 
-Para a criação da Instância Gerenciada é necessário dedicar sub-rede dentro da VNet que esteja em conformidade com os seguintes requisitos:
+Para a criação de Instância Gerenciada, é necessário dedicar uma sub-rede dentro da VNet que atenda aos seguintes requisitos:
 - **Estar vazia**: a sub-rede não deve conter nenhum outro serviço de nuvem associado a ela e não deve ser a sub-rede do Gateway. Não será possível criar a Instância Gerenciada na sub-rede que contenha outros recursos, além da instância gerenciada, ou adicionar outros recursos dentro da sub-rede posteriormente.
 - **Sem NSG**: a sub-rede não deve ter um Grupo de Segurança de Rede associado a ela.
 - **Ter uma tabela de rotas específica**: a sub-rede deve ter uma UDR (Tabela de Rotas do Usuário) com Próximo Salto para a Internet 0.0.0.0/0 como a única rota atribuída a ela. Para obter mais informações, consulte [Criar a tabela de rotas necessária e associá-la](#create-the-required-route-table-and-associate-it)
@@ -63,7 +63,28 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 
 **Exemplo**: Você planeja ter três Usos Gerais e duas instâncias Gerenciadas Comercialmente Críticas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Criar uma nova rede virtual para Instâncias Gerenciadas 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Criar uma nova rede virtual para Instância Gerenciada usando a implantação do Azure Resource Manager
+
+A maneira mais fácil de criar e configurar a rede virtual é usar o modelo de implantação do Azure Resource Manager.
+
+1. Entre no Portal do Azure.
+
+2. Use o botão **Implantar no Azure** para implantar a rede virtual na nuvem do Azure:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Este botão abrirá um formulário que poderá ser utilizado para configurar o ambiente de rede onde será possível implantar a Instância Gerenciada.
+
+  > [!Note]
+  > Esse modelo do Azure Resource Manager implantará a rede virtual com duas sub-redes. Uma sub-rede chamada **ManagedInstances** é reservada para Instâncias Gerenciadas e tem uma tabela de roteamento pré-configurada, enquanto a outra sub-rede chamada **Padrão** é usada para outros recursos que devem acessar a Instância Gerenciada (por exemplo, Máquinas Virtuais do Microsoft Azure). É possível remover a sub-rede **Padrão** se ela não for necessária.
+
+3. Configure o ambiente de rede. É possível configurar os parâmetros do ambiente de rede, conforme a seguir:
+
+![Configurar rede do Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+É possível alterar os nomes da VNet e sub-redes e ajustar os intervalos de IP associados aos recursos de rede. Após pressionar o botão "Comprar", esse formulário criará e configurará o ambiente. Se você não precisar de duas sub-redes, poderá excluir uma padrão. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Criar uma nova rede virtual para Instâncias Gerenciadas usando o portal
 
 Criar uma rede virtual do Azure é um pré-requisito para a criação de uma Instância Gerenciada. Você pode utilizar o Portal do Azure, [PowerShell](../virtual-network/quick-create-powershell.md) ou [CLI do Azure](../virtual-network/quick-create-cli.md). A seção a seguir mostra as etapas utilizando o Portal do Azure. Os detalhes discutidos aqui aplicam-se a cada um desses métodos.
 
@@ -92,7 +113,7 @@ Criar uma rede virtual do Azure é um pré-requisito para a criação de uma Ins
 
    ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Criar a tabela de rotas necessária e associá-la
+### <a name="create-the-required-route-table-and-associate-it"></a>Criar a tabela de rotas necessária e associá-la
 
 1. Entre no Portal do Azure  
 2. Localize e clique em **Tabela de rotas** e, em seguida, clique em **Criar** na página Tabela de rotas.

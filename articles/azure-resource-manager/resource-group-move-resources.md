@@ -4,22 +4,20 @@ description: Use o Azure Resource Manager para mover recursos para um novo grupo
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503573"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617283"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -113,11 +111,11 @@ Entre em contato com o [suporte](https://portal.azure.com/#blade/Microsoft_Azure
 
 Os serviços que permitem mover para um novo grupo de recursos e uma nova assinatura são:
 
+* Serviços de análise
 * Gerenciamento de API
 * Aplicativos do Serviço de Aplicativo (aplicativos Web) - consulte [Limitações do Serviço de Aplicativo](#app-service-limitations)
 * Certificados do Serviço de Aplicativo
 * Application Insights
-* Serviços de análise
 * Automação
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Serviços Cognitivos
 * Registro de Contêiner
 * Content Moderator
+* Gerenciamento de Custos
+* Customer Insights
 * Catálogo de Dados
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Grade de Eventos
 * Hubs de Eventos
 * Clusters HDInsight – veja [Limitações do HDInsight](#hdinsight-limitations)
+* Central de IoT
 * Hubs IoT
 * Key Vault
 * Load Balancers - consulte [Limitações do Load Balancer](#lb-limitations)
 * Log Analytics
 * Aplicativos Lógicos
 * Aprendizado de Máquina - os serviços Web do Machine Learning Studio podem ser movidos para um grupo de recursos na mesma assinatura, mas não uma assinatura diferente. Outros recursos de Microsoft Machine Learning podem ser movidos entre assinaturas.
+* Identidade gerenciada - atribuída pelo usuário
 * Serviços de mídia
 * Mobile Engagement
 * Hubs de Notificação
@@ -160,6 +162,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Search
 * Barramento de Serviço
 * Service Fabric
+* Malha do Service Fabric
 * Serviço SignalR
 * Armazenamento
 * Armazenamento (clássico) - consulte [Limitações da implantação clássica](#classic-deployment-limitations)
@@ -187,7 +190,10 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Azure Databricks
 * Lote AI
 * Certificados - Os certificados do Serviço de Aplicativo podem ser movidos, mas os certificados carregados têm [limitações](#app-service-limitations).
+* Instâncias de Contêiner
 * Serviço de Contêiner
+* Data Box
+* Espaços de Desenvolvimento
 * Dynamics LCS
 * ExpressRoute
 * Serviço do Kubernetes
@@ -196,6 +202,7 @@ Os serviços que atualmente não permitem mover um recurso são:
 * Aplicativos gerenciados
 * Managed Disks – veja [Limitações das máquinas virtuais](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * IP público - consulte [Limitações de IP público](#pip-limitations)
 * Cofre de Serviços de Recuperação – não mova os recursos de Computação, Rede e Armazenamento associados ao cofre dos Serviços de Recuperação. Consulte [Limitações dos Serviços de Recuperação](#recovery-services-limitations).
 * SAP HANA no Azure
@@ -225,7 +232,7 @@ Máquinas Virtuais com certificado armazenado no Key Vault podem ser movidas par
 
 ## <a name="virtual-networks-limitations"></a>Limitações das redes virtuais
 
-Ao mover uma rede virtual, você também deve mover os recursos dependentes. Por exemplo, você deve mover os gateways com a rede virtual.
+Ao mover uma rede virtual, você também deve mover os recursos dependentes. Para Gateways de VPN, você deve mover endereços IP, gateways de rede virtual e todos os recursos de conexão associados. Os gateways de rede local podem estar em um grupo de recursos diferentes.
 
 Para mover uma rede virtual emparelhada, primeiro é necessário desabilitar o emparelhamento de rede virtual. Quando desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 

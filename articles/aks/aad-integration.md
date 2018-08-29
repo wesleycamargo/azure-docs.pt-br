@@ -1,34 +1,34 @@
 ---
 title: Integrar o Azure Active Directory ao Serviço de Kubernetes do Azure
-description: Como criar clusters do Serviço de Kubernetes do Azure habilitados para Azure Active Directory.
+description: Como criar clusters do Serviço de Kubernetes do Azure (AKS) habilitados para Azure Active Directory.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579020"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142030"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>Integrar o Azure Active Directory com AKS - versão prévia
+# <a name="integrate-azure-active-directory-with-aks"></a>Integrar o Azure Active Directory ao AKS
 
-O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory para autenticação do usuário. Nessa configuração, é possível fazer logon em um cluster do Serviço de Kubernetes do Azure usando o token de autenticação do Azure Active Directory. Além disso, os administradores de cluster podem configurar o controle de acesso baseado em função do Kubernetes com base na identidade de um usuário ou associação no grupo de diretórios.
+O AKS (Serviço de Kubernetes do Azure) pode ser configurado para usar o Azure Active Directory (AD) para autenticação do usuário. Nessa configuração, é possível fazer logon em um cluster do AKS usando o token de autenticação do Azure Active Directory. Além disso, os administradores de cluster podem configurar o controle de acesso baseado em função (RBAC) do Kubernetes com base na identidade de um usuário ou associação no grupo de diretórios.
 
-Este documento detalha a criação de todos os pré-requisitos necessários para AKS e Azure AD, a implantação de um cluster habilitado para Azure AD e a criação de uma função simples do RBAC no cluster do AKS. No momento, não é possível atualizar os clusters do AKS que não sejam habilitados pelo RBAC para uso deste mecanismo.
+Este artigo mostra como implantar os pré-requisitos para AKS e Azure AD e como implantar um cluster habilitado para Azure AD e criar uma função simples do RBAC no cluster do AKS.
 
-> [!IMPORTANT]
-> Atualmente, a integração do Azure AD e RBAC do AKS (Serviço de Kubernetes do Azure) está em **versão prévia**. As versões prévias são disponibilizadas com a condição de que você concorde com os [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspectos desse recurso podem alterar antes da GA (disponibilidade geral).
->
+As seguintes limitações se aplicam:
+
+- No momento, não é possível atualizar os clusters do AKS existentes que não sejam habilitados pelo RBAC para uso do RBAC.
+- Os usuários *convidados* no Azure AD, por exemplo, se você estiver usando um logon federado de um diretório diferente, não têm suporte.
 
 ## <a name="authentication-details"></a>Detalhes de autenticação
 
-A autenticação do Azure AD é fornecida aos clusters do Azure Kubernetes com OpenID Connect. O OpenID Connect é uma camada de identidade compilada sobre o protocolo OAuth 2.0. Mais informações sobre OpenID Connect podem ser encontradas na [documentação do Open ID Connect][open-id-connect].
+A autenticação do Azure AD é fornecida aos clusters do AKS com OpenID Connect. O OpenID Connect é uma camada de identidade compilada sobre o protocolo OAuth 2.0. Mais informações sobre OpenID Connect podem ser encontradas na [documentação do Open ID Connect][open-id-connect].
 
 No cluster do Kubernetes, a autenticação de token do Webhook é usada para verificar os tokens de autenticação. A autenticação de token do Webhook é configurada e gerenciada como parte do cluster AKS. Mais informações sobre autenticação de token do Webhook podem ser encontradas na [documentação de autenticação do webhook][kubernetes-webhook].
 
@@ -72,6 +72,10 @@ O primeiro aplicativo do Azure AD é usado para obter uma associação do grupo 
 7. Selecione **Concluir**, escolha *Microsoft Graph* na lista de APIs e selecione **Conceder permissões**. Esta etapa falhará se a conta atual não for um administrador do locatário.
 
   ![Definir permissões de gráfico de aplicativo](media/aad-integration/grant-permissions.png)
+
+  Quando as permissões tiverem sido concedidas com êxito, a notificação a seguir será exibida no portal:
+
+  ![Notificação de permissões concedidas com êxito](media/aad-integration/permissions-granted.png)
 
 8. Retorne ao aplicativo e anote a **ID do Aplicativo**. Ao implantar um cluster do AKS habilitado para Azure AD, esse valor será referido como `Server application ID`.
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>Criar associação do RBAC
 
-Antes que uma conta do Azure Active Directory possa ser usada com o cluster do AKS, uma associação de função ou uma associação de função de cluster precisa ser criada.
+Antes que uma conta do Azure Active Directory possa ser usada com o cluster do AKS, uma associação de função ou uma associação de função de cluster precisa ser criada. As *funções* definem as permissões a serem concedidas, e as *associações* as aplicam aos usuários desejados. Essas atribuições podem ser aplicadas a um determinado namespace ou em todo o cluster. Para obter mais informações, consulte [Usando a autorização do RBAC][rbac-authorization].
 
 Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o argumento `--admin` para fazer logon no cluster com acesso de administrador.
 
@@ -139,7 +143,7 @@ Primeiro, use o comando [az aks get-credentials][az-aks-get-credentials] com o a
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-Em seguida, use o manifesto a seguir para criar um ClusterRoleBinding para uma conta do Azure AD. Atualize o nome de usuário com um do seu locatário do Azure AD. Esse exemplo fornece à conta acesso total a todos os namespaces do cluster.
+Em seguida, use o manifesto a seguir para criar um ClusterRoleBinding para uma conta do Azure AD. Atualize o nome de usuário com um do seu locatário do Azure AD. Este exemplo fornece à conta acesso total a todos os namespaces do cluster:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-Uma associação de função também pode ser criada para todos os membros de um grupo do Azure AD. Os grupos do Microsoft Azure AD são especificados com a ID de objeto do grupo.
+Uma associação de função também pode ser criada para todos os membros de um grupo do Azure AD. Os grupos do Microsoft Azure AD são especificados com a ID de objeto do grupo, como mostrado no seguinte exemplo:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

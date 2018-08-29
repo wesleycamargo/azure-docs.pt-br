@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946257"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140789"
 ---
 # <a name="how-to-use-perfinsights"></a>Como usar o PerfInsights
 
@@ -64,7 +64,7 @@ Este cenário executa o teste de parâmetro de comparação [Diskspd](https://gi
 > Este cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
 >
 
-### <a name="slow-vm-analysis"></a>Análise de VM lenta
+### <a name="performance-analysis"></a>Análise de desempenho
 
 Este cenário executa um rastreamento de [contador de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) usando os contadores especificados no arquivo RuleEngineConfig.json. Se a VM for identificada como um servidor que executa o SQL Server, um rastreamento de contador de desempenho será executado. Isso é feito com os contadores encontrados no arquivo RuleEngineConfig.json. Esse cenário também inclui dados de diagnóstico de desempenho.
 
@@ -83,16 +83,16 @@ Este cenário executa uma captura de contador de desempenho especial junto com u
 | Tamanho de E/S      | Média Bytes/solicitação de dados       |
 |              | Média Bytes/leitura               |
 |              | Média Bytes/gravação              |
-| Throughput   | Bytes de dados/s                |
+| Produtividade   | Bytes de dados/s                |
 |              | Bytes de leitura/s                |
 |              | Bytes de gravação/s               |
 | Comprimento da fila | Média Tamanho da fila de leitura        |
 |              | Média Tamanho da fila de gravação       |
 |              | Média Comprimento da fila de dados        |
 
-### <a name="advanced-slow-vm-analysis"></a>Análise de VM Lenta Avançada
+### <a name="advanced-performance-analysis"></a>Análise de desempenho avançado
 
-Ao executar uma análise de VM lenta avançada, você selecionada traços para executar em paralelo. Se desejar, execute todos eles (Contador de Desempenho, Xperf, Rede e StorPort).  
+Ao executar uma análise de desempenho avançado, você seleciona rastreamentos a serem executados em paralelo. Se desejar, execute todos eles (Contador de Desempenho, Xperf, Rede e StorPort).  
 
 > [!Note]
 > Este cenário pode afetar o sistema e não deve ser executado em um sistema de produção ativo. Se necessário, execute este cenário em uma janela de manutenção dedicada para evitar problemas. Uma carga de trabalho maior causada por um teste de parâmetro de comparação ou rastreamento pode afetar adversamente o desempenho da VM.
@@ -104,28 +104,28 @@ São coletadas informações sobre a VM do Windows, a configuração de discos o
 
 |Dados coletados                              |  |  | Cenários de desempenho |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Análise de Desempenho Rápida | Parâmetros de comparação | Análise de VM lenta | Análise de Arquivos do Azure | Análise de VM Lenta Avançada |
-| Informações de logs de eventos       | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Informações do sistema                | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Mapa de volume                        | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Mapa do disco                          | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Tarefas em execução                     | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Contadores de confiabilidade do armazenamento      | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Informações de armazenamento               | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Saída do fsutil                     | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Informações do driver de filtro                | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Saída de Netstat                    | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Configuração de rede             | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Configuração do firewall            | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Configuração do SQL Server          | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Rastreamentos de diagnóstico de desempenho *  | sim                        | sim                                | sim                      | sim                  | sim                  |
-| Rastreamento do contador de desempenho **      |                            |                                    | sim                      |                      | sim                  |
-| Rastreamento do contador SMB **              |                            |                                    |                          | sim                  |                      |
-| Rastreamento do contador do SQL Server **       |                            |                                    | sim                      |                      | sim                  |
-| Rastreamento de XPerf                       |                            |                                    |                          |                      | sim                  |
-| Rastreamento de StorPort                    |                            |                                    |                          |                      | sim                  |
-| Rastreamento de rede                     |                            |                                    |                          | sim                  | sim                  |
-| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | sim                                |                          |                      |                      |
+|                               | Análise de Desempenho Rápida | Parâmetros de comparação | Análise de desempenho | Análise de Arquivos do Azure | Análise de desempenho avançado |
+| Informações de logs de eventos       | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Informações do sistema                | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Mapa de volume                        | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Mapa do disco                          | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Tarefas em execução                     | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Contadores de confiabilidade do armazenamento      | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Informações de armazenamento               | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Saída do fsutil                     | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Informações do driver de filtro                | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Saída de Netstat                    | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Configuração de rede             | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Configuração do firewall            | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Configuração do SQL Server          | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Rastreamentos de diagnóstico de desempenho *  | SIM                        | sim                                | sim                      | sim                  | SIM                  |
+| Rastreamento do contador de desempenho **      |                            |                                    | SIM                      |                      | SIM                  |
+| Rastreamento do contador SMB **              |                            |                                    |                          | SIM                  |                      |
+| Rastreamento do contador do SQL Server **       |                            |                                    | SIM                      |                      | SIM                  |
+| Rastreamento de XPerf                       |                            |                                    |                          |                      | SIM                  |
+| Rastreamento de StorPort                    |                            |                                    |                          |                      | SIM                  |
+| Rastreamento de rede                     |                            |                                    |                          | SIM                  | SIM                  |
+| Rastreamento de parâmetro de comparação de Diskspd ***       |                            | SIM                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Rastreamento de diagnóstico de desempenho (*)
@@ -138,7 +138,7 @@ Executa um mecanismo baseado em regras no segundo plano para coletar dados e dia
 - Regra de HighMemoryUsage: detecta os períodos de uso elevado de memória e mostra os principais consumidores de uso de memória durante esses períodos.
 
 > [!NOTE] 
-> Atualmente, há suporte para versões do Windows que incluem .NET Framework 3.5 ou versões posteriores.
+> Atualmente, há suporte para versões do Windows que incluem .NET Framework 4.5 ou versões posteriores.
 
 ### <a name="performance-counter-trace-"></a>Rastreamento do contador de desempenho (\*\*)
 
@@ -171,9 +171,9 @@ Testes de carga de trabalho de E/S do Diskspd (disco do SO [gravação] e unidad
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas ao executar a ferramenta em VMs de produção
 
--  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta avançada" configurado para usar o Xperf ou o Diskspd, a ferramenta poderá prejudicar o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
+-  Para os cenários de parâmetro de comparação ou de "Análise de Desempenho Avançado" configurado para usar Xperf ou Diskspd, a ferramenta pode afetar negativamente o desempenho da VM. Esses cenários não devem ser executados em um ambiente de produção ativo.
 
--  Para os cenários de parâmetro de comparação ou de "Análise de VM lenta avançada" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
+-  Para os cenários de parâmetro de comparação ou de "Análise de Desempenho Avançado" configurado para usar o Diskspd, verifique se nenhuma outra atividade em segundo plano interfere na carga de trabalho de E/S.
 
 -  Por padrão, a ferramenta usa a unidade de armazenamento temporário para coletar dados. Se o rastreamento permanecer habilitado por mais tempo, a quantidade de dados coletados poderá ser relevante. Isso pode reduzir a disponibilidade de espaço no disco temporário, podendo afetar, portanto, qualquer aplicativo que dependa dessa unidade.
 
@@ -212,7 +212,7 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    Use o exemplo abaixo para executar o cenário de VM lenta durante 5 minutos:
+    Você pode usar o exemplo abaixo para executar o cenário de análise de desempenho por 5 minutos:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,7 +224,7 @@ Para executar a ferramenta PerfInsights, siga estas etapas:
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Você pode usar o exemplo abaixo para executar o cenário de VM lento por 5 minutos e carregar o arquivo zip de resultado na conta de armazenamento.
+    Você pode usar o exemplo abaixo para executar o cenário de análise de desempenho por 5 minutos e carregar o arquivo zip resultante para a conta de armazenamento:
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>

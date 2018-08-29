@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072327"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142244"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Introdução para operadores de TI do Azure
 
 Este guia apresenta conceitos fundamentais relacionados à implantação e ao gerenciamento de uma infraestrutura do Microsoft Azure. Se você não for familiarizado com a computação em nuvem ou com o Azure, este guia serve como introdução rápida a conceitos, implantação e detalhes de gerenciamento. Muitas seções deste guia discutem uma operação como a implantação de uma máquina virtual e, em seguida, fornecem um link para detalhes técnicos aprofundados.
 
@@ -53,27 +53,33 @@ Para pequenas empresas, o Azure permite um ponto de entrada de baixo custo, com 
 
 Para obter mais informações sobre as regiões do Azure disponíveis, consulte [Regiões do Azure](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>A computação em nuvem é classificada em três categorias: SaaS, PaaS e IaaS.
+### <a name="cloud-computing-model"></a>Modelo de computação em nuvem
 
-#### <a name="saas-software-as-a-service"></a>SaaS: software como serviço
-
-SaaS é um software que é hospedado e gerenciado centralmente. É normalmente baseado em uma arquitetura multilocatário — uma única versão do aplicativo é usada para todos os clientes. Ele pode ser escalado horizontalmente para várias instâncias para garantir o melhor desempenho em todas as localizações. Software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual.
-
-O Microsoft Office 365 é um bom exemplo de uma oferta de SaaS. Os assinantes pagam uma taxa de assinatura mensal ou anual e obtêm Microsoft Exchange, Microsoft OneDrive e o restante do pacote do Microsoft Office como um serviço. Os assinantes sempre obtêm a versão mais recente e o servidor Exchange é gerenciado para você. Em comparação instalar e atualizar o Office todo ano, isso é menos dispendioso e requer menos esforço.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como serviço
-
-Com PaaS, você implanta seu aplicativo em um ambiente oferecido pelo fornecedor do serviço de nuvem. O fornecedor faz todo o gerenciamento de infraestrutura, de modo que pode se concentrar no desenvolvimento de aplicativos.
-
-O Azure fornece diversas ofertas de computação de PaaS, incluindo o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e os Serviços de Nuvem do Azure (funções Web e de trabalho). Em ambos os casos, os desenvolvedores têm várias maneiras de implantar seu aplicativo sem saber nada sobre os elementos que dão suporte a ele. Os desenvolvedores não precisam criar VMs (máquinas virtuais), usar o protocolo RDP para entrar em cada uma delas ou instalar o aplicativo. Eles apenas acionam um botão (ou próximo a ele) e as ferramentas fornecidas pelo Microsoft provisionam VMs e, em seguida, implantarem e instalar o aplicativo neles.
+O Azure usa um modelo de computação em nuvem com base nas categorias de serviço fornecidas aos clientes. As três categorias de serviço incluem IaaS (infraestrutura como Serviço), PaaS (Plataforma como Serviço) e SaaS (Software como Serviço). Os fornecedores compartilham uma parte da responsabilidade ou toda ela pelos componentes na pilha de computação em cada uma dessas categorias. Vamos dar uma olhada em cada uma das categorias de computação em nuvem.
+![Comparação de Pilha de Computação em Nuvem](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: infraestrutura como serviço
 
-Um fornecedor de nuvem de IaaS executa e gerencia todos os recursos de computação física e o software necessário para habilitar a virtualização de computador. Um cliente desse serviço implanta máquinas virtuais nesses datacenters hospedados. Embora as máquinas virtuais estejam localizadas em um datacenter externo, o consumidor IaaS tem controle sobre a configuração e o gerenciamento delas.
+Um fornecedor de nuvem de IaaS executa e gerencia todos os recursos de computação física e o software necessário para habilitar a virtualização de computador. Um cliente desse serviço implanta máquinas virtuais nesses datacenters hospedados. Embora as máquinas virtuais estejam localizadas em um datacenter externo, o consumidor IaaS tem controle sobre a configuração e o gerenciamento do sistema operacional, deixando a infraestrutura subjacente para o fornecedor de nuvem.
 
 O Azure inclui várias soluções de IaaS, incluindo máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e a infraestrutura de rede relacionada. Máquinas virtuais são uma escolha popular para migrar inicialmente serviços para o Azure, porque ela permite um modelo de migração "lift-and-shift". Você pode configurar uma VM como a infraestrutura executando seus serviços atualmente em seu datacenter e, em seguida, migrar seu software para a nova VM. Talvez você precise fazer atualizações de configuração, tais como URLs para outros serviços ou armazenamento, mas você pode migrar vários aplicativos dessa maneira.
 
 Conjuntos de dimensionamento de máquinas virtuais são criados sobre Máquinas Virtuais do Azure e fornecem uma maneira fácil de implantar clusters de VMs idênticas. Conjuntos de dimensionamento de máquinas virtuais também dão suporte a dimensionamento automático para que novas VMs possam ser implantadas automaticamente quando necessário. Isso torna os conjuntos de dimensionamento de máquinas virtuais uma plataforma ideal para hospedar os clusters computação de microsserviços de nível mais alto, tais como o Azure Service Fabric e o Serviço de Contêiner do Azure.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como serviço
+
+Com PaaS, você implanta seu aplicativo em um ambiente oferecido pelo fornecedor do serviço de nuvem. O fornecedor faz todo o gerenciamento de infraestrutura, de modo que pode se concentrar no desenvolvimento de aplicativos e no gerenciamento de dados.
+
+O Azure fornece diversas ofertas de computação de PaaS, incluindo o recurso de Aplicativos Web do Serviço de Aplicativo do Azure e os Serviços de Nuvem do Azure (funções Web e de trabalho). Em ambos os casos, os desenvolvedores têm várias maneiras de implantar seu aplicativo sem saber nada sobre os elementos que dão suporte a ele. Os desenvolvedores não precisam criar VMs (máquinas virtuais), usar o protocolo RDP para entrar em cada uma delas ou instalar o aplicativo. Eles apenas acionam um botão (ou próximo a ele) e as ferramentas fornecidas pelo Microsoft provisionam VMs e, em seguida, implantarem e instalar o aplicativo neles.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: software como serviço
+
+SaaS é um software que é hospedado e gerenciado centralmente. É normalmente baseado em uma arquitetura multilocatário — uma única versão do aplicativo é usada para todos os clientes. Ele pode ser escalado horizontalmente para várias instâncias para garantir o melhor desempenho em todas as localizações. Software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual. Software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual. Fornecedores de software de SaaS são responsáveis por todos os componentes da pilha de software, portanto, tudo o que você gerencia são os serviços fornecidos.
+
+O Microsoft Office 365 é um bom exemplo de uma oferta de SaaS. Os assinantes pagam uma taxa de assinatura mensal ou anual e obtêm Microsoft Exchange, Microsoft OneDrive e o restante do pacote do Microsoft Office como um serviço. Os assinantes sempre obtêm a versão mais recente e o servidor Exchange é gerenciado para você. Em comparação instalar e atualizar o Office todo ano, isso é menos dispendioso e requer menos esforço.
+
+
+
 
 ## <a name="azure-services"></a>Serviços do Azure
 
@@ -175,6 +181,9 @@ A interface de linha de comando do Azure é uma ferramenta que você pode usar p
 
 **APIs REST** O Azure é desenvolvido em um conjunto de APIs REST que dão suporte à interface do usuário do Portal do Azure. A maioria dessas APIs REST também tem suporte para permitir que você gerencie e provisione programaticamente seus recursos e aplicativos do Azure por meio de qualquer dispositivo habilitado para Internet. Para obter mais informações, consulte a [Referência de SDK REST do Azure](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Os administradores podem acessar o Azure PowerShell e a CLI do Azure por meio de uma experiência acessível ao navegador chamada Azure Cloud Shell. Essa interface interativa fornece uma ferramenta flexível para os administradores do Linux e Windows usar sua interface de linha de comando de preferência, Bash ou PowerShell. O Azure Cloud Shell pode ser acessado por meio do portal, como uma interface web autônoma em [shell.azure.com](https://shell.azure.com) ou de um número de outros pontos de acesso. Para obter mais informações, consulte [Visão geral do Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Assinaturas do Azure
 
 Uma assinatura é um agrupamento de serviços do Azure que está vinculada a uma conta do Azure. Uma única conta do Azure pode conter várias assinaturas. A cobrança dos serviços do Azure é feita por assinatura. As assinaturas do Azure têm um administrador da conta (que tem controle total sobre a assinatura) e um administrador de serviços (que tem controle sobre todos os serviços na assinatura). Além dos administradores, é possível conceder controle detalhado de recursos do Azure por meio de RBAC a contas individuais.
@@ -355,6 +364,7 @@ Acessar uma máquina virtual da Internet requer que o adaptador de rede associad
 
 Você gerencia o acesso à máquina virtual pelo endereço IP público usando um recurso NSG (grupo de segurança de rede). Um NSG age como um firewall e permite ou nega o tráfego pelo adaptador de rede ou sub-rede em um conjunto de portas definidas. Por exemplo, para criar uma sessão de área de trabalho remota com uma VM do Azure, você precisa configurar o NSG para permitir o tráfego de entrada na porta 3389. Para obter mais informações, consulte [Abrir portas para uma VM no Azure usando o Portal do Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Por fim, assim como acontece com o gerenciamento de qualquer sistema de computador, você deve fornecer segurança para uma máquina virtual do Azure no sistema operacional usando as credenciais de segurança e firewalls de software.
 
 ## <a name="azure-storage"></a>Armazenamento do Azure
@@ -415,7 +425,7 @@ Há várias opções para a implantação de uma conta de armazenamento.
 
 **Portal**
 
-Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Implantar uma conta de armazenamento usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova conta de armazenamento em um grupo de recursos novo ou existente. Depois de criar a conta de armazenamento, você pode criar um compartilhamento de arquivo ou contêiner de blob usando o portal. Você pode criar as entidades de armazenamento de Tabela e de Filas programaticamente. Para obter mais informações, consulte [Criar uma conta de armazenamento](../../storage/common/storage-quickstart-create-account.md).
 
 Além de implantar uma conta de armazenamento do portal do Azure, você pode implantar um modelo do Azure Resource Manager por meio do portal. Isso implantará e configurará todos os recursos, conforme definido no modelo, incluindo quaisquer contas de armazenamento. Para obter mais informações, veja [Implantar recursos com modelos do Resource Manager e o portal do Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

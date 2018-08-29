@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495291"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616837"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Monitorar e alertar data factories usando o Azure Monitor
 Os aplicativos em nuvem são complexos com muitas partes móveis. O monitoramento fornece dados para garantir que seu aplicativo permaneça ativo e em execução em um estado íntegro. Ele também ajuda a afastar os problemas potenciais ou solucionar problemas antigos. Além disso, você pode usar os dados de monitoramento para obter mais informações sobre seu aplicativo. Esse conhecimento pode ajudá-lo a melhorar o desempenho ou a capacidade de manutenção do aplicativo ou automatizar ações que normalmente exigiriam intervenção manual.
@@ -398,6 +398,70 @@ O ADFV2 emite as seguintes métricas
 | TriggerFailedRuns    | Métricas de execuções do gatilho com falha     | Contagem    | Total                | Execuções totais do gatilho com falha em uma janela de um minuto      |
 
 Para acessar as métricas, siga as instruções no artigo- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitorar métricas do Data Factory com o Azure Monitor
+
+Use a integração do Azure Data Factory com o Azure Monitor para encaminhar dados ao Azure Monitor. Essa integração é útil nos seguintes cenários:
+
+1.  Você quer escrever consultas complexas em um conjunto avançado de métricas publicadas pelo Data Factory no Azure Monitor. Você também pode criar alertas personalizados nessas consultas por meio do Azure Monitor.
+
+2.  Você quer monitorar os data factories. Você pode encaminhar os dados de diversos data factories para um único espaço de trabalho do Azure Monitor.
+
+Para uma introdução de sete minutos e uma demonstração desse recurso, assista ao vídeo a seguir:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Definir as Configurações de Diagnóstico e de Espaço de Trabalho
+
+Habilite as configurações de diagnóstico para seu data factory.
+
+1.  Selecione **Azure Monitor** -> **Configurações de diagnóstico** -> Selecione o data factory -> Ativar diagnósticos.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Forneça as configurações de diagnóstico, incluindo a configuração do espaço de trabalho.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Instale o Azure Data Factory Analytics pelo Azure Marketplace
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Clique em **Criar** e selecione o Espaço de Trabalho e as configurações do Espaço de Trabalho.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Monitorar Métricas do Data Factory
+
+A instalação do **Azure Data Factory Analytics** cria um conjunto padrão de exibições que permite as seguintes métricas:
+
+- Execuções do ADF – 1) Execuções de pipeline por Data Factory
+
+- Execuções do ADF – 2) Execuções de atividade por Data Factory
+
+- Execuções do ADF – 3) Execuções de gatilho por Data Factory
+
+- Erros do ADF – 1) 10 principais erros de pipeline por Data Factory
+
+- Erros do ADF – 2) 10 principais execuções de atividade por Data Factory
+
+- Erros do ADF – 3) 10 principais erros de gatilho por Data Factory
+
+- Estatísticas do ADF – 1) Execuções de atividade por Tipo
+
+- Estatísticas do ADF – 2) Execuções de gatilho por Tipo
+
+- Estatísticas do ADF – 3) Duração máx. de execuções de pipeline
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Você pode visualizar as métricas acima, examinar as consultas por trás dessas métricas, editar as consultas, criar alertas e assim por diante.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertas
 

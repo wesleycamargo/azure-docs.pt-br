@@ -9,18 +9,18 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: ca4754514ba5012f7e9e28981d0869d174561fb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6eb559f8971583afe9619fb41fe331bd3013bb69
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363999"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41929970"
 ---
 # <a name="use-the-anomaly-finder-api-with-ruby"></a>Usar a API de Localização de Anomalias com Ruby
 
 Este artigo fornece informações e exemplos de código para ajudar você a começar a usar a API de Localização de Anomalias com Ruby para realizar tarefas de obtenção de resultado de detecção de anomalias em dados de série temporal.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
@@ -28,7 +28,9 @@ Este artigo fornece informações e exemplos de código para ajudar você a come
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
 ### <a name="example-of-time-series-data"></a>Exemplo de dados de série temporal
-A seguir está um exemplo de pontos de dados de série temporal, [!INCLUDE [Request](../includes/request.md)]
+A seguir está um exemplo de pontos de dados de série temporal,
+
+[!INCLUDE [Request](../includes/request.md)]
 
 ### <a name="analyze-data-and-get-anomaly-points-ruby-example"></a>Exemplo de análise de dados e de obtenção de pontos de anomalias em Ruby
 
@@ -74,7 +76,7 @@ puts response.body
 
 ### <a name="example-response"></a>Exemplo de resposta
 
-Uma resposta bem-sucedida é retornada em JSON. A seguir está a resposta de exemplo.
+Uma resposta com êxito é retornada em JSON. A seguir está a resposta de exemplo.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

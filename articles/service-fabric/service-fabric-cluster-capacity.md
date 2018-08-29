@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494201"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617211"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -82,7 +82,8 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 
 > [!WARNING]
 > Tipos de nó executados com durabilidade Bronze não têm _nenhum privilégio_. Isso significa que trabalhos de infraestrutura que afetam sus cargas de trabalho sem estado não serão interrompidas ou atrasadas, que podem afetar suas cargas de trabalho. Use somente Bronze para tipos de nós que executam somente cargas de trabalho sem estado. Para cargas de trabalho de produção, em execução Prata ou superior é recomendado. 
->
+
+> Independentemente de qualquer nível de durabilidade, a operação [Desalocação](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) no Conjunto de Dimensionamento de VM destruirá o cluster
 
 **Vantagens de usar os níveis de durabilidade Ouro ou Prata**
  
@@ -150,7 +151,7 @@ Aqui está a recomendação sobre como escolher o nível de confiabilidade.
 
 A seguir, as diretrizes de planejamento da capacidade do tipo de nó primário:
 
-- **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure:** você deve especificar um tamanho mínimo de tipo de Nó Primário de 5. 
+- **Número de instâncias de VM para executar qualquer carga de trabalho de produção no Azure:** você deve especificar um tamanho mínimo de tipo de Nó Primário de 5 e uma Camada de Confiabilidade de Prata.  
 - **Número de instâncias de VM para executar cargas de trabalho de teste no Azure** Você pode especificar um tamanho mínimo de tipo de nó primário de 1 ou 3. O cluster de um nó é executado com uma configuração especial e, portanto, não há suporte para expansão desse cluster. O cluster de um nó não tem confiabilidade e assim, em seu modelo do Resource Manager, você precisa remover ou não especificar essa configuração (não definir o valor de configuração não é suficiente). Se você configurar o cluster de um nó configurado por meio do Portal, em seguida, a configuração será feita automaticamente. Não há suporte para clusters de um e três nós para executar cargas de trabalho de produção. 
 - **SKU da VM:** o tipo de nó Primário é onde os serviços do sistema são executados e, portanto, a SKU de VM escolhida deve levar em consideração o pico de carga geral que você planeja colocar no cluster. Aqui está uma analogia para ilustrar o que quero dizer – pense no tipo de nó primário como seus "pulmões", ele fornece oxigênio para seu cérebro e, dessa forma, se o cérebro não obtiver oxigênio suficiente, seu corpo será prejudicado. 
 
@@ -166,8 +167,7 @@ Para cargas de trabalho de produção:
 - A SKU Standard A1 não tem suporte para cargas de trabalho de produção por motivos de desempenho.
 
 > [!WARNING]
-> No momento, não há suporte para a alteração do tamanho de SKU de VM do nó primário em um cluster em execução. Portanto, escolha o SKU de VM do tipo de nó primário com cuidado, levando em consideração suas necessidades futuras de capacidade. No momento, a única maneira com suporte para mover o tipo de nó primário para um novo SKU de VM (maior ou menor) é criar um novo cluster com a capacidade certa, implantar os aplicativos nele e, em seguida, restaurar o estado do aplicativo (se aplicável) por meio dos [últimos backups de serviço](service-fabric-reliable-services-backup-restore.md) feitos no cluster antigo. Você não precisa restaurar qualquer estado do serviço do sistema; ele é recriado quando você implanta aplicativos no novo cluster. Se você estiver apenas executando aplicativos sem monitoração de estado no cluster, basta implantar os aplicativos no novo cluster; não há nada para restaurar.
-> 
+> Alterar o tamanho da SKU de VM do nó primário em um cluster em execução é uma operação de dimensionamento e isso está documentado na documentação [Expansão do Conjunto de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-set-scale-node-type-scale-out.md).
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>O tipo de nó não primário - diretrizes de capacidade para cargas de trabalho com estado
 

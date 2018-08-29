@@ -8,18 +8,20 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 812ca3ba546112f54a76319fda853d441ce34f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303531"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140799"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Esquema de eventos da Grade de Eventos do Azure para Hub IoT
 
 Este artigo fornece as propriedades e o esquema para eventos do Hub IoT do Azure. Para obter uma introdução a esquemas de evento, consulte [esquema de grade de eventos do Azure](event-schema.md). 
+
+Para obter uma lista de tutoriais e scripts de exemplo, consulte [origem do evento do Hub IoT](event-sources.md#iot-hub).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 
@@ -85,7 +87,7 @@ O esquema para eventos DeviceCreated e DeviceDeleted têm a mesma estrutura. Est
 
 Todos os eventos conterão os mesmos dados de nível superior: 
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | ID | string | Identificador exclusivo do evento. |
 | topic | string | Caminho de recurso completo para a origem do evento. Esse campo não é gravável. Grade de Eventos fornece esse valor. |
@@ -98,7 +100,7 @@ Todos os eventos conterão os mesmos dados de nível superior:
 
 O conteúdo do objeto de dados é diferente para cada publicador do evento. Para eventos de Hub IoT, o objeto de dados contém as seguintes propriedades:
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
 | hubName | string | Nome do Hub IoT em que o dispositivo foi criado ou excluído. |
 | deviceId | string | O identificador exclusivo do dispositivo. Essa cadeia de caracteres que diferencia maiúsculas de minúsculas pode ter até 128 caracteres e suporta caracteres alfanuméricos ASCII de 7 bits, mais os caracteres especiais a seguir: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |

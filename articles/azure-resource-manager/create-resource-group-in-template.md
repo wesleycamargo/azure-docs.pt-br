@@ -9,20 +9,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 90d21ac817f6fd4730ff4a7e98500a80af10ac70
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 003f5d114a233738783d265a18ee7d2ccbfaba10
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623204"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617259"
 ---
 # <a name="create-resource-groups-in-azure-resource-manager-templates"></a>Criar grupos de recurso nos modelos do Azure Resource Manager
 
-Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso **Microsoft.Resources/resourceGroups** com um nome e local para o grupo de recursos. Implantar o modelo na assinatura do Microsoft Azure. Você também pode implantar recursos para esse grupo de recursos no mesmo modelo.
+Para criar um grupo de recursos em um modelo do Azure Resource Manager, defina um recurso **Microsoft.Resources/resourceGroups** com um nome e local para o grupo de recursos. Implantar o modelo na assinatura do Microsoft Azure. Para obter mais informações sobre implantações em nível de assinatura, consulte [Implantar recursos em uma assinatura do Azure](deploy-to-subscription.md).
 
-Este artigo usa a CLI do Azure para implantar os modelos. Atualmente, o PowerShell não dá suporte para implantar um modelo para uma assinatura.
+Você também pode implantar recursos para esse grupo de recursos no mesmo modelo.
+
+Este artigo usa a CLI do Azure e o PowerShell para implantar os modelos.
 
 ## <a name="create-empty-resource-group"></a>Criar grupo de recursos vazio
 
@@ -62,6 +64,17 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
   --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
 ```
 
 ## <a name="create-several-resource-groups"></a>Criar vários grupos de recursos
@@ -109,6 +122,18 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
   --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
 ```
 
 ## <a name="create-resource-group-and-deploy-resource"></a>Criar grupo de recursos e implantar recursos
@@ -190,7 +215,20 @@ az deployment create \
   --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
 ```
 
+Para implantar este modelo com o PowerShell, use:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
+
 ## <a name="next-steps"></a>Próximas etapas
+* Para saber mais sobre implantações em nível de assinatura, consulte [Implantar recursos em uma assinatura do Azure](deploy-to-subscription.md).
 * Para saber mais sobre a solução de problemas de dependência durante a implantação, confira [Solucionar erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos do Azure, consulte [Criando modelos](resource-group-authoring-templates.md). 
 * Para obter uma lista das funções disponíveis em um modelo, consulte [Funções de modelo](resource-group-template-functions.md).

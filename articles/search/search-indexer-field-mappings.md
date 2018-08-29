@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796839"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144135"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo em indexadores do Azure Search
 Ao usar indexadores de Azure Search, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
@@ -106,7 +106,7 @@ Você tem um indexador de blob que indexa os com os metadados de caminho de blob
     "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
-```
+ ```
 
 Se você não precisar procurar documentos por chaves, e também não precisar decodificar o conteúdo codificado, basta deixar `parameters` para a função de mapeamento, que assume `useHttpServerUtilityUrlTokenEncode` como padrão para `true`. Caso contrário, consulte a seção [Detalhes de base64](#base64details) para decidir quais configurações usar.
 
@@ -136,9 +136,9 @@ Se você não especificar qualquer `parameters`, o valor padrão de `useHttpServ
 ### <a name="details-of-base64-encoding-and-decoding"></a>Detalhes da codificação e decodificação base64
 O Azure Search oferece suporte a duas codificações base64: token de URL HttpServerUtility e codificação base 64 com URL segura sem preenchimento. Você precisa usar a mesma codificação que as funções de mapeamento se quiser codificar uma chave de documento para pesquisa, codificar um valor a ser decodificado pelo indexador ou decodificar um campo codificado pelo indexador.
 
-Se você usar o .NET Framework, poderá definir `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` como `true`, para codificação e decodificação respectivamente. Assim, `base64Encode` se comporta como [HttpServerUtility. Urltokenencode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e `base64Decode` se comporta como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Se os parâmetros `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` de codificação e decodificação forem respectivamente definidos como `true`, `base64Encode` se comportará como [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx), e `base64Decode`, como [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Se você não estiver usando o .NET Framework, defina `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` como `false`. Dependendo da biblioteca usada, as funções do utilitário de codificação e decodificação base64 podem ser diferentes do Azure Search.
+Se não estiver usando o .NET Framework completo (ou seja, estiver usando .NET Core ou em outro ambiente de programação) para produzir os valores de chave para emular o comportamento de pesquisa do Azure Search, você deverá definir `useHttpServerUtilityUrlTokenEncode` e `useHttpServerUtilityUrlTokenDecode` como `false`. Dependendo da biblioteca usada, as funções do utilitário de codificação e decodificação base64 podem ser diferentes do Azure Search.
 
 A tabela a seguir compara codificações diferentes de base64 da cadeia de caracteres `00>00?00`. Para determinar o processamento adicional necessário (se houver) para suas funções de base64, aplique sua função de codificação de biblioteca na cadeia de caracteres `00>00?00` e compare a saída com a saída esperada `MDA-MDA_MDA`.
 

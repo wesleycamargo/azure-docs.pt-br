@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629507"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142023"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implantar e gerenciar os Hubs de Notificação usando o PowerShell
 ## <a name="overview"></a>Visão geral
-Este artigo mostra como usar Criar e Gerenciar Hubs de Notificação de Azure usando o PowerShell. As tarefas de automação comuns a seguir são mostradas neste tópico.
+Este artigo mostra como usar Criar e Gerenciar Hubs de Notificação de Azure usando o PowerShell. As tarefas de automação comuns a seguir são mostradas neste artigo.
 
 * Criar um hub de notificação
 * Definir credenciais
@@ -89,10 +89,10 @@ Para provisionar um novo Hub de Notificação, use a [API do .NET para Hubs de N
 
 Nesta parte do script, você configura quatro variáveis locais. 
 
-1. `$Namespace` : defina isso para o nome do namespace em que você deseja criar um hub de notificação.
-2. `$Path` : defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".    
-3. `$WnsPackageSid`: defina isso para o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: defina isso para a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace`: defina isso para o nome do namespace em que você deseja criar um hub de notificação.
+2. `$Path`: defina esse caminho para o nome do novo hub de notificação.  Por exemplo, "MyHub".    
+3. `$WnsPackageSid`: defina isso para o SID do pacote para seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: defina isso para a chave secreta de seu Aplicativo do Windows no [Centro de Desenvolvimento do Windows](https://developer.microsoft.com/en-us/windows).
 
 Essas variáveis são usadas para se conectar ao seu namespace e criar um novo hub de notificação configurado para manipular as notificações do WNS (Windows Notification Services) com credenciais dos WNS para um aplicativo do Windows. Para obter informações sobre como obter o SID de pacote e a chave de segredo, consulte o tutorial [Introdução aos Hubs de Notificação](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) . 
 

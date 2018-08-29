@@ -3,7 +3,7 @@ title: Implementar a recuperação de desastre usando backup e restauração no 
 description: Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283080"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140809"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -39,8 +39,6 @@ Este guia mostra como autenticar solicitações do Azure Resource Manager e como
 
 > [!IMPORTANT]
 > A API REST para backup e restauração usa o Gerenciador de Recursos do Azure e tem um mecanismo de autenticação diferentes das APIs REST para gerenciar suas entidades de Gerenciamento de API. As etapas desta seção descrevem como autenticar solicitações do Gerenciador de Recursos do Azure. Para mais informações, consulte [Autenticação de solicitações do Gerenciador de Recursos do Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Todas as tarefas realizadas em recursos com o Azure Resource Manager precisam ser autenticadas com o Azure Active Directory usando as seguintes etapas:
 
@@ -209,15 +207,16 @@ Restaure uma operação longa de execução que pode levar até 30 minutos ou ma
 > Operações de backup e restauração também podem ser executadas com os comandos Powershell *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*, respectivamente.
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira os seguintes blogs da Microsoft para duas diferentes orientações passo a passo do processo de backup/restauração.
+
+Confira os seguintes recursos para diferentes orientações do processo de backup/restauração.
 
 * [Replicar contas de Gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+* [Automatizar backup e restauração do Gerenciamento de API com Aplicativos Lógicos](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 * [Gerenciamento de API do Azure: Fazendo backup e restaurando a configuração](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * A abordagem detalhada por Stuart não corresponde às diretrizes oficiais, mas é interessante.
+  *A abordagem detalhada por Stuart não corresponde com as diretrizes oficiais, mas é interessante.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

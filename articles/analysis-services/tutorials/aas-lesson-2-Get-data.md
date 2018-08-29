@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443759"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141417"
 ---
 # <a name="get-data"></a>Obter dados
 
@@ -26,7 +26,7 @@ Pelo uso do Obter Dados, você pode importar dados de uma ampla variedade de fon
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
-## <a name="prerequisites"></a>pré-requisitos  
+## <a name="prerequisites"></a>Pré-requisitos  
 Este tópico faz parte de um tutorial de modelagem tabular, que deve ser concluído na devida ordem. Antes de executar as tarefas nesta lição, você deve ter concluído a lição anterior: [Lição 1: criar um novo projeto de modelo tabular](../tutorials/aas-lesson-1-create-a-new-tabular-model-project.md).  
   
 ## <a name="create-a-connection"></a>Criar uma conexão  
@@ -52,11 +52,11 @@ Este tópico faz parte de um tutorial de modelagem tabular, que deve ser conclu�
   
 5.  No navegador, selecione o banco de dados **AdventureWorksDW2014** e, em seguida, clique em **OK**. Isso cria a conexão ao banco de dados. 
   
-6.  No navegador, marque a caixa de seleção para as tabelas a seguir: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales**.  
+6.  No navegador, marque a caixa de seleção para as tabelas a seguir: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** e **FactInternetSales** e clique em **Editar**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Depois que você clicar em OK, o Editor de Consultas será aberto. Na próxima seção, você selecionará somente os dados que deseja importar.
+    O Editor de Consulta é aberto. Na próxima seção, você selecionará somente os dados que deseja importar.
 
   
 ## <a name="filter-the-table-data"></a>Filtrar os dados da tabela  

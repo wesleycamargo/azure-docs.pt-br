@@ -1,6 +1,6 @@
 ---
-title: Chamada e resposta – Início Rápido do Ruby para os Serviços Cognitivos do Azure, API de Pesquisa de Imagem do Bing | Microsoft Docs
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Pesquisa de Imagem do Bing nos Serviços Cognitivos da Microsoft no Azure.
+title: 'Início Rápido: enviar consultas de pesquisa usando a API REST para a API de Pesquisa de Imagem do Bing e Ruby'
+description: Neste início rápido, você pode enviar consultas de pesquisa à API de Pesquisa do Bing para obter uma lista de imagens relevantes usando Ruby.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,32 +9,32 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 30fae3c589bdb232d57c25a0cba46b89f2c58d2f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bbe154f22557fb357edfb6b981eb1024f0a81d38
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364385"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929849"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-ruby"></a>Chamada e resposta: sua primeira consulta da Pesquisa de Imagem do Bing no Ruby
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>Início Rápido: enviar consultas de pesquisa usando a API REST e Ruby
 
 A API de Pesquisa de Imagem do Bing proporciona uma experiência semelhante a Bing.com/Images, permitindo que você envie uma consulta de pesquisa de usuário ao Bing e obtenha uma lista de imagens relevantes.
 
 Este artigo inclui um aplicativo de console simples que executa uma consulta da API de Pesquisa de Imagem do Bing e exibe os resultados brutos da pesquisa, que estão no formato JSON. Embora esse aplicativo seja escrito no Ruby, a API é um serviço Web RESTful compatível com qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Você precisará ter o [Ruby 2.4 ou posterior](https://www.ruby-lang.org/en/downloads/) para executar o código de exemplo.
 
-É necessário ter uma [conta da API dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com **APIs de Pesquisa do Bing**. A [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) é suficiente para esse início rápido. É necessário ter a chave de acesso fornecida ao ativar a avaliação gratuita ou você poderá usar uma chave de assinatura paga no painel do Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Executando o aplicativo
 
-Para executar o aplicativo, siga estas etapas.
+Para executar esse aplicativo, siga estas etapas.
 
 1. Crie um projeto Ruby em seu IDE ou editor favorito.
 2. Adicione o código fornecido.
-3. Substitua o valor `accessKey` por uma chave de acesso válida para a assinatura.
+3. Substitua o valor `accessKey` por uma chave de acesso válida para a sua assinatura.
 4. Execute o programa.
 
 ```ruby

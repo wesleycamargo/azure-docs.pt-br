@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590742"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246351"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Devo usar o ponto de extremidade da v2.0?
 
@@ -101,6 +101,7 @@ Atualmente, o suporte de biblioteca para o ponto de extremidade v2.0 é limitado
 * Se você estiver criando um aplicativo móvel ou de área de trabalho, poderá usar uma das MSAL (Bibliotecas de Autenticação da Microsoft) de versão prévia. Essas bibliotecas são uma versão prévia com suporte de produção; portanto, é seguro usá-las em aplicativos de produção. Leia mais sobre os termos da versão prévia e as bibliotecas disponíveis na [referência de bibliotecas de autenticação](reference-v2-libraries.md).
 * Para outras plataformas não abrangidas pelas bibliotecas da Microsoft, é possível fazer a integração com o ponto de extremidade v2.0 enviando e recebendo diretamente mensagens de protocolo no código do aplicativo. Os protocolos OAuth e OpenID Connect v2.0 [foram explicitamente documentados](active-directory-v2-protocols.md) para ajudar você a executar essa integração.
 * Por fim, você pode usar bibliotecas de software livre do Open ID Connect e do OAuth para fazer a integração com o ponto de extremidade v2.0. O protocolo v2.0 deve ser compatível com muitas bibliotecas de protocolo de software livre sem grandes alterações. A disponibilidade desses tipos de bibliotecas varia por idioma e plataforma. Os sites do [Open ID Connect](http://openid.net/connect/) e do [OAuth 2.0](http://oauth.net/2/) mantêm uma lista das implementações populares. Para saber mais, confira [Bibliotecas de autenticação e v2.0 do Azure Active Directory](reference-v2-libraries.md) e para obter a lista de bibliotecas de cliente de software livre e exemplos testados com o ponto de extremidade v2.0.
+  * Para referência, o ponto de extremidade `.well-known` para o ponto de extremidade comum v2.0 é `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Substitua `common` pela ID do locatário para obter dados específicos para o locatário.  
 
 ## <a name="restrictions-on-protocols"></a>Restrições quanto a protocolos
 
@@ -109,7 +110,6 @@ O ponto de extremidade v2.0 não dá suporte ao SAML ou Web Services Federation;
 No momento, os recursos e as funcionalidades de protocolo a seguir *não estão disponíveis* no ponto de extremidade v2.0:
 
 * No momento, a declaração `email` será retornada somente se uma declaração opcional estiver configurada e o escopo scope=email tiver sido especificado na solicitação. No entanto, esse comportamento será alterado conforme o ponto de extremidade v2.0 for atualizado para estar ainda mais em conformidade com os padrões Open ID Connect e OAuth 2.0.
-* O ponto de extremidade UserInfo do OpenID Connect não está implementado no ponto de extremidade v2.0. No entanto, todos os dados de perfil de usuário que você possivelmente receberia nesse ponto de extremidade estão disponíveis no ponto de extremidade `/me` do Microsoft Graph.
 * O ponto de extremidade v2.0 não dá suporte à emissão de declarações de função ou de grupo em tokens de ID.
 * Não há suporte para a [Concessão de Credenciais de Senha de Proprietário do Recurso do OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3) no ponto de extremidade v2.0.
 

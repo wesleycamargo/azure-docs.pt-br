@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d3b2f8860f5b8ddd2cc53d8805b7eace788e73a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230532"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144742"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para provisionamento automático de usuário
 
 
 O objetivo deste tutorial é mostrar as etapas que precisam ser realizadas no GitHub e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o GitHub. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
 
@@ -80,7 +80,7 @@ Esta seção explica como conectar o Azure AD à API de provisionamento de conta
 
     ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. No portal do Azure, insira a **URL de Locatário** e clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao aplicativo GitHub. Se a conexão falhar, verifique se sua conta do GitHub tem permissões de Administrador e se a **URI de Locatário** foi inserida corretamente. Em seguida, repita a etapa "Autorizar" (a **URL de Locatário** pode ser constituída pela regra: "https://api.github.com/scim/v2/organizations/ + <Organizations_name>". Encontre as organizações em sua conta do GitHub: **Configurações** > **Organizações**).
+7. No portal do Azure, insira a **URL de Locatário** e clique em **Testar Conectividade** para garantir que o Azure AD pode se conectar ao aplicativo GitHub. Se a conexão falhar, verifique se sua conta do GitHub tem permissões de Administrador e se a **URI de Locatário** foi inserida corretamente. Em seguida, repita a etapa "Autorizar" (a **URL de Locatário** pode ser constituída pela regra: `https://api.github.com/scim/v2/<Organizations_name>`. Encontre as organizações em sua conta do GitHub: **Configurações** > **Organizações**).
 
     ![Caixa de diálogo Autorização](./media/github-provisioning-tutorial/GitHub3.png)
 

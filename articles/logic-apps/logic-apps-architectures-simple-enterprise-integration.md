@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113585"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444503"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>Arquitetura de referência: integração empresarial simples
 
@@ -38,7 +38,7 @@ A arquitetura tem os seguintes componentes:
 - **Portal do Desenvolvedor de Gerenciamento de API do Azure**. Cada instância do gerenciamento de API do Azure vem com acesso para o [Portal do desenvolvedor](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). O portal do desenvolvedor do Gerenciamento de API fornece acesso a documentação e exemplos de códigos. Você pode testar as APIs no portal do desenvolvedor.
 - **Aplicativo Lógico do Azure**. Os [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) são uma plataforma sem servidor que é usada para compilar integração e fluxo de trabalho empresarial.
 - **Conectores**. Os [conectores](https://docs.microsoft.com/azure/connectors/apis-list) são usados pelos Aplicativos Lógicos para conectarem os serviços normalmente utilizados. Os Aplicativos Lógicos já possuem centenas de conectores diferentes, mas também podem ser criados usando um conector personalizado.
-- **Endereço IP**. O serviço de Gerenciamento de API do Azure tem um nome de domínio e um [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) público fixo. O nome de domínio é um subdomínio do azure-api.net, como contoso.azure-api.net. Aplicativos lógicos e o barramento de serviço também têm um endereço IP público. No entanto, nessa arquitetura restringimos o acesso para chamar pontos de extremidade de aplicativos lógicos apenas para o endereço IP do Gerenciamento de API (por segurança). As chamadas para o Barramento de Serviço são protegidas por uma assinatura de acesso compartilhado (SAS).
+- **Endereço IP**. O serviço de Gerenciamento de API do Azure tem um nome de domínio e um [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) público fixo. O nome de domínio padrão é um subdomínio de azure-api.net, como contoso.azure-api.net, mas [domínios personalizados](https://docs.microsoft.com/azure/api-management/configure-custom-domain) também podem ser configurados. Aplicativos lógicos e o barramento de serviço também têm um endereço IP público. No entanto, nessa arquitetura restringimos o acesso para chamar pontos de extremidade de aplicativos lógicos apenas para o endereço IP do Gerenciamento de API (por segurança). As chamadas para o Barramento de Serviço são protegidas por uma assinatura de acesso compartilhado (SAS).
 - **DNS do Azure**. [O DNS do Azure](https://docs.microsoft.com/azure/dns/) é um serviço de hospedagem para domínios DNS. O DNS do Azure fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Microsoft Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure. Para usar um nome de domínio personalizado como contoso.com, crie registros DNS que mapeiem o nome de domínio personalizado para o endereço IP. Para obter mais informações, consulte [Configurar um nome de domínio personalizado no Gerenciamento de API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Use o [Azure AD](https://docs.microsoft.com/azure/active-directory/) ou outro provedor de identidade para autenticação. O Azure Active Directory fornece autenticação para acessar os pontos de extremidade de API, passando um [JSON Web Token para o gerenciamento de API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) para validar. O Azure Active Directory pode proteger o acesso ao portal do desenvolvedor do gerenciamento de API (somente em camadas Standard e Premium).
 

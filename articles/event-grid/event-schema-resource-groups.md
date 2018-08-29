@@ -3,17 +3,16 @@ title: Esquema de evento grupo de recursos da Grade de Eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de grupos de recursos com a Grade de Eventos do Azure
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495315"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142021"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure
 
@@ -27,7 +26,9 @@ Quando você assina eventos para um grupo de recursos, seu ponto de extremidade 
 
 Para manipular programaticamente os eventos, você pode classificar eventos, observando o `operationName` valor. Por exemplo, o ponto de extremidade de evento apenas pode processar eventos para operações que são iguais a `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
-O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID. Para scripts de exemplo, consulte [Assinar e filtrar para o grupo de recursos - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [Assinar e filtrar para o grupo de recursos - CLI do Azure](scripts/event-grid-cli-resource-group-filter.md). Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID.  Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento do grupo de recursos](event-sources.md#resource-groups).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 

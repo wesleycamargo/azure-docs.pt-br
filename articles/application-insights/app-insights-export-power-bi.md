@@ -11,42 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2016
+ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294115"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246340"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](app-insights-overview.md).
 
-Há três métodos recomendados para exportar dados do Application Insights para o Power BI. Você pode usá-los separadamente ou em conjunto.
+Há três métodos de exportação de dados do Application Insights para Power BI:
 
-* [**Adaptador do Power BI**](#power-pi-adapter). Configure um painel completo de telemetria do seu aplicativo. O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
-* [**Exportar consultas do Analytics**](#export-analytics-queries). Grave qualquer consulta que você deseja e exporte-a para o Power BI. Você pode escrever sua consulta usando o Analytics ou gravá-las nos Funis de Uso. Você pode colocar essa consulta em um painel com outros dados.
-* [**A exportação contínua e o Azure Stream Analytics**](app-insights-export-stream-analytics.md). Esse método será útil se você quiser manter os dados por longos períodos. Caso contrário, use um dos outros métodos porque esse envolve mais trabalho para configurar.
+* [**Exportar consultas do Analytics**](#export-analytics-queries). Este é o método preferencial. Grave qualquer consulta que você deseja e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
+* [**A exportação contínua e o Azure Stream Analytics**](app-insights-export-stream-analytics.md). Este método será útil, se você quiser armazenar os dados por longos períodos de tempo. Se você não tiver um requisito de retenção de dados estendido, use o método de consulta de análise de exportação. A exportação contínua e o Stream Analytics envolvem mais trabalho para configurar e sobrecarga adicional de armazenamento.
+* [**Adaptador do Power BI**](#power-pi-adapter). O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
 
-## <a name="power-bi-adapter"></a>Adaptador do Power BI
-Esse método cria um painel completo de telemetria para você. O conjunto de dados inicial é predefinido, mas você pode adicionar mais dados a ele.
-
-### <a name="get-the-adapter"></a>Obter o adaptador
-1. Entre no [Power BI](https://app.powerbi.com/).
-2. Abra **Obter Dados**, **Serviços** e então **Application Insights**.
-   
-    ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Forneça os detalhes do seu recurso Application Insights.
-   
-    ![Captura de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. Aguarde um minuto ou dois para que os dados sejam importados.
-   
-    ![Captura de tela de adaptador do Power BI](./media/app-insights-export-power-bi/010.png)
-
-Você pode editar o painel, combinando os gráficos do Application Insights a outros de outras fontes e a consultas do Analytics. Você pode obter mais gráficos na galeria de visualização e cada um deles possui parâmetros que podem ser definidos.
-
-Após a importação inicial, o painel e os relatórios continuarão a ser atualizados diariamente. Você pode controlar o agendamento de atualização no conjunto de dados.
+> [!NOTE]
+> O adaptador do Power BI agora está **preterido**. Os gráficos predefinidos para essa solução são preenchidos por consultas não editáveis estáticas. Não é possível editar essas consultas e, dependendo de determinadas propriedades dos dados, é possível que a conexão com o Power BI seja executada com êxito, mas nenhum dado preenchido. Isso ocorre devido aos critérios de exclusão definidos na consulta codificada. Embora essa solução ainda funcione para alguns clientes, devido à falta de flexibilidade do adaptador, a solução recomendada é usar a funcionalidade [**exportar consulta do Analytics**](#export-analytics-queries).
 
 ## <a name="export-analytics-queries"></a>Exportar consultas do Analytics
 Essa rota permite que você grave qualquer consulta do Analytics desejada ou que a exporte do Funil de Uso, e então fazer a exportação para um painel Power BI. (Você pode adicionar ao painel criado pelo adaptador).
@@ -75,7 +59,7 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     Se você precisar verificar as credenciais, use o comando de menu **Configurações de Fonte de Dados** no editor de consultas. Especifique as credenciais usadas para o Azure, que podem ser diferentes das suas credenciais para o Power BI.
 2. Escolha uma visualização para a sua consulta e selecione os campos dos eixos x, y e a dimensão de segmentação.
    
-    ![Captura de tela de opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
+    ![Captura de tela das opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
 3. Publique seu relatório em seu espaço de trabalho de nuvem do Power BI. A partir daí, você pode inserir uma versão sincronizada em outras páginas da Web.
    
     ![Captura de tela do Power BI Desktop, com o botão Publicar realçado](./media/app-insights-export-power-bi/publish-power-bi.png)
@@ -83,10 +67,10 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-a-funnel"></a>Exportar um Funil
 1. [Crie o seu funil](usage-funnels.md).
-2. Selecione **Power BI**. 
+2. Selecione **Power BI**.
 
    ![Captura de tela do botão do Power BI](./media/app-insights-export-power-bi/button.png)
-   
+
 3. No Power BI Desktop, selecione **Obter Dados** > **Consulta em Branco**. Em seguida, no editor de consultas, em **Exibir**, selecione **Editor Avançado**.
 
    ![Captura de tela do Power BI Desktop, com o botão Consulta em Branco realçado](./media/app-insights-export-power-bi/blankquery.png)
@@ -97,7 +81,7 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 4. Selecione os itens da consulta e escolha a visualização de Funil.
 
-   ![Captura de tela de opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/selectsequence.png)
+   ![Captura de tela das opções de visualização do Power BI Desktop](./media/app-insights-export-power-bi/selectsequence.png)
 
 5. Altere o título para torná-lo significativo e publique seu relatório no seu espaço de trabalho de nuvem do Power BI. 
 
@@ -139,6 +123,35 @@ Se reduzir o conjunto de dados da consulta de análise não atender às suas nec
 ## <a name="about-sampling"></a>Sobre amostragem
 Se seu aplicativo envia muitos dados, convém usar o recurso de amostragem adaptável, que envia apenas uma porcentagem da sua telemetria. Isso também será verdadeiro se você tiver definido manualmente a amostragem no SDK ou na ingestão. [Saiba mais sobre a amostragem](app-insights-sampling.md).
 
+## <a name="power-bi-adapter-deprecated"></a>Adaptador Power BI (preterido)
+Esse método cria um painel completo de telemetria para você. O conjunto de dados inicial é predefinido, mas você pode adicionar mais dados a ele.
+
+### <a name="get-the-adapter"></a>Obter o adaptador
+1. Entre no [Power BI](https://app.powerbi.com/).
+2. Abra **Obter Dados** ![Captura de tela do ícone GetData no canto inferior esquerdo](./media/app-insights-export-power-bi/001.png), **Serviços**.
+
+    ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/002.png)
+
+3. Selecione **Obter agora** no Application Insights.
+
+   ![Capturas de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/003.png)
+4. Forneça os detalhes do recurso do Application Insights e, em seguida, **Entrar**.
+
+    ![Captura de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/005.png)
+
+     Essas informações podem ser encontradas no painel de Visão Geral do Application Insights:
+
+     ![Captura de tela de Obter da fonte de dados do Application Insights](./media/app-insights-export-power-bi/004.png)
+
+5. Abra o Aplicativo do Power BI do Application Insights criado recentemente.
+
+6. Aguarde um minuto ou dois para que os dados sejam importados.
+
+    ![Captura de tela de adaptador do Power BI](./media/app-insights-export-power-bi/010.png)
+
+Você pode editar o painel, combinando os gráficos do Application Insights a outros de outras fontes e a consultas do Analytics. Você pode obter mais gráficos na galeria de visualização e cada um deles possui parâmetros que podem ser definidos.
+
+Após a importação inicial, o painel e os relatórios continuarão a ser atualizados diariamente. Você pode controlar o agendamento de atualização no conjunto de dados.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](http://www.powerbi.com/learning/)

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627705"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141664"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -53,6 +53,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 | Gateways do Aplicativo |[Log de diagnóstico do Gateway de Aplicativo](../application-gateway/application-gateway-diagnostics.md) |
 | Automação do Azure |[Análise de log para automação do Azure](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Lote do Azure |[Logs de diagnóstico do Lote do Azure](../batch/batch-diagnostics.md) |
+| Serviços Cognitivos | Esquema não disponível. |
 | Rede de Distribuição de Conteúdo | [Logs de diagnóstico do Azure para CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro em log do Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Factory | [Monitorar data factories usando o Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
@@ -61,13 +62,14 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 | Banco de dados para PostgreSQL |  Esquema não disponível. |
 | Hubs de Eventos |[Logs de diagnóstico dos Hubs de Eventos do Azure](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Esquema não disponível. |
+| Firewall do Azure | Esquema não disponível. |
 | Hub IoT | [Operações do Hub IoT](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Logs do Cofre da Chave do Azure](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Aplicativos Lógicos |[Esquema de controle personalizado dos Aplicativos Lógicos B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de segurança de rede |[Análise de logs para NSGs (grupos de segurança de rede)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | [Gerenciar Proteção contra DDoS do Azure Standard](../virtual-network/manage-ddos-protection.md) |
-| PowerBI Dedicated | Esquema não disponível. |
+| PowerBI Dedicated | [Log de diagnósticos para o Power BI Inserido no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para os Backup do Azure](../backup/backup-azure-reports-data-model.md)|
 | Search |[Habilitação e uso da análise de tráfego de pesquisa](../search/search-traffic-analytics.md) |
 | Barramento de Serviço |[Logs de diagnóstico do Barramento de Serviço do Azure](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +90,12 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
+|Microsoft.ClassicNetwork/networksecuritygroups|Evento de fluxo de regra de grupo de segurança de rede|Evento de fluxo de regra de grupo de segurança de rede|
+|Microsoft.CognitiveServices/accounts|Audit|Audit|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Servidor de API do Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Gerenciador do Controlador do Kubernetes|
+|Microsoft.ContainerService/managedClusters|kube-scheduler|Agendador do Kubernetes|
+|Microsoft.ContainerService/managedClusters|guard|Webhook de Autenticação|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Registro de execuções de atividade de pipeline|
 |Microsoft.DataFactory/factories|PipelineRuns|Registro de execuções de pipeline|
@@ -97,7 +105,6 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeStore/accounts|Requests|Logs de solicitação|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Logs do PostgreSQL Server|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|Eventos de backup do PostgreSQL|
 |Microsoft.Devices/IotHubs|conexões|conexões|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria de Dispositivo|
 |Microsoft.Devices/IotHubs|C2DCommands|Comandos C2C|
@@ -110,6 +117,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Devices/IotHubs|JobsOperations|Operações de Trabalhos|
 |Microsoft.Devices/IotHubs|DirectMethods|Métodos diretos|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnóstico E2E (versão prévia)|
+|Microsoft.Devices/IotHubs|Configurações|Configurações|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operações do Dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operações de serviço|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -130,13 +138,17 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registro de Diagnóstico de Gateway|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registro de Diagnóstico de Túnel|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registro de Diagnóstico de Rota|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|Logs de Diagnóstico IKE|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Logs de Diagnóstico P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de Resultados de Integridade de Investigação do Gerenciador de Tráfego|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela de contadores GWM|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Logs de Tabela de Rota de Emparelhamento|
 |Microsoft.PowerBIDedicated/capacities|Motor|Motor|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|
@@ -148,15 +160,19 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Rotatividade de Dados de Disco Protegido do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
+|Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de Espera do Banco de Dados|
 |Microsoft.Sql/servers/databases|Tempos limite|Tempos limite|
 |Microsoft.Sql/servers/databases|Bloqueios|Bloqueios|
-|Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
+|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Audit|Logs de Auditoria|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|Solicitações do SQL DW|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|Etapas de solicitação do SQL DW|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
 |Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
 

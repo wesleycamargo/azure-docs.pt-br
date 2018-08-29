@@ -3,27 +3,30 @@ title: Definição de interface para habilidades personalizadas em um pipeline d
 description: Interface de extração de dados personalizados para habilidades personalizadas da API da Web no pipeline de pesquisa cognitiva no Azure Search.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 8f21a56982189aa13745f27f0fae49310ae55aa0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640312"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142020"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva
 
-Neste artigo, você aprenderá a adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva. Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado nas [habilidades predefinidas](cognitive-search-predefined-skills.md) e qualificações personalizadas que você criar e adicionar ao pipeline.
+Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado nas [habilidades predefinidas](cognitive-search-predefined-skills.md) e também nas qualificações personalizadas que você criar e adicionar ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface, permitindo que ela seja incluída em um pipeline de pesquisa cognitiva. 
 
 Criar uma habilidade personalizada oferece a você uma maneira de adicionar transformações únicas ao seu conteúdo. Uma habilidade personalizada será executada de forma independente, aplicando qualquer etapa de enriquecimento que você precisar. Por exemplo, você poderá definir entidades personalizadas específicas por campo, compilar modelos de classificação personalizada para diferenciar contratos e documentos financeiros e corporativos, ou adicionar uma habilidade de reconhecimento de fala para ir ainda mais longe com arquios de áudio para conteúdos relevantes. Para obter um exemplo passo a passo, consulte [Exemplo: criando uma habilidade personalizada](cognitive-search-create-custom-skill-example.md).
 
  Para qualquer recurso personalizado que você precisar, haverá uma interface simples e clara para conectar uma habilidade personalizada ao resto do pipeline de enriquecimento. O único requisito para a inclusão em um [conjunto de qualificações](cognitive-search-defining-skillset.md) é a capacidade de aceitar entradas e saídas de maneiras que possam ser utilizadas no conjunto de qualificações como um todo. O foco deste artigo é sobre os formatos de entrada e saída exigidos pelo pipeline de enriquecimento.
 
 ## <a name="web-api-custom-skill-interface"></a>Interface de habilidades personalizadas da API da Web
+
+Os pontos de extremidade de habilidades de WebAPI personalizados devem retornar uma resposta dentro de um intervalo de 5 minutos. O pipeline de indexação é síncrono, e a indexação produzirá um erro de tempo limite se a resposta não for recebida nesse intervalo.
 
 Atualmente, o único mecanismo para interagir com uma habilidade personalizada é por meio de uma interface da API da Web. A API da Web precisa atender aos requisitos descritos nesta seção.
 

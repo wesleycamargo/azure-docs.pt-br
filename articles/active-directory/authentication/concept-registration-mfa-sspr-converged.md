@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492885"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142232"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Registro convergente para redefinição de senha de autoatendimento e Autenticação de vários fatores do Azure (visualização pública)
 
@@ -55,6 +55,9 @@ Os usuários que são solicitados a registrar-se ao fazer login verão a seguint
 > Essa experiência só será mostrada quando um usuário for solicitado a se registrar enquanto estiver fazendo login. Os usuários que acessarem diretamente a nova experiência em aka.ms/setupsecurityinfo verão uma versão diferente da experiência, descrita posteriormente neste artigo.
 
 Os métodos de autenticação mostrados serão alterados com base nos métodos ativados nas políticas do MFA ou do SSPR. O usuário será solicitado a registrar o número mínimo de métodos de autenticação necessários para estar em conformidade com a política de MFA, a política de SSPR ou ambos. Se houver flexibilidade em quais métodos de autenticação o usuário pode registrar, eles poderão selecionar **Escolher informações de segurança** para escolher outros métodos de autenticação.  
+
+> [!NOTE]
+> Se você habilitar o uso de notificação de aplicativo móvel e código de aplicativo móvel, os usuários que registram o aplicativo Microsoft Authenticator usando uma notificação poderão usar a notificação e o código para verificar sua identidade.
 
 Ao contrário da experiência anterior de registro do MFA, os usuários não serão solicitados a registrar uma senha do aplicativo quando passarem pela nova experiência de registro. Em vez disso, eles devem seguir as etapas listadas em nosso tutorial de senhas de aplicativos para registrar senhas de aplicativos na nova experiência.  
 

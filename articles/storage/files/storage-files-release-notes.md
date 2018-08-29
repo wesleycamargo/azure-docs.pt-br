@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/21/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525130"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445015"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notas de versão para o agente de Sincronização de Arquivos do Azure
 A Sincronização de Arquivos do Azure permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. As instalações do Windows Server são transformadas em um cache rápido do seu compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS). Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,7 +25,8 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 | Marco | Número de versão do agente | Data do lançamento | Status |
 |----|----------------------|--------------|------------------|
-| Disponibilidade Geral | 3.1 | 19 de julho de 2018 | Com suporte (versão recomendada) |
+| Rollup de atualização de agosto | 3.2.0.0 | 15 de agosto de 2018 | Com suporte (versão recomendada) |
+| Disponibilidade Geral | 3.1.0.0 | 19 de julho de 2018 | Com suporte |
 | Rollup de atualização de junho | 3.0.13.0 | 29 de junho de 2018 | A versão do agente expira em 4 de setembro de 2018 |
 | Atualizar 2 | 3.0.12.0 | 22 de maio de 2018 | A versão do agente expira em 4 de setembro de 2018 |
 | Pacote cumulativo de atualizações de abril | 2.3.0.0 | 8 de maio de 2018 | A versão do agente expira em 4 de setembro de 2018 |
@@ -39,6 +40,12 @@ As seguintes versões têm suporte pela Sincronização de arquivos do Azure:
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3200"></a>Versão do agente 3.2.0.0
+As notas de versão a seguir são para a versão 3.2.0.0 do agente de Sincronização de Arquivos do Azure lançada em 15 de agosto de 2018. Estas notas complementam as notas de versão listadas para a versão 3.1.0.0.
+
+Essa versão inclui as seguintes correções:
+- Falha na sincronização com erro de memória insuficiente (0x8007000e) devido à perda de memória
 
 ## <a name="agent-version-3100"></a>Versão do agente 3.1.0.0
 As notas de versão a seguir são para a versão 3.1.0.0 do agente de Sincronização de Arquivos do Azure (lançada em 19 de julho de 2018).
@@ -84,6 +91,7 @@ Os seguintes itens não são sincronizados, mas o restante do sistema continua a
 
 ### <a name="cloud-endpoint"></a>Ponto de extremidade da nuvem
 - A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de arquivos do Azure. No entanto, as alterações feitas no compartilhamento de arquivos do Azure precisam primeiro ser descobertas por um trabalho de detecção de alteração da Sincronização de Arquivos do Azure. Um trabalho de detecção de alterações é iniciado para um ponto de extremidade da nuvem uma vez a cada 24 horas. Além disso, as alterações feitas em um compartilhamento de arquivos do Azure através do protocolo REST não atualizarão a hora da última modificação do SMB e não serão vistas como uma alteração de sincronização.
+- O serviço de sincronização de armazenamento e/ou a conta de armazenamento podem ser movidos para um grupo de recursos ou assinatura diferente. Se a conta de armazenamento for movida, você precisará conceder o acesso do Serviço de Sincronização de Arquivos Híbrido para a conta de armazenamento (consulte [Certifique-se de que a Sincronização de Arquivos do Azure tenha acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
 ### <a name="cloud-tiering"></a>Disposição em camadas de nuvem
 - Se um arquivo em camadas é copiado em outro local usando o Robocopy, o arquivo resultante não fica em camadas. O atributo offline pode ser definido porque o Robocopy inclui esse atributo nas operações de cópia incorretamente.

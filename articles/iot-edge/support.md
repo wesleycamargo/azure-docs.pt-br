@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130702"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143957"
 ---
 # <a name="azure-iot-edge-support"></a>Suporte do Azure IoT Edge
 Há várias maneiras de buscar suporte para o produto Azure IoT Edge.
@@ -32,32 +32,33 @@ Sistemas de camada 1 podem ser considerados como oficialmente com suporte. Isso 
 * tem esses sistemas operacionais em testes automatizados
 * fornece pacotes de instalação aos sistemas
 
-Disponível
-* Ubuntu Server 18.04
-* Ubuntu Server 16.04
-* Raspbian-stretch
+Disponível para o público geral
+| Sistema operacional | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu Server 18.04 | SIM | Não  |
+| Ubuntu Server 16.04 | SIM | Não  |
+| Raspbian-stretch | Não  | SIM|
 
 Visualização pública
-* Windows 10 Server 1803
-* Windows 10 IoT Enterprise (com atualização de abril de 2018)
-* Windows 10 IoT Core (com atualização de abril de 2018)
+| Sistema operacional | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Windows 10 Server 1803 | SIM | Não  |
+| Windows 10 IoT Enterprise (atualização de abril de 2018) | SIM | Não  |
+| Windows 10 IoT Core (atualização de abril de 2018) | SIM | Não  |
 
 ### <a name="tier-2"></a>Camada 2
 Os sistemas da Camada 2 podem ser considerados compatíveis com o Azure IoT Edge e podem ser utilizados com relativa facilidade. Isso significa que:
 * A Microsoft fez testes ad-hoc nas plataformas ou conhece um parceiro executando o Azure IoT Edge com êxito na plataforma
 * Pacotes de instalação para outras plataformas podem funcionar nessas plataformas
 
-Ubuntu 18.04
-
-Ubuntu 16.04
-
-Wind River 8
-
-Yocto
-
-Debian
-
-Mac
+| Sistema operacional | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu 18.04 | SIM | Não  |
+| Ubuntu 16.04 | SIM | Não  |
+| Wind River 8 | SIM | Não  |
+| Yocto | SIM | Não  |
+| Debian | SIM | Não  |
+| Mac | SIM | Não  |
 
 ## <a name="container-engines"></a>Mecanismos de contêiner
 O Azure IoT Edge precisa de um mecanismo de contêiner para iniciar módulos, independentemente do sistema operacional no qual está em execução. A Microsoft fornece um mecanismo de contêiner, moby-engine, para atender a esse requisito. Ele é baseado no projeto de software livre Moby. Docker CE e Docker EE são outros mecanismos de contêineres populares. Também são baseados no projeto de software livre Moby e compatíveis com Azure IoT Edge. A Microsoft fornece o melhor suporte ao esforço para sistemas que usam esses mecanismos de contêiner, no entanto, a Microsoft não tem capacidade de enviar correções para problemas inerentes a esses mecanismos. Por esse motivo, a Microsoft recomenda o uso de mecanismos móveis em sistemas de produção.

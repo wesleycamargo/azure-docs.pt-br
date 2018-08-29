@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144560"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441687"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtenha visibilidade de todo o locatário para o Centro de Segurança do Azure
 Este artigo ajuda você a começar fazendo várias ações que maximizam os benefícios que o Centro de Segurança do Azure oferece. A execução dessas ações permite que você obtenha visibilidade de todas as assinaturas do Azure vinculadas ao locatário do Azure Active Directory e gerencie com eficiência a postura de segurança da organização em escala, aplicando políticas de segurança em várias assinaturas de maneira agregada.
@@ -85,21 +85,26 @@ Um administrador de locatário do Azure Active Directory não tem acesso direto 
 
 5. Execute as tarefas que você precisa fazer com o acesso elevado. Ao terminar, retorne a opção para **Não**.
 
-### <a name="open-or-refresh-security-center"></a>Abra ou atualize o Centro de Segurança
-Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
-
-1. Entre no [Portal do Azure](https://portal.azure.com). 
-2. Certifique-se de selecionar todas as assinaturas no seletor de assinatura que você gostaria de exibir na Central de Segurança.
-    ![Captura de tela do seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)
-1. Selecione **Todos serviços** sob o menu principal do Azure e então selecione **Centro de Segurança**.
-2. Na **Visão geral**, há um gráfico de cobertura de assinatura. 
-    ![Screenshot tabela de cobertura de assinatura](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. Clique em **Cobertura** para ver a lista de assinaturas cobertas. 
-    ![Screenshot lista de cobertura de assinatura](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>Designe funções RBAC aos usuários
-Depois que um administrador de locatário tiver acesso elevado, ele poderá atribuir uma função de RBAC a usuários relevantes no nível do grupo de gerenciamento raiz. A função recomendada para designar é [**Leitor**](../role-based-access-control/built-in-roles.md#reader). A função é requerida para fornecer visibilidade nível de locatário. A função atribuída será automaticamente propagada para todos os grupos de gerenciamento e assinaturas no grupo de gerenciamento raiz. Para mais informações sobre funções RBAC, consulte [funções disponíveis](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
+Para obter visibilidade de todas as assinaturas, os administradores de locatários precisam atribuir a função RBAC apropriada a todos os usuários que querem conceder visibilidade ampla aos locatários, incluindo eles próprios, no nível de grupo de gerenciamento raiz. As funções recomendadas para atribuir são **Admin de Segurança** ou **Leitor de Segurança**. Geralmente, a função Admin de Segurança é necessária para aplicar políticas no nível raiz, enquanto Leitor de Segurança será suficiente para fornecer visibilidade no nível dos locatários. Para obter mais informações sobre as permissões concedidas por essas funções, consulte a [descrição da função interna Admin de Segurança](../role-based-access-control/built-in-roles.md#security-admin) ou a [descrição da função interna Leitor de Segurança](../role-based-access-control/built-in-roles.md#security-reader).
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Atribua funções RBAC aos usuários por meio do portal do Azure: 
+
+1. Entre no [Portal do Azure](https://portal.azure.com). 
+2. Para exibir grupos de gerenciamento, selecione **Todos os serviços** no menu principal do Azure e, em seguida, selecione **Grupos de Gerenciamento**.
+3.  Selecione um grupo de gerenciamento e clique em **detalhes**.
+
+    ![Captura de tela dos detalhes dos Grupos de Gerenciamento](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. Clique em **IAM (Controle de Acesso)** e, em seguida, em **Adicionar**.
+5. Selecione a função a ser atribuída e o usuário e, em seguida, clique em **Salvar**.  
+   
+   ![Captura de tela da função Adicionar Leitor de Segurança](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Atribuir funções RBAC a usuários com PowerShell: 
 1. Instale o [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Execute os seguintes comandos: 
 
@@ -128,19 +133,17 @@ Depois que um administrador de locatário tiver acesso elevado, ele poderá atri
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>Abra ou atualize o Centro de Segurança
+Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. Entre no [Portal do Azure](https://portal.azure.com). 
+2. Certifique-se de selecionar todas as assinaturas no seletor de assinatura que você gostaria de exibir na Central de Segurança.
+    ![Captura de tela do seletor de assinatura](./media/security-center-management-groups/subscription-selector.png)
+1. Selecione **Todos serviços** sob o menu principal do Azure e então selecione **Centro de Segurança**.
+2. Na **Visão geral**, há um gráfico de cobertura de assinatura. 
+    ![Screenshot tabela de cobertura de assinatura](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Clique em **Cobertura** para ver a lista de assinaturas cobertas. 
+    ![Screenshot lista de cobertura de assinatura](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Remover acesso elevado 
 Uma vez que as funções RBAC tenham sido designadas aos usuários, o administrador locatário deve se remover da função de administrador de acesso de usuário.

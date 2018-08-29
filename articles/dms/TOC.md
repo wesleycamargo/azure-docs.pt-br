@@ -7,8 +7,8 @@
 # Tutoriais
 ## [Migrar SQL Server para Azure SQL DB offline](tutorial-sql-server-to-azure-sql.md)
 ## [Migrar SQL Server para Azure SQL DB online](tutorial-sql-server-azure-sql-online.md)
-## [Migrar SQL Server para a instância gerenciada do banco de dados do Azure SQL](tutorial-sql-server-to-managed-instance.md)
-## [Migrar MySQL para banco de dados do Azure para MySQL](tutorial-mysql-azure-mysql-online.md)
+## [Migrar SQL Server para Instância Gerenciada do Azure SQL DB offline](tutorial-sql-server-to-managed-instance.md)
+## [Migrar MySQL para Azure DB do MySQL online](tutorial-mysql-azure-mysql-online.md)
 
 # Guias de instruções
 ## [Usar o PowerShell para migrar o SQL Server para o Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)

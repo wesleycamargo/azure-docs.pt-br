@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 1b0406641053fac8a4b3f4721728ad3b6c313ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 305139e45ee93614eab17c5798cb1105e3e8f8cb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363375"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929929"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API de Verificação Ortográfica
 
@@ -25,42 +25,42 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade é alterado de v5 para v7. Por exemplo, https://api.cognitive.microsoft.com/bing/\*\*v7.0 **/corretor ortográfico.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
 - Todas as solicitações com falha agora devem incluir um objeto `ErrorResponse` no corpo da resposta.
 
-- Adicionados os seguintes campos ao objeto `Error`.  
-  - `subCode`&mdash;Particiona o código de erro em segmentos discretos, se possível
+- Os campos a seguir foram adicionados ao objeto `Error`.  
+  - `subCode`&mdash;Particiona o código de erro em buckets discretos, se possível
   - `moreDetails`&mdash;Informações adicionais sobre o erro descrito no campo `message`
    
 
-- Substituídos os códigos de erro v5 com os seguintes valores `code` e `subCode` possíveis.  
+- Os códigos de erro da v5 foram substituídos pelos possíveis valores `code` e `subCode` a seguir.  
   
 |Código|Subcódigo|DESCRIÇÃO
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing retorna ServerError sempre que ocorrer qualquer uma das condições de subcódigo. A resposta inclui esses erros se o código de status HTTP for 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|Bing retorna InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP é 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP é 410.
-|RateLimitExceeded||Bing retorna RateLimitExceeded sempre que excederem sua consultas por segundo (QPS) ou a cota de consultas por mês (QPM).<br/><br/>Bing retorna o código de status HTTP 429 se QPS foi excedido e 403 se QPM foi excedido.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retorna InvalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>Ocorre redundância se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP é 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP é 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O Bing retornará ServerError sempre que ocorrer qualquer uma das condições do subcódigo. A resposta incluirá esses erros se o código de status HTTP for 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP será 410.
+|RateLimitExceeded||O Bing retornará RateLimitExceeded sempre que você exceder a cota de consultas por segundo (QPS) ou consultas por mês (QPM).<br/><br/>O Bing retornará código de status HTTP 429 se QPS exceder, e 403 se QPM exceder.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
-- O seguinte mapeia os códigos de erro anteriores para os novos códigos. Se você tiver obtido uma dependência em códigos de erro v5, atualize seu código adequadamente.  
+- Os códigos a seguir mapeiam os códigos de erro anteriores para os novos códigos. Se você obteve uma dependência nos códigos de erro da v5, atualize o código adequadamente.  
   
-|Código da versão 5|Versão 7 code.subCode
+|Código da versão 5|Code.subCode da versão 7
 |-|-
-|RequestParameterMissing|RequestParameterMissing
-RequestParameterInvalidValue|RequestParameterInvalidValue
+|RequestParameterMissing|InvalidRequest.ParameterMissing
+RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue
 ResourceAccessDenied|InsufficientAuthorization
 ExceededVolume|RateLimitExceeded
 ExceededQpsLimit|RateLimitExceeded
 Desabilitado|InsufficientAuthorization.AuthorizationDisabled
 UnexpectedError|ServerError.UnexpectedError
-DataSourceErrors|ServerError.UnexpectedError
+DataSourceErrors|ServerError.ResourceError
 AuthorizationMissing|InvalidAuthorization.AuthorizationMissing
 HttpNotAllowed|InvalidRequest.HttpNotAllowed
-UserAgentMissing|RequestParameterMissing
+UserAgentMissing|InvalidRequest.ParameterMissing
 NotImplemented|ServerError.NotImplemented
 InvalidAuthorization|InvalidAuthorization
 InvalidAuthorizationMethod|InvalidAuthorization

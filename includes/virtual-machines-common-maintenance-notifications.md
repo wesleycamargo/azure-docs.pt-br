@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38945338"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166414"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Exibir VMs agendadas para manutenção no portal
 
@@ -38,6 +38,8 @@ Após agendar uma onda de manutenção planejada, observe a lista de máquinas v
       | Já atualizado | A VM já está atualizada e nenhuma ação adicional é necessária neste momento. | 
       | Tente novamente mais tarde | Você iniciou a manutenção, mas ela apresentou falha. Você poderá usar a opção de manutenção de autoatendimento posteriormente. | 
       | Tente agora | Tente realizar a manutenção que foi iniciada automaticamente sem êxito. | 
+      | - | A máquina virtual não faz parte de uma onda de manutenção planejada. |
+      
 
    **Janela de manutenção de autoatendimento**: mostra a janela de tempo, quando é possível iniciar automaticamente a manutenção nas VMs.
    

@@ -3,7 +3,7 @@ title: Implantar serviços do Gerenciamento de API do Azure em várias regiões 
 description: Saiba como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,32 +11,33 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586799"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140395"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Como implantar uma instância do serviço de Gerenciamento de API do Azure em múltiplas regiões do Azure
-O Gerenciamento de API dá suporte à implantação multirregião, que permite a editores de API distribuir um único serviço de gerenciamento de API por qualquer número desejado de regiões do Azure. Isso ajuda a reduzir a solicitação de latência percebida pelos consumidores de API distribuídos geograficamente e também melhora a disponibilidade do serviço se uma região ficar offline. 
 
-Quando um serviço de Gerenciamento de API é inicialmente criado, ele contém apenas uma [unidade][unit] e reside em uma única região do Azure, que é designada como a Região Primária. Regiões adicionais podem ser facilmente adicionadas por meio do Portal do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região fica offline, o tráfego é automaticamente redirecionado para o gateway mais próximo entre os demais. 
+O Gerenciamento de API do Azure dá suporte à implantação multirregião, o que permite aos editores de API distribuir um único serviço de gerenciamento de API por qualquer número desejado de regiões do Azure. Isso ajuda a reduzir a solicitação de latência percebida pelos consumidores de API distribuídos geograficamente e também melhora a disponibilidade do serviço se uma região ficar offline.
+
+Inicialmente, um novo serviço do Gerenciamento de API do Azure contém apenas uma [unidade][unit] em uma única região do Azure, a Região Primária. Regiões adicionais podem ser facilmente adicionadas por meio do portal do Azure. Um servidor de gateway do Gerenciamento de API é implantado em cada região e o tráfego de chamada será encaminhado para o gateway mais próximo. Se uma região ficar offline, o tráfego será automaticamente redirecionado para o gateway mais próximo entre os demais.
 
 > [!IMPORTANT]
 > A implantação multirregião só está disponível na camada **[Premium][Premium]**.
-> 
-> 
+
+> [!NOTE]
+> O Gerenciamento de API do Azure replica apenas o componente de gateway de API entre regiões. O componente de gerenciamento de serviço é hospedado somente na Região Primária. No caso de uma interrupção na Região Primária, não será possível aplicar alterações de configuração em uma instância do serviço de Gerenciamento de API do Azure - incluindo as configurações ou atualizações de políticas.
 
 ## <a name="add-region"> </a>Implantar uma instância do serviço de Gerenciamento de API em uma nova região
+
 > [!NOTE]
 > Se você ainda não tiver criado uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance].
-> 
-> 
 
-No Portal do Azure, navegue até a página **Escala e preço** da sua instância do serviço de Gerenciamento de API. 
+No portal do Azure, navegue até a página **Escala e preço** da instância do serviço de Gerenciamento de API. 
 
 ![Guia Escala][api-management-scale-service]
 
@@ -54,13 +55,57 @@ Repita esse processo até que todos os locais estejam configurados e clique em *
 
 ## <a name="remove-region"> </a>Excluir uma instância do serviço de Gerenciamento de API de um local
 
-No Portal do Azure, navegue até a página **Escala e preço** da sua instância do serviço de Gerenciamento de API. 
+No portal do Azure, navegue até a página **Escala e preço** da instância do serviço de Gerenciamento de API. 
 
 ![Guia Escala][api-management-scale-service]
 
 Para o local em que você deseja remover, abra o menu de contexto usando o botão **...** na extremidade direita da tabela. Selecione a opção **Excluir**.
 
 Confirme a exclusão e clique em **Salvar** para aplicar as alterações.
+
+## <a name="route-backend"> </a>Rotear chamadas à API para serviços regionais de back-end
+
+O Gerenciamento de API do Azure apresenta apenas uma URL de serviço de back-end. Mesmo que haja instâncias do Gerenciamento de API do Azure em várias regiões, o gateway de API ainda encaminhará solicitações para o mesmo serviço de back-end, que é implantado em apenas uma região. Nesse caso, o ganho de desempenho será proveniente apenas das respostas armazenadas em cache dentro do Gerenciamento de API do Azure em uma região específica para a solicitação, mas entrar em contato com o back-end em todo o mundo ainda pode causar alta latência.
+
+Para aproveitar totalmente a distribuição geográfica do sistema, você deve ter serviços de back-end implantados nas mesmas regiões como instâncias do Gerenciamento de API do Azure. Então, usando as políticas e a propriedade `@(context.Deployment.Region)`, é possível rotear o tráfego para instâncias locais do back-end.
+
+1. Navegue até a instância do Gerenciamento de API do Azure e clique em **APIs** no menu esquerdo.
+2. Selecione a API desejada.
+3. Clique em **Editor de códigos** na lista suspensa de seta no **Processamento de entrada**.
+
+    ![Editor de códigos de API](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. Use a política `set-backend` combinada com as políticas condicionais `choose` para construir uma política de roteamento apropriada na seção `<inbound> </inbound>` do arquivo.
+
+    Por exemplo, o arquivo XML abaixo funcionaria para as regiões Oeste dos EUA e Ásia Oriental:
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -77,4 +122,3 @@ Confirme a exclusão e clique em **Salvar** para aplicar as alterações.
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

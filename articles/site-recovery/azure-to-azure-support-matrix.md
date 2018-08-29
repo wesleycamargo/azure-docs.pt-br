@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173043"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444819"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matriz de suporte para replicação de uma região do Azure para outra
 
@@ -34,11 +34,11 @@ Este artigo resume as configurações e os componentes com suporte quando você 
 
 ## <a name="resource-support"></a>Suporte de recurso
 
-**Tipo de movimentação de recursos** | **Detalhes** 
+**Tipo de movimentação de recursos** | **Detalhes**
 --- | --- | ---
 **Mover cofre entre grupos de recursos** | Sem suporte<br/><br/> Você não pode mover um cofre de serviços de recuperação entre grupos de recursos.
 **Mover recursos de computação/armazenamento/rede entre os grupos de recursos** | Sem suporte.<br/><br/> Se você mover uma VM ou componentes associados, como armazenamento/rede, após a replicação, precisará desabilitar a replicação e reativar a replicação para a VM.
-**Replicar VMs do Azure de uma assinatura para outra para recuperação de desastres** | Sem suporte.
+**Replicar VMs do Azure de uma assinatura para outra para recuperação de desastres** | Com suporte no mesmo locatário do Azure Active Directory.
 **Migrar VMs entre assinaturas** | Sem suporte.
 **Migrar máquinas virtuais na mesma região** | Sem suporte.
 

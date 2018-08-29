@@ -3,8 +3,8 @@ title: Melhorar o desempenho compactando os arquivos na CDN do Azure | Microsoft
 description: Saiba como melhorar a velocidade de transferência do arquivo e aumentar o desempenho de carregamento da página compactando os arquivos na CDN do Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.author: magattus
+ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260389"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146288"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação de arquivo é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela pode reduzir os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -65,6 +65,10 @@ As camadas CDN Standard e Premium fornecem a mesma funcionalidade de compactaç�
    
    > [!TIP]
    > Embora seja possível, não é recomendável aplicar a compactação a formatos compactados. Por exemplo, ZIP, MP3, MP4 ou JPG.
+   > 
+   
+   > [!NOTE]
+   > Atualmente, a modificação da lista padrão dos tipos MIME não tem suporte na Rede de Distribuição de Conteúdo Standard do Microsoft Azure.
    > 
  
 5. Depois de fazer suas alterações, selecione **Salvar**.

@@ -3,17 +3,16 @@ title: Esquema de evento de assinatura de Grade de Eventos do Azure
 description: Descreve as propriedades que são fornecidas para eventos de assinatura com a Grade de Eventos do Azure
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493567"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144144"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Esquema de eventos para assinatura da Grade de Eventos do Azure para hubs de eventos
 
@@ -21,13 +20,15 @@ Este artigo fornece as propriedades e o esquema para eventos de assinatura do Az
 
 Grupos de recursos e as assinaturas do Azure emitem os mesmos tipos de evento. Os tipos de eventos relacionados às alterações em recursos. A principal diferença é que grupos de recursos de emissão de eventos para os recursos no grupo de recursos e as assinaturas do Azure emitem eventos de recursos entre a assinatura.
 
-Eventos de recursos são criados para PUT, PATCH e excluir operações que são enviadas para `management.azure.com`. Operações de GET e POST não criam eventos. Operações enviadas para o plano de dados (como `myaccount.blob.core.windows.net`) não criar eventos.
+Eventos de recursos são criados para operações PUT, PATCH e EXCLUIR que são enviadas para `management.azure.com`. Operações de GET e POST não criam eventos. Operações enviadas para o plano de dados (como `myaccount.blob.core.windows.net`) não criar eventos.
 
 Quando você assina eventos para uma assinatura do Azure, o ponto de extremidade recebe todos os eventos para essa assinatura. Os eventos podem incluir eventos que você deseja ver, como a atualização de uma máquina virtual, mas também eventos que talvez não são importantes para você, como gravar uma nova entrada no histórico de implantação. Você pode receber todos os eventos no seu ponto de extremidade e escrever um código que processa os eventos que você deseja manipular, ou você pode definir um filtro ao criar a assinatura de evento.
 
 Para manipular programaticamente os eventos, você pode classificar eventos, observando o `operationName` valor. Por exemplo, o ponto de extremidade de evento apenas pode processar eventos para operações que são iguais a `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
-O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID. Para scripts de exemplo, consulte [Assinar e filtrar para o grupo de recursos - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [Assinar e filtrar para o grupo de recursos - CLI do Azure](scripts/event-grid-cli-resource-group-filter.md). Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+O assunto do evento é a ID de recurso do recurso que é o destino da operação. Para filtrar eventos para um recurso, forneça esse recurso ao criar a assinatura de evento da ID. Para filtrar por um tipo de recurso, use um valor no seguinte formato: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Para obter uma lista de scripts de exemplo e tutoriais, consulte [Origem do evento de assinatura do Azure](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Tipos de evento disponíveis
 

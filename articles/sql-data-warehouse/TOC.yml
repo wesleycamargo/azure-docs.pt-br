@@ -142,16 +142,16 @@ items:
       href: memory-and-concurrency-limits.md
   - name: Gerenciamento e monitoramento
     items:
-    - name: Atividade de Consulta e Utilização de Recursos
-      href: sql-data-warehouse-manage-monitor.md
+    - name: Expandir, pausar, retomar
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Utilização de recursos e atividade de consulta
+      href: sql-data-warehouse-concept-resource-utilization-query-activity.md
     - name: Proteção de dados
       href: backup-and-restore.md
-    - name: Expansão, pausar, retomar
-      href: sql-data-warehouse-manage-compute-overview.md
-    - name: Agenda de manutenção
-      href: service-maintenance.md
     - name: Recomendações
       href: sql-data-warehouse-concept-recommendations.md
+    - name: Agenda de manutenção
+      href: service-maintenance.md
     - name: Solucionar problemas
       href: sql-data-warehouse-troubleshoot.md
   - name: Integração
@@ -212,13 +212,15 @@ items:
       href: analyze-your-workload.md
   - name: Monitorar e ajustar
     items:
+    - name: Monitorar sua carga de trabalho
+      href: sql-data-warehouse-manage-monitor.md
     - name: Restauração – Portal
       href: sql-data-warehouse-restore-database-portal.md
     - name: Restauração – PowerShell
       href: sql-data-warehouse-restore-database-powershell.md
     - name: Restaurar – API REST
       href: sql-data-warehouse-restore-database-rest-api.md
-    - name: Atualizar para Gen2
+    - name: Atualizar seu data warehouse Gen1
       href: upgrade-to-latest-generation.md
     - name: Automatizar níveis de desempenho
       href: manage-compute-with-azure-functions.md
@@ -276,9 +278,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gerenciamento de dados
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 690faddea704b45f5fcba8079b03a8105b83a649
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915118"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106738"
