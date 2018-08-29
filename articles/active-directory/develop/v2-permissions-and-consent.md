@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579951"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146310"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Escopos, permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um modelo de autorização que fornece aos usuários controle sobre como um aplicativo pode acessar seus dados. A implementação v2.0 desse modelo de autorização foi atualizada e altera a maneira como um aplicativo deve interagir com o Azure AD. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
@@ -73,6 +73,19 @@ O [escopo do `offline_access`](http://openid.net/specs/openid-connect-core-1_0.h
 Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões.
 
 Para saber mais sobre como obter e usar tokens de atualização, veja a [referência do protocolo v2.0](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>Acessar recursos v1.0
+Aplicativos v2.0 podem solicitar tokens e consentir para aplicativos v1.0 (como API do PowerBI `https://analysis.windows.net/powerbi/api` ou API do Sharepoint `https://{tenant}.sharepoint.com`).  Para fazer isso, você pode fazer referência ao URI do aplicativo e à cadeia de caracteres de escopo no parâmetro `scope`.  Por exemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` solicitaria a permissão do PowerBI `View all Datasets` ao aplicativo. 
+
+Para solicitar várias permissões, anexe o URI inteiro com um espaço ou `+`, p. ex. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Isso solicita ambas as permissões `View all Datasets` e `View all Reports`.  Observe que, assim como ocorre com todos os escopos e permissões do Azure AD, os aplicativos somente podem fazer uma solicitação para um recurso de cada vez - portanto, a solicitação `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita a permissão do PowerBI `View all Datasets` e a permissão do Skype for Business `Initiate conversations` será rejeitada devido à solicitação de permissões em dois recursos diferentes.  
+
+### <a name="v10-resources-and-tenancy"></a>Locação e recursos v1.0
+Ambos os protocolos v1.0 e v2.0 do Azure AD usam um parâmetro `{tenant}` inserido no URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Ao usar o ponto de extremidade v2.0 para acessar um recurso organizacional v1.0, os locatários `common` e `consumers` não poderão ser usados, pois esses recursos só podem ser acessados com contas organizacionais (Azure AD).  Desse modo, ao acessar esses recursos, apenas o GUID do locatário ou `organizations` poderá ser usado como o parâmetro`{tenant}`.  
+
+Se um aplicativo tentar acessar um recurso v1.0 organizacional usando um locatário incorreto, um erro semelhante ao abaixo será retornado. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Solicitando consentimento de usuário individual
 Em uma solicitação de autorização do [OpenID Connect ou OAuth 2.0](active-directory-v2-protocols.md), um aplicativo pode solicitar as permissões de que precisa usando o parâmetro de consulta `scope`. Por exemplo, quando um usuário entra em um aplicativo, o aplicativo envia uma solicitação como o exemplo a seguir (com quebras de linha adicionadas para legibilidade):
