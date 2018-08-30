@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: a3d6ad9f2f442481908bc02252fcc8ab1a74419e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: aa2d8f50d8fb4ba356af20a290976b8b32601ebf
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205581"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188784"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Conectar um Raspberry Pi ao aplicativo Azure IoT Central (Python)
 
@@ -53,9 +53,9 @@ As etapas a seguir descrevem como baixar e configurar o aplicativo Python de exe
 * Responde a alterações de configuração feitas no Azure IoT Central.
 
 > [!NOTE]
-> Para obter mais informações sobre o exemplo Python do Raspberry Pi, consulte o arquivo [Leiame](https://github.com/Microsoft/microsoft-iot-central-firmware/blob/master/RaspberryPi/README.md) no GitHub.
+> Para obter mais informações sobre o exemplo Python do Raspberry Pi, consulte o arquivo [Leiame](https://github.com/Azure/iot-central-firmware/blob/master/RaspberryPi/README.md) no GitHub.
 
-1. Utilize o navegador da Web na área de trabalho do Raspberry Pi para navegar até a página de [versões do firmware do Azure IoT Central](https://github.com/Microsoft/microsoft-iot-central-firmware/releases).
+1. Utilize o navegador da Web na área de trabalho do Raspberry Pi para navegar até a página de [versões do firmware do Azure IoT Central](https://github.com/Azure/iot-central-firmware/releases).
 
 1. Baixe o arquivo zip que contém o firmware mais recente para a pasta base no Raspberry Pi. O nome do arquivo é semelhante a `RaspberryPi-IoTCentral-X.X.X.zip`.
 
@@ -125,7 +125,7 @@ Configurações de alternância
 | Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Localização     | location   | N/D       |
+| Texto            | Local padrão     | location   | N/D       |
 
 ## <a name="next-steps"></a>Próximas etapas
 

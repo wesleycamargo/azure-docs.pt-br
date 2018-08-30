@@ -1,25 +1,19 @@
 ---
-title: "Introdução ao Catálogo de Dados | Microsoft Docs"
-description: "Tutorial completo apresentando os cenários e os recursos do Catálogo de Dados do Azure."
-documentationcenter: 
+title: Introdução ao Catálogo de Dados do Azure
+description: Tutorial completo apresentando os cenários e os recursos do Catálogo de Dados do Azure.
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053224"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Introdução ao Catálogo de Dados do Azure
 O Catálogo de Dados do Azure é um serviço de nuvem totalmente gerenciado que atua como um sistema de registro e sistema de descoberta em ativos de dados da empresa. Para obter uma visão detalhada, confira [O que é o Catálogo de Dados do Azure](data-catalog-what-is-data-catalog.md).
@@ -40,14 +34,14 @@ Este tutorial ajudará você a começar a usar o Catálogo de Dados do Azure. Ne
 ### <a name="azure-subscription"></a>Assinatura do Azure
 Para configurar o Catálogo de Dados do Azure, é necessário ser proprietário ou coproprietário de uma assinatura do Azure.
 
-As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados do Azure. Eles também ajudam a controlar como o uso de recursos é reportado, cobrado e pago. Cada assinatura pode ter uma configuração diferente de cobrança e pagamento, assim você pode ter diferentes assinaturas e planos diferentes por departamento, projeto, escritório regional, etc. Cada serviço de nuvem pertence a uma assinatura, e você precisa ter uma assinatura antes de configurar o Catálogo de Dados do Azure. Para saber mais, confira [Gerenciar contas, assinaturas e funções administrativas](../active-directory/active-directory-how-subscriptions-associated-directory.md).
+As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados do Azure. Eles também ajudam a controlar como o uso de recursos é reportado, cobrado e pago. Cada assinatura pode ter uma configuração diferente de cobrança e pagamento, assim você pode ter diferentes assinaturas e planos diferentes por departamento, projeto, escritório regional, etc. Cada serviço de nuvem pertence a uma assinatura, e você precisa ter uma assinatura antes de configurar o Catálogo de Dados do Azure. Para saber mais, confira [Gerenciar contas, assinaturas e funções administrativas](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 Se você não tiver uma assinatura, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Confira [Avaliação Gratuita](https://azure.microsoft.com/pricing/free-trial/) para obter detalhes.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Para configurar o Catálogo de Dados do Azure, você deve entrar com uma conta de usuário do Azure AD (Azure Active Directory). Você deve ser o proprietário ou coproprietário de uma assinatura do Azure.  
 
-O Azure Active Directory (Azure AD) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Você pode usar uma única conta corporativa ou de estudante para entrar em qualquer nuvem e aplicativo Web local. O Catálogo de Dados do Azure usa o Azure AD para autenticar o logon. Para saber mais, confira [O que é o Azure Active Directory](../active-directory/active-directory-whatis.md).
+O Azure Active Directory (Azure AD) fornece uma maneira fácil para a sua empresa gerenciar identidades e acesso, tanto na nuvem quanto local. Você pode usar uma única conta corporativa ou de estudante para entrar em qualquer nuvem e aplicativo Web local. O Catálogo de Dados do Azure usa o Azure AD para autenticar o logon. Para saber mais, confira [O que é o Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="azure-active-directory-policy-configuration"></a>Configuração de política do Azure Active Directory
 Pode haver uma situação em que você pode entrar no portal do Catálogo de Dados do Azure, mas ao tentar entrar na ferramenta de registro de fonte de dados, poderá receber uma mensagem de erro impedindo a entrada. Este erro pode ocorrer quando você está na rede da empresa ou quando está se conectando de fora da rede empresarial.

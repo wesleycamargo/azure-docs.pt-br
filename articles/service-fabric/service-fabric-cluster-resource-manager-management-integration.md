@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208277"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917867"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
 O Gerenciador de recursos de Cluster do Service Fabric não realiza as atualizações no Service Fabric, mas está envolvido. A primeira maneira que o Cluster Resource Manager pode ajudar no gerenciamento é rastreando o estado desejado do cluster e dos serviços dentro dele. O Cluster Resource Manager envia relatórios de integridade quando não consegue deixar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gerenciador de Recursos de Cluster enviará avisos de integridade e erros indicando o problema. Outra parte de integração tem a ver com a forma como as atualizações funcionam. O Gerenciador de Recursos de Cluster altera ligeiramente seu comportamento durante as atualizações.  
@@ -32,7 +32,7 @@ Outro exemplo de avisos de integridade do Resource Manager são violações de r
 Eis um exemplo de tal relatório de integridade. Nesse caso, o relatório de integridade é voltado para uma das partições do serviço do sistema. A mensagem de integridade indica quais réplicas dessa partição estão temporariamente empacotadas em Domínios de Atualização insuficientes.
 
 ```posh
-PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
+PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 
 PartitionId           : 00000000-0000-0000-0000-000000000001

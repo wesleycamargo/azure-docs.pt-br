@@ -3,18 +3,18 @@ title: Use a ação de Script para instalar o Solr no HDInsight baseado em Linux
 description: Saiba como instalar o Solr em clusters baseados Hadoop HDInsight baseados em Linux usando as ações de script.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: 35a7410a5a30e248069ba31ad4213eff58680dcc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 205983344be8ae5bbe566a208ceb862b2e93cb8d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597762"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093090"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Solr em clusters HDInsight do Hadoop
 

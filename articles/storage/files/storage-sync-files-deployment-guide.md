@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 261f8dfe41ece0cd56a4a71972e3142ef8440afb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522128"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918102"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -25,7 +25,7 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
     - [Disponibilidade de região](storage-sync-files-planning.md#region-availability) para Sincronização de arquivos do Azure.
     - Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
     - Para orientações passo a passo sobre como criar uma conta de compartilhamento, consulte [Criar uma conta de compartilhamento](storage-how-to-create-file-share.md).
-* Pelo menos uma instância do Windows Server ou cluster do Windows Server para sincronizar com a Sincronização de arquivos do Azure. Consulte [Interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-interoperability) para obter mais informações sobre versões com suporte do Windows Server.
+* Pelo menos uma instância do Windows Server ou cluster do Windows Server para sincronizar com a Sincronização de arquivos do Azure. Consulte [Interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability) para obter mais informações sobre versões com suporte do Windows Server.
 * Certifique-se de que o PowerShell 5.1 está instalado no Windows Server. Se você estiver usando o Windows Server 2012 R2, certifique-se de que você está executando pelo menos PowerShell 5.1. \*. Com segurança, você poderá ignorar essa verificação no Windows Server 2016 como PowerShell 5.1 é a padrão versão fora da caixa. No Windows Server 2012 R2, você pode verificar se está executando o PowerShell 5.1. \* observando o valor da propriedade **PSVersion** do objeto **$ PSVersionTable**:
 
     ```PowerShell

@@ -3,19 +3,19 @@ title: Folha de referências para SQL Data Warehouse do Azure | Microsoft Docs
 description: Localize links e melhores práticas para compilar rapidamente suas soluções do SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: a22aadff2d58ace60a980a138035e30a638b08fa
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4ef64b9d4e4e5c7f5a628359a8512dcb61b9c941
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190403"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43245886"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Roteiro do SQL Data Warehouse do Azure
 Esta folha de referências fornece dicas úteis e melhores práticas para a compilação de suas soluções do SQL Data Warehouse do Azure. Antes da introdução, saiba mais sobre cada etapa detalhadamente, lendo os [Padrões de Carga de Trabalho do SQL Data Warehouse do Azure e Anti-Padrões](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns), que explica o que é SQL Data Warehouse e o que não é.
@@ -50,7 +50,7 @@ Saiba mais sobre [migração de dados], [carregamento de dados] e o [processo EL
 
 Use as seguintes estratégias, dependendo das propriedades da tabela:
 
-| type | Ideal para...| Fique atento se...|
+| Tipo | Ideal para...| Fique atento se...|
 |:--- |:--- |:--- |
 | Replicada | • Tabelas de dimensões pequenas em um esquema em estrela com menos de 2 GB de armazenamento após a compactação (compactação de ~5x) |•  Muitas transações de gravação estão na tabela (como inserir, upsert, excluir, atualizar)<br></br>• Você altera o provisionamento DWU (Unidade de Data Warehouse) com frequência<br></br>• Você usa apenas 2-3 colunas, mas sua tabela tem muitas colunas<br></br>• Você indexar uma tabela replicada |
 | Round Robin (padrão) | • Mesa de preparo/temporária<br></br> • Nenhuma coluna candidata boa ou chave de união |•   Desempenho lento devido ao movimento de dados |
@@ -70,7 +70,7 @@ Saiba mais sobre [tabelas replicadas] e [tabelas distribuídas].
 
 A indexação é útil para a ler as tabelas rapidamente. Há um conjunto único de tecnologias que você pode usar com base nas suas necessidades:
 
-| type | Ideal para... | Fique atento se...|
+| Tipo | Ideal para... | Fique atento se...|
 |:--- |:--- |:--- |
 | Heap | • Tabela de preparo/temporária<br></br>• Pequenas tabelas com pequenas consultas |• Qualquer pesquisa examina a tabela inteira |
 | Índice clusterizado | • Tabelas com até 100 milhões de linhas<br></br>• Tabelas grandes (mais de 100 milhões de linhas) com apenas de 1 a 2 colunas bastante utilizadas |• Usada em uma tabela replicada<br></br>•    Você possui consultas complexas envolvendo várias operações Join e Group By<br></br>•  Você faz atualizações nas colunas indexadas: isso consome memória |
@@ -144,7 +144,7 @@ Implante com um clique seus spokes nos Bancos de Dados SQL do SQL Data Warehouse
 <!--Article references-->
 [carregamento de dados]:design-elt-data-loading.md
 [deeper guidance]:guidance-for-loading-data.md
-[Índices]:sql-data-warehouse-tables-index.md
+[índices]:sql-data-warehouse-tables-index.md
 [partições]:sql-data-warehouse-tables-partition.md
 [estatísticas]:sql-data-warehouse-tables-statistics.md
 [classes de recursos e simultaneidade]:resource-classes-for-workload-management.md

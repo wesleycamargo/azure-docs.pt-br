@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 9cf13589fb83f100dd024e65dfe9178cb54802f2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: f468567aa67560eed972fb53669638a17778b307
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145666"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189947"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configurar uploads de arquivo do Hub IoT usando o PowerShell
 
@@ -133,5 +133,5 @@ Para saber mais sobre o gerenciamento do Hub IoT do Azure, siga estes links:
 Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 * [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
-* [Implantar IA em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Proteger sua solução de IoT desde o início](/../iot-fundamentals/iot-security-ground-up.md)
+* [Implantando o AI em dispositivos de borda com o Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Proteger sua solução de IoT desde o início](../iot-fundamentals/iot-security-ground-up.md)

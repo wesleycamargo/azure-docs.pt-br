@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentação do Microsoft Azure
 description: Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais.
-ms.openlocfilehash: 103d09b1a71239948c730f8dba47253741bbaa9c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 37b60b41859432543ed14b8529bebc15ec215115
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037898"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189542"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -783,7 +783,7 @@ ms.locfileid: "40037898"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/devtest-lab/">
+                                            <a href="/services/devtest-lab/">
                                                 <img src="media/index/DevTestLabs.svg" alt="" />
                                                 <p>Azure DevTest Labs</p>
                                             </a>
@@ -2746,7 +2746,7 @@ ms.locfileid: "40037898"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/devtest-lab/">
+                                <a href="/services/devtest-lab/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">

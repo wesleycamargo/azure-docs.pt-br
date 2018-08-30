@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 05041637aa5cbb044e6731208825f75edec83352
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157037"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918251"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o Serviço Móvel do Azure .NET existente para o Serviço de Aplicativo
-O Aplicativo Móvel do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são os Aplicativos Móveis?].
+O Aplicativo Móvel do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são Aplicativos Móveis?].
 
 Este tópico descreve como atualizar um aplicativo de back-end do .NET usando os Serviços Móveis do Azure para novos Aplicativos Móveis do Serviço de Aplicativo. Durante essa atualização, o seu aplicativo de Serviços Móveis pode continuar sendo executado.   Se você precisar atualizar um aplicativo back-end em Node.js, veja [Atualizar seus Serviços Móveis do Node.js](app-service-mobile-node-backend-upgrading-from-mobile-services.md).
 
@@ -151,7 +151,7 @@ Se um aplicativo cliente for atualizado de Serviços Móveis para Aplicativos M�
 
 No iOS, você deve alterar seu esquema de dados básicos para suas entidades de dados para que correspondam ao seguinte. Observe que as propriedades `createdAt`, `updatedAt` e `version` não têm mais um prefixo `ms_`:
 
-| Atributo | type | Observação |
+| Atributo | Tipo | Observação |
 | --- | --- | --- |
 | ID |Cadeia de caracteres, marcadas como obrigatórias |chave primária no repositório remoto |
 | createdAt |Data |(opcional) é mapeado para a propriedade do sistema createdAt |
@@ -260,16 +260,16 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 
 [Portal do Azure]: https://portal.azure.com/
 [portal clássico do Azure]: https://manage.windowsazure.com/
-[O que são os Aplicativos Móveis?]: app-service-mobile-value-prop.md
+[O que são Aplicativos Móveis?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [SDK do Servidor de Aplicativos Móveis]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
 [Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
-[Agendador do Azure]: /en-us/documentation/services/scheduler/
+[Agendador do Azure]: /azure/scheduler/
 [Trabalho Web]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [Como usar o SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
+[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
 [Visão geral do SDK do servidor .NET]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737064"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052080"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Executar e testar U-SQL com o SDK do U-SQL do Azure Data Lake
 
@@ -333,13 +332,13 @@ O LocalRunHelper.exe fornece as interfaces de programação para a compilação 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parâmetro|type|DESCRIÇÃO|
+|Parâmetro|Tipo|DESCRIÇÃO|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|para mensagens de saída, definido como nulo para usar o Console|
 
 **Propriedades**
 
-|Propriedade|type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |AlgebraPath|string|O caminho para o arquivo de álgebra (o arquivo de álgebra é um dos resultados da compilação)|
 |CodeBehindReferences|string|Se o script tiver referências code-behind adicionais, especifique os caminhos separados por “;”|
