@@ -12,17 +12,17 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 22211f52f6b9a16f785cacb9364ebe5b74617453
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126619"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127357"
 ---
-# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Azure Data Box Disk? (Visualização)
+# <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
 A solução do Microsoft Azure Data Box Disk permite que você envie terabytes de dados locais para o Azure de forma rápida, barata e confiável. A transferência de dados segura é acelerada por meio do envio de uma a cinco SSDs (unidades de estado sólido). Esses discos de 8 TB criptografados são enviados ao seu datacenter por meio de uma operadora regional. 
 
@@ -106,11 +106,13 @@ Durante a versão prévia, o Data Box Disk pode transferir dados para as seguint
 
 |Região do Azure  |Região do Azure  |
 |---------|---------|
-|Centro-Oeste dos EUA     |Centro-Norte dos EUA         |        
-|Oeste dos EUA 2     | Leste dos EUA          |     
-|Oeste dos EUA     | Leste dos EUA 2           |      
-|Centro-Sul dos Estados Unidos   | Europa Ocidental       |         
-|Centro dos EUA     | Norte da Europa |
+|Centro-Oeste dos EUA     |Leste dos EUA        |        
+|Oeste dos EUA 2     |Leste dos EUA 2          |     
+|Oeste dos EUA     | Europa Ocidental        |      
+|Centro-Sul dos Estados Unidos   |Norte da Europa     |         
+|Centro dos EUA     |Leste do Canadá|
+|Centro-Norte dos EUA  |Canadá Central    |
+
 
 
 
@@ -122,4 +124,4 @@ Durante a versão prévia, o Data Box Disk fica disponível gratuitamente. Isso 
 
 - Examine os [requisitos do Data Box Disk](data-box-disk-system-requirements.md).
 - Entenda os [limites do Data Box Disk](data-box-disk-limits.md).
-- Implante rapidamente o [Azure Data Box Disk](data-box-disk-quickstart-portal.md) no Portal do Azure.
+- Implante rapidamente o [Azure Data Box Disk](data-box-disk-quickstart-portal.md) no portal do Azure.

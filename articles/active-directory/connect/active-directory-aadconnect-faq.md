@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 963f0ebdddab9fe7519b34153b7fd787da0fe7dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42145676"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112078"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Perguntas frequentes do Azure Active Directory Connect
 
@@ -190,7 +190,7 @@ Se você precisar de ajuda a atualizar para uma versão mais recente do Azure AD
 ## <a name="troubleshooting"></a>solução de problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**
 
-[Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Pesquise a Base de Dados de Conhecimento (KB) Microsoft](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * Pesquise a KB para soluções técnicas de conserto de problemas comuns sobre o suporte do Azure AD Connect.
 

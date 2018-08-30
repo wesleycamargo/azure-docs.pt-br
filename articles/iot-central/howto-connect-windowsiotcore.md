@@ -2,18 +2,18 @@
 title: Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central | Microsoft Docs
 description: Como um desenvolvedor de dispositivos, saiba como conectar um dispositivo MXChip IoT DevKit ao aplicativo Azure IoT Central.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205741"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188997"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conectar um dispositivo Windows IoT Core ao aplicativo Azure IoT Central
 
@@ -44,7 +44,7 @@ No aplicativo Azure IoT Central, adicione um dispositivo real do modelo de dispo
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Preparar o dispositivo Windows IoT Core
 
-Para configurar um dispositivo Windows IoT Core, siga o guia passo a passo em [Configurar um dispositivo Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Para configurar um dispositivo Windows IoT Core, siga o guia passo a passo em [Configurar um dispositivo Windows IoT Core] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Adicionar um dispositivo real
 
@@ -119,4 +119,4 @@ Configurações numéricas
 | Tipo            | Nome de exibição | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade de dispositivo | Número impresso   | dieNumber  | número    |
-| Texto            | Localização     | location   | N/D       |
+| Texto            | Local padrão     | location   | N/D       |

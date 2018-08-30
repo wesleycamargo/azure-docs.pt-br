@@ -3,18 +3,18 @@ title: Usar a interface de usuário do Tez com o HDInsight baseado em Windows - 
 description: Saiba como usar a interface de usuário do Tez para depurar trabalhos do Tez no HDInsight baseado no Windows.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f54cc60f9490b8a5ca1872a290c3895ea8b0c5e4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590894"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112180"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Usar a interface de usuário do Tez para depurar trabalhos no HDInsight baseado no Windows
 A interface do usuário do Tez pode ser usada para depurar os trabalhos do Hive que usam o Tez como o mecanismo de execução. A interface do usuário do Tez visualiza o trabalho como um grafo de itens conectados, é possível detalhar cada item e recuperar estatísticas e informações de registro.

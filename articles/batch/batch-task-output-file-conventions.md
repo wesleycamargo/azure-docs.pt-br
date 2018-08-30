@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117156"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128042"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Persistir dados de tarefa e trabalho no Armazenamento do Microsoft Azure com a biblioteca de Convenções de Arquivo em Lotes para .NET 
 
@@ -49,7 +49,7 @@ Se seu cenário for diferente daqueles listados acima, poderá ser necessário c
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>O que é o padrão Convenções do Arquivo em Lote?
 
-O [padrão Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomenclatura para os contêineres de destino e os caminhos de blob nos quais os arquivos de saída são gravados. Os arquivos mantidos no Armazenamento do Azure que segue o padrão Convenções de Arquivo ficam automaticamente disponíveis para exibição no portal do Azure. O portal está ciente da convenção de nomenclatura e, portanto, pode exibir arquivos que aderem a ela.
+O [padrão Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fornece um esquema de nomenclatura para os contêineres de destino e os caminhos de blob nos quais os arquivos de saída são gravados. Os arquivos mantidos no Armazenamento do Azure que segue o padrão Convenções de Arquivo ficam automaticamente disponíveis para exibição no portal do Azure. O portal está ciente da convenção de nomenclatura e, portanto, pode exibir arquivos que aderem a ela.
 
 A biblioteca Convenções de Arquivo para .NET nomeia automaticamente seus contêineres de armazenamento e os arquivos de saída de tarefa acordo com o padrão de Convenções de Arquivo. A biblioteca Convenções de Arquivo também fornece métodos para consultar arquivos de saída no Armazenamento do Azure acordo com a ID do trabalho, a ID da tarefa ou a finalidade.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Exibir arquivos de saída no portal do Azure
 
-O portal do Azure exibe os arquivos de saída de tarefa e os logs que são mantidos para uma conta de Armazenamento do Azure vinculado usando o [padrão de Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de Convenções de Arquivo em seus aplicativos .NET.
+O portal do Azure exibe os arquivos de saída de tarefa e os logs que são mantidos para uma conta de Armazenamento do Azure vinculado usando o [padrão de Convenções de Arquivo em Lote](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Você mesmo pode implementar essas convenções em uma linguagem de sua escolha ou pode usar a biblioteca de Convenções de Arquivo em seus aplicativos .NET.
 
 Para habilitar a exibição de seus arquivos de saída no portal, você deve atender aos seguintes requisitos:
 

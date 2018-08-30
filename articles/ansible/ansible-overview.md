@@ -4,16 +4,16 @@ description: Introdução ao uso do Ansible para automatizar o provisionamento d
 ms.service: ansible
 keywords: ansible, azure, devops, visão geral, provisionamento de nuvem, gerenciamento de configuração, implantação de aplicativo, módulos ansible, manuais do ansible
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: a7ce3c239a50462a9af137eb958268f72dbf79d1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28209582"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106893"
 ---
 # <a name="ansible-with-azure"></a>Ansible com o Azure
 

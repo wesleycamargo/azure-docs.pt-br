@@ -3,18 +3,18 @@ title: Instalar e usar o Giraph nos clusters Hadoop no Azure HDInsight
 description: Saiba como personalizar o cluster HDInsight com o Giraph, e como usar o Giraph.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 18469b5e2294a689df166f04b99bf83be122ff2f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0cf866ee472717c6021922927713ef0bf8817271
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594280"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093237"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Instalar e usar o Giraph em clusters HDInsight baseados no Windows
 

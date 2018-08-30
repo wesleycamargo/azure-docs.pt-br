@@ -3,18 +3,18 @@ title: Usar o Pig do Hadoop com área de trabalho remota no HDInsight - Microsof
 description: Aprenda a usar o comando Pig para executar instruções Pig Latin por meio de uma conexão de área de trabalho remota a um cluster Hadoop em HDInsight baseado em Windows.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5aec07a5ebbbb56abcbaebbddc5579cf4d076b4d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 224722c61a653eae55bc1351e91e6288bc793fb6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590659"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049856"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Executar trabalhos do Pig por meio de uma conexão de área de trabalho remota
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]

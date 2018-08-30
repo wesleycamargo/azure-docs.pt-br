@@ -3,24 +3,18 @@ title: Amostra de script do Azure PowerShell – Configurar uma VPN de rede virt
 description: Configure uma VPN site a site.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-ms.date: 05/02/2018
-ms.author: anzaman
-ms.openlocfilehash: 8136ed2537b63fbba0bafc2ef00e7a65e176fde8
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 04/30/2018
+ms.author: alzam
+ms.openlocfilehash: d7eb1fa2bf5991c70d7bb1cb813895883bb2014a
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757443"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886689"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 

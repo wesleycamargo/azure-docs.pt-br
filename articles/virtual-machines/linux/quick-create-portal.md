@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447951"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108799"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Início Rápido: criar uma máquina virtual do Linux no portal do Azure
 
@@ -53,11 +53,11 @@ Faça logon no Portal do Azure em http://portal.azure.com
 
 3. Forneça um nome VM, como *myVM*, deixe o tipo de disco como *SSD*, em seguida, forneça um nome de usuário, como *azureuser*.
 
-4. . Para **Tipo de autenticação**, selecione **Chave pública SSH**, em seguida, cole a chave pública na caixa de texto. Tome cuidado para remover qualquer espaço em branco à direita ou à esquerda na sua chave pública.
+4. Para **Tipo de autenticação**, selecione **Chave pública SSH**, em seguida, cole a chave pública na caixa de texto. Tome cuidado para remover qualquer espaço em branco à direita ou à esquerda na sua chave pública.
 
     ![Insira as informações básicas sobre sua VM na folha do portal](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
-5. Escolha **Criar novo** grupo de recurso, em seguida, forneça um nome, como *myResourceGroup* Escolha seu **local** desejado, em seguida, selecione **Ok**.
+5. Escolha **Criar novo** grupo de recurso, em seguida, forneça um nome, como *myResourceGroup*. Escolha seu **local** desejado, em seguida, selecione **Ok**.
 
 4. Selecione um tamanho para a VM. Você pode filtrar por *Tipo de computação* ou *Tipo de disco*, por exemplo. Uma VM sugerida é do tamanho *D2s_v3*.
 
@@ -65,7 +65,7 @@ Faça logon no Portal do Azure em http://portal.azure.com
 
 5. Na página **Configurações**, em **Rede** > **Grupo de segurança de rede** > **Selecionar portas de entrada públicas**, selecione **HTTP** e **SSH (22)**. Deixe o restante dos padrões e selecione **OK**.
 
-6. Na página **Resumo**, selecione {0}Criar{0} para iniciar a implantação da máquina virtual.
+6. Na página Resumo, selecione **Criar** para iniciar a implantação da máquina virtual.
 
 7. A VM será fixada ao painel do portal do Azure. Depois que a implantação for concluída, a folha de resumo da VM abrirá automaticamente.
 

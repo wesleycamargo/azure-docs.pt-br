@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937357"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887239"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
@@ -48,7 +48,7 @@ Módulo – [Azure.AnalysisServices](https://www.powershellgallery.com/packages/
 |Cmdlet|DESCRIÇÃO| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Adiciona uma conta autenticada a ser usada para solicitações de cmdlet do servidor do Azure Analysis Services.| 
-|[Export-AzureAnalysisServicesInstance]()|Exporta um log de uma instância do servidor do Analysis Services no ambiente conectado no momento, conforme especificado no comando Add-AzureAnalysisServicesAccount|  
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporta um log de uma instância do servidor do Analysis Services no ambiente conectado no momento, conforme especificado no comando Add-AzureAnalysisServicesAccount|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Reinicia uma instância do servidor do Analysis Services no ambiente conectado no momento; especificada no comando Add-AzureAnalysisServicesAccount.|  
 |[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Sincroniza um banco de dados especificado na instância especificada do servidor do Analysis Services com todas as instâncias de scale out de consulta no ambiente conectado no momento, conforme especificado no comando Add-AzureAnalysisServicesAccount|  
 

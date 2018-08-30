@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42143946"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885232"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Use o Console Serial para chamadas SysRq e NMI
 
@@ -84,13 +84,17 @@ No Guia do Administrador do SysRq acima:
 
 ### <a name="distribution-specific-documentation"></a>Documentação específica de distribuição ###
 Para obter a documentação específica de distribuição em SysRq e as etapas para configurar o Linux para criar um despejo de memória no recebimento de um comando "Crash" de SysRq, consulte os links abaixo:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [O que é o Recurso de SysRq e como usá-lo?](https://access.redhat.com/articles/231663)
 - [Como usar o recurso de SysRq para coletar informações de um servidor RHEL](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Configurar a captura de despejo de núcleo de kernel](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Para sistemas Linux que dão suporte a sysctl para configurar parâmetros de ker
 
 Para obter mais informações sobre configurações de kernel do Linux, incluindo `unknown_nmi_panic`, `panic_on_io_nmi` e `panic_on_unrecovered_nmi`, consulte: [Documentação para /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Para obter a documentação específica de distribuição em NMI e as etapas para configurar o Linux para criar um despejo de memória no recebimento de uma NMI, consulte os links abaixo:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Despejo de Memória do Kernel](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [O que é uma NMI e para qual finalidade posso usá-la?](https://access.redhat.com/solutions/4127)
  - [Como posso configurar meu sistema para parar quando for efetuado o push do comutador NMI?](https://access.redhat.com/solutions/125103)
  - [Guia do Administrador de Despejo de Memória](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Configurar a captura de despejo de núcleo de kernel](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Coletar logs de falha](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448699"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918305"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar administradores de assinatura do Azure
 
 Para gerenciar o acesso aos recursos do Azure, você deve ter a função de administrador apropriada. Este artigo descreve como adicionar ou alterar a função de administrador para um usuário no nível da assinatura.
+
+> [!div class="nextstepaction"]
+> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Qual função de administrador usar?
 
@@ -90,8 +93,8 @@ Somente o Administrador da Conta pode alterar o Administrador de Serviços de um
 
   | Método de entrada | Adicionar usuário Conta da Microsoft como um administrador de serviço? | Adicionar conta corporativa ou de estudante na mesma organização que administrador de Serviço? | Adicionar conta corporativa ou de estudante em uma diferente organização que administrador de Serviço? |
   | --- | --- | --- | --- |
-  |  Conta da Microsoft |sim |Não |Não  |
-  |  Conta corporativa ou de estudante |sim |sim |Não  |
+  |  Conta da Microsoft |SIM |Não |Não  |
+  |  Conta corporativa ou de estudante |SIM |sim |Não  |
 
 ## <a name="change-the-account-administrator-for-an-azure-subscription"></a>Alterar o Administrador da Conta de uma assinatura do Azure
 

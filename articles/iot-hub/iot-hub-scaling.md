@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003525"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143641"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -43,7 +43,7 @@ Após criar o Hub IoT, será possível atualizar da camada Básica para a camada
 | [Monitoramento e diagnósticos](iot-hub-monitor-resource-health.md) | SIM | SIM |
 | [Mensagens de nuvem para dispositivo](iot-hub-devguide-c2d-guidance.md) |   | SIM |
 | [Dispositivos gêmeos](iot-hub-devguide-device-twins.md), [Módulos gêmeos](iot-hub-devguide-module-twins.md) e [Gerenciamento de dispositivo](iot-hub-device-management-overview.md) |   | SIM |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | SIM |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | SIM |
 
 O Hub IoT também oferece uma camada gratuita destinado a testes e avaliação. Ela tem todos os recursos da camada Standard, mas provisões limitadas de mensagens. Não é possível fazer upgrade da camada gratuita para Básica ou Standard. 
 

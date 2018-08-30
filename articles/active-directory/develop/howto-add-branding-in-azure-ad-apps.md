@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597898"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185413"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -72,7 +72,7 @@ Para baixar o logotipo oficial da Microsoft para uso em seu aplicativo, clique c
 
 | Ativo                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logotipo da Microsoft  | ![Logotipo da Microsoft em PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Logotipo da Microsoft em SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Logotipo da Microsoft  | ![Logotipo da Microsoft em PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo da Microsoft em SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Orientação visual para logon
 
@@ -84,16 +84,16 @@ Seu aplicativo deve exibir um botão de logon que redireciona os usuários ao po
 
 O diagrama a seguir mostra as linhas vermelhas recomendadas da Microsoft ao usar os ativos com seu aplicativo. As linhas vermelhas se aplicam a “Entrar com a conta da Microsoft” ou à versão mais curta “Entrar”.
 
-![Linhas vermelhas de Entrar com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Linhas vermelhas de Entrar com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Para baixar as imagens oficiais para uso em seu aplicativo, clique com o botão direito do mouse naquela que você deseja usar e salve-o em seu computador.
 
 | Ativo                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Entrar com a Microsoft (tema escuro)  | ![PNG do tema escuro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![SVG do tema escuro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Entrar com a Microsoft (tema claro) | ![PNG do tema claro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![SVG do tema claro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| Entrar (tema escuro)                 | ![PNG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![SVG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| Entrar (tema claro)                | ![PNG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![SVG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Entrar com a Microsoft (tema escuro)  | ![PNG do tema escuro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG do tema escuro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Entrar com a Microsoft (tema claro) | ![PNG do tema claro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Entrar (tema escuro)                 | ![PNG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Entrar (tema claro)                | ![PNG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>Regras de identidade visual

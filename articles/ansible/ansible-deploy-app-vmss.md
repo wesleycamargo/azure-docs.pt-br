@@ -4,29 +4,23 @@ description: Saiba como usar o Ansible para configurar um conjunto de dimensiona
 ms.service: ansible
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011494"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918079"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Implantar aplicativos nos conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para implantar aplicativos no Azure. Este artigo mostra como implantar um aplicativo Java em um VMSS (conjunto de dimensionamento de máquinas virtuais) do Azure.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - **Assinatura do Azure**: caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **O Ansible e os módulos do SDK do Python do Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Conjunto de dimensionamento de máquinas virtuais** – se ainda não tiver um conjunto de dimensionamento de máquinas virtuais, você poderá [criar um com o Ansible](ansible-create-configure-vmss.md). 
 - **git** - O [git](https://git-scm.com) é usado para baixar um exemplo de Java usado neste tutorial.
 - **JDK (Java SE Development Kit)** – o JDK é usado para compilar o projeto Java de exemplo.
@@ -159,7 +153,7 @@ Para usar o tipo de conexão ssh com senhas, você precisa instalar o programa s
   - Para o Ubunto 16.04, execute o comando `apt-get install sshpass`.
   - Para o CentOS 7.4, execute o comando `yum install sshpass`.
 
-Você pode ver um erro como **Não é possível usar uma senha SSH em vez de uma chave porque a verificação de Chave de Host está habilitada e a sshpass não é compatível com isso.  Adicione a impressão digital desse host ao seu arquivo known_hosts para gerenciar esse host.** Se você vir esse erro, você poderá desabilitar a verificação de chave de host adicionando a um entre os arquivos `/etc/ansible/ansible.cfg` e `~/.ansible.cfg`:
+Você pode ver um erro como **Não é possível usar uma senha SSH em vez de uma chave porque a verificação de Chave de Host está habilitada e a sshpass não é compatível com isso. Adicione a impressão digital desse host ao seu arquivo known_hosts para gerenciar esse host.** Se você vir esse erro, você poderá desabilitar a verificação de chave de host adicionando a um entre os arquivos `/etc/ansible/ansible.cfg` e `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False

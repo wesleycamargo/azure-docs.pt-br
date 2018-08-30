@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283062"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122096"
 ---
 # <a name="speech-service-rest-apis"></a>APIs REST do Serviço de Fala
 
@@ -23,7 +23,7 @@ As APIs REST do serviço de Fala unificado são semelhantes às APIs fornecidas 
 
 Na API de Conversão de fala em texto, somente os pontos de extremidade usados diferenciam-se da API De Reconhecimento de Fala do Serviço de Fala anterior. Os novos pontos de extremidade são mostrados na tabela a seguir. Use um que corresponda com sua região de assinatura.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 A API de Conversão de fala em texto é, pelo contrário, semelhante à [API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) para a API de Fala anterior.
 
@@ -54,7 +54,7 @@ pt-BR  | Inglês (EUA) | Masculino   | "Conversão de Texto em Fala do Microsoft
 
 A seguir estão os pontos de extremidades de REST para a API de Conversão de Texto em Fala do Serviço de Fala. Use o ponto de extremidade que corresponda com sua região de assinatura.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Mantenha essas diferenças em mente, ao consultar a [documentação da API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) para a API de Fala anterior.
 
@@ -62,7 +62,7 @@ Mantenha essas diferenças em mente, ao consultar a [documentação da API REST]
 
 Enviar uma solicitação à API REST do Serviço de Fala requer um token de acesso. Você obtém um token fornecendo a chave de assinatura para um ponto de extremidade `issueToken` de serviço de Fala regional, mostrado na tabela a seguir. Use o ponto de extremidade que corresponda com sua região de assinatura.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Cada token de acesso é válido por 10 minutos. Você pode obter um novo token a qualquer momento — incluindo, se quiser, exatamente antes de cada solicitação da API REST de Fala. Para minimizar a latência e o tráfego de rede, no entanto, é recomendável usar o mesmo token por nove minutos.
 

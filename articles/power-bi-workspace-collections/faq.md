@@ -2,26 +2,20 @@
 title: Perguntas frequentes sobre as Coleções de Espaços de Trabalho do Power BI
 description: Perguntas frequentes relacionadas às Coleções de Espaços de Trabalho do Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414527"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040858"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Perguntas frequentes sobre as Coleções de Espaços de Trabalho do Power BI
 
@@ -67,7 +61,7 @@ Consulte nossa documentação de serviço para obter detalhes sobre como usar o 
 Sim. Você pode usar sua assinatura do Azure existente para provisionar e usar o serviço de Coleções de Espaços de Trabalho do Microsoft Power BI.
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>O usuário final do meu aplicativo precisa de uma licença do Power BI?
-Nº Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Espaços de Trabalho do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
+Não. Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Espaços de Trabalho do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](http://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como a autenticação do usuário funciona com as Coleções de Espaços de Trabalho do Power BI?
 O serviço de Coleções de Espaços de Trabalho do Power BI usa Tokens de Aplicativo para autenticação e autorização em vez de usar a autenticação explícita de usuário final. No modelo de Token de Aplicativo, seu aplicativo gerencia a autenticação e autorização para os usuários finais. Em seguida, quando necessário, seu aplicativo cria

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf56a85c43513f573c02e3b28cd93f28217814b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7ce8afa04751cd38e64b9ed920a6f863781e3ad1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128955"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126274"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -228,8 +228,6 @@ Veja as avaliações de conformidade resumidas para sua infraestrutura e faça u
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 
 Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que é usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
 1. No portal do Azure na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no item de menu **Pesquisa de Logs**.

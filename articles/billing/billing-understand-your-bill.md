@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064228"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919047"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
@@ -33,6 +33,9 @@ Para obter um PDF de sua fatura e uma cópia do download do arquivo de uso diár
 Para termos e descrições detalhados de sua fatura e arquivo de uso diário detalhado, consulte [Compreender os termos em sua fatura do Microsoft Azure](billing-understand-your-invoice.md) e [Compreender os termos em seu uso detalhado do Microsoft Azure](billing-understand-your-usage.md). 
 
 Para obter detalhes sobre os relatórios de gerenciamento de custo, consulte [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
+
+> [!div class="nextstepaction"]
+> [Ajudar a melhorar os documentos de cobrança do Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="charges"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
 
@@ -50,7 +53,7 @@ Os encargos de uso são exibidos no nível do medidor. Os termos na lista a segu
  | --- | --- |
 |Ciclo de cobrança | Período de Cobrança |
  |NOME |Categoria de medidor |
- |type |Subcategoria de medidor |
+ |Tipo |Subcategoria de medidor |
  |Recurso |Nome do medidor |
  |Região |Região do medidor |
  |Consumido |Quantidade consumida |

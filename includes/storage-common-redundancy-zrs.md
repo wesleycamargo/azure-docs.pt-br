@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400001"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184402"
 ---
 O armazenamento com redundância de zona (ZRS) replica seus dados de forma síncrona em três clusters de armazenamento em uma única região. Cada cluster de armazenamento é fisicamente separado dos outros e reside em sua própria zona de disponibilidade (AZ). Cada zona de disponibilidade e o cluster ZRS dentro dele, é autônomo, com recursos de rede e utilitários separados.
 
@@ -28,6 +28,7 @@ Atualmente, o ZRS oferece suporte ao padrão de tipos de conta [uso geral v2 (GP
 
 ZRS está geralmente disponível nas seguintes regiões:
 
+- Leste dos EUA
 - Leste dos EUA 2
 - Oeste dos EUA 2
 - Centro dos EUA

@@ -1,22 +1,20 @@
 ---
 title: Monitoramento das alterações de máquina virtual - Grade de Eventos do Azure e Aplicativos Lógicos | Microsoft Docs
 description: Verifique as alterações de configuração em máquinas virtuais (VMs) usando a Grade de Eventos do Azure e os aplicativos lógicos
-keywords: aplicativos lógicos, grades de eventos, máquina virtual, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303106"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127652"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
@@ -40,7 +38,7 @@ Neste tutorial, você aprenderá como:
 > * Adicionar uma condição que verifica especificamente se há alterações na máquina virtual.
 > * Enviar email quando sua máquina virtual é alterada.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma conta de email de [qualquer provedor de email compatível com Aplicativos Lógicos do Azure](../connectors/apis-list.md), como o Office 365 Outlook, Outlook.com ou Gmail para envio de notificações. Este tutorial usa o Office 365 Outlook.
 

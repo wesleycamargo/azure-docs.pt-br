@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d58642b95a60d4f1c83dfd969d0c76511dca4653
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929974"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097388"
 ---
 # <a name="microsoft-bing-speech-api-overview"></a>Visão geral da API de Fala do Bing da Microsoft
 
@@ -24,7 +24,7 @@ A API de Fala do Bing da Microsoft baseada em nuvem fornece aos desenvolvedores 
 - **A API de Conversão de Texto em Fala**I converte o texto em fluxos de áudio que podem ser reproduzidos para o usuário do seu aplicativo.
 
 > [!NOTE] 
-> Em maio de 2018, lançamos o novo [Serviço de Fala](/speech-service/overview.md) em visualização pública. É recomendável [experimentá-lo gratuitamente](/speech-service/get-started.md).
+> Em maio de 2018, lançamos o novo [Serviço de Fala](../speech-service/overview.md) em visualização pública. É recomendável [experimentá-lo gratuitamente](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Conversão de fala em texto (reconhecimento de fala)
 

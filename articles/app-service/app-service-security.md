@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 2ca1c1518589e60a03570e1c2063381f749ed9aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658791"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885863"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Segurança no Serviço de Aplicativo do Azure e Azure Functions
 
@@ -49,7 +49,7 @@ O Serviço de Aplicativo permite que você proteja os aplicativos com [HTTPS](ht
 
 Para proteger o aplicativo contra todas as conexões não criptografadas (HTTP), o Serviço de Aplicativo fornece configuração com um clique para impor o HTTPS. As solicitações não seguras serão recusadas antes mesmo de alcançarem o código do aplicativo. Para mais informações, consulte [Impor o HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 não é mais considerado seguro pelos padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O Serviço de Aplicativo permite desabilitar os protocolos desatualizados [impondo o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 não é mais considerado seguro pelos padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). O Serviço de Aplicativo permite desabilitar os protocolos desatualizados [impondo o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
 O Serviço de Aplicativo dá suporte ao FTP e FTPS para implantar os arquivos. No entanto, utilize FTPS em vez de FTP, se possível. Quando um ou ambos os protocolos não estiverem em uso será necessário [desabilitá-los](app-service-deploy-ftp.md#enforce-ftps).
 

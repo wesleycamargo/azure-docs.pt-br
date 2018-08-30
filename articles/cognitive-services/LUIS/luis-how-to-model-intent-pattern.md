@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: diberry;
-ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222589"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124677"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar Padrões para aumentar a precisão da previsão
 Depois que um aplicativo LUIS receber declarações do ponto de extremidade, use o [conceito](luis-concept-patterns.md) de Padrões para aumentar a precisão da previsão de declarações que revelam um padrão na ordem e na escolha de palavras. Os Padrões usam [entidades](luis-concept-entity-types.md), e a funções que elas têm de extrair dados usando uma sintaxe de padrão específica. 

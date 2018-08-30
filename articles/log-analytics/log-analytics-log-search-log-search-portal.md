@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140404"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246326"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Criar pesquisas de logs no Azure Log Analytics usando o portal de Pesquisa de logs
 
@@ -38,9 +38,8 @@ Inicie abrindo o portal de Pesquisa de Logs.
 
 1. Abra o portal do Azure.
 2. Navegue até o Log Analytics e selecione seu espaço de trabalho.
-3. Selecione **Pesquisa de Logs**.
+3. Selecione **Logs**.
 
-![Botão Pesquisar Log](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Crie uma pesquisa simples
 A maneira mais rápida de recuperar alguns dados para trabalhar é uma consulta simples que retorna todos os registros na tabela.  Se você tiver algum cliente Windows ou Linux conectado ao seu espaço de trabalho, você terá dados na tabela de Eventos (Windows) ou Syslog (Linux).

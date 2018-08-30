@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9855becd7c047788ed310dff4317a5df87cc9b61
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030046"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047621"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do tempo de execução no Serviço de Aplicativo do Azure
 
@@ -94,7 +94,7 @@ A tabela a seguir mostra como encontrar informações sobre as versões do Windo
 | Versão do Python | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br> `python --version` |  
 
 > [!NOTE]  
-> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) é armazenada, está bloqueado.
+> O acesso ao local do registro `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, em que as informações sobre [patches "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins) é armazenada, está bloqueado.
 >
 >
 

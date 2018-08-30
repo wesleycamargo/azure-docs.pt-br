@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: dc37a9f514069f49f6188caf2e22c24494d2a272
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033392"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185289"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentação do Armazenamento do Azure Data Lake Gen1
 
@@ -181,7 +181,7 @@ Se você estiver interessado em saber mais sobre a versão prévia do Armazename
                 <div class="card">
                     <div class="cardText">
                         <h3>Linha de comando</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.datalakestore/v3.1.0/azurerm.datalakestore">PowerShell</a></p>
+                        <p><a href="/powershell/module/azurerm.datalakestore">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">CLI 2.0 do Azure</a></p>
                     </div>
                 </div>

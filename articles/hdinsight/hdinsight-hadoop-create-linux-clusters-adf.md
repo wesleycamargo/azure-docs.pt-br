@@ -3,18 +3,18 @@ title: 'Tutorial: Criar clusters Hadoop sob no Azure HDInsight usando o Azure Da
 description: Saiba como criar clusters Hadoop sob demanda usando o Azure Data Factory.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599642"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105276"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutorial: Criar clusters Hadoop sob demanda usando o Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

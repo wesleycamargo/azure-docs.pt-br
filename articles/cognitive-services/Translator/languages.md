@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032428"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888134"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Idiomas suportados na API de texto do Microsoft Translator
 
@@ -147,13 +147,13 @@ O dicionário suporta os seguintes idiomas para ou do inglês usando os métodos
 | Indonésio      | `id`          |
 | Italiano      | `it`          |
 | Japonês      | `ja`          |
-| Kiswahili      | `sw`          |
+| Suaíli      | `sw`          |
 | Klingon      | `tlh`          |
 | Coreano      | `ko`          |
 | Letão      | `lv`          |
 | Lituano      | `lt`          |
 | Malaio      | `ms`          |
-| Maltese      | `mt`          |
+| Maltês      | `mt`          |
 | Norueguês      | `nb`          |
 | Persa      | `fa`          |
 | Polonês      | `pl`          |
@@ -186,9 +186,9 @@ Os seguintes idiomas podem ser detectados pelo método Detectar. Detectar pode d
 | Bielorrusso |
 | Búlgaro |
 | Catalão |
-| Chinesa |
-| Chinês_Simplificado |
-| Chinês_Traditional |
+| Chinês |
+| Chinês (Simplificado) |
+| Chinês (Tradicional) |
 | Croata |
 | Tcheco |
 | Dinamarquês |
@@ -201,7 +201,7 @@ Os seguintes idiomas podem ser detectados pelo método Detectar. Detectar pode d
 | Galego |
 | Alemão |
 | Grego |
-| Crioulo_haitiano |
+| Crioulo haitiano |
 | Hebraico |
 | Híndi |
 | Húngaro |
@@ -211,24 +211,24 @@ Os seguintes idiomas podem ser detectados pelo método Detectar. Detectar pode d
 | Italiano |
 | Japonês |
 | Coreano |
-| Curdo_rabico |
-| Curdo_latim |
+| Curdo (árabe) |
+| Curdo (latino) |
 | Latim |
 | Letão |
 | Lituano |
 | Macedônio |
 | Malaio |
-| Maltese |
+| Maltês |
 | Norueguês |
-| Nynorsk_norueguês |
+| Norueguês (Nynorsk) |
 | Pashto |
 | Persa |
 | Polonês |
 | Português |
 | Romeno |
 | Russo |
-| Cirílico sérvio |
-| sérvio Latino |
+| Sérvio (cirílico) |
+| Sérvio (latino) |
 | Eslovaco |
 | Esloveno |
 | Somali |
@@ -240,8 +240,8 @@ Os seguintes idiomas podem ser detectados pelo método Detectar. Detectar pode d
 | Turco |
 | Ucraniano |
 | Urdu |
-| Uzbeque cirílico |
-| Latim uzbeque |
+| Uzbeque (cirílico) |
+| Uzbeque (latino) |
 | Vietnamita |
 | Galês |
 | Yiddish |

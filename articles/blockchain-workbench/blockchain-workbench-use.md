@@ -10,21 +10,21 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e17a9275792e3a7fdbea6e3b95e596eaa15f4359
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258032"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105804"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Usando aplicativos no Azure Blockchain Workbench
 
 Você pode usar o Blockchain Workbench para criar e executar ações em contratos. Você também pode exibir detalhes do contrato como o histórico de transações e o status.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma implantação do Blockchain Workbench. Para obter mais informações, consulte [implantação do Azure Blockchain Workbench](blockchain-workbench-deploy.md) para obter detalhes sobre a implantação
-* Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [Criar um aplicativo blockchain implantado no Azure Blockchain Workbench]()
+* Um aplicativo blockchain implantado no Blockchain Workbench. Consulte [Criar um aplicativo blockchain implantado no Azure Blockchain Workbench](blockchain-workbench-create-app.md)
 
 [Abra o Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) em seu navegador.
 
@@ -42,7 +42,7 @@ Para criar um novo contrato, você precisa ser um membro especificado como um in
 
     ![Novo botão de contrato](media/blockchain-workbench-use/contract-list.png)
 
-3. O painel **Novo contrato** é exibido. Especifique os valores de parâmetros iniciais. Clique em **Criar**.
+3. O painel **Novo contrato** é exibido. Especifique os valores de parâmetros iniciais. Selecione **Criar**.
 
     ![Painel novo contrato](media/blockchain-workbench-use/new-contract.png)
 

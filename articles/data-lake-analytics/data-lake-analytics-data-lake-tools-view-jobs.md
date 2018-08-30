@@ -5,24 +5,23 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: conceptual
 ms.date: 08/02/2017
-ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 474478c8049dd97558b49b1df4b00655268fc0b3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623223"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044091"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Usar o Navegador de Trabalhos e a Exibição de Trabalho para o Azure Data Lake Analytics
 O serviço Azure Data Lake Analytics arquiva os trabalhos enviados em um [repositório de consultas](#query-store). Neste artigo, você aprende como usar o Navegador de Trabalhos e Exibição de Trabalho nas Ferramentas do Azure Data Lake para Visual Studio para localizar as informações de histórico do trabalho. 
 
 Por padrão, o serviço Data Lake Analytics arquiva os trabalhos por 30 dias. O período de validade pode ser configurado do Portal do Azure, configurando a política de expiração personalizada. Você não poderá acessar as informações sobre o trabalho após a expiração. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Veja [Pré-requisitos das Ferramentas do Data Lake para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>Abrir o Navegador de Trabalhos
@@ -142,7 +141,7 @@ A Exibição de Trabalho contém:
     O Histórico de Estado também é visualizado no Resumo do Trabalho, mas você pode obter mais detalhes aqui. Você pode encontrar informações mais detalhadas, por exemplo, quando o trabalho é preparado, colocado na fila, quando inicia a execução e quando encerra. Também é possível encontrar quantas vezes o trabalho foi compilado (o CcsAttempts: 1), quando o trabalho é realmente expedido para o cluster (o Detalhe: expedindo o trabalho para cluster), etc.
   
     ![Histórico de Estado de Exibição de Trabalho do Azure Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-state-history.png)
-* Diagnostics
+* Diagnósticos
   
     A ferramenta diagnostica automaticamente a execução do trabalho. Você receberá alertas quando houver algum erro ou problemas de desempenho em seus trabalhos. Observe que você precisa baixar o Perfil para obter informações completas aqui. 
   

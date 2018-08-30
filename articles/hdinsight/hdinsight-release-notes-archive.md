@@ -2,19 +2,19 @@
 title: Notas da versão mais recente do Microsoft Azure HDInsight
 description: Notas de versão e versões arquivadas de componentes do Azure HDInsight.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 34536316fef5f30df4ef1e3c89ddaaafed188c5d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1dd0e33b3ec6cc5521d5087d48e9e5467911c2b6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600077"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43109756"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Notas da versão mais recente do Microsoft Azure HDInsight
 

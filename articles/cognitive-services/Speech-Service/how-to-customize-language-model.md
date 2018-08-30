@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 0161a691cbec45a87ade218d1707a2784d7f1cfc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97659bf38b6d06464eee37a33e87d0c528cdcd37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283877"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126931"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutorial: Criar um modelo de linguagem personalizado
 
@@ -93,7 +93,7 @@ Quando seus dados de linguagem estiverem prontos, clique em “Modelos de Lingua
 
 A localidade apropriada deve ser selecionada antes de executar qualquer ação. A localidade atual é indicada no título da tabela em todas as páginas de dados, modelo e implantação. Para alterar a localidade, clique no botão "Alterar Localidade", localizado abaixo do título da tabela que levará você para a página e confirmação de localidade. Clique em “OK” para retornar à tabela.
 
-Na página “Criar o Modelo de Linguagem”, insira um “Nome” e uma “Descrição” para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o “Modelo de Linguagem Base” no menu suspenso. Esse modelo será o ponto de partida para sua personalização. Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo de Conversação é apropriado para reconhecer a fala falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado “Universal” também está disponível publicamente. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
+Na página “Criar o Modelo de Linguagem”, insira um “Nome” e uma “Descrição” para ajudar a manter o controle das informações pertinentes sobre esse modelo, como o conjunto de dados usado. Em seguida, selecione o “Modelo de Linguagem Base” no menu suspenso. Esse modelo será o ponto de partida para sua personalização. Há dois modelos de linguagem base para escolher. O modelo Pesquisa e Ditado é apropriado para fala dirigida a um aplicativo, como comandos, consultas de pesquisa ou ditado. O modelo Conversacional é apropriado para reconhecimento de fala falada em um estilo conversacional. Esse tipo de fala normalmente é direcionado a outra pessoa e ocorre em call centers ou em reuniões. Um novo modelo chamado “Universal” também está disponível publicamente. O modelo Universal tem como objetivo lidar com todos os cenários e, eventualmente, substituir os modelos de Pesquisa e Ditado e os modelos de Conversação.
 
 5.  No exemplo abaixo, depois de ter especificado o modelo de linguagem base, selecione o conjunto de dados de linguagem que você deseja usar para a personalização usando o menu suspenso “Dados de Linguagem”
 

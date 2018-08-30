@@ -3,19 +3,18 @@ title: Processar mensagens em lote como um grupo ou uma coleção – Aplicativo
 description: Enviar e receber mensagens como lotes em aplicativos de lógica do Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145297"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128738"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Enviar, receber e processar em lote mensagens nos aplicativos de lógica do Azure
 
@@ -29,25 +28,25 @@ Para enviar e processar mensagens juntas de uma maneira específica como grupos,
 
    Você também pode especificar uma chave exclusiva, como um número de cliente, que *particione* ou divida o lote de destino em subconjuntos lógicos com base nessa chave. Dessa forma, o aplicativo receptor pode coletar todos os itens com a mesma chave e processá-los juntos.
 
-Verifique se o destinatário do lote e o remetente em lote compartilham a mesma assinatura do Azure *e* região do Azure. Se não o fizerem, você não poderá selecionar o destinatário do lote quando criar o remetente em lote, porque eles não estarão visíveis um para o outro.
+Verifique se o destinatário do lote e o remetente em lote compartilham a mesma assinatura do Azure *e* região do Azure. Caso contrário, não será possível selecionar o receptor do lote ao criar o remetente do lote porque não estarão visíveis um para o outro.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para seguir este exemplo, você precisa destes itens:
 
-* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscrever-se para uma assinatura pré-paga](https://azure.microsoft.com/pricing/purchase-options/).
+* Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Ou, [inscreva-se para uma assinatura de Pagamento Conforme o Uso](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Uma conta de email com qualquer [provedor de email com suporte do Aplicativo Lógico do Azure](../connectors/apis-list.md)
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 
-* Para usar o Visual Studio em vez do portal do Azure, certifique-se de [configurar o Visual Studio para trabalhar com o Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+* Para usar o Visual Studio em vez do portal do Azure, certifique-se de [configurar o Visual Studio para trabalhar com Aplicativos Lógicos](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
 ## <a name="create-batch-receiver"></a>Criar destinatário do lote
 
-Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o destino para o qual você envia essas mensagens. Então, primeiro, você deve criar o aplicativo lógico "receptor de lote", que começa com o acionador **Lote**. Dessa forma, quando você cria o aplicativo lógico "remetente em lote", você pode selecionar o aplicativo lógico destinatário do lote. O receptor de lotes continua coletando mensagens até que seus critérios especificados sejam atendidos para liberar e processar essas mensagens. Embora os remetentes em lote não precisem saber nada sobre remetentes em lote, os remetentes em lote devem conhecer o destino para onde enviarão as mensagens. 
+Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o destino para o qual você envia essas mensagens. Portanto, primeiro, é necessário criar o aplicativo lógico "receptor do lote" que inicia com o gatilho do **Lote**. Dessa forma, ao criar o aplicativo lógico "remetente do lote", será possível selecionar o aplicativo lógico do receptor do lote. O receptor do lote continuará coletando mensagens até que seus critérios especificados sejam atendidos para liberar e processar essas mensagens. Embora os remetentes em lote não precisem saber nada sobre remetentes em lote, os remetentes em lote devem conhecer o destino para onde enviarão as mensagens. 
 
 1. No [Portal do Azure](https://portal.azure.com) ou no Visual Studio, crie um aplicativo lógico com este nome: "BatchReceiver" 
 
@@ -55,7 +54,7 @@ Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o d
 
    ![Adicionar gatilho de "Mensagens em lote"](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Defina propriedades de receptor de lote: 
+3. Defina propriedades de receptor do lote: 
 
    | Propriedade | DESCRIÇÃO | 
    |----------|-------------|
@@ -73,7 +72,7 @@ Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o d
    Para este exemplo, adicione uma ação que envia um email quando o acionador em lote é disparado. 
    O gatilho é executado e envia um email quando o lote tem 10 mensagens, atinge 10 MB ou após 10 minutos.
 
-   1. Sob o acionador de lote, escolha **Novo passo**.
+   1. No gatilho de lote, escolha **Nova etapa**.
 
    2. Na caixa de pesquisa, insira "enviar email" como filtro.
    Com base em seu provedor de email, selecione um conector de email.
@@ -118,7 +117,7 @@ Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o d
 
     ![Salve seu aplicativo lógico](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-8. Se você estiver usando o Visual Studio, verifique se você [implantar seu aplicativo lógico destinatário do lote no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Caso contrário, você não poderá selecionar o destinatário do lote quando criar o remetente em lote.
+8. Se estiver usando o Visual Studio, certifique-se de [implantar o aplicativo lógico do receptor do lote no Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Caso contrário, você não poderá selecionar o destinatário do lote quando criar o remetente em lote.
 
 <a name="batch-sender"></a>
 
@@ -126,9 +125,9 @@ Antes de enviar mensagens para um lote, esse lote deve existir primeiro como o d
 
 Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem mensagens para o aplicativo lógico de recebimento em lote. Em cada remetente do lote, você especifica o nome do lote e do destinatário do lote, o conteúdo da mensagem e quaisquer outras configurações. Opcionalmente, você pode fornecer uma chave de partição exclusiva para dividir o lote em subconjuntos lógicos para coletar mensagens com essa chave. 
 
-* Certifique-se de que você já [criou o seu receptor de lote](#batch-receiver), assim, ao criar o remetente do seu lote, você pode selecionar o receptor de lote existente como o lote de destino. Embora os remetentes em lote não precisem saber nada sobre remetentes em lote, os remetentes em lote devem saber para onde enviar mensagens. 
+* Certifique-se de que você já [criou o seu receptor de lote](#batch-receiver), assim, ao criar o remetente do seu lote, você pode selecionar o receptor de lote existente como o lote de destino. Embora os receptores dos lotes não precisem saber nada sobre os remetentes dos lotes, os remetentes dos lotes deverão saber para onde enviarão as mensagens. 
 
-* Verifique se o destinatário do lote e o remetente do lote compartilham a mesma assinatura do Azure *e* do Azure. Se não o fizerem, você não poderá selecionar o destinatário do lote quando criar o remetente em lote, porque eles não estarão visíveis um para o outro.
+* Certifique-se de que receptor do lote e o remetente do lote compartilham a mesma região do Azure *e* a assinatura do Azure. Caso contrário, não será possível selecionar o receptor do lote ao criar o remetente do lote porque não estarão visíveis um para o outro.
 
 1. Crie outro aplicativo lógico com este nome: "RemetenteLote"
 
@@ -146,7 +145,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
    1. Sob o gatilho de recorrência, escolha **Novo passo**.
 
    2. Na caixa de pesquisa, digite "lote" como filtro. 
-   Selecione a lista **Ações** e selecione esta ação: **Escolha um fluxo de trabalho de Aplicativos lógicos com acionador em lote - Envie mensagens para o lote**
+   Selecione a lista **Ações** e, em seguida, selecione esta ação: **Escolher um fluxo de trabalho de Aplicativos Lógicos com gatilho do lote - Enviar mensagens para o lote**
 
       ![Selecione "Escolher um fluxo de trabalho de aplicativos lógicos com gatilho de lote"](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
@@ -167,7 +166,7 @@ Agora crie um ou mais aplicativos de lógica de remetente em lote que enviem men
 
    | Propriedade | DESCRIÇÃO | 
    |----------|-------------| 
-   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: O nome do lote é validado no tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
+   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "TestBatch" neste exemplo <p>**Importante**: o nome do lote é validado no tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico do receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você deseja enviar | 
    ||| 
 
