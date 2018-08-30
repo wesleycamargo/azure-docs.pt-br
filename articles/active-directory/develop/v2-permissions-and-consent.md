@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
+ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146310"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125109"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Escopos, permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
+
 Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um modelo de autorização que fornece aos usuários controle sobre como um aplicativo pode acessar seus dados. A implementação v2.0 desse modelo de autorização foi atualizada e altera a maneira como um aplicativo deve interagir com o Azure AD. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
 
 > [!NOTE]
 > O ponto de extremidade v2.0 não dá suporte a todos os cenários e recursos do Azure Active Directory. Para determinar se você deve usar o ponto de extremidade v2.0, leia sobre as [limitações da v2.0](active-directory-v2-limitations.md).
->
->
 
 ## <a name="scopes-and-permissions"></a>Permissões e escopos
+
 O Azure AD implementa o protocolo de autorização [OAuth 2.0](active-directory-v2-protocols.md). O OAuth 2.0 é um método pelo qual um aplicativo de terceiros pode acessar recursos hospedados na Web em nome do usuário. Qualquer recurso hospedado na Web que se integre ao Azure AD terá um identificador de recurso, ou *URI de ID de Aplicativo*. Por exemplo, alguns dos recursos hospedados na Web da Microsoft incluem:
 
 * A API de Email Unificado do Office 365: `https://outlook.office.com`
@@ -56,18 +56,23 @@ No Azure AD e no OAuth, esses tipos de permissões são chamados de *escopos*. E
 Um aplicativo pode solicitar essas permissões especificando os escopos em solicitações para o ponto de extremidade v2.0.
 
 ## <a name="openid-connect-scopes"></a>Escopos do OpenID Connect
+
 A implementação v2.0 do OpenID Connect tem alguns escopos bem definidos que não se aplicam a nenhum recurso específico: `openid`, `email`, `profile` e `offline_access`.
 
 ### <a name="openid"></a>openid
+
 Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-protocols.md), ele deverá solicitar o escopo `openid`. O escopo `openid` aparecerá na página de consentimento da conta corporativa como a permissão "Conectar você" e na página de consentimento da conta pessoal da Microsoft como a permissão "Exibir seu perfil e se conectar a aplicativos e serviços usando sua conta da Microsoft". Com essa permissão, um aplicativo pode receber um identificador exclusivo para o usuário na forma da declaração `sub`. Ele também fornece ao aplicativo acesso ao ponto de extremidade UserInfo. O escopo `openid` também pode ser usado no ponto de extremidade v2.0 para adquirir tokens de ID, que podem ser usados para proteger chamadas HTTP entre diferentes componentes de um aplicativo.
 
 ### <a name="email"></a>email
+
 O escopo do `email` pode ser usado com o escopo do `openid` e com muitos outros. Ele concede ao aplicativo acesso ao endereço de email principal do usuário na forma da declaração `email` . A declaração `email` só será incluída nos tokens se um endereço de email estiver associado à conta de usuário, o que nem sempre é o caso. Se estiver usando o escopo de `email`, seu aplicativo deverá estar preparado para lidar com casos em que a declaração `email` não existe no token.
 
 ### <a name="profile"></a>Perfil
+
 O escopo do `profile` pode ser usado com o escopo do `openid` e com muitos outros. Ele fornece o acesso de aplicativo a uma quantidade substancial de informações sobre o usuário. As informações que ele pode acessar incluem, mas sem limitação, o nome, sobrenome, nome de usuário preferido e ID de objeto. Para obter uma lista completa de declarações de perfil disponíveis no parâmetro id_tokens para um usuário específico, veja a [referência de tokens v2.0](v2-id-and-access-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
+
 O [escopo do `offline_access`](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) concede ao seu aplicativo acesso a recursos em nome do usuário por um longo período. Na página de consentimento de conta corporativa, esse escopo aparecerá como a permissão "Acessar dados a qualquer momento". Na página de consentimento de conta pessoal da Microsoft, ele aparecerá como a permissão "Acessar dados a qualquer momento". Quando um usuário aprovar o escopo `offline_access`, seu aplicativo poderá receber tokens de atualização do ponto de extremidade do token v2.0. Os tokens de atualização têm uma vida longa. Seu aplicativo pode obter novos tokens de acesso quando os mais antigos expirarem.
 
 Se o aplicativo não solicitar o escopo `offline_access`, ele não receberá tokens de atualização. Isso significa que, ao resgatar um código de autorização no [fluxo de código de autorização do OAuth 2.0](active-directory-v2-protocols.md), você só receberá de volta um token de acesso do ponto de extremidade `/token`. O token de acesso é válido por um curto período. Geralmente, o token de acesso expira em uma hora. Nesse ponto, seu aplicativo precisa redirecionar o usuário novamente para o ponto de extremidade `/authorize` para obter um novo código de autorização. Durante esse redirecionamento, dependendo do tipo de aplicativo, o usuário poderá ou não precisar inserir suas credenciais novamente ou consentir de novo as permissões.
@@ -77,7 +82,7 @@ Para saber mais sobre como obter e usar tokens de atualização, veja a [referê
 ## <a name="accessing-v10-resources"></a>Acessar recursos v1.0
 Aplicativos v2.0 podem solicitar tokens e consentir para aplicativos v1.0 (como API do PowerBI `https://analysis.windows.net/powerbi/api` ou API do Sharepoint `https://{tenant}.sharepoint.com`).  Para fazer isso, você pode fazer referência ao URI do aplicativo e à cadeia de caracteres de escopo no parâmetro `scope`.  Por exemplo, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` solicitaria a permissão do PowerBI `View all Datasets` ao aplicativo. 
 
-Para solicitar várias permissões, anexe o URI inteiro com um espaço ou `+`, p. ex. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Isso solicita ambas as permissões `View all Datasets` e `View all Reports`.  Observe que, assim como ocorre com todos os escopos e permissões do Azure AD, os aplicativos somente podem fazer uma solicitação para um recurso de cada vez - portanto, a solicitação `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita a permissão do PowerBI `View all Datasets` e a permissão do Skype for Business `Initiate conversations` será rejeitada devido à solicitação de permissões em dois recursos diferentes.  
+Para solicitar várias permissões, anexe o URI inteiro com um espaço ou `+`, p. ex. `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://analysis.windows.net/powerbi/api/Report.Read.All`.  Isso solicita ambas as permissões `View all Datasets` e `View all Reports`.  Observe que, assim como ocorre com todos os escopos e permissões do Azure AD, os aplicativos somente podem fazer uma solicitação para um recurso de cada vez - portanto, a solicitação `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+ https://api.skypeforbusiness.com/Conversations.Initiate`, que solicita a permissão do PowerBI `View all Datasets` e a permissão do Skype for Business `Initiate conversations` será rejeitada devido à solicitação de permissões em dois recursos diferentes.  
 
 ### <a name="v10-resources-and-tenancy"></a>Locação e recursos v1.0
 Ambos os protocolos v1.0 e v2.0 do Azure AD usam um parâmetro `{tenant}` inserido no URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Ao usar o ponto de extremidade v2.0 para acessar um recurso organizacional v1.0, os locatários `common` e `consumers` não poderão ser usados, pois esses recursos só podem ser acessados com contas organizacionais (Azure AD).  Desse modo, ao acessar esses recursos, apenas o GUID do locatário ou `organizations` poderá ser usado como o parâmetro`{tenant}`.  
@@ -88,6 +93,7 @@ Se um aplicativo tentar acessar um recurso v1.0 organizacional usando um locatá
 
 
 ## <a name="requesting-individual-user-consent"></a>Solicitando consentimento de usuário individual
+
 Em uma solicitação de autorização do [OpenID Connect ou OAuth 2.0](active-directory-v2-protocols.md), um aplicativo pode solicitar as permissões de que precisa usando o parâmetro de consulta `scope`. Por exemplo, quando um usuário entra em um aplicativo, o aplicativo envia uma solicitação como o exemplo a seguir (com quebras de linha adicionadas para legibilidade):
 
 ```
@@ -111,11 +117,13 @@ Depois que o usuário insere suas credenciais, o ponto de extremidade v2.0 verif
 Quando o usuário aprovar a permissão, o consentimento será registrado para que o usuário não tenha que consentir novamente em conexões subsequentes à conta.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Solicitando consentimento para um locatário inteiro
+
 Geralmente, quando uma organização adquire uma assinatura para um aplicativo ou uma licença, a organização deseja configurar totalmente o aplicativo para seus funcionários. Como parte desse processo, um administrador pode autorizar que o aplicativo atue em nome de todos os funcionários. Se o administrador concede permissão para o locatário inteiro, os funcionários da empresa não verá uma página de consentimento para o aplicativo.
 
 Para solicitar consentimento para todos os usuários em um locatário, seu aplicativo pode usar o ponto de extremidade de consentimento de administrador.
 
 ## <a name="admin-restricted-scopes"></a>Escopos restritos ao administrador
+
 Algumas permissões de alto privilégio no ecossistema da Microsoft podem ser definidas como *restritas ao administrador*. Exemplos desses tipos de escopos incluem as seguintes permissões:
 
 * Ler dados do diretório da organização usando `Directory.Read`
@@ -129,19 +137,23 @@ Se seu aplicativo requer acesso a escopos restritos a administradores para as or
 Quando um administrador concede essas permissões pelo ponto de extremidade de consentimento do administrador, a permissão é concedida para todos os usuários no locatário.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Usando o ponto de extremidade de consentimento do administrador
+
 Se você seguir estas etapas, seu aplicativo poderá obter permissões para todos os usuários em um locatário, incluindo escopos restringidos pelo administrador. Para obter um exemplo de código que implementa as etapas, veja o [exemplo de escopos restritos ao administrador](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitar as permissões no portal de registro do aplicativo
+
 1. Vá para seu aplicativo no [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [crie um aplicativo](quickstart-v2-register-an-app.md) se ainda não tiver feito isso.
 2. Localize a seção **Permissões do Microsoft Graph** e adicione as permissões que seu aplicativo requer.
 3. **Salve** o registro do aplicativo.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Recomendado: conectar o usuário ao aplicativo
+
 Normalmente, quando você cria um aplicativo que usa o ponto de extremidade de consentimento do administrador, o aplicativo precisa de uma página ou de um modo de exibição em que o administrador possa aprovar as permissões do aplicativo. Essa página pode ser parte do fluxo de inscrição no aplicativo, parte das configurações do aplicativo ou um fluxo dedicado de "conexão". Em muitos casos, faz sentido que o aplicativo somente mostre o modo de exibição "conectar" depois que o usuário entra com uma conta corporativa ou de estudante da Microsoft.
 
 Quando o usuário entra em seu aplicativo, você pode identificar a organização à qual o administrador pertence antes de pedir a ele que aprove as permissões necessárias. Embora não seja estritamente necessário, isso pode ajudá-lo a criar uma experiência mais intuitiva para os usuários empresariais. Para conectar o usuário, siga nossos [tutoriais de protocolo v2.0](active-directory-v2-protocols.md).
 
 ### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitar permissões de um administrador de diretório
+
 Quando você estiver pronto para solicitar permissões de administrador da empresa, redirecione o usuário para o *ponto de extremidade de consentimento do administrador* v2.0.
 
 ```
@@ -163,14 +175,15 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parâmetro | Condição | DESCRIÇÃO |
 | --- | --- | --- |
-| locatário |Obrigatório |O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em GUID ou formato de nome amigável OU referenciado genericamente com "comum", como visto no exemplo. |
-| client_id |Obrigatório |A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
-| redirect_uri |Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
-| state |Recomendadas |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `tenant` | Obrigatório | O locatário do diretório para o qual você deseja solicitar permissão. Pode ser fornecido em GUID ou formato de nome amigável OU referenciado genericamente com "comum", como visto no exemplo. |
+| `client_id` | Obrigatório | A ID de aplicativo do [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) atribuída ao seu aplicativo. |
+| `redirect_uri` | Obrigatório |O URI de redirecionamento onde você deseja que a resposta seja enviada para ser tratada pelo aplicativo. Ela deve corresponder exatamente a um redirecionamento de URIs que você registrou no portal de registro de aplicativo. |
+| `state` | Recomendadas | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Use o estado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
 
 Neste ponto, o Azure AD requer um administrador de locatários para entrar e concluir a solicitação. O administrador deverá aprovar todas as permissões que você solicitou para o aplicativo no portal de registro de aplicativos.
 
 #### <a name="successful-response"></a>Resposta bem-sucedida
+
 Se o administrador aprovar as permissões para o seu aplicativo, a resposta bem-sucedida será:
 
 ```
@@ -179,11 +192,12 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- | --- |
-| locatário |O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID. |
-| state |Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
-| admin_consent |Será definido como **true**. |
+| `tenant` | O locatário do diretório que concedeu as permissões solicitadas, no formato de GUID. |
+| `state` | Um valor incluído na solicitação também será retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. O estado é usado para codificar as informações sobre o estado do usuário no aplicativo antes da solicitação de autenticação ocorrida, como a página ou exibição em que ele estava. |
+| `admin_consent` | Será definido como **true**. |
 
 #### <a name="error-response"></a>Resposta de erro
+
 Se o administrador não aprovar as permissões para o seu aplicativo, a resposta de falha será:
 
 ```
@@ -192,12 +206,13 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- | --- |
-| error |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
-| error_description |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro. |
+| `error` |Uma cadeia de caracteres de códigos de erro que pode ser usada para classificar tipos de erro que ocorrem e pode ser usada para responder aos erros. |
+| `error_description` |Uma mensagem de erro específica que pode ajudar um desenvolvedor a identificar a causa raiz de um erro. |
 
 Depois de receber uma resposta bem-sucedida do ponto de extremidade de consentimento do administrador, o aplicativo terá as permissões solicitadas por ele. Em seguida, você pode solicitar um token para o recurso desejado.
 
 ## <a name="using-permissions"></a>Usando permissões
+
 Depois que o usuário consente permissões para o aplicativo, este pode adquirir tokens de acesso que representam a permissão do seu aplicativo para acessar um recurso em alguma capacidade. Um token de acesso só pode ser usado para um único recurso, mas codificada dentro do token de acesso estará cada permissão que o aplicativo recebeu para esse recurso. Para adquirir um token de acesso, o aplicativo poderá fazer uma solicitação ao ponto de extremidade do token v2.0 como esta:
 
 ```
