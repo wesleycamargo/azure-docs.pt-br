@@ -7,34 +7,22 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 08/21/2018
-ms.openlocfilehash: a60ba863dbbd308219f4229319fb98c72180114d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.date: 08/22/2018
+ms.openlocfilehash: ff9929d8f2da66b8aa24160c321c9158c832dbc0
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250624"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815178"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Usar o Ansible para criar uma máquina virtual do Linux no Azure
 Usando uma linguagem declarativa, o Ansible permite automatizar a criação, configuração e implantação dos recursos do Azure por meio dos *guias estratégicos* do Ansible. Cada seção deste artigo mostra a aparência de cada seção de um guia estratégico do Ansible para criar e configurar os diferentes aspectos de uma máquina virtual do Linux. O [guia estratégico completo do Ansible](#complete-sample-ansible-playbook) está listado no final deste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Assinatura do Azure** - Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- **Assinatura do Azure** - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- **Configurar o Azure Cloud Shell** ou **Instalar e configurar o Ansible em uma máquina virtual do Linux**
-
-  **Configurar o Azure Cloud Shell**
-
-  1. **Configurar o Azure Cloud Shell** - Se o Azure Cloud Shell for uma novidade para você, o artigo [Início rápido para Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart) ilustra como começar a usar e configurar o Cloud Shell. 
-
-  **--OU--**
-
-  **Instalar e configurar o Ansible em uma máquina virtual do Linux**
-
-  1. **Instalar o Ansible** - Instalar o Ansible em uma [plataforma com suporte para Linux](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
-
-  1. **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 O Ansible precisa de um grupo de recursos para implantar todos os seus recursos. A seção do guia estratégico de exemplo do Ansible a seguir cria um grupo de recursos denominado `myResourceGroup` no local `eastus`:

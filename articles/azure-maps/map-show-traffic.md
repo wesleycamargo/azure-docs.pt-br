@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600112"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746071"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 
@@ -27,13 +27,13 @@ Este artigo mostra como exibir informações de tráfego e incidentes no mapa.
 
 No código acima, o primeiro bloco de código constrói um objeto de mapa. Você pode ver [Criar um mapa](map-create.md) para obter instruções.
 
-O segundo bloco de código usa a função [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) da classe mapa para renderizar os fluxos de tráfego e incidentes no mapa.
+O segundo bloco de código usa a função [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) da classe mapa para renderizar os fluxos de tráfego e incidentes no mapa.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo: 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
 * [Interagindo com o mapa – eventos do mouse](./map-events.md)

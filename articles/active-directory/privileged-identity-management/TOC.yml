@@ -1,0 +1,99 @@
+items:
+- name: Documentação do Privileged Identity Management
+- name: Visão geral
+  items:
+  - name: O que é o PIM do Azure AD?
+    href: pim-configure.md
+- name: Conceitos
+  items:
+  - name: Requisitos de assinatura
+    href: subscription-requirements.md
+  - name: Funções do diretório que você pode gerenciar
+    href: pim-roles.md
+  - name: Proteger o acesso privilegiado
+    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Visão geral dos painéis
+    href: pim-resource-roles-overview-dashboards.md
+  - name: Notificações por email
+    href: pim-email-notifications.md
+  - name: Tipos de Atribuição
+    href: pim-resource-roles-eligible-visibility.md
+  - name: Assistente de segurança
+    href: pim-security-wizard.md
+- name: Guias de instruções
+  items:
+  - name: Comece a usar o PIM
+    href: pim-getting-started.md
+  - name: Ativar funções
+    items:
+    - name: Ativar minhas funções de diretório
+      href: pim-how-to-activate-role.md
+    - name: Ativar minhas funções de recurso
+      href: pim-resource-roles-activate-your-roles.md
+  - name: Configurar PIM
+    items:
+    - name: Recursos de descoberta do Azure
+      href: pim-resource-roles-discover-resources.md
+    - name: Conceder acesso a outras pessoas para gerenciar o PIM
+      href: pim-how-to-give-access-to-pim.md
+    - name: Habilitar gerenciamento de assinaturas
+      href: pim-resource-roles-enable-subscription-management.md
+  - name: Gerenciar funções de diretório
+    items:
+    - name: Atribuir funções
+      href: pim-how-to-add-role-to-user.md
+    - name: Definir configurações de função
+      href: pim-how-to-change-default-settings.md
+    - name: Exigir MFA
+      href: pim-how-to-require-mfa.md
+    - name: Configurar alertas
+      href: pim-how-to-configure-security-alerts.md
+    - name: Aprovar solicitações
+      href: azure-ad-pim-approval-workflow.md
+    - name: Exibir histórico de auditoria
+      href: pim-how-to-use-audit-log.md
+  - name: Gerenciar funções de recurso
+    items:
+    - name: Veja quem tem acesso
+      href: azure-pim-resource-rbac.md
+    - name: Atribuir funções
+      href: pim-resource-roles-assign-roles.md
+    - name: Definir configurações de função
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Exigir MFA
+      href: pim-resource-roles-require-mfa.md
+    - name: Configurar alertas
+      href: pim-resource-roles-configure-alerts.md
+    - name: Aprovar solicitações
+      href: pim-resource-roles-approval-workflow.md
+    - name: Estender ou renovar funções
+      href: pim-resource-roles-renew-extend.md
+    - name: Exibir histórico de auditoria
+      href: pim-resource-roles-use-the-audit-log.md
+    - name: Usar funções personalizadas
+      href: pim-resource-roles-custom-role-policy.md
+  - name: Examinar acesso
+    items:
+    - name: Funções de diretório
+      items:
+      - name: Revisar minhas funções de diretório
+        href: pim-how-to-perform-security-review.md
+      - name: Iniciar uma revisão de acesso
+        href: pim-how-to-start-security-review.md
+      - name: Concluir uma revisão de acesso
+        href: pim-how-to-complete-review.md
+    - name: Funções de recurso
+      items:
+      - name: Revisar minhas funções de recurso
+        href: pim-resource-roles-perform-access-review.md
+      - name: Iniciar uma revisão de acesso
+        href: pim-resource-roles-start-access-review.md
+      - name: Concluir uma revisão de acesso
+        href: pim-resource-roles-complete-access-review.md
+  expanded: true
+ms.openlocfilehash: 7a8fafb4782a02da5b1fbe189cba8cadf7c22bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191255"

@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f4e5a373c7c2388cd77debc6a83759c2d0ef8d48
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189930"
 documentType: LandingData
 title: Load Balancer
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/19/2018
   ms.author: kumud
-  ms.openlocfilehash: 497dc23f56e3dd75c6d7e0549fbdef42ff3c3698
-  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
-  ms.translationtype: HT
-  ms.contentlocale: pt-BR
-  ms.lasthandoff: 06/29/2018
-  ms.locfileid: "37132485"
 abstract:
   description: Aprenda a usar o Azure Load Balancer. Guias de início rápido, tutoriais, exemplos e muito mais, mostram como implantar um balanceador de carga e balancear a carga do tráfego de e para máquinas virtuais e recursos de nuvem, assim como em redes virtuais entre locais.
 sections:
@@ -60,17 +60,17 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Implementação da Rede do Microsoft Azure
-      href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
+    - title: Administrador do Azure
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/microsoft-azure-networking-implementing/table-of-contents
-    - title: Planejando e desenvolvendo soluções de rede do Microsoft Azure
-      href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+    - title: Arquitetura de solução do Azure
+      href: https://go.microsoft.com/fwlink/?linkid=2012824
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/library/courses/planning-designing-microsoft-azure-network-solutions/table-of-contents
-    - title: Administração do Microsoft Azure para Administradores do AWS
+        href: https://go.microsoft.com/fwlink/?linkid=2012824
+    - title: Administração do Azure para Administradores do AWS
       href: https://app.pluralsight.com/library/courses/azure-administration-aws-administrators/table-of-contents
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg

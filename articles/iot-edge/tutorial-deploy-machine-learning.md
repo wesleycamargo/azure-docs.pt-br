@@ -4,17 +4,17 @@ description: Neste tutorial, você implantará o Azure Machine Learning como um 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c13cd495f7802f14937321134a975b7a00c791ab
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: db22b8ddeaa7fc8fd4d8f7a8b3b3d8b4bc143974
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41918565"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746392"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implantar o Azure Machine Learning como um módulo do IoT Edge (versão prévia)
 
@@ -61,7 +61,7 @@ Recursos de desenvolvimento:
 
 Para desabilitar a identificação do processo no seu dispositivo do IoT Edge será necessário fornecer o endereço IP e a porta para **workload_uri** e **management_uri** na seção **connect** da configuração do daemon do IoT Edge.
 
-Obtenha primeiro o endereço IP. Digite `ifconfig` na linha de comando e copie o endereço IP da interface **docker0**.
+Obtenha primeiro o endereço IP. Digite `ipconfig` na linha de comando e copie o endereço IP da interface **docker0**.
 
 Edite o arquivo de configuração do daemon do IoT Edge:
 

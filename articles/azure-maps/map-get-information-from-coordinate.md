@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b640346b0d6f490457e1e82a65c0d3f373d658d3
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: e1cbed8995c0efbfb6010daaca5cd97ebec92dc6
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145039"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746335"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obter informações de uma coordenada
 
@@ -31,18 +31,18 @@ O segundo bloco de código atualiza o estilo do cursor do mouse em um ponteiro.
 
 O terceiro bloco de código cria um pop-up. Você pode ver [adicionar um popup no mapa](./map-add-popup.md) para obter instruções.
 
-O último bloco de código adiciona um ouvinte de evento de cliques do mouse. Após um clique do mouse, ele envia um [XMLHttpRequest](https://xhr.spec.whatwg.org/) para [a API de Pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). Para uma resposta bem-sucedida, ele coleta o endereço ao local clicado e define o conteúdo de pop-up e posição via função [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions) da classe pop-up
+O último bloco de código adiciona um ouvinte de evento de cliques do mouse. Após um clique do mouse, ele envia um [XMLHttpRequest](https://xhr.spec.whatwg.org/) para [a API de Pesquisa do Azure Maps](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse). Para uma resposta bem-sucedida, ele coleta o endereço ao local clicado e define o conteúdo de pop-up e posição via função [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) da classe pop-up
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo: 
 * [Pesquisa de endereço reversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addeventlistener)
-* [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest)
-    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
-    * [abrir](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
-    * [Close](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener)
+* [Pop-up](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+    * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions)
+    * [abrir](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)
+    * [Close](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#close)
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
 * [Mostrar trajetos de A para B](./map-route.md)

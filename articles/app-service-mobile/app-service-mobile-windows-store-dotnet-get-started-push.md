@@ -14,25 +14,29 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473513"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818813"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Adicionar notificações por push ao seu aplicativo do Windows
+
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## <a name="overview"></a>Visão geral
+
 Neste tutorial, você adicionará notificações por push ao projeto de [Início rápido do Windows](app-service-mobile-windows-store-dotnet-get-started.md) de forma que sempre que um registro for inserido, uma notificação por push seja enviada.
 
 Se você não usar o projeto baixado do início rápido do servidor, deve adicionar o pacote de extensão de notificação por push ao seu projeto. Confira [Trabalhar com o servidor back-end SDK do .NET para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
 
 ## <a name="configure-hub"></a>Configurar um novo Hub de Notificações
+
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>Registrar seu aplicativo para notificações por push
+
 Envie seu aplicativo para a Microsoft Store e, em seguida, configure o projeto de servidor para integração com o WNS (Windows Notification Services) para enviar notificações por push.
 
 1. No Gerenciador de Soluções do Visual Studio, clique com o botão direito do mouse no projeto do aplicativo da UWP, clique em **Loja** > **associar Aplicativo à Loja...**.
@@ -48,104 +52,114 @@ Envie seu aplicativo para a Microsoft Store e, em seguida, configure o projeto d
 
    > [!IMPORTANT]
    > O segredo do cliente e o SID do pacote são credenciais de segurança importantes. Não compartilhe esses valores com ninguém nem os distribua com seu aplicativo. A **ID do aplicativo** é usada com o segredo para configurar a autenticação da conta da Microsoft.
-   >
-   >
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>Configurar o back-end para enviar notificações por push
+
 [!INCLUDE [app-service-mobile-configure-wns](../../includes/app-service-mobile-configure-wns.md)]
 
 ## <a id="update-service"></a>Atualizar o servidor para enviar notificações por push
+
 Use o procedimento abaixo, que corresponde ao seu tipo de projeto de back-end&mdash;, um [back-end .NET](#dotnet) ou [back-end Node.js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end .NET
+
 1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar Pacotes NuGet**, pesquise por Microsoft.Azure.NotificationHubs e então clique em **Instalar**. Isso instala a biblioteca de cliente de Hubs de notificação.
 2. Expanda **Controladores**, abra TodoItemController.cs e adicione os elementos a seguir usando instruções:
 
-        using System.Collections.Generic;
-        using Microsoft.Azure.NotificationHubs;
-        using Microsoft.Azure.Mobile.Server.Config;
+    ```csharp
+    using System.Collections.Generic;
+    using Microsoft.Azure.NotificationHubs;
+    using Microsoft.Azure.Mobile.Server.Config;
+    ```
+
 3. No método **PostTodoItem**, adicione o seguinte código após a chamada para **InsertAsync**:
 
-        // Get the settings for the server project.
-        HttpConfiguration config = this.Configuration;
-        MobileAppSettingsDictionary settings =
-            this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+    ```csharp
+    // Get the settings for the server project.
+    HttpConfiguration config = this.Configuration;
+    MobileAppSettingsDictionary settings =
+        this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-        // Get the Notification Hubs credentials for the Mobile App.
-        string notificationHubName = settings.NotificationHubName;
-        string notificationHubConnection = settings
-            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+    // Get the Notification Hubs credentials for the Mobile App.
+    string notificationHubName = settings.NotificationHubName;
+    string notificationHubConnection = settings
+        .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-        // Create the notification hub client.
-        NotificationHubClient hub = NotificationHubClient
-            .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+    // Create the notification hub client.
+    NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-        // Define a WNS payload
-        var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
-                                + item.Text + @"</text></binding></visual></toast>";
-        try
-        {
-            // Send the push notification.
-            var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
+    // Define a WNS payload
+    var windowsToastPayload = @"<toast><visual><binding template=""ToastText01""><text id=""1"">"
+                            + item.Text + @"</text></binding></visual></toast>";
+    try
+    {
+        // Send the push notification.
+        var result = await hub.SendWindowsNativeNotificationAsync(windowsToastPayload);
 
-            // Write the success result to the logs.
-            config.Services.GetTraceWriter().Info(result.State.ToString());
-        }
-        catch (System.Exception ex)
-        {
-            // Write the failure result to the logs.
-            config.Services.GetTraceWriter()
-                .Error(ex.Message, null, "Push.SendAsync Error");
-        }
+        // Write the success result to the logs.
+        config.Services.GetTraceWriter().Info(result.State.ToString());
+    }
+    catch (System.Exception ex)
+    {
+        // Write the failure result to the logs.
+        config.Services.GetTraceWriter()
+            .Error(ex.Message, null, "Push.SendAsync Error");
+    }
+    ```
 
     Esse código informa o hub de notificação para enviar uma notificação por push após uma inserção de item nova.
+
 4. Republicar o projeto de servidor.
 
 ### <a name="nodejs"></a>Projeto de back-end Node.js
 1. Se você ainda não fez isso, [baixe o projeto de início rápido](app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Substitua o código existente no arquivo todoitem.js pelo código a seguir:
 
-        var azureMobileApps = require('azure-mobile-apps'),
-        promises = require('azure-mobile-apps/src/utilities/promises'),
-        logger = require('azure-mobile-apps/src/logger');
+    ```javascript
+    var azureMobileApps = require('azure-mobile-apps'),
+    promises = require('azure-mobile-apps/src/utilities/promises'),
+    logger = require('azure-mobile-apps/src/logger');
 
-        var table = azureMobileApps.table();
+    var table = azureMobileApps.table();
 
-        table.insert(function (context) {
-        // For more information about the Notification Hubs JavaScript SDK,
-        // see http://aka.ms/nodejshubs
-        logger.info('Running TodoItem.insert');
+    table.insert(function (context) {
+    // For more information about the Notification Hubs JavaScript SDK,
+    // see http://aka.ms/nodejshubs
+    logger.info('Running TodoItem.insert');
 
-        // Define the WNS payload that contains the new item Text.
-        var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
-                                    + context.item.text + "</text></binding></visual></toast>";
+    // Define the WNS payload that contains the new item Text.
+    var payload = "<toast><visual><binding template=\ToastText01\><text id=\"1\">"
+                                + context.item.text + "</text></binding></visual></toast>";
 
-        // Execute the insert.  The insert returns the results as a Promise,
-        // Do the push as a post-execute action within the promise flow.
-        return context.execute()
-            .then(function (results) {
-                // Only do the push if configured
-                if (context.push) {
-                    // Send a WNS native toast notification.
-                    context.push.wns.sendToast(null, payload, function (error) {
-                        if (error) {
-                            logger.error('Error while sending push notification: ', error);
-                        } else {
-                            logger.info('Push notification sent successfully!');
-                        }
-                    });
-                }
-                // Don't forget to return the results from the context.execute()
-                return results;
-            })
-            .catch(function (error) {
-                logger.error('Error while running context.execute: ', error);
-            });
+    // Execute the insert.  The insert returns the results as a Promise,
+    // Do the push as a post-execute action within the promise flow.
+    return context.execute()
+        .then(function (results) {
+            // Only do the push if configured
+            if (context.push) {
+                // Send a WNS native toast notification.
+                context.push.wns.sendToast(null, payload, function (error) {
+                    if (error) {
+                        logger.error('Error while sending push notification: ', error);
+                    } else {
+                        logger.info('Push notification sent successfully!');
+                    }
+                });
+            }
+            // Don't forget to return the results from the context.execute()
+            return results;
+        })
+        .catch(function (error) {
+            logger.error('Error while running context.execute: ', error);
         });
+    });
 
-        module.exports = table;
+    module.exports = table;
+    ```
 
     Isso envia uma notificação WNS que contém o item.text quando um novo item todo é inserido.
+
 3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
 
 ## <a id="update-app"></a>Adicionar notificações de push para seu aplicativo
@@ -153,37 +167,48 @@ Em seguida, seu aplicativo deve se registrar para notificações por push na ini
 
 1. Abra o arquivo de projeto **App.xaml.cs** e adicione as instruções `using` a seguir:
 
-        using System.Threading.Tasks;
-        using Windows.Networking.PushNotifications;
+    ```csharp
+    using System.Threading.Tasks;
+    using Windows.Networking.PushNotifications;
+    ```
+
 2. No mesmo arquivo, adicione a seguinte definição de método **InitNotificationsAsync** à classe de **aplicativo**:
 
-        private async Task InitNotificationsAsync()
-        {
-            // Get a channel URI from WNS.
-            var channel = await PushNotificationChannelManager
-                .CreatePushNotificationChannelForApplicationAsync();
+    ```csharp
+    private async Task InitNotificationsAsync()
+    {
+        // Get a channel URI from WNS.
+        var channel = await PushNotificationChannelManager
+            .CreatePushNotificationChannelForApplicationAsync();
 
-            // Register the channel URI with Notification Hubs.
-            await App.MobileService.GetPush().RegisterAsync(channel.Uri);
-        }
+        // Register the channel URI with Notification Hubs.
+        await App.MobileService.GetPush().RegisterAsync(channel.Uri);
+    }
+    ```
 
     Esse código recupera o ChannelURI do aplicativo de WNS e registra esse ChannelURI com seu Aplicativo Móvel do Serviço de Aplicativo.
+
 3. Na parte superior do manipulador de eventos **OnLaunched** no **App.xaml.cs**, adicione o modificador **async** à definição do método e adicione a seguinte chamada ao novo método **InitNotificationsAsync**, como mostrado no seguinte exemplo:
 
-        protected async override void OnLaunched(LaunchActivatedEventArgs e)
-        {
-            await InitNotificationsAsync();
+    ```csharp
+    protected async override void OnLaunched(LaunchActivatedEventArgs e)
+    {
+        await InitNotificationsAsync();
 
-            // ...
-        }
+        // ...
+    }
+    ```
 
     Isso garante que o ChannelURI de curta duração seja registrado sempre que o aplicativo for iniciado.
+
 4. Recompile seu projeto de aplicativo da UWP. Seu aplicativo agora está pronto para receber notificações do sistema.
 
 ## <a id="test"></a>Testar notificações por push no seu aplicativo
+
 [!INCLUDE [app-service-mobile-windows-universal-test-push](../../includes/app-service-mobile-windows-universal-test-push.md)]
 
 ## <a id="more"></a>Próximas etapas
+
 Saiba mais sobre as notificações por push:
 
 * [Como usar o cliente gerenciado para os Aplicativos Móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) Os modelos oferecem flexibilidade para fazer envios por push multiplataforma e localizados. Saiba como registrar modelos.

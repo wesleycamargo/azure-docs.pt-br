@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 25e78633e7f1bead1eaa575edc6983a59e9ffa2d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140440"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42817894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Active Directory do Azure com o SharePoint no local
 
@@ -49,12 +49,15 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 - Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste.
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o SharePoint no local da galeria
-1. configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-sharepoint-on-premises-from-the-gallery"></a>Adicionando o SharePoint no local da galeria
+
 Para configurar a integração do SharePoint local ao Azure AD, você precisa adicionar o SharePoint local da galeria à sua lista de aplicativos SaaS gerenciados.
 
 **Para adicionar o SharePoint local da galeria, execute as etapas a seguir:**
@@ -63,15 +66,15 @@ Para configurar a integração do SharePoint local ao Azure AD, você precisa ad
 
     ![O botão Azure Active Directory][1]
 
-1. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
     ![A folha Aplicativos empresariais][2]
 
-1. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
     ![O botão Novo aplicativo][3]
 
-1. Na caixa de pesquisa, digite **SharePoint local**, selecione **SharePoint local** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **SharePoint local**, selecione **SharePoint local** no painel de resultados e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
 
     ![SharePoint local na lista de resultados](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_addfromgallery.png)
 
@@ -84,10 +87,10 @@ Para que o logon único funcione, o Azure AD precisa saber o que o usuário de c
 Para configurar e testar o logon único do Azure AD com o SharePoint local, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-1. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-1. **[Conceder acesso ao usuário de teste do SharePoint local](#grant-access-to-sharePoint-on-premises-test-user)** – para ter um equivalente de Brenda Fernandes no SharePoint local vinculado à representação do usuário no Azure AD.
-1. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-1. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Conceder acesso ao usuário de teste do SharePoint local](#grant-access-to-sharePoint-on-premises-test-user)** – para ter um equivalente de Brenda Fernandes no SharePoint local vinculado à representação do usuário no Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -110,6 +113,8 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. Na caixa de texto **Identificador**, digite a URL: `urn:sharepoint:federation`
+
+    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
 4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
@@ -183,15 +188,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![O botão Azure Active Directory](./media\sharepoint-on-premises-tutorial/create_aaduser_01.png)
 
-1. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
     ![Os links “Usuários e grupos” e “Todos os usuários”](./media\sharepoint-on-premises-tutorial/create_aaduser_02.png)
 
-1. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
     ![O botão Adicionar](./media\sharepoint-on-premises-tutorial/create_aaduser_03.png)
 
-1. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
     ![A caixa de diálogo Usuário](./media\sharepoint-on-premises-tutorial/create_aaduser_04.png)
 
@@ -256,8 +261,7 @@ A configuração funciona para um único aplicativo Web, mas precisa de configur
 
 ### <a name="fixing-people-picker"></a>Como corrigir o Seletor de Pessoas
 
-Agora, os usuários podem fazer logon no SharePoint 2016 usando identidades do Azure AD, mas ainda há oportunidades de melhoria para a experiência do usuário. Por exemplo, a pesquisa por um usuário apresenta vários resultados de pesquisa no seletor de pessoas. Há um resultado de pesquisa para cada um dos 3 tipos de declarações que foram criados no mapeamento de declaração.
- Para escolher um usuário usando o seletor de pessoas, você deve digitar o nome de usuário dele exatamente e escolher o resultado da reivindicação **nome**.
+Agora, os usuários podem fazer logon no SharePoint 2016 usando identidades do Azure AD, mas ainda há oportunidades de melhoria para a experiência do usuário. Por exemplo, a pesquisa por um usuário apresenta vários resultados de pesquisa no seletor de pessoas. Há um resultado de pesquisa para cada um dos 3 tipos de declarações que foram criados no mapeamento de declaração. Para escolher um usuário usando o seletor de pessoas, você deve digitar o nome de usuário dele exatamente e escolher o resultado da reivindicação **nome**.
 
 ![Reivindica resultados da pesquisa](./media\sharepoint-on-premises-tutorial/fig16-claimssearchresults.png)
 
@@ -321,4 +325,3 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media\sharepoint-on-premises-tutorial/tutorial_general_201.png
 [202]: ./media\sharepoint-on-premises-tutorial/tutorial_general_202.png
 [203]: ./media\sharepoint-on-premises-tutorial/tutorial_general_203.png
-

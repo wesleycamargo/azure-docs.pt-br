@@ -11,14 +11,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: mvc
-ms.date: 06/06/2018
+ms.date: 08/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 7c09656f62f3a8a2efd889cf28f12bd5a42e309a
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142034"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745489"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Usar o Akka Streams com Hubs de Eventos para o Apache Kafka
 Este tutorial mostra como conectar o Akka Streams a Hubs de Eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. Hubs de Eventos do Azure para Kafka dá suporte para o [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 Para concluir este tutorial, é necessário atender aos seguintes pré-requisitos:
 
-* Leia o artigo [Hubs de Eventos do Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
+* Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma assinatura do Azure. Se você não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [JDK (Java Development Kit) 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.

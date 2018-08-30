@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: 654bc3745768fccea41d7c3991142bf7183b54be
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42809646"
+---
 1. No seu projeto de **aplicativo**, abra o arquivo `AndroidManifest.xml`. Adicione o código a seguir após o marca de abertura `application` :
 
     ```xml
@@ -102,4 +115,4 @@
     }
     ```
 
-Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
+Seu aplicativo foi atualizado para dar suporte a notificações por push.
