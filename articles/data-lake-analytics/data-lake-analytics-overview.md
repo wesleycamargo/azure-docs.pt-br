@@ -4,18 +4,17 @@ description: O Data Lake Analytics permite a você conduzir seus negócios usand
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a0e4878987d55b57587fe949d3bdaa8921599a14
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623614"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053357"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>O que é a Análise Azure Data Lake?
 
@@ -39,7 +38,7 @@ O Data Lake Analytics usa seus investimentos de TI em identidade, gerenciamento 
 
 ### <a name="affordable-and-cost-effective"></a>Financeiramente viável e econômico
 
-A Análise Data Lake é uma solução econômica para executar cargas de trabalho de Big Data. Você paga por trabalho quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específico do serviço. O sistema é automaticamente escalado vertical ou horizontalmente conforme a tarefa é iniciada e concluída, para que você só pague pelo serviço de que precisa. [Saiba mais sobre o controle de custos e como reduzir os custos](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+A Análise Data Lake é uma solução econômica para executar cargas de trabalho de Big Data. Você paga por trabalho quando os dados são processados. Não é necessário nenhum hardware, licenças ou contratos de suporte específico do serviço. O sistema é automaticamente escalado vertical ou horizontalmente conforme a tarefa é iniciada e concluída, para que você só pague pelo serviço de que precisa. [Saiba mais sobre o controle de custos e como reduzir os custos](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>Funciona com todos os seus dados do Azure
   

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/11/2018
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d7b93c28bf83e468d1470b0962dcf9d87a52adb2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42432048"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189569"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -30,9 +30,7 @@ ms.locfileid: "42432048"
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido mostra como implantar seu primeiro aplicativo Web ASP.NET Core em aplicativos Web do Azure. Quando terminar, você terá um grupo de recursos que consiste em um plano do Serviço de Aplicativo e um aplicativo Web do Azure com um aplicativo Web implantado.
 
-> [!NOTE]
-> Se você quiser saber como criar e implantar um aplicativo Web do ASP.NET Framework, o artigo está disponível [aqui](app-service-web-get-started-dotnet-framework.md). 
->
+![](./media/app-service-web-get-started-dotnet/web-app-running-live.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
