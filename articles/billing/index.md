@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915689"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300804"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentação do gerenciamento de custos e cobrança do Azure
 
@@ -104,8 +104,8 @@ Saiba como entender sua cobrança do Azure, monitorar o uso e os custos, e geren
                         <p>
                         <a href="/azure/billing/billing-manage-access">Conceder acesso à cobrança</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Pagar por fatura</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gerenciar reservas do Azure</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Uso de reservas do Azure</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gerenciar Reservas do Azure</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Usar para Reservas do Azure</a>
                         </p>
                     </div>
                 </div>
@@ -134,9 +134,9 @@ Saiba como entender sua cobrança do Azure, monitorar o uso e os custos, e geren
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Poupar com as reservas do Azure</h3>
+                        <h3>Salvar com Reservas do Azure</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">O que são as reservas do Azure?</a> <br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">O que são Reservas do Azure?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Comprar uma Instância de VM Reservada</a><br/>
                         <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Comprar capacidade reservada do Banco de Dados SQL</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Como o desconto de máquinas virtuais é aplicado</a><br/>

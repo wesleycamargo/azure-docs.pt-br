@@ -29,13 +29,13 @@ No entanto, esses marcadores são geralmente ambíguos e complicados.
 
 Considere o texto de exemplo a seguir:
 
-> O que você disse?!? Eu não escutei sobre a "nova proposta" do diretor. É importante para Sr. e Sra. Smith.
+> What did you say?!? I didn't hear about the director's "new proposal." It's important to Mr. and Mrs. Smith.
 
-Esse texto contém três frases:
+This text contains three sentences:
 
-- O que você disse?!?
-- Eu não escutei sobre a "nova proposta" do diretor.
-- É importante para Sr. e Sra. Smith.
+- What did you say?!?
+- I didn't hear about the director's "new proposal."
+- It's important to Mr. and Mrs. Smith.
 
 Observe como o final das frases é marcado de maneiras muito diferentes.
 A primeira termina em uma combinação de pontos de interrogação e pontos de exclamação (às vezes chamados de um interrobang).
@@ -57,9 +57,9 @@ Segundo, o inglês tem *contrações*, como "didn’t" ou "it’s", onde as pala
 Vamos retornar para as frases de exemplo acima.
 Agora, colocamos um "ponto central" (&middot;) entre cada token distinto.
 
-- O &middot; que &middot; você &middot; disse &middot; ?!?
-- Eu &middot; não &middot; escutei &middot; sobre &middot; a &middot; " &middot; nova &middot; proposta &middot; " &middot; do &middot; diretor &middot; . &middot; "
-- &middot;É &middot; importante &middot; para &middot; Sr. &middot; e  &middot; Sra.  &middot; Smith &middot; .
+- What &middot; did &middot; you &middot; say &middot; ?!?
+- I &middot; did &middot; n't &middot; hear &middot; about &middot; the &middot; director &middot; 's &middot; " &middot; new &middot; proposal &middot; . &middot; "
+- It &middot; 's &middot; important &middot; to &middot; Mr. &middot; and &middot; Mrs. &middot; Smith &middot; .
 
 Observe como a maioria dos tokens são palavras que você encontraria no dicionário (por exemplo, *importante*, *diretor*).
 Outros podem consistir apenas de pontuação.
