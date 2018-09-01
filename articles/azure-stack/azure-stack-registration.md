@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247816"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340159"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -100,7 +100,7 @@ Use estas etapas para registrar o Azure Stack com o Azure usando o modelo de cob
 
 Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, você precisa registrar o provedor de recursos do Azure Stack com o Azure e, em seguida, configurar o modelo de cobrança.
 
-1. Para registrar o provedor de recursos do Azure Stack com o Azure, inicie o PowerShell ISE como administrador e usar os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de assinatura do Azure apropriada (consulte parâmetros abaixo).
+1. Para registrar o provedor de recursos do Azure Stack com o Azure, inicie o PowerShell ISE como administrador e use os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de assinatura do Azure apropriada (consulte parâmetros abaixo).
 
 2. Adicione a conta do Azure que você usa para registrar o Azure Stack. Para adicionar a conta, execute as **Add-AzureRmAccount** cmdlet. Você precisará inserir suas credenciais de conta de administrador global do Azure e você talvez precise usar a autenticação de fator de 2, com base na configuração da sua conta.
 
@@ -160,7 +160,7 @@ Use estas etapas para registrar o Azure Stack com o Azure usando o modelo de cob
 
 Ambientes conectados podem acessar a internet e o Azure. Para esses ambientes, você precisa registrar o provedor de recursos do Azure Stack com o Azure e, em seguida, configurar o modelo de cobrança.
 
-1. Para registrar o provedor de recursos do Azure Stack com o Azure, inicie o PowerShell ISE como administrador e usar os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de assinatura do Azure apropriada (consulte parâmetros abaixo).
+1. Para registrar o provedor de recursos do Azure Stack com o Azure, inicie o PowerShell ISE como administrador e use os seguintes cmdlets do PowerShell com o **EnvironmentName** parâmetro definido como o tipo de assinatura do Azure apropriada (consulte parâmetros abaixo).
 
 2. Adicione a conta do Azure que você usa para registrar o Azure Stack. Para adicionar a conta, execute as **Add-AzureRmAccount** cmdlet. Você precisará inserir suas credenciais de conta de administrador global do Azure e você talvez precise usar a autenticação de fator de 2, com base na configuração da sua conta.
 
@@ -335,7 +335,7 @@ Para remover o recurso de ativação no Azure Stack, execute os seguintes cmdlet
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Em seguida, para remover o recurso de registro no Azure, verifique se você estiver usando um Azure conectado no computador, entre no contexto correto do Azure PowerShell e executar os cmdlets do PowerShell apropriado, conforme descrito abaixo.
+Em seguida, para remover o recurso de registro no Azure, verifique se você estiver usando um Azure conectado computador, entre no contexto correto do Azure PowerShell e execute os cmdlets do PowerShell apropriados, conforme descrito abaixo.
 
 Você pode usar o token de registro usado para criar o recurso:  
 
@@ -386,6 +386,8 @@ Por ambientes Azure Stack que usam um modelo de cobrança de capacidade, desativ
 
 2. Salve esse token de registro para uso no Azure máquina conectada. Você pode copiar o arquivo ou o texto de $FilePathForRegistrationToken.
 
+## <a name="move-a-registration-resource"></a>Mover um recurso de registro
+Mover um recurso de registro entre grupos de recursos na mesma assinatura **é** com suporte para todos os ambientes. No entanto, mover um recurso de registro entre as assinaturas é suportado apenas para os CSPs quando ambas as assinaturas resolvem para a mesma ID de parceiro. Para obter mais informações sobre como mover recursos para um novo grupo de recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Referência de registro
 

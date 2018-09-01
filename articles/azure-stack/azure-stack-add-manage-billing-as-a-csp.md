@@ -3,7 +3,7 @@ title: Gerenciar o uso e cobrança para o Azure Stack como um provedor de servi�
 description: Um passo a passo de registro do Azure Stack como um provedor de nuvem (CSP) e adicionando os clientes para cobrança.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/30/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 66bab9f4b5099099039aa0f60cd86ef23e73cd1f
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9bb4a4ea81f2dc0fb11e2f7cae1b9d02b0edfdde
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715678"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341428"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gerenciar o uso e cobrança para o Azure Stack como um provedor de serviços de nuvem 
 
@@ -58,7 +58,7 @@ Assinaturas de nuvem do provedor de serviços (CSP) são a opção preferencial 
 
 ## <a name="register-azure-stack"></a>Registrar o Azure Stack
 
-Para registrar com o Azure Stack, consulte [registrar o Azure Stack com sua assinatura do Azure](azure-stack-registration.md).
+Use a assinatura CSPSS criado seguindo as informações na seção anterior para registrar o Azure Stack com o Azure. Para obter mais informações, consulte [registrar o Azure Stack com sua assinatura do Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Adicionar cliente final
 

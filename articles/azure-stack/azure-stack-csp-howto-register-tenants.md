@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089903"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382681"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Adicione o locatário para uso e cobrança para o Azure Stack
 
@@ -91,5 +91,5 @@ Depois que você adicionou o novo cliente para o Azure Stack ou Locatário do cl
 ## <a name="next-steps"></a>Próximas etapas
 
  - Para examinar as mensagens de erro se eles são disparados em seu processo de registro, consulte [mensagens de erro de registro de inquilinos](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](azure-stack-billing-and-chargeback.md).
  - Para examinar como um cliente final pode adicioná-lo, como o CSP, como o gerente de seus Azure Stack, locatário, consulte [permitem que um provedor de serviço de nuvem gerenciar sua assinatura do Azure Stack](user\azure-stack-csp-enable-billing-usage-tracking.md).

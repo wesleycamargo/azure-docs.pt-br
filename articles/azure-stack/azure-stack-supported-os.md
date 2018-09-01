@@ -1,6 +1,6 @@
 ---
-title: Sistemas operacionais convidados suportados para a pilha do Azure | Microsoft Docs
-description: Esses sistemas operacionais de convidado pode ser usados na pilha do Azure.
+title: Sistemas operacionais convidados suportados para o Azure Stack | Microsoft Docs
+description: Esses sistemas operacionais de convidado pode ser usados no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: Brenduns
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d6e9531edf8915e4b6c2636372b756002fca10fd
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060440"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382392"
 ---
-# <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais de convidados com suporte na pilha do Azure
+# <a name="guest-operating-systems-supported-on-azure-stack"></a>Sistemas operacionais convidados com suporte no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
 ## <a name="windows"></a>Windows
 
-A pilha do Azure oferece suporte os sistemas de operacionais de convidados do Windows listados na tabela a seguir:
+O Azure Stack oferece suporte os sistemas de operacionais de convidados do Windows listados na tabela a seguir:
 
 | Sistema operacional | DESCRIÇÃO | Disponível no Marketplace |
 | --- | --- | --- | --- | --- | --- |
@@ -40,36 +40,36 @@ A pilha do Azure oferece suporte os sistemas de operacionais de convidados do Wi
 | Windows Server 2008 SP2 | 64 bits |  Traga sua própria imagem |
 | Windows 10 *(veja a Observação 1)* | 64 bits, Pro e Enterprise | Traga sua própria imagem |
 
-***Observação 1:*** *para implantar sistemas de operacionais de cliente do Windows 10 na pilha do Azure, você deve ter [Windows licenciamento por usuário](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+***Observação 1:*** *para implantar sistemas de operacionais de cliente do Windows 10 no Azure Stack, você deve ter [Windows de licenciamento por usuário](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou de compra por meio de um Hoster multilocatário qualificado ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
-Imagens do Marketplace estão disponíveis para pagamento como você-uso ou BYOL (EA/SPLA) de licenciamento. Não há suporte para uso em uma única instância de pilha do Azure. Durante a implantação, o Azure pilha injeta uma versão adequada do agente convidado na imagem.
+Imagens do Marketplace estão disponíveis para pagamento-como-o uso ou BYOL (EA/SPLA) de licenciamento. Não há suporte para uso de ambos em uma única instância do Azure Stack. Durante a implantação, o Azure Stack injeta uma versão adequada do agente convidado em imagem.
 
- Edições Datacenter estão disponíveis no mercado para download; os clientes podem colocar suas próprias imagens de servidor, incluindo outras edições. Imagens de cliente do Windows não estão disponíveis no mercado.
+ Edições Datacenter estão disponíveis no mercado para download; os clientes podem trazer suas próprias imagens de servidor, incluindo outras edições. Imagens do Windows client não estão disponíveis no Marketplace.
 
 ## <a name="linux"></a>Linux
 
-Distribuições do Linux listadas como disponíveis no mercado incluem o necessário Windows Azure Linux Agent (WALA). Se você colocar sua própria imagem para a pilha do Azure, siga as diretrizes [Linux adicionar imagens à pilha Azure](azure-stack-linux.md).
+Distribuições do Linux listadas como disponíveis no Marketplace incluem o necessário Windows Azure Linux Agent (WALA). Se você traga sua própria imagem para o Azure Stack, siga as diretrizes [Linux adicionar imagens ao Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Imagens personalizadas devem ser criadas com a versão mais recente de WALA pública. Versões anteriores à 2.2.18 podem não funcionar corretamente na pilha do Azure.
+> Imagens personalizadas devem ser criadas com a versão mais recente de WALA de público. Versões anteriores ao 2.2.18 podem não funcionar corretamente no Azure Stack.
 >
-> [nuvem init](https://cloud-init.io/) não tem suporte na pilha do Azure no momento.
+> [a inicialização de nuvem](https://cloud-init.io/) não tem suporte no Azure Stack no momento.
 
 | Distribuição | DESCRIÇÃO | Publicador | Marketplace |
 | --- | --- | --- | --- | --- | --- |
-| Com base em centOS 6,9 | 64 bits | Rogue Wave | Sim |
-| Com base em centOS 7.4 | 64 bits | Rogue Wave | Sim |
+| Baseado em centOS 6.9 | 64 bits | Rogue Wave | Sim |
+| Baseado em centOS 7.4 | 64 bits | Rogue Wave | Sim |
 | ClearLinux | 64 bits | ClearLinux.org | Sim |
 | Contêiner Linux |  64 bits | CoreOS | Estável |
 | Debian 8 "Jessie" | 64 bits | credativ |  Sim |
-| Debian 9 "estender" | 64 bits | credativ | Sim |
-| Red Hat Enterprise Linux 7. x | 64 bits | Red Hat |Traga sua própria imagem |
+| Debian 9 "Stretch" | 64 bits | credativ | Sim |
+| Red Hat Enterprise Linux 7.x | 64 bits | Red Hat |Traga sua própria imagem |
 | SLES 11SP4 | 64 bits | SUSE | Sim |
 | SLES 12SP3 | 64 bits | SUSE | Sim |
 | Ubuntu 14.04-LTS | 64 bits | Canônico | Sim |
 | Ubuntu 16.04-LTS | 64 bits | Canônico | Sim |
-| Ubuntu 18.04-LTS | 64 bits | Canônico | Sim |
+| 18.04-LTS do Ubuntu | 64 bits | Canônico | Sim |
 
-Outras distribuições de Linux podem ter suporte no futuro.
+Outras distribuições do Linux podem ter suporte no futuro.
 
-Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e o Azure pilha: perguntas frequentes sobre](https://access.redhat.com/articles/3413531).
+Para obter informações de suporte do Red Hat Enterprise Linux, consulte [Red Hat e Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531).

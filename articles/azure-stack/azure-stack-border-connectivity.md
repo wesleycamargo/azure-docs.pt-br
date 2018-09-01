@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282001"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343546"
 ---
 # <a name="border-connectivity"></a>Conectividade de borda 
 Planejamento de integração de rede é um pré-requisito importante para a implantação de sistemas integrados do Azure Stack, operação e gerenciamento com êxito. O planejamento de conectividade com a borda começa escolhendo se deseja ou não usar o roteamento dinâmico com o protocolo de gateway de borda (BGP). Isso requer a atribuição de um número de sistema autônomo de BGP de 16 bits (público ou privado) ou usando o roteamento estático, em que uma rota estática padrão é atribuída para os dispositivos de borda.
@@ -31,7 +31,7 @@ Planejamento de integração de rede é um pré-requisito importante para a impl
 ## <a name="bgp-routing"></a>Roteamento de BGP
 Usar um protocolo de roteamento dinâmico como o BGP garante que o sistema sempre está ciente das alterações de rede e facilita a administração. 
 
-Conforme mostrado no diagrama a seguir, anúncio de IP privado espaço no comutador TOR é restringido usando uma lista de prefixos. As listas de prefixo nega as sub-redes IP privadas e aplicá-lo como um mapa de rota sobre a conexão entre o TOR e a borda.
+Conforme mostrado no diagrama a seguir, anúncio de IP privado espaço no comutador TOR é restringido usando uma lista de prefixos. A lista de prefixos define as sub-redes IP privadas e aplicá-lo como um mapa de rota sobre a conexão entre o TOR e a borda.
 
 O Software SLB balanceador de carga () em execução dentro da solução do Azure Stack de mesmo nível para os dispositivos TOR para que ele pode anunciar dinamicamente os endereços de VIP.
 
@@ -44,13 +44,19 @@ Roteamento estático requer configuração adicional para os dispositivos de bor
 
 Para integrar o Azure Stack em seu ambiente de rede usando o roteamento estático, todos os links físicos quatro entre a borda e o dispositivo TOR deve estar conectados e alta disponibilidade não pode ser garantida devido a estática como funciona o roteamento.
 
-O dispositivo de borda deve ser configurado com rotas estáticas que aponta para os dispositivos TOR P2P para o tráfego destinado à rede externa ou VIPs públicos e a rede de infraestrutura. Ele requer rotas estáticas na rede BMC para a implantação. Os clientes podem optar por deixar rotas estáticas na borda para acessar alguns recursos que residem na rede BMC.  Adicionar rotas estáticas para *comutador infra-estrutura* e *alternar gerenciamento* redes é opcional.
+O dispositivo de borda deve ser configurado com rotas estáticas que aponta para os dispositivos TOR P2P para o tráfego destinado para o *externos* VIPs públicos ou rede e o *infraestrutura* rede. Ela exigirá rotas estáticas para o *BMC* e o *externo* redes para a implantação. Operadores podem optar por deixar rotas estáticas na borda para acessar os recursos de gerenciamento que residem na *BMC* rede. Adicionar rotas estáticas para *comutador infra-estrutura* e *alternar gerenciamento* redes é opcional.
 
 Os dispositivos TOR vêm configurados com uma rota estática padrão enviar todo o tráfego para os dispositivos de borda. É a única exceção de tráfego para a regra padrão para o espaço privado, o que está bloqueado usando uma lista de controle de acesso aplicada TOR para conexão de borda.
 
 Roteamento estático só se aplica os uplinks entre os comutadores TOR e a borda. Roteamento dinâmico do BGP é usado dentro do rack, porque ele é uma ferramenta essencial para o SLB e outros componentes e não pode ser desabilitado ou removido.
 
 ![Roteamento estático](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> A rede BMC é opcional após a implantação.
+
+<sup>\*\*</sup> A rede de infraestrutura de opção é opcional, pois toda a rede pode ser incluída na rede de gerenciamento de comutador.
+
+<sup>\*\*\*</sup> A rede de gerenciamento de comutador é necessária e pode ser adicionada separadamente da rede de infraestrutura de opção.
 
 ## <a name="transparent-proxy"></a>Proxy transparente
 Se seu data center exige que todo o tráfego para usar um proxy, você deve configurar uma *proxy transparente* para processar todo o tráfego de rack para tratá-la de acordo com a política, separar o tráfego entre as zonas em sua rede.

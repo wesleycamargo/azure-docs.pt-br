@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/08/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582130"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382605"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: implantar aplicativos no Azure e o Azure Stack
 
@@ -108,7 +108,10 @@ As etapas a seguir descrevem o que é necessário para configurar a autenticaç�
 
 ### <a name="create-a-service-principal"></a>Criar uma entidade de serviço
 
-Consulte a [criação da entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar uma entidade de serviço e, em seguida, escolha **aplicativo Web/API** para o tipo de aplicativo.
+Consulte a [criação da entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instruções para criar uma entidade de serviço e, em seguida, escolha **aplicativo Web/API** para o tipo de aplicativo ou [usar este script do PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)conforme explicado [aqui](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+ > [!Note]
+ > Se você usar o script para criar um ponto de extremidade de pilha do Azure Resource Manager, você precisará passar o `-azureStackManagementURL` e `-environmentName` parâmetros, que está https://management.local.azurestack.external/ e *AzureStack*.
 
 ### <a name="create-an-access-key"></a>Criar uma chave de acesso
 
@@ -261,7 +264,19 @@ Criando pontos de extremidade, uma compilação do Visual Studio Online (VSTO) p
 9. Na **adicionar usuários e grupos**, insira um nome de usuário e selecione o usuário na lista de usuários.
 10. Selecione **Salvar alterações**.
 
-Agora que as informações de ponto de extremidade existem, o VSTS para a conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do VSTS e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
+## <a name="create-azure-stack-endpoint"></a>Criar ponto de extremidade do Azure Stack
+
+Verifique [isso](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) documentação para criar uma conexão de serviço com um serviço existente principal e use o seguinte mapeamento:
+
+- Ambiente: AzureStack
+- URL do ambiente: Algo como `https://management.local.azurestack.external`
+- ID da assinatura: ID de assinatura de usuário do Azure Stack
+- Nome da assinatura: nome de assinatura de usuário do Azure Stack
+- ID do cliente de entidade de serviço: A ID da entidade de [isso](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) seção neste artigo.
+- Chave da entidade de serviço: A chave do mesmo artigo (ou a senha, se você usou o script).
+- ID do locatário: A ID do locatário você obteve [aqui](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+
+Agora que o ponto de extremidade é criado, o VSTS para a conexão do Azure Stack está pronto para uso. O agente de compilação no Azure Stack obtém as instruções do VSTS e, em seguida, o agente transmite informações de ponto de extremidade para comunicação com o Azure Stack.
 
 ![Agente de compilação](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 

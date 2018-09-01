@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617014"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340181"
 ---
 # <a name="network-connectivity"></a>Conectividade de rede
 Este artigo fornece informações de infraestrutura de rede do Azure Stack para ajudá-lo a decidir como se integrar melhor a pilha do Azure em seu ambiente de rede existente. 
@@ -45,7 +45,7 @@ A tabela a seguir mostra as redes lógicas e intervalos de sub-rede IPv4 associa
 | Infraestrutura de opção | Endereços IP ponto a ponto para fins de roteamento, dedicados alternar interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | / 26 | 
 | Infraestrutura | Usado para os componentes internos do Azure Stack para se comunicar. | /24 |
 | Privado | Usado para a rede de armazenamento e os VIPs privados. | /24 | 
-| BMC | Usado para comunicar-se com BMCs em hosts físicos. | / 27 | 
+| BMC | Usado para comunicar-se com BMCs em hosts físicos. | / 26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Infraestrutura de rede

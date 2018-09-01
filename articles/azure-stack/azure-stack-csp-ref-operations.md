@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: bb46881425398618df54288a9d2e6d65bb03dad4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ce226bb34c5ff8a7ea7dc44d8428da2bb09e25e5
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139671"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382375"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gerenciar o registro de locatário no Azure Stack
 
@@ -154,4 +154,4 @@ Você pode remover mapeamentos de locatário usando a operação de exclusão.
 
 ## <a name="next-steps"></a>Próximas etapas
 
- - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Para saber mais sobre como recuperar informações de uso de recursos do Azure Stack, consulte [uso e cobrança do Azure Stack](azure-stack-billing-and-chargeback.md).
