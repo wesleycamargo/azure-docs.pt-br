@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5f7a0f2bd6820ce65490ae9241dac519fb635da2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248961"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885451"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Azure Cosmos DB
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como criar e usar uma Identidade de Serviço Gerenciada de VM do Windows para acessar o Cosmos DB. Você aprenderá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual (VM) do Windows para acessar o Cosmos DB. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma VM do Windows habilitada para Identidade de Serviço Gerenciada 
 > * Criar uma conta do BD Cosmos
 > * Conceder acesso de Identidade de Serviço Gerenciada de VM do Windows às chaves de acesso da conta do Cosmos DB
 > * Obter um token de acesso usando a Identidade de Serviço Gerenciada e da VM do Windows para chamar o Azure Resource Manager
@@ -40,33 +39,11 @@ Este tutorial mostra como criar e usar uma Identidade de Serviço Gerenciada de 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+- [Entrar no portal do Azure](https://portal.azure.com)
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
-
-Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
-
-1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3. Insira as informações da máquina virtual. O **Nome de usuário** e **Senha** criados aqui são as credenciais usadas para fazer logon na máquina virtual.
-4. Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
-5. Para selecionar um novo **Grupo de Recursos** no qual será criada a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
-6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na página Configurações, mantenha os padrões e clique em **OK**.
-
-   ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM 
-
-Uma Identidade de Serviço Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Nos bastidores, habilitar a Identidade de Serviço Gerenciada em uma Máquina Virtual por meio do Portal do Azure faz duas coisas: registra sua VM com o Azure AD e para criar uma identidade gerenciada e configura a identidade na VM.
-
-1. Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.  
-2. Na barra de navegação à esquerda, clique em **Configuração**. 
-3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não. 
-4. Lembre-se de clicar em **Salvar** para salvar a configuração.  
-   ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
 
@@ -109,7 +86,7 @@ Você também precisará instalar a versão mais recente do [CLI do Azure 2.0](h
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a Máquina Virtual do Windows e, na página **Visão geral**, clique em **Conectar** na parte superior. 
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o PowerShell na sessão remota.
-4. Usando Invoke-WebRequest do Powershell, faça uma solicitação ao ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso para o Azure Resource Manager.
+4. Usando Invoke-WebRequest do Powershell, faça uma solicitação ao endpoint local de Identidade de serviço gerenciado para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 12e17977d010b460681f72e62fb72e07ad713a3a
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247366"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887517"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutorial: usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Microsoft Azure por meio de uma chave de acesso
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma Máquina Virtual do Windows e, em seguida, usar essa identidade para acessar as chaves de acesso da conta de armazenamento. Você pode usar as chaves de acesso de armazenamento normalmente ao realizar operações de armazenamento, por exemplo, ao usar o SDK de Armazenamento. Para este tutorial, vamos carregar e baixar blobs usando o PowerShell do Armazenamento do Azure. Você saberá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema de uma máquina virtual (VM) do Windows para recuperar as chaves de acesso da conta de armazenamento. Você pode usar as chaves de acesso de armazenamento normalmente ao realizar operações de armazenamento, por exemplo, ao usar o SDK de Armazenamento. Para este tutorial, vamos carregar e baixar blobs usando o PowerShell do Armazenamento do Azure. Você saberá como:
 
 
 > [!div class="checklist"]
-> * Habilitar a Identidade de Serviço Gerenciado na máquina virtual do Windows 
+> * Criar uma conta de armazenamento
 > * Conceder acesso à VM para chaves de acesso da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso usando a identidade da VM e usá-la para recuperar as chaves de acesso de armazenamento do Resource Manager 
 
@@ -39,33 +39,11 @@ Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+- [Entrar no portal do Azure](https://portal.azure.com)
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
-
-Para este tutorial, vamos criar uma nova VM do Windows. Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
-
-1.  Clique no botão **+/Criar novo serviço** encontrado no canto superior esquerdo do portal do Azure.
-2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Insira as informações da máquina virtual. O **Nome de usuário** e **Senha** criados aqui são as credenciais usadas para fazer logon na máquina virtual.
-4.  Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
-5.  Para selecionar um novo **Grupo de recursos** no qual você deseja criar a máquina virtual, escolha **Criar novo**. Ao concluir, clique em **OK**.
-6.  Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na folha de configurações, mantenha os padrões e clique em **OK**.
-
-    ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM
-
-Uma Identidade de Serviço Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Em segundo plano, habilitar a Identidade de Serviço Gerenciada faz duas coisas: registra sua VM com o Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
-
-1. Navegue até o grupo de recursos de sua nova máquina virtual e selecione a máquina virtual que você criou na etapa anterior.
-2. Em “Configurações” da VM à esquerda, clique em **Configuração**.
-3. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não.
-4. Lembre-se de clicar em **Salvar** para salvar a configuração.
-
-    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 
@@ -114,7 +92,7 @@ Você precisará usar os cmdlets do PowerShell do Azure Resource Manager nesta p
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a Máquina Virtual do Windows e, na página **Visão geral**, clique em **Conectar** na parte superior. 
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a VM do Windows. 
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o PowerShell na sessão remota.
-4. Usando Invoke-WebRequest do Powershell, faça uma solicitação ao ponto de extremidade da Identidade de Serviço Gerenciada local para obter um token de acesso para o Azure Resource Manager.
+4. Usando Invoke-WebRequest do Powershell, faça uma solicitação ao endpoint local de Identidade de serviço gerenciado para obter um token de acesso para o Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

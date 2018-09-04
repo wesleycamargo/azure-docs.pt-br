@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: b34fd81532e27960d0dd92f172790aee3cd82ca5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639411"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050220"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guia de início rápido: criar um Banco de Dados do Azure para servidor PostgreSQL no portal do Azure
 
@@ -23,7 +23,7 @@ O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado usado para e
 
 Caso você não tenha uma assinatura do Azure, crie uma [conta gratuita do Azure](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 Abra o navegador da Web e acesse o [portal](https://portal.azure.com/). Insira suas credenciais para entrar no portal. A exibição padrão é o painel de serviço.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
@@ -51,7 +51,7 @@ Para criar um Banco de Dados do Azure para o servidor PostgreSQL, execute as seg
     Senha |Sua senha| Uma nova senha para a conta do administrador do servidor. Ele deve conter entre 8 e 128 caracteres. A senha deve conter caracteres das três seguintes categorias: letras maiúsculas, letras minúsculas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, %, etc.).
     Local padrão|A região mais próxima dos usuários| A localização mais próxima dos usuários.
     Versão|A última versão| A versão mais recente do PostgreSQL, a menos que você tenha requisitos específicos.
-    Tipo de preço  | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
+    Tipo de preço | **Uso geral**, **Gen 4**, **2 vCores**, **5 GB**, **7 dias**, **Com redundância geográfica** | As configurações de computação, armazenamento e backup para o novo servidor. Selecione **Tipo de preço**. Em seguida, selecione a guia **Uso Geral**. *Gen 4*, *2 vCores*, *5 GB*, e *7 dias* são os valores padrão para **Geração de Computação**, **vCore**, **Armazenamento** e **Período de Retenção de Backup**. Você pode deixar esses controles deslizantes como estão. Para habilitar os backups do servidor em armazenamento com redundância geográfica, selecione **Redundância Geográfica** das **Opções de Redundância de Backup**. Para salvar a seleção desse tipo de preço, selecione **OK**. A captura de tela a seguir demonstra essas seleções.
 
     > [!IMPORTANT]
     > O logon de administrador do servidor e a senha especificada aqui são necessários para fazer logon no servidor e em seus bancos de dados posteriormente neste Guia de início rápido. Lembre-se ou registre essas informações para o uso posterior.
@@ -85,6 +85,10 @@ O Banco de Dados do Azure para PostgreSQL cria um firewall no nível do servidor
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![Definir regras de firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > Para as instâncias de produção, você só deve definir suas regras de firewall para aceitar solicitações de entrada dos endereços IP conhecidos.  Essas configurações são apenas para exemplificar.
+      >
 
 4. Na barra de ferramentas superior da página **Segurança da conexão**, selecione **Salvar**. Aguarde até que a notificação será exibida informando que a atualização da segurança da conexão foi concluída com êxito antes de continuar.
 

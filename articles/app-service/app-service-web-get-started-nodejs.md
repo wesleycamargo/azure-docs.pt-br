@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 31c1ba30eaff66016202888f8488b0e9e2bdc679
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 63e65ffc17ba71a5d2cf00cb5f04e3e0f87c1bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439044"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184373"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -33,8 +33,6 @@ Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço 
 ![Aplicativo de exemplo em execução no Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
 Você pode seguir as etapas aqui usando um computador Mac, Windows ou Linux. A conclusão das etapas demora cerca de cinco minutos assim que os pré-requisitos são instalados.   
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,7 +50,7 @@ Em uma janela de terminal, navegue até o diretório raiz do projeto de exemplo 
 
 ## <a name="run-the-app-locally"></a>Executar o aplicativo localmente
 
-Execute o aplicativo localmente abrindo uma janela do terminal e usando o script `npm start` para iniciar o servidor HTTP interno do Node.js.
+Execute o aplicativo no local para ver como ele deve ficar quando o implantar no Azure. Abra uma janela do terminal e use o script `npm start` para iniciar o servidor HTTP integrado do Node.js.
 
 ```bash
 npm start
@@ -65,6 +63,9 @@ Você vê a mensagem **Olá, Mundo** no aplicativo de exemplo exibido na página
 ![Aplicativo de exemplo em execução local](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
 Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
+
+> [!NOTE]
+> No Serviço de Aplicativo do Azure, o aplicativo é executado no IIS usando o [iisnode](https://github.com/tjanczuk/iisnode). Para habilitar a execução do aplicativo com o iisnode, o diretório raiz do aplicativo contém um arquivo web.config. O arquivo pode ser lido pelos IIS, e as configurações relacionadas ao iisnode são documentadas no [repositório GitHub iisnode](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
@@ -166,6 +167,12 @@ A página Visão Geral do seu aplicativo Web é exibida. Aqui você pode executa
 ![Página Serviço de Aplicativo no portal do Azure](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
+
+## <a name="video"></a>Vídeo
+
+Assista ao vídeo para ver este início rápido em ação e, depois, execute as etapas para publicar seu primeiro aplicativo Node.js no Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]   
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

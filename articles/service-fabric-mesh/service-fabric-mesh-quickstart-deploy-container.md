@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: Não adicione ou edite palavras-chave sem consultar seu especialista em SEO.
 author: rwike77
 ms.author: ryanwi
-ms.date: 07/12/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: f5b834f92b2a126f68780a7647fda4d8b35dfe43
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42023717"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886437"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Início Rápido: Implantar Olá, Mundo na malha do Service Fabric
 
@@ -45,11 +45,18 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
-Criar seu aplicativo no grupo de recursos usando o comando `az mesh deployment create`:
+Criar seu aplicativo no grupo de recursos usando o comando `az mesh deployment create`.  Se você estiver usando um console do Bash, execute o seguinte:
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
+
+Se estiver usando um console do PowerShell, execute o seguinte:
+
+```azurecli-interactive
+az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}"
+```
+
 O comando anterior implanta um aplicativo Linux usando o [modelo mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Se você desejar implantar um aplicativo do Windows, use o [modelo mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Imagens de contêiner do Windows são maiores do que as imagens de contêiner do Linux e podem levar mais tempo para implantar.
 
 Em alguns minutos, o comando retorna:

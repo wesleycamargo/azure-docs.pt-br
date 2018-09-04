@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço do Kubernetes do Azure, contêineres
 manager: douge
-ms.openlocfilehash: 6b97baac6bb27166581c1dc6312e112a156ed6c3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 818d11e49b0223d42179b4d409f946776dcb73aa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920658"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185709"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em Equipe com Azure Dev Spaces
 
@@ -33,7 +33,7 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 
 ### <a name="run-mywebapi"></a>Execute *mywebapi*
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
-1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. 
+1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Esse comando não é deve ser confundido com o `azds prep`, que configura o projeto para a implantação.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que está pronto quando a barra de depuração do VS Code for exibida.
 1. A URL de ponto de extremidade será algo parecido com http://localhost:\<portnumber\>. **Dica: A barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
 1. Quando `mywebapi` estiver pronto, abra seu navegador para o endereço do localhost. Acrescente `/api/values` na URL para invocar a API GET padrão para `ValuesController`. 

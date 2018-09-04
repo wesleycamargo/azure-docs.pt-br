@@ -4,29 +4,23 @@ description: Saiba como usar o Ansible para criar e configurar um conjunto de di
 ms.service: ansible
 keywords: ansible, azure, devops, bash, guia estratégico, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 5f915f7b1b425a3bd6e5d62eb70bb3f633b7eda8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011704"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918568"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 O Ansible permite que você automatize a implantação e a configuração de recursos em seu ambiente. Você pode usar o Ansible para gerenciar o VMSS (conjunto de dimensionamento de máquinas virtuais) no Azure, da mesma forma como você gerenciaria qualquer outro recurso do Azure. Este artigo mostra como usar o Ansible para criar e expandir um conjunto de dimensionamento de máquinas virtuais. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - **Assinatura do Azure**: caso você não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- **Configurar o Ansible** - [Criar credenciais do Azure e configurar o Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **O Ansible e os módulos do SDK do Python do Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
 > O Ansible 2.6 é necessário para executar, neste tutorial, os guias estratégicos de exemplo a seguir. 
@@ -36,7 +30,7 @@ Esta seção apresenta um guia estratégico de exemplo do Ansible que define os 
 - Um **grupo de recursos**, no qual todos os recursos serão implantados
 - Uma **rede virtual** no espaço de endereço 10.0.0.0/16
 - Uma **sub-rede** dentro da rede virtual
-- Um **endereço IP público**, que permite acessar recursos através da Internet
+- Um **endereço IP público** que permite acessar recursos pela Internet
 - Um **grupo de segurança de rede**, que controla o fluxo de entrada e saída de tráfego de rede do conjunto de dimensionamento de máquinas virtuais
 - Um **balanceador de carga**, que distribui o tráfego entre um conjunto de VMs definidas usando regras do balanceador de carga
 - Um **conjunto de dimensionamento de máquinas virtuais** que usa todos os recursos criados
@@ -186,7 +180,7 @@ O conjunto de dimensionamento de máquinas virtuais criado tem duas instâncias.
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-A saída deverá ser semelhante a esta:
+Você verá resultados semelhantes à seguinte saída:
 
   ```bash
   {
@@ -271,7 +265,7 @@ Se navegar até o conjunto de dimensionamento de máquinas virtuais que configur
   az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-Os resultados da execução do comando no Cloud Shell mostram que agora existem três instâncias. 
+Os resultados de executar o comando no Cloud Shell mostram que agora existem três instâncias. 
 
   ```bash
   {

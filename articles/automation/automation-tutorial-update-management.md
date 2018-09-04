@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918722"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247361"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gerenciar atualizações do Windows com a Automação do Azure
 
@@ -82,9 +82,19 @@ Clique em qualquer lugar na atualização para abrir o painel **Pesquisa de Logs
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Nesta etapa, defina um alerta para informá-lo quando as atualizações foram implantadas com êxito. O alerta que você cria é baseado em uma consulta ao Log Analytics. Você pode programar uma consulta personalizada para outros alertas a fim de atender a vários cenários diferentes. No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**. 
+Nesta etapa, você aprende a configurar um alerta para informar quando atualizações tiverem sido implantadas com êxito por meio de uma consulta do Log Analytics ou do acompanhamento do runbook mestre para o Gerenciamento de Atualizações para as implantações que falharam.
 
-Em **Criar regra**, em **1. Defina a condição de alerta** e selecione **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
+### <a name="alert-conditions"></a>Condições de alerta
+
+Para cada tipo de alerta, há condições diferentes que precisam ser definidas.
+
+#### <a name="log-analytics-query-alert"></a>Alerta de consulta do Log Analytics
+
+Para implantações bem-sucedidas, é possível criar um alerta com base em uma consulta do Log Analytics. Para implantações com falha, é possível usar as etapas do [Alerta do runbook](#runbook-alert) para alertar quando houver falha do runbook mestre que os orquestradores usam para atualizar as implantações. Você pode programar uma consulta personalizada para outros alertas a fim de atender a vários cenários diferentes.
+
+No Portal do Azure, vá para **Monitor**e selecione **Criar Alerta**.
+
+Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Log Analytics**. Selecione seu espaço de trabalho do Log Analytics e selecione **Concluído**.
 
 ![Criar alerta](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado,
 
 ![Configurar sinal lógico](./media/automation-tutorial-update-management/signal-logic.png)
 
-Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o alerta. Defina a **Gravidade** para **informativo(Sev 2)** porque o alerta é para uma execução bem-sucedida.
+#### <a name="runbook-alert"></a>Alerta de runbook
+
+Para implantações com falha, é preciso alertar a falha da execução mestre. Vá até o portal do Azure, **Monitorar** e selecione **Criar alerta**.
+
+Em **1. Defina a condição de alerta**, clique em **Selecionar destino**. Em **Filtrar por tipo de recurso**, selecione **Contas de automação**. Selecione sua Conta de automação, depois selecione **Concluído**.
+
+Para **Nome do Runbook**, clique no sinal **\+** entre e insira **MicrosoftOMSComputers Patch** como um nome personalizado. Para **Status**, escolha **Falha** ou clique no sinal **\+** para inserir a **Falha**.
+
+![Configurar a lógica de sinal para runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Em **Lógica de alerta**, para **Limite**, digite **1**. Quando tiver terminado, selecione **Concluído**.
+
+### <a name="alert-details"></a>Detalhes do Alerta
+
+Em **2. Defina os detalhes do alerta** e insira um nome e uma descrição para o alerta. Definir a **Gravidade** para **Informational(Sev 2)** para uma execução bem-sucedida ou **Informational(Sev 1)** para uma execução com falha.
 
 ![Configurar sinal lógico](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Sistema operacional**: escolha o sistema operacional de destino para a implantação de atualização.
 
-* **Computadores para atualização**: selecione uma Pesquisa salva, um Grupo importado ou selecione Computador na lista suspensa e selecione computadores individuais. Se você escolher **Computadores**, a preparação do computador será exibida na coluna **PREPARAÇÃO PARA ATUALIZAÇÃO DO AGENTE**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, confira [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+* **Computadores para atualização**: selecione uma Pesquisa salva, um Grupo importado ou selecione Computador na lista suspensa e selecione computadores individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Classificação de atualização**: selecione os tipos de software que a implantação de atualização incluiu na implantação. Para este tutorial, deixe todos os tipos selecionados.
 
@@ -153,7 +177,7 @@ Em **Nova implantação de atualização**, especifique as seguintes informaçõ
 
 * **Janela de manutenção (minutos)**: deixe o valor padrão. Você pode definir o período de tempo no qual deseja que a implantação de atualização ocorra. Essa configuração ajuda a garantir que as alterações sejam executadas dentro das janelas de serviço definidas.
 
-* **Opções de reinicialização**: esta configuração determina como a reinicializações deve ser tratada. As opções disponíveis são:
+* **Opções de reinicialização**: essa configuração determina como a reinicializações deve ser tratada. As opções disponíveis são:
   * Reinicialização, se necessário (Padrão)
   * Sempre reinicializar
   * Nunca reinicializar

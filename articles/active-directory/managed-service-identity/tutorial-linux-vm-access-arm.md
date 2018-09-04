@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 643d4814dd30926a9a4294494e768cadc60ee428
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 6ef3c901005b34d7ae849a2358f1f8af42bb339b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247972"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887038"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-resource-manager"></a>Usar Identidade de Serviço Gerenciada de VM do Linux para acessar o Azure Resource Manager
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma Máquina Virtual do Linux e, em seguida, usar essa identidade para acessar a API do Azure Resource Manager. As Identidades de Serviço Gerenciado são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que oferecem suporte à autenticação do Azure AD sem a necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual (VM) do Linux para acessar a API do Azure Resource Manager. As Identidades de Serviço Gerenciado são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que oferecem suporte à autenticação do Azure AD sem a necessidade de inserir as credenciais em seu código. Você aprenderá como:
 
 > [!div class="checklist"]
 > * Habilitar a Identidade de Serviço Gerenciada na Máquina Virtual do Linux 
@@ -38,34 +38,11 @@ Este tutorial mostra como habilitar a Identidade de Serviço Gerenciada para uma
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+- [Entrar no portal do Azure](https://portal.azure.com)
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma Máquina Virtual do Linux em um novo Grupo de Recursos
-
-Para este tutorial, vamos criar uma nova VM do Linux. Você também pode habilitar a Identidade de Serviço Gerenciada em uma VM existente.
-
-1. Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
-2. Selecione **Computação** e, em seguida, selecione **Ubuntu Server 16.04 LTS**.
-3. Insira as informações da máquina virtual. Para **Tipo de autenticação**, selecione **Chave pública SSH** ou **Senha**. As credenciais criadas permitirão que você faça logon na máquina virtual.
-
-    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
-5. Para selecionar um novo **Grupo de Recursos** no qual você deseja criar a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
-6. Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos** ou altere o filtro Tipo de disco com suporte. Na folha de configurações, mantenha os padrões e clique em **OK**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Habilitar a Identidade de Serviço Gerenciada em sua VM
-
-Uma Identidade de Serviço Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade do Serviço Gerenciado em uma VM faz duas coisas: registra sua VM com o Microsoft Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
-
-1. Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.
-2. Na barra de navegação à esquerda, clique em **Configuração**.
-3. Você verá **Identidade de Serviço Gerenciado**. Para registrar e habilitar a Identidade de Serviço Gerenciada, selecione **Sim**. Se você desejar desabilitá-la, escolha Não.
-4. Lembre-se de clicar em **Salvar** para salvar a configuração.
-
-    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-azure-resource-manager"></a>Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 

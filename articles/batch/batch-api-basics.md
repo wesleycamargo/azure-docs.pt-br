@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216301"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746011"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -288,7 +288,7 @@ Se uma tarefa de inicialização falhar em um nó de computação, o estado do n
 Se você adicionar ou atualizar a tarefa inicial para um pool existente , deverá reinicializar seus nós de computação para que a tarefa inicial seja aplicada aos nós.
 
 >[!NOTE]
-> O tamanho total de uma tarefa de início deve ser menor ou igual a 32768 caracteres, incluindo arquivos de recurso e variáveis de ambiente. Para garantir que a tarefa de início atenda a esse requisito, você pode usar uma das duas abordagens:
+> O lote limita o tamanho total de uma tarefa de inicialização, que inclui arquivos de recurso e variáveis de ambiente. Se você precisar reduzir o tamanho de uma tarefa de inicialização, poderá usar uma das duas abordagens:
 >
 > 1. Você pode usar pacotes de aplicativos para distribuir aplicativos ou dados em cada nó no pool do Lote. Para saber mais sobre pacotes de aplicativos, veja [Implantar aplicativos em nós de computação com pacotes de aplicativos do Lote](batch-application-packages.md).
 > 2. Você pode criar um arquivo compactado que contém os arquivos de aplicativos manualmente. Carregue seu arquivo compactado no Armazenamento do Azure como um blob. Especifique o arquivo compactado como um arquivo de recurso para a tarefa de início. Antes de executar a linha de comando para a tarefa de início, descompacte o arquivo da linha de comando. 

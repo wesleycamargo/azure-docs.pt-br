@@ -4,15 +4,15 @@ description: Descreve como descobrir e avaliar as VMs do VMware locais para a mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 65f1d6b448e6c0f16d51e1a4b8b897f52052ff15
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172340"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127622"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Descobrir e avaliar as VMs do VMware locais para migração para o Azure
 
@@ -151,7 +151,7 @@ Importe o arquivo baixado para o vCenter Server.
     - Se a VM acessa a internet através de um proxy, clique em **Configurações de proxy** e especifique o endereço de proxy e a porta de escuta. Especifique as credenciais caso o proxy exija autenticação. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity) sobre os requisitos de conectividade com a Internet e a lista de URLs acessada pelo coletor.
 
     > [!NOTE]
-    > O endereço de proxy deve ser inserido no formato http://ProxyIPAddress ou http://ProxyFQDN. Há suporte apenas para o proxy HTTP.
+    > O endereço de proxy deve ser inserido no formato http://ProxyIPAddress ou http://ProxyFQDN. Há suporte apenas para o proxy HTTP. Se você tiver um proxy de interceptação, a conexão de internet poderá falhar no início se o certificado de proxy não foi importado. [Saiba mais](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) sobre como você pode corrigir isso importando o certificado de proxy como um certificado confiável na VM do coletor.
 
     - O coletor verifica se o serviço coletor está em execução. O serviço é instalado por padrão na VM do coletor.
     - Baixe e instale o VMware PowerCLI.

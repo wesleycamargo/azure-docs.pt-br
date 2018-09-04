@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7bf3b5f8eb066428b382b9b2e742b919595bdffc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918869"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104992"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)
 
@@ -96,7 +96,7 @@ Para ver o aplicativo em execução, insira http://localhost:8080 em um navegado
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens do contêiner. No próximo tutorial, a imagem *azure-vote-front* será carregada em uma instância do Registro de Contêiner do Azure
+Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens do contêiner. No próximo tutorial, a imagem *azure-vote-front* será carregada em uma instância do Registro de Contêiner do Azure.
 
 Pare e remova as instâncias do contêiner e os recursos utilizando o comando [docker-compose down][docker-compose-down]:
 

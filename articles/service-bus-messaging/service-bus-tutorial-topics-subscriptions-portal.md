@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: f504f3bf513a20d8590d9907106b1fd12f907877
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 654cb09621837c360deccecb7778c5d467592dd1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651269"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124207"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o portal do Azure e tópicos/assinaturas
 
@@ -34,7 +34,7 @@ Um exemplo desse cenário é uma atualização de sortimento de estoque para vá
 
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
@@ -43,11 +43,11 @@ Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Tópicos e assinaturas do Barramento de Serviço
 
-Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos tem total compatibilidade de protocolo e semântica com filas do Barramento de Serviço. Os tópicos do Barramento de Serviço dão suporte a uma ampla matriz de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam as propriedades da mensagem. Sempre que uma regra corresponder, uma mensagem será produzida. Para saber mais sobre regras, filtros e ações, consulte este [link](topic-filters.md).
+Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos tem total compatibilidade de protocolo e semântica com filas do Barramento de Serviço. Os tópicos do Barramento de Serviço dão suporte a uma ampla matriz de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam as propriedades da mensagem. Cada vez que uma regra corresponde, é produzida uma mensagem. Para saber mais sobre regras, filtros e ações, consulte este [link](topic-filters.md).
 
-## <a name="log-on-to-the-azure-portal"></a>Fazer logon no Portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
-Primeiro, acesse o [portal do Azure][Azure portal] e faça logon usando a assinatura do Azure. A primeira etapa é criar um namespace de Barramento de Serviço do tipo **Mensagens**.
+Primeiro, vá para o [portal do Azure][Azure portal] e entre usando a assinatura do Azure. A primeira etapa é criar um namespace de Barramento de Serviço do tipo **Mensagens**.
 
 ## <a name="create-a-service-bus-namespace"></a>Criar um namespace do Barramento de Serviço
 

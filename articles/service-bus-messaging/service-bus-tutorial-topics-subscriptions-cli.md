@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651267"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120677"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar o estoque usando a CLI e tópicos/assinaturas
 
@@ -34,7 +34,7 @@ Um exemplo desse cenário é uma atualização de sortimento de estoque para vá
 
 Se você não tiver uma assinatura do Azure, poderá criar uma [conta gratuita][] antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para desenvolver um aplicativo de Barramento de Serviço com Java, você deve ter o seguinte instalado:
 
@@ -48,13 +48,13 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Tópicos e assinaturas do Barramento de Serviço
 
-Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos tem total compatibilidade de protocolo e semântica com filas do Barramento de Serviço. Os tópicos do Barramento de Serviço oferecem suporte a uma ampla matriz de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Cada vez que uma regra corresponde, é produzida uma mensagem. Para saber mais sobre regras, filtros e ações, consulte este [link](topic-filters.md).
+Cada [assinatura a um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos tem total compatibilidade de protocolo e semântica com filas do Barramento de Serviço. Os tópicos do Barramento de Serviço dão suporte a uma ampla matriz de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam as propriedades da mensagem. Cada vez que uma regra corresponde, é produzida uma mensagem. Para saber mais sobre regras, filtros e ações, consulte este [link](topic-filters.md).
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Assim que CLI for instalada, abra um prompt de comando e execute os comandos a seguir para fazer logon no Azure. Essas etapas não são necessárias se você estiver usando o Cloud Shell:
+Assim que a CLI for instalada, abra um prompt de comando e envie os comandos a seguir para entrar no Azure. Essas etapas não são necessárias se você estiver usando o Cloud Shell:
 
-1. Se você estiver usando a CLI do Azure localmente, execute o comando a seguir para fazer logon no Azure. Essa etapa de logon não é necessária se você estiver executando esse comandos no Cloud Shell:
+1. Se você estiver usando a CLI do Azure no local, execute o comando a seguir para entrar no Azure. Essa etapa de logon não será necessária se você estiver executando esses comandos no Cloud Shell:
 
    ```azurecli-interactive
    az login

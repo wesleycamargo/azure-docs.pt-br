@@ -1,6 +1,6 @@
 ---
-title: Configurar o Azure AD Privileged Identity Management | Microsoft Docs
-description: Um tópico que explica o que é o Azure AD Privileged Identity Management e como usar o PIM para melhorar sua segurança de nuvem.
+title: O que é o Azure AD Privileged Identity Management? | Microsoft Docs
+description: Fornece uma visão geral do PIM (Privileged Identity Management) do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618845"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186204"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -51,6 +51,35 @@ No Azure AD, o Azure AD Privileged Identity Management pode gerenciar os usuári
 ## <a name="just-in-time-administrator-access"></a>Administrador de acesso just in time
 
 Historicamente, você podia atribuir a um usuário uma função de administrador por meio do Portal do Azure, outros portais do Microsoft Online Services ou cmdlets do Azure AD no Windows PowerShell. Como resultado, esse usuário se torna **administrador permanente**, sempre ativo na função a ele atribuída. O Azure AD Privileged Identity Management introduz o conceito de um **administrador elegíveis**. Administradores elegíveis devem ser usuários que precisam de acesso privilegiado às vezes, mas não o dia todo, todos os dias. A função fica inativa até que o usuário precise de acesso, então ele conclui um processo de ativação e torna-se um administrador ativo por um tempo predeterminado. Cada vez mais empresas estão escolhendo usar essa abordagem para reduzir ou eliminar "acesso de administrador permanente" a funções privilegiadas.
+
+
+## <a name="terminology"></a>Terminologia
+
+*Usuário de função qualificada*: um usuário de função qualificada é um usuário em sua organização que foi atribuído a uma função do Azure AD como qualificado (a função requer ativação).
+
+*Aprovador delegado*: um aprovador delegado é um ou vários indivíduos ou grupos no Azure AD responsáveis por aprovar solicitações para ativar funções.
+
+## <a name="scenarios"></a>Cenários
+
+O PIM dá suporte aos seguintes cenários:
+
+**Como PRA (Administrador da Função com Privilégios), você pode:**
+
+- Habilitar a aprovação para funções específicas
+- Especificar usuários e/ou grupos aprovadores para aprovar solicitações
+- Exibir o histórico de solicitações e aprovações de todas as funções com privilégios
+
+**Como um aprovador designado, você pode:**
+
+- Exibir as aprovações pendentes (solicitações)
+- Aprovar ou rejeitar solicitações de elevação de função (única e/ou em massa)
+- Fornecer uma justificativa para minha aprovação/rejeição 
+
+**Como usuário de função qualificada, você pode:**
+
+- Solicitar a ativação de uma função que exige aprovação
+- Exibir o status de sua solicitação a ser ativada
+- Concluir a tarefa no Azure AD caso a ativação tenha sido aprovada
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Habilitar o Privileged Identity Management para seu diretório
 
@@ -157,4 +186,6 @@ Se sua organização não renovar o Azure AD Premium P2 ou sua versão de avalia
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Requisitos de assinatura para usar o PIM](subscription-requirements.md)
+- [Funções de diretório do Azure AD que você pode gerenciar no PIM](pim-roles.md)
+- [Protegendo o acesso privilegiado para implantações de nuvem e híbridos no Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

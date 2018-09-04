@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237957"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126544"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Atualizar estoque usando o PowerShell e tópicos/assinaturas
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 Um exemplo desse cenário é uma atualização de sortimento de estoque para várias lojas de varejo. Nesse cenário, cada loja ou conjunto de lojas recebe mensagens que são destinadas para atualizar os respectivos sortimentos. Este tutorial mostra como implementar esse cenário usando assinaturas e filtros. Primeiro, você cria um tópico com 3 assinaturas, adiciona algumas regras e filtros e envia e recebe mensagens do tópico e das assinaturas.
 
-![fila](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![topic](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][] antes de começar.
 
@@ -47,9 +47,9 @@ Este tutorial requer que esteja em execução a última versão do Azure PowerSh
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Emita os comandos a seguir para fazer logon no Azure. Essas etapas não serão necessárias, se estiver executando comandos do PowerShell no Cloud Shell: 
+Envie os comandos a seguir para entrar no Azure. Essas etapas não serão necessárias, se estiver executando comandos do PowerShell no Cloud Shell: 
 
 1. Instale o módulo PowerShell do Barramento de Serviço:
 
@@ -57,7 +57,7 @@ Emita os comandos a seguir para fazer logon no Azure. Essas etapas não serão n
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Execute o comando a seguir para fazer logon no Azure:
+2. Execute o comando a seguir para entrar no Azure:
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -72,7 +72,7 @@ Emita os comandos a seguir para fazer logon no Azure. Essas etapas não serão n
 
 ## <a name="provision-resources"></a>Provisionar recursos
 
-Após fazer logon no Azure, emita os comandos a seguir para provisionar os recursos do Barramento de Serviço. Certifique-se de substituir todos os espaços reservados pelos valores apropriados:
+Após entrar no Azure, envie os comandos a seguir para provisionar os recursos do Barramento de Serviço. Verifique se todos os espaços reservados foram substituídos pelos valores apropriados:
 
 ```azurepowershell-interactive
 # Create a resource group 

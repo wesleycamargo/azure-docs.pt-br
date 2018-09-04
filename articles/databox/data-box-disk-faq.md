@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 5288e9900c75eae7601b84f7366edf9ac739d5da
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125796"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143535"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>O que é o Disco do Azure Data Box? (Visualização)
 
@@ -60,10 +60,10 @@ a.  Para obter os Discos do Azure Data Box, primeiro inscreva-se na [versão pr�
 a. Com cinco discos, cada um com 8 TB (7 TB de capacidade utilizável), a capacidade utilizável máxima é de 35 TB. Portanto, você pode transferir 35 TB de dados em uma instância.  Para transferir mais dados, você precisa solicitar mais discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P. Como verificar se os Discos do Data Box estão disponíveis na minha região? 
-a.  Os Discos do Data Box estão disponíveis nos EUA e em todos os países da União Europeia durante a fase de versão prévia.  
+a.  Os Discos do Data Box estão disponíveis nos EUA, Canadá e todos os países na União Europeia durante a fase de versão prévia.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P. Em que regiões posso armazenar dados com Discos do Data Box?
-a. O Disco do Data Box tem suporte na versão prévia em todas as regiões dentro dos EUA, na Europa Ocidental e na Europa Setentrional. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
+a. O Disco do Data Box tem suporte em todas as regiões nos EUA, Canadá, Europa Ocidental e Europa Setentrional para a versão prévia. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P. Quem devo contatar se eu encontrar problemas com Discos do Data Box?
 a. Se você tiver problemas com Discos do Data Box, entre em contato com o [Suporte ao Disco do Data Box](mailto:expresspodsupport@microsoft.com).

@@ -1,5 +1,5 @@
 ---
-title: Guia de administrador do portal do Azure Data Box | Microsoft Docs
+title: Guia do administrador do portal do Disco do Azure Data Box | Microsoft Docs
 description: Descreve como usar o portal do Azure para administrar o Azure Data Box.
 services: databox
 documentationcenter: NA
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: c76d8bc6af808fd1257e44ad296e3e2d65b8695d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7bf88a4e9d7af1033f014939d95783f9430dd84a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238107"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124956"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-preview"></a>Usar o portal do Azure para administrar o Data Box (versão prévia)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Usar o portal do Azure para administrar o Disco do Data Box (Versão prévia)
 
 Os tutoriais neste artigo aplicam-se ao Disco do Microsoft Azure Data Box durante a versão prévia. Este artigo descreve alguns dos fluxos de trabalho e tarefas de gerenciamento complexos que podem ser executados no Disco do Data Box. 
 

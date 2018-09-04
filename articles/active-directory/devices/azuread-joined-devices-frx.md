@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415789"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046315"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Ingressar em um novo dispositivo Windows 10 com o Azure AD durante uma primeira execução
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Tutorial: Adicionar um novo dispositivo do Windows 10 com o Azure AD durante a primeira execução
 
 Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais informações, consulte a [introdução ao gerenciamento de dispositivos no Active Directory do Azure](overview.md).
 
@@ -34,9 +34,13 @@ Se você tiver o Windows 10 Professional ou o Windows 10 Enterprise em um dispos
 
 Não há suporte para o ingresso em um domínio local do AD (Active Directory) na *configuração inicial pelo usuário* do Windows. Se pretender adicionar um computador a um domínio do AD durante a configuração, será necessário selecionar o link **Configurar o Windows com uma conta local**. Em seguida, será possível ingressar no domínio pelas configurações do computador.
  
+Neste tutorial, você aprenderá a adicionar um dispositivo ao Azure AD durante a FRX:
+ > [!div class="checklist"]
+> * Pré-requisitos
+> * Ingressar em um dispositivo
+> * Verificação
 
-
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para ingressar em um dispositivo Windows 10, o serviço de registro do dispositivo deverá ser configurado para permitir que você registre dispositivos. Além de ter permissão para ingressar em dispositivos em seu locatário do Azure AD, você deverá ter menos dispositivos registrados que o máximo configurado. Para mais informações, consulte [Definir configurações do dispositivo](device-management-azure-portal.md#configure-device-settings).
 

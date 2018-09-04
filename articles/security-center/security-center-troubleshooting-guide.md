@@ -3,7 +3,7 @@ title: Guia de solução de problemas da Central de Segurança do Azure | Micros
 description: Este documento ajuda a solucionar problemas na Central de Segurança do Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
-ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779219"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121195"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 Este guia é para os profissionais de TI (tecnologia da informação), analistas de segurança de informações e administradores de nuvem cujas organizações estão usando a Central de Segurança do Azure e precisam solucionar os problemas relacionados a Central de Segurança.
@@ -64,7 +64,7 @@ Há dois cenários de instalação que podem produzir resultados diferentes ao i
 > Para evitar o comportamento explicado no segundo cenário, baixe a versão mais recente do agente.
 >
 
-## <a name="monitoring-agent-health-issues"></a>Problemas de integridade do agente de monitoramento
+## Problemas de integridade do agente de monitoramento <a name="mon-agent"></a>
 O **estado de monitoramento** define o motivo pelo qual a Central de Segurança não consegue monitorar as VMs e os computadores inicializados para o provisionamento automático. A tabela a seguir mostra os valores do **estado de monitoramento**, descrições e as etapas de resolução.
 
 | Estado do monitoramento | DESCRIÇÃO | Etapas de resolução |
@@ -81,7 +81,7 @@ O **estado de monitoramento** define o motivo pelo qual a Central de Segurança 
 | Agente não instalado | A coleta de dados está desabilitada. | Ative a coleta de dados na política de segurança ou instale manualmente o Microsoft Monitoring Agent. |
 
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Solução de problemas de monitoramento de requisitos de rede do agente
+## Solução de problemas dos requisitos de rede do agente de monitoramento <a name="mon-network-req"></a>
 Para que os agentes se conectem e se registrem na Central de Segurança, eles deverão ter acesso aos recursos de rede, incluindo os números de porta e as URLs de domínio.
 
 - Para servidores proxy, você precisa garantir que os recursos do servidor proxy apropriados estejam configurados nas configurações do agente. Leia este artigo para saber mais sobre [como alterar as configurações de proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
@@ -91,10 +91,10 @@ A tabela a seguir mostra os recursos necessários para comunicação.
 
 | Recurso de agente | Portas | Ignorar a inspeção de HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | sim |
-| *.oms.opinsights.azure.com | 443 | sim |
-| *.blob.core.windows.net | 443 | sim |
-| *.azure-automation.net | 443 | sim |
+| *.ods.opinsights.azure.com | 443 | SIM |
+| *.oms.opinsights.azure.com | 443 | SIM |
+| *.blob.core.windows.net | 443 | SIM |
+| *.azure-automation.net | 443 | SIM |
 
 Se você encontrar problemas de integração com o agente, leia o artigo [Como solucionar problemas de integração do Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 

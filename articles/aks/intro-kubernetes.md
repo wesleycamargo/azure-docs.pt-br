@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 161ea6698ecc46e50d1c70f922e2fb505e78278c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022512"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087697"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS (Serviço do Kubernetes do Azure)
 
@@ -54,7 +54,7 @@ Para obter mais informações, confira [Atualizar um cluster do AKS (Serviço de
 
 ## <a name="http-application-routing"></a>Roteamento de aplicativo HTTP
 
-A solução de roteamento de aplicativo HTTP facilita o acesso a aplicativos implantados ao cluster AKS. Quando habilitada, a solução de roteamento do aplicativo HTTP configura um controlador de entrada em seu cluster do AKS. Como os aplicativos são implantados, os nomes DNS publicamente acessíveis são configurados automaticamente.
+A solução de roteamento de aplicativo HTTP facilita o acesso a aplicativos implantados ao cluster AKS. Quando habilitada, a solução de roteamento do aplicativo HTTP configura um controlador de entrada em seu cluster do AKS. Quando os aplicativos são implantados, os nomes DNS publicamente acessíveis são configurados automaticamente.
 
 Para obter mais informações, confira [Roteamento de aplicativo HTTP][aks-http-routing].
 

@@ -4,17 +4,17 @@ description: Neste tutorial, você implantará uma função do Azure em um dispo
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920945"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744035"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutorial: implantar funções do Azure como módulos do IoT Edge (versão prévia)
 
@@ -170,7 +170,7 @@ Na seção anterior, você criou uma solução IoT Edge e adicionou um código a
 
 Nesta seção, você fornece as credenciais para o registro de contêiner duas vezes. A primeira vez é para fazer logon localmente em seu computador de desenvolvimento, de modo que o Visual Studio Code possa enviar imagens por push ao registro. A segunda vez é no arquivo **.env** da sua solução IoT Edge, que fornece ao seu dispositivo IoT Edge permissões para efetuar pull de imagens do seu registro. 
 
-1. Abra o terminal integrado do VS Code selecionando **Exibir** > **Terminal Integrado**. 
+1. Abra o terminal integrado do VS Code selecionando **Exibir** > **Terminal**. 
 
 1. Entre no seu registro de contêiner, inserindo o seguinte comando no terminal integrado. Em seguida, envie sua imagem de módulo por push para o registro de contêiner do Azure: 
      
@@ -219,7 +219,7 @@ Você pode usar o portal do Azure para implantar o módulo da função em um dis
 
 5. No explorador do VS Code, expanda a seção **Dispositivos do Hub IoT do Azure**. 
 
-6. Clique com o botão direito do mouse no nome do seu dispositivo IoT Edge e escolha **Criar implantação de dispositivo IoT Edge**. 
+6. Clique com o botão direito no nome do seu dispositivo do IoT Edge e selecione **Criar implantação para um único dispositivo**. 
 
 7. Navegue até a pasta da solução que contém **CSharpFunction**. Abra a pasta de configuração, escolha o arquivo deployment.json e escolha **Selecionar manifesto de implantação do Edge**.
 

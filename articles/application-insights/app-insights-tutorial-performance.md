@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969127"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812864"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -28,7 +28,7 @@ O Azure Application Insights coleta a telemetria do seu aplicativo para ajudar a
 > * Analisar os detalhes de exibições de página usando a linguagem de consulta
 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 
@@ -53,27 +53,20 @@ O Application Insights coleta detalhes de desempenho para as diferentes operaç�
 
     ![Painel de desempenho](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Atualmente, o grafo mostra a duração média de todas as operações ao longo do tempo.  Adicione as operações em que você está interessado em fixando-as ao grafo.  Isso mostra que há alguns picos que valem a pena investigar.  Isole isso ainda mais tarde reduzindo a janela de tempo do grafo.
+3. Atualmente, o gráfico mostra a duração média de todas as operações ao longo do tempo. Você pode alternar para o 95º percentil para encontrar os problemas de desempenho. Adicione as operações em que você está interessado em fixando-as ao grafo.  Isso mostra que há alguns picos que valem a pena investigar.  Isole isso ainda mais tarde reduzindo a janela de tempo do grafo.
 
     ![Fixar operações](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Clique em uma operação para exibir seu painel de desempenho à direita. Isso mostra a distribuição de durações para diferentes solicitações.  Os usuários costumam observar um desempenho lento em cerca de meio segundo, assim, reduza a janela para solicitações acima de 500 milissegundos.  
+4.  O painel de desempenho à direita mostra a distribuição de durações para diferentes solicitações da operação selecionada.  Reduza a janela para iniciar em torno do 95º percentil. O cartão de insights “Três dependências principais” pode informar rapidamente que as dependências externas provavelmente estão contribuindo para as transações lentas.  Clique no botão com o número de amostras para ver uma lista dos exemplos. Em seguida, é possível selecionar qualquer amostra para ver os detalhes da transação.
 
     ![Distribuição de duração](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Neste exemplo, você pode ver que um número significativo de solicitações está levando mais de um segundo para ser processado. Você pode ver os detalhes dessa operação clicando em **Detalhes da operação**.
+5.  Você pode ver rapidamente que a chamada para a Tabela Fabrikamaccount do Azure está contribuindo principalmente para a duração total da transação. Também é possível ver que uma exceção causou a falha. É possível clicar em qualquer item na lista para ver seus detalhes no lado direito. [Saiba mais sobre a experiência de diagnóstico de transação](app-insights-transaction-diagnostics.md)
 
     ![Detalhes da operação](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    Habilite a [experiência de visualização](app-insights-previews.md) "Detalhes unificados: diagnóstico da transação E2E" para ver todas as solicitações, dependências, exceções, rastreamentos, eventos etc. do tipo telemetria do lado do servidor relacionadas em uma única exibição de tela inteira. 
-
-    Com a visualização habilitada, você pode ver o tempo gasto em chamadas de dependência, junto com quaisquer falhas ou exceções em uma experiência unificada. Para transações entre componentes, o gráfico de Gantt, junto com o painel de detalhes, pode ajudar você a diagnosticar rapidamente o componente, dependência ou exceção de causa raiz. Você pode expandir a seção inferior para ver a sequência de tempo de qualquer rastreamento ou evento coletado para a operação de componente selecionada. [Saiba mais sobre a nova experiência](app-insights-transaction-diagnostics.md)  
-
-    ![Diagnóstico da transação](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  As informações que você coletou até agora apenas confirmam que há um desempenho lento, mas não ajuda muito a chegar à causa raiz.  O **Criador de Perfil** ajuda com isso mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
+6.  O **Criador de perfil** ajuda a ir além com o diagnóstico de nível de código mostrando o código real que executou a operação e o tempo necessário para cada etapa. Algumas operações podem não ter um rastreamento, já que o criador de perfil é executado periodicamente.  Ao longo do tempo, mais operações devem ter rastreamentos.  Para iniciar o criador de perfil para a operação, clique em **Rastreamentos do criador de perfil**.
 5.  O rastreamento mostra os eventos individuais para cada operação para que você possa diagnosticar a causa raiz para a duração da operação geral.  Clique em um dos exemplos principais, que têm a duração mais longa.
 6.  Clique em **Mostrar Afunilamento** para realçar o caminho específico de eventos que mais contribuem para a duração total da operação.  Neste exemplo, você pode ver que a chamada mais lenta é a do método *FabrikamFiberAzureStorage.GetStorageTableData*. A parte que usa a maior parte do tempo é o método *CloudTable.CreateIfNotExist*. Se esta linha de código for executada sempre que a função for chamada, serão consumidos recursos de CPU e de chamada de rede desnecessários. A melhor maneira de corrigir seu código é colocar essa linha em algum método de inicialização que seja executado somente uma vez. 
 

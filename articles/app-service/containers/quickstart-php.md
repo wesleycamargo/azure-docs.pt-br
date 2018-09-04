@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306779"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885898"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo no Linux
 
@@ -36,7 +36,7 @@ Você pode seguir as etapas deste artigo usando um computador Mac, Windows ou Li
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Executar o aplicativo localmente
 
-Execute o aplicativo localmente abrindo uma janela do terminal e usando o comando `php` para iniciar o servidor interno da Web do PHP.
+Execute o aplicativo no local para ver como ele deve ficar quando o implantar no Azure. Abra uma janela do terminal e use o comando `php` para iniciar o servidor Web do PHP interno.
 
 ```bash
 php -S localhost:8080

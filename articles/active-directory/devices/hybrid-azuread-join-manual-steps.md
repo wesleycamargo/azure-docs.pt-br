@@ -12,27 +12,38 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630612"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049930"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos ingressados no Azure Active Directory híbrido manualmente 
 
 Com o gerenciamento de dispositivos no Azure AD (Azure Active Directory), você pode garantir que os usuários acessem recursos usando dispositivos que atendam aos padrões de segurança e conformidade. Para obter mais detalhes, consulte o [Introdução ao gerenciamento de dispositivos no Active Directory do Azure](overview.md).
 
-Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos adicionados ao domínio no Azure AD, você poderá fazer isso configurando dispositivos adicionados ao Azure AD híbrido. Esse artigo fornece as etapas relacionadas. 
-
-
 
 > [!TIP]
 > Se usar o Azure AD Connect é uma opção para você, consulte [Selecionar o cenário](hybrid-azuread-join-plan.md#select-your-scenario). Usando o Azure AD Connect, é possível simplificar significativamente a configuração de ingresso do Azure AD híbrido.
+
+
+
+Caso tenha um ambiente local do Active Directory e queira ingressar dispositivos adicionados ao domínio no Azure AD, você poderá fazer isso configurando dispositivos adicionados ao Azure AD híbrido. Neste tutorial, você aprenderá a configurar manualmente o ingresso do Azure AD híbrido para seus dispositivos.
+
+> [!div class="checklist"]
+> * Pré-requisitos
+> * Etapas da configuração
+> * Configurar o ponto de conexão de serviço
+> * Configurar a emissão de declarações
+> * Habilitar dispositivos de nível inferior do Windows
+> * Verificar dispositivos ingressados
+> * Solucionar problemas de implementação
+ 
 
 
 

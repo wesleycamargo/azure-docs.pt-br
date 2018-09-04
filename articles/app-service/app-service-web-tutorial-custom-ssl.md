@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214958"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887499"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutorial: vincular um certificado SSL personalizado existente aos Aplicativos Web do Azure
 
@@ -237,11 +237,11 @@ Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTP 
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>Impor o TLS 1.1/1.2
+## <a name="enforce-tls-versions"></a>Impor as versões do TLS
 
-Seu aplicativo permite o protocolo [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 por padrão, o que não é mais considerado seguro pelos padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Para impor versões superiores do TLS, execute estas etapas:
+Seu aplicativo permite o [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 por padrão, que é o nível TLS recomendado segundo os padrões do setor, como [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Para impor versões diferentes do TLS, execute estas etapas:
 
-Em sua página do aplicativo Web, na navegação esquerda, selecione **Configurações SSL**. Depois, em **Versão do TLS**, selecione a versão mínima desejada do TLS.
+Em sua página do aplicativo Web, na navegação esquerda, selecione **Configurações SSL**. Depois, em **Versão do TLS**, selecione a versão mínima desejada do TLS. Essa configuração controla somente as chamadas de entrada. 
 
 ![Impor o TLS 1.1 ou 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 

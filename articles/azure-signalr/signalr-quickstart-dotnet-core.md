@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674845"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916293"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início Rápido: Criar uma sala de chat com o Serviço SignalR
 
@@ -93,15 +93,20 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
 
         dotnet restore
 
-3. Adicione um segredo chamado *Azure__SignalR__ConnectionString* ao Gerenciador de Segredos. Esse segredo é um valor de configuração hierárquica e os dois-pontos (:) podem não funcionar em todas as plataformas. O sublinhado duplo (_), conforme usado por esse segredo, é compatível com todas as plataformas.  Esse segredo conterá a cadeia de conexão para acessar seu recurso SignalR Service. *Azure__SignalR__ConnectionString* é a chave de configuração padrão que o SignalR procura para estabelecer uma conexão. Substitua o valor no comando abaixo pela cadeia de conexão do recurso Serviço SignalR.
+3. Adicione um segredo chamado *Azure:SignalR:ConnectionString* ao Gerenciador de Segredos. 
+
+    Esse segredo conterá a cadeia de conexão para acessar seu recurso SignalR Service. *Azure:SignalR:ConnectionString* é a chave de configuração padrão que o SignalR procura para estabelecer uma conexão. Substitua o valor no comando abaixo pela cadeia de conexão do recurso Serviço SignalR.
 
     Este comando deve ser executado no mesmo diretório que o arquivo *.csproj*.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     O Gerenciador de Segredos só será usado para testar o aplicativo Web enquanto ele estiver hospedado localmente. Em um tutorial posterior, você implantará o aplicativo Web de chat no Azure. Após a implantação do aplicativo Web no Azure, você usará uma configuração de aplicativo em vez de armazenar a cadeia de conexão com o Gerenciador de Segredos.
+
+    Esse segredo é acessado com a API de configuração. Os dois-pontos (:) funcionam no nome da configuração com a API de configuração em todas as plataformas com suporte; consulte [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Abra *Startup.cs* e atualize o método `ConfigureServices` para usar o Serviço Azure SignalR chamando o método `services.AddSignalR().AddAzureSignalR()`:
 
@@ -113,7 +118,7 @@ Nesta seção, você adicionará a [ferramenta Gerenciador de Segredos](https://
     }
     ```
 
-    Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão, *Azure__SignalR__ConnectionString*, para a cadeia de conexão do recurso Serviço SignalR.
+    Ao não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração padrão, *Azure:SignalR:ConnectionString*, para a cadeia de conexão do recurso Serviço SignalR.
 
 5. Também no *Startup.cs*, atualize o método `Configure` substituindo a chamada para `app.UseStaticFiles()` pelo código a seguir e salve o arquivo.
 
