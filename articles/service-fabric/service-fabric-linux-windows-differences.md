@@ -14,26 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 5e0002437b4fc22d9dfdcdca9a587bf420a7d8fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb4f738fd63b8b013f674557a0c5f5639c26391e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207675"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126877"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>As diferenças entre o Service Fabric no Linux e no Windows
 
-Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventualmente, os conjuntos de recursos estarão em paridade e com cada versão esse intervalo de recursos será reduzido. Existem as seguintes diferenças entre as versões mais recentes disponíveis (ou seja, entre a versão 6.0 para Windows e a versão 6.0 no Linux): 
+Há alguns recursos que têm suporte no Windows, mas ainda não no Linux. Eventualmente, os conjuntos de recursos estarão em paridade e com cada versão esse intervalo de recursos será reduzido. As diferenças a seguir existem entre as versões mais recentes disponíveis.
 
-* Todos os modelos de programação estão na versão prévia (Java/C# Reliable Actors, Reliable Stateless Services e Reliable Stateful Services)
-* O Envoy (ReverseProxy) está em versão prévia no Linux
+* O Envoy (proxy reverso) está em versão prévia no Linux
 * O instalador autônomo para Linux ainda não está disponível no Linux
 * Redirecionamento de console (sem suporte em clusters de produção do Linux ou Windows)
 * O Serviço de Análise de Falha (FAS) no Linux
 * Serviço DNS para serviços do Service Fabric (o serviço DNS tem suporte para contêineres no Linux)
 * Equivalentes de comando da CLI de determinados comandos do Powershell (lista abaixo, a maior parte se aplica somente aos clusters autônomos)
-
-As ferramentas de desenvolvimento também são diferente entre o Windows e o Linux. O Visual Studio, o Powershell, o VSTS e o ETW são usados no Windows, enquanto o Yeoman, o Eclipse, o Jenkins e o LTTng são usados no Linux.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Cmdlets do PowerShell que não funcionam em um cluster Linux do Service Fabric
 

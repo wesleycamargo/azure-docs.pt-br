@@ -432,6 +432,14 @@ items:
       href: install-vm-agent-offline.md
     - name: Solucionar problemas de VHDs anexados
       items:
+      - name: Armazenar erros de exclusão de recursos
+        href: storage-resource-deletion-errors.md
+      - name: Reinicializações inesperadas de VMs com VHDs anexados
+        href: unexpected-reboots-attached-vhds.md
+    - name: Solucionar problemas dos erros de inicialização
+      items:
+      - name: Erros de BitLocker
+        href: troubleshoot-bitlocker-boot-error.md
       - name: Verificação de erros do sistema de arquivos
         href: troubleshoot-check-disk-boot-error.md
 - name: Referência
@@ -470,9 +478,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Perguntas frequentes
     href: faq.md
-ms.openlocfilehash: dc65985a2c629aff30bd0ed7e2821f3772ca6942
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 891d433b02416cb3c02df87a4c4fae29b27d0d78
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337160"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666723"

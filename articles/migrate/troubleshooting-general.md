@@ -4,14 +4,14 @@ description: Fornece uma visão geral dos problemas conhecidos no serviço de Mi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228247"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126354"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Solucionar problemas das Migrações para Azure
 
@@ -50,6 +50,10 @@ Se você estiver usando qualquer proxy firewall baseado em URL para controlar a 
 --- | ---
 *. portal.azure.com | É necessário verificar a conectividade com o serviço do Azure e validar problemas sincronização de hora.
 *. oneget.org | É necessário fazer o download do powershell com base no módulo vCenter PowerCLI.
+
+**O coletor não é capaz de se conectar à Internet devido a uma falha de validação do certificado**
+
+Isso pode acontecer se você estiver usando um proxy de interceptação para se conectar à Internet e não tiver importado o certificado de proxy para a VM do coletor. Você pode importar o certificado de proxy usando as etapas detalhadas [aqui](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **O coletor não consegue se conectar ao projeto usando a ID e a chave do projeto copiados do portal.**
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528436"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247775"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gerenciar ciclo de vida do Armazenamento de Blobs do Azure (Versão Prévia)
 
@@ -37,7 +37,7 @@ A política de gerenciamento do ciclo de vida está disponível tanto com a cont
 O recurso de gerenciamento do ciclo de vida é gratuito na versão prévia. O custo de operação normal para as chamadas à API [Listar Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Definir Camada de Blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) é cobrado dos clientes. Para saber mais sobre os preços, consulte [Preço de Blob de Blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>Registrar-se para a versão prévia 
-Para registrar-se para a versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Depois que a solicitação for aprovada (dentro de alguns dias), qualquer conta GPv2 ou conta de Armazenamento de Blobs nova ou existente no Oeste dos EUA 2 e Centro-oeste dos EUA terá o recurso habilitado. Durante a versão prévia, há suporte apenas para o blob de blocos. Assim como acontece com a maioria das versões prévias, esse recurso não deve ser usado para cargas de trabalho de produção até passar para disponibilidade geral.
+Para registrar-se para a versão prévia pública, você precisará enviar uma solicitação para registrar esse recurso em sua assinatura. Depois que a solicitação for aprovada (dentro de alguns dias), qualquer conta GPv2 ou conta de Armazenamento de Blobs nova ou existente no Oeste dos EUA 2, no Centro-oeste dos EUA e na Europa Ocidental terá o recurso habilitado. Durante a versão prévia, há suporte apenas para o blob de blocos. Assim como acontece com a maioria das versões prévias, esse recurso não deve ser usado para cargas de trabalho de produção até passar para disponibilidade geral.
 
 Para enviar uma solicitação, execute os seguintes comandos da CLI ou do PowerShell.
 

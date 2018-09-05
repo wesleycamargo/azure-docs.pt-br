@@ -12,46 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503529"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126904"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gerenciar o Key Vault usando a CLI 2.0
 
 Este artigo aborda como começar a trabalhar com o Azure Key Vault usando a CLI do Azure 2.0. Você pode ver informações sobre:
+
+- Pré-requisitos
 - Como criar um contêiner protegido (um cofre) no Azure
-- Como armazenar e gerenciar chaves de criptografia e segredos no Azure. 
-- Usando a CLI do Azure para criar um cofre.
-- Criando uma chave ou senha que pode ser usada com um aplicativo do Azure. 
-- Como um aplicativo pode usar a chave ou senha criada.
+- Adicionar uma chave, segredo ou certificado ao cofre de chaves
+- Registrar um aplicativo com o Azure Active Directory
+- Autorizar um aplicativo a usar uma chave ou segredo
+- Definir as políticas de acesso avançado do cofre de chaves
+- Trabalhar com HSMs (módulos de segurança de hardware)
+- Excluir o cofre de chave e chaves e segredos associados
+- Outros comandos da interface de linha de comando de plataforma cruzada do Azure
+
 
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
-
 
 > [!NOTE]
 > Este artigo não inclui instruções sobre como escrever o aplicativo do Azure incluído em uma das etapas, que mostra como autorizar um aplicativo a usar uma chave ou um segredo do cofre da chave.
 >
 
 Para obter uma visão geral do Azure Key Vault, consulte [O que é o Azure Key Vault?](key-vault-whatis.md)
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes itens:
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 * Interface de Linha de Comando versão 2.0 ou posterior. Para instalar a versão mais recente, veja [Instalar e configurar a Interface de Linha de Comando 2.0 de plataforma cruzada do Azure](/cli/azure/install-azure-cli).
 * Um aplicativo que será configurado para usar a chave ou senha que você criará neste artigo. Um aplicativo de exemplo está disponível no [Centro de Download da Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Para obter instruções, veja o arquivo Leiame incluído.
 
-## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtendo ajuda com a interface de linha de comando de plataforma cruzada do Azure
+
 Este artigo pressupõe que você esteja familiarizado com a interface de linha de comando (Bash, Terminal, Prompt de Comando).
 
 O parâmetro --help ou -h pode ser usado para exibir a ajuda de comandos específicos. Como alternativa, o formato [comando] [opções] da ajuda do Azure também pode ser usado. Em caso de dúvida sobre os parâmetros necessários para um comando, veja a ajuda. Por exemplo, todos os seguintes comandos retornam as mesmas informações:
 
-```azurecli-interactive
+```azurecli
 az account set --help
 az account set -h
 ```
@@ -61,14 +69,18 @@ Leia também os artigos a seguir para se familiarizar com o Azure Resource Manag
 * [Instalar a CLI do Azure.](/cli/azure/install-azure-cli)
 * [Introdução à CLI do Azure 2.0](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>Conectar-se às suas assinaturas
+## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Como criar um contêiner protegido (um cofre) no Azure
 
-Para fazer logon de forma interativa, use o comando a seguir:
+Os cofres são contêineres protegidos que contam com módulos de segurança de hardware. Os cofres ajudam a reduzir a possibilidade de perda acidental de informações de segurança pela centralização do armazenamento de segredos do aplicativo. Os Key Vaults também controlam e registram o acesso a todas as coisas armazenadas neles. O Azure Key Vault pode tratar da solicitação e da renovação de certificados TLS, fornecendo os recursos necessários para uma solução de gerenciamento de ciclo de vida de certificados robusta. Nas próximas etapas, você criará um cofre.
+
+### <a name="connect-to-your-subscriptions"></a>Conectar-se às suas assinaturas
+
+Para entrar de forma interativa, use o comando a seguir:
 
 ```azurecli
 az login
 ```
-Para fazer logon usando uma conta de organização, passe seu nome de usuário e senha.
+Para entrar usando uma conta organizacional, você pode passar seu nome de usuário e senha.
 
 ```azurecli
 az login -u username@domain.com -p password
@@ -88,7 +100,8 @@ az account set --subscription <subscription name or ID>
 
 Para obter mais informações sobre como configurar a Interface de Linha de Comando de plataforma cruzada do Azure, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-new-resource-group"></a>Criar um novo grupo de recursos
+### <a name="create-a-new-resource-group"></a>Criar um novo grupo de recursos
+
 Ao usar o Gerenciador de Recursos do Azure, todos os recursos relacionados são criados em um grupo de recursos. Crie um cofre de chaves em um grupo de recursos existente. Se você quiser usar um novo grupo de recursos, crie um.
 
 ```azurecli
@@ -101,15 +114,15 @@ O primeiro parâmetro é o nome do grupo de recursos e o segundo parâmetro é o
 az account list-locations
 ``` 
 
-## <a name="register-the-key-vault-resource-provider"></a>Registrar o provedor de recursos do Cofre de Chaves
+### <a name="register-the-key-vault-resource-provider"></a>Registrar o provedor de recursos do Cofre de Chaves
+
  Ao tentar criar um novo cofre de chaves, talvez você veja o erro "A assinatura não está registrada para usar o namespace 'Microsoft.KeyVault'". Se a mensagem aparecer, garanta que o provedor de recursos do Cofre de Chaves está registrado em sua assinatura. Essa operação deve ser executa apenas uma vez para cada assinatura.
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 ```
 
-
-## <a name="create-a-key-vault"></a>Criar um cofre de chave
+### <a name="create-a-key-vault"></a>Criar um cofre de chave
 
 Use o comando `az keyvault create` para criar um cofre de chave. Esse script tem três parâmetros obrigatórios: um nome do grupo de recursos, um nome do cofre da chave e a localização geográfica.
 
@@ -126,7 +139,7 @@ A saída do comando mostra as propriedades do cofre da chave que você criou. As
 
 Sua conta do Azure agora está autorizada a executar qualquer operação neste cofre de chave. Até o momento, ninguém mais tem autorização.
 
-## <a name="add-a-key-secret-or-certificate-to-the-key-vault"></a>Adicionar uma chave, segredo ou certificado ao cofre de chaves
+## <a name="adding-a-key-secret-or-certificate-to-the-key-vault"></a>Adicionar uma chave, segredo ou certificado ao cofre de chaves
 
 Se você quiser que o Azure Key Vault crie uma chave protegida por software para você, use o comando `az key create`.
 
@@ -176,7 +189,8 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 az keyvault certificate list --vault-name 'ContosoKeyVault'
 ```
 
-## <a name="register-an-application-with-azure-active-directory"></a>Registrar um aplicativo com o Active Directory do Azure
+## <a name="registering-an-application-with-azure-active-directory"></a>Registrar um aplicativo com o Azure Active Directory
+
 Esta etapa geralmente seria feita por um desenvolvedor, em um computador separado. Ela não é específica ao Azure Key Vault, mas é incluída aqui, para fins informativos. Para completar o registro do aplicativo, sua conta, o cofre e o aplicativo precisam estar no mesmo diretório do Azure.
 
 Aplicativos que usam um cofre de chave devem ser autenticados usando um token do Active Directory do Azure.  O proprietário do aplicativo deve registrá-lo primeiro no Azure Active Directory. No final do registro, o proprietário do aplicativo obtém os seguintes valores:
@@ -195,7 +209,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>Autorizar o aplicativo a usar a chave ou o segredo
+## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Autorizar um aplicativo a usar uma chave ou segredo
 
 Para autorizar o aplicativo a acessar a chave ou o segredo no cofre, use o comando `az keyvault set-policy`.
 
@@ -211,7 +225,8 @@ Para autorizar o mesmo aplicativo a ler segredos em seu cofre, digite o seguinte
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a> Definir as políticas de acesso avançado do cofre de chaves 
+## <a name="bkmk_KVperCLI"></a> Definir as políticas de acesso avançado do cofre de chaves
+
 Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) para habilitar políticas avançadas para o cofre de chaves. 
 
  Habilitar o Key Vault para implantação: permite que as máquinas virtuais recuperem certificados armazenados como segredos do cofre.
@@ -230,7 +245,7 @@ Habilitar o Key Vault para implantação de modelo: permite que o Resource Manag
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```
 
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Se quiser usar um HSM (módulo de segurança de hardware)
+## <a name="working-with-hardware-security-modules-hsms"></a>Trabalhar com HSMs (módulos de segurança de hardware)
 
 Para garantia extra, você pode importar ou gerar chaves em HSMs (módulos de segurança de hardware) que nunca deixam os limites do HSM. Os HSMs têm certificação FIPS 140-2 Nível 2. Se esse requisito não se aplicar a você, ignore esta seção e vá para [Excluir o cofre de chave e chaves e segredos associados](#delete-the-key-vault-and-associated-keys-and-secrets).
 
@@ -262,7 +277,7 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 
 Para obter instruções mais detalhadas sobre como gerar esse pacote de BYOK, consulte [Como usar Chaves Protegidas por HSM com o Cofre da Chave do Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>Excluir o cofre de chave e chaves e segredos associados
+## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Excluir o cofre de chave e chaves e segredos associados
 
 Se você não precisar mais do cofre de chaves e das chaves ou segredos contidos nele, poderá excluir o cofre de chaves usando o comando `az keyvault delete`:
 
@@ -276,7 +291,7 @@ Ou você pode excluir um grupo de recursos do Azure inteiro, que inclui o cofre 
 az group delete --name 'ContosoResourceGroup'
 ```
 
-## <a name="other-azure-cross-platform-command-line-interface-commands"></a>Outros comandos da interface de linha de comando de plataforma cruzada do Azure
+## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Outros comandos da interface de linha de comando de plataforma cruzada do Azure
 
 Outros comandos que podem ser úteis para gerenciar o Azure Key Vault.
 
@@ -314,6 +329,6 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 - Para obter a referência completa da CLI do Azure de comandos do cofre de chaves, consulte [referência da CLI do Key Vault](/cli/azure/keyvault).
 
-- Para referências de programação, consulte [Guia do desenvolvedor do Cofre da Chave do Azure](key-vault-developers-guide.md).
+- Para referências de programação, veja o [Guia do desenvolvedor do Azure Key Vault](key-vault-developers-guide.md)
 
 - Para obter informações sobre o Azure Key Vault e o HSMs, consulte [Como usar chaves protegidas pelo HSM com o Azure Key Vault](key-vault-hsm-protected-keys.md).

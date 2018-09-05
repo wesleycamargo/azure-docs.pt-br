@@ -1,68 +1,62 @@
 ---
-title: Esquemas de acompanhamento personalizado para monitoramento B2B - Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar esquemas de acompanhamento personalizado para monitorar mensagens de B2B de transações em sua Conta de Integração do Azure.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Esquemas de acompanhamento personalizados para mensagens B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Criar esquemas de acompanhamento personalizados que monitorem mensagens B2B nas contas de integração para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 431235370c52be4c6e1ad6cd1af6a412e9eac230
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299827"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124836"
 ---
-# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>Habilitar acompanhamento para monitorar o fluxo de trabalho completo, de ponta a ponta
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Criar esquemas de acompanhamento personalizados que monitorem fluxos de trabalho de ponta a ponta no Aplicativo Lógico do Azure
+
 Há um acompanhamento interno que você pode habilitar para diferentes partes do fluxo de trabalho entre empresas, como acompanhamento de mensagens AS2 ou X12. Quando você cria fluxos de trabalho que incluem um aplicativo lógico, o BizTalk Server, o SQL Server ou qualquer outra camada, é possível habilitar o acompanhamento personalizado que registra eventos desde o início até o fim do fluxo de trabalho. 
 
-Este tópico fornece código personalizado que você pode usar nas camadas fora do aplicativo lógico. 
+Este artigo fornece código personalizado que você pode usar nas camadas fora do aplicativo lógico. 
 
 ## <a name="custom-tracking-schema"></a>Esquema de controle personalizado
-````java
 
-        {
-            "sourceType": "",
-            "source": {
-
-            "workflow": {
-                "systemId": ""
-            },
-            "runInstance": {
-                "runId": ""
-            },
-            "operation": {
-                "operationName": "",
-                "repeatItemScopeName": "",
-                "repeatItemIndex": "",
-                "trackingId": "",
-                "correlationId": "",
-                "clientRequestId": ""
-                }
-            },
-            "events": [
-            {
-                "eventLevel": "",
-                "eventTime": "",
-                "recordType": "",
-                "record": {                
-                }
-            }
-         ]
+```json
+{
+   "sourceType": "",
+   "source": {
+      "workflow": {
+         "systemId": ""
+      },
+      "runInstance": {
+         "runId": ""
+      },
+      "operation": {
+         "operationName": "",
+         "repeatItemScopeName": "",
+         "repeatItemIndex": "",
+         "trackingId": "",
+         "correlationId": "",
+         "clientRequestId": ""
       }
+   },
+   "events": [
+      {
+         "eventLevel": "",
+         "eventTime": "",
+         "recordType": "",
+         "record": {                
+         }
+      }
+   ]
+}
+```
 
-````
-
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | sourceType |   | O tipo da fonte de execução. Os valores permitidos são **Microsoft.Logic/workflows** e **personalizado**. (Obrigatório) |
 | Fonte |   | Se o tipo de fonte for **Microsoft.Logic/workflows**, as informações de origem precisarão seguir este esquema. Se o tipo de origem for **personalizado**, o esquema será um JToken. (Obrigatório) |
@@ -78,13 +72,16 @@ Este tópico fornece código personalizado que você pode usar nas camadas fora 
 | eventTime |   | A hora do evento no formato UTC AAAA-MM-DDTHH:MM:SS.00000Z. (Obrigatório) |
 | recordType |   | Tipo do registro de acompanhamento. O valor permitido é **personalizado**. (Obrigatório) |
 | record |   | Tipo de registro personalizado. O formato permitido é JToken. (Obrigatório) |
+||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de acompanhamento do protocolo B2B
+
 Para obter informações sobre esquemas de acompanhamento do protocolo B2B, veja:
+
 * [Esquemas de acompanhamento de AS2](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
 * [Esquemas de acompanhamento de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [monitoramento de mensagens de B2B](logic-apps-monitor-b2b-message.md).   
-* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics ](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-* Saiba mais sobre o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).
+
+* Saiba mais sobre o [monitoramento de mensagens B2B](logic-apps-monitor-b2b-message.md)
+* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

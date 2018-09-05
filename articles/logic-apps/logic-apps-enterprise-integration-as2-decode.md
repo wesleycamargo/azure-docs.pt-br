@@ -1,27 +1,23 @@
 ---
 title: Decodificar mensagens AS2 – Aplicativo Lógico do Azure | Microsoft Docs
-description: Como usar o decodificador AS2 no Enterprise Integration Pack para o Aplicativo Lógico do Azure
+description: Decodificar mensagens AS com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139970"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128274"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens AS2 para o Aplicativo Lógico do Azure com o Enterprise Integration Pack 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Decodificar mensagens AS2 com o Aplicativo Lógico do Azure e o Enterprise Integration Pack 
 
 Para estabelecer confiabilidade e segurança ao transmitir mensagens, use o conector Decodificar mensagens AS2. Esse conector fornece a assinatura digital, descriptografia e confirmações por meio de MDN (notificações de disposição de mensagem).
 
@@ -90,7 +86,7 @@ O conector Decodificar AS2 executa estas tarefas:
   > Se você usar o Azure Key Vault para o gerenciamento de certificado, certifique-se de que você configurar as chaves para permitir que o **descriptografar** operação.
   > Caso contrário, a decodificação de AS2 falhará.
   >
-  > ![Cofre de chaves descriptografa](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
+  > ![Descriptografias de cofre de chaves](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Experimente este exemplo
 

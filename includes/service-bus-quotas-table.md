@@ -2,18 +2,18 @@
 title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 06/04/2018
-ms.author: sethm
+ms.date: 08/29/2018
+ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 0ff1e31e52c7db5c41f92cb9e4cb1a17f28dea6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 481ae07ae9f8877ff93b2fee948849076c054906
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755479"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187034"
 ---
 A tabela a seguir lista as informações de cota específicas às mensagens do Barramento de Serviço. Para obter informações sobre preços e outras cotas do Barramento de Serviço, consulte a visão geral [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -24,7 +24,7 @@ A tabela a seguir lista as informações de cota específicas às mensagens do B
 | Tamanho do tópico/fila |Entidade |Definido na criação do tópico/fila. <br/><br/> Mensagens de entrada subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. |1, 2, 3, 4 GB ou 5 GB.<br /><br />No SKU Premium, bem como Standard com [particionamento](/azure/service-bus-messaging/service-bus-partitioning) habilitado, o tamanho máximo de fila/tópico é de 80 GB. |
 | Número de conexões simultâneas em um namespace |Namespace |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. Operações REST não são consideradas conexões TCP simultâneas. |NetMessaging: 1.000<br /><br />AMQP: 5.000 |
 | Número de solicitações de recebimento simultâneas em uma entidade de fila/tópico/assinatura |Entidade |Solicitações de recebimento subsequentes são rejeitadas e uma exceção é recebida pelo código de chamada. Essa cota aplica-se ao número combinado de operações de recebimento simultâneas em todas as assinaturas em um tópico. |5.000 |
-| Número de tópicos/filas por namespace |Namespace |Solicitações subsequentes de criação de um novo tópico ou fila no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |10.000<br /><br />O número total de tópicos mais filas em um namespace de serviço deve ser menor ou igual a 10.000. |
+| Número de tópicos/filas por namespace |Namespace |Solicitações subsequentes de criação de um novo tópico ou fila no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção é recebida pelo código de chamada. |10.000 (Camada Básica/Standard). O número total de tópicos e filas em um namespace deve ser menor ou igual a 10.000. <br/><br/>Para a camada premium, 1000 por unidade do sistema de mensagens. O limite máximo é 4.000. |
 | Número de [tópicos/filas](/azure/service-bus-messaging/service-bus-partitioning) particionados por namespace de serviço |Namespace |As solicitações subsequentes para a criação de um novo tópico ou fila particionado no namespace são rejeitadas. Consequentemente, se configuradas por meio do [Portal do Azure][Azure portal], uma mensagem de erro é gerada. Se chamado da API de gerenciamento, uma exceção **QuotaExceededException** é recebida pelo código de chamada. |Camadas básica e padrão - 100<br/><br/>Não há suporte para entidades particionadas na camada [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).<br/><br />Cada fila ou tópico particionado conta para a cota de 10.000 entidades por namespace. |
 | Tamanho máximo de qualquer caminho de entidade de mensagens: fila ou tópico |Entidade |- |260 caracteres |
 | Tamanho máximo de qualquer nome de entidade de mensagens: namespace, assinatura ou regra de assinatura |Entidade |- |50 caracteres |

@@ -1,35 +1,31 @@
 ---
 title: Proteger o acesso aos Aplicativos Lógicos do Azure | Microsoft Docs
-description: Adicione segurança para proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços usados com fluxos de trabalho em Aplicativos Lógicos do Azure.
+description: Proteger o acesso a gatilhos, entradas e saídas, parâmetros de ação e serviços em fluxos de trabalho para o Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299902"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127472"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Proteger o acesso aos aplicativos lógicos
+# <a name="secure-access-in-azure-logic-apps"></a>Proteger o acesso no Aplicativo Lógico do Azure
 
-Há muitas ferramentas disponíveis para ajudar a proteger seu aplicativo lógico.
+Aqui estão algumas maneiras pelas quais você pode proteger o acesso a diferentes componentes em seu aplicativo lógico:
 
-* Proteger o acesso para acionar um aplicativo lógico (gatilho de solicitação de HTTP)
-* Proteger o acesso para gerenciar, editar ou ler um aplicativo lógico
-* Proteger o acesso ao conteúdo de entradas e saídas para uma execução
-* Proteger parâmetros ou entradas em ações em um fluxo de trabalho
-* Proteger o acesso aos serviços que recebem solicitações de um fluxo de trabalho
+* Proteja o acesso para disparar um fluxo de trabalho do aplicativo lógico com o gatilho de solicitação HTTP.
+* Proteja o acesso para gerenciar, editar ou ler um aplicativo lógico.
+* Proteja o acesso ao conteúdo dentro das entradas e saídas para uma execução de aplicativo lógico.
+* Proteja parâmetros ou entradas para as ações em um fluxo de trabalho do aplicativo lógico.
+* Proteja o acesso aos serviços que recebem solicitações de um fluxo de trabalho do aplicativo lógico.
 
 ## <a name="secure-access-to-trigger"></a>Proteger o acesso a gatilhos
 

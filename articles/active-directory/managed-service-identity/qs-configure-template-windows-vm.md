@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6a5f8fc126f9c94ce139b99c94936e01da8b4099
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140593"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126414"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurar a Identidade de Serviço Gerenciado de um VM usando um modelo
 
@@ -357,7 +357,7 @@ Se você tiver uma VM que não precise mais de uma máquina virtual:
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada com a assinatura do Azure que contenha a máquina virtual.
 
-2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Caso tenha uma VM que tem apenas a identidade atribuída ao usuário, desabilite-a alterando o tipo de identidade para `None`.
+2. Carregue o modelo em um [editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Se você tiver uma VM que tenha apenas a identidade atribuída ao usuário, desabilite-a alterando o tipo de identidade para `None`.
  
    O exemplo a seguir mostra como remover todas as identidades atribuídas pelo usuário de uma VM sem identidades atribuídas pelo sistema:
    
@@ -380,7 +380,7 @@ Se você tiver uma VM que não precise mais de uma máquina virtual:
  
    **Microsoft.Compute/virtualMachines API versão 2017-12-01**
 
-   Para remover uma única identidade de usuário atribuída de uma VM, remova-a da matriz `identityIds`.
+   Para remover uma única identidade atribuída ao usuário de uma VM, remova-a da matriz `identityIds`.
 
    Se você tiver uma identidade atribuída ao sistema, mantenha-a no valor `type` no valor `identity`.
    

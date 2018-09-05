@@ -8,16 +8,16 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342701"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128588"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell em sua VM Windows com o recurso Executar Comando
 
-O recurso Executar Comando usa o agente da VM para executar scripts de shell do PowerShell dentro de uma VM Windows do Azure. Esses scripts podem ser usados para gerenciamento geral do computador ou de aplicativos e para diagnosticar e corrigir rapidamente o acesso à VM, problemas de rede e colocar a VM de volta em um bom estado.
+O recurso Executar Comando usa o agente da VM para executar scripts do PowerShell dentro de uma VM do Windows do Azure. Esses scripts podem ser usados para gerenciamento geral do computador ou de aplicativos e para diagnosticar e corrigir rapidamente o acesso à VM, problemas de rede e colocar a VM de volta em um bom estado.
 
 ## <a name="benefits"></a>Benefícios
 
@@ -63,7 +63,6 @@ Esta tabela mostra a lista de comandos disponíveis para VMs Windows. O comando 
 |**EnableAdminAccount**|Verifica se a conta de administrador local está desabilitada e, em caso positivo, habilita a conta.|
 |**IPConfig**| Mostra informações detalhadas do endereço IP, da máscara de sub-rede e do gateway padrão de cada adaptador associado ao TCP/IP.|
 |**RDPSettings**|Verifica as configurações do registro e de política de domínio. Sugere as ações de política se o computador fizer parte de um domínio ou modifica as configurações para os valores padrão.|
-|**ResetAccountPassword**| Redefine a senha da conta de administrador interno.|
 |**ResetRDPCert**|Remove o certificado SSL associado ao ouvinte RDP e restaura a segurança dele para o padrão. Use este script se houver algum problema com o certificado.|
 |**SetRDPPort**|Define o padrão ou o número da porta do usuário especificado para conexões de Área de Trabalho Remota. Habilita a regra de firewall para acesso de entrada à porta.|
 

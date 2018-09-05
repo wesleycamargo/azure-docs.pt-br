@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576640"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125401"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Linux
 
-O tempo de execução do Azure IoT Edge é implantado em todos os dispositivos do IoT Edge. Tem três componentes. O daemon de segurança **IoT Edge** fornece e mantém padrões de segurança no dispositivo Edge. O daemon inicia em cada inicialização e inicializa o dispositivo iniciando o agente IoT Edge. O **agente IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo Edge, incluindo o hub IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. 
 
-Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no sistema Windows x64 (AMD/Intel). Atualmente, o suporte do Windows está em versão prévia.
+Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais componentes estão incluídos, veja [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
+
+Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge com contêineres do Linux no sistema Windows x64 (AMD/Intel). Atualmente, o suporte do Windows está em versão prévia.
 
 >[!NOTE]
 O uso de contêineres do Linux no sistema Windows não é uma configuração de produção com suporte ou recomendada para Azure IoT Edge. No entanto, pode ser utilizado para fins de desenvolvimento e teste.
@@ -29,6 +31,8 @@ O uso de contêineres do Linux no sistema Windows não é uma configuração de 
 O Azure IoT Edge pode ser usado para desenvolvimento e teste nas versões a seguir do Windows, ao usar contêineres do Linux:
   * Windows 10 ou sistemas operacionais de desktop mais recentes.
   * Windows Server 2016 ou sistemas operacionais de servidor mais recentes.
+
+Para obter mais informações sobre quais sistemas operacionais têm suporte atualmente, veja o [suporte do Azure IoT Edge](support.md#operating-systems). 
 
 ## <a name="install-the-container-runtime"></a>Instalar o tempo de execução de contêiner 
 
@@ -43,7 +47,7 @@ O Azure IoT Edge depende de um tempo de execução de contêiner [Compatível co
 
 Um único dispositivo Azure IoT Edge pode ser provisionado manualmente usando uma cadeia de caracteres de conexões de dispositivo fornecida pelo Hub IoT. Ou, você pode usar o serviço de provisionamento de dispositivo para provisionar automaticamente os dispositivos, que é útil quando você tem muitos dispositivos para provisionar. Dependendo de sua escolha de provisionamento, escolha o script de instalação apropriado. 
 
-### <a name="install-and-manually-provision"></a>Instalar e provisionar manualmente
+### <a name="option-1-install-and-manually-provision"></a>Opção 1: instalar e provisionar manualmente
 
 1. Siga as etapas em [Registrar um novo dispositivo Azure IoT Edge][lnk-dcs] para registrar seu dispositivo e recuperar a cadeia de caracteres de conexão do dispositivo. 
 
@@ -58,7 +62,7 @@ Um único dispositivo Azure IoT Edge pode ser provisionado manualmente usando um
 
 4. Quando solicitado para uma **DeviceConnectionString**, forneça a cadeia de caracteres que você recuperou do Hub IoT. Não inclua aspas na cadeia de conexão. 
 
-### <a name="install-and-automatically-provision"></a>Instalar e provisionar automaticamente
+### <a name="option-2-install-and-automatically-provision"></a>Opção 2: instalar e provisionar automaticamente
 
 1. Siga as etapas em [Criar e provisionar um dispositivo de borda do TPM simulado no Windows][lnk-dps] para configurar o serviço de provisionamento de dispositivos e recuperar seu **ID do escopo**, simular um TPM dispositivo e como recuperar seu **ID do registro**, em seguida, crie um registro individual. Depois que o dispositivo é registrado no Hub IoT, continue com a instalação.  
 

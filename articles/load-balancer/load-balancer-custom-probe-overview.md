@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140383"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190726"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -181,7 +181,12 @@ Se todas as investigações para todas as instâncias em um pool de back-end fal
 
 ## <a name="probesource"></a>Endereço IP de origem da investigação
 
-Todas as investigações de integridade do Load Balancer originam-se do endereço IP 168.63.129.16 como sua fonte.  Quando você traz seus próprios endereços IP para Rede Virtual do Microsoft Azure, esse endereço IP de origem da investigação de integridade é garantido que seja exclusivo porque está reservado globalmente para a Microsoft.  Esse endereço é o mesmo em todas as regiões e não é alterado. Isso não deve ser considerado um risco de segurança, pois somente a plataforma interna do Azure pode originar um pacote a partir desse endereço IP. 
+O Load Balancer usa um serviço de investigação distribuído para seu modelo de integridade interno. Cada host em que residem as VMs pode ser programado para gerar investigações de integridade segundo a configuração do cliente. O tráfego de investigação de integridade está diretamente entre o componente de infraestrutura que gera a investigação de integridade e a VM do cliente. Todas as investigações de integridade do Load Balancer originam-se do endereço IP 168.63.129.16 como sua fonte.  Quando você traz seus próprios endereços IP para Rede Virtual do Microsoft Azure, esse endereço IP de origem da investigação de integridade é garantido que seja exclusivo porque está reservado globalmente para a Microsoft.  Esse endereço é o mesmo em todas as regiões e não é alterado. Isso não deve ser considerado um risco de segurança, pois somente a plataforma interna do Azure pode originar um pacote a partir desse endereço IP. 
+
+Além de investigações de integridade do Load Balancer, as operações a seguir usam este endereço IP:
+
+- Permite que o Agente de VM se comunique com a plataforma para sinalizar que ele está em um estado "Pronto"
+- Permite a comunicação com o servidor virtual de DNS para fornecer resolução de nome filtrado aos clientes que não definem servidores DNS personalizados.  Essa filtragem garante que cada cliente só possa resolver os nomes de host de sua própria implantação.
 
 Para que a investigação de integridade do Load Balancer marque a instância como operante, você **deve** permitir esse endereço IP em quaisquer [Grupos de Segurança](../virtual-network/security-overview.md) do Azure e políticas de firewall local.
 

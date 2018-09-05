@@ -1,6 +1,6 @@
 ---
-title: Como configurar alertas de segurança | Microsoft Docs
-description: Saiba como configurar alertas de segurança para a extensão Privileged Identity Management do Azure.
+title: Configurar alertas de segurança para funções de diretório do Azure AD no PIM | Microsoft Docs
+description: Saiba como configurar alertas de segurança para funções do diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622146"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190384"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Como configurar alertas de segurança no Azure AD Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurar alertas de segurança para funções do diretório do Azure AD no PIM
 ## <a name="security-alerts"></a>Alertas de segurança
 O Azure PIM (Privileged Identity Management) gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou as funções que dispararam o alerta.
 
@@ -65,4 +65,6 @@ Esse alerta será disparado se um usuário passar um determinado período sem at
 * **Número de dias**: especifique o número de dias, de 0 a 100, que um usuário pode passar sem ativar uma função.
 
 ## <a name="next-steps"></a>Próximas etapas
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Definir configurações de função do diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md)

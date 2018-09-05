@@ -1,6 +1,6 @@
 ---
-title: Implantar a origem do OpenShift no Azure | Microsoft Docs
-description: Implante a origem do OpenShift no Azure.
+title: Implantar OKD no Azure | Microsoft Docs
+description: Implante o OKD no Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123112"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190297"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Implantar a origem do OpenShift no Azure
+# <a name="deploy-okd-in-azure"></a>Implantar o OKD no Azure
 
-Você pode usar uma de duas maneiras para implantar a Origem do OpenShift no Azure:
+Você pode usar uma de duas maneiras para implantar o OKD (anteriormente conhecido como Origem do OpenShift) no Azure:
 
-- Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.org/3.6/welcome/index.html) da Origem do OpenShift.
-- Você também pode usar um [modelo do Gerenciador de Recursos](https://github.com/Microsoft/openshift-origin) existente que simplifica a implantação do cluster da Origem do OpenShift.
+- Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.okd.io/3.10/welcome/index.html) do OKD.
+- Você também pode usar um [modelo do Resource Manager](https://github.com/Microsoft/openshift-origin) existente que simplifica a implantação do cluster do OKD.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>Implantar usando o modelo de Origem do OpenShift
+## <a name="deploy-by-using-the-okd-template"></a>Implantar usando o modelo do OKD
 
 Use o valor `appId` da entidade de serviço que você criou anteriormente para o parâmetro `aadClientId`.
 
@@ -101,7 +101,7 @@ O exemplo a seguir cria um arquivo de parâmetros chamado azuredeploy.parameters
 > [!NOTE] 
 > O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub por um arquivo de parâmetros local chamado azuredeploy.parameters.json.
+O exemplo a seguir implanta o cluster do OKD e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup, com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub por um arquivo de parâmetros local chamado azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-A implantação leva pelo menos 25 minutos para ser concluída dependendo do número total de nós implantados. A URL do console openShift e o nome DNS do mestre OpenShift são impressas no terminal quando a implantação é concluída.
+A implantação leva pelo menos 25 minutos para ser concluída dependendo do número total de nós implantados. A URL do console do OKD e o nome DNS do mestre OpenShift são impressas no terminal quando a implantação é concluída.
 
 ```json
 {
@@ -118,9 +118,9 @@ A implantação leva pelo menos 25 minutos para ser concluída dependendo do nú
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>Conectar-se ao cluster OpenShift
+## <a name="connect-to-the-okd-cluster"></a>Conectar-se ao cluster do OKD
 
-Quando a implantação for concluída, conecte-se ao console do OpenShift com o navegador usando o `OpenShift Console Uri`. Como alternativa, você pode se conectar ao mestre do OpenShift usando o comando a seguir:
+Quando a implantação for concluída, conecte-se ao console do OKD com o navegador usando o `OpenShift Console Uri`. Como alternativa, você pode se conectar ao mestre do OKD usando o comando a seguir:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -138,4 +138,4 @@ az group delete --name myResourceGroup
 
 - [Tarefas de pós-implantação](./openshift-post-deployment.md)
 - [Solução de problemas de implantação do OpenShift](./openshift-troubleshooting.md)
-- [Introdução ao OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Introdução ao OKD](https://docs.okd.io/latest/getting_started/index.html)

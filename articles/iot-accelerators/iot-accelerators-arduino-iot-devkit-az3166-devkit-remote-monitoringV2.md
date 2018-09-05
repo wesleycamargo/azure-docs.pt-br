@@ -1,5 +1,5 @@
 ---
-title: 'Kit de Desenvolvimento de IoT para a nuvem: conectar o IoT DevKit AZ3166 a um acelerador de solução de Monitoramento Remoto de IoT| Microsoft Docs'
+title: 'Kit de Desenvolvimento de IoT para a nuvem: conectar o IoT DevKit AZ3166 a um acelerador de solução de IoT de Monitoramento Remoto | Microsoft Docs'
 description: Neste tutorial, saiba como enviar status de sensores no IoT DevKit AZ3166 ao acelerador de solução de IoT de Monitoramento Remoto para monitoramento e visualização.
 author: isabelcabezasm
 manager: ''
@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 92ce85a3cc94702468a13348d3a41667498c68f5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142237"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187384"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Conectar o MXChip IoT DevKit AZ3166 ao acelerador de solução de Monitoramento Remoto de IoT
 

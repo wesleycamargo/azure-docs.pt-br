@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 9a0b89528adc173fa3aa26415942cbef81dcb291
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364199"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144077"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuários para aplicativos SaaS?
@@ -235,7 +235,7 @@ Para obter diretrizes baseada em cenário sobre como solucionar problemas de pro
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-Para um plano de implantação passo a passo de exemplo para provisionamento de usuário de saída para um aplicativo, consulte o [guia de implantação de identidade para o provisionamento de usuário](https://aka.ms/userprovisioningdeploymentplan)/
+Para um plano de implantação passo a passo de exemplo para provisionamento de usuário de saída para um aplicativo, veja o [Guia de implantação de identidade para o provisionamento de usuário](https://aka.ms/userprovisioningdeploymentplan).
 
 
 ## <a name="related-articles"></a>Artigos relacionados

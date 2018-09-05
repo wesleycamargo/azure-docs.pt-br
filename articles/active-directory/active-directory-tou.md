@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616856"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125035"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Recurso Termos de uso do Azure Active Directory
 Os Termos de uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais. Essa apresentação faz com que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais. Este artigo descreve como começar a usar os Termos de uso do Azure AD.
@@ -164,7 +164,7 @@ O procedimento a seguir descreve como adicionar um idioma dos Termos de Uso.
 
 1. Selecione os termos de uso que você deseja editar.
 
-1. No painel de detalhes, clique no **idiomas** guia.
+1. No painel de detalhes, clique na guia **Idiomas**.
 
     ![Adicionar Termos de Uso](media/active-directory-tou/languages-tou.png)
 

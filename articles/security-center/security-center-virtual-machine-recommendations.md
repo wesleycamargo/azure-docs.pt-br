@@ -1,32 +1,33 @@
 ---
-title: Protegendo suas máquinas virtuais na Central de Segurança do Azure | Microsoft Docs
-description: Este documento endereça as recomendações na Central de Segurança do Azure que ajudam a proteger suas máquinas virtuais e cumprir as políticas de segurança.
+title: Recomendações de máquina virtual na Central de Segurança do Azure | Microsoft Docs
+description: Este documento explica as recomendações da Central de Segurança do Azure sobre como ajudar a proteger suas máquinas virtuais e computadores e seus aplicativos Web e ambientes de serviço de aplicativo.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
-ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
+ms.assetid: f5ce7f62-7b12-4bc0-b418-4a2f9ec49ca1
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
-ms.author: terrylan
-ms.openlocfilehash: 54375f6f98b4989a7af8bcde649d967f77c6c862
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.date: 07/18/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7e73d6236f76c58307bb552aeee03bafe66addcc
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27623491"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43132561"
 ---
-# <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protegendo suas máquinas virtuais na Central de Segurança do Azure
-A Central de Segurança do Azure analisa o estado de segurança de seus recursos do Azure. Quando a Central de Segurança identifica possíveis vulnerabilidades de segurança, ela cria recomendações que orientam você durante o processo de configuração dos controles necessários.  As recomendações se aplicam aos tipos de recursos do Azure: máquinas virtuais (VMs), rede, aplicativos e SQL.
+# <a name="understand-azure-security-center-resource-recommendations"></a>Compreender as recomendações de recurso da Central de Segurança do Azure
 
-Este artigo endereça as recomendações que se aplicam às VMs.  As recomendações de VM giram em torno da coleta de dados, aplicando atualizações do sistema, provisionamento o antimalware, criptografando os discos da VM e muito mais.  Use a tabela a seguir como referência para ajudá-lo a entender as recomendações disponíveis da VM e o que cada uma delas fará se você as aplicar.
 
-## <a name="available-vm-recommendations"></a>Recomendações disponíveis da VM
+## <a name="recommendations"></a>Recomendações
+Use as tabelas abaixo como referência para entender as recomendações de serviços de aplicativo e de computação disponíveis e qual é o efeito ao aplicar cada uma delas.
+
+### <a name="computers"></a>Computadores
 | Recomendações | DESCRIÇÃO |
 | --- | --- |
 | [Habilitar coleta de dados para assinaturas](security-center-enable-data-collection.md) |Recomenda que você ative a coleta de dados na política de segurança para cada uma de suas assinaturas e todas as VMs (máquinas virtuais) em suas assinaturas. |
@@ -42,15 +43,65 @@ Este artigo endereça as recomendações que se aplicam às VMs.  As recomendaç
 | [Avaliação de vulnerabilidade não instalada](security-center-vulnerability-assessment-recommendations.md) |Recomenda que você instale uma solução de avaliação de vulnerabilidade na VM. |
 | [Corrigir vulnerabilidades](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Permite que você veja as vulnerabilidades do sistema e dos aplicativos detectadas pela solução de avaliação de vulnerabilidade instalada na VM. |
 
-## <a name="see-also"></a>Consulte também
+### <a name="app-services"></a>Serviços de aplicativos
+| Recomendações | DESCRIÇÃO |
+| --- | --- |
+| O Serviço de Aplicativo deve ser acessível apenas por HTTPS | É recomendável que você limite o acesso do Serviço de Aplicativo apenas por HTTPS. |
+| Os soquetes da Web devem ser desabilitados para o aplicativo Web| É recomendável que você examine cuidadosamente o uso de soquetes da Web em aplicativos Web.  O protocolo de soquetes da Web é vulnerável a diferentes tipos de ameaças de segurança. |
+| Usar domínios personalizados para seu aplicativo Web | É recomendável o uso de domínios personalizados para proteger um aplicativo Web de ataques comuns como phishing e outros ataques relacionados a DNS. |
+| Configurar restrições de IP para o aplicativo Web | É recomendável que você defina uma lista de endereços IP que tem autorização para acessar seu aplicativo.  O uso de restrições de IP protege um aplicativo Web de ataques comuns. |
+| Não permita que todos os recursos ('*') acessem o aplicativo | É recomendável que você não defina o parâmetro WEBSITE_LOAD_CERTIFICATES como ‘*’. Definir o parâmetro como '*' significa que todos os certificados serão carregados para seu repositório de certificados pessoal de aplicativos Web.  Isso pode levar a abuso do princípio de privilégio mínimo porque é improvável que o site precise de acesso a todos os certificados em tempo de execução. |
+| O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo | É recomendável que você permita que apenas os domínios necessários interajam com seu aplicativo Web. O CORS (compartilhamento de recurso de origem cruzada) não deve permitir que todos os domínios acessem seu aplicativo Web. |
+| Use o .NET Framework compatível mais recente para o aplicativo Web | É recomendável que você use a versão mais recente do .NET Framework para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| Use a versão mais recente compatível do Java para o aplicativo Web | É recomendável que você use a versão mais recente do Java para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| Use a versão mais recente compatível do PHP para o aplicativo Web | É recomendável que você use a versão mais recente do PHP para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| [Adicione um firewall do aplicativo Web](security-center-add-web-application-firewall.md) |Recomenda que você implante um WAF (firewall do aplicativo Web) para pontos de extremidade da Web. Uma recomendação WAF é mostrada para qualquer IP voltado para uso público (IP de nível de instância ou IP de balanceamento de carga) que tem um grupo de segurança de rede associado com portas de entrada da Web abertas (80,443).</br></br>A Central de Segurança recomenda que você provisione um WAF para ajudar a proteger contra ataques direcionados a seus aplicativos Web em máquinas virtuais e no Ambiente do Serviço de Aplicativo. Um ASE (Ambiente do Serviço de Aplicativo) é uma opção do plano de serviço [Premium](https://azure.microsoft.com/pricing/details/app-service/) do Serviço de Aplicativo do Azure que fornece um ambiente totalmente isolado e dedicado a executar com segurança os aplicativos do Serviço de Aplicativo do Azure. Para saber mais sobre o ASE, consulte a [Documentação do Ambiente do Serviço de Aplicativo](../app-service/environment/intro.md).</br></br>Você pode proteger vários aplicativos Web na Central de segurança adicionando-os às suas implantações do WAF existentes. |
+| [Finalizar a proteção do aplicativo](security-center-add-web-application-firewall.md#finalize-application-protection) |Para concluir a configuração de um WAF, o tráfego deve ser roteado para o dispositivo do WAF. Se essa recomendação for seguida, as alterações de configuração necessárias serão concluídas. |
+| Use a versão mais recente compatível do Node.js para o aplicativo Web | É recomendável que você use a versão mais recente do Node.js para as classes de segurança mais recentes. Usar classes e tipos mais antigos pode tornar seu aplicativo vulnerável. |
+| O CORS não deve permitir o acesso a todos os recursos ao seu aplicativo de funções | É recomendável que você permita que apenas os domínios necessários interajam com seu aplicativo Web. O CORS (compartilhamento de recurso de origem cruzada) não deve permitir que todos os domínios acessem seu aplicativo de funções. |
+| Use domínios personalizados para o aplicativo de funções | É recomendável o uso de domínios personalizados para proteger um aplicativo de funções de ataques comuns como phishing e outros ataques relacionados a DNS. |
+| Configure restrições de IP para o aplicativo de funções | É recomendável que você defina uma lista de endereços IP que tem autorização para acessar seu aplicativo. O uso de restrições de IP protege um aplicativo de funções de ataques comuns. |
+| O aplicativo de funções deve ser acessível apenas por HTTPS | É recomendável que você limite o acesso de aplicativos de função apenas por HTTPS. |
+| A depuração remota deve ser desativada para o aplicativo de funções | É recomendável que você desative a depuração para o aplicativo de funções caso não precise mais usá-la. A depuração remota exige que as portas de entrada estejam abertas em um aplicativo de funções. |
+| Os soquetes da Web devem ser desabilitados para o aplicativo de funções | É recomendável que você examine cuidadosamente o uso de soquetes da Web em aplicativos de funções. O protocolo de soquetes da Web é vulnerável a diferentes tipos de ameaças de segurança. |
+
+
+## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:
 
-* [Protegendo seus aplicativos na Central de segurança do Azure](security-center-application-recommendations.md)
+* [Monitorar identidade e acesso na Central de Segurança do Azure](security-center-identity-access.md)
 * [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)
 * [Protegendo o serviço do SQL Azure na Central de Segurança do Azure](security-center-sql-service-recommendations.md)
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 
+* [Protegendo suas máquinas e aplicativos na Central de segurança do Azure](security-center-virtual-machine-protection.md)
 * [Configurando políticas de segurança na Central de Segurança do Azure](security-center-policies.md) : saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
 * [Gerenciando e respondendo a alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md) : aprenda a gerenciar e a responder a alertas de segurança.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
+
+<!--Image references-->
+[1]: ./media/security-center-virtual-machine-recommendations/overview.png
+[2]: ./media/security-center-virtual-machine-recommendations/compute.png
+[3]: ./media/security-center-virtual-machine-recommendations/monitoring-agent-health-issues.png
+[4]: ./media/security-center-virtual-machine-recommendations/compute-recommendations.png
+[5]: ./media/security-center-virtual-machine-recommendations/apply-system-updates.png
+[6]: ./media/security-center-virtual-machine-recommendations/missing-update-details.png
+[7]: ./media/security-center-virtual-machine-recommendations/vm-computers.png
+[8]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png
+[9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
+[10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
+[11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
+[12]: ./media/security-center-virtual-machine-recommendations/filter.png
+[13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
+[14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
+[15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png
+[16]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png
+[17]: ./media/security-center-virtual-machine-recommendations/app-services.png
+[18]: ./media/security-center-virtual-machine-recommendations/ase.png
+[19]: ./media/security-center-virtual-machine-recommendations/web-app.png
+[20]: ./media/security-center-virtual-machine-recommendations/recommendation.png
+[21]: ./media/security-center-virtual-machine-recommendations/recommendation-desc.png
+[22]: ./media/security-center-virtual-machine-recommendations/passed-assessment.png
+[23]: ./media/security-center-virtual-machine-recommendations/healthy-resources.png
+[24]: ./media/security-center-virtual-machine-recommendations/function-app.png

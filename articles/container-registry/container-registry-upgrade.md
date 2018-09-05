@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432381"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189014"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Atualizar um registro de contêiner Clássico
 
-O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de serviço, [conhecidas como SKUs](container-registry-skus.md). A versão inicial do ACR oferecia um único SKU, o Clássico, que não tinha vários recursos inerentes aos SKUs Básico, Standard e Premium (coletivamente conhecidos como registros *gerenciados*). Este artigo fornece detalhes sobre como migrar seu registro Clássico não gerenciado para um dos SKUs gerenciados para que você possa tirar proveito do seu conjunto de recursos aprimorado.
+O ACR (Registro de Contêiner do Azure) está disponível em várias camadas de serviço, [conhecidas como SKUs](container-registry-skus.md). A versão inicial do ACR oferecia um único SKU, o Clássico, que não tinha vários recursos inerentes aos SKUs Básico, Standard e Premium (coletivamente conhecidos como registros *gerenciados*).
+
+O SKU clássico está sendo preterido e não estará disponível depois de março de 2019. Este artigo fornece detalhes sobre como migrar seu registro Clássico não gerenciado para um dos SKUs gerenciados para que você possa tirar proveito do seu conjunto de recursos aprimorado.
 
 ## <a name="why-upgrade"></a>Por que atualizar?
 
-Devido às funcionalidades limitadas dos registros não gerenciados Clássicos, recomendamos a atualização de todos os registros Clássicos para registros gerenciados Básico, Standard ou Premium. Essas SKUs de nível superior integram o registro aos recursos do Azure mais profundamente.
+O SKU de registro clássico está sendo **preterido** e não estará disponível a partir de **março de 2019**. Todos os registros clássicos existentes devem ser atualizados antes de março de 2019.
+
+Devido às funcionalidades limitadas e ao planejamento de se preterir os registros não gerenciados Clássicos, todos os registros Clássicos devem ser atualizados para registros gerenciados Básico, Standard ou Premium. Essas SKUs de nível superior integram o registro aos recursos do Azure mais profundamente.
 
 Os registros gerenciados fornecem:
 
@@ -30,7 +34,7 @@ Os registros gerenciados fornecem:
 * [Replicação geográfica](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Acima de tudo, um registro Clássico depende da conta de armazenamento que o Azure provisionou automaticamente na sua assinatura do Azure quando você criou o registro. Por outro lado, SKUs Básico, Standard e Premium aproveitam os [recursos de armazenamento avançados](container-registry-storage.md) do Azure, manipulando de modo transparente o armazenamento das imagens para você. Uma conta de armazenamento separada não é criada em sua própria assinatura.
+O registro Clássico depende da conta de armazenamento que o Azure provisionou automaticamente na sua assinatura do Azure quando você criou o registro. Por outro lado, SKUs Básico, Standard e Premium aproveitam os [recursos de armazenamento avançados](container-registry-storage.md) do Azure, manipulando de modo transparente o armazenamento das imagens para você. Uma conta de armazenamento separada não é criada em sua própria assinatura.
 
 Um armazenamento de registro gerenciado oferece os seguintes benefícios:
 

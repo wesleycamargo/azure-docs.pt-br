@@ -1,27 +1,23 @@
 ---
-title: Codificar ou decodificar arquivos simples nos aplicativos lógicos do Azure | Microsoft Docs
-description: Como usar o codificador ou decodificador de arquivos no Enterprise Integration Pack nos aplicativos lógicos
+title: Codificar ou decodificar arquivos simples – Aplicativo Lógico do Azure | Microsoft Docs
+description: Codificar ou decodificar arquivos simples para Enterprise Integration com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037846"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123921"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Visão geral da integração corporativa com arquivos simples
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codificar ou decodificar arquivos simples com o Aplicativo Lógico do Azure e o Enterprise Integration Pack
 
 Talvez você queira codificar o conteúdo XML antes de enviá-lo para um parceiro de negócios em um cenário B2B (entre empresas). Em um aplicativo lógico, você pode usar o conector de codificação de arquivo simples para fazer isso. O aplicativo lógico criado por você pode obter seu conteúdo XML de diversas fontes, incluindo de um gatilho de solicitação HTTP ou de outro aplicativo, ou até mesmo de um dos vários [conectores](../connectors/apis-list.md). Para saber mais sobre os aplicativos lógicos, veja o [documentação dos aplicativos lógicos](logic-apps-overview.md "Saiba mais sobre os Aplicativos Lógicos").  
 

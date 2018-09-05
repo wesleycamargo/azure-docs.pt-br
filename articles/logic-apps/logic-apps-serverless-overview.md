@@ -1,28 +1,23 @@
 ---
 title: Visão geral do Azure Serverless | Microsoft Docs
-description: Crie poderosas soluções na nuvem sem precisar pensar em infraestrutura.
-keywords: ''
+description: Saiba mais sobre a criação de poderosas soluções na nuvem sem precisar pensar em infraestrutura
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299919"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123301"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Visão geral do Azure Serverless com Funções e Aplicativos Lógicos
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Visão geral: Azure Sem Servidor com o Aplicativo Lógico do Azure e o Azure Functions
 
 Aplicativos sem servidor oferecem benefícios de um aumento na velocidade do desenvolvimento, redução no código necessário e simplicidade com escala.  Este artigo aborda os diferentes atributos de soluções sem servidor e ofertas sem servidor do Azure.
 

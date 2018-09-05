@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145705"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248134"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -127,7 +127,7 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
 - **Nome**: insira um nome exclusivo para identificar a implantação de atualizações.
 - **Sistema operacional**: selecione **Windows** ou **Linux**.
-- **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para aprender sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Máquinas para atualizar**: Selecione uma pesquisa salva, um grupo importado ou selecione Máquinas, para escolher as máquinas que você deseja atualizar. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**. É possível ver o estado de integridade do computador antes de agendar a implantação de atualização. Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Painel da nova implantação de atualizações](./media/manage-update-multi/update-select-computers.png)
 
@@ -154,10 +154,10 @@ No painel **Nova implantação de atualização**, especifique as seguintes info
 
    |Opção|DESCRIÇÃO|
    |---|---|
-   |Reinicialização, se necessário| **(padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
+   |Reinicialização, se necessário| **(Padrão)** Se necessário, uma reinicialização será iniciada se a janela de manutenção permitir.|
    |Sempre reinicializar|Uma reinicialização for iniciada, independentemente se é necessário. |
-   |Nunca reinicialização|Independentemente de se uma reinicialização é necessária, as reinicializações são suprimidas.|
-   |Apenas reinicialize - não instalará atualizações|Essa opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
+   |Nunca reinicializar|Independentemente de uma reinicialização ser ou não necessária, as reinicializações são suprimidas.|
+   |Somente reinicialização - não instalará as atualizações|Essa opção ignora a instalação de atualizações e apenas inicia uma reinicialização.|
 
 Ao terminar de configurar o agendamento, selecione o botão **Criar** para retornar ao painel de status. A tabela **Agendado** mostra o agendamento de implantação que você criou.
 

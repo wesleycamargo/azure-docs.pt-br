@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management para recursos do Azure - habilitar gerenciamento de assinaturas | Microsoft Docs
-description: Saiba como os administradores globais podem gerenciar assinaturas no locatário.
+title: Habilitar gerenciamento de assinaturas em seu locatário – Azure | Microsoft Docs
+description: Saiba como habilitar o gerenciamento de assinatura em seu locatário ao usar o Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620273"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189988"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Habilitar gerenciamento de assinaturas em seu locatário
 
@@ -79,14 +79,5 @@ Agora que você tem atribuições qualificadas para as assinaturas importantes e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Descobrir recursos](pim-resource-roles-discover-resources.md)
-
-[Definir configurações de função](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Descobrir os recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md)
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)

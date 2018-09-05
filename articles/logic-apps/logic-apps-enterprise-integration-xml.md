@@ -1,28 +1,23 @@
 ---
-title: Trabalhando com mensagens XML em seus fluxos de trabalho – Aplicativo Lógico do Azure | Microsoft Docs
-description: Processar, validar, transformar e enriquecer mensagens XML em aplicativos lógicos e cenários business-to usando o Enterprise Integration Pack
+title: Mensagens XML para Enterprise Integration B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Processar, validar, transformar e enriquecer mensagens XML para soluções B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 85bdaff5cb88bbadaed778458b66c0cce7bce9de
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298967"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124528"
 ---
-# <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>Validar e transformar o XML, codificar e decodificar arquivos simples e enriquecer os recursos de mensagens em aplicativos lógicos
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Mensagens XML e arquivos simples no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 Ao utilizar aplicativos lógicos, você tem a capacidade de processar as mensagens XML que você envia e recebe. Esse recurso está incluído no Enterprise Integration Pack. Para os usuários com uma tela de fundo do BizTalk Server, o Enterprise Integration Pack fornece recursos semelhantes para transformar e validar mensagens, trabalhar com arquivos simples e até mesmo usar o XPath para enriquecer ou extrair propriedades específicas de uma mensagem. 
 

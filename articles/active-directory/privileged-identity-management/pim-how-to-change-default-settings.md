@@ -1,6 +1,6 @@
 ---
-title: Como gerenciar configurações de ativação de função | Microsoft Docs
-description: Aprenda a alterar as configurações padrão para identidades com privilégios com a extensão Privileged Identity Management do Azure Active Directory.
+title: Definir configurações de função do diretório do Azure AD no PIM | Microsoft Docs
+description: Saiba como definir configurações de função do diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,33 +10,53 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4ca74c001ba379b287c0c9799d90336eb187b2c2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619593"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189330"
 ---
-# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Como gerenciar as configurações de ativação de função no Privileged Identity Management do Azure AD
+# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Definir configurações de função do diretório do Azure AD no PIM
+
 Um administrador de função com privilégios pode personalizar o Azure AD PIM (Privileged Identity Management) em sua organização, incluindo alterar a experiência de um usuário que está ativando uma atribuição de função elegível.
 
-## <a name="manage-the-role-activation-settings"></a>Gerenciar as configurações de ativação de função
-1. Acesse o [portal do Azure](https://portal.azure.com) e selecione o aplicativo **Azure AD Privileged Identity Management** do painel.
-2. Selecione **Gerenciar funções privilegiadas** > **Configurações** > **Funções Privilegiadas**.
-3. Escolha a função cujas configurações você deseja gerenciar.
+## <a name="open-role-settings"></a>Abrir configurações de função
 
-Na página de configurações para cada função, há uma série de configurações que você pode realizar. Essas configurações afetam apenas os usuários que são administradores elegíveis, mas não os administradores permanentes.
+1. Abra o **Azure AD Privileged Identity Management**.
 
-**Ativações**: o tempo, em horas, pelo qual uma função fica ativa antes de expirar. Isso pode ser entre 1 e 72 horas.
+1. Clique em **Funções do diretório do Azure AD**.
 
-**Notificações**: você pode escolher se o sistema envia ou não emails para administradores confirmando que eles ativaram uma função. Isso pode ser útil para detectar ativações não autorizadas ou ilegítimas.
+1. Clique em **Configurações**.
 
-**Tíquete de Solicitação/Incidente**: você pode escolher se exigirá ou não que administradores elegíveis incluam um número de tíquete ao ativar sua função. Isso pode ser útil ao realizar auditorias de acesso à função.
+    ![Funções do diretório do Azure AD – Configurações](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-**Autenticação Multifator**: você pode escolher se deseja ou não exigir que os usuários verifiquem sua identidade com MFA antes que possam ativar suas funções. Os usuários só precisam verificar isso uma vez por sessão, não precisam fazê-lo toda vez que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
+1. Clique em **Funções**.
+
+1. Clique na função cujas configurações você deseja configurar.
+
+    ![Funções do diretório do Azure AD – Configurando funções](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+
+    Na página de configurações de cada função, há diversas configurações que você pode realizar. Essas configurações afetam apenas os usuários que são atribuições **elegíveis**, mas não atribuições **permanentes**.
+
+## <a name="activations"></a>Ativações
+
+O controle deslizante **Ativações** é o tempo máximo, em horas, que uma função fica ativa antes de expirar. Isso pode ser entre 1 e 72 horas.
+
+## <a name="notifications"></a>Notificações
+
+A opção **Notificações** permite que você escolha se o sistema envia emails para administradores confirmando que eles ativaram uma função. Isso pode ser útil para detectar ativações não autorizadas ou ilegítimas.
+
+## <a name="incidentrequest-ticket"></a>Tíquete de Incidente/Solicitação
+
+A opção **Tíquete de Incidente/Solicitação** permite que você escolha se deseja exigir que os administradores qualificados incluam um número de tíquete ao ativar sua função. Isso pode ser útil ao realizar auditorias de acesso à função.
+
+## <a name="multi-factor-authentication"></a>Autenticação Multifator
+
+A opção **Autenticação Multifator** permite a você escolher se deseja exigir que os usuários verifiquem a identidade com MFA antes que possam ativar suas funções. Os usuários só precisam verificar isso uma vez por sessão, não precisam fazê-lo toda vez que ativam uma função. Há duas dicas para ter em mente quando você habilita a MFA:
 
 * Os usuários que têm contas da Microsoft para seus endereços de email (normalmente @outlook.com, mas nem sempre) não podem se registrar para MFA do Azure. Se quiser atribuir funções aos usuários com contas da Microsoft, você deverá torná-los administradores permanentes ou desabilitar o MFA para essa função.
 * Você não pode desabilitar o MFA para funções com altos privilégios do Azure AD e do Office365. Esse é um recurso de segurança, porque estas funções devem ser protegidas com cuidado:  
@@ -54,17 +74,38 @@ Na página de configurações para cada função, há uma série de configuraç�
   * Administrador de caixa de correio  
   * Suporte de camada 1 do parceiro  
   * Suporte de camada 2 do parceiro  
-  * Administrador de função com privilégios   
+  * Administrador de função com privilégios
   * Administrador de segurança  
   * Administrador do SharePoint  
   * Administrador do Skype for Business  
   * Administrador da conta de usuário  
 
-Para obter mais informações sobre como usar MFA com PIM, consulte [Como Exigir MFA](pim-how-to-require-mfa.md).
+Para obter mais informações sobre como usar a MFA com PIM, consulte [Exigir a autenticação multifator para funções do diretório do Azure AD no PIM](pim-how-to-require-mfa.md).
+
+## <a name="require-approval"></a>Exigir aprovação
+
+A opção **Exigir aprovação** permite que você escolha se deseja exigir aprovação para ativar essa função.
+
+1. Quando você define a opção como **Habilitada**, o painel se expande com opções para selecionar aprovadores.
+
+    ![Funções do diretório do Azure AD – Configurações – Exigir aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+
+    Se você **NÃO** especificar nenhum aprovador, os Administradores com Função com privilégios se tornam os aprovadores padrão. Os Administradores com Função com privilégios precisarão aprovar **TODAS** as solicitações de ativação dessa função.
+
+1. Para especificar aprovadores, clique em **Selecionar aprovadores**.
+
+    ![Funções do diretório do Azure AD – Configurações – Exigir aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+
+1. Selecione um ou mais aprovadores e, em seguida, clique em **Selecionar**. Você pode selecionar usuários ou grupos. Recomenda-se pelo menos 2 aprovadores. Não é permitida a aprovação própria.
+
+    Suas seleções serão exibidas na lista de aprovadores selecionados.
+
+1. Depois que você tiver especificado todas as configurações de função, clique em **salvar** para salvar as alterações.
+
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Próximas etapas
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Exigir autenticação multifator para funções de diretório do Azure AD no PIM](pim-how-to-require-mfa.md)
+- [Configurar alertas de segurança para funções do diretório do Azure AD no PIM](pim-how-to-configure-security-alerts.md)

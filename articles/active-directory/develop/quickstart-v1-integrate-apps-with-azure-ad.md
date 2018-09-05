@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592196"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188233"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrando aplicativos com o Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -95,12 +95,12 @@ As etapas a seguir mostram como a experiência de consentimento funciona para o 
 
 5. Depois que o usuário dá consentimento, um código de autorização é retornado ao aplicativo, que é resgatado para aquisição de um token de acesso e de um token de atualização. Para obter mais informações sobre esse fluxo, consulte a seção [aplicativo Web para API Web em Cenários de autenticação para o Azure AD](authentication-scenarios.md#web-application-to-web-api).
 
-6. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento seja exibida para todos os usuários do locatário e pode ser feita no [ Portal do Azure ](https://portal.azure.com) por usuários com a função de administrador. Na página **Configurações** para seu aplicativo, clique em **Permissões Necessárias** e clique no botão **Conceder Permissões**. 
+6. Como administrador, você pode também concorda com permissões do aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento seja exibida para todos os usuários do locatário e pode ser feita no [ Portal do Azure ](https://portal.azure.com) por usuários com a função de administrador. Na página **Configurações** para seu aplicativo, clique em **Permissões necessárias** e clique no botão **Conceder permissões**. 
 
   ![Conceda permissões para consentimento explícito de admin](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > A concessão explícita de consentimento usando o botão **Conceder Permissões** é necessária no momento para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado. 
+  > A concessão explícita de consentimento usando o botão **Conceder permissões** é necessária atualmente para SPAs (aplicativos de página única) que usam o ADAL.js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configure um aplicativo cliente para acessar APIs Web
 Para que um aplicativo cliente Web/confidencial possa participar de um fluxo de concessão de autorização que requer autenticação (e possa obter um token de acesso), ele deverá estabelecer credenciais seguras. O método de autenticação padrão com suporte no portal do Azure é a ID do Cliente + chave secreta. Esta seção aborda as etapas de configuração necessárias para fornecer a chave secreta com as credenciais do seu cliente.
@@ -112,7 +112,7 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
 - Permissões Delegadas: o aplicativo cliente precisa acessar a API Web como usuário conectado, mas com acesso limitado pela permissão selecionada. Esse tipo de permissão pode ser concedido por um usuário, a menos que a permissão exija consentimento do administrador. 
 
   > [!NOTE]
-  > Adicionar uma permissão delegada a um aplicativo não dá automaticamente consentimento aos usuários no locatário. Os usuários ainda devem consentir manualmente com as permissões delegadas adicionadas no tempo de execução, a menos que o administrador clique no botão **Conceder Permissões** da seção **Permissões Necessárias** da página do aplicativo no portal do Azure. 
+  > Adicionar uma permissão delegada a um aplicativo não dá automaticamente consentimento aos usuários no locatário. Os usuários devem consentir manualmente para as permissões delegadas adicionadas em tempo de execução, a menos que o administrador dê consentimento em nome de todos os usuários.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Para adicionar credenciais do aplicativo ou permissões para acessar APIs Web
 1. Entre no [Portal do Azure](https://portal.azure.com).
@@ -121,16 +121,18 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
 
    ![Atualizar o registro de um aplicativo](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Você será direcionado à página de registro principal do aplicativo, que abre a página **Configurações** para o aplicativo. Para adicionar uma chave secreta para credenciais do seu aplicativo Web:
+4. Você será direcionado à página de registro principal do aplicativo, que abre a página **Configurações** para o aplicativo. Para adicionar uma credencial ao seu aplicativo Web:
   - Clique na seção **Chaves** na página **Configurações**. 
-  - Adicione uma descrição para a sua chave.
-  - Selecione uma duração de um ou dois anos.
-  - Clique em **Salvar**. A coluna mais à direita conterá o valor da chave, depois que você salvar as alterações de configuração. **Copie a chave** para uso no código do aplicativo cliente, já que ela não estará acessível depois que sair desta página.
-
-  ![Atualizar um registro de aplicativo – chaves](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Para adicionar um certificado:
+    - Selecione **Carregar chave pública**.
+    - Selecione o arquivo que você gostaria de carregar. Ele deve ser um dos seguintes tipos de arquivo: .cer, .pem, .crt.
+  - Para adicionar uma senha:
+    - Adicione uma descrição para a sua chave.
+    - Selecione uma duração.
+    - Clique em **Salvar**. A coluna mais à direita conterá o valor da chave, depois que você salvar as alterações de configuração. **Copie a chave** para uso no código do aplicativo cliente, já que ela não estará acessível depois que sair desta página.
 
 5. Para adicionar permissões para acessar as APIs do recurso do seu cliente
-  - Clique na seção **Permissões Necessárias** na página **Configurações**. 
+  - Clique na seção **Permissões necessárias** na página **Configurações**. 
   - Clique no botão **Adicionar** .
   - Clique em **Selecionar uma API** para selecionar o tipo de recursos que você deseja escolher.
   - Percorra a lista de APIs disponíveis ou usar a caixa Pesquisar para selecionar os aplicativos de recursos disponíveis em seu diretório que expõem uma API da web. Clique no recurso que você está interessado e clique em **selecione**.
@@ -141,11 +143,6 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
   ![Atualizar um registro de aplicativo – perms de permissão](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Quando terminar, clique no botão **Selecionar** na página **Habilitar Acesso**, então no botão **Feito** na página **Adicionar acesso à API**. Você é levado de volta à página **Permissões Necessárias**, em que o novo recurso é adicionado à lista de APIs.
-
-  > [!NOTE]
-  > Clicar no botão **Concluído** também define automaticamente as permissões para o aplicativo no seu diretório com base nas permissões para outros aplicativos que você configurou. É possível exibir essas permissões de aplicativo consultando a página **Configurações** do aplicativo.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurando um aplicativo de recurso para expor APIs Web
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443575"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124990"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Escolher uma camada de serviço, recursos de E/S, armazenamento, memória e computação de vCore
 
@@ -35,8 +35,8 @@ A tabela a seguir ajuda-o a reconhecer as diferenças entre essas duas camadas:
 |Mais adequado para|A maioria das cargas de trabalho comerciais. Oferece opções de armazenamento e computação escalonáveis e equilibradas orientadas a orçamento.|Aplicativos de negócios com altos requisitos de E/S. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
 |Computação|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|Gen4: 1 a 24 vCore<br/>Gen5: 1 a 80 vCore|
 |Memória|Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5,5 GB por núcleo |
-|Armazenamento|[Armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Banco de dados Singleton: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Armazenamento SSD local,<br/>Banco de Dados Individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 4 TB |
-|Taxa de transferência de E/S (aproximada)|Banco de Dados Singleton: 500 IOPS por vCore com 7000 IOPS máximo</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
+|Armazenamento|[Armazenamento remoto Premium](../virtual-machines/windows/premium-storage.md),<br/>Banco de Dados Individual: 5 GB – 4 TB<br/>Instância Gerenciada: 32 GB - 8 TB |Armazenamento SSD local,<br/>Banco de Dados Individual: 5 GB – 1 TB<br/>Instância Gerenciada: 32 GB - 4 TB |
+|Taxa de transferência de E/S (aproximada)|Banco de Dados Individual: 500 IOPS por vCore com 7000 IOPS máximo</br>Instância Gerenciada: Depende do [tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5.000 IOPS por núcleo com máximo de 200.000 IOPS|
 |Disponibilidade|1 réplica, sem escala de leitura|3 réplicas, 1 [réplica em escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por padrão)|
 |Em Memória|N/D|Com suporte|
@@ -53,10 +53,10 @@ Consulte [Perguntas frequentes sobre Banco de Dados SQL](sql-database-faq.md) pa
 
 Considere o seguinte:
 - O armazenamento alocado é usado por arquivos de arquivos de dados (MDF) e arquivos de log (LDF).
-- Cada nível de desempenho do Banco de Dados Singleton dá suporte a um tamanho máximo de banco de dados, com um tamanho máximo padrão de 32 GB.
-- Quando você configura o tamanho desejado do banco de dados Singleton (tamanho de MDF), 30% do armazenamento adicional é automaticamente adicionado para dar suporte a LDF
+- Cada nível de desempenho do Banco de Dados Individual dá suporte a um tamanho máximo de banco de dados, com um tamanho máximo padrão de 32 GB.
+- Quando você configura o tamanho desejado do banco de dados individual (tamanho de MDF), 30% do armazenamento adicional é automaticamente adicionado para dar suporte a LDF
 - O tamanho do armazenamento na Instância Gerenciada deve ser especificado em múltiplos de 32 GB.
-- É possível selecionar qualquer tamanho de banco de dados Singleton entre 10 GB e o máximo com suporte
+- É possível selecionar qualquer tamanho de banco de dados individual entre 10 GB e o máximo compatível
  - Para armazenamento Standard, aumente ou diminua o tamanho em incrementos de 10 GB
  - Para armazenamento Premium, aumente ou diminua o tamanho em incrementos de 250 GB
 - Na camada de serviço de Uso Geral, `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço do vCore.

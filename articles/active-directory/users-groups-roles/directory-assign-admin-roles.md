@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42141224"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128459"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
 
@@ -75,6 +75,8 @@ As seguintes funções de administrador estão disponíveis:
 * **[Administrador da Proteção de Informações](#information-protection-administrator)**: Usuários com esta função têm todas as permissões no serviço de Proteção de Informações do Azure. Esta função pode configurar rótulos para a política da Proteção de Informações do Azure, gerenciar modelos de proteção e ativar a proteção. Esta função não garante permissões de usuário no Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 ou Centro de Segurança e Conformidade do Office 365.
 
 * **[Administrador de Serviços do Intune](#intune-service-administrator)**: os usuários com essa função têm permissões globais no Microsoft Intune Online quando o serviço está presente. Além disso, essa função contém a capacidade de gerenciar usuários e dispositivos para associar a política, bem como criar e gerenciar grupos. Mais informações em [Controle de administração baseada em função (RBAC) com o Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
+
+* **[Administrador de licenças](#license-administrator)**: os usuários nesta função podem adicionar, remover e atualizar as atribuições de licença em usuários e grupos (usando o licenciamento baseado em grupo), além de gerenciar o local de uso nos usuários. A função não concede a capacidade de comprar ou gerenciar assinaturas, criar ou gerenciar grupos, ou criar ou gerenciar usuários além do local de uso.
 
 * **[Leitor do Centro de Mensagens](#message-center-reader)**: os usuários que têm essa função podem monitorar as notificações e atualizações de consultoria de integridade no [Centro de Mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) da sua organização sobre serviços configurados como o Exchange, o Intune e o Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. 
 
@@ -610,6 +612,23 @@ Pode gerenciar todos os aspectos do produto Intune.
 | microsoft.aad.directory/User/Update/Manager | Atualizar a propriedade Users.Manager no Azure Active Directory. |
 | microsoft.aad.supporttickets/AllEntities/AllActions | Criar e gerenciar tíquetes de suporte do Office 365. |
 | microsoft.intune/AllEntities/AllActions | Gerencie todos os aspectos do Intune. |
+
+
+### <a name="license-administrator"></a>Administrador de Licenças
+Pode gerenciar licenças de produto em usuários e grupos.
+ 
+  > [!NOTE]
+  > Essa função herda permissões adicionais da função de Leitores de Diretório.
+  >
+  >
+ 
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.directory/users/assignLicense | Gerenciar licenças em usuários no Azure Active Directory. |
+| microsoft.aad.directory/users/usageLocation/update | Atualizar a propriedade users.usageLocation no Azure Active Directory. |
+| microsoft.azure.accessService/allEntities/allTasks | Gerenciar todos os aspectos do serviço de Acesso do Azure. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 
 ### <a name="lync-service-administrator"></a>Administrador de serviços do Lync
 Pode gerenciar todos os aspectos do produto Skype for Business.

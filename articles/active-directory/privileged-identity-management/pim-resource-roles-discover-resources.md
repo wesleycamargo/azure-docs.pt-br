@@ -1,6 +1,6 @@
 ---
-title: Descobrir e gerenciar recursos do Azure usando Privileged Identity Management | Microsoft Docs
-description: Descreve como proteger os recursos do Azure usando o PIM.
+title: Descobrir os recursos do Azure para gerenciar no PIM | Microsoft Docs
+description: Saiba como descobrir recursos do Azure para gerenciar no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622095"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190651"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Descobrir e gerenciar recursos do Azure usando Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Descobrir os recursos do Azure para gerenciar no PIM
 
 Saiba como descobrir e gerenciar recursos do Azure ao usar o Privileged Identity Management (PIM) no Azure Active Directory (Azure AD). Essas informações podem ser úteis para organizações que já usam PIM para proteger os recursos do administrador e os proprietários de assinatura que desejam proteger os recursos de produção.
 
 Ao configurar o PIM para recursos do Azure pela primeira vez, você precisa descobrir e selecionar os recursos a serem protegidos com PIM. Não há nenhum limite para o número de recursos que você pode gerenciar com o PIM. No entanto, é recomendável começar com seus recursos  mais importantes (produção).
 
 > [!NOTE]
-> Você só pode procurar e selecionar os recursos de assinatura para gerenciar usando o PIM. Quando você gerenciar uma assinatura no PIM, você também pode gerenciar recursos filhos na assinatura.
+> Você pode pesquisar por recursos de assinatura ou de grupo de gerenciamento e selecioná-los somente para gerenciá-los usando o PIM. Quando você gerencia um grupo de gerenciamento ou uma assinatura no PIM, você também pode gerenciar seus recursos filhos.
 
 ## <a name="discover-resources"></a>Descobrir recursos
 
@@ -64,5 +64,5 @@ Os recursos selecionados agora são gerenciados pelo PIM. Para fechar a tela de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Definir configurações de função](pim-resource-roles-configure-role-settings.md)
-- [Atribuir funções no PIM](pim-resource-roles-assign-roles.md)
+- [Definir configurações de função de recurso do Azure no PIM](pim-resource-roles-configure-role-settings.md)
+- [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)

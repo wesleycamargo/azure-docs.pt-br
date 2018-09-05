@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: db50a43e23d982722a4f3a7b663086863d915dd2
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579860"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128772"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Permissões no Azure Active Directory
 
@@ -38,10 +38,10 @@ Permissões efetivas são as permissões que seu aplicativo terá ao fazer solic
 
 * Para obter permissões delegadas, as permissões efetivas do seu aplicativo será a interseção menos privilegiadas das permissões delegadas que tiver recebido o aplicativo (por meio de consentimento) e os privilégios do usuário conectado no momento. Seu aplicativo não pode ter mais privilégios que o usuário conectado. Dentro das organizações, os privilégios do usuário conectado podem ser determinados pela política ou por associação em uma ou mais funções de administrador. Para obter mais informações sobre as funções de usuário e administrador, consulte [Atribuindo funções de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Por exemplo, suponha que seu aplicativo tenha recebido a `User.ReadWrite.All` a permissão delegada no Microsoft Graph. Essa permissão concede uma permissão ao seu aplicativo para ler e atualizar o perfil de todos os usuários em uma organização. Se o usuário conectado for um administrador global, seu aplicativo poderá atualizar o perfil de todos os usuários na organização. No entanto, se o usuário conectado não estiver em uma função de administrador, seu aplicativo poderá atualizar apenas o perfil do usuário conectado. Não poderá atualizar os perfis de outros usuários na organização porque o que ele tem permissão para agir em nome de usuário não tem os privilégios.
-* Para permissões de aplicativo, as permissões efetivas do seu aplicativo são o nível completo de privilégios indicado pela permissão. Por exemplo, um aplicativo que tenha o `User.ReadWrite.All` permissão de aplicativo pode atualizar o perfil de todos os usuários na organização. 
+* Para permissões de aplicativo, as permissões efetivas do seu aplicativo são o nível completo de privilégios indicado pela permissão. Por exemplo, um aplicativo que tenha o `User.ReadWrite.All` permissão de aplicativo pode atualizar o perfil de todos os usuários na organização.
 
 ## <a name="permission-attributes"></a>Atributos de permissão
-As permissões no AD do Azure têm um número de propriedades que ajudam, administradores ou desenvolvedores de aplicativo a tomarem decisões conscientes sobre o que a permissão concede acesso.  
+As permissões no AD do Azure têm um número de propriedades que ajudam, administradores ou desenvolvedores de aplicativo a tomarem decisões conscientes sobre o que a permissão concede acesso. 
 
 > [!NOTE]
 > Você pode exibir as permissões de um aplicativo do Azure AD ou a Entidade de Serviço expõe usando o portal do Azure ou o PowerShell. Tente este script para exibir as permissões expostas pelo Microsoft Graph.
@@ -55,18 +55,19 @@ As permissões no AD do Azure têm um número de propriedades que ajudam, admini
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nome da propriedade | DESCRIÇÃO | Exemplo | 
+| Nome da propriedade | DESCRIÇÃO | Exemplo |
 | --- | --- | --- |
-| `ID` | É um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| `IsEnabled` | Indica se essa permissão está disponível para uso. | verdadeiro | 
-| `Type` | Indica se essa permissão requer o consentimento do usuário ou consentimento do administrador. | Usuário | 
-| `AdminConsentDescription` | É uma descrição que é exibida para os administradores durante as experiências de consentimento do administrador | Permite que o aplicativo leia emails nas caixas de entrada dos usuários.  | 
-| `AdminConsentDisplayName` | É um nome fácil exibido aos administradores durante as experiências de consentimento do administrador. | Ler email de usuário | 
-| `UserConsentDescription` | É uma descrição que é exibida aos usuários durante a experiência de consentimento do usuário. |  Permite que o aplicativo leia emails em sua caixa de email.  | 
-| `UserConsentDisplayName` | É um nome fácil que é exibido aos usuários durante uma experiência de consentimento do usuário. | Leia seu email | 
-| `Value` | É a cadeia de caracteres que é usada para identificar a permissão durante os fluxos de autorização OAuth 2.0. `Value` também pode ser combinado com a cadeia de caracteres do URI da ID do aplicativo para formar um nome totalmente qualificado de permissão. | `Mail.Read` | 
+| `ID` | É um valor de GUID que identifica exclusivamente esta permissão. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
+| `IsEnabled` | Indica se essa permissão está disponível para uso. | verdadeiro |
+| `Type` | Indica se essa permissão requer o consentimento do usuário ou consentimento do administrador. | Usuário |
+| `AdminConsentDescription` | É uma descrição que é exibida para os administradores durante as experiências de consentimento do administrador | Permite que o aplicativo leia emails nas caixas de entrada dos usuários.  |
+| `AdminConsentDisplayName` | É um nome fácil exibido aos administradores durante as experiências de consentimento do administrador. | Ler email de usuário |
+| `UserConsentDescription` | É uma descrição que é exibida aos usuários durante a experiência de consentimento do usuário. |  Permite que o aplicativo leia emails em sua caixa de email.  |
+| `UserConsentDisplayName` | É um nome fácil que é exibido aos usuários durante uma experiência de consentimento do usuário. | Leia seu email |
+| `Value` | É a cadeia de caracteres que é usada para identificar a permissão durante os fluxos de autorização OAuth 2.0. `Value` também pode ser combinado com a cadeia de caracteres do URI da ID do aplicativo para formar um nome totalmente qualificado de permissão. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Tipos de consentimento
+
 Os aplicativos no Microsoft Azure Active Directory dependem de autorização para acessar os recursos necessários ou APIs. Há um número de tipos de autorização que seu aplicativo precisa saber para ser bem-sucedido. Se você estiver definindo permissões, também precisará entender como seus usuários terá acesso ao seu aplicativo ou a API.
 
 * **Consentimento do usuário estático** - ocorre automaticamente durante o [OAuth 2.0 autorizar fluxo](v1-protocols-oauth-code.md#request-an-authorization-code) quando você especifica o recurso que deseja que seu aplicativo interaja. No cenário de consentimento do usuário estático, seu aplicativo deve ter já especificado todas as permissões necessárias na configuração do aplicativo no portal do Azure. Se o usuário (ou um administrador, conforme apropriado) não concedeu permissão para este aplicativo, em seguida, o Microsoft Active Directory solicitará ao usuário para fornecer consentimento neste momento. 
@@ -74,8 +75,8 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
     Saiba mais sobre como registrar um aplicativo do Microsoft Azure Active Directory que solicita acesso a um conjunto estático de APIs.
 * **Consentimento do usuário dinâmico** - é um recurso do modelo de aplicativo do Microsoft Azure Active Directory e v2. Nesse cenário, o aplicativo solicita um conjunto de permissões que precisa do [fluxo de autorização OAuth 2.0 para aplicativos v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Se o usuário não aceitou, serão solicitados a consentir neste momento. [Saiba mais sobre o consentimento dinâmico](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
-    > [!NOTE]
-    > O consentimento dinâmico pode ser conveniente, mas apresenta um grande desafio para permissões que exigem o consentimento do administrador, desde que a experiência de consentimento do administrador não saiba sobre essas permissões no momento da autorização. Se você necessitar de permissões de administrador privilegiado, seu aplicativo deverá registrá-los no Portal do Azure.
+    > [!IMPORTANT]
+    > O consentimento dinâmico pode ser conveniente, mas apresenta um grande desafio para permissões que exigem o consentimento do administrador, desde que a experiência de consentimento do administrador não saiba sobre essas permissões no momento da autorização. Se você precisar de permissões de administrador com privilégios ou se seu aplicativo usar o consentimento dinâmico, você deverá registrar todas as permissões no portal do Azure (não apenas o subconjunto de permissões que exigem o consentimento do administrador). Isso permite que os administradores de locatários deem consentimento em nome de todos os seus usuários.
   
 * **Consentimento do administrador** - é necessário quando seu aplicativo precisa ter acesso a determinadas permissões com alto privilégio. O consentimento do administrador faz com que os administradores tenham alguns controles adicionais antes de autorizar aplicativos ou usuários a acessar dados altamente privilegiados da organização. [Saiba mais sobre como conceder consentimento do administrador](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -84,7 +85,7 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
 ### <a name="client-best-practices"></a>Práticas recomendadas de cliente
 
 - Solicite apenas permissões de que seu aplicativo precisa. Aplicativos com um número excessivo de permissões estão em risco de exposição de dados de usuário se eles forem comprometidos.
-- Escolha entre permissões delegadas e permissões de aplicativo com base no cenário compatível com seu aplicativo. 
+- Escolha entre permissões delegadas e permissões de aplicativo com base no cenário compatível com seu aplicativo.
     - Use sempre permissões delegadas se a chamada estiver sendo feita em nome do usuário.
     - Use somente permissões de aplicativo se o aplicativo for não interativo e não estiver fazendo chamadas em nome de um usuário específico. As permissões de aplicativo são altamente privilegiadas e devem ser usadas apenas quando absolutamente necessário.
 - Ao usar um aplicativo com base no ponto de extremidade v 2.0, defina sempre as permissões estáticas (as especificadas no registro de aplicativo) como o superconjunto das permissões dinâmicas solicitadas no tempo de execução (aquelas especificadas no código e enviados como parâmetros de consulta na solicitação de autorização) para que os cenários, como o administrador de consentimento, funcionem corretamente.
@@ -95,16 +96,11 @@ Os aplicativos no Microsoft Azure Active Directory dependem de autorização par
 - Recursos devem definir explicitamente `Read` e `ReadWrite` permissões separadamente.
 - Recursos deverão marcar quaisquer permissões que permitam o acesso a dados entre limites de usuário como `Admin` permissões.
 - Os recursos devem seguir o padrão de nomenclatura `Subject.Permission[.Modifier]`, em que:
-    - `Subject` corresponde ao tipo de dados disponível;
-    - `Permission` corresponde à ação que um usuário pode realizar em relação aos dados; e 
-    - `Modifier` é usado, opcionalmente, para descrever especializações de outra permissão. 
+    - `Subject` corresponde ao tipo de dados disponível
+    - `Permission` corresponde à ação que um usuário pode realizar em relação aos dados
+    - `Modifier` é usado, opcionalmente, para descrever especializações de outra permissão
     
-    Por exemplo:  
+    Por exemplo: 
     * Mail.Read - permite que os usuários leiam o email.
     * Mail.Read - permite que os usuários leiam o email.
     * Mail.ReadWrite.All - permite que um administrador ou usuário acesse todos os emails da organização.
-
-
-
-
-

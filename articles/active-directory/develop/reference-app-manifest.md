@@ -1,6 +1,6 @@
 ---
-title: Noções básicas sobre o manifesto de aplicativo do Azure Active Directory | Microsoft Docs
-description: Cobertura detalhada do manifesto do aplicativo do Azure Active Directory, que representa a configuração de identidade de um aplicativo em um locatário do AD do Azure, e é usado para facilitar a autorização do OAuth, experiência de consentimento e muito mais.
+title: Entendendo o manifesto do aplicativo do Azure Active Directory | Microsoft Docs
+description: A cobertura detalhada do manifesto do aplicativo do Azure Active Directory, que representa a configuração de identidade de um aplicativo em um locatário do Azure AD, e é usado para facilitar a autorização do OAuth, a experiência de consentimento e muito mais.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,62 +13,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/20/2017
+ms.date: 08/27/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol, sureshja
-ms.openlocfilehash: a0b39f5ac4347e48dc834bf5f5408c36df107aff
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: sureshja, justhu
+ms.openlocfilehash: f336771da334ffd964ecd032654b8549b7a5e847
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601070"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127013"
 ---
-# <a name="azure-active-directory-application-manifest"></a>Manifesto do aplicativo do Azure Active Directory
-Aplicativos que se integram com o Azure AD devem ser registrados com um locatário do Azure AD. Este aplicativo pode ser configurado usando o manifesto do aplicativo (na folha do Azure AD) no [portal do Azure](https://portal.azure.com).
+# <a name="azure-active-directory-app-manifest"></a>Manifesto do aplicativo do Azure Active Directory
+
+Os aplicativos que se integram ao Azure AD (Azure Active Directory) precisam ser registrados em um locatário do Azure AD. Você pode configurar o aplicativo no [portal do Azure](https://portal.azure.com) selecionando **Azure Active Directory**, escolhendo o aplicativo que deseja configurar e, em seguida, selecionando **Manifesto**.
 
 ## <a name="manifest-reference"></a>Referência do manifesto
 
+> [!NOTE]
+> Se você não puder ver as descrições, maximize a janela do navegador ou role/passar o dedo para ver as descrições.
+
 >[!div class="mx-tdBreakAll"]
 >[!div class="mx-tdCol2BreakAll"]
-|Chave  |Tipo de valor |Exemplo de valor  |DESCRIÇÃO  |
+
+| Chave  | Tipo de valor | Valor de exemplo | DESCRIÇÃO  |
 |---------|---------|---------|---------|
-|appID     |  Cadeia de caracteres do identificador       |""|  O identificador exclusivo para o aplicativo que está atribuído a um aplicativo do Azure AD.|
-|appRoles     |    Tipo de matriz     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|A coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço.|
-|availableToOtherTenants|booleano|`true`|Se esse valor é definido como true, o aplicativo está disponível para outros locatários. Se definido como false, o aplicativo está apenas disponível para o locatário no qual está registrado. Para mais informações, consulte: [Como conectar qualquer usuário do Azure Active Directory (AD) usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md). |
-|displayName     |string         |`MyRegisteredApp`         |O nome de exibição do aplicativo. |
-|errorURL     |string         |`http://MyRegisteredAppError`         |A URL dos erros encontrados em um aplicativo. |
-|GroupMembershipClaims     |    string     |    `1`     |   Um bitmask que configura a declaração "groups" emitida em um usuário ou um token de acesso OAuth 2.0 que o aplicativo espera. Os valores de bitmask são: 0: nenhum, 1: grupos de segurança e funções do Azure AD, 2: reservado e 4: reservado. Definir o bitmask para 7 obterá todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD dos quais o usuário conectado é membro. |
-|optionalClaims     |  string       |     `null`    |    As [declarações opcionais](active-directory-optional-claims.md) retornadas no token pelo serviço de token de segurança para esse aplicativo específico. |
-|acceptMappedClaims    |      booleano   | `true`        |    Se este valor é definido como true, ele permite que um aplicativo use o mapeamento de declarações sem especificar uma chave de autenticação personalizada.|
-|homepage     |  string       |`http://MyRegistererdApp`         |    A URL da página inicial do aplicativo. |
-|identifierUris     |  Matriz de cadeia de caracteres       | `http://MyRegistererdApp`        |   As URIs definidas pelo usuário que identificam exclusivamente um aplicativo da Web em seu locatário do Azure AD, ou em um domínio personalizado verificado se o aplicativo for multilocatário. |
-|keyCredentials     |   Tipo de matriz      | <code>[{<br>&nbsp;"customKeyIdentifier":null,<br>"endDate":"2018-09-13T00:00:00Z",<br>"keyId":"\<guid>",<br>"startDate":"2017-09-12T00:00:00Z",<br>"type":"AsymmetricX509Cert",<br>"usage":"Verify",<br>"value":null<br>}]</code>      |   Esta propriedade contém referências a credenciais de aplicativo atribuídas, segredos compartilhados com base em cadeia de caracteres e certificados x. 509. Essas credenciais são usadas ao solicitar tokens de acesso (quando o aplicativo está agindo como um cliente e não como um recurso). |
-|knownClientApplications     |     Tipo de matriz    |    [guid]     |     O valor é usado para agrupamento de consentimento se você tiver uma solução que contém duas partes, um aplicativo cliente e um aplicativo de API da web personalizado. Se você inserir a appID do aplicativo cliente nesse valor, o usuário terá somente terá que consentir uma vez com o aplicativo cliente. O Azure Active Directory saberá que consentir com o cliente significa concordar implicitamente com a API da Web e provisionará automaticamente entidades de serviço tanto para o cliente como para a API da Web ao mesmo tempo. Tanto o cliente como o aplicativo de API da Web devem ser registrados no mesmo locatário.|
-|logoutUrl     |   string      |     `http://MyRegisteredAppLogout`    |   A URL de logout do aplicativo. |
-|oauth2AllowImplicitFlow     |   booleano      |  `false`       |       Especifica se este aplicativo web pode solicitar tokens de fluxo implícitos OAuth 2.0. O padrão é false. Esse sinalizador é usado para aplicativos baseados em navegador, como os aplicativos de página única Javascript. |
-|oauth2AllowUrlPathMatching     |   booleano      |  `false`       |   Especifica se, como parte das solicitações de token OAuth 2.0, do Azure AD permitirá a correspondência de caminho do URI de redirecionamento em relação aos replyUrls do aplicativo. O padrão é false. |
-|oauth2Permissions     | Tipo de matriz         |      <code>[{<br>"adminConsentDescription":"Allow the application to access resources on behalf of the signed-in user.",<br>"adminConsentDisplayName":"Access resource1",<br>"id":"\<guid>",<br>"isEnabled":true,<br>"type":"User",<br>"userConsentDescription":"Allow the application to access resource1 on your behalf.",<br>"userConsentDisplayName":"Access resources",<br>"value":"user_impersonation"<br>}]  </code> |  A coleção de escopos de permissões OAuth 2.0 que expõe o aplicativo de API da web (recurso) para aplicativos cliente. Os escopos de permissões podem ser concedidos a aplicativos cliente durante o consentimento. |
-|oauth2RequiredPostResponse     | booleano        |    `false`     |      Especifica se, como parte das solicitações de token OAuth 2.0, o Azure AD permitirá solicitações POST, em vez de solicitações GET. O padrão é false, que especifica que somente as solicitações GET serão permitidas. 
-|ID do objeto     | Cadeia de caracteres do identificador        |     ""    |    Um identificador exclusivo do aplicativo no diretório. Essa ID não é o identificador usado para identificar o aplicativo em qualquer transação de protocolo. Ele é o usuário para a referência ao objeto em consultas de diretório.|
-|passwordCredentials     | Tipo de matriz        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    Consulte a descrição da propriedade keyCredentials. |
-|publicClient     |  booleano       |      `false`   | Especifica se um aplicativo é um cliente público (como um aplicativo instalado em execução em um dispositivo móvel). O padrão é falso. |
-|supportsConvergence     |  booleano       |   `false`      | Essa propriedade não deve ser editada. Aceite o valor padrão. |
-|replyUrls     |  Matriz de cadeia de caracteres       |   `http://localhost`     |  Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure Active Directory aceitará como destinos quando retornar tokens. |
-|requiredResourceAccess     |     Tipo de matriz    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Especifica os recursos para os quais este aplicativo requer acesso e o conjunto de escopos de permissão OAuth e funções de aplicativo que ele precisa em cada um desses recursos. Esta configuração prévia de acesso aos recursos necessários conduz a experiência de consentimento.|
-|resourceAppId     |    Cadeia de caracteres do identificador     |  ""      |   O identificador exclusivo para o recurso que o aplicativo requer acesso. Este valor deve ser igual à appId declarada no aplicativo de recurso de destino. |
-|resourceAccess     |  Tipo de matriz       | Consulte o valor de exemplo da propriedade requiredResourceAccess. |   A lista de escopos de permissão OAuth 2.0 e funções de aplicativo que o aplicativo requer do recurso especificado (contém os valores de ID e o tipo de recursos especificados)        |
-|samlMetadataUrl    |string| `http://MyRegisteredAppSAMLMetadata` |A URL para os metadados SAML do aplicativo.| 
+| `appID` | Cadeia de caracteres do identificador | `"601790de-b632-4f57-9523-ee7cb6ceba95"` | Especifica o identificador exclusivo do aplicativo que é atribuído a um aplicativo pelo Azure AD. |
+| `appRoles` | Tipo de matriz | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code> | Especifica a coleção de funções que um aplicativo pode declarar. Essas funções podem ser atribuídas a usuários, grupos ou entidades de serviço. |
+| `availableToOtherTenants`| booleano | `true` | Se esse valor for definido como true, o aplicativo ficará disponível para outros locatários. Se definido como false, o aplicativo está apenas disponível para o locatário no qual está registrado. Para obter mais informações, confira [Como conectar qualquer usuário do Azure AD usando o padrão de aplicativo multilocatário](howto-convert-app-to-be-multi-tenant.md). |
+| `displayName` | string | `MyRegisteredApp` | O nome de exibição do aplicativo. |
+| `errorURL` | string | `http://MyRegisteredAppError` | A URL dos erros encontrados em um aplicativo. |
+| `groupMembershipClaims` | string | `1` | Um bitmask que configura a declaração `groups` emitida em um usuário ou um token de acesso OAuth 2.0 que o aplicativo espera. Os valores de bitmask são:<br>0: nenhum<br>1: grupos de segurança e funções do Azure AD<br>2: reservado<br>4: reservado<br>Definir o bitmask para 7 obterá todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD dos quais o usuário conectado é membro. |
+| `optionalClaims` | string | `null` | As declarações opcionais retornadas no token pelo serviço de token de segurança para este aplicativo específico. Para obter mais informações, confira [declarações opcionais](active-directory-optional-claims.md). |
+| `acceptMappedClaims` | booleano | `true` | Se esse valor for definido como `true`, ele permitirá que o aplicativo use o mapeamento de declarações sem especificar uma chave de autenticação personalizada. |
+| `homepage` | string | `http://MyRegisteredApp` | Especifica a URL da home page do aplicativo. |
+| `informationalUrls` | string | <code>{<br>&nbsp;&nbsp;&nbsp;"privacy":"http://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"http://MyRegisteredApp/termsofservice"<br>}</code> | Especifica os links para os termos de serviço e a política de privacidade do aplicativo. Os termos de serviço e a declaração de privacidade são revelados aos usuários por meio da experiência de consentimento do usuário. Para obter mais informações, confira [Como adicionar termos de serviço e política de privacidade para aplicativos do Azure AD registrados](howto-add-terms-of-service-privacy-statement.md). |
+| `identifierUris` | Matriz de cadeia de caracteres | `http://MyRegistererdApp` | Os URIs definidos pelo usuário que identificam exclusivamente um aplicativo Web em seu locatário do Azure AD ou em um domínio personalizado verificado, quando o aplicativo é multilocatário. |
+| `keyCredentials` | Tipo de matriz | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> | Contém referências a credenciais, segredos compartilhados com base em cadeia de caracteres e certificados X.509 atribuídos ao aplicativo. Essas credenciais são usadas ao solicitar tokens de acesso (quando o aplicativo está agindo como um cliente e não como um recurso). |
+| `knownClientApplications` | Tipo de matriz | `[GUID]` | Usado para agrupamento de consentimento no caso de uma solução que contenha duas partes: um aplicativo cliente e um aplicativo de API Web personalizado. Se você inserir a appID do aplicativo cliente nesse valor, o usuário precisará consentir somente uma vez no aplicativo cliente. O Azure Active Directory saberá que consentir com o cliente significa concordar implicitamente com a API da Web e provisionará automaticamente entidades de serviço tanto para o cliente como para a API da Web ao mesmo tempo. O cliente e o aplicativo de API Web precisam ser registrados no mesmo locatário. |
+| `logoutUrl` | string | `http://MyRegisteredAppLogout` | A URL para fazer logoff do aplicativo. |
+| `oauth2AllowImplicitFlow` | booleano | `false` | Especifica se este aplicativo Web pode solicitar tokens de fluxo implícitos OAuth 2.0. O padrão é false. Esse sinalizador é usado para aplicativos baseados em navegador, como os aplicativos de página única Javascript. |
+| `oauth2AllowUrlPathMatching` | booleano | `false` | Especifica se, como parte das solicitações de token OAuth 2.0, o Azure AD permitirá a correspondência de caminho do URI de redirecionamento com as replyUrls do aplicativo. O padrão é false. |
+| `oauth2Permissions` | Tipo de matriz | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>]</code> | Especifica a coleção de escopos de permissão do OAuth 2.0 que o aplicativo de API Web (recurso) expõe aos aplicativos clientes. Esses escopos de permissões podem ser concedidos a aplicativos clientes durante o consentimento. |
+| `oauth2RequiredPostResponse` | booleano | `false` | Especifica se, como parte das solicitações de token OAuth 2.0, o Azure AD permitirá solicitações POST, em vez de solicitações GET. O padrão é false, que especifica que somente as solicitações GET serão permitidas. |
+| `objectId` | Cadeia de caracteres do identificador | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` | O identificador exclusivo do aplicativo no diretório. Essa ID não é o identificador usado para identificar o aplicativo em qualquer transação de protocolo. Ele é usado para referenciar o objeto em consultas de diretório. |
+| `parentalControlSettings` | string | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> | `countriesBlockedForMinors` especifica os países em que o aplicativo está bloqueado para menores.<br>`legalAgeGroupRule` especifica a regra de grupo de faixa etária que se aplica a usuários do aplicativo. Pode ser definido como `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` ou `BlockMinors`.  |
+| `passwordCredentials` | Tipo de matriz | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> | Confira a descrição da propriedade `keyCredentials`. |
+| `publicClient` | booleano | `false` | Especifica se um aplicativo é um cliente público, como um aplicativo instalado em execução em um dispositivo móvel. O valor padrão é falso. |
+| `replyUrls` | Matriz de cadeia de caracteres | `"http://localhost"` | Essa propriedade de vários valores contém a lista de valores redirect_uri registrados que o Azure AD aceitará como destinos quando retornar tokens. |
+| `requiredResourceAccess` | Tipo de matriz | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>&nbsp;&nbsp;&nbsp;"resourceAccess":[<br>&nbsp;&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;]<br>&nbsp;}<br>] </code> | Com o consentimento dinâmico, o `requiredResourceAccess` gera a experiência de consentimento do administrador e a experiência de consentimento do usuário para usuários que estão usando o consentimento estático. No entanto, isso não gera a experiência de consentimento do usuário para o caso geral.<br>`resourceAppId` é o identificador exclusivo do recurso ao qual o aplicativo requer acesso. Esse valor deve ser igual à appId declarada no aplicativo do recurso de destino.<br>`resourceAccess` é uma matriz que lista os escopos de permissão do OAuth2.0 e as funções de aplicativo que o aplicativo exige do recurso especificado. Contém os valores `id` e `type` dos recursos especificados. |
+| `samlMetadataUrl` | string | `http://MyRegisteredAppSAMLMetadata` | A URL dos metadados SAML do aplicativo. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para obter mais informações sobre o relacionamento entre os objetos de Aplicativo e de Entidade de Serviço do aplicativo, consulte [Objetos de aplicativo e de entidade de serviço no Microsoft Azure Active Directory](app-objects-and-service-principals.md).
+
+* Para obter mais informações sobre a relação entre os objetos Aplicativo e Entidade de Serviço do aplicativo, confira [Objetos de aplicativo e de entidade de serviço no Azure AD](app-objects-and-service-principals.md).
 * Veja as definições do [Glossário de desenvolvedor do Azure AD](developer-glossary.md) de alguns dos conceitos de desenvolvedor do Azure Active Directory (AD).
 
 Use a seção de comentários a seguir para dar sua opinião e nos ajudar a aprimorar e adaptar nosso conteúdo.
 
 <!--article references -->
 [AAD-APP-OBJECTS]:app-objects-and-service-principals.md
-[AAD-DEVELOPER-GLOSSARY]:../../../azure-ad-dev-glossary.md
+[AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
 [APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity

@@ -1,27 +1,23 @@
 ---
-title: Recuperação de desastre para conta da integração do B2B – Aplicativo Lógico do Azure | Microsoft Docs
-description: Recuperação de desastre dos Aplicativos Lógicos B2B
+title: Recuperação de desastre para contas de integração B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Preparar-se para recuperação de desastre entre regiões no Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1882207207327214ee6519a98715d06a7e32ab93
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3d465123f814887282bf2b29a5b6e0836601c243
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045595"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123897"
 ---
-# <a name="logic-apps-b2b-cross-region-disaster-recovery"></a>Recuperação de desastre de região cruzada dos Aplicativos Lógicos B2B
+# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastre entre regiões para contas de integração B2B no Aplicativo Lógico do Azure
 
 As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e faturas. Durante um evento de desastre, é essencial que uma empresa se recupere rapidamente para atender aos SLAs no nível de negócios definidos com seus parceiros. Este artigo demonstra como criar um plano de continuidade dos negócios para cargas de trabalho B2B. 
 

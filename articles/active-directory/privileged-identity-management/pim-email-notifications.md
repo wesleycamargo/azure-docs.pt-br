@@ -1,6 +1,6 @@
 ---
-title: Notificações por email no PIM do Azure AD | Microsoft Docs
-description: Descreve notificações por email no Azure AD PIM (Privileged Identity Management)
+title: Notificações por email no PIM – Azure | Microsoft Docs
+description: Descreve as notificações por email no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621575"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190169"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>Notificações por email no Azure AD PIM
+# <a name="email-notifications-in-pim"></a>Notificações por email no PIM
 
 Quando ocorrem eventos importantes no Azure AD PIM (Privileged Identity Management), são enviadas notificações por email para o usuário ou administrador relevante. Por exemplo, o PIM envia emails referentes aos seguintes eventos:
 
@@ -74,5 +74,5 @@ Anteriormente, quando era atribuída a um usuário uma função com privilégios
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como gerenciar configurações de ativação de função no Azure AD PIM](pim-how-to-change-default-settings.md)
-- [Aprovações no Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Definir configurações de função do diretório do Azure AD no PIM](pim-how-to-change-default-settings.md)
+- [Aprovar ou negar solicitações para funções de diretório do Azure AD no PIM](azure-ad-pim-approval-workflow.md)

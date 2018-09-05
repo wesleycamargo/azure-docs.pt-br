@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 39e0de6b378ed61ab375c6468b58c8c4a87b5fb9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e92adc5dbd0da6ab4f60f8cc7bf6dbe7a58694c6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575957"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128411"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Instalar o tempo de execução do Azure IoT Edge no Windows para usar com contêineres do Windows
 
-O tempo de execução do Azure IoT Edge é implantado em todos os dispositivos do IoT Edge. Tem três componentes. O daemon de segurança **IoT Edge** fornece e mantém padrões de segurança no dispositivo Edge. O daemon inicia em cada inicialização e inicializa o dispositivo iniciando o agente IoT Edge. O **agente IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo Edge, incluindo o hub IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. 
 
-Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge no sistema Windows x64 (AMD/Intel). 
+Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais componentes estão incluídos, veja [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
+
+Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge com contêineres do Windows no sistema Windows x64 (AMD/Intel). 
 
 Atualmente, o suporte do Windows está em versão prévia.
 
@@ -29,7 +31,9 @@ O Azure IoT Edge com contêineres do Windows pode ser usado com:
   * Windows 10/IoT Enterprise/IoT Core com atualização de abril de 2018 (compilação 17134).
   * Windows Server 1803
 
-## <a name="install-the-container-runtime"></a>Instalar o tempo de execução do contêiner 
+Para obter mais informações sobre quais sistemas operacionais têm suporte atualmente, veja o [suporte do Azure IoT Edge](support.md#operating-systems).
+
+## <a name="install-the-container-runtime"></a>Instalar o tempo de execução de contêiner 
 
 >[!NOTE]
 >Para a instalação do mecanismo de contêiner no Windows IoT Core, siga as etapas do artigo [Provisionar um dispositivo do IoT Core][lnk-iot-core] e siga as instruções abaixo.

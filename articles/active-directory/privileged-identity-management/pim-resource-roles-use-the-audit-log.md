@@ -1,6 +1,6 @@
 ---
-title: Auditar funções de recursos para recursos do Azure usando Privileged Identity Management | Microsoft Docs
-description: Explica como obter uma exibição de todas as atividades de função de um determinado recurso.
+title: Exibir histórico de auditoria para funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como exibir o histórico de auditoria para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8f328a609d696886ed452589d3cdfb5f45aec62a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621276"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189304"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Auditar funções de recursos para recursos do Azure usando Privileged Identity Management 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>Exibir histórico de auditoria para funções de recurso do Azure no PIM
 
 A auditoria de recurso fornece uma exibição de toda a atividades da função para o recurso. Você pode filtrar as informações usando uma data predefinida ou um intervalo personalizado.
 ![Filtrar informações](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,7 +31,7 @@ A auditoria de recursos também fornece acesso rápido aos detalhes da atividade
 
 ![Mais detalhes da atividade](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>Minha auditoria
+## <a name="my-audit"></a>Minha auditoria
 
 Meu auditoria fornece uma exibição da atividade de função pessoal do usuário. Você pode filtrar as informações usando uma data predefinida ou um intervalo personalizado.
 ![Atividade de função pessoal](media/azure-pim-resource-rbac/my-audit-time.png)
@@ -46,3 +46,6 @@ Selecionar a ativação de função específica mostra os detalhes de ativação
 
 ![Selecionar ativação de função](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>Próximas etapas
+
+- [Exibir histórico de auditoria para funções de diretório do Azure AD no PIM](pim-how-to-use-audit-log.md)

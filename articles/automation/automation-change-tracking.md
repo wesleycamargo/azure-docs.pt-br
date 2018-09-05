@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238872"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128119"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações no ambiente com a solução Controle de Alterações
 
@@ -94,8 +94,18 @@ Use as etapas a seguir para configurar o acompanhamento de arquivos em computado
 |habilitado     | Determina se a configuração é aplicada.        |
 |Nome do Item     | Nome amigável do arquivo a ser rastreado.        |
 |Agrupar     | Um nome de grupo para o agrupamento lógico de arquivos.        |
-|Inserir o Caminho     | O caminho para verificar o arquivo, por exemplo: "c:\temp\myfile.txt"       |
+|Inserir o Caminho     | O caminho para verificar em busca do arquivo. Por exemplo: "c:\temp\\\*.txt"<br>Você também pode usar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"       |
+|Recursão     | Determina se a recursão é usada ao procurar o item a ser rastreado.        |
 |Carregar o conteúdo do arquivo para todas as configurações| Habilita ou desabilita o upload de conteúdo do arquivo em alterações controladas. Opções disponíveis: **verdadeiro** ou **falso**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Configurações de caractere curinga, recursão e ambiente
+
+A recursão permite que você especifique caracteres curinga para simplificar o acompanhamento em diretórios, e variáveis para que você possa acompanhar arquivos em ambientes com vários nomes de unidade ou nomes de unidade dinâmicos. A seguir está uma lista de informações comuns que você deve saber ao configurar a recursão:
+
+* Caracteres curinga são necessários para acompanhar vários arquivos
+* Ao usar caracteres curinga, eles só podem ser usados no último segmento de um caminho. (por exemplo, C:\pasta\\**arquivo** ou /etc/*.conf)
+* Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas esse caminho falhará quando o inventário for executado.
+* Evite caminhos gerais como `c:\*.*` ao definir o caminho, pois isso resultaria em muitas pastas sendo percorridas.
 
 ## <a name="configure-file-content-tracking"></a>Configurar o controle de conteúdo do arquivo
 
@@ -122,13 +132,8 @@ Use as etapas a seguir para configurar as chaves do registro para acompanhamento
 
 A solução de Controle de Alterações atualmente não dá suporte ao seguinte:
 
-* Pastas (diretórios) para o controle de arquivos do Windows
-* Recursão para o controle de arquivos do Windows
-* Caracteres curingas para o controle de arquivos do Windows
 * Recursão para o rastreamento de registro do Windows
-* Variáveis de caminho
 * Sistemas de arquivos de rede
-* Conteúdo do arquivo
 
 Outras limitações:
 

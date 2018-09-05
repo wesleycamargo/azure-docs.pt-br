@@ -1,28 +1,24 @@
 ---
-title: Agendar tarefas e fluxos de trabalho de execução regular – Aplicativo Lógico do Azure| Microsoft Docs
-description: Criar e agendar tarefas, ações, fluxos de trabalho, processos e cargas de trabalho de execução regular com aplicativos lógicos
+title: Criar tarefas e fluxos de trabalho de execução regular com o Aplicativo Lógico do Azure| Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que são executados em uma agenda com o Conector de recorrência no Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/25/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 905157ab530ae042318de520f9d6fe24cb9d59ce
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296780"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127047"
 ---
-# <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Crie e agende regularmente tarefas em execução com os Aplicativos Lógicos do Azure
+# <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Criar e executar tarefas recorrentes e fluxos de trabalho com o Aplicativo Lógico do Azure
 
 Para agendar tarefas, ações, cargas de trabalho ou processos que são executados regularmente, você pode criar um fluxo de trabalho de aplicativo lógico que começa com o [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) **Agenda – Recorrência**. Com esse gatilho, você pode definir uma data e hora para iniciar a recorrência, bem como uma agenda de recorrência para a realização das tarefas, como esses exemplos e muito mais:
 
@@ -43,7 +39,7 @@ Esse gatilho oferece suporte a vários padrões, por exemplo:
 
 A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos criam e executam uma nova instância do seu fluxo de trabalho de aplicativo lógico.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura, poderá [iniciar com uma conta gratuita do Azure](https://azure.microsoft.com/free/). Caso contrário, você pode [inscrever-se para uma assinatura Pré-paga](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -97,10 +93,10 @@ A cada vez que o gatilho de recorrência é disparado, os Aplicativos Lógicos c
 
 Você pode configurar essas propriedades para o gatilho de recorrência.
 
-| NOME | Obrigatório | Nome da propriedade | type | DESCRIÇÃO | 
+| NOME | Obrigatório | Nome da propriedade | Tipo | DESCRIÇÃO | 
 |----- | -------- | ------------- | ---- | ----------- | 
-| **Frequência** | sim | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
-| **Intervalo** | sim | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
+| **Frequência** | SIM | frequência | Cadeia de caracteres | A unidade de tempo para a recorrência: **Segundo**, **Minuto**, **Hora**, **Dia**, **Semana** ou **Mês** | 
+| **Intervalo** | SIM | intervalo | Número inteiro | Um inteiro positivo que descreve a frequência na qual o fluxo de trabalho é executado com base na frequência. <p>O intervalo padrão é 1. Aqui estão os intervalos mínimos e máximos: <p>– Mês: 1 a 16 meses </br>–Dia: 1 a 500 dias </br>– Hora: 1 a 12.000 horas </br>– Minuto: 1 a 72.000 minutos </br>– Segundo: 1 a 9.999.999 segundos<p>Por exemplo, se o intervalo for 6 e a frequência for "Mês", a recorrência será a cada 6 meses. | 
 | **Fuso horário** | Não  | timeZone | Cadeia de caracteres | Aplica-se somente quando você especifica uma hora de início, porque o gatilho não aceita [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Selecione o fuso horário que você deseja aplicar. | 
 | **Hora de início** | Não  | startTime | Cadeia de caracteres | Forneça uma hora de início neste formato: <p>AAAA-MM-DDThh:mm:ss se você selecionar um fuso horário <p>-ou- <p>AAAA-MM-DDThh:mm:ssZ se você não selecionar um fuso horário <p>Por exemplo, se você quiser 18 de setembro de 2017 às 14h, especifique "2017-09-18T14:00:00" e selecione um fuso horário, como Hora do Pacífico. Ou, especifique "2017-09-18T14:00:00Z" sem um fuso horário. <p>**Observação:** a hora de início deve seguir a [especificação de data e hora ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) no [formato de data e hora UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mas sem uma [diferença UTC](https://en.wikipedia.org/wiki/UTC_offset). Se você não selecionar um fuso horário, será necessário adicionar a letra "Z" no final sem espaços. Essa letra "Z" refere-se ao equivalente em [hora náutica](https://en.wikipedia.org/wiki/Nautical_time). <p>Para agendamentos simples, a hora de início é a primeira ocorrência, enquanto que, para agendamentos complexos, o gatilho não é disparado antes da hora de início. [*Quais são as maneiras que posso usar a data e hora de início?*](#start-time) | 
 | **Nestes dias** | Não  | weekDays | Cadeia de caracteres ou matriz de cadeia de caracteres | Se você selecionar "Semana", poderá selecionar um ou mais dias nos quais deseja executar o fluxo de trabalho: **segunda-feira**, **terça-feira**, **quarta-feira**, **quinta-feira**, **Sexta-feira**, **sábado** e **domingo** | 

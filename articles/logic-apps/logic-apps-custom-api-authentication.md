@@ -1,27 +1,22 @@
 ---
 title: Adicionar a autenticação a APIs personalizadas – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Configurar a autenticação para chamadas para suas APIs personalizadas de aplicativos lógicos
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Configurar a autenticação para chamadas a APIs personalizadas do Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298542"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43132688"
 ---
-# <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Proteger chamadas para suas APIs personalizadas de aplicativos lógicos
+# <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas do Aplicativo Lógico do Azure
 
 Para proteger chamadas para suas APIs, você pode configurar a autenticação do Azure Active Directory (Azure AD) no portal do Azure para que não precise atualizar seu código. Ou você pode exigir e aplicar a autenticação por meio do seu código da API.
 
@@ -29,7 +24,7 @@ Para proteger chamadas para suas APIs, você pode configurar a autenticação do
 
 Você pode proteger as chamadas à API personalizada das seguintes maneiras:
 
-* [Sem alterações de código](#no-code): proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/active-directory-whatis.md) por meio do Portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
+* [Sem alterações de código](#no-code): proteja sua API com [Azure AD (Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md) por meio do Portal do Azure, para que você não precise atualizar o código ou reimplantar sua API.
 
   > [!NOTE]
   > Por padrão, a autenticação do Azure AD que você ativa no Portal do Azure não fornece autorizações refinadas. Por exemplo, essa autenticação bloqueia sua API para apenas um locatário específico, não para um usuário ou aplicativo específico. 
@@ -193,11 +188,11 @@ Abra a definição do seu aplicativo lógico na exibição do código, acesse a 
 
 | Elemento | Obrigatório | DESCRIÇÃO | 
 | ------- | -------- | ----------- | 
-| locatário | sim | O GUID para o locatário do Azure AD | 
-| audiência | sim | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
-| clientId | sim | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
-| segredo | sim | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
-| Tipo | sim | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
+| locatário | SIM | O GUID para o locatário do Azure AD | 
+| audiência | SIM | O GUID do recurso de destino que você deseja acessar, que é a ID do cliente da identidade de aplicativo para seu aplicativo Web ou aplicativo de API | 
+| clientId | SIM | O GUID do cliente que solicita o acesso, que é a ID do cliente da identidade do aplicativo para seu aplicativo lógico | 
+| segredo | SIM | A chave ou a senha da identidade do aplicativo para o cliente que está solicitando o token de acesso | 
+| Tipo | SIM | O tipo de autenticação. Para autenticação de ActiveDirectoryOAuth, o valor é `ActiveDirectoryOAuth`. | 
 |||| 
 
 Por exemplo: 
@@ -239,9 +234,9 @@ Na seção **Autorização**, inclua essa linha:
 
 | Elemento | Obrigatório | DESCRIÇÃO | 
 | ------- | -------- | ----------- | 
-| Tipo | sim | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
-| Senha | sim | A senha para acessar o certificado do cliente (arquivo PFX) | 
-| pfx | sim | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) | 
+| Tipo | SIM | O tipo de autenticação. Para certificados de cliente SSL, o valor deve ser `ClientCertificate`. | 
+| Senha | SIM | A senha para acessar o certificado do cliente (arquivo PFX) | 
+| pfx | SIM | O conteúdo codificado por base64 do certificado do cliente (arquivo PFX) | 
 |||| 
 
 <a name="basic"></a>
@@ -256,9 +251,9 @@ Na seção **Autorização**, inclua essa linha:
 
 | Elemento | Obrigatório | DESCRIÇÃO | 
 | ------- | -------- | ----------- | 
-| Tipo | sim | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
-| Nome de Usuário | sim | O nome de usuário que você deseja usar para autenticação | 
-| Senha | sim | A senha que você deseja usar para autenticação | 
+| Tipo | SIM | O tipo de autenticação que você deseja usar. Para a autenticação básica, o valor deve ser `Basic`. | 
+| Nome de Usuário | SIM | O nome de usuário que você deseja usar para autenticação | 
+| Senha | SIM | A senha que você deseja usar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>

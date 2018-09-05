@@ -1,66 +1,62 @@
 ---
-title: Esquemas de acompanhamento AS2 para monitoramento B2B - Aplicativo Lógico do Azure | Microsoft Docs
-description: Use esquemas de acompanhamento AS2 para monitorar mensagens de B2B de transações em sua Conta de Integração do Azure.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Esquemas de acompanhamento AS2 para mensagens B2B – Aplicativo Lógico do Azure | Microsoft Docs
+description: Criar esquemas de acompanhamento AS2 que monitorem mensagens B2B nas contas de integração para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300874"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125923"
 ---
-# <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Iniciar ou habilitar acompanhamento de mensagens AS2 e MDNs para monitorar o êxito, os erros e as propriedades da mensagem
-Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integração do Azure para ajudá-lo a monitorar transações B2B (entre empresas):
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Criar esquemas para acompanhamento de mensagens AS2 e MDNs em contas de integração para o Aplicativo Lógico do Azure
+
+Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integração para ajudá-lo a monitorar êxito, erros e propriedades de mensagem para transações B2B (entre empresas):
 
 * Esquema de acompanhamento de mensagens AS2
 * Esquema de acompanhamento MDN AS2
 
 ## <a name="as2-message-tracking-schema"></a>Esquema de acompanhamento de mensagens AS2
-````java
 
-    {
-       "agreementProperties": {  
-            "senderPartnerName": "",  
-            "receiverPartnerName": "",  
-            "as2To": "",  
-            "as2From": "",  
-            "agreementName": ""  
-        },  
-        "messageProperties": {
-            "direction": "",
-            "messageId": "",
-            "dispositionType": "",
-            "fileName": "",
-            "isMessageFailed": "",
-            "isMessageSigned": "",
-            "isMessageEncrypted": "",
-            "isMessageCompressed": "",
-            "correlationMessageId": "",
-            "incomingHeaders": {
-            },
-            "outgoingHeaders": {
-            },
-        "isNrrEnabled": "",
-        "isMdnExpected": "",
-        "mdnType": ""
-        }
+```json
+{
+   "agreementProperties": {  
+      "senderPartnerName": "",  
+      "receiverPartnerName": "",  
+      "as2To": "",  
+      "as2From": "",  
+      "agreementName": ""  
+   },  
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "dispositionType": "",
+      "fileName": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isMessageEncrypted": "",
+      "isMessageCompressed": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+       },
+      "outgoingHeaders": {
+       },
+      "isNrrEnabled": "",
+      "isMdnExpected": "",
+      "mdnType": ""
     }
-````
+}
+```
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem AS2. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem AS2. (Opcional) |
@@ -81,38 +77,39 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | isNrrEnabled | BOOLEAN | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
 | isMdnExpected | Booliano | Use o valor padrão se o valor não for conhecido. (Obrigatório) |
 | mdnType | Enum | Os valores permitidos são **NotConfigured**, **Sync** e **Async**. (Obrigatório) |
+||||
 
 ## <a name="as2-mdn-tracking-schema"></a>Esquema de acompanhamento MDN AS2
-````java
 
-    {
-        "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "as2To": "",
-                "as2From": "",
-                "agreementName": "g"
-            },
-            "messageProperties": {
-                "direction": "",
-                "messageId": "",
-                "originalMessageId": "",
-                "dispositionType": "",
-                "isMessageFailed": "",
-                "isMessageSigned": "",
-                "isNrrEnabled": "",
-                "statusCode": "",
-                "micVerificationStatus": "",
-                "correlationMessageId": "",
-                "incomingHeaders": {
-                },
-                "outgoingHeaders": {
-                }
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": "g"
+   },
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "originalMessageId": "",
+      "dispositionType": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isNrrEnabled": "",
+      "statusCode": "",
+      "micVerificationStatus": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+      },
+      "outgoingHeaders": {
+      }
+   }
+}
+```
 
-| Propriedade | type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | --- | --- | --- |
 | senderPartnerName | Cadeia de caracteres | O nome do parceiro do remetente da mensagem AS2. (Opcional) |
 | receiverPartnerName | Cadeia de caracteres | O nome do parceiro do destinatário da mensagem AS2. (Opcional) |
@@ -131,10 +128,16 @@ Você pode usar esses esquemas de acompanhamento AS2 em sua conta de integraçã
 | correlationMessageId | Cadeia de caracteres | ID de correlação. A ID da mensagem original (a ID da mensagem para a qual o MDN está configurado). (Opcional) |
 | incomingHeaders | Dicionário de JToken | Indica detalhes do cabeçalho da mensagem de entrada. (Opcional) |
 | outgoingHeaders |Dicionário de JToken | Indica detalhes do cabeçalho da mensagem de saída. (Opcional) |
+||||
+
+## <a name="b2b-protocol-tracking-schemas"></a>Esquemas de acompanhamento do protocolo B2B
+
+Para obter informações sobre esquemas de acompanhamento do protocolo B2B, veja:
+
+* [Esquemas de acompanhamento de X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Esquemas de acompanhamento B2B personalizados](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).    
-* Saiba mais sobre o [monitoramento de mensagens de B2B](logic-apps-monitor-b2b-message.md).   
-* Saiba mais sobre os esquemas de [acompanhamento personalizado B2B](logic-apps-track-integration-account-custom-tracking-schema.md).   
-* Saiba mais sobre os [esquemas de acompanhamento X12](logic-apps-track-integration-account-x12-tracking-schema.md).   
-* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics ](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+
+* Saiba mais sobre o [monitoramento de mensagens B2B](logic-apps-monitor-b2b-message.md)
+* Saiba mais sobre [acompanhamento de mensagens B2B no Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

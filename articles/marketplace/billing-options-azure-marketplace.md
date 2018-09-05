@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158974"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125506"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Opções de cobrança no Microsoft Azure Marketplace
 
@@ -70,10 +70,10 @@ Um benefício importante de usar a opção de publicação Transact no Marketpla
 Nesse cenário, a Microsoft cobra e coleta em seu nome. A cobrança da Microsoft elimina a necessidade de criar sua própria relação de compras com o cliente. A cobrança única pode economizar tempo e recursos. Além disso, pode ajudá-lo a concentrar-se em conseguir a venda, em vez realizar cobrança. 
 
 ## <a name="enterprise-agreement"></a>Contrato Enterprise  
-Se você for um cliente do Microsoft Enterprise Agreement, poderá usar o Contrato Enterprise para pagar por produtos da Microsoft. Você pode ser cobrado por produtos, inclusive pelo uso do Azure. O uso do Contrato Enterprise para pagar é destinado a organizações que queiram licenciar software e serviços de nuvem por três anos ou mais. Você parcela os pagamentos em vez de realizar um. pagamento antecipado. Se você usar uma opção de publicação Pagamento Conforme o Uso, a cobrança dos custos de licenciamento de software seguirá o ciclo trimestral de cobrança excedente do Contrato Enterprise.  
+Se você for um cliente do Microsoft Enterprise Agreement, poderá usar o Contrato Enterprise para pagar por produtos da Microsoft. Você pode ser cobrado por produtos, inclusive pelo uso do Azure. O uso do Contrato Enterprise para pagar é destinado a organizações que queiram licenciar software e serviços de nuvem por três anos ou mais. Você parcela os pagamentos em vez de realizar um pagamento adiantado. Se você usar uma opção de publicação Pagamento Conforme o Uso, a cobrança dos custos de licenciamento de software seguirá o ciclo trimestral de cobrança excedente do Contrato Enterprise.  
 
 ### <a name="monetary-commitment"></a>Compromisso monetário
 Se você for um cliente do Enterprise Agreement, poderá adicionar o Azure ao seu contrato. Você adiciona o Azure ao contrato fazendo compromisso monetário antecipado com o Azure. O compromisso monetário é consumido ao longo do ano. Seu compromisso inclui qualquer combinação de uso dos serviços do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Revise o [guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).
+Examine o [Guia de publicação do Microsoft Azure Marketplace e AppSource](./marketplace-publishers-guide.md).

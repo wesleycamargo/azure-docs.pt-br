@@ -1,28 +1,23 @@
 ---
 title: Implantar e chamar APIs Web e APIs REST de Aplicativos Lógicos do Azure | Microsoft Docs
-description: Implantar e chamar APIs Web e APIs REST para fluxos de trabalho de integrações do sistema em Aplicativos Lógicos do Azure
-keywords: APIs Web, APIs REST, conectores, fluxos de trabalho, integrações do sistema, autenticar
+description: Implantar e chamar APIs Web e APIs REST para fluxos de trabalho de integrações do sistema no Aplicativo Lógico do Azure
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298994"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126561"
 ---
-# <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho do aplicativo lógico
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Implantar e chamar APIs personalizadas de fluxos de trabalho no Aplicativo Lógico do Azure
 
 Depois de [criar APIs personalizadas](./logic-apps-create-api-app.md) para usar em fluxos de trabalho de aplicativos lógicos, você deve implantar suas APIs antes de chamá-las. Você pode implantar suas APIs como [aplicativos Web](../app-service/app-service-web-overview.md), mas considere implantar suas APIs como [aplicativos de API](../app-service/app-service-web-tutorial-rest-api.md), o que facilita o trabalho quando você criar, hospedar e consumir APIs locais e na nuvem. Você não precisa alterar o código em suas APIs; basta implantar seu código para um aplicativo de API. Você pode hospedar suas APIs no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), uma oferta de PaaS (plataforma como serviço) que fornece uma hospedagem de API fácil e altamente escalonável.
 

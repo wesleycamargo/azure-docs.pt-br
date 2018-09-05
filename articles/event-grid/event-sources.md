@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617345"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144222"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Fontes de eventos na Grade de Eventos do Azure
 
@@ -74,13 +74,14 @@ Para obter exemplos de Hubs de Eventos como um manipulador, consulte [manipulado
 
 ## <a name="iot-hub"></a>Hub IoT
 
-Assine os eventos de Hub IoT para responder aos eventos criados e excluídos do dispositivo.
+Assine os eventos de Hub IoT para responder a eventos de criação, exclusão, conexão e desconexão de dispositivo.
 
 |Title  |DESCRIÇÃO  |
 |---------|---------|
-| [Tutorial: enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação sempre que um dispositivo é adicionado ao seu hub de IoT. |
-| [Visão geral: reagir aos eventos do Hub IoT usando a Grade de Eventos para acionar ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração de Hubs de IoT com a Grade de Eventos. |
+| [Enviar notificações por email sobre os eventos do Hub IoT usando Aplicativos Lógicos](publish-iot-hub-events-to-logic-apps.md) | Um aplicativo lógico envia um email de notificação sempre que um dispositivo é adicionado ao seu Hub IoT. |
+| [Reagir aos eventos do Hub IoT usando a Grade de Eventos para acionar ações](../iot-hub/iot-hub-event-grid.md) | Visão geral da integração do Hub IoT com a Grade de Eventos. |
 | [Esquema do evento](event-schema-iot-hub.md) | Mostra campos nos eventos de Hub IoT. |
+| [Ordenar eventos de conexão e desconexão de dispositivo](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Mostra como ordenar os eventos de estado de conexão do dispositivo. |
 
 ## <a name="media-services"></a>Serviços de mídia
 

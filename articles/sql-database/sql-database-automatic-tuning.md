@@ -10,27 +10,27 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626192"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189251"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ajuste automático no Banco de Dados SQL do Microsoft Azure
 
-Ajuste automático do Banco de Dados SQL do Azure oferece um ótimo desempenho e cargas de trabalho estáveis por meio do ajuste contínuo de desempenho utilizando Inteligência Artificial.
+O ajuste automático do Banco de Dados SQL do Azure oferece o desempenho ideal e cargas de trabalho estáveis por meio do ajuste contínuo do desempenho baseado em inteligência artificial e aprendizado de máquina.
 
-Ajuste automático é um serviço totalmente gerenciado que usa inteligência interna para monitorar continuamente consultas executadas em um banco de dados e melhora automaticamente o desempenho. Isso é obtido adaptando dinamicamente o banco de dados à mudança das cargas de trabalho e aplicando recomendações de ajuste. O ajuste automático aprende horizontalmente com todos os bancos de dados no Azure por meio de Inteligência Artificial e melhora de modo dinâmico suas ações de ajustes. Quanto mais longa é a execução do Banco de Dados SQL do Azure com o ajuste automático ligado, melhor se torna seu desempenho.
+O ajuste automático é um serviço de desempenho inteligente totalmente gerenciado que usa inteligência interna para monitorar continuamente consultas executadas em um banco de dados e aprimora automaticamente o desempenho. Isso é obtido adaptando dinamicamente o banco de dados à mudança das cargas de trabalho e aplicando recomendações de ajuste. O ajuste automático aprende horizontalmente com todos os bancos de dados do Azure por meio de inteligência artificial e aprimora de modo dinâmico suas ações de ajustes. Quanto mais longa é a execução do Banco de Dados SQL do Azure com o ajuste automático ligado, melhor se torna seu desempenho.
 
-O ajuste Automático de Banco de Dados SQL do Azure pode ser um dos recursos mais importantes que você pode habilitar para fornecer cargas de trabalho de desempenho de pico e estáveis.
+O ajuste automático de Banco de Dados SQL do Azure pode ser um dos recursos mais importantes que você pode habilitar para fornecer cargas de trabalho de banco de dados com desempenho ideal e estável.
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>O que o Ajuste Automático pode fazer por você?
 
 - Ajuste de desempenho automatizado de Bancos de Dados SQL do Azure
 - Verificação automatizada de ganhos de desempenho
 - Autocorreção e reversão automática
-- Log de histórico de ajuste
+- Histórico de ajuste
 - Ajuste dos scripts do T-SQL de ação para implantações manuais
 - Monitoramento do desempenho de carga de trabalho proativa
 - Capacidade de expansão em centenas de milhares de bancos de dados
@@ -40,7 +40,7 @@ O ajuste Automático de Banco de Dados SQL do Azure pode ser um dos recursos mai
 
 Operações de ajuste aplicadas a Bancos de Dados SQL do Azure são totalmente seguras para o desempenho das cargas de trabalho mais intensas. O sistema foi projetado com cuidado para não interferir nas cargas de trabalho do usuário. Recomendações de ajuste automatizadas são aplicadas somente nos horários de pouca utilização. O sistema também pode desabilitar temporariamente as operações de ajuste automático para proteger o desempenho da carga de trabalho. Nesse caso, a mensagem "Desabilitado pelo sistema" será mostrada no portal do Azure. Ajuste automático considera cargas de trabalho com a prioridade mais alta de recurso.
 
-Mecanismos de ajuste automático são desenvolvidos e foram aperfeiçoados em centenas de milhares de bancos de dados em execução no Azure. As operações de ajuste automatizado aplicadas são verificadas automaticamente para garantir que exista uma melhoria no desempenho da carga de trabalho. Recomendações de desempenho retornadas são detectadas dinamicamente e revertidas no mesmo momento. Por meio do log de histórico de ajuste, há um rastreamento claro das melhorias de ajuste feitas em cada Banco de Dados SQL do Azure. 
+Mecanismos de ajuste automático são desenvolvidos e foram aperfeiçoados em milhões de bancos de dados em execução no Azure. As operações de ajuste automatizado aplicadas são verificadas automaticamente para garantir que exista uma melhoria no desempenho da carga de trabalho. Recomendações de desempenho retornadas são detectadas dinamicamente e revertidas no mesmo momento. Por meio do histórico de ajuste registrado, há um rastreamento claro das melhorias de ajuste feitas em cada Banco de Dados SQL do Azure. 
 
 ![Como funciona o trabalho de ajuste automático](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -64,10 +64,12 @@ Para uma visão geral de como o ajuste automático funciona em cenários de uso 
 
 As opções de ajuste automático disponíveis no Banco de Dados SQL do Azure são:
  1. **CREATE INDEX** – identifica os índices que podem melhorar o desempenho da carga de trabalho, cria índices e verifica automaticamente se houve melhoria no desempenho de consultas.
- 2. **DROP INDEX** – identifica os índices redundantes e duplicados e os índices que não foram usados por um longo período. Observe que essa opção não é compatível com aplicativos que usam alternância de partição e dicas de índice.
+ 2. **DROP INDEX** – identifica índices redundantes e duplicados, exceto por índices exclusivos, e índices que não foram usados por um longo período (mais de 90 dias). Observe que essa opção não é compatível com aplicativos que usam alternância de partição e dicas de índice.
  3. **FORCE LAST GOOD PLAN** – identifica as consultas SQL que usam um plano de execução mais lento do que o plano bom anterior e as consultas que usam o último plano bom conhecido, em vez do plano regredido.
 
-O Banco de Dados SQL do Microsoft Azure identifica recomendações **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar seu banco de dados e as mostra no Portal do Azure. Encontre mais informações sobre a identificação de índices que devem ser alterados em [Encontrar recomendações de índice no portal do Azure](sql-database-advisor-portal.md). Você pode aplicar manualmente as recomendações usando o portal ou permitir que o Banco de Dados SQL do Microsoft Azure aplique automaticamente as recomendações, monitore a carga de trabalho após a alteração e verifique se a recomendação melhorou o desempenho da carga de trabalho. 
+O ajuste automático identifica recomendações de **CREATE INDEX**, **DROP INDEX** e **FORCE LAST GOOD PLAN** que podem otimizar o desempenho de seu banco de dados, as mostra no [Portal do Azure](sql-database-advisor-portal.md) e as expõe por meio de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e da [API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
+Você pode aplicar manualmente as recomendações de ajuste usando o portal ou pode permitir que o ajuste automático aplique de forma autônoma as recomendações de ajuste para você. Os benefícios de deixar que o sistema aplique de forma autônoma as recomendações de ajuste para você é que, nesse caso, ele valida automaticamente que há um ganho positivo no desempenho da carga de trabalho ou, caso contrário, se uma regressão for detectada, ele reverterá automaticamente a recomendação de ajuste. Observe que, no caso de consultas afetadas por recomendações de ajuste que não são executadas com frequência, a fase de validação pode levar até 72 horas por design. Caso você esteja aplicando manualmente as recomendações de ajuste, a validação de desempenho automática e os mecanismos de reversão não estarão disponíveis.
 
 As opções de ajuste automático podem ser habilitadas ou desabilitadas independentemente por banco de dados ou podem ser configuradas em servidores lógicos e aplicadas em todos os bancos de dados que herdam as configurações do servidor. Os servidores lógicos podem herdar os padrões do Azure para as configurações de Ajuste automático. Atualmente, os padrões do Azure estão definidos como FORCE_LAST_GOOD_PLAN está habilitado, CREATE_INDEX está habilitado e DROP_INDEX está desabilitado.
 
@@ -77,6 +79,7 @@ Configurar as opções de ajuste Automático em um servidor e herdar as configur
 
 - Para habilitar o ajuste automático no Banco de Dados SQL do Azure para gerenciar a carga de trabalho, consulte [Habilitar ajuste automático](sql-database-automatic-tuning-enable.md).
 - Para examinar e aplicar recomendações de Ajuste automático manualmente, consulte [Localizar e aplicar recomendações de desempenho](sql-database-advisor-portal.md).
+- Para saber como usar T-SQL para aplicar e exibir recomendações de ajuste automático, consulte [Gerenciar o ajuste automático por meio de T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 - Para saber mais sobre a criação de notificações por email para as recomendações de Ajuste automático, consulte [Notificações por email para ajuste automático](sql-database-automatic-tuning-email-notifications.md).
 - Para obter informações sobre a inteligência interna usada no Ajuste automático, consulte [Inteligência artificial ajusta Bancos de Dados SQL do Azure](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Para obter informações sobre como o Ajuste automático funciona no Banco de Dados SQL do Azure e no SQL Server de 2017, consulte [Ajuste automático do SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

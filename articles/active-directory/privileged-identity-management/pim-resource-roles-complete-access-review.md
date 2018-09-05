@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso para recursos do Azure usando Privileged Identity Management | Microsoft Docs
-description: Descreve como concluir uma revisão de acesso para recursos do Azure.
+title: Concluir uma revisão de acesso para funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso para funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f1fc23afb41753bfe358cb05376a5ee9a07e34fd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620035"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189120"
 ---
-# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Concluir uma revisão de acesso para recursos do Azure usando Privileged Identity Management
+# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso para funções de recurso do Azure no PIM
 Os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de acesso ter sido iniciada](pim-resource-roles-start-access-review.md). O PIM (Privileged Identity Management) para recursos do Azure automaticamente envia um email que solicita que os usuários revisem seu acesso. Se um usuário não receber um email, você poderá enviar para ele as instruções de [como executar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
 
 Depois do fim do período da revisão de acesso, ou após todos os usuários terminarem a autorrevisão, siga as etapas neste artigo para gerenciar a revisão e ver os resultados.
@@ -60,5 +60,7 @@ Na guia **Resultados**, exiba e faça o download de uma lista dos resultados da 
 Exiba e adicione revisores à sua revisão de acesso existente. Lembre os revisores de concluir suas revisões.
 ![Adicionar revisores](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
+## <a name="next-steps"></a>Próximas etapas
 
-
+- [Começar uma revisão de acesso para funções de recurso do Azure no PIM](pim-resource-roles-start-access-review.md)
+- [Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM](pim-resource-roles-perform-access-review.md)

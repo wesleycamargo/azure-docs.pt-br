@@ -1,6 +1,6 @@
 ---
-title: Executar uma revisão de acesso no Privileged Identity Management para recursos do Azure | Microsoft Docs
-description: Este documento descreve como realizar uma análise de acesso no PIM para recursos do Azure, de acordo com a função de recurso.
+title: Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM | Microsoft Docs
+description: Saiba como executar uma revisão de acesso de suas funções de recurso do Azure no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617217"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189711"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Executar uma revisão de acesso no PIM, de acordo com a função de recurso
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Realizar uma revisão de acesso das minhas funções de recurso do Azure no PIM
 O Privileged Identity Management (PIM) para recursos do Azure simplifica o modo como as empresas gerenciam o acesso privilegiado aos recursos no Azure. 
 
 Se você for atribuído a uma função administrativa, o administrador de função com privilégios de sua organização poderá solicitar que você confirme regularmente que ainda precisa da função para seu trabalho. Você pode receber um email que inclui um link ou pode acessar diretamente o [portal do Azure](https://portal.azure.com). Siga as etapas neste artigo para executar a autorrevisão das suas funções atribuídas.
@@ -50,3 +50,7 @@ Siga estas etapas para localizar e concluir a análise de acesso:
 4. Escolha **Aprovar** ou **Negar**. Na caixa de texto **Fornecer um motivo**, talvez seja necessário incluir um motivo para a sua decisão.
 
    ![Captura de tela Revisar detalhes](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Executar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)

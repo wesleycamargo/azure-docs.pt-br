@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42143935"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247929"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução Gerenciamento de Atualizações no Azure
 
@@ -35,6 +35,8 @@ O diagrama a seguir mostra uma exibição conceitual do comportamento e do fluxo
 
 ![Fluxo do processo de Gerenciamento de Atualizações](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+O Gerenciamento de Atualizações pode ser usado para integrar nativamente computadores em várias assinaturas no mesmo locatário. Para gerenciar os computadores em um locatário diferente, você deve integrá-los como [computadores não Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Depois que um computador executa uma verificação de conformidade da atualização, o agente encaminha as informações em massa ao Log Analytics do Azure. Em um computador Windows, a verificação de conformidade é executada a cada 12 horas por padrão.
 
 Além do agendamento da verificação, a verificação de conformidade de atualização será iniciada em 15 minutos se o MMA for reiniciado antes da instalação da atualização e após a instalação da atualização.
@@ -48,7 +50,7 @@ A solução relata o grau de atualização do computador com base na fonte com a
 
 Você pode implantar e instalar atualizações de software em computadores que precisam de atualizações, criando uma implantação agendada. As atualizações classificadas como *Opcional* não são incluídas no escopo de implantação para computadores Windows. Somente as atualizações necessárias são incluídas no escopo de implantação. 
 
-A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações podem ser instaladas. 
+A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, explicitamente especificando computadores ou selecionando um [grupo de computadores](../log-analytics/log-analytics-computer-groups.md) que se baseia em pesquisas de log de um conjunto específico de computadores. Você também pode especificar uma agenda para aprovar e designar um período de tempo durante o qual as atualizações podem ser instaladas.
 
 As atualizações são instaladas por runbooks na Automação do Azure. Você não consegue exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualizações é criada, a implantação de atualizações cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para executar a instalação de atualizações necessárias.
 
@@ -215,12 +217,12 @@ Para criar uma nova implantação de atualização, selecione **Agendar implanta
 | --- | --- |
 | Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
 |Sistema operacional| Linux ou Windows|
-| Computadores para atualizar |Selecione uma pesquisa Salva, grupo Importado ou escolha Computador no menu suspenso e selecione computadores individuais. Se você escolher **Computadores**, a prontidão do computador será mostrada na coluna **UPDATE AGENT READINESS**.</br> Para aprender sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [Grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou selecione a máquina na lista suspensa e selecione máquinas individuais. Se você escolher **Machines**, a prontidão da máquina é mostrada na coluna **UPDATE AGENT READINESS**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores no Log Analytics, consulte [grupos de computadores no Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classificações de origem|Selecione todas as classificações de atualização necessárias|
-|Atualizações para excluir|Insira as atualizações a serem excluídas. Para Windows, insira o KB sem o prefixo 'KB'. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
+|Atualizações para excluir|Insira as atualizações a serem excluídas. Para o Windows, insira o KB sem o prefixo 'KB'. Para o Linux, insira o nome do pacote ou use um caractere curinga.  |
 |Configurações de agendamento|Selecione o tempo para iniciar e selecione Uma Vez ou recorrente para a recorrência|
 | Janela de manutenção |Número de minutos definido para atualizações. O valor não pode ser inferior a 30 minutos e não superior a 6 horas |
-| Reinicializar controle| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reinicialização, se necessário (padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Apenas reinicialize - não instalará atualizações|
+| Reinicialize o controle| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reinicialização, se necessário (Padrão)</br>Sempre reinicializar</br>Nunca reinicializar</br>Somente reinicialização - não instalará as atualizações|
 
 ## <a name="update-classifications"></a>Classificações de origem
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas de avaliação de VM única do Azure (Linux)
 
-Para algumas distribuições de Linux, há uma incompatibilidade [endianness](https://en.wikipedia.org/wiki/Endianness) com o valor VMUUID que vem do Azure Resource Manager e o que é armazenado no Log Analytics. A consulta a seguir procura uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato big-endian e little-endian do GUID para retornar corretamente os resultados. Você pode encontrar o VMUUID que deveria ser usado executando a seguinte consulta no Log Analytics: `Update | where Computer == "<machine name>"
+Para algumas distribuições de Linux, há uma incompatibilidade de [endianness](https://en.wikipedia.org/wiki/Endianness) com o valor VMUUID que vem do Azure Resource Manager e o que é armazenado no Log Analytics. A consulta a seguir procura uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato big-endian e little-endian do GUID para retornar corretamente os resultados. Você pode encontrar o VMUUID que deveria ser usado executando a seguinte consulta no Log Analytics: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Resumo das atualizações ausentes

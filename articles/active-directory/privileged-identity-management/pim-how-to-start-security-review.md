@@ -1,6 +1,6 @@
 ---
-title: Como iniciar uma revisão de acesso | Microsoft Docs
-description: Saiba como criar uma análise de acesso para identidades com privilégios com o aplicativo Azure Privileged Identity Management.
+title: Iniciar uma revisão de acesso para funções de diretório do Azure AD no PIM | Microsoft Docs
+description: Saiba como iniciar uma revisão de acesso para funções de diretório do Azure AD no Azure AD PIM (Privileged Identity Management).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0c6c1d48d0a78781528b08b3c1d1e9438bf865ee
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a431a0a0000cc8b0838bbe05c703cc548c8977c5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617346"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189395"
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Como iniciar uma análise de acesso no Azure AD Privileged Identity Management
+# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Começar uma revisão de acesso para funções de diretório do Azure AD no PIM
 As atribuições de função se tornam "obsoletas" quando os usuários têm acesso privilegiado de que não precisam mais. Para reduzir o risco associado a essas atribuições de função obsoletas, os administradores de função com privilégios ou administradores globais devem regularmente criar revisões de acesso para pedir administradores para revisarem as funções que os usuários receberam. Este documento aborda as etapas para iniciar uma revisão de acesso no Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Iniciar uma revisão de acesso
@@ -77,5 +77,8 @@ Você pode acompanhar o progresso conforme os revisores concluem suas análises 
 Até o período de análise terminar, você pode lembrar os usuários de concluir sua análise ou interromper a análise antes da seção de análises de acesso.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="pim-table-of-contents"></a>Sumário do PIM
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+## <a name="next-steps"></a>Próximas etapas
+
+- [Concluir uma revisão de acesso para funções de diretório do Azure AD no PIM](pim-how-to-complete-review.md)
+- [Executar uma revisão de acesso de minhas funções de diretório do Azure AD no PIM](pim-how-to-perform-security-review.md)
+- [Começar uma revisão de acesso para funções de recurso do Azure no PIM](pim-resource-roles-start-access-review.md)

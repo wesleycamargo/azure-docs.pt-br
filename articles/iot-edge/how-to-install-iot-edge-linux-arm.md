@@ -1,26 +1,28 @@
 ---
-title: Como instalar o Azure IoT Edge no Linux | Microsoft Docs
-description: Instruções de instalação do Azure IoT Edge no Linux no ARM32
+title: Instalar o Azure IoT Edge no Linux ARM32 | Microsoft Docs
+description: Instruções de instalação do Azure IoT Edge no Linux em dispositivos ARM32, como um Raspberry PI
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 7720e0471c6d8f2ba20f28753773829a28f93c7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f4e914f12feab3c36fca604c1bb37ab1a61b66f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146088"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127218"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Instalar o tempo de execução do Azure IoT Edge no Linux (ARM32v7 / armhf)
 
-O tempo de execução do Azure IoT Edge é implantado em todos os dispositivos IoT Edge. Tem três componentes. O daemon de segurança **IoT Edge** fornece e mantém padrões de segurança no dispositivo Edge. O daemon inicia em cada inicialização e inicializa o dispositivo iniciando o agente IoT Edge. O **agente IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo Edge, incluindo o hub IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT.
+O tempo de execução do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O tempo de execução pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o tempo de execução do IoT Edge, você poderá começar a implantar a lógica de negócios da nuvem nele. 
 
-Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge em um dispositivo Linux ARM32v7 / armhf Edge (por exemplo, Raspberry Pi).
+Para saber mais sobre como funciona o tempo de execução do IoT Edge e quais componentes estão incluídos, veja [Entender o tempo de execução do Azure IoT Edge e sua arquitetura](iot-edge-runtime.md).
+
+Este artigo lista as etapas para instalar o tempo de execução do Azure IoT Edge em um dispositivo Linux ARM32v7/armhf Edge. Essas etapas funcionariam, por exemplo, para dispositivos Raspberry Pi. Consulte [suporte do Azure IoT Edge](support.md#operating-systems) para obter uma lista dos sistemas operacionais ARM32 com suporte atualmente. 
 
 >[!NOTE]
 >Os pacotes nos repositórios de software do Linux estão sujeitos aos termos de licença localizados em cada pacote (/usr/share/doc/ *package-name* ). Leia os termos da licença antes de usar o pacote. Sua instalação e uso do pacote constitui sua aceitação desses termos. Se você não concordar com os termos da licença, não use o pacote.
@@ -31,7 +33,7 @@ O Azure IoT Edge depende de um tempo de execução de contêiner [compatível co
 
 Os comandos abaixo instalam o mecanismo baseado em Moby e a CLI (interface de linha de comando). A CLI é útil para desenvolvimento, mas é opcional para implantações de produção.
 
-```cmd/sh
+```bash
 
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
@@ -49,7 +51,10 @@ sudo apt-get install -f
 
 ## <a name="install-the-iot-edge-security-daemon"></a>Instalar o daemon de segurança do IoT Edge
 
-```cmd/sh
+O daemon de segurança **IoT Edge** fornece e mantém padrões de segurança no dispositivo Edge. O daemon é iniciado a cada inicialização e inicializa o dispositivo iniciando o restante do tempo de execução do IoT Edge. 
+
+
+```bash
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
 
@@ -63,18 +68,26 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurar o Daemon de segurança de borda de IoT do Azure
+## <a name="connect-your-device-to-an-iot-hub"></a>Conectar seu dispositivo a um Hub IoT 
 
+Configure o tempo de execução do IoT Edge para vincular seu dispositivo físico com uma identidade do dispositivo existente em um Hub IoT do Azure. 
 
 O daemon pode ser configurado usando o arquivo de configuração no `/etc/iotedge/config.yaml`. O arquivo está protegido contra gravação por padrão, permissões elevadas talvez sejam necessárias para editá-lo.
+
+Um único dispositivo Azure IoT Edge pode ser provisionado manualmente usando uma cadeia de caracteres de conexões de dispositivo fornecida pelo Hub IoT. Ou, você pode usar o serviço de provisionamento de dispositivo para provisionar automaticamente os dispositivos, que é útil quando você tem muitos dispositivos para provisionar. Dependendo de sua escolha de provisionamento, escolha o script de instalação apropriado. 
+
+### <a name="option-1-manual-provisioning"></a>Opção 1: provisionamento manual
+
+Para provisionar um dispositivo manualmente, você precisará fornecer a ele uma [cadeia de conexão do dispositivo][lnk-dcs], que poderá criar registrando um novo dispositivo no Hub IoT.
+
+
+Abra o arquivo de configuração. 
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-O dispositivo de borda pode ser configurado manualmente usando uma [cadeia de conexão do dispositivo][lnk-dcs] ou [automaticamente por meio do Serviço de Provisionamento de Dispositivo][lnk-dps].
-
-* Para configuração manual, remova o modo de provisionamento **manual**. Atualizar o valor de **device_connection_string** com a cadeia de caracteres de conexão do dispositivo IoT Edge.
+Localize a seção de provisionamento do arquivo e remova a marca de comentário do modo de provisionamento **manual**. Atualizar o valor de **device_connection_string** com a cadeia de caracteres de conexão do dispositivo IoT Edge.
 
    ```yaml
    provisioning:
@@ -88,7 +101,27 @@ O dispositivo de borda pode ser configurado manualmente usando uma [cadeia de co
    #   registration_id: "{registration_id}"
    ```
 
-* Para configuração automática, remova o modo de provisionamento **dps**. Atualize os valores de **scope_id** e **registration_id** com os valores da sua instância de DPS do Hub IoT e o dispositivo do IoT Edge com o TPM. 
+Salve e feche o arquivo. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+Depois de inserir as informações de provisionamento no arquivo de configuração, reinicie o daemon:
+
+```bash
+sudo systemctl restart iotedge
+```
+
+### <a name="option-2-automatic-provisioning"></a>Opção 2: provisionamento automático
+
+Para provisionar um dispositivo automaticamente, [configure o Serviço de provisionamento de dispositivos e recupere a ID de registro do dispositivo][lnk-dps]. O provisionamento automático funciona apenas com dispositivos que têm um chip TPM (Trusted Platform Module). Por exemplo, dispositivos Raspberry Pi não são fornecidos com o TPM por padrão. 
+
+Abra o arquivo de configuração. 
+
+```bash
+sudo nano /etc/iotedge/config.yaml
+```
+
+Localize a seção de provisionamento do arquivo e remova a marca de comentário do modo de provisionamento **dps**. Atualize os valores de **scope_id** e **registration_id** com os valores de seu Serviço de Provisionamento de Dispositivos no Hub IoT e o dispositivo do IoT Edge com o TPM. 
 
    ```yaml
    # provisioning:
@@ -106,14 +139,12 @@ Salve e feche o arquivo.
 
    `CTRL + X`, `Y`, `Enter`
 
-Depois de inserir as informações de provisionamento na configuração, reinicie o daemon:
+Depois de inserir as informações de provisionamento no arquivo de configuração, reinicie o daemon:
 
-```cmd/sh
+```bash
 sudo systemctl restart iotedge
 ```
 
->[!TIP]
->Você precisa de privilégios elevados para executar comandos `iotedge`. Depois que você sair da sua máquina e fizer login novamente na primeira vez após instalar o tempo de execução do IoT Edge, suas permissões serão atualizadas automaticamente. Até lá, use **sudo** na frente dos comandos. 
 
 ## <a name="verify-successful-installation"></a>Verifique se a instalação bem-sucedida
 
@@ -121,28 +152,31 @@ Se você tiver usado as etapas de **configuração manual** na seção anterior,
 
 Você pode verificar o status do Daemon de borda IoT usando:
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Examine os logs do daemon usando:
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 Além disso, lista de módulos com em execução:
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
->[!NOTE]
->Nos dispositivos com restrição de recursos como o RaspberryPi, é altamente recomendável que a variável de ambiente *OptimizeForPerformance* seja definida como *false* de acordo com as instruções no [guia de solução de problemas.][lnk-trouble]
 
+## <a name="tips-and-suggestions"></a>Dicas e sugestões
+
+Você precisa de privilégios elevados para executar comandos `iotedge`. Após instalar o tempo de execução, saia da sua máquina virtual e entre novamente para atualizar suas permissões automaticamente. Até lá, use **sudo** na frente de qualquer um dos comandos `iotedge`.
+
+Em dispositivos com restrição de recursos, é altamente recomendável que a variável de ambiente *OptimizeForPerformance* seja definida como *false* de acordo com as instruções no [guia de solução de problemas][lnk-trouble].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você estiver tendo problemas com o tempo de execução de borda instalado corretamente, check-out de [solução de problemas][lnk-trouble] página.
+Se tiver problemas para instalar corretamente o tempo de execução do Edge, consulte a página de [solução de problemas][lnk-trouble].
 
 <!-- Links -->
 [lnk-dcs]: how-to-register-device-portal.md
