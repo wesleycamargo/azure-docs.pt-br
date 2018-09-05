@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/15/2018
-ms.openlocfilehash: 4d2714305f1852a91614ce29ec5e74f489487c5a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 08/24/2018
+ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917647"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887295"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure usando DMS
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Migrar o SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure offline usando DMS
 Você pode usar o Serviço de Migração de Banco de Dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para uma [Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance.md). Para métodos adicionais que possam exigir algum esforço manual, consulte o artigo [Migração da instância do SQL Server para a Instância Gerenciada do Banco de Dados SQL do Azure](../sql-database/sql-database-managed-instance-migrate.md).
 
 > [!IMPORTANT]
@@ -41,8 +41,8 @@ Para concluir este tutorial, você precisará:
 - Verificar se as regras do Grupo de Segurança de Rede da VNET (Rede Virtual) do Azure não bloqueiam as portas de comunicação 443, 53, 9354, 445 e 12000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da Rede Virtual do Azure, consulte o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure o [Firewall do Windows para acesso ao mecanismo de banco de dados de fonte](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o SQL Server de origem, que por padrão é porta TCP 1433.
-- Se você estiver executando vários usando portas dinâmicas de instâncias nomeadas do SQL Server, talvez você queira habilitar o serviço navegador do SQL e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração do Banco de Dados do Azure possa se conectar a uma instância nomeada em seu código-fonte servidor.
-- Se estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez você precise adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, além de arquivos por meio da porta 445 do SMB.
+- Caso esteja executando várias instâncias nomeadas do SQL Server usando portas dinâmicas, talvez seja preciso habilitar o serviço do SQL Browser e permitir o acesso à porta UDP 1434 por meio de seus firewalls para que o Serviço de Migração de Banco de Dados do Azure possa se conectar a uma instância nomeada em seu servidor de origem.
+- Se estiver usando um dispositivo de firewall na frente dos bancos de dados de origem, talvez seja preciso adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração, além de arquivos por meio da porta 445 do SMB.
 - Crie uma Instância Gerenciada do Banco de Dados SQL do Azure seguindo os detalhes do artigo [Criar uma Instância Gerenciada do Banco de Dados SQL do Azure no portal do Azure](https://aka.ms/sqldbmi).
 - Verificar se os logons usados para conectar o SQL Server de origem e a Instância Gerenciada de destino são membros da função de servidor sysadmin.
 - Criar um compartilhamento de rede que pode ser usado pelo Serviço de Migração de Banco de Dados do Azure para fazer backup do banco de dados de origem.
@@ -52,7 +52,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 
-1. Faça logon no portal do Azure, selecione **Todos os serviços**e, em seguida, selecione **Assinaturas**.
+1. Entre no portal do Azure, selecione **Todos os serviços** e selecione **Assinaturas**.
 
     ![Mostrar assinaturas do portal](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
@@ -100,7 +100,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Faça logon no portal do Azure, selecione **+ criar um recurso**, procure o serviço de migração de banco de dados do Azure e, em seguida, selecione **serviço de migração de banco de dados do Azure** na lista suspensa.
 
-    ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+    ![Crie uma instância do Serviço de Migração de Banco de Dados do Azure](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
 2. Na tela **Serviço de Migração de Banco de Dados do Azure**, procure o nome da instância que você criou e, em seguida, selecione a instância.
  
@@ -116,7 +116,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 1. Na tela **Detalhe de origem de migração**, especifique os detalhes da conexão do SQL Server de origem.
 
-2. Se você não tiver instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável**.
+2. Caso não tenha instalado um certificado confiável no servidor, selecione a caixa de seleção **Certificado de servidor confiável**.
 
     Quando não houver um certificado confiável instalado, o SQL Server gerará um certificado autoassinado quando a instância for iniciada. Esse certificado é usado para criptografar as credenciais das conexões de cliente.
 
@@ -135,7 +135,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
 
 ## <a name="specify-target-details"></a>Detalhes do destino favorito
 
-1.  Na tela de **Detalhes de destino da migração**, especifique os detalhes de conexão para o destino, que é a Instância Gerenciada do Banco de Dados SQL do Azure, para a qual o banco de dados **AdventureWorks2012** deverá ser migrado.
+1.  Na tela de **Detalhes de destino da migração**, especifique os detalhes de conexão do destino, que é a Instância Gerenciada do Banco de Dados SQL do Azure para a qual o banco de dados **AdventureWorks2012** está sendo migrado.
 
     Se você ainda não tiver provisionado a Instância Gerenciada do Banco de Dados SQL do Azure, selecione **Não** para um link para obter ajuda no provisionamento da instância. Você pode continuar assim mesmo com a criação do projeto e, em seguida, quando a Instância Gerenciada do Banco de Dados SQL do Azure estiver pronta, retorne a este projeto específico para executar a migração.   
  
@@ -170,7 +170,7 @@ Depois que uma instância do serviço é criada, localize-a no portal do Azure, 
     |--------|---------|
     |**Escolha a opção de backup de origem** | Escolha a opção **Fornecerei os arquivos de backup mais recentes** quando você já tiver um arquivo de backup completo disponível para DMS para ser usado para a migração de banco de dados. Escolha a opção **Permitirei que o Serviço de Migração de Banco de Dados do Azure crie arquivos de backup** quando desejar que o DMS faça o backup completo do banco de dados de origem primeiro e use-o para a migração. |
     |**Compartilhamento do local da rede** | O compartilhamento de rede do SMB local no qual o Serviço de Migração de Banco de Dados do Azure pode copiar os backups de banco de dados de origem. A conta de serviço que executa a instância do SQL Server de origem deve ter privilégios de gravação nesse compartilhamento de rede. Forneça um FQDN ou endereços IP do servidor no compartilhamento de rede, por exemplo, “\\\servername.domainname.com\backupfolder' ou '\\\IP address\backupfolder”.|
-    |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração. Se os bancos de dados habilitados para TDE forem selecionados para migração, o usuário do Windows acima deve ser a conta de administrador interno e [Controle de Conta de Usuário](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) deve ser desabilitado para o Serviço de Migração de Banco de Dados carregar e excluir os arquivos de certificados). |
+    |**Nome de usuário** | Certifique-se de que o usuário do Windows possui privilégios de controle total no compartilhamento de rede fornecido acima. O Serviço de Migração de Banco de Dados do Azure representará a credencial do usuário para carregar os arquivos de backup no contêiner de armazenamento do Azure para a operação de restauração. Se os bancos de dados habilitados para TDE forem selecionados para migração, o usuário do Windows acima deve ser a conta de administrador interno e [Controle de Conta de Usuário](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) deve ser desabilitado para o Serviço de Migração de Banco de Dados carregar e excluir os arquivos de certificados). |
     |**Senha** | Senha do usuário. |
     |**Configurações da conta de armazenamento** | O URI SAS que fornece ao Serviço de Migração do Banco de Dados do Azure acesso ao contêiner da conta de armazenamento no qual o serviço carrega os arquivos de backup e que é usado para a migração de bancos de dados para a Instância Gerenciada do Banco de Dados SQL do Azure. [Saiba como obter o URI SAS do contêiner de blobs](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     |**Configurações de TDE** | Se você estiver migrando bancos de dados de origem com a criptografia Transparent Data Encryption (TDE) habilitada, você precisa ter privilégios de gravação na Instância Gerenciada do Banco de Dados SQL do Azure de destino.  Selecione a assinatura onde foi provisionada a Instância Gerenciada do Banco de Dados SQL do Azure no menu suspenso.  Selecione a Instância Gerenciada do Banco de Dados SQL do Azure de destino no menu suspenso. |

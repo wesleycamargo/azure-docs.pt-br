@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971259"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746710"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Linux em seu cluster do Service Fabric
 
@@ -57,7 +57,7 @@ O aplicativo de orquestração de patch é composto dos seguintes subcomponentes
 > [!NOTE]
 > O aplicativo de orquestração de patch usa o serviço do sistema do gerenciador de reparo do Service Fabric para habilitar ou desabilitar o nó e executar as verificações de integridade. A tarefa de reparo criada pelo aplicativo de orquestração de patch rastreia o progresso da Atualização para cada nó.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Certifique-se de que suas VMs do Azure estejam executando Ubuntu 16.04
 No momento da elaboração deste documento, o Ubuntu 16.04 (`Xenial Xerus`) é a única versão compatível.
@@ -121,7 +121,7 @@ Para Ubuntu, [atualizações autônomas](https://help.ubuntu.com/community/Autom
 
 O aplicativo juntamente com scripts de instalação podem ser baixados do [link de arquivo](https://go.microsoft.com/fwlink/?linkid=867984).
 
-O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
+O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar o aplicativo
 
@@ -370,5 +370,8 @@ O aplicativo de orquestração de patch coleta a telemetria para acompanhar o us
 ### <a name="version-200"></a>Versão 2.0.0
 - Versão pública
 
-### <a name="version-201-latest"></a>Versão 2.0.1 (mais recente)
+### <a name="version-201"></a>Versão 2.0.1
 - Recompilação do aplicativo usando o SDK mais recente do Service Fabric
+
+### <a name="version-202-latest"></a>Versão 2.0.2 (mais recente)
+- Corrigido um problema com o aviso de integridade sendo deixado para trás durante a reinicialização.

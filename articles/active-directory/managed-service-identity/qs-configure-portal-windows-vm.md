@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 552fce2ffd8b6bd786010da82e702ee98c3f8647
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213258"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888549"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Configure uma Identidade de Serviço Gerenciada VM de usando o portal do Azure
 
@@ -27,10 +27,7 @@ ms.locfileid: "39213258"
 
 A Identidade de Serviço Gerenciado fornece aos serviços do Azure uma identidade gerenciada automaticamente no Active Directory do Azure. Você pode usar essa identidade para autenticar em qualquer serviço que dá suporte à autenticação do Azure AD, incluindo o Key Vault, sem ter as credenciais no seu código. 
 
-Neste artigo, você aprenderá a habilitar e a desabilitar a identidade atribuída pelo sistema para uma VM do Azure usando o Portal do Azure. No momento, não há suporte para atribuir e remover identidades atribuídas ao usuário de VMs do Azure por meio do Portal do Azure.
-
-> [!NOTE]
-> No momento, não há suporte para operações de identidade atribuída pelo usuário por meio do Portal do Azure. Procure novamente por atualizações. 
+Neste artigo, você aprende a habilitar e a desabilitar a identidade atribuída pelo sistema e pelo usuário para uma VM (máquina virtual) do Azure usando o portal do Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,44 +36,69 @@ Neste artigo, você aprenderá a habilitar e a desabilitar a identidade atribuí
 - Para realizar as operações de gerenciamento deste artigo, sua conta precisará da seguinte atribuição de função:
     - [Colaborador de Máquina Virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) para habilitar e remover a identidade atribuída do sistema de uma VM do Azure.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Identidade de Serviço Gerenciada durante a criação de uma VM do Azure
+## <a name="system-assigned-identity"></a>Identidade atribuída pelo sistema
 
-No momento, não há suporte de criação de VM por meio do Portal do Azure para operações de Identidade de Serviço Gerenciada. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VM para primeiro criar uma VM:
+Nesta seção, você aprende a habilitar e desabilitar a identidade atribuída pelo sistema para uma VM usando o portal do Azure.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-vm"></a>Habilitar a identidade atribuída pelo sistema durante a criação de uma VM
+
+Atualmente, o portal do Azure não dá suporte à habilitação da identidade atribuída pelo sistema durante a criação de uma VM. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VMs para primeiro criar uma VM e, em seguida, vá para a próxima seção para obter detalhes sobre como habilitar a identidade atribuída pelo sistema na VM:
 
 - [Criar uma máquina virtual do Windows com o Portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Criar uma máquina virtual Linux com o Portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
-Vá para a próxima seção para obter detalhes sobre como habilitar a Identidade de Serviço Gerenciada na VM.
-
-## <a name="enable-managed-service-identity-on-an-existing-azure-vm"></a>Habilitar a Identidade de Serviço Gerenciada em uma VM existente do Azure
+### <a name="enable-system-assigned-identity-on-an-existing-vm"></a>Habilitar a identidade atribuída pelo sistema em uma VM existente
 
 Para habilitar a identidade atribuída pelo sistema em uma VM que foi originalmente provisionada sem ela:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM.
 
-2. Navegue até a Máquina Virtual desejada e selecione a página "Configuração".
+2. Navegue até a Máquina Virtual desejada e selecione **Identidade**.
 
-3. Habilite a identidade atribuída pelo sistema na VM selecionando "Sim" em "Identidade de serviço gerenciada" e clique em **Salvar**. Esta operação pode demorar 60 segundos ou mais para ser concluída:
-
-   > [!NOTE]
-   > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
+3. Em **Sistema atribuído**, **Status**, selecione **Ativado** e, em seguida, clique em **Salvar**:
 
    ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Remova a Identidade de Serviço Gerenciada de uma VM do Azure
+### <a name="remove-system-assigned-identity-from-a-vm"></a>Remover uma identidade atribuída pelo sistema de uma VM
 
 Se você tiver uma Máquina Virtual que não precisa mais da identidade atribuída pelo sistema:
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM. 
 
-2. Navegue até a Máquina Virtual desejada e selecione a página "Configuração".
+2. Navegue até a Máquina Virtual desejada e selecione **Identidade**.
 
-3. Desabilite a identidade atribuída pelo sistema na VM selecionando "Não" em "Identidade de serviço gerenciado" e clique em Salvar. Esta operação pode demorar 60 segundos ou mais para ser concluída:
+3. Em **Sistema atribuído**, **Status**, selecione **Desativado** e, em seguida, clique em **Salvar**:
 
-    > [!NOTE]
-    > Não há suporte para adicionar uma identidade atribuída pelo usuário para uma VM por meio do Portal do Azure.
+   ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
-   ![Captura de tela da página de configuração](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+## <a name="user-assigned-identity"></a>Identidade atribuída pelo usuário
+
+ Nesta seção, você aprende a adicionar e remover uma identidade atribuída pelo usuário de uma VM usando o portal do Azure.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Atribuir uma identidade atribuída pelo usuário durante a criação de uma VM
+
+Atualmente, o portal do Azure não dá suporte à atribuição de uma identidade atribuída pelo usuário durante a criação de uma VM. Em vez disso, consulte um dos seguintes artigos de início rápido de criação de VMs para primeiro criar uma VM e, em seguida, vá para a próxima seção para obter detalhes sobre como atribuir uma identidade atribuída pelo usuário à VM:
+
+- [Criar uma máquina virtual do Windows com o Portal do Azure](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Criar uma máquina virtual Linux com o Portal do Azure](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-vm"></a>Atribuir uma identidade atribuída pelo usuário a uma VM existente
+
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM.
+2. Navegue até a VM desejada e clique em **Identidade**, **Usuário atribuído** e, em seguida, **\+Adicionar**.
+
+   ![Adicionar identidade atribuída pelo usuário à VM](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+
+3. Clique na identidade atribuída pelo usuário que você deseja adicionar à VM e, em seguida, clique em **Adicionar**.
+
+    ![Adicionar identidade atribuída pelo usuário à VM](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-vm"></a>Remover identidade atribuída pelo usuário de uma VM
+
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta associada à assinatura do Azure que contenha a VM.
+2. Navegue até a VM desejada e clique em **Identidade**, **Usuário atribuído**, clique no nome da identidade atribuída pelo usuário que deseja excluir e, em seguida, clique em **Remover** (clique em **Sim** no painel de confirmação).
+
+   ![Remover identidade atribuída pelo usuário de uma VM](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vm-screenshot.png)
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

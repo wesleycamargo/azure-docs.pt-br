@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139993"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747037"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associações de Hubs de Eventos do Azure para o Azure Functions
 
@@ -52,24 +52,24 @@ Quando uma função de gatilho dos Hubs de Eventos é disparada, a mensagem que 
 
 ## <a name="trigger---scaling"></a>Gatilho - dimensionamento
 
-Cada instância de uma função disparada pelo Hub de Eventos é suportada por apenas uma instância de EPH (EventProcessorHost). Os Hubs de Eventos fazem com que apenas 1 EPH possa obter uma concessão em determinada partição.
+Cada instância de uma função disparada pelo hub de eventos tem suporte apenas de uma instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Os Hubs de Eventos garantem que apenas uma instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) possa obter uma concessão em uma determinada partição.
 
-Por exemplo, suponha que vamos começar com a configuração e as premissas para um Hub de Eventos abaixo:
+Por exemplo, considere um Hub de eventos da seguinte maneira:
 
-1. 10 partições.
-1. 1000 eventos distribuídos uniformemente em todas as partições => 100 mensagens em cada partição.
+* 10 partições.
+* 1000 eventos distribuídos uniformemente em todas as partições, com 100 mensagens em cada partição.
 
-Quando sua função é habilitada pela primeira vez, há apenas uma instância da função. Vamos chamar essa instância de função Function_0. Function_0 terá 1 EPH que consegue obter uma concessão em todas as 10 partições. Ela começará a ler eventos das partições 0 a 9. Daqui em diante, uma destas opções ocorrerá:
+Quando sua função é habilitada pela primeira vez, há apenas uma instância da função. Vamos chamar essa instância de função `Function_0`. `Function_0` tem uma única instância de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) que tem uma concessão em todas as dez partições. Esta instância está lendo eventos das partições 0 a 9. Deste ponto em diante, uma destas opções ocorre:
 
-* **Somente uma instância de função é necessária**-: Function_0 é capaz de processar todos os 1000 antes que lógica de dimensionamento do Azure Functions seja ativada. Portanto, todas as 1000 mensagens são processadas pela Function_0.
+* **Novas instâncias de função não são necessárias**: `Function_0` é capaz de processar todos os 1000 eventos antes da lógica de dimensionamento do Functions entrar em ação. Nesse caso, todas as 1000 mensagens são processadas pelo `Function_0`.
 
-* **Adicionar mais uma instância de função**: a lógica de dimensionamento do Azure Functions determina que Function_0 tem mais mensagens do que ela pode processar e, portanto, uma nova instância, Function_1, é criada. Os Hubs de Eventos detectam que uma nova instância EPH está tentando ler mensagens. Os Hubs de Eventos iniciam o balanceamento de carga das partições entre as instâncias EPH, por exemplo,as partições de 0 a 4 são atribuídas a Function_0 e as partições de 5 a 9 são atribuídas a Function_1. 
+* **Outra instância de função é adicionada**: a lógica de dimensionamento do Functions determina que `Function_0` tem mais mensagens do que pode processar. Neste caso, uma nova instância do aplicativo de função (`Function_1`) é criada, junto com uma nova instância do [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Os Hubs de Eventos detectam que uma nova instância de host está tentando ler mensagens. Os Hubs de Eventos fazem o balanceamento de carga das partições entre essas instâncias de host. Por exemplo, as partições de 0 a 4 podem ser atribuídas a `Function_0` e as partições de 5 a 9 para `Function_1`. 
 
-* **Adicionar mais N instâncias de função**: a lógica de dimensionamento do Azure Functions determina que Function_0 e Function_1 têm mais mensagens do que podem processar. Ela escala novamente para Function_2...N, em que N é maior do que o número de partições do Hub de Eventos. Os Hubs de Eventos fazem o balanceamento de carga das partições nas instâncias Function_0 a Function_9.
+* **Mais N instâncias de função são adicionadas**: a lógica de dimensionamento do Functions determina que `Function_0` e `Function_1` têm mais mensagens do que podem processar. Novas instâncias do aplicativo de função `Function_2` a `Functions_N` são criadas, em que `N` é maior que o número de partições do hub de eventos. Em nosso exemplo, os Hubs de Eventos balanceiam a carga das partições novamente e, nesse caso, entre as instâncias `Function_0` e `Functions_9`. 
 
-O que é único na lógica de dimensionamento do Azure Functions é o fato de que N é maior que o número de partições. Isso é feito para garantir que sempre existam instâncias do EPH prontamente disponíveis para garantir rapidamente as partições quando ficam disponíveis de outras instâncias. Os usuários pagam apenas pelos recursos usados quando a instância de função é executada e não serão cobrados por esse excesso de provisionamento.
+Observe isso quando o Functions é dimensionado para `N` instâncias, que é um número maior que o número de partições do hub de eventos. Isso é feito para certificar-se de que sempre haja instâncias de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) disponíveis para obter bloqueios em partições conforme elas ficam disponíveis de outras instâncias. Você paga apenas pelos recursos usados quando a instância de função é executada; você não é cobrado por esse excesso de provisionamento.
 
-Se todas as execuções de função tiverem êxito sem erros, os pontos de verificação serão adicionados à conta de armazenamento associada. Quando a verificação é bem-sucedida, todas as 1000 mensagens deixam de ser recuperadas.
+Quando todas as execuções de função são concluídas (com ou sem erros), os pontos de verificação são adicionados à conta de armazenamento associada. Quando a verificação é bem-sucedida, todas as 1000 mensagens não são mais recuperadas.
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
@@ -313,7 +313,7 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Gatilho - exemplo de Java
+### <a name="trigger---java-example"></a>Gatilho - exemplo Java
 
 O exemplo a seguir mostra uma ligação de acionador do Hub de Eventos em um arquivo *function.json* e uma [função Java](functions-reference-java.md) que usa a ligação. A função registra o corpo da mensagem do gatilho de Hub de eventos.
 
@@ -339,7 +339,7 @@ public void eventHubProcessor(
  }
  ```
 
- No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `EventHubTrigger` anotação em parâmetros cujo valor virá do Hub de eventos. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Essa anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando Optional<T>. 
+ No [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use o `EventHubTrigger` anotação em parâmetros cujo valor virá do Hub de eventos. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Essa anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando <T>Optional. 
 
 ## <a name="trigger---attributes"></a>Gatilho – atributos
 

@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390714"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888722"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
-Este guia destina-se a profissionais de TI, analistas de segurança da informação e administradores de nuvem cujas organizações usam o Azure Disk Encryption. Este artigo é fornecer orientação para solucionar problemas relacionados à criptografia de disco.
+Este guia destina-se a profissionais de TI, analistas de segurança da informação e administradores de nuvem cujas organizações usam o Azure Disk Encryption. Este artigo é para ajudar na solução de problemas relacionados à criptografia de disco.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Solução de problemas de criptografia de disco do SO Linux
 
 A criptografia de disco do SO (sistema operacional) Linux deve desmontar a unidade do SO antes de executá-lo por meio do processo de criptografia de disco completo. Se não for possível desmontar a unidade, é provável que ocorra uma mensagem de erro de "falha ao desmontar após ...".
 
-Esse erro pode ocorrer quando a criptografia de disco do sistema operacional é tentada em um ambiente de VM de destino que foi alterado da imagem da galeria de ações suportada. Exemplos de desvios da imagem suportada que podem interferir na capacidade da extensão de desmontar a unidade do SO incluem os seguintes motivos:
+Esse erro pode ocorrer quando a criptografia de disco do sistema operacional é tentada em um ambiente de VM de destino que foi alterado da imagem da galeria de ações suportada. Desvios da imagem compatível podem interferir com a capacidade da extensão de desmontar a unidade do SO. Exemplos de desvios podem incluir os seguintes itens:
 - Imagens personalizadas que não correspondem mais a um sistema de arquivos ou esquema de particionamento suportado.
 - Não há suporte para aplicativos grandes, como SAP, MongoDB, Apache Cassandra e Docker, quando eles estão instalados e executados no sistema operacional antes da criptografia. A Criptografia de Disco do Azure não consegue encerrar esses processos com segurança, conforme necessário na preparação da unidade do sistema operacional para criptografia de disco. Se ainda houver processos ativos mantendo alças de arquivos abertos na unidade do sistema operacional, a unidade do sistema operacional não poderá ser desmontada, resultando em uma falha na criptografia da unidade do sistema operacional. 
 - Scripts personalizados que são executados próximos à hora de encerramento da criptografia que está sendo habilitada ou se qualquer outra alteração estiver sendo feita na VM durante o processo de criptografia. Esse conflito pode acontecer quando um modelo do Azure Resource Manager define múltiplas extensões para executar simultaneamente ou quando uma extensão de script personalizada ou outra ação é executada simultaneamente com a criptografia de disco. Serializar e isolar tais etapas pode resolver o problema.
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Solução de problemas de status de criptografia
+<!-- ## Troubleshooting encryption status
 
-Se o estado de criptografia esperado não coincide com o que está sendo relatado no portal, consulte o seguinte artigo de suporte: [status de criptografia é exibido incorretamente no Portal de gerenciamento do Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste documento, você aprendeu mais sobre alguns problemas comuns no Azure Disk Encryption e como solucioná-los. Para saber mais sobre esse serviço e seus recursos, confira os seguintes artigos:
 
 - [Aplicar a criptografia de disco na Central de Segurança do Azure](../security-center/security-center-apply-disk-encryption.md)
-- [Criptografar uma máquina virtual do Azure](../security-center/security-center-disk-encryption.md)
 - [Criptografia de dados em repouso do Azure](azure-security-encryption-atrest.md)

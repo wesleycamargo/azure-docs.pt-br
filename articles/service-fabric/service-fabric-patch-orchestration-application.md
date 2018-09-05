@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142040"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746890"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -139,7 +139,7 @@ As atualizações automáticas do Windows podem causar a perda de disponibilidad
 
 O aplicativo juntamente com scripts de instalação podem ser baixados do [link de arquivo](https://go.microsoft.com/fwlink/?linkid=869566).
 
-O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
+O aplicativo no formato sfpkg pode ser baixado do [link sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Isso é útil para a [Implantação de aplicativo baseado no Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurar o aplicativo
 
@@ -398,3 +398,5 @@ Um administrador deve intervir e determinar por que o aplicativo ou cluster se t
 ### <a name="version-122-latest"></a>Versão 1.2.2 (mais recente)
 
 - Diversas correções de bugs.
+- Binários agora são assinados.
+- O link de download do sfpkg agora aponta para uma versão específica.

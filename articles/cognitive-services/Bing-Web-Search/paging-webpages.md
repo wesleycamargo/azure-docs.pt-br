@@ -1,6 +1,6 @@
 ---
-title: Como paginar páginas da web disponíveis | Microsoft Docs
-description: Mostra como paginar todas as páginas da web que o Bing pode retornar.
+title: Como paginar os resultados da API de Pesquisa na Web do Bing | Microsoft Docs
+description: Saiba como paginar os resultados da API de Pesquisa na Web do Bing.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35363400"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888234"
 ---
-# <a name="paging-webpages"></a>Paginação de páginas da Web 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Como paginar os resultados da API de Pesquisa na Web do Bing
 
 Quando você chama a API de Pesquisa na Web, o Bing retorna uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total estimado de resultados disponíveis, acesse o campo [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) do objeto de resposta.  
   
-A exemplo a seguir mostra o campo `totalEstimatedMatches` que inclui uma resposta de Web.  
+O exemplo a seguir mostra o campo `totalEstimatedMatches` que uma resposta da Web inclui.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,7 +32,7 @@ A exemplo a seguir mostra o campo `totalEstimatedMatches` que inclui uma respost
         "value" : [...]
     }
 }  
-```  
+```
   
 Para paginar as páginas da Web disponíveis, use os parâmetros de consulta [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
   

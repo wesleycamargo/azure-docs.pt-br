@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 67cff664f3723b2194ecd1519729cca17069d07f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcfa6ead0eac4a8a631c0388466534406c7a594b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040211"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887331"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Aplicar a criptografia de disco na Central de Segurança do Azure
 A Central de Segurança do Azure recomenda que você aplique a criptografia de disco caso haja discos de VM do Windows ou Linux que não estejam criptografados com o Azure Disk Encryption. A Criptografia de Disco permite que você criptografe os discos de VM IaaS do Windows e do Linux.  A criptografia é recomendada para volumes de dados e do sistema operacional em sua VM.
@@ -44,7 +44,7 @@ Para criptografar as Máquinas Virtuais do Azure identificadas pela Central de S
 * Obter e executar o script Pré-requisitos de Azure Disk Encryption do Azure PowerShell.
 * Criptografar suas máquinas virtuais.
 
-[Criptografar uma Máquina Virtual do Azure](security-center-disk-encryption.md) explica essas etapas.  Esse tópico presume que você está usando o Windows 10 como o computador cliente no qual a criptografia de disco será configurada.
+[Criptografar uma VM de IaaS do Windows com o Azure PowerShell](../security/quick-encrypt-vm-powershell.md) explica essas etapas. Esse tópico presume que você esteja usando um computador cliente Windows, do qual você realize a configuração da criptografia de disco.
 
 Há várias abordagens que podem ser usadas para as Máquinas Virtuais do Azure. Se você já estiver bem familiarizado com o Azure PowerShell ou a CLI do Azure, poderá preferir usar abordagens alternativas. Para saber mais sobre essas outras abordagens, confira [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
@@ -52,8 +52,7 @@ Há várias abordagens que podem ser usadas para as Máquinas Virtuais do Azure.
 Este documento mostrou como implementar a recomendação da Central de Segurança "Aplicar criptografia de disco". Para saber mais sobre a criptografia de disco, confira o seguinte:
 
 * [Criptografia e gerenciamento de chaves com o Cofre da Chave do Azure](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (vídeo, 36 minutos e 39 segundos) – saiba como usar o gerenciamento de criptografia de disco para VMs IaaS e o Cofre da Chave do Azure para ajudar a proteger seus dados.
-* [Criptografar uma máquina virtual Azure](security-center-disk-encryption.md) (documento) – saiba como criptografar máquinas virtuais do Azure.
-* [Azure Disk Encryption](../security/azure-security-disk-encryption.md) (documento) – saiba como habilitar a criptografia de disco para VMs do Windows e do Linux.
+* [Azure Disk Encryption](../security/azure-security-disk-encryption-overview.md) (documento) – saiba como habilitar a criptografia de disco para VMs do Windows e do Linux.
 
 Para saber mais sobre a Central de Segurança, confira o seguinte:
 

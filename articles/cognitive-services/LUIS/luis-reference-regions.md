@@ -1,21 +1,21 @@
 ---
-title: Regiões do LUIS (Reconhecimento vocal) | Microsoft Docs
+title: Regiões e pontos de extremidade do LUIS (Reconhecimento Vocal) – Azure – LUIS dos Serviços Cognitivos | Microsoft Docs
 titleSuffix: Azure
-description: Este artigo contém listas de regiões do LUIS para o site do LUIS, assinaturas do Azure e regiões do mundo.
+description: A região na qual você publica seu aplicativo LUIS corresponde à região ou ao local especificado no portal do Azure quando você cria uma chave do ponto de extremidade LUIS do Azure. Quando você publica um aplicativo, o LUIS gera automaticamente uma URL de ponto de extremidade para a região associada à chave. Para publicar um aplicativo LUIS em mais de uma região, é necessário ter pelo menos uma chave por região.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 08/23/2018
 ms.author: diberry
-ms.openlocfilehash: 1f6090bf1ac588585a16f93d2ac091e8950ca45f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238923"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815496"
 ---
 # <a name="regions-and-keys"></a>Regiões e chaves
 
@@ -59,6 +59,24 @@ Para publicar nas regiões europeias, crie os aplicativos LUIS em https://eu.lui
 ## <a name="publishing-to-australia"></a>Publicando na Austrália
 
 Para publicar nas regiões australianas, crie os aplicativos LUIS em https://au.luis.ai apenas. Se você tentar publicar em outro lugar usando uma chave na região australiana, o LUIS exibirá uma mensagem de aviso. Em vez disso, use https://au.luis.ai. Os aplicativos LUIS criados em [https://au.luis.ai][au.luis.ai] não são migrados automaticamente para outras regiões. Exporte e importe o aplicativo LUIS para migrá-lo.
+
+## <a name="endpoints"></a>Pontos de extremidade
+
+Atualmente, o LUIS tem 2 pontos de extremidade: um para a criação e outro para análise de texto.
+
+|Finalidade|URL|
+|--|--|
+|Criação|`https://{region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|Análise de texto (previsão de consulta)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+
+A tabela a seguir explica os parâmetros, indicados com chaves `{}`, na tabela anterior.
+
+|Parâmetro|Finalidade|
+|--|--|
+|region|Região do Azure – a criação e a publicação têm regiões diferentes|
+|appID|A ID do aplicativo LUIS usada na rota de URL e encontrada no painel do aplicativo|
+|q|texto de expressão enviado do aplicativo cliente como chat bot|
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

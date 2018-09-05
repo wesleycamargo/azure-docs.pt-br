@@ -1,6 +1,6 @@
 ---
-title: Atualizando o provedor de recursos do SQL do Azure pilha | Microsoft Docs
-description: Saiba como você pode atualizar o provedor de recursos do SQL de pilha do Azure.
+title: Atualizando o provedor de recursos do SQL do Azure Stack | Microsoft Docs
+description: Saiba como você pode atualizar o provedor de recursos do SQL do Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,37 +11,37 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264070"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697934"
 ---
 # <a name="update-the-sql-resource-provider"></a>Atualizar o provedor de recursos do SQL
 
-*Aplica-se a: sistemas integrados de pilha do Azure.*
+*Aplica-se a: sistemas integrados do Azure Stack.*
 
-Um novo provedor de recursos do SQL pode ser liberado quando a pilha do Azure é atualizada para uma nova compilação. Embora o adaptador existente continuará a funcionar, é recomendável atualizar para a versão mais recente assim que possível.
+Um novo provedor de recursos do SQL pode ser liberado quando o Azure Stack é atualizado para uma nova compilação. Embora o adaptador existente continua a funcionar, é recomendável atualizar para a compilação mais recente assim que possível.
 
 >[!IMPORTANT]
->Você deve instalar as atualizações na ordem em que elas são lançadas. Não é possível ignorar as versões. Consulte a lista de versões em [implantar os pré-requisitos do provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+>Você deve instalar as atualizações na ordem em que elas forem lançadas. Não é possível ignorar as versões. Consulte a lista de versões no [implantar os pré-requisitos do provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Visão geral
 
-Para atualizar o provedor de recursos, use o *UpdateSQLProvider.ps1* script. Esse script é incluído com o download do novo provedor de recursos do SQL. O processo de atualização é semelhante ao processo usado para [implantar o provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md). O script de atualização usa os mesmos argumentos que o script DeploySqlProvider.ps1, e você precisará fornecer informações de certificado.
+Para atualizar o provedor de recursos, use o *UpdateSQLProvider.ps1* script. Esse script está incluído com o download do novo provedor de recursos do SQL. O processo de atualização é semelhante ao processo que costumava [implantar o provedor de recursos](.\azure-stack-sql-resource-provider-deploy.md). O script de atualização usa os mesmos argumentos que o script DeploySqlProvider.ps1, e você precisará fornecer informações de certificado.
 
 ### <a name="update-script-processes"></a>Processos de script de atualização
 
 O *UpdateSQLProvider.ps1* script cria uma nova máquina virtual (VM) com o código mais recente do provedor de recursos.
 
 >[!NOTE]
->É recomendável que você baixe a imagem do Windows Server 2016 Core mais recente do gerenciamento do Marketplace. Se você precisar instalar uma atualização, você pode colocar um **único** pacote MSU no caminho do local de dependência. O script falhará se houver mais de um arquivo MSU neste local.
+>É recomendável que você baixe a imagem mais recente do Windows Server 2016 Core do gerenciamento do Marketplace. Se você precisar instalar uma atualização, você pode colocar uma **único** pacote MSU no caminho do local de dependência. O script falhará se não houver mais de um arquivo MSU neste local.
 
-Após o *UpdateSQLProvider.ps1* script cria uma nova VM, o script migra as seguintes configurações do provedor de antigo VM:
+Após o *UpdateSQLProvider.ps1* script cria uma nova VM, o script migra as seguintes configurações do provedor antigo de VM:
 
 * informações de banco de dados
 * informações do servidor de hospedagem
@@ -49,10 +49,10 @@ Após o *UpdateSQLProvider.ps1* script cria uma nova VM, o script migra as segui
 
 ### <a name="update-script-powershell-example"></a>Atualizar exemplo de script do PowerShell
 
-Você pode editar e executar o script a seguir de um ISE do PowerShell com privilégios elevados. Lembre-se de alterar as informações de conta e senhas conforme necessário para seu ambiente.
+Você pode editar e executar o script a seguir de um PowerShell ISE elevado. Lembre-se de alterar as informações de conta e senhas, conforme necessário para o seu ambiente.
 
 > [!NOTE]
-> Esse processo de atualização só se aplica a sistemas de pilha do Azure integradas.
+> Esse processo de atualização se aplica somente a sistemas integrados do Azure Stack.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
@@ -97,19 +97,20 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="updatesqlproviderps1-parameters"></a>Parâmetros de UpdateSQLProvider.ps1
 
-Você pode especificar os seguintes parâmetros de linha de comando quando você executa o script. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, será solicitado a fornecer os parâmetros necessários.
+Você pode especificar os seguintes parâmetros da linha de comando quando você executa o script. Se você não fizer isso, ou se nenhuma validação de parâmetro falhar, você será solicitado a fornecer os parâmetros necessários.
 
 | Nome do parâmetro | DESCRIÇÃO | Comentário ou o valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _Obrigatório_ |
-| **AzCredential** | As credenciais da conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure. | _Obrigatório_ |
-| **VMLocalCredential** | As credenciais de conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ |
+| **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
+| **VMLocalCredential** | As credenciais para a conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ |
+| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que você usou para implantar o Azure Stack. Necessário somente se não for ADFS. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, usando o **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Você também deve colocar o arquivo. pfx de certificado neste diretório. | _Opcional para um único nó, mas obrigatório para vários nós_ |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |
-| **RetryDuration** |O intervalo de tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remove o provedor de recursos e todos os respectivos recursos. | Não  |
+| **RetryDuration** |O intervalo de tempo limite entre novas tentativas, em segundos. | 120 |
+| **Desinstalar** | Remove o provedor de recursos e todos os recursos associados. | Não  |
 | **DebugMode** | Impede que a limpeza automática em caso de falha. | Não  |
 
 ## <a name="next-steps"></a>Próximas etapas

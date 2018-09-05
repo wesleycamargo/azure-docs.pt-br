@@ -1,94 +1,113 @@
-
-* **Back-end .NET (C#)**:      
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: 1b3538755233e59fb474be810e63907dfc4b8f5c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42809444"
+---
+**Back-end .NET (C#)**:
   
-  1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de Hubs de Notificação para enviar notificações do seu back-end.
-  2. No projeto Visual Studio do back-end, abra **Controladores** > **TodoItemController.cs**. Na parte superior do arquivo, adicione a seguinte instrução `using` :
-     
-          using Microsoft.Azure.Mobile.Server.Config;
-          using Microsoft.Azure.NotificationHubs;
+1. No Visual Studio, clique com o botão direito do mouse no projeto do servidor e clique em **Gerenciar pacotes NuGet**, pesquise por `Microsoft.Azure.NotificationHubs` e clique em **Instalar**. Isso instala a biblioteca de Hubs de Notificação para enviar notificações do seu back-end.
+2. No projeto Visual Studio do back-end, abra **Controladores** > **TodoItemController.cs**. Na parte superior do arquivo, adicione a seguinte instrução `using` :
 
-    3. Substitua o método `PostTodoItem` pelo seguinte código:  
+    ```csharp
+    using Microsoft.Azure.Mobile.Server.Config;
+    using Microsoft.Azure.NotificationHubs;
+    ```
 
-            public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-            {
-                TodoItem current = await InsertAsync(item);
-                // Get the settings for the server project.
-                HttpConfiguration config = this.Configuration;
+3. Substitua o método `PostTodoItem` pelo seguinte código:  
 
-                MobileAppSettingsDictionary settings = 
-                    this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+    ```csharp
+    public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+    {
+        TodoItem current = await InsertAsync(item);
+        // Get the settings for the server project.
+        HttpConfiguration config = this.Configuration;
 
-                // Get the Notification Hubs credentials for the Mobile App.
-                string notificationHubName = settings.NotificationHubName;
-                string notificationHubConnection = settings
-                    .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
+        MobileAppSettingsDictionary settings = 
+            this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
 
-                // Create a new Notification Hub client.
-                NotificationHubClient hub = NotificationHubClient
-                .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
+        // Get the Notification Hubs credentials for the Mobile App.
+        string notificationHubName = settings.NotificationHubName;
+        string notificationHubConnection = settings
+            .Connections[MobileAppSettingsKeys.NotificationHubConnectionString].ConnectionString;
 
-                // iOS payload
-                var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
+        // Create a new Notification Hub client.
+        NotificationHubClient hub = NotificationHubClient
+        .CreateClientFromConnectionString(notificationHubConnection, notificationHubName);
 
-                try
-                {
-                    // Send the push notification and log the results.
-                    var result = await hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
+        // iOS payload
+        var appleNotificationPayload = "{\"aps\":{\"alert\":\"" + item.Text + "\"}}";
 
-                    // Write the success result to the logs.
-                    config.Services.GetTraceWriter().Info(result.State.ToString());
-                }
-                catch (System.Exception ex)
-                {
-                    // Write the failure result to the logs.
-                    config.Services.GetTraceWriter()
-                        .Error(ex.Message, null, "Push.SendAsync Error");
-                }
-                return CreatedAtRoute("Tables", new { id = current.Id }, current);
-            }
+        try
+        {
+            // Send the push notification and log the results.
+            var result = await hub.SendAppleNativeNotificationAsync(appleNotificationPayload);
 
-    4. Republicar o projeto de servidor.
+            // Write the success result to the logs.
+            config.Services.GetTraceWriter().Info(result.State.ToString());
+        }
+        catch (System.Exception ex)
+        {
+            // Write the failure result to the logs.
+            config.Services.GetTraceWriter()
+                .Error(ex.Message, null, "Push.SendAsync Error");
+        }
+        return CreatedAtRoute("Tables", new { id = current.Id }, current);
+    }
+    ```
 
-* **Back-end node.js** : 
-  
-  1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
-  2. Substitua o script da tabela todoitem.js pelo seguinte código:
+4. Republicar o projeto de servidor.
 
-            var azureMobileApps = require('azure-mobile-apps'),
-                promises = require('azure-mobile-apps/src/utilities/promises'),
-                logger = require('azure-mobile-apps/src/logger');
+**Back-end do Node.js**:
 
-            var table = azureMobileApps.table();
+1. Se você ainda não fez isso, [baixe o projeto de início rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) ou, caso contrário, use o [editor online no Portal do Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).    
 
-            // When adding record, send a push notification via APNS
-            table.insert(function (context) {
-                // For details of the Notification Hubs JavaScript SDK, 
-                // see http://aka.ms/nodejshubs
-                logger.info('Running TodoItem.insert');
+2. Substitua o script da tabela todoitem.js pelo seguinte código:
 
-                // Create a payload that contains the new item Text.
-                var payload = "{\"aps\":{\"alert\":\"" + context.item.text + "\"}}";
+    ```javascript
+    var azureMobileApps = require('azure-mobile-apps'),
+        promises = require('azure-mobile-apps/src/utilities/promises'),
+        logger = require('azure-mobile-apps/src/logger');
 
-                // Execute the insert; Push as a post-execute action when results are returned as a Promise.
-                return context.execute()
-                    .then(function (results) {
-                        // Only do the push if configured
-                        if (context.push) {
-                            context.push.apns.send(null, payload, function (error) {
-                                if (error) {
-                                    logger.error('Error while sending push notification: ', error);
-                                } else {
-                                    logger.info('Push notification sent successfully!');
-                                }
-                            });
+    var table = azureMobileApps.table();
+
+    // When adding record, send a push notification via APNS
+    table.insert(function (context) {
+        // For details of the Notification Hubs JavaScript SDK, 
+        // see http://aka.ms/nodejshubs
+        logger.info('Running TodoItem.insert');
+
+        // Create a payload that contains the new item Text.
+        var payload = "{\"aps\":{\"alert\":\"" + context.item.text + "\"}}";
+
+        // Execute the insert; Push as a post-execute action when results are returned as a Promise.
+        return context.execute()
+            .then(function (results) {
+                // Only do the push if configured
+                if (context.push) {
+                    context.push.apns.send(null, payload, function (error) {
+                        if (error) {
+                            logger.error('Error while sending push notification: ', error);
+                        } else {
+                            logger.info('Push notification sent successfully!');
                         }
-                        return results;
-                    })
-                    .catch(function (error) {
-                        logger.error('Error while running context.execute: ', error);
                     });
+                }
+                return results;
+            })
+            .catch(function (error) {
+                logger.error('Error while running context.execute: ', error);
             });
+    });
 
-            module.exports = table;
+    module.exports = table;
+    ```
 
-    2. Ao editar o arquivo no seu computador local, republique o projeto do servidor.
+3. Ao editar o arquivo no seu computador local, republique o projeto do servidor.

@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056167"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885486"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Tutorial: Usar uma Identidade Gerenciada da VM do Windows para acessar o Armazenamento do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar a Identidade Gerenciada para uma Máquina Virtual do Windows e, em seguida, usar essa identidade para acessar o Armazenamento do Azure.  Você aprenderá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual (VM) do Windows para acessar o Armazenamento do Azure. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma máquina virtual do Windows em um novo grupo de recursos 
-> * Habilitar a Identidade Gerenciado em uma VM (Máquina Virtual) do Windows
 > * Criar um contêiner de blobs em uma conta de armazenamento
 > * Conceda à sua Identidade Gerenciada de VM do Windows acesso a uma conta de armazenamento 
 > * Obter um acesso e usá-lo para chamar o Armazenamento do Azure 
@@ -43,31 +41,11 @@ Este tutorial mostra como habilitar a Identidade Gerenciada para uma Máquina Vi
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+- [Entrar no portal do Azure](https://portal.azure.com)
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
-
-Nesta seção, você cria uma VM do Windows que, depois, receberá uma Identidade Gerenciada.
-
-1.  Clique no botão **+/Criar novo serviço** encontrado no canto superior esquerdo do portal do Azure.
-2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Insira as informações da máquina virtual. O **Nome de usuário** e **Senha** criados aqui são as credenciais usadas para fazer logon na máquina virtual.
-4.  Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
-5.  Para selecionar um novo **Grupo de recursos** no qual você deseja criar a máquina virtual, escolha **Criar novo**. Ao concluir, clique em **OK**.
-6.  Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na folha de configurações, mantenha os padrões e clique em **OK**.
-
-    ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>Habilitar a Identidade Gerenciada em sua VM
-
-Uma Identidade Gerenciada de Máquina Virtual permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Nos bastidores, habilitar a Identidade Gerenciada em uma Máquina Virtual por meio do Portal do Azure faz duas coisas: registra sua VM com o Azure AD e para criar uma identidade gerenciada e configura a identidade na VM. 
-
-1. Navegue até o grupo de recursos de sua nova máquina virtual e selecione a máquina virtual que você criou na etapa anterior.
-2. Na categoria **Configurações**, clique em **Configuração**.
-3. Para habilitar a Identidade Gerenciada, selecione **Sim**.
-4. Clique em **Salvar** para aplicar a configuração. 
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento 
 

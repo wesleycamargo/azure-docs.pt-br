@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919730"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886046"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Tutorial: Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o SQL do Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como usar uma Identidade de Serviço Gerenciada para uma VM (máquina virtual) do Windows para acessar um SQL Server do Azure. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual (VM) do Windows para acessar o SQL Server do Azure. As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Habilitar a Identidade de Serviço Gerenciada em uma VM do Windows 
 > * Conceda à sua VM acesso a um SQL Server do Azure
+> * Crie um grupo no Azure AD e torne a Identidade de Serviço Gerenciada da VM um membro do grupo
+> * Habilitar a autenticação do Azure AD para o SQL Server
+> * Crie um usuário contido no banco de dados que representa o grupo do Azure AD
 > * Obtenha um token de acesso usando a identidade da VM e use-o para consultar um SQL Server do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,32 +40,11 @@ Este tutorial mostra como usar uma Identidade de Serviço Gerenciada para uma VM
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Entrar no Azure
+- [Entrar no portal do Azure](https://portal.azure.com)
 
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+- [Criar uma máquina virtual do Windows](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Windows em um novo grupo de recursos
-
-Para este tutorial, vamos criar uma nova VM do Windows.  Você também pode ativar a identidade de serviço gerenciado em uma VM existente.
-
-1.  Clique no botão **Criar um recurso** localizado no canto superior esquerdo do Portal do Azure.
-2.  Selecione **Computação** e, em seguida, selecione **Windows Server 2016 Datacenter**. 
-3.  Insira as informações da máquina virtual. O **Nome de usuário** e **Senha** criados aqui são as credenciais usadas para fazer logon na máquina virtual.
-4.  Escolha uma **Assinatura** para a máquina virtual na lista suspensa.
-5.  Para selecionar um novo **Grupo de Recursos** no qual será criada a máquina virtual, escolha **Criar Novo**. Ao concluir, clique em **OK**.
-6.  Selecione o tamanho para a VM. Para ver mais tamanhos, selecione **Exibir todos os** ou altere o filtro **Tipo de disco com suporte**. Na página Configurações, mantenha os padrões e clique em **OK**.
-
-    ![Texto Alt da imagem](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Ativar a identidade do serviço gerenciado na sua VM 
-
-Uma Identidade de Serviço Gerenciada de VM permite que você obtenha tokens de acesso do Azure AD sem a necessidade de colocar as credenciais em seu código. Habilitar a Identidade de Serviço Gerenciada informa ao Azure para criar uma identidade gerenciada para sua VM. Em segundo plano, habilitar a Identidade de Serviço Gerenciada faz duas coisas: registra sua VM com o Azure Active Directory para criar sua identidade gerenciada e configura a identidade na VM.
-
-1.  Selecione a **Máquina Virtual** na qual você deseja habilitar a Identidade de Serviço Gerenciada.  
-2.  Na barra de navegação à esquerda, clique em **Configuração**. 
-3.  Você verá **Identidade de Serviço Gerenciado**. Para registrar e ativar a Identidade do serviço gerenciado, selecione **Sim**, se desejar desativá-la, escolha Não. 
-4.  Lembre-se de clicar em **Salvar** para salvar a configuração.  
-    ![Texto Alt da imagem](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Conceda à VM acesso a um banco de dados em um SQL Server do Azure
 
@@ -78,7 +59,7 @@ Há três etapas para conceder acesso da VM a um banco de dados:
 > Normalmente, você criaria um usuário contido mapeado diretamente para a Identidade de Serviço Gerenciada da VM.  No momento, o SQL Azure não permite a Entidade de Serviço do Azure AD que representa a Identidade de Serviço Gerenciada da VM a ser mapeada para um usuário contido.  Como uma solução alternativa com suporte, torne a Identidade de Serviço Gerenciada da VM um membro de um grupo do Azure AD e crie um usuário contido no banco de dados que representa o grupo.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Crie um grupo no Azure AD e torne a Identidade de Serviço Gerenciada da VM um membro do grupo
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Crie um grupo no Azure AD e torne a Identidade de Serviço Gerenciada da VM um membro do grupo
 
 Você pode usar um grupo do Azure AD existente ou criar um novo usando o PowerShell do Azure AD.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilitar a autenticação do Azure AD para o SQL Server
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Habilitar a autenticação do Azure AD para o SQL Server
 
 Agora que você criou o grupo e adicionou a Identidade de Serviço Gerenciada da VM para a associação, pode [configurar a autenticação do Azure AD para o SQL Server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) usando as seguintes etapas:
 
@@ -143,7 +124,7 @@ Agora que você criou o grupo e adicionou a Identidade de Serviço Gerenciada da
 5.  Selecione uma conta de usuário do Azure AD para ser um administrador do servidor e clique em **Selecionar.**
 6.  Na barra de comandos, clique em **Salvar**.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Crie um usuário contido no banco de dados que representa o grupo do Azure AD
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Crie um usuário contido no banco de dados que representa o grupo do Azure AD
 
 Para esta próxima etapa, você precisará do SSMS ([Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)). Antes de começar, também pode ser útil examinar os seguintes artigos para obter informações sobre a integração do Azure AD:
 

@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597723"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918009"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do Serviço de Aplicativo do Azure
 
 > [!NOTE]
-> O cache local não tem suporte para aplicativos de serviço de aplicativo em contêineres, como em [Serviço de Aplicativo do Azure no Linux](containers/app-service-linux-intro.md).
+> O cache local não é compatível com aplicativo de funções ou aplicativos do Serviço de Aplicativo em contêiner, como em [Serviço de Aplicativo no Linux](containers/app-service-linux-intro.md).
+
 
 O conteúdo dos aplicativos Web do Azure é armazenado no Armazenamento do Azure e exibido de forma duradoura como um compartilhamento de conteúdo. Esse design tem como objetivo trabalhar com vários aplicativos e tem os seguintes atributos:  
 

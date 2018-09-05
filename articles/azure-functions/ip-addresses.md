@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397840"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818285"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Endereços IP no Azure
 
@@ -39,7 +39,7 @@ Cada aplicativo de função possui um único endereço IP de entrada. Para encon
 3. Selecione **recursos da plataforma**.
 4. Selecione **Propriedades** e o endereço IP de entrada será exibido em **Endereço IP virtual**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Função de endereços IP de saída do aplicativo
+## <a name="find-outbound-ip-addresses"></a>Endereços IP de saída do aplicativo de funções
 
 Cada aplicativo de função tem um conjunto de endereços IP de saída disponíveis. Qualquer conexão de saída de uma função, como um banco de dados back-end, usa um dos endereços IP de saída disponíveis como o endereço IP de origem. Você não pode saber de antemão qual endereço IP uma determinada conexão usará. Por esse motivo, seu serviço de back-end deve abrir seu firewall para todos os endereços IP de saída do aplicativo de função.
 

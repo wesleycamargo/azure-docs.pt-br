@@ -11,16 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144138"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814583"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrar dados do StorSimple séries 5000-7000 para a Sincronização de Arquivos do Azure
+
+> [!IMPORTANT]
+> Em 31 de julho de 2019, a série StorSimple 5000/7000 chegará ao status EOS (fim do suporte). É recomendável que os clientes da série StorSimple 5000/7000 migrem para uma das alternativas descritas no documento.
 
 A migração de dados é o processo de mover dados de um local de armazenamento para outro. Isso implica fazer uma cópia exata dos dados atuais de uma organização de um dispositivo para outro — preferencialmente sem interromper ou desabilitar aplicativos ativos — e, em seguida, redirecionar toda a atividade de E/S (entrada/saída) para o novo dispositivo. 
 

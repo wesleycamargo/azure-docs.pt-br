@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2f5661ddac16a3024335bd633623f7ada2fc5870
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139440"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696624"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do MySQL no Azure Stack
 
@@ -38,21 +38,20 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
   >[!NOTE]
   >Para implantar o provedor do MySQL em um sistema que não tem acesso à Internet, copie o [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) arquivo para um caminho local. Forneça o nome de caminho usando o **DependencyFilesLocalPath** parâmetro.
 
-* O provedor de recursos tem um mínimo correspondente do Azure Stack compilar. Verifique se que você baixou o binário correto para a versão do Azure Stack que você está executando:
+* O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
 
-    | Versão do Azure Stack | Versão do MySQL RP|
+    | Versão mínima do Azure Stack | Versão do MySQL RP|
     | --- | --- |
     | Versão 1804 (1.0.180513.1)|[RP MySQL versão 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versão 1802 (1.0.180302.1) | [RP MySQL versão 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- Certifique-se de datacenter integration pré-requisitos forem atendidos:
+* Certifique-se de datacenter integration pré-requisitos forem atendidos:
 
     |Pré-requisito|Referência|
     |-----|-----|
     |Encaminhamento condicional do DNS está definido corretamente.|[Integração do datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Portas de entrada para provedores de recursos estão abertas.|[Azure Stack integration data center – publicar pontos de extremidade](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |A entidade do certificado PKI e SAN está definidas corretamente.|[Azure Stack obrigatório PKI pré-requisitos de implantação](azure-stack-pki-certs.md#mandatory-certificates)<br>[Pré-requisitos de certificado do Azure Stack implantação PaaS](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |A entidade do certificado PKI e SAN está definidas corretamente.|[Azure Stack implantação PKI pré-requisitos obrigatórios](azure-stack-pki-certs.md#mandatory-certificates)[pré-requisitos de certificado de PaaS do implantação do Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificados
@@ -87,6 +86,7 @@ Você pode especificar esses parâmetros da linha de comando. Se você não fize
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do provedor de recursos MySQL VM. | _Obrigatório_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ |
+| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que você usou para implantar o Azure Stack. Necessário somente se não for ADFS. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, usando o **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Para sistemas integrados somente, o arquivo. pfx do certificado deve ser colocado neste diretório. Para os ambientes desconectados, baixe [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) para esse diretório. Opcionalmente, você pode copiar um pacote de MSU do Windows Update. | _Opcional_ (_obrigatório_ para sistemas integrados ou em ambientes desconectados) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |

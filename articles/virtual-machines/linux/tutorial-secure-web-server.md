@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f1d8576791a569007efd7d3fa446ab32a130919d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 11d884d9f1e7f805dd0796696152dda063ed7755
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927974"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886124"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado SSL (protocolo SSL) pode ser usado para criptografar o tráfego da Web. Esses certificados SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
@@ -38,7 +38,7 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 
 ## <a name="overview"></a>Visão geral
-O cofre da chave do Azure protege chaves criptográficas e segredos, esses certificados ou senhas. O Key Vault simplifica o processo de gerenciamento de certificados e permite que você mantenha o controle das chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável existente que você já tenha.
+O Azure Key Vault protege chaves e segredos criptográficos, como certificados ou senhas. O Key Vault simplifica o processo de gerenciamento de certificados e permite que você mantenha o controle das chaves que acessam esses certificados. Você pode criar um certificado autoassinado no Key Vault ou carregar um certificado confiável existente que você já tenha.
 
 Em vez de usar uma imagem de VM personalizada que inclui certificados incorporados, você injeta certificados em uma VM em execução. Esse processo garante que os certificados mais recentes sejam instalados em um servidor Web durante a implantação. Se você renova ou substitui um certificado, também não precisa criar uma nova imagem de VM personalizada. Os certificados mais recentes são inseridos automaticamente, conforme você cria outras VMs. Durante todo o processo, os certificados nunca deixam a plataforma do Azure ou são expostos em um script, no histórico da linha de comando ou no modelo.
 
@@ -50,7 +50,7 @@ Antes de criar um Key Vault e os certificados, crie um grupo de recursos com [az
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Em seguida, crie um Key Vault com o [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e habilite-o para ser usado quando você implantar uma VM. Cada Cofre de Chave requer um nome exclusivo e deve estar escrito com todas as letras minúsculas. Substitua *<mykeyvault>* no exemplo a seguir com seu próprio nome exclusivo do Key Vault:
+Em seguida, crie um Key Vault com o [az keyvault create](/cli/azure/keyvault#az_keyvault_create) e habilite-o para ser usado quando você implantar uma VM. Cada Key Vault requer um nome exclusivo e deve ter todas as letras minúsculas. Substitua *<mykeyvault>* no exemplo a seguir com seu próprio nome exclusivo do Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>

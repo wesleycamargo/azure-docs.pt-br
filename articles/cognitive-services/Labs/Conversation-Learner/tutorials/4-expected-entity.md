@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170901"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888197"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Como usar a propriedade "Entidade esperada" das ações
 
@@ -50,7 +50,7 @@ Concretamente, se o campo "entidade esperada" de uma ação for definido como $e
 
 1. Clique em Entidades e, em seguida, em Nova Entidade.
 2. Em Nome da Entidade, insira o nome.
-3. Clicar em Criar
+3. Clique em Criar. 
 
 > [!NOTE]
 > O tipo de entidade é 'custom'. Esse valor significa que a entidade pode ser treinada.  Também há entidades pré-compiladas, o que significa que o comportamento não pode ser ajustado.  Essas entidades são abordadas no [Tutorial de entidades pré-compiladas](./7-built-in-entities.md).
@@ -59,14 +59,14 @@ Concretamente, se o campo "entidade esperada" de uma ação for definido como $e
 
 ### <a name="create-two-actions"></a>Crie duas ações
 
-1. Clique em Ações e, em seguida, em Nova Ação
+1. Clique em Ações e, em seguida, em Nova Ação.
 2. Em Resposta, digite 'What's your name?'.
 3. Em Entidades esperadas, digite $name. Clique em Salvar.
     - Esse valor significa que, se essa pergunta for feita, e a resposta do usuário não tiver nenhuma entidade detectada, o bot deverá assumir que a resposta do usuário é essa entidade.
 2. Clique em Ações e, em seguida, em Nova Ação para criar uma segunda ação.
 3. Em Resposta, digite 'Hello $name'.
-    - A entidade é automaticamente adicionada como uma entidade desqualificadora. 
-4. Clique em Salvar
+    - A entidade é automaticamente adicionada como uma entidade necessária. 
+4. Clique em Salvar.
 
 Agora você tem duas ações.
 
@@ -95,9 +95,9 @@ Aqui estão dois exemplos em que o modelo de extração de entidade de aprendiza
 3. Selecione 'Hello $name'.
 4. Insira 'meu nome é susan'.
     - O modelo identifica susan como o nome porque já constatou esse padrão.
-2. Clique em Ações de Pontuação.
+2. Clique em “Score Actions” (Pontuar ações).
 2. Selecione 'Hello susan'.
-3. Clique em Ensino Concluído.
+3. Clique em “Done Teaching” (Ensino concluído).
 
 Nos exemplos a seguir, a heurística "entidade esperada" é disparada, mas está incorreta. Os exemplos mostram como fazer uma correção.
 
@@ -115,7 +115,7 @@ Nos exemplos a seguir, a heurística "entidade esperada" é disparada, mas está
 3. Clique para selecionar frank, depois clique no nome.
 2. Clique em Ações de Pontuação
 3. Selecione 'Hello $name'.
-4. Clique em Ensino Concluído.
+4. Clique em “Done Teaching” (Ensino concluído).
 
 ![](../media/tutorial4_dialogs.PNG)
 

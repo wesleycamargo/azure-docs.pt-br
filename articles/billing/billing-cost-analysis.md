@@ -1,5 +1,5 @@
 ---
-title: Explore os custos do Azure com a análise de custos | Microsoft Docs
+title: Explorar os custos do Azure com a análise de custo | Microsoft Docs
 description: Este artigo ajuda você a usar a análise de custo para explorar e analisar seus custos organizacionais do Azure.
 services: billing
 keywords: ''
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: billing
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: eeaf02853f8ffe9ca67dbf31afc687afb7dee242
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: db06956e01ed38ce1f8ee0ce92526be16733fd73
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180391"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818117"
 ---
-# <a name="explore-and-analyze-costs-with-cost-analysis"></a>Explorar e analisar os custos com análise de custo
+# <a name="explore-and-analyze-costs-with-cost-analysis"></a>Explorar e analisar os custos com a análise de custo
 
 Antes de poder controlar e otimizar adequadamente seus custos do Azure, você precisa entender onde os custos se originaram em sua organização. Também é útil saber quanto dinheiro seus serviços custam e em apoio a quais ambientes e sistemas. A visibilidade em todo o espectro de custos é fundamental para entender com precisão os padrões de gastos organizacionais, que podem ser usados para impor mecanismos de controle de custos, como orçamentos.
 

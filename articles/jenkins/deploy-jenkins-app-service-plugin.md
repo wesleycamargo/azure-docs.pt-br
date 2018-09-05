@@ -1,19 +1,19 @@
 ---
 title: Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins
 description: Saiba como usar o plugin Jenkins do Serviço de Aplicativo do Azure para implantar um aplicativo Web do Java no Azure no Jenkins
-ms.topic: article
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, serviço de aplicativo
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441673"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095760"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
@@ -39,7 +39,7 @@ Você pode usar o plugin Jenkins para implantar um aplicativo web em qualquer li
 > [!NOTE]
 > O Java JDK e o Maven são necessários para compilar o projeto Java. Instale esses componentes no mestre do Jenkins ou no agente de VM, caso você use o agente para a integração contínua. 
 
-Para instalar o componente, faça logon na instância do Jenkins com SSH e execute os seguintes comandos:
+Para instalar o componente, entre na instância do Jenkins com SSH e execute os seguintes comandos:
 
 ```bash
 sudo apt-get install -y openjdk-7-jdk
@@ -132,7 +132,7 @@ O aplicativo Web no Linux também dá suporte a métodos de implantação tradic
 Antes de configurar o trabalho no Jenkins, você precisa de um aplicativo Web no Linux. Você também precisará de um registro de contêiner para armazenar e gerenciar suas imagens privadas de contêiner Docker. Você pode usar o DockerHub para criar o registro de contêiner. Nesse exemplo, usamos o Registro de Contêiner do Azure.
 
 * [Crie um aplicativo Web no Linux](../app-service/containers/quickstart-nodejs.md).
-* O Registro de Contêiner do Azure é um serviço gerenciado de [Registro Docker](https://docs.docker.com/registry/) com base no software livre Registro Docker versão 2.0. [Crie um registro de contêiner do Azure](/azure/container-registry/container-registry-get-started-azure-cli). Você também pode usar o DockerHub.
+* O Registro de Contêiner do Azure é um serviço [Docker Registry](https://docs.docker.com/registry/) gerenciado com base no software de fonte aberta Docker Registry versão 2.0. [Crie um registro de contêiner do Azure](/azure/container-registry/container-registry-get-started-azure-cli). Você também pode usar o DockerHub.
 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Configurar o trabalho do Jenkins para o Docker
 

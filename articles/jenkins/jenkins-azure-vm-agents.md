@@ -1,19 +1,19 @@
 ---
 title: Dimensione implantações do Jenkins com agentes de VM do Azure.
 description: Adicione capacidade adicional aos pipelines do Jenkins usando máquinas virtuais do Azure com o plug-in de Agente de VM do Azure do Jenkins.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, máquina virtual, agentes
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 069c6df38f9caa73a30fbc25baafdf7efbd2f402
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429389"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106216"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Dimensionar implantações do Jenkins para atender à demanda com agentes de VM do Azure
 
@@ -118,7 +118,7 @@ Na seção **Configuração de Imagem** da configuração de plug-in, selecione 
 
 ![Configurar o sistema operacional e as ferramentas da VM](./media/jenkins-azure-vm-agents/jenkins-os-config.png)
 
-Selecione **Adicionar** ao lado de **Credenciais de Administrador** e, em seguida, selecione **Jenkins**. Insira um nome de usuário e a senha usada para fazer logon nos agentes, verificando se eles atendem à [política de senha e de nome de usuário](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) para contas administrativas em VMs do Azure.
+Selecione **Adicionar** ao lado de **Credenciais de Administrador** e, em seguida, selecione **Jenkins**. Insira um nome de usuário e senha usados para entrar nos agentes, verificando se eles atendem à [política de nome de usuário e senha](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) para as contas administrativas nas VMs do Azure.
 
 Selecione **Confirmar Modelo** para confirmar a configuração e, em seguida, selecione **Salvar** para salvar as alterações e retornar ao painel do Jenkins.
 

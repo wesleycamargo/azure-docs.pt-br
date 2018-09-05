@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282606"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886783"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detectar problemas com dispositivos conectados à sua solução de monitoramento
 
@@ -112,11 +112,23 @@ Para fazer uma alteração em uma regra existente, selecione-a na lista de regra
 
 ## <a name="disable-a-rule"></a>Desabilitar uma regra
 
-Para desativar temporariamente uma regra, desabilite-a na lista de regras. Escolha a regra a ser desabilitada e selecione **Desabilitar**. O **Status** da regra na lista é alterado para indicar que a regra agora está desabilitada. Use o mesmo procedimento para reabilitar uma regra que foi desabilitada.
+Para desativar temporariamente uma regra, desabilite-a na lista de regras. Escolha a regra e selecione **Desabilitar**. O **Status** da regra na lista é alterado para indicar que a regra agora está desabilitada. Use o mesmo procedimento para reabilitar uma regra que foi desabilitada.
 
 [![Desabilitar regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 É possível habilitar e desabilitar várias regras ao mesmo tempo selecionando diversas regras na lista.
+
+## <a name="delete-a-rule"></a>Excluir uma regra
+
+Para excluir permanentemente uma regra, você pode apagá-la na lista de regras. Escolha a regra e selecione **Excluir**.
+
+[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+Depois de confirmar que você deseja excluir a regra, terá a oportunidade de excluir qualquer alerta associado à regra na página **Manutenção**.
+
+[![Excluir regra](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+Você só pode excluir uma regra por vez.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

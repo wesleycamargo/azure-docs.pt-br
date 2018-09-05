@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139698"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700703"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
+
 Use o provedor de recursos do SQL Server do Azure Stack para expor bancos de dados SQL como um serviço do Azure Stack. O provedor de recursos do SQL é executado como um serviço em uma máquina virtual do Server Core do Windows Server 2016 (VM).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -30,13 +31,12 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
 
 - Se você ainda não fez isso, [registrar o Azure Stack](azure-stack-registration.md) com o Azure para que você possa baixar itens do marketplace do Azure.
 - Você deve instalar os módulos do Azure e o Azure Stack PowerShell no sistema onde você executará essa instalação. Esse sistema deve ser uma imagem do Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET. Ver [instalar o PowerShell para o Azure Stack](.\azure-stack-powershell-install.md).
-- Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem. 
-- Baixe o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos tem um mínimo correspondente do Azure Stack compilar. Verifique se que você baixou o binário correto para a versão do Azure Stack que você está executando:
+- Adicionar o núcleo do Windows Server necessário VM no Marketplace do Azure Stack baixando a **Windows Server 2016 Datacenter - Server Core** imagem.
+- Baixe o provedor de recursos do SQL binário e, em seguida, execute o Self-extractor para extrair o conteúdo para um diretório temporário. O provedor de recursos tem um mínimo correspondente do Azure Stack compilar.
 
-    |Versão do Azure Stack|Versão do SQL RP|
+    |Versão mínima do Azure Stack|Versão do SQL RP|
     |-----|-----|
-    |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Versão 1802 (1.0.180302.1)|[SQL RP versão 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versão 1804 (1.0.180513.1)|[SQL RP versão 1.1.24.0](https://aka.ms/azurestacksqlrp)
     |     |     |
 
 - Certifique-se de datacenter integration pré-requisitos forem atendidos:
@@ -45,7 +45,7 @@ Existem vários pré-requisitos que precisam estar em vigor antes de implantar o
     |-----|-----|
     |Encaminhamento condicional do DNS está definido corretamente.|[Integração do datacenter do Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Portas de entrada para provedores de recursos estão abertas.|[Azure Stack integration data center – publicar pontos de extremidade](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |A entidade do certificado PKI e SAN está definidas corretamente.|[Azure Stack obrigatório PKI pré-requisitos de implantação](azure-stack-pki-certs.md#mandatory-certificates)<br>[Pré-requisitos de certificado do Azure Stack implantação PaaS](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |A entidade do certificado PKI e SAN está definidas corretamente.|[Azure Stack implantação PKI pré-requisitos obrigatórios](azure-stack-pki-certs.md#mandatory-certificates)[pré-requisitos de certificado de PaaS do implantação do Azure Stack](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificados
@@ -80,6 +80,7 @@ Você pode especificar os parâmetros da linha de comando a seguir. Se você nã
 | **AzCredential** | As credenciais para a conta de administrador de serviço do Azure Stack. Use as mesmas credenciais que você usou para implantar o Azure Stack. | _Obrigatório_ |
 | **VMLocalCredential** | As credenciais para a conta de administrador local do provedor de recursos SQL VM. | _Obrigatório_ |
 | **PrivilegedEndpoint** | O endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _Obrigatório_ |
+| **AzureEnvironment** | O ambiente do azure da conta de administrador de serviço que você usou para implantar o Azure Stack. Necessário somente se não for ADFS. Nomes de ambiente com suporte são **AzureCloud**, **AzureUSGovernment**, ou se um China Azure Active Directory, usando o **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Para sistemas integrados somente, o arquivo. pfx do certificado deve ser colocado neste diretório. Opcionalmente, você pode copiar um pacote de MSU do Windows Update. | _Opcional_ (_obrigatório_ para sistemas integrados) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx. | _Obrigatório_ |
 | **MaxRetryCount** | O número de vezes que você deseja repetir a cada operação se houver uma falha.| 2 |

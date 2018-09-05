@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/10/2017
+ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 67ecb7c253d7968057b27c5b37b5ed4da12c8d05
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441486"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885282"
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Criar um aplicativo Ruby no Serviço de Aplicativo no Linux
 
@@ -46,7 +46,7 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 ## <a name="run-the-application-locally"></a>Executar o aplicativo localmente
 
-O servidor de trilhos precisa estar executando para o aplicativo funcionar. Altere para o `hello-world` diretório e use o `rails server` comando para iniciar o servidor.
+Execute o aplicativo no local para ver como ele deve ficar quando o implantar no Azure. Abra uma janela do terminal, mude para o diretório `hello-world` e use o comando `rails server` para iniciar o servidor.
 
 ```bash
 cd hello-world\bin

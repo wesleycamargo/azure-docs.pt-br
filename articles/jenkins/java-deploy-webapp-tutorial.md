@@ -1,19 +1,19 @@
 ---
 title: Usar o Jenkins para implantar seus aplicativos Web no Azure
 description: Configure a integração contínua do GitHub ao Serviço de Aplicativo do Azure em seus aplicativos Web Java usando o Jenkins e o Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, serviço de aplicativo, integração contínua, ci, implantação contínua, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389935"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106790"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurar a integração e implantação contínuas ao Serviço de Aplicativo do Azure com o Jenkins
 
@@ -33,7 +33,7 @@ Você realizará as seguintes tarefas neste tutorial:
 
 Para concluir este tutorial, você precisará:
 
-* [Jenkins](https://jenkins.io/) com as ferramentas JDK e Maven configuradas. Se você não tiver um sistema Jenkins, crie um agora no Azure com base no [modelo de solução Jenkins](/azure/jenkins/install-jenkins-solution-template).
+* [Jenkins](https://jenkins.io/) com as ferramentas do JDK e do Maven configuradas. Se você não tiver um sistema Jenkins, crie um agora no Azure com base no [modelo de solução Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Uma conta do [GitHub](https://github.com).
 * A [CLI do Azure 2.0](/cli/azure), na linha de comando local ou no [Azure Cloud Shell](/azure/cloud-shell/overview)
 
@@ -102,7 +102,7 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Configurar o plug-in do Jenkins do Serviço de Aplicativo do Azure
 
 1. No console Web do Jenkins, selecione o trabalho **MyJavaApp** criado e, em seguida, selecione **Configurar** no lado esquerdo da página.
-2. Role para baixo até **Ações Pós-build** e, em seguida, selecione **Adicionar ação pós-build** e escolha **Publicar um Aplicativo Web do Azure**.
+2. Role para baixo até **Ações de Pós-compilação**, selecione **Adicionar ação de pós-compilação** e escolha **Publicar um Aplicativo Web do Azure**.
 3. Em **Configuração de Perfil do Azure**, selecione **Adicionar** ao lado de **Credenciais do Azure** e escolha **Jenkins**.
 4. Na caixa de diálogo **Adicionar Credenciais**, selecione **Entidade de Serviço do Microsoft Azure** na lista suspensa **Tipo**.
 5. Crie uma Entidade de serviço do Active Directory por meio da CLI do Azure ou do [Cloud Shell](/azure/cloud-shell/overview).
@@ -164,7 +164,7 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
 ## <a name="deploy-the-app-from-github"></a>Implantar o aplicativo por meio do GitHub
 
 1. No projeto do Jenkins, selecione **Compilar Agora** para implantar o aplicativo de exemplo no Azure.
-2. Depois que o build for concluído, o aplicativo estará ativo no Azure em sua URL de publicação, por exemplo http://myjavaapp.azurewebsites.net.   
+2. Depois da compilação ser concluída, o aplicativo estará ativo no Azure em sua URL de publicação, por exemplo http://myjavaapp.azurewebsites.net.   
    ![Exibir o aplicativo implantado no Azure](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>Enviar as alterações por push e implantar novamente
@@ -178,7 +178,7 @@ Configure o Jenkins para receber [webhooks do GitHub](https://developer.github.c
 3. Um novo build será iniciado no Jenkins, disparado pela nova confirmação no branch `master` do repositório. Depois que ele for concluído, recarregue o aplicativo no Azure.     
       ![Exibir o aplicativo implantado no Azure](media/jenkins-java-quickstart/hello_docker_world.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>Solução de problemas do plug-in do Jenkins
+## <a name="troubleshooting-the-jenkins-plugin"></a>O plug-in do Jenkins de solução de problemas
 
 Se você encontrar bugs com os plug-ins do Jenkins, registre um problema no [JIRA do Jenkins](https://issues.jenkins-ci.org/) para o componente específico.
 

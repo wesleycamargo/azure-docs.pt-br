@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493963"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745661"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Caso o armazenamento de dados em nuvem dê suporte a HTTPS ou TLS, todas as tran
 
 > [!NOTE]
 > Todas as conexões com o Banco de Dados SQL do Azure e o SQL Data Warehouse do Azure exigem criptografia (SSL/TLS) quando os dados estão em trânsito, entrando e saindo do banco de dados. Ao criar um pipeline usando JSON, adicione a propriedade criptografia e defina-a como **verdadeira** na cadeia de conexão. Para Armazenamento do Azure, é possível usar **HTTPS** na cadeia de conexão.
+
+> [!NOTE]
+> Para habilitar a criptografia em trânsito, simultaneamente movendo dados do Oracle, siga uma das opções abaixo:
+> 1. No servidor Oracle, acesse OAS (Segurança Avançada da Oracle) e defina as configurações de criptografia, que dão suporte a 3DES (criptografia DES tripla) e AES (criptografia AES). Consulte os detalhes [aqui](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). O ADF negocia automaticamente o método de criptografia para usar aquele que você configura no OAS ao estabelecer a conexão com o Oracle.
+> 2. Em ADF, você pode adicionar EncryptionMethod=1 na cadeia de conexão (no serviço vinculado). Essa opção usará SSL/TLS como o método de criptografia. Para usar essa, é necessário desabilitar as configurações de criptografia não SSL no OAS no lado do servidor Oracle para evitar conflitos de criptografia.
 
 > [!NOTE]
 > A versão do TLS usada é a 1.2.

@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623184"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887781"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Dimensione um cluster do Microsoft Azure Service Fabric adicionando um conjunto de dimensionamento de máquinas virtuais
 Este artigo descreve como dimensionar um cluster do Microsoft Azure Service Fabric adicionando um novo conjunto de dimensionamento de máquinas virtuais a um cluster existente. Um cluster do Service Fabric é um conjunto de computadores físicos ou virtuais conectados via rede, nos quais os microsserviços são implantados e gerenciados. Uma máquina ou VM que faz parte de um cluster é chamada de nó. Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você usa para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Azure é [configurado como um conjunto de dimensionamento separado](service-fabric-cluster-nodetypes.md). Então, cada tipo de nó pode ser gerenciado separadamente. Após criar um cluster do Service Fabric, será possível dimensionar verticalmente um tipo de nó de cluster (alterar os recursos dos nós) ou atualizar o sistema operacional das VMs do tipo de nó, ou adicionar um novo conjunto de dimensionamento de máquinas virtuais para um cluster existente.  É possível dimensionar o cluster a qualquer momento, mesmo quando as cargas de trabalho estiverem em execução no cluster.  Na medida em que o cluster for dimensionado, os aplicativos também serão dimensionados automaticamente.
 
 > [!WARNING]
+> Não comece a alterar o serão iniciados alterar o SKU da VM do nodetype primário se o cluster não estiver íntegro. Se o cluster não estiver íntegro, tentar alterar o SKU da VM só desestabilizará o cluster ainda mais.
+>
 > É recomendável não alterar a SKU da VM de um tipo de nó/conjunto de dimensionamento, a menos que esteja em [Durabilidade prata ou maior](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). Alterar o Tamanho de SKU da VM é uma operação de infraestrutura no local com destruição de dados. Sem alguma habilidade para atrasar ou monitorar essa alteração, é possível que a operação possa causar perda de dados para serviços com estado ou causar outros problemas operacionais imprevistos, mesmo para cargas de trabalho sem estado. Isso significa que seu tipo de nó primário, que está executando os serviços do sistema de malha de serviço com estado ou qualquer tipo de nó que estiver executando suas cargas de trabalho do aplicativo com estado.
 >
 

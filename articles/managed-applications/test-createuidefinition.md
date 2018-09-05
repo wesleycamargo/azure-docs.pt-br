@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043200"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747081"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Testar a interface do portal do Azure para o aplicativo gerenciado
 Após [criar o arquivo createUiDefinition.json](create-uidefinition-overview.md) para o Aplicativo Gerenciado do Azure, será necessário testar a experiência do usuário. Para simplificar o teste, use um script que carregue o arquivo no portal. Não é necessário realmente implantar o aplicativo gerenciado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um arquivo **createUiDefinition.json**. Se não tiver esse arquivo, copie o [arquivo de exemplo ](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) e salve-o localmente.
+* Um arquivo **createUiDefinition.json**. Se não tiver esse arquivo, copie o [arquivo de exemplo ](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) e salve-o localmente.
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -36,16 +36,16 @@ Para testar a interface no portal, copie um dos scripts a seguir para o computad
 
 ## <a name="run-script"></a>Executar script
 
-Para ver o arquivo de interface no portal, execute o script baixado. O script cria uma conta de armazenamento na assinatura do Azure e carrega o arquivo createUiDefinition.json para a conta de armazenamento. Em seguida, abrirá o portal e carregará o arquivo da conta de armazenamento.
+Para ver o arquivo de interface no portal, execute o script baixado. O script cria uma conta de armazenamento na assinatura do Azure e carrega o arquivo createUiDefinition.json para a conta de armazenamento. A conta de armazenamento é criada na primeira vez que você executa o script ou em caso de exclusão da conta de armazenamento. Se a conta de armazenamento já existe em sua assinatura do Azure, o script a reutiliza. O script abre o portal e carrega o arquivo da conta de armazenamento.
 
-Forneça um local para a conta de armazenamento e especifique a pasta que tem o arquivo createUiDefinition.json. É necessário somente fornecer o local da conta de armazenamento na primeira vez que executar o script ou se a conta de armazenamento tiver sido excluída.
+Forneça um local para a conta de armazenamento e especifique a pasta que tem o arquivo createUiDefinition.json.
 
 Para o PowerShell, use:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Para a CLI do Azure, use:
@@ -53,7 +53,21 @@ Para a CLI do Azure, use:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Se o arquivo createUiDefinition.json estiver na mesma pasta que o script e você já tiver criado a conta de armazenamento, você não precisará fornecer esses parâmetros.
+
+Para o PowerShell, use:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Para a CLI do Azure, use:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Testar a interface
@@ -73,6 +87,18 @@ Se houver um erro na definição de interface, a descrição será exibida no co
 Forneça valores para os campos. Quando terminar, os valores que são passados para o modelo serão exibidos.
 
 ![Mostrar valores](./media/test-createuidefinition/show-json.png)
+
+Você pode usar esses valores como o arquivo de parâmetro para testar seu modelo de implantação.
+
+## <a name="troubleshooting-the-interface"></a>Solução de problemas da interface
+
+Alguns erros comuns que você pode ver são:
+
+* O portal não carrega sua interface. Em vez disso, ele mostra um ícone de uma nuvem com gotas caindo. Normalmente, você vê esse ícone quando há um erro de sintaxe em seu arquivo. Abra o arquivo no VS Code (ou outro editor de JSON com validação de esquema) e procure erros de sintaxe.
+
+* O portal para de responder na tela de resumo. Geralmente, essa interrupção ocorre quando há um bug na seção de saída. Por exemplo, você pode ter referenciado um controle que não existe.
+
+* Um parâmetro na saída está vazio. O parâmetro pode estar referenciando uma propriedade que não existe. Por exemplo, a referência para o controle é válida, mas a referência da propriedade não é válida.
 
 ## <a name="test-your-solution-files"></a>Testar os arquivos de solução
 

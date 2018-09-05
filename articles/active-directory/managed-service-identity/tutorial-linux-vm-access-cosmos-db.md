@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: c2c138e7064ae5f8bfb11d2f8d4c6b8e9e45760d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b38804a4450bfc76f5048f8049a7369d7ebebc30
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441996"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886228"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Tutorial: Usar uma Identidade de Serviço Gerenciada de VM do Linux para acessar o Azure Cosmos DB 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-Este tutorial mostra como criar e usar uma Identidade de Serviço Gerenciada de VM do Linux. Você aprenderá como:
+Este tutorial mostra como usar uma identidade atribuída pelo sistema para uma máquina virtual (VM) do Linux para acessar o Azure Cosmos DB. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma VM do Linux com Identidade de Serviço Gerenciada habilitada
 > * Criar uma conta do BD Cosmos
 > * Criar uma coleção na conta de banco do Cosmos DB
 > * Conceder o acesso à Identidade de Serviço Gerenciada para uma instância do Azure Cosmos DB
@@ -39,42 +38,20 @@ Este tutorial mostra como criar e usar uma Identidade de Serviço Gerenciada de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tiver uma conta do Azure, [inscreva-se em uma conta gratuita](https://azure.microsoft.com) antes de continuar.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Entrar no portal do Azure](https://portal.azure.com)
+
+- [Criar uma máquina virtual do Linux](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Habilitar a identidade atribuída pelo sistema em sua máquina virtual](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Para executar os exemplos de script CLI neste tutorial, você tem duas opções:
 
 - Usar o [Azure Cloud Shell](~/articles/cloud-shell/overview.md), seja pelo Portal do Azure ou por meio do botão **Experimentar**, localizado no canto superior direito de cada bloco de código.
 - [Instale a versão mais recente da CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 ou posterior) se preferir usar um console local da CLI.
-
-## <a name="sign-in-to-azure"></a>Entrar no Azure
-
-Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Criar uma máquina virtual do Linux em um novo grupo de recursos
-
-Para este tutorial, vamos criar uma nova VM do Linux habilitada para Identidade de Serviço Gerenciada.
-
-Para criar uma VM do Windows habilitada para Identidade de Serviço Gerenciada:
-
-1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/reference-index#az-login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Criar um [grupo de recursos](../../azure-resource-manager/resource-group-overview.md#terminology) para contenção e implantação de VM e seus recursos relacionados usando [az group create](/cli/azure/group/#az-group-create). Ignore esta etapa, se você já tiver o grupo de recursos que deseja usar:
-
-   ```azurecli-interactive 
-   az group create --name myResourceGroup --location westus
-   ```
-
-3. Crie uma VM usando [az vm create](/cli/azure/vm/#az-vm-create). O exemplo a seguir cria uma VM denominada *myVM* com uma Identidade de Serviço Gerenciada, como solicitado pelo parâmetro `--assign-identity`. Os parâmetros `--admin-username` e `--admin-password` especificam o nome de usuário e a senha do usuário administrativo para a entrada na máquina virtual. Atualize esses valores como adequado ao seu ambiente: 
-
-   ```azurecli-interactive 
-   az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
-   ```
 
 ## <a name="create-a-cosmos-db-account"></a>Criar uma conta do BD Cosmos 
 

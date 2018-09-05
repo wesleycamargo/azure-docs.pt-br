@@ -3,9 +3,9 @@ title: Solução de Análise do Azure SQL no Log Analytics | Microsoft Docs
 description: Solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados do Azure SQL
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216318"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886553"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitore o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão prévia)
 
@@ -39,7 +39,7 @@ Para uma visão geral prática sobre o uso da solução da Análise de SQL do Az
 
 ## <a name="connected-sources"></a>Fontes conectadas
 
-Análise do SQL Azure é uma nuvem monitoramento solução suporte de streaming de telemetria de diagnóstico para pools Elásticos e bancos de dados SQL do Azure. Como ele não usa agentes para se conectar ao serviço Log Analytics, a solução não dá suporte a conectividade com o Windows, Linux ou recursos do SCOM, consulte a tabela de compatibilidade abaixo.
+Análise do SQL Azure é uma nuvem monitoramento solução suporte de streaming de telemetria de diagnóstico para pools Elásticos e bancos de dados SQL do Azure. Como ele não usa agentes para se conectar ao serviço Log Analytics, a solução não é compatível com a conectividade com o Windows, Linux ou recursos do SCOM; consulte a tabela de compatibilidade abaixo.
 
 | Fonte Conectada | Suporte | DESCRIÇÃO |
 | --- | --- | --- |
@@ -119,7 +119,7 @@ O [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) d
 
 ### <a name="elastic-pool-and-database-reports"></a>Relatórios do pool elástico e do banco de dados
 
-Os pools elásticos e os bancos de dados têm seus próprios relatórios específicos que mostram todos os dados coletados para o recurso no horário especificado.
+Os Pools Elásticos e os Bancos de Dados têm seus próprios relatórios específicos que mostram todos os dados coletados para o recurso no horário especificado.
 
 ![Banco de dados de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -135,27 +135,77 @@ Por meio das perspectivas de Duração da consulta e Espera da consulta, é poss
 
 Você pode [criar alertas](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) facilmente com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas consultas de [pesquisa de logs](log-analytics-log-searches.md) que podem ser utilizadas com um alerta do log:
 
-
-
-*DTU alta no Banco de Dados SQL do Azure*
+*CPU alta no Banco de Dados SQL do Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*Alta DTU no pool elástico do Banco de Dados SQL do Azure*
+> [!NOTE]
+> - O pré-requisito para configurar esse alerta é que os bancos de dados monitorados transmitam métricas de diagnóstico (opção "Todas as métricas") para a solução.
+> - Substitua o valor cpu_percent de MetricName por dtu_consumption_percent para obter os resultados de DTU alta em vez disso.
+
+*CPU alta em Pools Elásticos do Banco de Dados SQL do Azure*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - O pré-requisito para configurar esse alerta é que os bancos de dados monitorados transmitam métricas de diagnóstico (opção "Todas as métricas") para a solução.
+> - Substitua o valor cpu_percent de MetricName por dtu_consumption_percent para obter os resultados de DTU alta em vez disso.
 
+*Armazenamento do Banco de Dados SQL do Azure acima de 95%, em média, na última 1h*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - O pré-requisito para configurar esse alerta é que os bancos de dados monitorados transmitam métricas de diagnóstico (opção "Todas as métricas") para a solução.
+> - Essa consulta exige que uma regra de alerta seja configurada para disparar um alerta quando houver resultados (resultados > 0) da consulta, indicando que a condição existe em alguns bancos de dados. A saída é uma lista de recursos de banco de dados que estão acima de storage_threshold dentro do time_range definido.
+> - A saída é uma lista de recursos de banco de dados que estão acima de storage_threshold dentro do time_range definido.
+
+*Alerta no Intelligent Insights*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - O pré-requisito para configurar esse alerta é que os bancos de dados monitorados transmitam log de diagnóstico do SQLInsights para a solução.
+> - Essa consulta exige que uma regra de alerta seja configurada para ser executada com a mesma frequência que alert_run_interval a fim de evitar resultados duplicados. A regra deve ser configurada para disparar o alerta quando houver resultados (resultados > 0) da consulta.
+> - Personalize o alert_run_interval para especificar o intervalo de tempo a ser verificado se a condição tiver ocorrido em bancos de dados configurados para transmitir log do SQLInsights à solução.
+> - Personalize o insights_string para capturar a saída do texto da análise de causa de raiz do Insights. Este é o mesmo texto exibido na interface do usuário da solução, o qual você pode usar dos insights existentes. Como alternativa, você pode usar a consulta a seguir para ver o texto de todos os Insights gerados em sua assinatura. Use a saída da consulta para coletar as cadeias de caracteres distintas para configurar alertas no Insights.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

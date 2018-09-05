@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528846"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818479"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planejando uma implantação de Arquivos do Azure
 O [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo SMB padrão no setor. Já que o Arquivos do Azure é totalmente gerenciado, implantá-lo em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de Arquivos do Azure para uso em produção dentro de sua organização.
@@ -81,7 +81,7 @@ Os arquivos do Azure oferecem suporte a três opções de redundância de dados:
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
-Atualmente, o tamanho máximo para um compartilhamento de arquivos do Azure é TiB 5, incluindo os instantâneos do compartilhamento. Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure. Observe que uma conta de Armazenamento do Azure pode armazenar vários compartilhamentos, com um total de 500 TiB armazenados entre todos eles.
+Atualmente, o tamanho máximo de um compartilhamento de arquivos do Azure é de 5 TiB. Devido a essa limitação atual, você deve considerar o crescimento esperado dos dados durante a implantação de um compartilhamento de Arquivos do Azure. Observe que uma conta de Armazenamento do Azure pode armazenar vários compartilhamentos, com um total de 500 TiB armazenados entre todos eles.
 
 É possível sincronizar vários compartilhamentos de arquivos do Azure em um único Servidor de Arquivos do Windows com a Sincronização de Arquivos do Azure. Isso lhe assegura que compartilhamentos de arquivos mais antigos e muito grandes que você talvez tenha localmente poderão ser transferidos para a Sincronização de Arquivos do Azure. Consulte [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-files-planning.md) para obter mais informações.
 

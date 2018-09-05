@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224795"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886397"
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](app-service-web-overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
@@ -55,6 +55,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 * Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
 * Não há suporte para backups do Banco de Dados do Azure para MySQL habilitado para SSL. Se houver um backup configurado, os backups falharão.
 * Não há suporte para backups do Banco de Dados do Azure para PostgreSQL habilitado para SSL. Se houver um backup configurado, os backups falharão.
+* O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
 * Não há suporte para usar uma conta de armazenamento habilitada para firewall como o destino dos backups. Se houver um backup configurado, os backups falharão.
 
 
@@ -85,7 +86,9 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo.
+   > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo. 
+   >
+   > O backup de bancos de dados MySQL no aplicativo é feito automaticamente, sem nenhuma configuração. Se você fizer manualmente configurações para bancos de dados MySQL no aplicativo, tais como a adição de cadeias de conexão, os backups poderão não funcionar corretamente.
    > 
    > 
 6. Na página **Configuração de backup**, clique em **Salvar**.    
