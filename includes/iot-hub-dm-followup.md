@@ -1,3 +1,20 @@
+---
+title: Arquivo de inclusão
+description: Arquivo de inclusão
+services: iot-hub
+ms.service: iot-hub
+author: dominicbetts
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 3cdfa74c5f124e57b125399e39b7981b1dfb6d09
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43100226"
+---
 ## <a name="customize-and-extend-the-device-management-actions"></a>Personalizar e estender as ações de gerenciamento do dispositivo
 
 As soluções de IoT podem expandir o conjunto definido de padrões de gerenciamento do dispositivo ou habilitar padrões personalizados usando o dispositivo gêmeo e os primitivos do método da nuvem para o dispositivo. Outros exemplos de ações de gerenciamento do dispositivo incluem a redefinição de fábrica, atualização do firmware, atualização do software, gerenciamento de energia, gerenciamento da rede e da conectividade, e criptografia dos dados.
@@ -12,12 +29,8 @@ Neste tutorial, você usou um método direto para disparar uma reinicialização
 
 Para continuar com a introdução ao Hub IoT e aos padrões de gerenciamento de dispositivo como remoto por meio da atualização de firmware de ar, consulte:
 
-[Tutorial: Como realizar uma atualização de firmware][lnk-fwupdate]
+[Tutorial: Como realizar uma atualização de firmware](../articles/iot-hub/tutorial-firmware-update.md)
 
-Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, confira o tutorial [Agendar e difundir trabalhos][lnk-tutorial-jobs].
+Para saber como estender sua solução de IoT e agendar chamadas de método em vários dispositivos, veja o tutorial [Agendar e difundir trabalhos](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md).
 
-Para continuar a introdução ao Hub IoT, confira [Introdução ao IoT Edge][lnk-iot-edge].
-
-[lnk-fwupdate]: ../articles/iot-hub/tutorial-firmware-update.md
-[lnk-tutorial-jobs]: ../articles/iot-hub/iot-hub-node-node-schedule-jobs.md
-[lnk-iot-edge]: ../articles/iot-edge/tutorial-simulate-device-linux.md
+Para continuar a introdução ao Hub IoT, veja [Introdução ao IoT Edge](../articles/iot-edge/tutorial-simulate-device-linux.md).

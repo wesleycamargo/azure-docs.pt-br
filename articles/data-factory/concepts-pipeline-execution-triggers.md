@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867079"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122426"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -324,7 +324,7 @@ Para saber mais sobre gatilhos de janela em cascata e obter exemplos, confira [C
 
 ## <a name="event-based-trigger"></a>Gatilho baseado em eventos
 
-Um gatilho baseado em eventos executa pipelines em resposta a um evento, como a chegada ou a exclusão de um arquivo no armazenamento de Blobs do Azure.
+Um gatilho baseado em eventos executa pipelines em resposta a um evento, tal como a chegada ou a exclusão de um arquivo no Armazenamento de Blobs do Azure.
 
 Para obter mais informações sobre gatilhos baseados em eventos, consulte [Criar um gatilho que executa um pipeline em resposta a um evento](how-to-create-event-trigger.md).
 

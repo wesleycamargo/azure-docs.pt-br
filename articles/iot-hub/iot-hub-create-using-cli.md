@@ -1,124 +1,93 @@
 ---
-title: Criar um Hub IoT usando a CLI do Azure (az.py) | Microsoft Docs
-description: Como criar um Hub IoT do Azure usando a CLI do Azure 2.0 de plataforma cruzada (az.py).
-author: dominicbetts
-manager: timlt
+title: Criar um Hub IoT usando a CLI do Azure | Microsoft Docs
+description: Como criar um Hub IoT do Azure usando a CLI do Azure.
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/16/2017
-ms.author: dobett
-ms.openlocfilehash: 9f97775a5a49077a340efb0e3de14b7064db5fe4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/23/2018
+ms.author: robinsh
+ms.openlocfilehash: 95741b1a00c47468c7189e0103608c1dd7fa1d90
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632757"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046163"
 ---
-# <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Criar um Hub IoT usando a CLI do Azure 2.0
+# <a name="create-an-iot-hub-using-azure-cli"></a>Criar um Hub IoT usando a CLI do Azure
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## <a name="introduction"></a>Introdução
+Este artigo mostra como criar um Hub IoT usando a CLI do Azure.
 
-É possível usar a CLI do Azure 2.0 (az.py) para criar e gerenciar Hubs IoT do Azure de forma programática. Este artigo mostra como usar a CLI do Azure 2.0 (az.py) para criar um Hub IoT.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Você pode concluir a tarefa usando uma das seguintes versões da CLI:
+Para concluir estas instruções, você precisa de uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* [CLI do Azure (azure.js)](iot-hub-create-using-cli-nodejs.md) – a CLI para os modelos de implantação clássico e de gerenciamento de recursos.
-* CLI do Azure 2.0 (az.py) – a próxima geração da CLI para o modelo de implantação de gerenciamento de recursos, conforme descrito neste artigo.
-
-Para concluir este tutorial, você precisará do seguinte:
-
-* Uma conta ativa do Azure. Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.
-* [CLI do Azure 2.0][lnk-CLI-install].
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Entre e configure sua conta do Azure
 
-Entre na sua conta do Azure e selecione sua assinatura.
+Se você estiver executando a CLI do Azure localmente, em vez de usar o Cloud Shell, você precisará entrar em sua conta do Azure.
 
-1. Ao prompt de comando, execute o [comando de logon][lnk-login-command]:
-    
+No prompt de comando, execute o [comando de logon](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+
     ```azurecli
     az login
     ```
 
-    Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
-
-2. Se você tiver várias assinaturas do Azure, entrar o Azure lhe dará acesso a todas as contas do Azure associadas às suas credenciais. Use o seguinte [comando para listar as contas do Azure][lnk-az-account-command] disponíveis para você:
-    
-    ```azurecli
-    az account list 
-    ```
-
-    Use o comando a seguir para selecionar a assinatura que você deseja usar para executar os comandos e criar seu Hub IoT. Você pode usar a ID ou nome da assinatura da saída do comando anterior:
-
-    ```azurecli
-    az account set --subscription {your subscription name or id}
-    ```
+Siga as instruções de autenticação usando o código e entre em sua conta do Azure por meio de um navegador da Web.
 
 ## <a name="create-an-iot-hub"></a>Crie um Hub IoT
 
 Use a CLI do Azure para criar um grupo de recursos e, em seguida, adicione um Hub IoT.
 
-1. Quando cria um Hub IoT, você deve criá-lo em um grupo de recursos. Use um grupo de recursos existente ou execute o seguinte [comando para criar um grupo de recursos][lnk-az-resource-command]:
+1. Quando cria um Hub IoT, você deve criá-lo em um grupo de recursos. Use um grupo de recursos existente ou execute o seguinte [comando para criar um grupo de recursos](https://docs.microsoft.com/cli/azure/resource):
     
-    ```azurecli
-     az group create --name {your resource group name} --location westus
-    ```
+   ```azurecli
+   az group create --name {your resource group name} --location westus
+   ```
 
-    > [!TIP]
-    > O exemplo anterior cria o grupo de recursos localizado no Oeste dos EUA. Você pode exibir uma lista dos locais disponíveis executando o comando `az account list-locations -o table`.
-    >
-    >
+   > [!TIP]
+   > O exemplo anterior cria o grupo de recursos localizado no Oeste dos EUA. Você pode exibir uma lista dos locais disponíveis executando o comando: 
+   >
+   >``` bash
+   >az account list-locations -o table
+   >```
+   >
 
-2. Execute o seguinte [comando para criar um hub IoT][lnk-az-iot-command] no seu grupo de recursos usando um nome globalmente exclusivo para o hub IoT:
+2. Execute o seguinte [comando para criar um Hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) no seu grupo de recursos, usando um nome globalmente exclusivo para o Hub IoT:
     
-    ```azurecli
-    az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
-    ```
+   ```azurecli
+   az iot hub create --name {your iot hub name} \
+      --resource-group {your resource group name} --sku S1
+   ```
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 
-> [!NOTE]
-> O comando anterior cria um Hub IoT com tipo de preço S1, pelo qual você será cobrado. Para saber mais, confira [Preço do Hub IoT do Azure][lnk-iot-pricing].
->
+O comando anterior cria um Hub IoT com tipo de preço S1, pelo qual você será cobrado. Para saber mais, confira [Preço do Hub IoT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 ## <a name="remove-an-iot-hub"></a>Remover um Hub IoT
 
-Você pode usar a CLI do Azure para [excluir um recurso individual][lnk-az-resource-command], como um Hub IoT ou excluir um grupo de recursos e todos os seus recursos, incluindo os Hubs IoT.
+Você pode usar a CLI do Azure para [excluir um recurso individual](https://docs.microsoft.com/cli/azure/resource), tal como um Hub IoT, ou excluir um grupo de recursos e todos os seus recursos, incluindo quaisquer Hubs IoT.
 
-Para excluir um Hub IoT, execute o seguinte comando:
+Para [excluir um Hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete), execute o seguinte comando:
 
 ```azurecli
-az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
+az iot hub delete --name {your iot hub name} -\
+  -resource-group {your resource group name}
 ```
 
-Para excluir um grupo de recursos e todos os seus recursos, execute o seguinte comando:
+Para [excluir um grupo de recursos](https://docs.microsoft.com/cli/azure/group#az-group-delete) e todos os seus recursos, execute o seguinte comando:
 
 ```azurecli
 az group delete --name {your resource group name}
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como desenvolver para o Hub IoT, veja os seguintes artigos:
 
-* [Guia do desenvolvedor do Hub IoT][lnk-devguide]
+Para saber mais sobre como usar um Hub IoT, veja os seguintes artigos:
 
-Para explorar melhor as funcionalidades do Hub IoT, consulte:
-
-* [Uso do Portal do Azure para gerenciar o Hub IoT][lnk-portal]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-portal]: iot-hub-create-through-portal.md 
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
+* [Usar o portal do Azure para gerenciar o Hub IoT](iot-hub-create-through-portal.md)

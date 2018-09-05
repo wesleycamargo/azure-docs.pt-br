@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524137"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090519"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutorial: melhorar o aplicativo com papéis padrão
 
@@ -52,7 +52,7 @@ Neste tutorial, o aplicativo Recursos Humanos detecta enunciados sobre como move
 |[Hierarchical (não há funções)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones partir **a-2349** para **b-1298**|a-2349, b-1298|
 |Neste tutorial (com funções)|Mover Billy Patterson partir **Yuma** à **Denver**.|Yuma, Denver|
 
-Você não pode usar a entidade hierárquica no padrão porque somente os pais hierárquicos são usados nos pais. Para retornar os locais nomeados de origem e destino, você deve usar um padrão.
+Você não pode usar a entidade hierárquica no padrão porque somente os pais hierárquicos são usados em padrões. Para retornar os locais nomeados de origem e destino, você deve usar um padrão.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Entidade simples para o novo nome do funcionário
 O nome do novo funcionário, Billy Patterson, não faz parte da entidade lista **funcionário** ainda. O nome do novo funcionário é extraído primeiro, para enviar o nome a um sistema externo para criar as credenciais da empresa. Depois que as credenciais da empresa são criadas, as credenciais dos funcionários são adicionadas à entidade da lista **Funcionários**.

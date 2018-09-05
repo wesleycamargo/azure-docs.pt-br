@@ -1,28 +1,24 @@
 ---
-title: Converter dados XML com transformações – Aplicativo Lógico do Azure | Microsoft Docs
-description: Criar transformações ou mapas para converter dados XML entre formatos em aplicativos lógicos usando o SDK do Enterprise Integration
+title: Transformar XML entre formatos – Aplicativo Lógico do Azure | Microsoft Docs
+description: Criar transformações ou mapas que convertem dados XML entre formatos no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1621843d58954aa05a572f43fdab0fb16097332e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299446"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125288"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>Integração corporativa com transformações XML
-## <a name="overview"></a>Visão geral
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Criar mapas que transformam dados XML entre formatos no Aplicativo Lógico do Azure com o Enterprise Integration Pack
+
 O conector de Transformação da integração corporativa converte dados de um formato para outro formato. Por exemplo, talvez você tenha uma mensagem de entrada contendo a data atual no formato AnoMêsDia. Você pode usar uma transformação para reformatar a data para o formato MêsDiaAno.
 
 ## <a name="what-does-a-transform-do"></a>O que uma transformação faz?
@@ -36,7 +32,7 @@ Depois de carregar a transformação em sua conta de integração, você poderá
 
 **Estas são as etapas para usar uma transformação**:
 
-### <a name="prerequisites"></a>pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 * Criar uma conta de integração e adicionar um mapa a ela  
 

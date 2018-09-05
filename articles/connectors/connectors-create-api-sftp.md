@@ -1,66 +1,89 @@
 ---
-title: Saiba como usar o conector SFTP em seus aplicativos lógicos | Microsoft Docs
-description: Crie aplicativos lógicos com o serviço de Aplicativo do Azure. Conecte-se à API do SFTP para enviar e receber arquivos. Você pode executar várias operações, como criar, atualizar, obter ou excluir arquivos.
+title: Conectar-se à conta do SFTP com o Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que monitoram, criam, gerenciam, enviam e recebem arquivos para um servidor SFTP usando o Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/20/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 28ea02082903f71f619a52672ba41ce65557b0c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295995"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042031"
 ---
-# <a name="get-started-with-the-sftp-connector"></a>Introdução ao conector de SFTP
-Use o conector de SFTP de modo a acessar uma conta SFTP para enviar e receber arquivos. Você pode executar várias operações, como criar, atualizar, obter ou excluir arquivos.  
+# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorar, criar e gerenciar recursos do SFTP usando o Aplicativo Lógico do Azure
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Com o conector do SFTP e o Aplicativo Lógico do Azure, você pode criar tarefas e fluxos de trabalho automatizados que monitoram, criam, enviam e recebem arquivos por meio da sua conta em um servidor [SFTP](https://www.ssh.com/ssh/sftp/), juntamente com outras ações, por exemplo:
+
+* Monitorar quando arquivos são adicionados ou alterados.
+* Obter, criar, copiar, atualizar, lista e excluir arquivos.
+* Obter conteúdo e metadados do arquivo.
+* Extrair o arquivo para pastas.
+
+Você pode usar gatilhos que obtêm respostas de seu servidor SFTP e disponibilizar a saída para outras ações. Você pode usar ações nos aplicativos lógicos para executar tarefas com arquivos no seu servidor SFTP. Você também pode fazer com que outras ações usem a saída das ações de SFTP. Por exemplo, se você regularmente recuperar arquivos do seu servidor SFTP, poderá enviar um email sobre esses arquivos e seu conteúdo usando o conector do Outlook do Office 365 ou Outlook.com.
+Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
+
+* Suas credenciais de conta e de endereço de servidor do host SFTP
+
+   Suas credenciais autorizam o aplicativo lógico a criar uma conexão e acessar sua conta SFTP.
+
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* O aplicativo lógico no qual você deseja acessar a conta SFTP. Para iniciar com um gatilho SFTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação de SFTP, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência**.
 
 ## <a name="connect-to-sftp"></a>Conectar-se ao SFTP
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
 
-### <a name="create-a-connection-to-sftp"></a>Criar uma conexão com o SFTP
-> [!INCLUDE [Steps to create a connection to SFTP](../../includes/connectors-create-api-sftp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-sftp-trigger"></a>Usar um gatilho de SFTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-Neste exemplo, o gatilho **SFTP – quando um arquivo é adicionado ou modificado** é usado para iniciar um fluxo de trabalho do aplicativo lógico quando um arquivo é adicionado ou modificado em um servidor SFTP. Você também adiciona uma condição que verifica o conteúdo do arquivo novo ou modificado e toma uma decisão para extrair o arquivo se seu conteúdo indicar que ele deve ser extraído antes do uso. Por fim, adicione uma ação para extrair o conteúdo de um arquivo e colocar o conteúdo extraído em uma pasta no servidor SFTP. 
+1. Para aplicativos lógicos em branco, na caixa de pesquisa, insira "sftp" como o filtro. Na lista de gatilhos, selecione o gatilho desejado. 
 
-Em um exemplo corporativo, você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes.  Você pode usar uma ação do conector SFTP, como **Obter conteúdo do arquivo**, para obter o conteúdo do pedido para ter mais processamento e armazenamento em um banco de dados de pedidos.
+   -ou-
 
-> [!INCLUDE [Steps to create an SFTP trigger](../../includes/connectors-create-api-sftp-trigger.md)]
-> 
-> 
+   Para aplicativos lógicos existentes, na última etapa em que deseja adicionar uma ação, escolha **Nova etapa**. 
+   Na caixa de pesquisa, insira "sftp" como o seu filtro. 
+   Na lista de ações, selecione a ação desejada.
 
-## <a name="add-a-condition"></a>Adicione uma condição
-> [!INCLUDE [Steps to add a condition](../../includes/connectors-create-api-sftp-condition.md)]
-> 
-> 
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
+   Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-## <a name="use-an-sftp-action"></a>Usar uma ação de SFTP
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Forneça os detalhes necessários para sua conexão e, em seguida, escolha **Criar**.
 
-> [!INCLUDE [Steps to create an SFTP action](../../includes/connectors-create-api-sftp-action.md)]
-> 
-> 
+1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+## <a name="examples"></a>Exemplos
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sftpconnector/).
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>Gatilho SFTP: quando um arquivo é adicionado ou modificado
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+Esse gatilho inicia um fluxo de trabalho do aplicativo lógico ao detectar quando um arquivo é adicionado ou alterado em um servidor SFTP. Por exemplo, você pode adicionar uma condição que verifica o conteúdo do arquivo e decide se deve obter esse conteúdo, com base em se esse conteúdo atende a uma condição especificada. Por fim, você pode adicionar uma ação que obtém o conteúdo do arquivo e colocar esse conteúdo em uma pasta no servidor SFTP. 
+
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar uma pasta SFTP para novos arquivos que representam pedidos de clientes. Você pode, então, usar uma ação de SFTP como **Obter conteúdo do arquivo**, para que possa obter o conteúdo da ordem para mais processamento e armazenar essa ordem em um banco de dados de ordens.
+
+### <a name="sftp-action-get-content"></a>Ação de SFTP: obter o conteúdo
+
+Esta ação obtém o conteúdo de um arquivo em um servidor SFTP. Por exemplo, você pode adicionar o gatilho do exemplo anterior e uma condição que o conteúdo do arquivo deve atender. Se a condição for verdadeira, a ação que obtém o conteúdo poderá ser executada. 
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/sftpconnector/) do conector.
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

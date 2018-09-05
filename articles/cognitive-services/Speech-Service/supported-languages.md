@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282149"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123147"
 ---
 # <a name="supported-languages-for-speech-service"></a>Idiomas compatíveis com o serviço de fala
 
@@ -51,11 +51,11 @@ cs-CZ | Tcheco | Masculino | “Voz da Conversão de Texto em Fala do Microsoft 
 da-DK | Dinamarquês | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (da-DK, HelleRUS)”
 de-AT | Alemão (Áustria) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-AT, Michael)”
 de-CH | Alemão (Suíça) | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-CH, Karsten)”
-de-DE | Alemão (Alemanha) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-DE, Hedda)”
+de-DE | Alemão (Alemanha) | Feminino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-DE, Hedda)"
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-DE, HeddaRUS)”
-| | | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-DE, Stefan, Apollo)”
+| | | Masculino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (de-DE, Stefan, Apollo)"
 el-GR | Grego | Masculino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (el-GR, Stefanos)”
-en-AU | Inglês (Austrália) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-AU, Catherine)”
+en-AU | Inglês (Austrália) | Feminino | "Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-AU, Catherine)"
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-AU, HayleyRUS)”
 en-CA | Inglês (Canadá) | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-CA, Linda)”
 | | | Feminino | “Voz da Conversão de Texto em Fala do Microsoft Server Speech (en-CA, HeatherRUS)”

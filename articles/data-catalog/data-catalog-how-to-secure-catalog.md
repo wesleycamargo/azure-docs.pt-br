@@ -1,24 +1,18 @@
 ---
-title: "Como proteger o acesso ao Catálogo de Dados do Azure | Microsoft Docs"
-description: "Este artigo explica como proteger o catálogo de dados e seus ativos."
+title: Como proteger o acesso ao Catálogo de Dados do Azure
+description: Este artigo explica como proteger o catálogo de dados e seus ativos.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
-ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
-ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 89346113c6231442beb1147c4c4fea524d03d909
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.service: data-catalog
+ms.topic: conceptual
+ms.date: 01/18/2018
+ms.openlocfilehash: 6b82c71154edfe5fedab3b92e25c11007820c15c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053206"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Como proteger o acesso ao catálogo de dados e ativos de dados
 > [!IMPORTANT]

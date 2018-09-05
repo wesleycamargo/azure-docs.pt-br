@@ -1,52 +1,81 @@
 ---
-title: Adicionar o Conector do Twilio aos seus Aplicativos Lógicos do Azure | Microsoft Docs
-description: Visão geral do Conector do Twilio com os parâmetros da API REST
+title: Conectar-se ao Twilio por meio do Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que gerenciam mensagens globais de SMS, MMS e IP por meio de sua conta do Twilio usando o Aplicativo Lógico do Azure
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 43116187-4a2f-42e5-9852-a0d62f08c5fc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 09/19/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: db7677042737ea1377af54cc02ee1c82c05435c8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651998"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047567"
 ---
-# <a name="get-started-with-the-twilio-connector"></a>Introdução ao conector do Twilio
-Conecte-se a Twilio para enviar e receber mensagens SMS, MMS e de IP globais. Com o Twilio, você pode:
+# <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gerenciar mensagens no Twilio com o Aplicativo Lógico do Azure
 
-* Compile seu fluxo de negócios baseado nos dados obtidos do Twilio. 
-* Use ações para obter uma mensagem, listar mensagens e muito mais. Essas ações obtêm uma resposta e disponibilizam a saída para outras ações. Por exemplo, quando você recebe uma nova mensagem do Twilio, você pode obtê-la e usá-la como um fluxo de trabalho do Barramento de Serviço. 
+Com o Aplicativo Lógico do Azure e o conector do Twilio, você pode criar tarefas automatizadas e fluxos de trabalho que obtém, enviam e listam as mensagens do Twilio, que incluem mensagens globais de SMS, MMS e IP. Você pode usar essas ações para executar tarefas com sua conta do Twilio. Você também pode fazer com que outras ações usem a saída das ações do Twilio. Por exemplo, quando uma nova mensagem chega, você pode enviar o conteúdo da mensagem com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-Comece pela criação de um aplicativo lógico; veja [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="create-a-connection-to-twilio"></a>Criar uma conexão com o Twilio
-Ao adicionar esse Conector aos seus aplicativos lógicos, insira os seguintes valores do Twilio:
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
-| Propriedade | Obrigatório | DESCRIÇÃO |
-| --- | --- | --- |
-| ID da Conta |sim |Insira seu ID de conta do Twilio |
-| Token de Acesso |sim |Insira seu token de acesso do Twilio |
+* No [Twilio](https://www.twilio.com/): 
 
-> [!INCLUDE [Steps to create a connection to Twilio](../../includes/connectors-create-api-twilio.md)]
-> 
-> 
+  * A ID da conta do Twilio e o [token de autenticação](https://support.twilio.com/hc/en-us/articles/223136027-Auth-Tokens-and-How-to-Change-Them), que podem ser encontrados no seu painel do Twilio
 
-Se você não tiver um token de acesso do Twilio, veja [Identidade de usuário e Tokens de acesso](https://www.twilio.com/docs/api/chat/guides/identity).
+    Suas credenciais autorizam o aplicativo lógico a criar uma conexão e acessar sua conta do Twilio por meio do aplicativo lógico. 
+    Se você estiver usando uma conta de avaliação do Twilio, poderá enviar SMS somente para números de telefone *verificados*.
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+  * Um número de telefone Twilio verificado que possa enviar SMS
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/twilio/).
+  * Um número de telefone Twilio verificado que possa receber SMS
 
-## <a name="more-connectors"></a>Mais conectores
-Volte para a [Lista de APIs](apis-list.md).
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* O aplicativo lógico no qual você deseja acessar a conta do Twilio. Para usar uma ação do Twilio, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho **Recorrência**.
+
+## <a name="connect-to-twilio"></a>Conectar-se ao Twilio
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
+
+1. Escolha um caminho: 
+
+     * Na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**. 
+
+       -ou-
+
+     * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
+     Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
+     
+       Na caixa de pesquisa, insira "twilio" como o filtro. 
+       Na lista de ações, selecione a ação desejada.
+
+1. Forneça os detalhes necessários para sua conexão e, em seguida, escolha **Criar**:
+
+   * O nome a usar para a conexão
+   * A ID da sua conta do Twilio 
+   * O token de acesso (autenticação) do Twilio
+
+1. Forneça os detalhes necessários para a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/twilio/) do conector.
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Próximas etapas
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

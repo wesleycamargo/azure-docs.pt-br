@@ -1,27 +1,23 @@
 ---
 title: Mensagens X12 para integração de empresas B2B – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Troca de mensagens X12 no formato EDI para integração de empresas B2B com aplicativos lógicos do Azure
+description: Trocar mensagens X12 em formato EDI para Enterprise Integration B2B no Aplicativo Lógico do Azure com o Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4ee56f4ddcccb1fc4ddd84aa1c1b16dea9754d9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299072"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123950"
 ---
-# <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens X12 para integração de empresas com aplicativos lógicos
+# <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens X12 para Enterprise Integration B2B no Aplicativo Lógico do Azure com Enterprise Integration Pack
 
 Antes de trocar mensagens X12 para aplicativos lógicos do Azure, você deve criar um contrato X12 e armazenar esse contrato na sua conta de integração. Seguem as etapas sobre como criar um contrato X12.
 
@@ -65,7 +61,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
     ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     | --- | --- |
     | NOME |Nome do contrato |
     | Tipo de contrato | Deve ser X12 |

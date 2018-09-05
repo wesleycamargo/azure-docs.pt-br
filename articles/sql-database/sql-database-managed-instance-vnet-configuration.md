@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b17749999f7903746651403c5948933332dbee5d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246374"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047925"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurar VNet para Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -39,21 +39,39 @@ Planeje como implantar uma Instância Gerenciada na rede virtual, usando as resp
 ## <a name="requirements"></a>Requisitos
 
 Para a criação de Instância Gerenciada, é necessário dedicar uma sub-rede dentro da VNet que atenda aos seguintes requisitos:
-- **Estar vazia**: a sub-rede não deve conter nenhum outro serviço de nuvem associado a ela e não deve ser a sub-rede do Gateway. Não será possível criar a Instância Gerenciada na sub-rede que contenha outros recursos, além da instância gerenciada, ou adicionar outros recursos dentro da sub-rede posteriormente.
-- **Sem NSG**: a sub-rede não deve ter um Grupo de Segurança de Rede associado a ela.
+- **Sub-rede dedicada**: a sub-rede não deve conter nenhum outro serviço de nuvem associado a ela e não deve ser a sub-rede do Gateway. Não será possível criar a Instância Gerenciada na sub-rede que contenha outros recursos, além da instância gerenciada, ou adicionar outros recursos dentro da sub-rede posteriormente.
+- **Sem NSG**: a sub-rede não deve ter um Grupo de Segurança de Rede associado a ela. 
 - **Ter uma tabela de rotas específica**: a sub-rede deve ter uma UDR (Tabela de Rotas do Usuário) com Próximo Salto para a Internet 0.0.0.0/0 como a única rota atribuída a ela. Para obter mais informações, consulte [Criar a tabela de rotas necessária e associá-la](#create-the-required-route-table-and-associate-it)
 3. **DNS personalizado opcional**: se o DNS personalizado for especificado na VNet, o endereço IP do resolvedor recursivo do Azure (como 168.63.129.16) deverá ser adicionado à lista. Para obter mais informações, consulte [Configurar DNS personalizado](sql-database-managed-instance-custom-dns.md).
-4. **Sem ponto de extremidade de serviço**: a sub-rede não deve ter um ponto de extremidade de serviço (Sql ou Armazenamento) associado a ela. Certifique-se de que a opção Pontos de Extremidade de Serviço está Desabilitada ao criar a VNet.
-5. **Endereços IP suficientes**: a sub-rede deve ter no mínimo 16 endereços IP. Para obter mais informações, consulte [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](#determine-the-size-of-subnet-for-managed-instances)
+4. **Sem ponto de extremidade de serviço**: a sub-rede não deve ter um Ponto de extremidade de serviço associado a ela. Certifique-se de que a opção Pontos de extremidade de serviço esteja Desabilitada ao criar a VNet.
+5. **Endereços IP suficientes**: a sub-rede deve ter suporte para no mínimo 16 endereços IP (o mínimo recomendado é de 32 endereços IP). Para obter mais informações, consulte [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
 > Não será possível implantar nova Instância Gerenciada se a sub-rede de destino não estiver compatível com todos os requisitos anteriores. A Vnet de destino e a sub-rede devem ser mantidas em conformidade com esses requisitos da Instância Gerenciada (antes e após a implantação), pois qualquer violação pode fazer a instância entrar em estado defeituoso e tornar-se indisponível. A recuperação desse estado exigirá a criação de uma nova instância em uma VNet com as políticas de rede compatíveis, recriar dados em nível de instância e restaurar os bancos de dados. Isso introduz tempo de inatividade significativo aos aplicativos.
 
+Com a introdução da _Política de intenção de rede_, você pode adicionar um NSG (Grupo de Segurança de Rede) em uma sub-rede de Instância Gerenciada depois que a Instância Gerenciada é criada.
+
+Agora você pode usar um NSG para restringir os intervalos de IP dos quais aplicativos e usuários podem consultar e gerenciar os dados filtrando o tráfego de rede que vai para a porta 1433. 
+
+> [!IMPORTANT]
+> Quando você estiver configurando as regras do NSG que vão restringir acesso à porta 1433, também precisará inserir as regras de entrada de prioridade mais alta exibidas na tabela a seguir. Caso contrário, a Política de intenção de rede bloqueará a alterações como fora de conformidade.
+
+| NOME       |PORTA                        |PROTOCOLO|FONTE           |DESTINO|AÇÃO|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|gerenciamento  |9000, 9003, 1438, 1440, 1452|Qualquer     |Qualquer              |Qualquer        |PERMITIR |
+|mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DA MI        |Qualquer        |PERMITIR |
+|health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|Qualquer        |PERMITIR |
+
+A experiência de roteamento também foi aprimorada para que, além do roteamento de Internet 0.0.0.0/0 do tipo próximo salto, agora você também possa adicionar o UDR para rotear o tráfego em direção aos seus intervalos de IP privados locais por meio do gateway de rede virtual ou do NVA (dispositivo de rede virtual).
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Determinar o tamanho da sub-rede para Instâncias Gerenciadas
 
-Quando você uma Instância Gerenciada, o Azure aloca uma série de máquinas virtuais, dependendo do tamanho da camada selecionado durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir alta disponibilidade durante operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior que o número de Instâncias Gerenciadas nessa sub-rede. 
+Quando você cria uma Instância Gerenciada, o Azure aloca uma série de máquinas virtuais, dependendo da camada selecionada durante o provisionamento. Como essas máquinas virtuais estão associadas à sua sub-rede, elas exigem endereços IP. Para garantir alta disponibilidade durante operações regulares e manutenção do serviço, o Azure pode alocar máquinas virtuais adicionais. Como resultado, o número de endereços IP necessários em uma sub-rede é maior que o número de Instâncias Gerenciadas nessa sub-rede. 
 
 Por design, uma Instância Gerenciada precisa de um mínimo de 16 endereços IP em uma sub-rede e pode usar até 256 endereços IP. Como resultado, é possível usar máscaras de sub-rede /28 a /24 ao definir os intervalos de IP da sub-rede. 
+
+> [!IMPORTANT]
+> O tamanho da sub-rede com 16 endereços IP é o mínimo com potencial limitado para uma expansão futura da Instância Gerenciada. É altamente recomendável escolher uma sub-rede com o prefixo /27 ou abaixo. 
 
 Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede e precisa otimizar o tamanho da sub-rede, use estes parâmetros para formar um cálculo: 
 
@@ -62,6 +80,9 @@ Se você planeja implantar múltiplas instâncias gerenciadas dentro da sub-rede
 - Cada instância Comercialmente Crítica precisa de quatro endereços
 
 **Exemplo**: Você planeja ter três Usos Gerais e duas instâncias Gerenciadas Comercialmente Críticas. Isso significa que você precisa de 5 + 3 * 2 + 2 * 4 = 19 endereços IP. Como os intervalos de IP são definidos em potência de 2, você precisa do intervalo de IP de 32 (2^5) endereços IP. Portanto, é necessário reservar a sub-rede com a máscara de sub-rede de /27. 
+
+> [!IMPORTANT]
+> O cálculo exibido acima se tornará obsoleto com as melhorias futuras. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Criar uma nova rede virtual para Instância Gerenciada usando a implantação do Azure Resource Manager
 
@@ -84,59 +105,6 @@ A maneira mais fácil de criar e configurar a rede virtual é usar o modelo de i
 
 É possível alterar os nomes da VNet e sub-redes e ajustar os intervalos de IP associados aos recursos de rede. Após pressionar o botão "Comprar", esse formulário criará e configurará o ambiente. Se você não precisar de duas sub-redes, poderá excluir uma padrão. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Criar uma nova rede virtual para Instâncias Gerenciadas usando o portal
-
-Criar uma rede virtual do Azure é um pré-requisito para a criação de uma Instância Gerenciada. Você pode utilizar o Portal do Azure, [PowerShell](../virtual-network/quick-create-powershell.md) ou [CLI do Azure](../virtual-network/quick-create-cli.md). A seção a seguir mostra as etapas utilizando o Portal do Azure. Os detalhes discutidos aqui aplicam-se a cada um desses métodos.
-
-1. Clique em **Criar um recurso** no canto superior esquerdo do Portal do Azure.
-2. Localize e, em seguida, clique em **Rede Virtual**, verifique se o **Gerenciador de Recursos** está selecionado como o modo de implantação e, em seguida, clique em **Criar**.
-
-   ![criação de rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
-
-3. Preencha o formulário de rede virtual com as informações solicitadas, de modo semelhante à captura de tela a seguir:
-
-   ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
-
-4. Clique em **Criar**.
-
-   O espaço de endereço e a sub-rede são especificados na notação CIDR. 
-
-   > [!IMPORTANT]
-   > Os valores padrão criam uma sub-rede que ocupa todo o espaço de endereço da VNet. Se escolher essa opção, você não poderá criar outros recursos dentro da rede virtual, exceto Instância Gerenciada. 
-
-   A abordagem recomendada seria a seguinte: 
-   - Calcule o tamanho da sub-rede de acordo com a seção [Determinar o tamanho da sub-rede para Instância Gerenciada](#determine-the-size-of-subnet-for-managed-instances)  
-   - Avaliar as necessidades para o restante da VNet 
-   - Preencher VNet e intervalos de endereço de sub-rede adequadamente 
-
-   Certifique-se de que a opção Pontos de Extremidade de Serviço permaneça **Desabilitado**. 
-
-   ![formulário de criação de rede virtual](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
-
-### <a name="create-the-required-route-table-and-associate-it"></a>Criar a tabela de rotas necessária e associá-la
-
-1. Entre no Portal do Azure  
-2. Localize e clique em **Tabela de rotas** e, em seguida, clique em **Criar** na página Tabela de rotas.
-
-   ![formulário de criação da tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
-
-3. Crie uma rota de Próximo Salto para a Internet 2.0 0.0.0.0/0, de modo semelhante às capturas de tela a seguir:
-
-   ![adicionar tabela de rotas](./media/sql-database-managed-instance-tutorial/route-table-add.png)
-
-   ![rota](./media/sql-database-managed-instance-tutorial/route.png)
-
-4. Associe essa rota à sub-rede para a Instância Gerenciada, de modo semelhante às capturas de tela a seguir:
-
-    ![sub-rede](./media/sql-database-managed-instance-tutorial/subnet.png)
-
-    ![definir tabela de rotas](./media/sql-database-managed-instance-tutorial/set-route-table.png)
-
-    ![definir tabela de rotas - salvar](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
-
-
-Quando a VNet for criada, você estará pronto para criar a Instância Gerenciada.  
-
 ## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Modificar uma rede virtual existente para Instâncias Gerenciadas 
 
 As perguntas e respostas nesta seção mostram como adicionar uma Instância Gerenciada à rede virtual existente. 
@@ -153,11 +121,24 @@ Se quiser criar uma nova:
 - Siga as etapas em [Adicionar, alterar ou excluir uma sub-rede da rede virtual](../virtual-network/virtual-network-manage-subnet.md). 
 - Crie uma tabela de rotas que contenha entrada única, **0.0.0.0/0**, como próximo salto para a Internet e associe-a à sub-rede para a Instância Gerenciada.  
 
-Se quiser criar uma Instância Gerenciada dentro de uma sub-rede existente: 
-- Verifique se a sub-rede está vazia - uma Instância Gerenciada não pode ser criada em uma sub-rede contendo outros recursos, incluindo a sub-rede do Gateway 
-- Calcule o tamanho da sub-rede, seguindo as diretrizes na seção [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](#determine-the-size-of-subnet-for-managed-instances) e verifique se está dimensionada adequadamente. 
-- Verifique se os pontos de extremidade de serviço não estão habilitados na sub-rede.
-- Certificar-se de que não há grupos de segurança de rede associados à sub-rede 
+Se você quiser criar uma Instância Gerenciada dentro de uma sub-rede existente, recomendamos o seguinte script do PowerShell para preparar a sub-rede.
+```powershell
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+
+$parameters = @{
+    subscriptionId = '<subscriptionId>'
+    resourceGroupName = '<resourceGroupName>'
+    virtualNetworkName = '<virtualNetworkName>'
+    subnetName = '<subnetName>'
+    }
+
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+```
+A preparação da sub-rede é feita em três etapas simples:
+
+- Validar – a sub-rede e a rede virtual selecionadas são validadas em relação aos requisitos de rede da Instância Gerenciada
+- Confirmar – o usuário vê um conjunto de alterações que precisam ser feitas para preparar a sub-rede para a implantação da Instância Gerenciada e é solicitado a dar consentimento
+- Preparar – a Rede virtual e a sub-rede são configuradas corretamente
 
 **Há um servidor DNS personalizado configurado?** 
 

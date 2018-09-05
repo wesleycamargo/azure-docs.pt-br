@@ -1,52 +1,58 @@
 ---
-title: Arquitetura de referência de integração empresarial simples do Integration Services do Azure
-description: Descreve a referência mostrando como implementar um padrão de integração empresarial simples com Aplicativo Lógico do Azure e Gerenciamento de API do Azure.
-author: mattfarm
-manager: jonfan
-editor: ''
-services: logic-apps api-management
-documentationcenter: ''
-ms.assetid: ''
+title: Padrão de arquitetura de integração empresarial simples – Azure Integration Services
+description: Essa referência de arquitetura mostra como implementar um padrão de integração empresarial simples usando o Aplicativo Lógico do Azure e o Gerenciamento de API do Azure
+services: logic-apps
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.suite: integration
+author: mattfarm
+ms.author: mattfarm
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 7081c9e4f6e6deee196255f04180a8f2cc792876
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444503"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122488"
 ---
-# <a name="reference-architecture-simple-enterprise-integration"></a>Arquitetura de referência: integração empresarial simples
+# <a name="simple-enterprise-integration-architecture"></a>Arquitetura de integração empresarial simples
 
-Essa arquitetura de referência mostra um conjunto de práticas comprovadas que você pode aplicar a um aplicativo de integração que usa o Integration Services do Azure. A arquitetura pode servir de base para muitos padrões diferentes de aplicativos e APIs HTTP, fluxo de trabalho e orquestração.
+Este artigo descreve uma arquitetura de integração empresarial que usa práticas comprovadas que podem ser aplicadas a um aplicativo de integração ao usar o Azure Integration Services. Você pode usar essa arquitetura como base para muitos padrões diferentes de aplicativos que exigem APIs HTTP, fluxo de trabalho e orquestração.
 
 ![Diagrama de arquitetura - integração empresarial simples](./media/logic-apps-architectures-simple-enterprise-integration/simple_arch_diagram.png)
 
-*Há muitos aplicativos possíveis para a tecnologia de integração. Variam de um aplicativo ponto a ponto simples a uma empresa completo de aplicativo do barramento de serviço do Microsoft Azure. A série de arquitetura descreve as partes de componente reutilizável que pode ser aplicada para criar um aplicativo de integração genérico. Arquitetos devem considerar quais componentes precisam implementar para seus aplicativos e infraestrutura.*
+A série de arquitetura descreve os blocos componentes reutilizáveis que podem ser aplicados para compilar um aplicativo de integração genérico. Como tecnologia de integração tem muitos aplicativos possíveis, variando de aplicativos ponto a ponto simples até os aplicativos empresariais completos do Barramento de Serviço do Azure, considere quais componentes você precisa implementar para seus aplicativos e infraestrutura.
 
-## <a name="architecture"></a>Arquitetura
+## <a name="architecture-components"></a>Componentes da arquitetura
 
-A arquitetura tem os seguintes componentes:
+Essa arquitetura de integração empresarial inclui os seguintes componentes:
 
-- **Grupo de recursos**. Um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) é um contêiner lógico para recursos do Azure.
-- **Gerenciamento de API do Azure**. [Gerenciamento de API](https://docs.microsoft.com/azure/api-management/) é uma plataforma totalmente gerenciada que é usada para publicar, proteger e transformar APIs HTTP.
-- **Portal do Desenvolvedor de Gerenciamento de API do Azure**. Cada instância do gerenciamento de API do Azure vem com acesso para o [Portal do desenvolvedor](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). O portal do desenvolvedor do Gerenciamento de API fornece acesso a documentação e exemplos de códigos. Você pode testar as APIs no portal do desenvolvedor.
-- **Aplicativo Lógico do Azure**. Os [Aplicativos Lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) são uma plataforma sem servidor que é usada para compilar integração e fluxo de trabalho empresarial.
-- **Conectores**. Os [conectores](https://docs.microsoft.com/azure/connectors/apis-list) são usados pelos Aplicativos Lógicos para conectarem os serviços normalmente utilizados. Os Aplicativos Lógicos já possuem centenas de conectores diferentes, mas também podem ser criados usando um conector personalizado.
-- **Endereço IP**. O serviço de Gerenciamento de API do Azure tem um nome de domínio e um [endereço IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) público fixo. O nome de domínio padrão é um subdomínio de azure-api.net, como contoso.azure-api.net, mas [domínios personalizados](https://docs.microsoft.com/azure/api-management/configure-custom-domain) também podem ser configurados. Aplicativos lógicos e o barramento de serviço também têm um endereço IP público. No entanto, nessa arquitetura restringimos o acesso para chamar pontos de extremidade de aplicativos lógicos apenas para o endereço IP do Gerenciamento de API (por segurança). As chamadas para o Barramento de Serviço são protegidas por uma assinatura de acesso compartilhado (SAS).
-- **DNS do Azure**. [O DNS do Azure](https://docs.microsoft.com/azure/dns/) é um serviço de hospedagem para domínios DNS. O DNS do Azure fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Microsoft Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure. Para usar um nome de domínio personalizado como contoso.com, crie registros DNS que mapeiem o nome de domínio personalizado para o endereço IP. Para obter mais informações, consulte [Configurar um nome de domínio personalizado no Gerenciamento de API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
-- **Azure Active Directory (Azure AD)**. Use o [Azure AD](https://docs.microsoft.com/azure/active-directory/) ou outro provedor de identidade para autenticação. O Azure Active Directory fornece autenticação para acessar os pontos de extremidade de API, passando um [JSON Web Token para o gerenciamento de API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) para validar. O Azure Active Directory pode proteger o acesso ao portal do desenvolvedor do gerenciamento de API (somente em camadas Standard e Premium).
+- **Grupo de recursos**: um [grupo de recursos](../azure-resource-manager/resource-group-overview.md) é um contêiner lógico para os recursos do Azure.
 
-Esta arquitetura possui alguns padrões que são fundamentais para seu funcionamento:
+- **Gerenciamento de API do Azure**: o serviço [Gerenciamento de API](https://docs.microsoft.com/azure/api-management/) é uma plataforma totalmente gerenciada para publicação, proteção e transformação de APIs HTTP.
 
-- APIs de composição são criadas usando aplicativos lógicos. Eles orquestram chamadas para o software como sistemas de serviço (SaaS), aos serviços do Azure e para quaisquer APIs que são publicados no gerenciamento de API. [Os Aplicativos Lógicos também são publicados](https://docs.microsoft.com/azure/api-management/import-logic-app-as-api) por meio do Portal do Desenvolvedor de Gerenciamento de API.
-- Aplicativos usam o Azure AD para [adquirir um token de segurança do OAuth 2.0](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) que é necessário para obter acesso a uma API.
-- O Gerenciamento de API do Azure [valida o token](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) de segurança e passa a solicitação ao aplicativo lógico ou API de back-end.
+- **Portal do Desenvolvedor do Gerenciamento de API do Azure**: cada instância do Gerenciamento de API do Azure fornece acesso ao [Portal do Desenvolvedor](../api-management/api-management-customize-styles.md). Esse portal fornece acesso à documentação e a exemplo de código. Também é possível testar as APIs no Portal do Desenvolvedor.
+
+- **Aplicativo Lógico do Azure**: os [Aplicativos Lógicos](../logic-apps/logic-apps-overview.md) são uma plataforma sem servidor para compilar fluxos de trabalho e integrações empresariais.
+
+- **Conectores**: os Aplicativos Lógicos usam [conectores](../connectors/apis-list.md) para conectarem aos serviços utilizados com frequência. Os Aplicativos Lógicos já oferecem centenas de conectores, mas também é possível criar um conector personalizado.
+
+- **Endereço IP**: o serviço de Gerenciamento de API do Azure tem um nome de domínio e um [endereço IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md) público fixo. O nome de domínio padrão é um subdomínio de azure-api.net, como contoso.azure-api.net, mas também é possível configurar [domínios personalizados](../api-management/configure-custom-domain.md). Aplicativos lógicos e o barramento de serviço também têm um endereço IP público. No entanto, por questão de segurança, essa arquitetura restringe o acesso para chamada de pontos de extremidade de Aplicativos Lógicos a apenas para o endereço IP do Gerenciamento de API. As chamadas para o Barramento de Serviço são protegidas por uma assinatura de acesso compartilhado (SAS).
+
+- **DNS do Azure**: o [DNS do Azure](https://docs.microsoft.com/azure/dns/) é um serviço de hospedagem para domínios DNS. O DNS do Azure fornece resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Microsoft Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e cobrança que seus outros serviços do Azure. Para usar um nome de domínio personalizado, como contoso.com, crie registros DNS que mapeiem o nome de domínio personalizado para o endereço IP. Para obter mais informações, consulte [Configurar um nome de domínio personalizado no Gerenciamento de API](../api-management/configure-custom-domain.md).
+
+- [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/): é possível usar o **Azure AD** ou outro provedor de identidade para autenticação. O Azure Active Directory fornece autenticação para acessar os pontos de extremidade de API, passando um [JSON Web Token para o gerenciamento de API](../api-management/policies/authorize-request-based-on-jwt-claims.md) para validar. Para camadas Standard e Premium, o Azure AD pode proteger o acesso ao Portal do Desenvolvedor do Gerenciamento de API.
+
+## <a name="patterns"></a>Padrões 
+
+Esta arquitetura tem alguns padrões que são fundamentais para sua operação:
+
+* As APIs compostas são compiladas usando aplicativos lógicos, que orquestram chamadas para sistemas SaaS (software como serviço), serviços do Azure e quaisquer APIs publicadas no Gerenciamento de API. Os aplicativos lógicos também são [publicados por meio do Portal do Desenvolvedor de Gerenciamento de API](../api-management/import-logic-app-as-api.md).
+
+* Aplicativos usam o Azure AD para [adquirir um token de segurança do OAuth 2.0](../api-management/api-management-howto-protect-backend-with-aad.md) que é necessário para obter acesso a uma API.
+
+* O Gerenciamento de API do Azure [valida o token](../api-management/api-management-howto-protect-backend-with-aad.md) de segurança e passa a solicitação ao aplicativo lógico ou API de back-end.
 
 ## <a name="recommendations"></a>Recomendações
 
@@ -54,117 +60,130 @@ Seus requisitos específicos podem ser diferentes da arquitetura genérica descr
 
 ### <a name="azure-api-management-tier"></a>Camada de Gerenciamento de API do Azure
 
-Use as camadas de gerenciamento de API básica, Standard ou Premium. As camadas oferecem um acordo de nível de serviço (SLA) de produção e suporte para escalar horizontalmente na região do Azure (o número de unidades varia por camada). A camada Premium também dá suporte para escalar horizontalmente em várias regiões do Azure. Baseie a camada que você escolheu no nível de taxa de transferência necessária e no conjunto de recursos. Para obter mais informações, consulte [preço de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).
+Use as camadas de gerenciamento de API básica, Standard ou Premium. Essas camadas oferecem um SLA (Contrato de Nível de Serviço) de produção e são compatíveis com escala horizontal dentro da região do Azure. O número de unidades varia por camada. A camada Premium também é compatível com escala horizontal entre várias regiões do Azure. Escolha sua camada com base no conjunto de recursos e o nível de taxa de transferência necessário. Para obter mais informações, consulte [preço de Gerenciamento de API](https://azure.microsoft.com/pricing/details/api-management/).
 
-Você será cobrado por todas as instâncias de Gerenciamento de API quando estiverem em execução. Caso tenha escalado horizontalmente e não precisar desse nível de desempenho o tempo todo, considere aproveitar a cobrança por hora de Gerenciamento de API e reduzir verticalmente.
+Você será cobrado por todas as instâncias de Gerenciamento de API quando estiverem em execução. Caso tenha expandido e não precise desse nível de desempenho o tempo todo, aproveite a cobrança por hora do Gerenciamento de API e reduza.
 
 ### <a name="logic-apps-pricing"></a>Preço de Aplicativos Lógicos
 
-Os Aplicativos lógicos usam um modelo [sem servidor](logic-apps-serverless-overview.md). A cobrança é calculada com base na ação e execução do conector. Para obter mais informações, consulte [Preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Atualmente, não há considerações de camada para Aplicativos Lógicos.
+Os Aplicativos lógicos usam um modelo [sem servidor](../logic-apps/logic-apps-serverless-overview.md). A cobrança é calculada com base na ação e execução do conector. Para obter mais informações, consulte [Preços de Aplicativos Lógicos](https://azure.microsoft.com/pricing/details/logic-apps/). Atualmente, não há considerações de camada para Aplicativos Lógicos.
 
 ### <a name="logic-apps-for-asynchronous-api-calls"></a>Aplicativos Lógicos para chamadas à API assíncronas
 
-Os aplicativos lógicos funcionam melhor em cenários que não exigem baixa latência. Por exemplo, ela funcionará melhor para chamadas assíncronas ou semi chamadas de API de execução longa. Se for necessária baixa latência (por exemplo, uma chamada que bloqueie uma interface do usuário), é recomendável implementar essa API ou operação usando uma tecnologia. Por exemplo, use o Azure Functions ou uma API Web que você implantar usando o serviço de aplicativo do Azure. Além disso, é recomendável que essa API seja administrada usando o Gerenciamento de API para consumidores de API.
+Os Aplicativos Lógicos funcionam melhor em cenários que não exigem baixa latência. Por exemplo, os Aplicativos Lógicos funcionarão melhor para chamadas à API assíncronas ou de duração razoavelmente longa. Se for necessário ter baixa latência, por exemplo, uma chamada que bloqueia uma interface do usuário, é recomendável implementar sua API ou operação usando uma tecnologia diferente. Por exemplo, use o Azure Functions ou uma API Web que você implantar usando o serviço de aplicativo do Azure. Use o Gerenciamento de API para administrar a API para seus consumidores de API.
 
 ### <a name="region"></a>Região
 
-Provisione Gerenciamento de API e Aplicativos Lógicos na mesma região para minimizar latência da rede. Em geral, escolha a região mais próxima aos usuários.
+Para minimizar a latência de rede, escolha a mesma região para o Gerenciamento de API, os Aplicativos Lógicos e o Barramento de Serviço. Em geral, escolha a região mais próxima dos usuários.
 
-O grupo de recursos também tem uma região. A região especifica onde os metadados de implantação são armazenados e de onde o modelo de implantação é executado. Coloque o grupo de recursos e seus recursos na mesma região para melhorar a disponibilidade durante a implantação.
+O grupo de recursos também tem uma região. Essa região especifica onde os metadados de implantação são armazenados e onde o modelo de implantação é executado. Para melhorar a disponibilidade durante a implantação, coloque o grupo de recursos e os respectivos recursos na mesma região.
 
 ## <a name="scalability"></a>Escalabilidade
 
-Os administradores de Gerenciamento de API devem adicionar [políticas de cache](../api-management/api-management-howto-cache.md), quando apropriado, para aumentar a escalabilidade do serviço e reduzir a carga nos serviços back-end. Armazenamento em cache também ajuda a reduzir a carga nos serviços de back-end.
+Para elevar a escalabilidade ao administrar um serviço de Gerenciamento de API, adicione [políticas de cache](../api-management/api-management-howto-cache.md) conforme apropriado. Armazenamento em cache também ajuda a reduzir a carga nos serviços de back-end.
 
-O Gerenciamento de API do Azure Básico, Standard e Premium pode ser escalado horizontalmente em uma região do Azure para oferecer maior capacidade. Os administradores podem usar a **Métrica de Capacidade** no menu **Métricas** para analisar o uso dos serviços e escalar verticalmente ou reduzir verticalmente, conforme apropriado.
+Para oferecer maior capacidade, aumente as camadas Básica, Standard e Premium do Gerenciamento de API em uma região do Azure. Para analisar o uso para seu serviço, no menu **Métrica**, selecione a opção **Métricas de Capacidade** e aumente ou reduza, conforme apropriado.
 
 Recomendações para colocação em escala de um serviço de Gerenciamento de API:
 
-- Necessidades de dimensionamento para levar em conta padrões de tráfego. Os clientes com padrões de tráfego mais voláteis têm maior necessidade de maior capacidade.
-- Capacidade consistente acima de 66% pode indicar a necessidade de escalar verticalmente.
+- Considere os padrões de tráfego ao dimensionar. Os clientes com padrões de tráfego mais voláteis precisam de mais capacidade.
+
+- Capacidade consistente acima de 66% pode indicar a necessidade de expansão.
+
 - Capacidade consistente abaixo de 20% pode indicar uma oportunidade para reduzir verticalmente.
-- É sempre recomendável o teste de carga do serviço de Gerenciamento de API com uma carga representativa antes de habilitar carregar em produção.
 
-Os serviços da camada Premium podem ser escalados horizontalmente em várias regiões do Azure. Os clientes que implantam, dimensionando serviços em várias regiões do Azure obtém um SLA mais alto (99,95% em comparação com 99,9%) e podem provisionar serviços próximos aos usuários em várias regiões.
+- Antes de habilitar a carga em produção, sempre realize teste de carga no seu serviço do Gerenciamento de API com uma carga representativa.
 
-Os aplicativos lógicos do modelo sem servidor querem dizer aos administradores que não é necessário planejar a escalabilidade de serviço. O serviço é dimensionado automaticamente para atender à demanda.
+É possível expandir os serviços da camada Premium entre diversas regiões do Azure. Se você implantar por meio de colocação em escala em várias regiões do Azure, será possível obter um SLA mais alto (99,95% em comparação com 99,9%) e provisionar serviços próximos aos usuários em várias regiões.
+
+Em modelos sem servidor dos Aplicativos Lógicos, os administradores não precisam planejar a escalabilidade do serviço. O serviço é dimensionado automaticamente para atender à demanda.
 
 ## <a name="availability"></a>Disponibilidade
 
-Atualmente, o SLA para o gerenciamento de API do Azure é de 99,9% para camadas Basic, Standard e Premium. Configurações de camada Premium com implantação de pelo menos uma unidade em duas ou mais regiões têm um SLA de 99,95%.
+* Para as camadas Básica, Standard e Premium, o SLA (Contrato de Nível de Serviço) para o Gerenciamento de API do Azure é atualmente 99,9%. Para configurações da camada Premium com implantação de pelo menos uma unidade em duas ou mais regiões, o SLA é de 99,95%.
 
-Atualmente, o SLA para aplicativos lógicos do Azure é de 99,9%.
+* Atualmente, o SLA para Aplicativo Lógico do Azure é de 99,9%.
 
 ### <a name="backups"></a>Backups
 
-A configuração de gerenciamento de API do Azure deve ser [feita regularmente](../api-management/api-management-howto-disaster-recovery-backup-restore.md) (com base em regularidade de alteração). Arquivos de backup devem ser armazenados em um local ou a região do Azure que é diferente de onde o serviço reside. Os clientes podem escolher uma das duas opções para a estratégia de recuperação de desastre:
+Com base na regularidade da alteração, [faça backups regularmente](../api-management/api-management-howto-disaster-recovery-backup-restore.md) da sua configuração do Gerenciamento de API do Azure. Armazene seus arquivos de backup em um local ou a região do Azure que seja distinto de onde o serviço reside. Escolha uma dessas opções como a estratégia de recuperação de desastre:
 
-- Em um evento de recuperação de desastre, uma nova instância de Gerenciamento de API é provisionada, o backup é restaurado à nova instância, e os registros DNS são reordenados.
-- Os clientes mantêm uma cópia passiva do serviço em outra região do Azure (incorrendo em custos adicionais). Os backups são regularmente restaurados para ele. Em um evento de recuperação de desastre, somente os registros DNS precisam ser reordenados para restaurar o serviço.
+* No caso de um evento de recuperação de desastre, provisione uma nova instância de Gerenciamento de API, restaure o backup para a nova instância e reordene os registros de DNS.
 
-Como os Aplicativos Lógicos podem ser recriados muito rapidamente e são sem servidor, o backup é feito salvando uma cópia do modelo associado do Azure Resource Manager. Os modelos podem ser salvos no controle do código-fonte e integrados ao processo de integração contínua/implantação contínua CI/CD do cliente.
+* Mantenha uma cópia passiva do serviço em outra região do Azure, o que incorre em custos adicionais. Restaure backups regularmente para essa cópia. Para restaurar o serviço durante um evento de recuperação de desastre, será preciso apenas reordenar os registros DNS.
 
-Se um aplicativo lógico que foi publicado por meio do gerenciamento de API for movido para um datacenter diferente, atualize a localização do aplicativo. Para atualizar a localização do aplicativo, use um script PowerShell para atualizar o**Backend** property da API.
+Como é possível recriar rapidamente os aplicativos lógicos, que são sem servidor, faça backup deles salvando uma cópia do modelo do Azure Resource Manager associado. É possível salvar modelos no controle do código-fonte, bem como integrar os modelos ao seu processo de CI/CD (integração/ implantação contínua).
+
+Se um aplicativo lógico foi publicado por meio do Gerenciamento de API do Azure, e o aplicativo lógico é mudado para outro data center, atualize a localização do aplicativo. É possível atualizar a propriedade de **back-end** da API usando um script básico do PowerShell.
 
 ## <a name="manageability"></a>Capacidade de gerenciamento
 
-Crie grupos de recursos separados para ambientes de produção, desenvolvimento e teste. Usar grupos de recursos separados torna mais fácil gerenciar implantações, excluir implantações de teste a atribuir direitos de acesso.
+Crie grupos de recursos separados para ambientes de produção, desenvolvimento e teste. Ter grupos de recursos separados facilita o gerenciamento de implantações, a exclusão de implantações de teste a atribuição de direitos de acesso.
 
-Ao atribuir recursos para grupos de recursos, considere o seguinte:
+Ao atribuir recursos a grupos de recursos, considere os seguintes fatores:
 
-- **Ciclo de vida**. Em geral, coloque recursos com o mesmo ciclo de vida no mesmo grupo de recursos.
-- **Acesso**. É possível utilizar [controle de acesso baseado em função](../role-based-access-control/overview.md) (RBAC) para aplicar políticas de acesso aos recursos de um grupo.
-- **Cobrança**. Você pode exibir os custos acumulados para o grupo de recursos.
-- **Tipo de preço para o gerenciamento de API**. É recomendável usar o Tipo de Desenvolvedor para ambientes de desenvolvimento e teste. Para pré-produção, é recomendável implantar uma réplica do ambiente de produção, executando testes e, em seguida, desligando para minimizar o custo.
+* **Ciclo de vida**: em geral, coloque recursos com o mesmo ciclo de vida no mesmo grupo de recursos.
+
+* **Acesso**: para aplicar as políticas de acesso aos recursos de um grupo, utilize o [RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md).
+
+* **Cobrança**: é possível exibir os custos de rollup para o grupo de recursos.
+
+* **Tipos de preço para Gerenciamento de API**: use o tipo de Desenvolvedor para ambientes de desenvolvimento e teste. Para minimizar os custos durante a pré-produção, implante uma réplica do seu ambiente de produção, execute os testes e desligue.
 
 Para saber mais, consulte [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="deployment"></a>Implantação
+## <a name="deployment"></a>Implantação
 
-É recomendável utilizar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para implantar o Gerenciamento de API e os Aplicativos Lógico do Azure. Os modelos facilitam a automatização das implantações por meio do PowerShell ou da CLI do Azure.
+* Para implantar o Gerenciamento de API e os Aplicativos Lógicos, use os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Os modelos facilitam a automatização das implantações por meio do PowerShell ou da CLI do Azure.
 
-É recomendável colocar o Gerenciamento de API do Azure e qualquer Aplicativo Lógico individual nos próprios modelos separados do Resource Manager. Quando você usa modelos separados, você pode armazenar os recursos em sistemas de controle do código-fonte. Você também pode implantar os recursos juntos ou individualmente como parte de um processo de implantação de CI/CD.
+* Coloque o Gerenciamento de API e os aplicativos lógicos individuais em seus próprios modelos do Resource Manager separados. Usando modelos separados, é possível armazenar os recursos em sistemas de controle do código-fonte. Você pode implantar esses modelos juntos ou individualmente como parte de um processo de CI/CD (integração contínua/implantação contínua).
 
 ### <a name="versions"></a>Versões
 
-Sempre que você fizer uma alteração no Aplicativo Lógico (ou implantar uma atualização no modelo do Resource Manager), uma cópia dessa versão será mantida para sua conveniência (todas as versões que tiverem uma execução de histórico serão mantidas). É possível usar essas versões para rastrear alterações no histórico e também promover uma versão para ser a configuração atual do aplicativo lógico. Por exemplo, você pode efetivamente reverter um aplicativo lógico.
+Sempre que você fizer uma alteração na configuração do aplicativo lógico ou implantar uma atualização por meio do modelo do Resource Manager, o Azure manterá uma cópia dessa versão para sua conveniência, e todas as versões que tiverem uma execução de histórico serão mantidas. Você pode usar essas versões para controlar as alterações históricas ou promover uma versão como a configuração atual do aplicativo lógico. Por exemplo, você pode efetivamente reverter um aplicativo lógico.
 
-O Gerenciamento de API tem dois [conceitos de versão](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/) distintos (mas complementares):
+O Gerenciamento de API do Azure tem esses [conceitos de versão](https://blogs.msdn.microsoft.com/apimanagement/2018/01/11/versions-revisions-general-availibility/) distintos, mas complementares:
 
-- As versões usadas para fornecer aos consumidores de API uma opção da API que eles poderiam consumir com base em suas necessidades (por exemplo, v1, v2 ou beta, produção).
-- As revisões dos Administradores de APIs para fazer alterações com segurança a uma API e, então, implantar as alterações aos usuários com comentário opcional.
+* Versões que fornecem aos consumidores da API a capacidade de escolher uma versão de API com base nas necessidades, por exemplo, v1, v2, beta ou produção
 
-No contexto da implantação, é uma boa ideia considerar as revisões do Gerenciamento de API como uma forma de fazer alterações com segurança, manter um histórico de alterações e conscientizar os consumidores de API sobre essas alterações. Uma revisão pode ser criada em um ambiente de desenvolvimento e implantada entre outros ambientes usando modelos do Resource Manager.
+* Revisões que permitem aos administradores de API fazerem alterações com segurança em uma API e, então, implantar as alterações nos usuários com comentário opcional
 
-Embora você possa usar revisões para testar uma API antes de torná-la acessível a usuários e "atual", não recomendamos usar esse mecanismo de carga ou teste de integração. Em vez disso, use ambientes de pré-produção ou teste separado.
+Para a implantação, considere as revisões do Gerenciamento de API como uma maneira de fazer as alterações com segurança, manter um histórico de alterações e comunicar essas alterações para os consumidores da sua API. É possível fazer uma revisão em um ambiente de desenvolvimento e implantar essa alteração em outros ambientes usando os modelos do Resource Manager.
 
-### <a name="configuration"></a>Configuração
+Embora seja possível usar revisões para testar uma API antes de tornar essas alterações “atuais” e acessíveis para os usuários, esse método não é o recomendado para testes de carga e integração. Em vez disso, use ambientes de pré-produção ou teste separado.
 
-Nunca verifique senhas, chaves de acesso ou cadeias de conexão no controle do código-fonte. Se isso for necessário, use a técnica apropriada para implantar e proteger esses valores. 
+### <a name="configuration-and-sensitive-information"></a>Configuração e informações confidenciais
 
-Nos Aplicativos Lógicos, quaisquer valores confidenciais necessários no aplicativo lógico (que não podem ser criados no formato de uma conexão) devem ser armazenados no Azure Key Vault e referenciados a partir de um modelo do Resource Manager. Além disso, é recomendável utilizar parâmetros de modelo de implantação e arquivos de parâmetros para cada ambiente. Para obter mais informações, consulte [Proteger parâmetros e entradas em um fluxo de trabalho](logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
+Nunca verifique senhas, chaves de acesso ou cadeias de conexão no controle do código-fonte. Se tais valores forem necessários, proteja e implante-os usando as técnicas apropriadas. 
 
-No Gerenciamento de API, os segredos são gerenciados usando objetos chamados *valores* ou *propriedades nomeadas*. Os objetos armazenam com segurança valores que podem ser acessados nas políticas de Gerenciamento de API. Para obter mais informações, consulte [Gerenciar segredos em Gerenciamento de API](../api-management/api-management-howto-properties.md).
+Nos Aplicativos Lógicos, se um aplicativo lógico exigir qualquer valor confidencial que não é possível ser criado dentro de uma conexão, armazene tais valores no Azure Key Vault e faça referência a eles de um modelo do Resource Manager. Use os parâmetros de modelo de implantação e arquivos de parâmetros para cada ambiente. Para obter mais informações, consulte [Proteger parâmetros e entradas em um fluxo de trabalho](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow).
 
-### <a name="diagnostics-and-monitoring"></a>Diagnóstico e monitoramento
+O Gerenciamento de API administra os segredos usando objetos chamados *valores* ou *propriedades nomeadas*. Esses objetos armazenam com segurança valores que podem ser acessados por meio das políticas de Gerenciamento de API. Para obter mais informações, consulte [Gerenciar segredos em Gerenciamento de API](../api-management/api-management-howto-properties.md).
 
-O [Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md) e os [Aplicativos Lógicos](logic-apps-monitor-your-logic-apps.md) dão suporte para monitoramento operacional por meio do [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). O Azure Monitor fornece informações com base nas métricas que são configuradas para cada serviço. O Azure Monitor é habilitado por padrão.
+## <a name="diagnostics-and-monitoring"></a>Diagnóstico e monitoramento
 
-Essas opções também estão disponíveis para cada serviço:
+É possível usar o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) paras monitoramento operacional tanto no [Gerenciamento de API](../api-management/api-management-howto-use-azure-monitor.md) quanto nos [Aplicativos Lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md). O Azure Monitor fornece informações com base nas métricas que configuradas para cada serviço e é habilitado por padrão.
 
-- Logs de Aplicativos Lógicos podem ser enviados para o [Log Analytics do Azure](logic-apps-monitor-your-logic-apps-oms.md) para painéis e análise profunda.
-- O Gerenciamento de API dá suporte para configuração do Application Insights do Azure para monitoramento de DevOps.
-- O Gerenciamento de API dá suporte para [Modelo de solução do Power BI para API de análise personalizada](http://aka.ms/apimpbi). Os clientes podem usar o modelo de solução para criar sua própria solução de análises personalizadas. Os relatórios estão disponíveis no Power BI para usuários empresariais.
+Cada serviço também tem essas opções:
+
+* Para análise e painéis mais aprofundados, é possível enviar os logs dos Aplicativos Lógicos para o [Azure Log Analytics](logic-apps-monitor-your-logic-apps-oms.md).
+
+* Para monitoramento de DevOps, é possível configurar o Azure Application Insights para o Gerenciamento de API.
+
+* O Gerenciamento de API dá suporte para [Modelo de solução do Power BI para API de análise personalizada](http://aka.ms/apimpbi). Use esse modelo de solução para criar sua própria solução de análise. Para usuários empresariais, o Power BI disponibiliza relatórios.
 
 ## <a name="security"></a>Segurança
 
-Esta seção lista as considerações de segurança específicas dos serviços do Azure descritas neste artigo e que são implantadas na arquitetura conforme descrito. Esta não é uma lista completa de práticas recomendadas de segurança.
+Embora essa lista não descreva completamente todas as práticas recomendadas de segurança, vejas essas considerações de segurança que se aplicam especificamente aos serviços do Azure implantados na arquitetura descrita neste artigo:
 
-- Use o RBAC (Controle de Acesso Baseado em Função) para garantir níveis apropriados de acesso para usuários.
-- Proteger os pontos de extremidade públicos de API no Gerenciamento de API usando OAuth/ Open IDConnect. Para proteger os pontos de extremidade de API públicos, configure um provedor de identidade e adicione uma política de validação de JSON Web Token (JWT).
-- Conectar os serviços back-end do Gerenciamento de API usando certificados mútuos
-- Proteja os Aplicativos Lógicos baseados em gatilho HTTP criando uma lista de permissões de Endereço IP que aponte para o Endereço IP do Gerenciamento de API. Um endereço IP na lista de permissões evita chamar o aplicativo lógico da Internet pública sem primeiro passar pelo Gerenciamento de API.
+* Para garantir que os usuários tenham níveis de acesso apropriados, use o RBAC (controle de acesso baseado em função).
+
+* Proteja os pontos de extremidade de API públicos no Gerenciamento de API usando OAuth ou OpenID Connect. Para proteger os pontos de extremidade de API públicos, configure um provedor de identidade e adicione uma política de validação de JWT (JSON Web Token).
+
+* Conectar os serviços back-end do Gerenciamento de API usando certificados mútuos
+
+* Proteja os Aplicativos Lógicos baseados em gatilho HTTP criando uma lista de permissões de Endereço IP que aponte para o Endereço IP do Gerenciamento de API. Um endereço IP na lista de permissões evita chamar o aplicativo lógico da Internet pública sem primeiro passar pelo Gerenciamento de API.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba sobre [Enterprise Integration com Filas e Eventos](logic-apps-architectures-enterprise-integration-with-queues-events.md)
+* Saiba mais sobre a [Integração empresarial com filas e eventos](../logic-apps/logic-apps-architectures-enterprise-integration-with-queues-events.md)

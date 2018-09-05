@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443383"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044723"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -156,6 +156,8 @@ No IR auto-hospedado a ser compartilhado,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Observe a **ID do Recurso** do IR auto-hospedado a ser compartilhado.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -167,6 +169,20 @@ No Data Factory para o qual as permissões foram concedidas,
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="monitoring"></a>Monitoramento 
+
+- **IR compartilhado**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **IR vinculado**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitações conhecidas do compartilhamento de IR auto-hospedado
 
@@ -182,6 +198,8 @@ criada implicitamente, no entanto, data factories criados com o modelo do ARM (A
 5. O ADF .Net SDK que dá suporte a esse recurso é a versão> = 1.1.0
 
 6. O Azure PowerShell que dá suporte a esse recurso é a versão> = 6.6.0 (AzureRM.DataFactoryV2> = 0.5.7)
+
+7. Para conceder permissão, o usuário exigirá função "Proprietário" ou a função "Proprietário" herdada na Data Factory em que o IR compartilhado existe. 
 
   > [!NOTE]
   > Esse recurso está disponível apenas na versão 2 do Azure Data Factory 

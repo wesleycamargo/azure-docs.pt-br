@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0715f1723f7bb43b0d11e55e8af01202fc8a92be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344453"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050183"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associações do Azure Cosmos DB para Azure Functions 1.x
 
@@ -36,6 +36,10 @@ Este artigo explica como trabalhar com associações do [Azure Cosmos DB](..\cos
 >Essa associação era originalmente denominada DocumentDB. No Functions versão 1.x, apenas o gatilho foi renomeado Cosmos DB; a associação de entrada, a associação de saída e o pacote NuGet mantêm o nome DocumentDB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>APIs com suporte
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>Pacotes - Functions 1. x
 
@@ -216,10 +220,7 @@ O gatilho não indica se um documento foi atualizado ou inserido, ele fornece ap
 
 ## <a name="input"></a>Entrada
 
-A associação de dados de entrada do Azure Cosmos DB recupera um ou mais documentos de banco de dados do Azure Cosmos e os passa para o parâmetro de entrada da função. A ID do documento ou os parâmetros de consulta podem ser determinados com base no gatilho que invoca a função. 
-
->[!NOTE]
-> Não use associação de entrada ou saída do Azure Cosmos DB se você estiver usando a API do MongoDB em uma conta da Cosmos DB. É possível que ocorra corrupção de dados.
+A associação de dados de entrada do Azure Cosmos DB usa a API de SQL para recuperar um ou mais documentos do Azure Cosmos DB e passá-los para o parâmetro de entrada da função. A ID do documento ou os parâmetros de consulta podem ser determinados com base no gatilho que invoca a função.
 
 ## <a name="input---examples"></a>Entrada – exemplos
 
@@ -1185,10 +1186,7 @@ Funções de JavaScript, as atualizações não são feitas automaticamente apó
 
 ## <a name="output"></a>Saída
 
-A saída do Azure Cosmos DB permite que você grave um novo documento para um banco de dados do Azure Cosmos DB. 
-
->[!NOTE]
-> Não use associação de entrada ou saída do Azure Cosmos DB se você estiver usando a API do MongoDB em uma conta da Cosmos DB. É possível que ocorra corrupção de dados.
+Com a associação de saída do Azure Cosmos DB, você pode gravar um novo documento para um banco de dados do Azure Cosmos DB usando a API de SQL. 
 
 ## <a name="output---examples"></a>Saída – exemplos
 

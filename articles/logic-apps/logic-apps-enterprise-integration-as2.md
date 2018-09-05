@@ -1,27 +1,23 @@
 ---
 title: Mensagens AS2 para integração de empresas B2B – Aplicativos Lógicos do Azure | Microsoft Docs
-description: Troca de mensagens AS2 para integração corporativa B2B com Aplicativos Lógicos do Azure
+description: Trocar mensagens AS2 para Enterprise Integration B2B no Aplicativo Lógico do Azure com Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298232"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124655"
 ---
-# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens AS2 para integração empresarial com aplicativos lógicos
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para Enterprise Integration B2B no Aplicativo Lógico do Azure com Enterprise Integration Pack
 
 Para poder trocar mensagens AS2 para Aplicativos Lógicos do Azure, você deve criar um contrato AS2 e armazená-lo em sua conta de integração. Aqui estão as etapas para criar um contrato AS2.
 
@@ -64,7 +60,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
     ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Propriedade | DESCRIÇÃO |
+    | Propriedade | Descrição |
     | --- | --- |
     | NOME |Nome do contrato |
     | Tipo de contrato | Deve ser AS2 |

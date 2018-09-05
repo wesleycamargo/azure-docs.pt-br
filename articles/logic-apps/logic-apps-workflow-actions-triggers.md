@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390697"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093611"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referência de tipos de acionadores e ações para a Linguagem de Definição de Fluxo de Trabalho nos Aplicativos Lógicos do Azure
 
@@ -158,6 +157,7 @@ Esse acionador verifica ou *pesquisa* um terminal usando [APIs gerenciadas pela 
 |---------|------|-------------| 
 | headers | Objeto JSON | Os cabeçalhos da resposta | 
 | body | Objeto JSON | O corpo da resposta | 
+| código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Exemplo*
@@ -330,6 +330,7 @@ Esse acionador verifica ou pesquisa o terminal especificado com base no agendame
 |---------|------|-------------| 
 | headers | Objeto JSON | Os cabeçalhos da resposta | 
 | body | Objeto JSON | O corpo da resposta | 
+| código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Requisitos para as solicitações de entrada*
@@ -337,7 +338,7 @@ Esse acionador verifica ou pesquisa o terminal especificado com base no agendame
 Para funcionar bem com seu aplicativo lógico, o ponto de extremidade deve estar de acordo com um padrão de gatilho específico ou o contrato e reconhecer essas propriedades:  
   
 | Response | Obrigatório | DESCRIÇÃO | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Código de status | SIM | O código de status "200 OK" inicia uma execução. Qualquer outro código de status não inicia uma execução. | 
 | Cabeçalho Retry-after | Não  | O número de segundos até o aplicativo lógico pesquisar o ponto de extremidade novamente | 
 | Cabeçalho do local | Não  | A URL a chamar no próximo intervalo de sondagem. Se não for especificada, a URL original será usada. | 
@@ -424,6 +425,7 @@ Alguns valores, como <*tipo de método*>, estão disponíveis para ambos os `"su
 |---------|------|-------------| 
 | headers | Objeto JSON | Os cabeçalhos da resposta | 
 | body | Objeto JSON | O corpo da resposta | 
+| código de status | Número inteiro | O código de status da resposta | 
 |||| 
 
 *Exemplo*
@@ -817,7 +819,7 @@ Aqui estão alguns tipos de ação comumente usadas:
 
 | Tipo de ação | DESCRIÇÃO | 
 |-------------|-------------| 
-| [**Compor**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
+| [**Redigir**](#compose-action) | Cria uma única saída de entradas, que podem ter vários tipos. | 
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto de extremidade HTTP. | 
 | [**Junte-se**](#join-action) | Cria uma string de todos os itens em uma matriz e separa esses itens com um caractere delimitador especificado. | 
@@ -2446,7 +2448,7 @@ Defina as `runtimeConfiguration.concurrency.runs` propriedade para `1`:
 
 *- ou -*
 
-Defina as `operationOptions` propriedade para `SingleInstance`:
+Para fazer isso, defina a `operationOptions`propriedade para `SingleInstance`:
 
 ```json
 "<trigger-name>": {
@@ -2552,6 +2554,159 @@ Um única execução de aplicativo lógico, o número de ações que são execut
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Autenticar gatilhos ou ações
+
+Pontos de extremidade HTTP são compatíveis com diferentes tipos de autenticação. Você pode configurar a autenticação para essas ações e gatilhos de HTTP:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [Webhook HTTP](../connectors/connectors-native-webhook.md)
+
+Aqui estão os tipos de autenticação que você pode configurar:
+
+* [Autenticação básica](#basic-authentication)
+* [Autenticação de certificado de cliente](#client-certificate-authentication)
+* [Autenticação OAuth do Azure AD (Azure Active Directory)](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Autenticação básica
+
+Para esse tipo de autenticação, sua definição de gatilho ou ação pode incluir um objeto JSON `authentication` que tem estas propriedades:
+
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+|----------|----------|-------|-------------| 
+| **tipo** | SIM | “Basic” | O tipo de autenticação a ser usado, que é “Basic” aqui | 
+| **username** | SIM | "@parameters('userNameParam')" | Um parâmetro que passa o nome de usuário para autenticar para o acesso ao ponto de extremidade de serviço de destino |
+| **password** | SIM | "@parameters('passwordParam')" | Um parâmetro que passa a senha para autenticar para o acesso ao ponto de extremidade de serviço de destino |
+||||| 
+
+Por exemplo, aqui está o formato para o objeto `authentication` em sua definição de gatilho ou ação. Para obter mais informações sobre como proteger parâmetros, consulte [Proteger informações confidenciais](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Autenticação de certificado do cliente
+
+Para esse tipo de autenticação, sua definição de gatilho ou ação pode incluir um objeto JSON `authentication` que tem estas propriedades:
+
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+|----------|----------|-------|-------------| 
+| **tipo** | SIM | "ClientCertificate" | O tipo de autenticação a ser usado para certificados do cliente do protocolo SSL | 
+| **pfx** | SIM | <*base64-encoded-pfx-file*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) |
+| **password** | SIM | "@parameters('passwordParam')" | Um parâmetro com a senha para acessar o arquivo PFX |
+||||| 
+
+Por exemplo, aqui está o formato para o objeto `authentication` em sua definição de gatilho ou ação. Para obter mais informações sobre como proteger parâmetros, consulte [Proteger informações confidenciais](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Autenticação OAuth do Azure AD (Active Directory)
+
+Para esse tipo de autenticação, sua definição de gatilho ou ação pode incluir um objeto JSON `authentication` que tem estas propriedades:
+
+| Propriedade | Obrigatório | Valor | DESCRIÇÃO | 
+|----------|----------|-------|-------------| 
+| **tipo** | SIM | `ActiveDirectoryOAuth` | O tipo de autenticação a ser usado, o que é "ActiveDirectoryOAuth" para o OAuth do Azure AD | 
+| **authority** | Não  | <*URL-for-authority-token-issuer*> | A URL para a autoridade que fornece o token de autenticação |  
+| **tenant** | SIM | <*tenant-ID*> | A ID do locatário para o locatário do Azure AD | 
+| **audience** | SIM | <*resource-to-authorize*> | O recurso que você deseja que a autorização use, por exemplo, `https://management.core.windows.net/` | 
+| **clientId** | SIM | <*client-ID*> | A ID do cliente para o aplicativo solicitando a autorização | 
+| **credentialType** | SIM | "Secret" ou "Certificate" | O tipo de credencial que o cliente usa para solicitar a autorização. Essa propriedade e o valor não aparecem em sua definição subjacente, mas determinam os parâmetros necessários para o tipo de credencial. | 
+| **password** | Sim, somente para o tipo de credencial “Certificate” | "@parameters('passwordParam')" | Um parâmetro com a senha para acessar o arquivo PFX | 
+| **pfx** | Sim, somente para o tipo de credencial “Certificate” | <*base64-encoded-pfx-file*> | O conteúdo codificado na base64 do arquivo PFX (Troca de Informações Pessoais) |
+| **secret** | Sim, somente para o tipo de credencial “Secret” | <*secret-for-authentication*> | O segredo codificado em base64 que o cliente usa para solicitar autorização |
+||||| 
+
+Por exemplo, aqui está o formato para o objeto `authentication` quando sua definição de gatilho ou ação usa o tipo de credencial "Secret": para obter mais informações sobre como proteger parâmetros, consulte [Proteger informações confidenciais](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Proteger informações confidenciais
+
+Para proteger informações confidenciais que você usa para autenticação, como nomes de usuário e senhas, em suas definições de gatilho e ação, você pode usar parâmetros e a expressão `@parameters()` para que essas informações não estejam visíveis depois de salvar seu aplicativo lógico. 
+
+Por exemplo, suponha que você esteja usando a autenticação "Basic" na definição do gatilho ou da ação. Aqui está um objeto `authentication` de exemplo que especifica um nome de usuário e senha:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+Na seção `parameters` da definição do seu aplicativo lógico, defina os parâmetros usados na definição do gatilho ou da ação:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Se você estiver criando ou usando um modelo de implantação do Azure Resource Manager, também precisará incluir uma seção `parameters` externa para a definição do modelo. Para obter mais informações sobre como proteger parâmetros, consulte [Proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,105 +1,96 @@
 ---
-title: Saiba como usar o conector de Twitter em aplicativos lógicos | Microsoft Docs
-description: Visão geral do conector do Twitter com os parâmetros da API REST
-services: ''
-documentationcenter: ''
+title: Conectar-se com o Twitter do Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatize fluxos de trabalho e tarefas que monitoram e gerenciam tweets, além de obter dados sobre seguidores, usuários seguidos, outros usuários, linhas do tempo e mais em sua conta do Twitter usando o Aplicativo Lógico do Azure
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296536"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918638"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Introdução ao conector do Twitter
-Com o conector do Twitter, você pode:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitore e gerencie o Twitter usando o Aplicativo Lógico do Azure
 
-* Postar tweets e obter tweets
-* Acessar linhas do tempo, amigos e seguidores
-* Executar qualquer um dos gatilhos e ações descritos neste artigo
+Com o Aplicativo Lógico do Azure e o conector do Twitter, é possível criar fluxos de trabalho e tarefas automatizadas que monitoram e gerenciam dados importantes para você no Twitter, como tweets, seguidores, usuários e usuários seguidos, linhas do tempo e muito mais, bem como outras ações como:
 
-Para usar [qualquer conector](apis-list.md), primeiro é preciso criar um aplicativo lógico. Você pode começar [criando um aplicativo lógico agora mesmo](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* Monitorar, postar e pesquisar tweets.
+* Obter dados como seguidores, usuários seguidos, linhas do tempo e muito mais.
+
+Você pode usar gatilhos que obtêm respostas de sua conta do Twitter e disponibilizam a saída para outras ações. Você pode usar ações que executam tarefas com sua conta do Twitter. Você também pode fazer com que outras ações usem a saída das ações do Twitter. Por exemplo, quando um novo tweet com uma hashtag específica aparecer, você poderá enviar mensagens com o conector do Slack. Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
+
+* Suas credenciais de usuário e conta do Twitter
+
+   Suas credenciais autorizam o aplicativo lógico a criar uma conexão e acessar sua conta do Twitter.
+
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* O aplicativo lógico no qual você deseja acessar a conta do Twitter. Para iniciar com um gatilho do Twitter, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar uma ação do Twitter, inicie seu aplicativo lógico com outro gatilho, por exemplo, o gatilho de **Recorrência**.
 
 ## <a name="connect-to-twitter"></a>Conectar-se ao Twitter
-Para que o aplicativo lógico possa acessar qualquer serviço, crie primeiro uma *conexão* com o serviço. Uma [conexão](connectors-overview.md) fornece uma conectividade entre um aplicativo lógico e outro serviço.  
 
-### <a name="create-a-connection-to-twitter"></a>Criar uma conexão com o Twitter
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Usar um gatilho do Twitter
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-Neste exemplo, você deve usar o gatilho **Quando um novo tweet for lançado** para procurar #Seattle. E se #Seattle for encontrado, atualizar um arquivo em Dropbox com o texto do tweet. Em um exemplo corporativo, você pode pesquisar o nome da sua empresa e atualizar um banco de dados SQL com o texto do tweet.
+1. Escolha um caminho: 
 
-1. Digite *twitter* na caixa de pesquisa no designer de aplicativos lógicos e escolha o gatilho **Twitter – quando um novo tweet é postado**   
-   ![Imagem 1 do gatilho do Twitter](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Digite *#Seattle* no controle **Texto de Pesquisa**  
-   ![Imagem 2 do gatilho do Twitter](./media/connectors-create-api-twitter/trigger-2.png) 
+   * Para aplicativos lógicos em branco, na caixa de pesquisa, insira "twitter" como filtro. 
+   Na lista de gatilhos, selecione o gatilho desejado. 
 
-Neste ponto, seu aplicativo lógico foi configurado com um gatilho que iniciará uma execução de outros gatilhos e ações no fluxo de trabalho. 
+     -ou-
 
-> [!NOTE]
-> Para que um aplicativo lógico funcione, ele deve conter pelo menos um gatilho e uma ação. Use as etapas na próxima seção para adicionar uma ação.
+   * Para aplicativos lógicos existentes: 
+   
+     * Na última etapa em que você deseja adicionar uma ação, escolha **Nova etapa**. 
 
-## <a name="add-a-condition"></a>Adicione uma condição
-Estamos interessados apenas em tweets de usuários com mais de 50 usuários. Portanto, uma condição que confirma o número de seguidores é adicionada pela primeira vez para o aplicativo lógico.  
+       -ou-
 
-1. Escolha **+ Nova etapa** para adicionar a ação que deseja tomar quando #Seattle for encontrada em um novo tweet  
-   ![Imagem 1 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Escolha o link **Adicionar uma ação**.  
-   ![Imagem 1 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Isso abre o controle **Condição**, onde é possível verificar condições como *é igual a*, *é menor que*, *é maior que*, *contém*, etc.  
-   ![Imagem 2 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Selecione o controle **Escolher um valor**. Nesse controle, é possível selecionar, como valor, uma ou mais propriedades de quaisquer ações ou gatilhos anteriores. A condição de valor dessa propriedade é avaliada como true ou false.
-   ![Imagem 3 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Escolha **...** para expandir a lista de propriedades, de modo que você possa ver todas as propriedades que estão disponíveis.        
-   ![Imagem 4 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Escolha a propriedade **Contagem de seguidores**.    
-   ![Imagem 5 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Observe que a propriedade Contagem de seguidores agora está no controle de valor.    
-   ![Imagem 6 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Escolha **é maior que** na lista de operadores.    
-   ![Imagem 7 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. Digite 50 como o operando para o operador *é maior que*.  
-   Agora a condição está adicionada. Salve seu trabalho usando o link **Salvar** no menu.    
-   ![Imagem 8 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Entre as etapas em que você deseja adicionar uma ação, mova o ponteiro sobre a seta entre as etapas. 
+     Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
+     
+       Na caixa de pesquisa, digite "twitter" como filtro. 
+       Na lista de ações, selecione a ação desejada.
 
-## <a name="use-a-twitter-action"></a>Usar uma ação do Twitter
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre ações](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Se for solicitado que você entre no Twitter, entre agora para que possa autorizar o acesso a seu aplicativo lógico.
 
-Agora que há um gatilho, adicione uma ação que envia um novo tweet com o conteúdo dos tweets encontrados pelo gatilho. Para este passo a passo, são postados apenas tweets de usuários com mais de 50 seguidores.  
+1. Forneça os detalhes necessários para o gatilho ou a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 
-Na próxima etapa, você adiciona uma ação do Twitter que posta um tweet usando algumas das propriedades de cada tweet que é postado por um usuário com mais de 50 seguidores.  
+## <a name="examples"></a>Exemplos
 
-1. Escolha **Adicionar uma ação**. Essa etapa abre o controle de pesquisa, onde é possível procurar outros gatilhos e ações.  
-   ![Imagem 9 da condição do Twitter](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Insira *twitter* na caixa de pesquisa e escolha a ação **Twitter – postar um tweet**. Essa etapa abre o controle **Postar um tweet**, onde você insere todos os detalhes para o tweet que está sendo postado.      
-   ![Imagem de 1 a 5 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Escolha o controle **Texto do tweet**. Todas as saídas de ações e gatilhos anteriores no aplicativo lógico agora estão visíveis. Você pode escolher qualquer uma dessas saídas e usá-las como parte do texto do tweet do novo tweet.     
-   ![Imagem 2 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Escolha **Nome de usuário**   
-5. Imediatamente após o nome de usuário, digite *diz:* no controle de texto tweet.
-6. Escolha *Texto do tweet*.       
-   ![Imagem 3 da ação do Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. Para ativar seu fluxo de trabalho, salve seu trabalho e envie um tweet com a hashtag #Seattle.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Gatilho do Twitter: quando um novo tweet é postado
 
+Esse gatilho inicia um fluxo de trabalho do aplicativo lógico quando detecta um novo tweet, por exemplo, com a hashtag #Seattle. Sendo assim, por exemplo, quando esses tweets são encontrados, você pode adicionar um arquivo com o conteúdo dos tweets ao armazenamento, como uma conta do Dropbox, usando o conector do Dropbox. 
 
-## <a name="connector-specific-details"></a>Detalhes específicos do conector
+Opcionalmente, você pode incluir uma condição segundo a qual tweets qualificados devem vir de usuários com um número mínimo de seguidores especificado.
 
-Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/twitterconnector/). 
+**Exemplo corporativo**: você pode usar esse gatilho para monitorar tweets sobre sua empresa e fazer upload do conteúdo desses tweets em um banco de dados SQL.
+
+### <a name="twitter-action-post-a-tweet"></a>Ação do Twitter: postar um tweet
+
+Essa ação posta um tweet, mas você pode configurá-la para que o tweet tenha o conteúdo dos tweets encontrados pelo gatilho descrito anteriormente. 
+
+## <a name="connector-reference"></a>Referência de conector
+
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são explicados na descrição da OpenAPI do conector (anteriormente conhecido como Swagger), veja a [página de referência](/connectors/twitterconnector/) do conector.
+
+## <a name="get-support"></a>Obtenha suporte
+
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
-[Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)

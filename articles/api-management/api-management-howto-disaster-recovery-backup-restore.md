@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140809"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046372"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup de serviço e restaurar no Gerenciamento de API no Azure
 
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 onde:
 
 * `subscriptionId` - ID da assinatura contendo o serviço de Gerenciamento de API que você está restaurando um backup em
-* `resourceGroupName` – uma cadeia de caracteres no formato 'Api-Default-{service-region}', em que `service-region` identifica a região do Azure onde está hospedado o serviço de Gerenciamento de API no qual você está restaurando um backup, por exemplo, `North-Central-US`
+* `resourceGroupName` – nome do grupo de recursos contendo o serviço de Gerenciamento de API do Azure em que você está restaurando um backup
 * `serviceName` - o nome do serviço de Gerenciamento de API para o qual está sendo realizada a restauração, especificado no momento de sua criação
 * `api-version` - substitua por `2018-06-01-preview`
 

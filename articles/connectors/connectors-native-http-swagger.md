@@ -1,28 +1,24 @@
 ---
-title: Chamar pontos de extremidade REST com conector HTTP + Swagger para Aplicativo Lógico do Azure | Microsoft Docs
-description: Conectar-se aos pontos de extremidade REST de aplicativos lógicos por meio de Swagger com o conector HTTP + Swagger
+title: Chamar os pontos de extremidade REST por meio do Aplicativo Lógico do Azure | Microsoft Docs
+description: Automatizar tarefas e fluxos de trabalho que se comunicam com pontos de extremidade REST por meio do conector HTTP + Swagger no Aplicativo Lógico do Azure
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
+ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
+tags: connectors
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/18/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e96e271fbb50a2485a22fab061ea160dc00cf3d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296512"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123165"
 ---
-# <a name="get-started-with-the-http--swagger-action"></a>Introdução à ação de HTTP + Swagger
+# <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chamar pontos de extremidade REST com conector HTTP + Swagger no Aplicativo Lógico do Azure
 
 Você pode criar um conector de primeira classe para qualquer ponto de extremidade REST por meio de um [documento Swagger](https://swagger.io) quando você usa a ação HTTP + Swagger no fluxo de trabalho de seu aplicativo lógico. Você também pode estender aplicativos lógicos para chamar qualquer ponto de extremidade REST com uma experiência de Designer de Aplicativo Lógico de primeira classe.
 

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140590"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092603"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usar Rascunho com o AKS (Serviço de Kubernetes do Azure)
 
-Rascunho é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento - o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
+Rascunho é uma ferramenta de software livre que ajuda a empacotar e implantar contêineres de aplicativos em um cluster do Kubernetes, deixando você livre para concentrar-se no ciclo de desenvolvimento – o "loop interno" do desenvolvimento concentrado. O Rascunho funciona como o código está sendo desenvolvido, mas antes de comprometer-se com o controle de versão. Com o Rascunho, você pode reimplantar rapidamente um aplicativo no Kubernetes quando ocorrem alterações de código. Para obter mais informações sobre o Rascunho, consulte a [Documentação do Rascunho no Gitub][draft-documentation].
 
 Este artigo mostra como usar o Rascunho com um cluster do Kubernetes no AKS.
 

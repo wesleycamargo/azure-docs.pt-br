@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114337"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918893"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Configurar automação de WAN Virtual - para parceiros de WAN Virtual (versão prévia)
 
@@ -23,7 +23,7 @@ As soluções de conectividade definidas pelo software geralmente usam um contro
 
 ##  <a name="access"></a>Controle de acesso
 
-Os clientes devem ser capazes de configurar o controle de acesso apropriado para WAN Virtual na interface do usuário do dispositivo. Para isso, é recomendável usar uma Entidade de Serviço do Azure. O acesso baseado em entidade de serviço fornece a autenticação apropriada do controlador de dispositivo para carregar informações de branch.
+Os clientes devem ser capazes de configurar o controle de acesso apropriado para WAN Virtual na interface do usuário do dispositivo. Para isso, é recomendável usar uma Entidade de Serviço do Azure. O acesso baseado em entidade de serviço fornece a autenticação apropriada do controlador de dispositivo para carregar informações de branch. Para obter mais informações, veja [Criar entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Carregar informações de branch
 
@@ -46,7 +46,7 @@ Nesta etapa, um cliente que não estivesse usando um provedor, baixaria manualme
 
 O arquivo de configuração do dispositivo contém as configurações a serem usadas ao configurar o dispositivo VPN local. Ao exibir esse arquivo, observe as seguintes informações:
 
-* **vpnSiteConfiguration -** Essa seção indica os detalhes do dispositivo configurados como um site que conecta a WAN Virtual. Inclui o nome e o endereço IP público do dispositivo de branch.
+* **vpnSiteConfiguration -** Essa seção indica os detalhes do dispositivo configurados como um site que se conecta à WAN Virtual. Inclui o nome e o endereço IP público do dispositivo de branch.
 * **vpnSiteConnections -** Essa seção fornece informações sobre o seguinte:
 
     * **Espaço de endereço** do(s) hub(s) virtual(is) da VNet.<br>Exemplo:
@@ -59,13 +59,13 @@ O arquivo de configuração do dispositivo contém as configurações a serem us
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Endereços IP** do vpngateway do hub virtual. Como o vpngateway tem cada conexão composta por 2 túneis na configuração ativa-ativa, você verá os dois endereços IP listados neste arquivo. Neste exemplo, você vê "Instance0" e "Instance1" para cada site.<br>Exemplo:
+    * **Endereços IP** do hub virtual vpngateway. Como o vpngateway tem cada conexão composta por 2 túneis na configuração ativa-ativa, você verá os dois endereços IP listados neste arquivo. Neste exemplo, você vê "Instance0" e "Instance1" para cada site.<br>Exemplo:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Detalhes da configuração da conexão do Vpngateway** como BGP, chave pré-compartilhada, etc. O PSK é a chave pré-compartilhada gerada automaticamente para você. Sempre é possível editar a conexão na página de Visão Geral de um PSK personalizado.
+    * **Detalhes da configuração da conexão do Vpngateway** como BGP, chave pré-compartilhada, etc. O PSK é a chave pré-compartilhada gerada automaticamente para você. Você sempre pode editar a conexão na página Visão Geral de um PSK personalizado.
   
 ### <a name="example-device-configuration-file"></a>Exemplo de arquivo de configuração de dispositivo
 
@@ -252,7 +252,7 @@ O dispositivo VPN/SDWAN local ou a configuração SD-WAN devem corresponder ou c
 
 ## <a name="feedback"></a>Comentários sobre a versão prévia
 
-Agradecemos por seus comentários. Envie um email para <azurevirtualwan@microsoft.com> para relatar qualquer problema ou fornecer comentários (positivos ou negativos) sobre a WAN Virtual. Inclua nome da sua empresa entre "[ ]" na linha do assunto. Também inclua sua ID de assinatura se estiver relatando um problema.
+Agradecemos por seus comentários. Envie um email para <azurevirtualwan@microsoft.com> para relatar possíveis problemas ou fornecer comentários (positivos ou negativos) sobre a WAN Virtual. Inclua nome da sua empresa entre "[ ]" na linha do assunto. Também inclua sua ID de assinatura se estiver relatando um problema.
 
 ## <a name="next-steps"></a>Próximas etapas
 

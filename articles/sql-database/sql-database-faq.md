@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246382"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091817"
 ---
 # <a name="sql-database-faq"></a>Perguntas frequentes sobre o Banco de Dados SQL
 
@@ -155,7 +155,7 @@ Por exemplo:
 - Se criar uma Instância Gerenciada na camada de Uso Geral com 8 vCores e fizer upgrade dela imediatamente para 16 vCores, você será cobrado pelos 16 vCores pela primeira hora.
 
 > [!NOTE]
-> Por um período limitado até 30 de junho de 2018, os encargos de backup e encargos de E/S estarão gratuitas.
+> Por um período limitado, os encargos de backup e encargos de E/S estarão gratuitos.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Como o uso da replicação geográfica ativa em um pool elástico aparece na minha fatura?
 Ao contrário dos bancos de dados únicos, o uso da [replicação geográfica ativa](sql-database-geo-replication-overview.md) com bancos de dados elásticos não tem um impacto direto no faturamento.  Você é cobrado apenas pelos recursos provisionados para cada um dos pools (pool primário e secundário)

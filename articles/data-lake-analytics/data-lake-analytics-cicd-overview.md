@@ -1,25 +1,21 @@
 ---
-title: Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics | Microsoft Docs
+title: Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics
 description: Saiba como configurar a integração contínua e a implantação contínua para Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630697"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045867"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Como configurar um pipeline de IC / CD para o Azure Data Lake Analytics  
 
@@ -443,13 +439,13 @@ Siga as etapas abaixo para configurar uma tarefa de implantação de banco de da
     * Use a autenticação **secreta** para implantar um banco de dados U-SQL em uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Use a autenticação **certFile** para implantar um banco de dados U-SQL em uma conta do Azure Data Lake Analytics:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Descrições de parâmetro PackageDeploymentTool.exe
@@ -480,13 +476,13 @@ Siga as etapas abaixo para configurar uma tarefa de implantação de banco de da
 |AzureSDKPath|Encontre-o na página de gerenciamento de assinaturas no portal do Azure.|nulo|verdadeiro|
 |Interativo|Se deve ou não usar o modo interativo para autenticação.|falso|falso|
 |ClientId|O ID do aplicativo do Azure AD necessário para autenticação não interativa.|nulo|Obrigatório para autenticação não interativa.|
-|Segredo|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|nulo|Necessário para a autenticação não interativa, caso contrário, use SecretFile.|
-|SecretFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|nulo|Necessário para autenticação não interativa ou use o segredo.|
-|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação secreta do cliente.|nulo|falso|
+|Secrete|O segredo ou senha para autenticação não interativa. Deve ser usado apenas em um ambiente confiável e seguro.|nulo|Necessário para autenticação não interativa; caso contrário, use o SecreteFile.|
+|SecreteFile|O arquivo salva o segredo ou a senha para autenticação não interativa. Certifique-se de mantê-lo legível apenas pelo usuário atual.|nulo|Necessário para autenticação não interativa ou use o segredo.|
+|CertFile|O arquivo salva a certificação X.509 para autenticação não interativa. O padrão é usar a autenticação de segredo do cliente.|nulo|falso|
 | JobPrefix | O prefixo para a implementação do banco de dados de um trabalho DDL do U-SQL. | Deploy_ + DateTime.Now | falso |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Como testar seu código do Google Analytics do Azure Data Lake](data-lake-analytics-cicd-test.md).
+- [Como testar seu código do Azure Data Lake Analytics](data-lake-analytics-cicd-test.md).
 - [Execute o script U-SQL em sua máquina local](data-lake-analytics-data-lake-tools-local-run.md).
 - [Projeto de banco de dados U-SQL Use para desenvolver o banco de dados U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md).

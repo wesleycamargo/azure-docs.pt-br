@@ -1,220 +1,91 @@
 ---
-title: Comunicar-se com qualquer ponto de extremidade por meio de HTTP – Aplicativo Lógico do Azure | Microsoft Docs
-description: Crie aplicativos lógicos que possam se comunicar com qualquer ponto de extremidade via HTTP
+title: Conectar-se a qualquer ponto de extremidade HTTP com Aplicativos Lógicos do Azure | Microsoft Docs
+description: Automatize tarefas e fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP usando o Aplicativo Lógico do Azure
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-tags: connectors
-ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/15/2016
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: e1561e3be95847efccf487c96bd9c9a8104f161b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296417"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106441"
 ---
-# <a name="get-started-with-the-http-action"></a>Introdução à ação HTTP
+# <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos de extremidade HTTP ou HTTPS com o Aplicativo Lógico do Azure
 
-Com a ação HTTP, você pode estender os fluxos de trabalho para a sua organização e se comunicar com qualquer ponto de extremidade por HTTP.
+Com o Aplicativo Lógico do Azure e o conector do protocolo HTTP, você pode automatizar os fluxos de trabalho que se comunicam com qualquer ponto de extremidade HTTP ou HTTPS criando aplicativos lógicos. Por exemplo, você pode monitorar o ponto de extremidade de serviço para seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu site ficar inativo, o evento dispara o fluxo de trabalho do aplicativo lógico e executa as ações especificadas. 
 
-Você pode:
+Você pode usar o gatilho HTTP como a primeira etapa no seu fluxo de trabalho de verificação ou *sondagem* de um ponto de extremidade regularmente. Em cada verificação, o gatilho envia uma chamada ou *solicitação* ao ponto de extremidade. A resposta do ponto de extremidade determina se o fluxo de trabalho do aplicativo lógico é executado. O gatilho passa todo o conteúdo da resposta para as ações no aplicativo lógico. 
 
-* Crie fluxos de trabalho de aplicativo lógico que são ativados (disparam) quando um site que você gerencia é desativado.
-* Comunique-se com qualquer ponto de extremidade por HTTP para estender seus fluxos de trabalho para outros serviços.
+Você pode usar a ação HTTP como qualquer outra etapa no fluxo de trabalho para chamar o ponto de extremidade quando quiser. A resposta do ponto de extremidade determina como as ações restantes do fluxo de trabalho são executadas.
 
-Para começar a usar a ação HTTP em um aplicativo lógico, confira [Criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Se ainda não estiver familiarizado com os aplicativos lógicos, veja [O que é o Aplicativo Lógico do Azure?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-the-http-trigger"></a>Usar o gatilho HTTP
-Um gatilho é um evento que pode ser usado para iniciar o fluxo de trabalho definido em um aplicativo lógico. [Saiba mais sobre gatilhos](connectors-overview.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-Veja uma sequência de exemplo de como configurar um gatilho HTTP no Designer de Aplicativo Lógico.
+* Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se em uma conta gratuita do Azure</a>. 
 
-1. Adicione o gatilho HTTP no seu aplicativo lógico.
-2. Preencha os parâmetros do ponto de extremidade HTTP que deseja sondar.
-3. Modifique o intervalo de recorrência quanto à frequência que ele deve ser sondado.
+* A URL do ponto de extremidade de destino que você deseja chamar 
 
-   Agora, o aplicativo lógico é disparado com qualquer conteúdo retornado durante cada verificação.
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-   ![Gatilho HTTP](./media/connectors-native-http/using-trigger.png)
+* O aplicativo lógico no qual você deseja chamar o ponto de extremidade de destino. Para começar com o gatilho HTTP [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação HTTP, inicie seu aplicativo lógico com um gatilho.
 
-### <a name="how-the-http-trigger-works"></a>Como o gatilho HTTP funciona
+## <a name="add-http-trigger"></a>Adicionar gatilho HTTP
 
-O gatilho HTTP envia uma chamada para um ponto de extremidade HTTP em um intervalo recorrente. Por padrão, qualquer código de resposta HTTP menor do que 300 faz com que um aplicativo lógico seja executado. Para especificar se o aplicativo lógico deve ser disparado, você pode editar o aplicativo lógico no modo de exibição de código e adicionar uma condição que é avaliada após a chamada HTTP. Veja um exemplo de um gatilho HTTP que será disparado sempre que o código de status retornado for maior ou igual a `400`.
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico em branco no Designer de Aplicativo Lógico se ele ainda não estiver aberto.
 
-```javascript
-"Http":
-{
-    "conditions": [
-        {
-            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-        }
-    ],
-    "inputs": {
-        "method": "GET",
-        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
-        "headers": {
-            "accept-language": "en"
-        }
-    },
-    "recurrence": {
-        "frequency": "Second",
-        "interval": 15
-    },
-    "type": "Http"
-}
-```
+1. Na caixa de pesquisa, insira "http" como o filtro. Na lista de gatilhos, selecione o gatilho desejado **HTTP**. 
 
-Os detalhes completos sobre os parâmetros de gatilho HTTP estão disponíveis no [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
+   ![Selecionar o gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
-## <a name="use-the-http-action"></a>Usar a ação HTTP
+1. Forneça os [parâmetros e valores do gatilho HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho verifique o ponto de extremidade de destino.
 
-Uma ação é uma operação executada pelo fluxo de trabalho definido em um aplicativo lógico. 
-[Saiba mais sobre ações](connectors-overview.md).
+   ![Insira os parâmetros do gatilho HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
-1. Escolha **Nova Etapa** > **Adicionar uma ação**.
-3. Na caixa de pesquisa de ação, digite **http** para listar as ações HTTP.
-   
-    ![Selecionar a ação HTTP](./media/connectors-native-http/using-action-1.png)
+   Para obter mais informações sobre o gatilho HTTP, os parâmetros e os valores, consulte [Referência de tipos de gatilho e ação](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger).
 
-4. Adicione quaisquer parâmetros necessários para a chamada HTTP.
-   
-    ![Concluir a ação HTTP](./media/connectors-native-http/using-action-2.png)
+1. Continue criando o fluxo de trabalho do aplicativo lógico com as ações que são executadas quando o gatilho é acionado.
 
-5. Clique em **Salvar** na barra de ferramentas do designer. Seu aplicativo lógico é salvo e publicado (ativado) simultaneamente.
+## <a name="add-http-action"></a>Adicionar ação HTTP
 
-## <a name="http-trigger"></a>Gatilho HTTP
-Veja os detalhes do gatilho com suporte deste conector. O conector HTTP tem um gatilho.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-| Gatilho | DESCRIÇÃO |
-| --- | --- |
-| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+1. Entre no [portal do Azure](https://portal.azure.com) e abra seu aplicativo lógico no Designer de Aplicativo Lógico, se ele ainda não estiver aberto.
 
-## <a name="http-action"></a>Ação HTTP
-Veja os detalhes da ação com suporte deste conector. O conector HTTP tem uma ação possível.
+1. Na última etapa em que você deseja adicionar uma ação HTTP, escolha **Nova etapa**. 
 
-| Ação | DESCRIÇÃO |
-| --- | --- |
-| HTTP |Faz uma chamada HTTP e retorna o conteúdo da resposta. |
+   Neste exemplo, o aplicativo lógico começa com o gatilho HTTP como a primeira etapa.
 
-## <a name="http-details"></a>Detalhes do HTTP
-As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
+1. Na caixa de pesquisa, insira "http" como o filtro. Na lista de ações, selecione a ação **HTTP**.
 
-#### <a name="http-request"></a>Solicitação HTTP
-Estes são os campos de entrada para a ação, o que cria uma solicitação HTTP de saída.
-Um * significa que é um campo obrigatório.
+   ![Selecionar a ação HTTP](./media/connectors-native-http/select-http-action.png)
 
-| Nome de exibição | Nome da propriedade | DESCRIÇÃO |
-| --- | --- | --- |
-| Método* |estático |Verbo HTTP a ser usado |
-| URI* |uri |O URI para a solicitação HTTP |
-| Cabeçalhos |headers |Um objeto JSON de cabeçalhos HTTP a serem incluídos |
-| Corpo |body |O corpo da solicitação HTTP |
-| Autenticação |Autenticação |Os detalhes na seção [Autenticação](#authentication) |
+   Para adicionar uma ação entre as etapas, mova o ponteiro sobre a seta entre as etapas. 
+   Escolha o sinal de adição (**+**) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-<br>
+1. Forneça os [parâmetros e valores da ação HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que deseja incluir na chamada para o ponto de extremidade de destino. 
 
-#### <a name="output-details"></a>Detalhes de saída
-A seguir, os detalhes de saída para a resposta HTTP.
+   ![Inserir os parâmetros da ação HTTP](./media/connectors-native-http/http-action-parameters.png)
 
-| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
-| --- | --- | --- |
-| headers |objeto |Cabeçalhos de resposta |
-| Corpo |objeto |Objeto de resposta |
-| Código de status |int |Código de status HTTP |
+1. Quando terminar, certifique-se de salvar o aplicativo lógico. Clique em **Salvar** na barra de ferramentas do designer. 
 
 ## <a name="authentication"></a>Autenticação
-O recurso de Aplicativos Lógicos permitem que você use diferentes tipos de autenticação em pontos de extremidade HTTP. Você pode usar essa autenticação com os conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** e **[Webhook HTTP](connectors-native-webhook.md)**. Os seguintes tipos de autenticação são configuráveis:
 
-* [Autenticação básica](#basic-authentication)
-* [Autenticação de certificado de cliente](#client-certificate-authentication)
-* [Autenticação OAuth do Azure AD (Azure Active Directory)](#azure-active-directory-oauth-authentication)
+Para definir a autenticação, escolha **Mostrar opções avançadas** dentro da ação ou do gatilho. Para obter mais informações sobre os tipos de autenticação disponíveis para ações e gatilhos HTTP, consulte [Referência de tipos de gatilho e ação](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-#### <a name="basic-authentication"></a>Autenticação básica
+## <a name="get-support"></a>Obtenha suporte
 
-O seguinte objeto de autenticação é necessário para a autenticação básica.
-Um * significa que é um campo obrigatório.
-
-| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
-| --- | --- | --- |
-| Type* |Tipo |Tipo de autenticação (deve ser `Basic` para a autenticação básica) |
-| Username* |Nome de Usuário |Nome de usuário para autenticar |
-| Password* |Senha |Senha para autenticação |
-
-> [!TIP]
-> Se você quiser usar uma senha que não é possível recuperar na definição, use um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Por exemplo: 
-
-```javascript
-{
-    "type": "Basic",
-    "username": "user",
-    "password": "test"
-}
-```
-
-#### <a name="client-certificate-authentication"></a>Autenticação de certificado de cliente
-
-O seguinte objeto de autenticação é necessário para a autenticação de certificado de cliente. Um * significa que é um campo obrigatório.
-
-| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
-| --- | --- | --- |
-| Type* |Tipo |O tipo de autenticação (deve ser `ClientCertificate` para certificados de cliente SSL) |
-| PFX* |pfx |O conteúdo codificado na Base64 do arquivo Personal Information Exchange (PFX) |
-| Password* |Senha |A senha para acessar o arquivo PFX |
-
-> [!TIP]
-> Para usar um parâmetro que não será legível na definição após salvar o aplicativo lógico, você poderá usar um parâmetro `securestring` e a `@parameters()` 
-> [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow).
-
-Por exemplo: 
-
-```javascript
-{
-    "type": "ClientCertificate",
-    "pfx": "aGVsbG8g...d29ybGQ=",
-    "password": "@parameters('myPassword')"
-}
-```
-
-#### <a name="azure-ad-oauth-authentication"></a>Autenticação OAuth do Azure AD
-O seguinte objeto de autenticação é necessário para a autenticação OAuth do Azure AD. Um * significa que é um campo obrigatório.
-
-| Nome da propriedade | Tipo de dados | DESCRIÇÃO |
-| --- | --- | --- |
-| Type* |Tipo |O tipo de autenticação (deve ser `ActiveDirectoryOAuth` para a autenticação OAuth do Azure AD) |
-| Tenant* |locatário |O identificador do locatário para o locatário do Azure AD |
-| Audience* |audiência |O recurso para cujo uso você está solicitando autorização. Por exemplo: `https://management.core.windows.net/` |
-| Client ID* |clientId |O identificador de cliente para o aplicativo do Azure AD |
-| Secret* |segredo |O segredo do cliente que está solicitando o token |
-
-> [!TIP]
-> Você pode usar um parâmetro `securestring` e a `@parameters()` [função de definição do fluxo de trabalho](https://docs.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow) para usar um parâmetro que não será legível na definição depois de salvar.
-> 
-> 
-
-Por exemplo: 
-
-```javascript
-{
-    "type": "ActiveDirectoryOAuth",
-    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-    "audience": "https://management.core.windows.net/",
-    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
-}
-```
+* Em caso de dúvidas, visite o [Fórum dos Aplicativos Lógicos do Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Para enviar ou votar em ideias de recurso, visite o [site de comentários do usuário de Aplicativos Lógicos](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 
+* Saiba mais sobre outros [conectores de Aplicativos Lógicos](../connectors/apis-list.md)
