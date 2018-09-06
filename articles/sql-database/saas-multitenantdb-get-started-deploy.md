@@ -3,20 +3,21 @@ title: Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco d
 description: Implantar e explore o aplicativo SaaS do Wingtip multilicatário, que demonstra os padrões SaaS usando o Banco de dados SQL do Azure.
 keywords: tutorial do banco de dados SQL
 services: sql-database
-author: MightyPen
+author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: genemi
-ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 04/02/2018
+ms.reviewer: genemi
+ms.author: billgib
+ms.openlocfilehash: 0c2677622b118c11216bef62ff70e87f4de4cded
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646449"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665916"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -46,7 +47,7 @@ Qualquer pessoa pode baixar o código fonte do C# e do PowerShell para Wingtip T
 
 Há uma série de tutoriais relacionados que utilizam essa implantação inicial. Os tutoriais exploram padrões de design e gerenciamento de um intervalo de SaaS. Quando você trabalhar com os tutoriais, você é incentivado a percorrer os scripts fornecidos para ver como os diferentes padrões de SaaS são implementados.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 

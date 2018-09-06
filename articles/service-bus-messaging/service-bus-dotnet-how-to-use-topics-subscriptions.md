@@ -3,7 +3,7 @@ title: Introdução a tópicos e assinaturas do Barramento de Serviço do Azure 
 description: Escreva um aplicativo de console em C# .NET Core que usa tópicos e assinaturas de mensagens do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/03/2018
-ms.author: sethm
-ms.openlocfilehash: 8916ccb430da6bea66de3894201a11a70bb45df9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: c53e0c16f6b1fd8a79f864651f5aae97af886b96
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298955"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699593"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Introdução aos tópicos do Barramento de Serviço
 
@@ -33,7 +33,7 @@ Este tutorial cobre as seguintes etapas:
 4. Escreva um aplicativo de console .NET Core para enviar um conjunto de mensagens ao tópico.
 5. Escreva um aplicativo de console .NET Core para receber essas mensagens da assinatura.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](http://www.visualstudio.com/vs) ou posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.

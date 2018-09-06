@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215196"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665715"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -41,7 +41,7 @@ O ClearDB é um serviço de hospedagem de MySQL e gerencia a infraestrutura do M
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Preciso de um cartão de crédito para o modelo aplicativo Web + MySQL no Azure Marketplace?
 Isso depende do tipo de assinatura que você está usando. Veja a seguir alguns tipos de assinatura normalmente usadas:
 
-* [Pré-pago](/offers/ms-azr-0003p/): exige um cartão de crédito, e quando você comprar um banco de dados MySQL pago, ele será cobrado no cartão de crédito.
+* [Pré-pago](https://azure.microsoft.com/offers/ms-azr-0003p/): exige um cartão de crédito, e quando você comprar um banco de dados MySQL pago, ele será cobrado no cartão de crédito.
 * [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/): inclui créditos para uso com os serviços do Microsoft Azure, mas não permite a compra de recursos de terceiros. Para comprar serviços de terceiros ou um banco de dados MySQL pago, você precisa usar uma assinatura habilitada para cartão de crédito. Para aplicativos Web, você pode criar um banco de dados MySQL do ClearDB GRATUITO.
 * [Assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **Desenvolvimento/Teste MSDN Pré-Pago**: semelhante à Avaliação gratuita, uma assinatura do MSDN exige que você tenha um cartão de crédito para comprar uma solução paga do MySQL da ClearDB.
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): os clientes de EA recebem em uma fatura consolidada e separada uma cobrança por seu EA a cada trimestre referente a todas as suas compras (de terceiros) no Azure Marketplace. Você será cobrado fora do compromisso monetário por qualquer compra no marketplace. Observe que, no momento, o Armazenamento do Azure não está disponível para clientes inscritos no Azerbaijão, na Croácia, na Noruega e em Porto Rico. 
@@ -109,5 +109,5 @@ O acesso ao Azure Marketplace para serviços de terceiros pode ser gerenciado po
 Entre em contato com o [Atendimento ao Cliente Corporativo](http://aka.ms/AzureEntSupport) sobre a cobrança em seu registro no EA. A Equipe de Suporte do Portal de EA responderá à sua pergunta ou ajudará a resolver o problema.
 
 ## <a name="more-information"></a>Mais informações
-[Perguntas frequentes sobre o Azure Marketplace](/marketplace/faq/)
+[Perguntas frequentes sobre o Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
 

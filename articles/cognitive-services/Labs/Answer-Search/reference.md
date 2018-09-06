@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866977"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666281"
 ---
 # <a name="project-answer-search-v7-reference"></a>Referência da Pesquisa de Resposta de Projeto v7
 
@@ -84,8 +84,8 @@ A solicitação pode incluir os parâmetros de consulta a seguir. Confira a colu
   
 |NOME|Valor|Tipo|Obrigatório|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas ao mercado e ao idioma en-us.<br /><br />|Cadeia de caracteres|sim|  
-|<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|sim|  
+|<a name="mkt" />mkt|O mercado do qual os resultados são obtidos. <br /><br />Para obter uma lista dos possíveis valores de mercado, confira [Códigos de mercado](#market-codes).<br /><br /> **OBSERVAÇÃO:** atualmente, a API de Visualização de URL dá suporte apenas ao mercado e ao idioma en-us.<br /><br />|Cadeia de caracteres|SIM|  
+|<a name="query" />q|A URL a ser visualizada|Cadeia de caracteres|SIM|  
 |<a name="responseformat" />responseFormat|O tipo de mídia a ser usado para a resposta. Veja a seguir os possíveis valores que não diferenciam maiúsculas de minúsculas.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> O padrão é JSON. Para obter informações sobre os objetos JSON contidos na resposta, confira [Objetos de resposta](#response-objects).<br /><br />  Se você especificar JsonLd, o corpo da resposta incluirá objetos JSON-LD que contêm os resultados da pesquisa. Para obter informações sobre o JSON-LD, confira [JSON-LD](http://json-ld.org/).|Cadeia de caracteres|Não |  
 |<a name="safesearch" />Pesquisa Segura|Um filtro usado para filtrar o conteúdo para adulto. Veja a seguir os possíveis valores de filtro que não diferenciam maiúsculas de minúsculas.<br /><ul><li>Desativado – retorna páginas da Web com texto, imagens ou vídeos para adulto.<br /><br/></li><li>Moderado – retorna páginas da Web com texto para adulto, mas não imagens nem vídeos para adulto.<br /><br/></li><li>Estrito – não retorna páginas da Web com texto, imagens ou vídeos para adulto.</li></ul><br /> O padrão é Moderado.<br /><br /> **OBSERVAÇÃO:** se a solicitação for proveniente de um mercado cuja política de conteúdo para adulto do Bing exija que `safeSearch` seja definido como Estrito, o Bing ignorará o valor `safeSearch` e usará Estrito.<br/><br/>**OBSERVAÇÃO:** se você usar o operador de consulta `site:`, há a possibilidade de que a resposta possa trazer um conteúdo para adulto, seja qual for a definição do parâmetro de consulta `safeSearch`. Só use `site:` se estiver ciente do conteúdo do site e se o cenário der suporte à possibilidade de conteúdo para adulto. |Cadeia de caracteres|Não |  
 |<a name="setlang" />setLang|O idioma a ser usado para cadeias de caracteres de interface do usuário. Especifique o idioma usando o código de idioma ISO 639-1 de 2 letras. Por exemplo, o código de idioma para o inglês é EN. O padrão é EN (inglês).<br /><br /> Embora isso seja opcional, você sempre deve especificar o idioma. Normalmente, você define `setLang` com o mesmo idioma especificado por `mkt`, a menos que o usuário deseje exibir as cadeias de caracteres de interface do usuário em outro idioma.<br /><br /> Esse parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos – não especifique ambos.<br /><br /> Uma cadeia de caracteres de interface do usuário é uma cadeia de caracteres que é usada como um rótulo em uma interface do usuário. Há poucas cadeias de caracteres de interface do usuário nos objetos de resposta JSON. Além disso, todos os links para as propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.|Cadeia de caracteres|Não | 
@@ -121,7 +121,7 @@ O objeto de nível superior incluído pela resposta quando a solicitação falha
 |NOME|Valor|Tipo|  
 |----------|-----------|----------|  
 |_type|Dica de tipo.|Cadeia de caracteres|  
-|<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Error](#error)[]|  
+|<a name="errors" />errors|Uma lista de erros que descreve os motivos pelos quais a solicitação falhou.|[Erro](#error)|  
 
   
   
@@ -309,12 +309,12 @@ Se a solicitação falha, a resposta contém um objeto [ErrorResponse](#errorres
 
 Veja a seguir os possíveis valores de código de erro e de código de suberro.
 
-|Código|SubCode|DESCRIÇÃO
+|Código|Subcódigo|DESCRIÇÃO
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O código de status HTTP é 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retorna InvalidRequest sempre que uma parte da solicitação é inválida. Por exemplo, um parâmetro necessário está ausente ou um valor de parâmetro é inválido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed, e o código de status HTTP será 410.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se você usar o protocolo HTTP em vez de HTTPS, o Bing retornará HttpNotAllowed, e o código de status HTTP será 410.
 |RateLimitExceeded|Nenhum subcódigo|O Bing retorna RateLimitExceeded sempre que você excede a cota de QPS (consultas por segundo) ou QPM (consultas por mês).<br/><br/>Se você exceder o QPS, o Bing retornará o código de status HTTP 429 e, se você exceder o QPM, o Bing retornará 403.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura é inválida.<br/><br/>Ocorre uma redundância se você especifica mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|O Bing retorna InvalidAuthorization quando o Bing não pode autenticar o chamador. Por exemplo, o cabeçalho `Ocp-Apim-Subscription-Key` está ausente ou a chave de assinatura não é válida.<br/><br/>A redundância ocorrerá se você especificar mais de um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de status HTTP será 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|O Bing retorna InsufficientAuthorization quando o chamador não tem permissões para acessar o recurso. Isso pode ocorrer se a chave de assinatura foi desabilitada ou expirou. <br/><br/>Se o erro for InsufficientAuthorization, o código de status HTTP será 403.
 
 ## <a name="next-steps"></a>Próximas etapas

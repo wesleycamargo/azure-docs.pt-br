@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 62e928525c8bd63258ea079830585db0f0ffc358
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716484"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665816"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Entender as entradas para o Azure Stream Analytics
 
@@ -42,7 +42,7 @@ O Stream Analytics também dá suporte à entrada conhecida como *dados de refer
 
 Para obter mais informações sobre entradas de dados de referência, consulte [Usando dados de referência para pesquisas no Stream Analytics](stream-analytics-use-reference-data.md)
 
-Este artigo é uma etapa do [roteiro de aprendizagem do Stream Analytics](/documentation/learning-paths/stream-analytics/).
+Este artigo é uma etapa do [roteiro de aprendizagem do Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

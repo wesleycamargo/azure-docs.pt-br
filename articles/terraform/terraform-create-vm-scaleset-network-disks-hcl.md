@@ -1,18 +1,20 @@
 ---
 title: Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 description: Tutorial sobre como usar o Terraform para configurar e modificar um conjunto de dimensionamento de máquinas virtuais do Azure completo com uma rede virtual e discos anexados gerenciados
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, máquina virtual, Azure, conjunto de dimensionamento, rede, armazenamento, módulos
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
-ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971826"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666188"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -30,7 +32,7 @@ Neste tutorial, você aprenderá como usar o [Azure Cloud Shell](/azure/cloud-sh
 > [!NOTE]
 > A versão mais recente dos arquivos de configuração do Terraform usados neste artigo estão no [Repositório Awesome Terraform no GitHub](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 - **Assinatura do Azure**: caso não tenha uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 

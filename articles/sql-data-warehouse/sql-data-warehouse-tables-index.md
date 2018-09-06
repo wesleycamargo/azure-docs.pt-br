@@ -3,19 +3,19 @@ title: Indexando tabelas no SQL Data Warehouse do Azure | Microsoft Azure
 description: Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 75d3638326bc1bf2f72997fa9d5d5feabc837a62
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d709acfe378583a21b72971f465e4b5d73818bcd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527147"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307721"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.

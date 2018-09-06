@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189031"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340032"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -560,7 +560,7 @@ Tempo estimado para conclusão: 20 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Habilitar "Autenticação de Certificado" no ADFS | [Configurar políticas de Autenticação: Configurar a autenticação primária global no Windows Server 2012 R2](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
-| Opcional: Habilitar a Autenticação de Certificado no Azure AD para clientes do Exchange Active Sync | [Introdução à autenticação baseada em certificado no Azure Active Directory](active-directory-certificate-based-authentication-get-started.md) |
+| Opcional: Habilitar a Autenticação de Certificado no Azure AD para clientes do Exchange Active Sync | [Introdução à autenticação baseada em certificado no Azure Active Directory](./authentication/active-directory-certificate-based-authentication-get-started.md) |
 | Navegue até o Painel de Acesso e autentique usando um Certificado do Usuário | https://myapps.microsoft.com |
 
 ### <a name="considerations"></a>Considerações

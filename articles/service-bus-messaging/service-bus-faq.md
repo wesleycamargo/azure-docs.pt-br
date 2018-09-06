@@ -2,18 +2,18 @@
 title: Perguntas frequentes (FAQ) sobre o Barramento de Serviço | Microsoft Docs
 description: Responde a algumas perguntas frequentes sobre o Barramento de Serviço do Azure.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: sethm
-ms.openlocfilehash: b3171ca264afdbdbddeb26eff8744ee67f336dfe
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: spelluru
+ms.openlocfilehash: e86471936ccf164bb1fd23450239be85e39dd60b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109511"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696652"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322518"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300602"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutorial: Criar uma função personalizada usando o Azure PowerShell
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará de:
 
@@ -99,7 +99,7 @@ A maneira mais fácil de criar uma função personalizada é começar com uma fu
     
 1. Edite o arquivo JSON para adicionar a operação `"Microsoft.Support/*"` à propriedade `Actions`. Inclua uma vírgula após a operação de leitura. Essa ação permitirá que o usuário crie tíquetes de suporte.
 
-1. Obtenha a ID de sua assinatura usando o comando [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenha a ID de sua assinatura usando o comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856633"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288295"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Como distribuir os dados globalmente com o Azure Cosmos DB
 O Azure é universal: ele tem uma presença global em mais de 50 regiões geográficas e está continuamente em expansão. Com sua presença global, um dos recursos diferenciados que o Azure oferece aos desenvolvedores é a capacidade de criar, implantar e gerenciar aplicativos distribuídos globalmente com facilidade. 
@@ -34,11 +34,6 @@ Neste artigo, apresentamos uma visão geral das funcionalidades de distribuiçã
 
 ## <a id="EnableGlobalDistribution"></a>Habilitando a distribuição global completa
 O Azure Cosmos DB fornece as funcionalidades a seguir para que você possa escrever facilmente aplicativos distribuídos globalmente. Essas funcionalidades estão disponíveis por meio de [APIs REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) baseadas em provedores de recursos do Azure Cosmos DB, bem como no portal do Azure.
-
-Assista ao seguinte vídeo para ver o recurso de distribuição global completa no Azure Cosmos DB em ação.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Presença regional em todos os lugares 
 O Azure está constantemente expandindo sua presença geográfica colocando [novas regiões](https://azure.microsoft.com/regions/) online. O Azure Cosmos DB é classificado como um *serviço fundamental* no Azure e está disponível em todas as novas regiões do Azure por padrão. Isso permite que você associe uma região geográfica à sua conta de banco de dados do Azure Cosmos DB assim que o Azure disponibilizar a nova região.

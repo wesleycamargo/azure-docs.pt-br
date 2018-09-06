@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783685"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666163"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analisar sua mídia usando o Portal do Azure
 > [!NOTE]
@@ -35,7 +35,7 @@ Este tópico aborda como processar sua mídia com processadores de mídia (MPs) 
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Escolha um ativo que você deseja analisar
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Na janela **Configurações**, selecione **Ativos**.  
-   .
+   
     ![Analisar vídeos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. Selecione o ativo que você deseja analisar e pressione o botão **Analisar**.
    

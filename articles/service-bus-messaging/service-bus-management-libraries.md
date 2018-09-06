@@ -3,7 +3,7 @@ title: Bibliotecas de gerenciamento do Barramento de Serviço do Azure | Microso
 description: Gerencie namespaces e entidades de mensagens do Barramento de Serviço no .NET.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: a959687fbf6e296cab7e0d8ca49ae97a005622cf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120889"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696568"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de gerenciamento do Barramento de Serviço
 
@@ -32,7 +32,7 @@ As bibliotecas de gerenciamento do Barramento de Serviço do Azure podem provisi
 * Criação de tópico, atualização, exclusão
 * Criação da assinatura, atualização, exclusão
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para começar a usar as bibliotecas de gerenciamento do Barramento de Serviço, você deve se autenticar com o serviço Azure Active Directory (Azure AD). O Microsoft Azure Active Directory exige que você autentique como uma entidade de serviço que forneça acesso aos recursos do Azure. Para saber mais sobre como criar uma entidade de serviço, veja um dos seguintes artigos:  
 

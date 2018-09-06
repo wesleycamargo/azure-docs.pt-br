@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188825"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43342055"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recurso do Azure no PIM
 O PIM (Privileged Identity Management) para Recursos do Azure gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece na página Alertas. 
@@ -53,5 +53,4 @@ Personalize configurações nos diferentes alertas para trabalhar com seu ambien
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Exigir autenticação multifator para funções de recurso do Azure no PIM](pim-resource-roles-require-mfa.md)
 - [Configurar alertas de segurança para funções de recurso do Azure no PIM](pim-resource-roles-configure-alerts.md)

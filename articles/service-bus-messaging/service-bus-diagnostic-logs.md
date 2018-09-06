@@ -4,7 +4,7 @@ description: Saiba como configurar logs de diagnóstico para o Barramento de Ser
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
-author: banisadr
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 3c2528634dea5c75e4a0e35b7e1a6a30de8d96c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29122165"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696149"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do Barramento de Serviço
 
@@ -64,7 +64,7 @@ Faz logon na categoria **OperationalLogs** para capturar o que acontece durante 
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na seguinte tabela:
 
-NOME | DESCRIÇÃO
+Nome | Descrição
 ------- | -------
 ActivityId | ID interna, usada para acompanhamento
 EventName | Nome da operação           

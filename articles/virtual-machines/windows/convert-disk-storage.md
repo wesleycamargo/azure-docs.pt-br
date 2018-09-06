@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 7748cf41bb97e0136d7b619debcb60d460df5d8b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7e4a37e318bd45c5cc2dca4e085b2a112db65efe
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596572"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371348"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa
 
 O Managed Disks oferece três opções de armazenamento: [SSD Premium](../windows/premium-storage.md), SSD Padrão (Versão Prévia) e [HD Padrão](../windows/standard-storage.md). Ele permite alternar facilmente entre as opções com tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isso não dá suporte para discos não gerenciados. Porém, é possível [convertê-los em discos gerenciados](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre os tipos de disco.
 
-Este artigo mostra como converter Managed Disks de padrão em premium, e vice-versa, usando o Azure PowerShell. Se você precisa instalá-lo ou atualizá-lo, confira [Instalar e configurar o Azure PowerShell](/powershell/azure/install-azurerm-ps.md).
+Este artigo mostra como converter Managed Disks de padrão em premium, e vice-versa, usando o Azure PowerShell. Se você precisa instalá-lo ou atualizá-lo, confira [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="before-you-begin"></a>Antes de começar
 

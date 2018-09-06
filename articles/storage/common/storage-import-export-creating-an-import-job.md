@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524440"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666012"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -57,7 +57,7 @@ Para preparar a unidade:
 
 ## <a name="obtaining-your-shipping-location"></a>Obtendo o local de envio
 
-Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
+Antes de criar um trabalho de importação, você precisa obter um nome e o endereço de um local de envio chamando a operação [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` retorna uma lista de locais e seus endereços de correspondência. É possível selecionar uma localização na lista retornada e enviar os discos rígidos para esse endereço. Você também pode usar a operação `Get Location` para obter o endereço para entrega de uma localização específica diretamente.
 
  Siga as etapas abaixo para obter a localização de envio:
 

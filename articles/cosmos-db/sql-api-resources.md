@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798009"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287946"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Modelo de recurso hierárquico e principais conceitos do Azure Cosmos DB
 
@@ -30,12 +30,6 @@ Este artigo responde às seguintes perguntas:
 * Como eu acesso um recurso?
 * Como eu trabalho com coleções?
 * Como eu trabalho com procedimentos armazenados, disparadores e UDFs (Funções Definidas pelo Usuário)?
-
-No vídeo a seguir, o gerente de programa do Azure Cosmos DB, Andrew Liu, demonstra como é o modelo de recursos do Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
 
 ## <a name="hierarchical-resource-model"></a>Modelo de recursos hierárquico
 Conforme ilustrado pelo diagrama a seguir, o **modelo de recurso** hierárquico do Azure Cosmos DB é formado por conjuntos de recursos em uma conta de banco de dados, cada um endereçável por meio de um URI lógico e estável. Neste artigo, um conjunto de recursos é chamado de **feed**. 

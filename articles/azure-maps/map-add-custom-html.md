@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3ee1f394536061cecaa5d775650149b30098560e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600214"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382038"
 ---
 # <a name="add-custom-html-to-the-map"></a>Adicionar HTML personalizado ao mapa
 
@@ -29,15 +29,15 @@ No código acima, o primeiro bloco do código constrói um objeto de mapa. Você
 
 O segundo bloco de código cria um elemento HTML de uma imagem.
 
-O último bloco de código usa a função [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml) da classe de mapa para adicionar a imagem para a posição especificada do mapa.
+O último bloco de código usa a função [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) da classe de mapa para adicionar a imagem para a posição especificada do mapa.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre as classes e métodos usados neste artigo: 
-* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+* [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
     
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos: 
-* [Mostrar resultados da pesquisa](./map-search-location.md)
+* [ Mostrar resultados da pesquisa ](./map-search-location.md)
 * [Obter informações de uma coordenada](./map-get-information-from-coordinate.md)
 

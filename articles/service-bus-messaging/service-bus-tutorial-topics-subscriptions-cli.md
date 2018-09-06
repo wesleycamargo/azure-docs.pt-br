@@ -2,19 +2,19 @@
 title: Tutorial – Atualizar sortimento de estoque de varejo usando canais de publicação/assinatura e filtros de tópicos com a CLI do Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá como enviar e receber mensagens de um tópico e uma assinatura e como adicionar e usar regras de filtro usando a CLI do Azure
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b68b3f311312a952ab55c15083ff5ed562443be2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120677"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701996"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: atualizar o estoque usando a CLI e tópicos/assinaturas
 

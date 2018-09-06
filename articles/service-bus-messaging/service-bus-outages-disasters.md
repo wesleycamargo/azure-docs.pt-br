@@ -2,18 +2,18 @@
 title: Isolando aplicativos do Barramento de Serviço do Azure contra interrupções e desastres | Microsoft Docs
 description: Técnicas para proteger aplicativos contra uma potencial interrupção do Barramento de Serviço.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 5401d43f11c8afc02f48dd643fd4ff2f9611e06e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301709"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696710"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 

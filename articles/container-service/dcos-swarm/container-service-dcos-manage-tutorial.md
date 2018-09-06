@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918038"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782253"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Tutorial de Serviço de Contêiner do Azure – gerenciar DC/SO
 
@@ -238,7 +238,7 @@ Navegar para esse endereço retorna o site NGINX padrão.
 
 ## <a name="scale-dcos-cluster"></a>Cluster de DC/SO de escala
 
-Nos exemplos anteriores, um aplicativo foi dimensionado para várias instâncias. A infraestrutura do DC/SO também pode ser dimensionada para fornecer mais ou menos capacidade de computação. Isso é feito com o comando [az acs scale](). 
+Nos exemplos anteriores, um aplicativo foi dimensionado para várias instâncias. A infraestrutura do DC/SO também pode ser dimensionada para fornecer mais ou menos capacidade de computação. Isso é feito com o comando [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 Para ver a contagem atual de agentes do DC/SO, use o comando [az acs show](/cli/azure/acs#az-acs-show).
 

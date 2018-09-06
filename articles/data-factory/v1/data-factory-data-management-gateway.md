@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626848"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698750"
 ---
 # <a name="data-management-gateway"></a>Gateway de gerenciamento de dados
 > [!NOTE]
@@ -142,7 +142,7 @@ No nível do firewall corporativo, você precisa configurar os seguintes domíni
 
 | Nomes de domínio | Portas | DESCRIÇÃO |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
+| * .servicebus.windows.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | *.core.windows.net |443 |Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)|
 | *.frontend.clouddatahub.net |443 |Usado para comunicação com o back-end do Serviço de Movimentação de Dados |
 | * .servicebus.windows.net |9350-9354, 5671 |Retransmissão de barramento de serviço opcional sobre TCP usado pelo Assistente de cópia |

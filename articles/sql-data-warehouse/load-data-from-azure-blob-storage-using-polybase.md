@@ -3,19 +3,19 @@ title: 'Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehou
 description: O tutorial usa o Portal do Azure e o SQL Server Management Studio para carregar dados dos táxis de Nova York de um blob público do Azure para o SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193226"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288117"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
