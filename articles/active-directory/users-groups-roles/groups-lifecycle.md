@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860958"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841727"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração de grupos do Office 365
 
@@ -43,7 +43,7 @@ Função | Permissões
 Administrador global ou administrador de conta de usuário | Pode criar, ler, atualizar ou excluir as configurações de política de expiração de grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
 Usuário | Pode renovar um grupo do Office 365 que ele possua<br>Pode restaurar um grupo do Office 365 que ele possua<br>Pode ler as configurações da política de expiração
 
-Para saber mais sobre permissões para restaurar um grupo excluído, confira [Restaurar um grupo excluído do Office 365 no Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Para saber mais sobre permissões para restaurar um grupo excluído, confira [Restaurar um grupo excluído do Office 365 no Azure Active Directory](groups-restore-deleted.md).
 
 ## <a name="set-group-expiration"></a>Definir a expiração de grupo
 
@@ -71,7 +71,7 @@ Quando um grupo expira, o mesmo é excluído um dia depois da data de vencimento
 
 ![Notificação de email de exclusão do grupo](./media/groups-lifecycle/deletion-notification.png)
 
-Para restaurar o grupo dentro de 30 dias de sua exclusão, selecione **Restaurar grupo** ou use cmdlets do PowerShell, conforme descrito em [Como restaurar um grupo do Office 365 excluído no Azure Active Directory](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Para restaurar o grupo dentro de 30 dias de sua exclusão, selecione **Restaurar grupo** ou use cmdlets do PowerShell, conforme descrito em [Como restaurar um grupo do Office 365 excluído no Azure Active Directory](groups-restore-deleted.md).
     
 Se o grupo que você está restaurando contém documentos, sites do SharePoint ou outros objetos persistentes, pode levar até 24 horas para restaurar completamente o grupo e seu conteúdo.
 

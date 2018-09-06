@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a94c3a4c4b8ffb22b1d75ca064bd3e48a2e50141
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005671"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841835"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerenciar servidores lógicos e bancos de dados únicos no Banco de Dados SQL do Azure 
 
@@ -156,10 +156,7 @@ Para criar e gerenciar servidores, bancos de dados e firewalls do SQL Server do 
 |[Servidores - Atualizar](/rest/api/sql/servers/update)|Atualiza um servidor existente.|
 |[Banco de Dados – Criar ou Atualizar](/rest/api/sql/databases/createorupdate)|Cria um novo banco de dados ou atualiza um banco de dados existente.|
 |[Bancos de Dados – Obter](/rest/api/sql/databases/get)|Obtém um banco de dados.|
-|[Bancos de Dados – Obter por Pool Elástico](/rest/api/sql/databases/getbyelasticpool)|Obtém um banco de dados dentro de um pool elástico.|
-|[Bancos de Dados – Obter por Pool Elástico Recomendado](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtém um banco de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
-|[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
 |[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
 |[Regras de Firewall - Criar ou Atualizar](/rest/api/sql/firewallrules/createorupdate)|Cria ou atualiza uma regra de firewall.|

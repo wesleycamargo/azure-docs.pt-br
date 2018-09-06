@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: ce3a3d28a25c8e904eeebbfc4cf68003fdda07a5
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443625"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842525"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para o Banco de Dados SQL do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -153,15 +153,15 @@ Um data factory pode ser associado a uma [Identidade de Serviço Gerenciado](dat
 Para usar a autenticação de token do aplicativo do Azure AD com base em MSI, siga estas etapas:
 
 1. **Crie um grupo no AD do Azure.** Faça da fábrica MSI um membro do grupo.
-
-    a. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
-
-    b. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
+    
+    1. Encontre a identidade do serviço de fábrica de dados no portal do Azure. Vá para as **Propriedades** da sua data factory. Copie o ID da IDENTIDADE DO SERVIÇO.
+    
+    1. Instale o módulo do [PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2). Entre usando o comando `Connect-AzureAD`. Execute os seguintes comandos para criar um grupo e inclua o MSI do data factory como membro.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
-
+    
 1. **[Provisione um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** para o servidor SQL do Azure no Portal do Azure, caso ainda não tenha feito isso. O administrador do Azure AD pode ser um usuário do AD do Azure ou um grupo do Azure AD. Se você conceder ao grupo com o MSI uma função administrativa, pule as etapas 3 e 4. O administrador terá acesso total ao banco de dados.
 
 1. **[ Crie usuários de banco de dados contidos](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** para o grupo do AD do Azure. Conecte-se ao banco de dados de ou para o qual você deseja copiar dados usando ferramentas como SSMS, com uma identidade do Azure AD que tenha pelo menos a permissão ALTER ANY USER. Execute o seguinte T-SQL: 

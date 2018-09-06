@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010813"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841498"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copiar dados para o Disco do Azure Data Box e verificar
 
@@ -76,8 +76,8 @@ Execute as seguintes etapas para fazer a conexão e copiar dados do computador p
     
     |Parâmetros/Opções  |DESCRIÇÃO |
     |--------------------|------------|
-    |<Source>            | Especifica o caminho para o diretório de origem.        |
-    |<Destination>       | Especifica o caminho para o diretório de destino.        |
+    |Fonte            | Especifica o caminho para o diretório de origem.        |
+    |Destino       | Especifica o caminho para o diretório de destino.        |
     |/E                  | Copia subdiretórios, inclusive diretórios vazios. |
     |/MT[:N]             | Cria cópias com N threads, em que N é um inteiro entre 1 e 128. <br>O valor padrão para N é 8.        |
     |/R: <N>             | Especifica o número de repetições em cópias com falha. O valor padrão de N é 1.000.000 (um milhão de repetições).        |
@@ -181,7 +181,7 @@ Para verificar a integridade dos dados, execute as etapas a seguir.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu sobre tópicos do Disco do Azure Data Box, como:
+Neste tutorial, você aprendeu sobre tópicos do Azure Data Box Disk como:
 
 > [!div class="checklist"]
 > * Copiar dados para o Disco do Data Box
