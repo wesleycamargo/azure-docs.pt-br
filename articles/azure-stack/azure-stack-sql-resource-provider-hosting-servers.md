@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970544"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842491"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Adicionar servidores de hospedagem para o provedor de recursos do SQL
 
@@ -78,15 +78,15 @@ Para adicionar um servidor de hospedagem autônomo que já está configurado, si
 
 1. Entre no portal do Azure Stack de operador como um administrador de serviço.
 
-2. Selecione **navegue** &gt; **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem SQL**.
+2. Selecione **todos os serviços** &gt; **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem SQL**.
 
    ![Servidores de hospedagem SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Sob **servidores de hospedagem SQL**, o provedor de recursos do SQL pode se conectar a instâncias do SQL Server que servem como back-end do provedor de recursos.
+   Sob **servidores de hospedagem SQL**, o provedor de recursos do SQL pode se conectar a instâncias do SQL Server que servirá como back-end do provedor de recursos.
 
-   ![Painel de adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![Painel de adaptador de SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. Na **adicionar um servidor de hospedagem SQL**, forneça os detalhes de conexão para sua instância do SQL Server.
+3. Clique em **Add** e, em seguida, forneça os detalhes de conexão para sua instância do SQL Server no **adicionar um servidor de hospedagem SQL** folha.
 
    ![Adicionar um servidor de hospedagem SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

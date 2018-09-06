@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: e057d7a649397083240e9f67080808a3057c7f50
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d3bfe2c472d48a68bd818ac06874db136528b470
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139674"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840262"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Pós-instalação do ASDK tarefas de configuração
 
@@ -140,16 +140,6 @@ Os testes demorar alguns minutos para ser concluída. Se a instalação foi bem-
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 Se houver uma falha, siga as etapas de solução de problemas para obter ajuda.
-
-## <a name="activate-the-administrator-and-tenant-portals"></a>Ativar portais do administrador e locatário
-Após as implantações que usam o AD do Azure, você deve ativar ambos os portais de administrador e locatário do Azure Stack. Essa ativação dá consentimento para oferecendo o portal do Azure Stack e o Azure Resource Manager as permissões corretas (listadas na página de consentimento) para todos os usuários do diretório.
-
-- Para o portal do administrador, navegue até https://adminportal.local.azurestack.external/guest/signup, leia as informações e, em seguida, clique em **Accept**. Depois de aceitar, você pode adicionar administradores de serviço que também não são administradores de locatários de diretório.
-
-- Para o portal de locatário, navegue até https://portal.local.azurestack.external/guest/signup, leia as informações e, em seguida, clique em **Accept**. Depois de aceitar, os usuários no diretório podem entrar portal de locatário. 
-
-> [!NOTE] 
-> Se os portais não estiverem ativados, somente o administrador de diretório pode entrar e usar os portais. Se outro usuário faz logon, eles verão um erro informando que o administrador não concede permissões a outros usuários. Quando o administrador não pertence ao diretório para que do Azure Stack está registrado nativamente, o diretório do Azure Stack deve ser anexado à URL de ativação. Por exemplo, se o Azure Stack está registrado para fabrikam.onmicrosoft.com e o usuário administrador é admin@contoso.com, navegue até https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com para ativar o portal. 
 
 ## <a name="reset-the-password-expiration-policy"></a>Redefina a política de expiração de senha 
 Para certificar-se de que a senha para o host do kit de desenvolvimento não expire antes de seu período de avaliação terminar, siga estas etapas depois de implantar o ASDK.

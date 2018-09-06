@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700703"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842033"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Implantar o provedor de recursos do SQL Server no Azure Stack
 
 Use o provedor de recursos do SQL Server do Azure Stack para expor bancos de dados SQL como um serviço do Azure Stack. O provedor de recursos do SQL é executado como um serviço em uma máquina virtual do Server Core do Windows Server 2016 (VM).
+
+> [!IMPORTANT]
+> O provedor de recursos é suportado para criar itens em servidores, esse host SQL ou MySQL. Criado em um servidor de host de itens que não são criados pelo provedor de recursos podem resultar em um estado incompatível.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -144,8 +147,8 @@ Você pode usar as seguintes etapas, verifique se o provedor de recursos do SQL 
 2. Selecione **grupos de recursos**.
 3. Selecione o **system.\< local\>.sqladapter** grupo de recursos.
 4. Na página de resumo para visão geral do grupo de recursos, não deve haver nenhuma implantação com falha.
-
       ![Verificar a implantação de provedor de recursos do SQL](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Por fim, selecione **máquinas virtuais** no portal de administração para verificar que o provedor de recursos do SQL VM com êxito criado e está em execução.
 
 ## <a name="next-steps"></a>Próximas etapas
 
