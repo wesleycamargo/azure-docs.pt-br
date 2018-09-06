@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961885"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782433"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Guia de início rápido do Node do SDK da Pesquisa Visual
 
@@ -26,9 +26,9 @@ Cenários de código são documentados sob os seguintes cabeçalhos:
 * [Cliente da Pesquisa Visual](#client)
 * [Aplicativo do console completo](#complete)
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). A chave de avaliação é boa para sete dias com uma chamada por segundo. Para cenários de produção, [comprar uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Uma chave API de Serviços Cognitivos é necessária para autenticar chamadas SDK. Inscreva-se em uma [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). A chave de avaliação é boa para sete dias com uma chamada por segundo. Para cenários de produção, [comprar uma chave de acesso](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consulte também [informações de preço](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Dependências de aplicativo
 
