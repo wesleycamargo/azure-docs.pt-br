@@ -40,7 +40,7 @@ Os valores da cadeia de caracteres são encapsulados com caracteres de aspas sim
 print "this is a 'string' literal in double \" quotes"
 ```
 
-Para evitar que "\\" atue como um caractere de escape, adicione "@" como um prefixo para a cadeia de caracteres:
+Para evitar que "\\" atue como um caractere de escape, adicione \"\@\" como um prefixo para a cadeia de caracteres:
 
 ```OQL
 print @"C:\backslash\not\escaped\with @ prefix"
