@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444808"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337878"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Configuração de token, de sessão e de logon único
 
@@ -69,8 +69,8 @@ Estes são alguns casos de uso que você pode habilitar usando essas propriedade
 Fizemos alterações de formatação em declarações importantes em tokens de segurança emitidos pelo Azure AD B2C. Isso foi feito para melhorar nosso suporte a protocolos padrão e para melhor interoperabilidade com bibliotecas de identidade de terceiros. No entanto, para evitar a interrupção dos aplicativos existentes, criamos as propriedades a seguir para permitir que os clientes aceitem como necessário:
 
 * **Declaração do emissor (iss)**: identifica o locatário do Azure AD B2C que emitiu o token.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: é o valor padrão.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui ID para o locatário B2C e a política usada na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: é o valor padrão.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: esse valor inclui ID para o locatário B2C e a política usada na solicitação de token. Se seu aplicativo ou biblioteca precisar do Azure AD B2C para ser compatível com as [especificações do OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use esse valor.
 * **Declaração de assunto (sub)**: identifica a entidade, ou seja, o usuário, para o qual o token declara informações.
   * **ObjectID**: é o valor padrão. Ele ocupa a ID de objeto do usuário no diretório para a declaração `sub` no token.
   * **Não tem suporte**: é fornecido somente para compatibilidade com versões anteriores, e recomendamos que você alterne para **ObjectID** assim que for possível.

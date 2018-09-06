@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144776"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287751"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Consultar dados do Azure Cosmos DB com consultas SQL
 
@@ -27,17 +27,7 @@ O Microsoft Azure Cosmos DB dá suporte à consulta de documentos usando a lingu
 
 * O Azure Cosmos DB usa o modelo de programação do JavaScript como base para a linguagem de consulta. A API do SQL é baseada no sistema de tipos, avaliação de expressão e invocação de função do JavaScript. Isso, por sua vez, oferece um modelo de programação natural para projeções relacionais, navegação hierárquica em documentos JSON, autojunções, consultas espaciais e invocação de UDFs (funções definidas pelo usuário) gravadas inteiramente em JavaScript, entre outros recursos. 
 
-Este artigo orienta você em alguns exemplos de consultas SQL usando documentos JSON simples. Para saber mais sobre a sintaxe da linguagem do Azure Cosmos DB SQL, consulte o artigo [Referência de Sintaxe SQL](sql-api-sql-query-reference.md). Você também pode começar assistindo aos seguintes vídeos que mostram os recursos de consulta do Azure Cosmos DB e demonstra o [Query Playground](http://www.documentdb.com/sql/demo) on-line.
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Técnicas de consulta mais avançadas são demonstradas no vídeo a seguir:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Este artigo orienta você em alguns exemplos de consultas SQL usando documentos JSON simples. Para saber mais sobre a sintaxe da linguagem do Azure Cosmos DB SQL, consulte o artigo [Referência de Sintaxe SQL](sql-api-sql-query-reference.md). 
 
 ## <a id="GettingStarted"></a> Comece com comandos SQL
 Vamos criar dois documentos JSON simples e consultar esses dados. Considere dois documentos JSON sobre famílias, insira esses documentos JSON em uma coleção e subsequentemente consulte os dados. Aqui temos um simples documento JSON para as famílias de Andersen e Wakefield, os pais, as crianças (e seus animais de estimação), endereço e informações de registro. O documento tem cadeias de caracteres, números, boolianos, matrizes e propriedades aninhadas. 

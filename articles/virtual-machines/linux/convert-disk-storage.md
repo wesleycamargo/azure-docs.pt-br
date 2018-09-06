@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c06de6b757da63bb35a4f094e5912e8dcd786f9
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005043"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666770"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa
 
-O Managed Disks oferece três opções de armazenamento: [SSD Premium](../windows/premium-storage.md), SSD Standard (Versão Prévia) e [HD Standard](../windows/standard-storage.md). Ele permite alternar facilmente entre as opções com mínimo tempo de inatividade de acordo com suas necessidades de desempenho. Isso não é compatível com discos não gerenciados. Porém, você pode [convertê-los em discos gerenciados](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre os tipos de disco.
+O Managed Disks oferece três opções de armazenamento: [SSD Premium](../windows/premium-storage.md), SSD Padrão (Versão Prévia) e [HD Padrão](../windows/standard-storage.md). Ele permite alternar facilmente entre as opções com tempo de inatividade mínimo, com base nas suas necessidades de desempenho. Isso não dá suporte para discos não gerenciados. Porém, é possível [convertê-los em discos gerenciados](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre os tipos de disco.
 
-Este artigo mostra como converter Managed Disks de padrão em premium, e vice-versa, usando a CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli.md). 
+Este artigo mostra como converter Managed Disks de padrão em premium, e vice-versa, usando a CLI do Azure. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 * Como a conversão requer uma reinicialização da VM, programe a migração do armazenamento de discos durante uma janela de manutenção preexistente. 
-* Se você estiver usando discos não gerenciados, primeiro [converta-os em discos gerenciados](convert-unmanaged-to-managed-disks.md) a fim de usar este artigo para alternar entre as opções de armazenamento. 
+* Se você estiver usando discos não gerenciados, primeiro [converta em discos gerenciados](convert-unmanaged-to-managed-disks.md), a fim de usar este artigo para alternar entre as opções de armazenamento. 
 
 
 ## <a name="convert-all-the-managed-disks-of-a-vm-from-standard-to-premium-and-vice-versa"></a>Converter todos os Managed Disks de uma VM de padrão em premium, e vice-versa
 
-O exemplo a seguir mostra como alternar todos os discos de uma VM de armazenamento standard para premium. Para usar Managed Disks Premium, sua VM deve usar um [tamanho da VM](sizes.md) que dá suporte a armazenamento Premium. Este exemplo também pode mudar para um tamanho que dá suporte a armazenamento Premium.
+O exemplo a seguir mostra como alternar todos os discos de uma VM de armazenamento padrão para premium. Para usar Managed Disks Premium, sua VM deve usar um [tamanho da VM](sizes.md) que dá suporte a armazenamento Premium. Este exemplo também pode mudar para um tamanho que dá suporte a armazenamento Premium.
 
  ```azurecli
 
@@ -73,7 +73,7 @@ az vm start --name $vmName --resource-group $rgName
 ```
 ## <a name="convert-a-managed-disk-from-standard-to-premium-and-vice-versa"></a>Converter um Managed Disk de padrão em premium, e vice-versa
 
-Para sua carga de trabalho de desenvolvimento/teste, convém ter uma combinação de discos padrão e premium para reduzir os custos. Isso é possível atualizando para o armazenamento premium, somente os discos que requerem melhor desempenho. O exemplo a seguir mostra como alternar um único disco de uma VM de armazenamento standard para premium e vice-versa. Para usar Managed Disks Premium, sua VM deve usar um [tamanho da VM](sizes.md) que dá suporte a armazenamento Premium. Este exemplo também pode mudar para um tamanho que dá suporte a armazenamento Premium.
+Para sua carga de trabalho de desenvolvimento/teste, convém ter uma combinação de discos padrão e premium para reduzir os custos. Isso é possível atualizando para o armazenamento premium, somente os discos que requerem melhor desempenho. O exemplo a seguir mostra como alternar um único disco de uma VM de armazenamento padrão para premium e vice-versa. Para usar Managed Disks Premium, sua VM deve usar um [tamanho da VM](sizes.md) que dá suporte a armazenamento Premium. Este exemplo também pode mudar para um tamanho que dá suporte a armazenamento Premium.
 
  ```azurecli
 
@@ -106,7 +106,7 @@ az disk update --sku $sku --name $diskName --resource-group $rgName
 az vm start --ids $vmId 
 ```
 
-## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Converter um disco gerenciado de HD Standard para SSD Standard e vice-versa
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>Converter um disco gerenciado de HD padrão para SSD padrão e vice-versa
 
 O exemplo a seguir mostra como alternar um único disco de uma VM do HD Standard para SSD Standard.
 

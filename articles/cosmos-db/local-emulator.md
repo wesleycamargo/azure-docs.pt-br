@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 368caa063ea0487923af8a29f67aa73cae7ed75e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 355f80479ba7c6d6399bb25f7ba1511c6b18599b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952885"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285220"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Usar o Emulador do Azure Cosmos DB para desenvolvimento e teste locais
 
@@ -51,12 +51,6 @@ Este artigo aborda as seguintes tarefas:
 > * Executar o Emulador no Docker para Windows
 > * Coletar arquivos de rastreamento
 > * solução de problemas
-
-É recomendável começar assistindo ao vídeo a seguir, em que Kirill Gavrylyuk mostra como começar a usar o Emulador do Azure Cosmos DB. O vídeo refere ao emulador como o Emulador do DocumentDB, mas a ferramenta em si foi renomeada como Emulador do Azure Cosmos DB desde a gravação do vídeo. Todas as informações do vídeo ainda estão corretas para o Emulador do Azure Cosmos DB. 
-
-> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
-> 
-> 
 
 ## <a name="how-the-emulator-works"></a>Como o emulador funciona
 

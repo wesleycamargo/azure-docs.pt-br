@@ -10,21 +10,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 48555dc8d1cc027cb771e0ba0678c6cb12d6785f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101212"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697968"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
+
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Dicas de desempenho para o Azure Cosmos DB e Java Assíncrono
 O Azure Cosmos DB é um banco de dados distribuído rápido e flexível que pode ser dimensionado perfeitamente com garantia de latência e produtividade. Você não precisa fazer alterações importantes de arquitetura nem escrever um código complexo para dimensionar seu banco de dados com o Azure Cosmos DB. Aumentar e reduzir é tão fácil quanto fazer uma única chamada à API ou uma chamada ao método do SDK. No entanto, como o Azure Cosmos DB é acessado por meio de chamadas de rede, há otimizações do lado do cliente que você pode fazer para obter o desempenho máximo ao usar o [SDK do SQL Java Assíncrono](sql-api-sdk-async-java.md).
 
 Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu banco de dados?" considere as seguintes opções:
@@ -190,7 +190,7 @@ Para outras plataformas (Red Hat, Windows, Mac, etc.), consulte estas instruçõ
 
     Para obter mais informações, consulte [Políticas de indexação do Azure Cosmos DB](indexing-policies.md).
 
-## <a name="throughput"></a>Throughput
+## <a name="throughput"></a>Produtividade
 <a id="measure-rus"></a>
 
 1. **Medir e ajustar para o uso mais baixo de unidades/segundo da solicitação**

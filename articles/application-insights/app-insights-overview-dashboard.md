@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970965"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344623"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral do Application Insights
 
@@ -50,7 +50,7 @@ Para acessar o painel padrão, selecione _Painel do aplicativo_ no canto superio
 
 Se esta for a primeira vez que você acessa o painel, ele inicializará um modo de exibição padrão:
 
-![Exibição Painel](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
+![Exibição Painel](.\media\app-insights-overview-dashboard\0001-dashboard.png)
 
 Se você desejar, mantenha a visualização padrão. Ou você pode adicionar e excluir do painel para melhor atender às necessidades da sua equipe.
 

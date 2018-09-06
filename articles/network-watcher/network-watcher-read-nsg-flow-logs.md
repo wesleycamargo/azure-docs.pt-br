@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141422"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286437"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
 Saiba como ler entradas de logs de fluxo NSG com o PowerShell.
 
-Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
+Logs de fluxo NSG são armazenados em uma conta de armazenamento no [blobs de blocos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blobs de bloco são compostos por blocos menores. Cada log é um blob de blocos separado gerado a cada hora. Novos logs são gerados a cada hora, os logs são atualizados com as novas entradas intervalos de alguns minutos com os dados mais recentes. Neste artigo, você aprenderá a ler partes dos logs de fluxo.
 
 ## <a name="scenario"></a>Cenário
 

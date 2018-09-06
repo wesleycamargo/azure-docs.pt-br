@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 5012ce22204c3ac32b22fe2cd842ce1300b426f8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295806"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300996"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutorial: conceder acesso a um grupo usando o RBAC e o Azure PowerShell
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará de:
 
@@ -122,7 +122,7 @@ Para conceder acesso ao grupo, você usa o comando [New-AzureRmRoleAssignment](/
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Obtenha a ID de sua assinatura usando o comando [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenha a ID de sua assinatura usando o comando [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription
@@ -292,4 +292,4 @@ Para limpar os recursos criados por este tutorial, exclua o grupo de recursos e 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Gerenciar o acesso usando o RBAC e o Powershell](role-assignments-powershell.md)
+> [Gerenciar o acesso usando o RBAC e o PowerShell](role-assignments-powershell.md)

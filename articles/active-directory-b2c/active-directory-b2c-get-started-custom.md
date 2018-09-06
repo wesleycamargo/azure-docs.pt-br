@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446734"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344555"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: introdução às políticas personalizadas
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446734"
 
 Depois que você concluir as etapas descritas neste artigo, a política personalizada dará suporte à inscrição ou conexão da “conta local” usando um endereço de email e uma senha. Você também preparará o ambiente para adicionar provedores de identidade (como Facebook ou Azure Active Directory). Recomendamos que você conclua estas etapas antes de ler sobre outros usos da Estrutura de Experiência de Identidade do Azure AD (Active Directory) B2C.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de prosseguir, verifique se você tem um locatário do Azure AD B2C, que é um contêiner para todos os seus usuários, aplicativos, políticas e muito mais. Se você ainda não tiver um, será necessário [criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md). Recomendamos que todos os desenvolvedores concluam os passo a passos de política interna do Azure AD B2C e configurem seus aplicativos com políticas internas antes de continuar. Seus aplicativos funcionarão com dois tipos de políticas assim que você fizer uma simples alteração no nome da política para invocar a política personalizada.
 
@@ -77,7 +77,7 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
 4. Selecione **Novo registro de aplicativo**.
    * Para o **Nome**, use `IdentityExperienceFramework`.
    * Para o **Tipo de aplicativo**, use **Aplicativo Web/API**.
-   * Para a **URL de Entrada**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o nome de domínio do seu locatário do Azure AD B2C.
+   * Para a **URL de Entrada**, use `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o nome de domínio do seu locatário do Azure AD B2C.
 5. Selecione **Criar**.
 6. Depois de concluir, selecione o aplicativo recém-criado **IdentityExperienceFramework**.<br>
    * Selecione **Propriedades**.<br>
@@ -89,7 +89,7 @@ O Azure AD B2C exige o registro de dois aplicativos adicionais que são usados p
 1. Selecione **Novo registro de aplicativo**.
    * Para o **Nome**, use `ProxyIdentityExperienceFramework`.
    * Para o **Tipo de aplicativo**, use **Nativo**.
-   * Para a **URI de Redirecionamento**, use `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o seu locatário do Azure AD B2C.
+   * Para a **URI de Redirecionamento**, use `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, em que `yourtenant` é o seu locatário do Azure AD B2C.
 1. Selecione **Criar**.
 1. Depois de ele ter sido criado, selecione o aplicativo **ProxyIdentityExperienceFramework**.<br>
    * Selecione **Propriedades**. <br>

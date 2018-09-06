@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6e421aa630dc121589dece789e2e0d7f9a56bbe6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434832"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287243"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configurar o roteamento de mensagens com o Hub IoT
 
@@ -184,7 +184,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ### <a name="powershell-instructions"></a>Instruções do PowerShell
 
-A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise.md), copiar o script na área de transferência e, em seguida, colar o script inteiro na janela de script. Você pode alterar os valores para os nomes dos recursos (se desejar) e executar o script inteiro. 
+A maneira mais fácil de usar esse script é abrir o [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), copiar o script na área de transferência e, em seguida, colar o script inteiro na janela de script. Você pode alterar os valores para os nomes dos recursos (se desejar) e executar o script inteiro. 
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -587,14 +587,14 @@ Faça logon na sua conta do [Power BI](https://powerbi.microsoft.com/). Vá até
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Limpar recursos usando a CLI do Azure
 
-Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest#az-group-delete).
+Para remover o grupo de recursos, use o comando [excluir grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
 ```
 ### <a name="clean-up-resources-using-powershell"></a>Limpar recursos usando o PowerShell
 
-Para remover o grupo de recursos, use o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup foi definido como **ContosoIoTRG1** novamente no início deste tutorial.
+Para remover o grupo de recursos, use o comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). $resourceGroup foi definido como **ContosoIoTRG1** novamente no início deste tutorial.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name $resourceGroup

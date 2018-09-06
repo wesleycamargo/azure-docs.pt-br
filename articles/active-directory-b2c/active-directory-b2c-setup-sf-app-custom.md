@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ca4da794aaa6c96908976400d9a8452f6a644f39
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 5b7621bde0be02b4656c4678438b94499bb82b5b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146291"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345030"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: entrar usando contas do Salesforce via SAML
 
@@ -66,11 +66,11 @@ Para ajudar o Azure AD B2C a se comunicar com o Salesforce, você precisa obter 
 4. Em **Configurações do Aplicativo Web**, marque a caixa de seleção **Habilitar SAML**.
 5. No campo **ID da Entidade**, digite a URL a seguir. Certifique-se substituir o valor de `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 6. No campo **URL ACS**, digite a URL a seguir. Certifique-se substituir o valor de `tenantName`.
       ```
-      https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      https://tenantName.b2clogin.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. Deixe os valores padrão para todas as outras configurações.
 8. Role até a parte inferior da lista e, em seguida, clique em **Salvar**.

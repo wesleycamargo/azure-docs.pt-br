@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053320"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286758"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades no banco de dados do Azure Cosmos de solicitação
 
@@ -40,12 +40,6 @@ Como o banco de dados do Azure Cosmos é um banco de dados multimodel, é import
 Banco de dados do Azure Cosmos rápida, oferece um desempenho previsível ao reservar recursos para atender às necessidades de produção do seu aplicativo. Padrões de carga e acesso de aplicativo alterado ao longo do tempo. Banco de dados do Azure Cosmos pode ajudá-lo a facilmente aumentar ou diminuir a quantidade de produtividade reservados disponível para seu aplicativo.
 
 Com o banco de dados do Azure Cosmos, taxa de transferência reservada é especificada em termos de unidade de solicitação de processamento por segundo. Você pode pensar em solicitação como taxa de transferência. Você reserva um número de unidades de solicitação garantidas para estar disponível para sua inscrição em uma base por segundo. Cada operação no Azure Cosmos DB, incluindo escrevendo um documento, executar uma consulta e atualização de um documento, consome CPU, memória e IOPS. Ou seja, cada operação incorre em uma taxa de solicitação, que é expressa em unidades de solicitação. Quando você entende os fatores que afetam as cobranças da unidade de solicitação e os requisitos de taxa de transferência do seu aplicativo, você pode executar o aplicativo da maneira mais econômica possível. 
-
-Para ajudá-lo a começar, o gerente do programa Azure Cosmos DB, Andrew Liu, discute unidades de solicitação no vídeo a seguir (há um pequeno erro no exemplo de unidades de solicitação do vídeo. Quando os dados de 1 KB com 100.000 registros são usados, o armazenamento total for 100 MB e não 100 GB): <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolamento de taxa de transferência em bancos de dados distribuído globalmente
 

@@ -3,19 +3,19 @@ title: Do Azure SQL Data Warehouse notas de versão de agosto de 2018 | Microsof
 description: Notas de versão do SQL Data Warehouse do Azure.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 27030256b88f429d080c7a7ce69ed3c83eca337c
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c52fcd544e22c274d0e9053da93d2b9dee0df695
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145249"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286625"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no SQL Data Warehouse do Azure? Agosto de 2018
 O SQL Data Warehouse do Azure recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidos em agosto de 2018.

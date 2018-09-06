@@ -8,20 +8,20 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35364232"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301345"
 ---
 # <a name="url-preview-in-javascript"></a>URL de Visualização em JavaScript 
 
 O seguinte aplicativo de página única usa JavaScript para criar uma Visualização de URL para o site SwiftKey: https://swiftkey.com/en. 
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Cenário do código
 O exemplo a seguir de JavaScript inclui um objeto de entrada de caixa de texto onde o usuário insere a URL a ser visualizada.  Quando o usuário clica no botão de **Visualização**, o método onclick encaminha para `getPreview` onde o código gera uma solicitação da Web para o ponto de extremidade **UrlPreview**.
@@ -127,7 +127,7 @@ Para executar o aplicativo:
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Início rápido em C#](csharp.md)
-- [Início rápido em Java](java-quickstart.md)
-- [Início rápido em Node](node-quickstart.md)
-- [Início rápido em Python](python-quickstart.md)
+- [Início Rápido do C#](csharp.md)
+- [Início Rápido do Java](java-quickstart.md)
+- [Início Rápido do Node](node-quickstart.md)
+- [Início Rápido do Python](python-quickstart.md)

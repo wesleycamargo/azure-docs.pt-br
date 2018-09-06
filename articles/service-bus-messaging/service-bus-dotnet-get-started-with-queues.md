@@ -3,7 +3,7 @@ title: Introdução às filas do Barramento de Serviço do Azure | Microsoft Doc
 description: Escreva um aplicativo de console em C# que usa filas de mensagens do Barramento de Serviço.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/7/2017
-ms.author: sethm
-ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: d75d1937ca0450f3eedd2c5ba4e91caf3b473a9b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308358"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698003"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Barramento de Serviço
 
@@ -32,7 +32,7 @@ Este tutorial cobre as seguintes etapas:
 3. Escreva um aplicativo de console .NET Core para enviar um conjunto de mensagens à fila.
 4. Escreva um aplicativo de console .NET Core para receber essas mensagens da fila.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 1. [Atualização 3 do Visual Studio 2017 (versão 15.3, 26730.01)](http://www.visualstudio.com/vs) ou posterior.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), versão 2.0 ou posterior.

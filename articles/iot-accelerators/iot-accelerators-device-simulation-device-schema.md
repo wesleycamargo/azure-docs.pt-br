@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a27624d4c7a0bde4b33aefe8d05881b743ce397d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b325873819caff139727ec15d6aecd2d4be89c9e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295141"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338148"
 ---
 # <a name="understand-the-device-model-schema"></a>Compreender o esquema de modelo do dispositivo
 
@@ -24,7 +24,7 @@ Este artigo descreve o esquema de modelo do dispositivo que especifica os recurs
 Os artigos a seguir estão relacionados ao artigo atual:
 
 * [Implementar o comportamento de modelo do dispositivo](iot-accelerators-device-simulation-device-behavior.md) descreve os arquivos JavaScript que são utilizados para implementar o comportamento de um dispositivo simulado.
-* [Criar um novo dispositivo simulado](iot-accelerators-remote-monitoring-test.md) reúne tudo e mostra como implementar um novo tipo de dispositivo simulado para sua solução.
+* [Criar um novo dispositivo simulado](iot-accelerators-device-simulation-create-simulated-device.md) reúne tudo e mostra como implementar um novo tipo de dispositivo simulado para sua solução.
 
 Neste artigo, você aprenderá a:
 
@@ -47,6 +47,6 @@ Este artigo descreveu como criar seu próprio modelo de dispositivo simulado per
 > * Especificar a telemetria que o dispositivo simulado envia
 > * Especificar os métodos de nuvem para dispositivo em que o dispositivo responde
 
-Agora que você aprendeu sobre o esquema JSON, a próxima etapa sugerida é saber como [implementar o comportamento do seu dispositivo simulado](iot-accelerators-device-simulation-device-behavior.md).
+Agora que você aprendeu sobre o esquema JSON, a próxima etapa sugerida é saber como [implementar o comportamento do dispositivo simulado](iot-accelerators-device-simulation-device-behavior.md).
 
 Para obter mais informações para desenvolvedores sobre a solução de simulação de dispositivo, consulte a [guia de referência do desenvolvedor](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044723"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697757"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -219,7 +219,7 @@ No nível do **firewall corporativo**, você precisa configurar os seguintes dom
 
 Nomes de domínio | Portas | DESCRIÇÃO
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
+* .servicebus.windows.net | 443 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
 *.core.windows.net | 443 | Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)
 *.frontend.clouddatahub.net | 443 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
 download.microsoft.com | 443 | Usado para baixar as atualizações

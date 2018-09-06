@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/14/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2a8a23245a17c9a80c70860588a8312dbbb5e926
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 68eab85c7f67ad3af18c6066c29e1250e1be3d23
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446039"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344399"
 ---
 # <a name="azure-active-directory-b2c-allow-users-to-sign-in-to-a-multi-tenant-azure-ad-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: permitir que os usuários entrem em um provedor de identidade multilocatário do Azure AD usando políticas personalizadas
 
@@ -26,7 +26,7 @@ Este artigo mostra como habilitar a entrada para usuários usando o ponto de ext
 >[!NOTE]
 > Usamos "contoso.com" como o locatário do Azure AD da organização e "fabrikamb2c.onmicrosoft.com" como o locatário do Azure AD B2C nas instruções a seguir.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Conclua as etapas no artigo [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).
 
@@ -54,7 +54,7 @@ Para habilitar a entrada de usuários que usam o ponto de extremidade multilocat
     >O valor de "yourtenant" deve estar todo em letras maiúsculas no **URL de Logon**.
 
     ```
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Salve a ID do aplicativo.

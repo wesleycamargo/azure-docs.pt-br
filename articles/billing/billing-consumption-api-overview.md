@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 88b7909e78f8bd36ce456eee60587acbbb94b6cd
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630493"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286741"
 ---
 # <a name="azure-consumption-api-overview"></a>Visão geral da API de consumo do Azure 
 
@@ -81,7 +81,7 @@ A API inclui:
 -   **Somente para clientes Enterprise** Essa API só está disponível para clientes EA. 
     - Os clientes devem ter permissões de admin corporativo para chamar esta API 
 
-Para obter mais informações, consulte a especificação técnica para a [API de saldos](https://docs.microsoft.com/rest/api/consumption/getbalancesbybillingaccount).
+Para obter mais informações, consulte a especificação técnica para a [API de saldos](https://docs.microsoft.com/rest/api/consumption/balances).
 
 ## <a name="budgets-api"></a>API de orçamentos
 

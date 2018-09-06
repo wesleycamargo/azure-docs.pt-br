@@ -2,18 +2,18 @@
 title: Criar tópicos e filas particionados do Barramento de Serviço | Microsoft Docs
 description: Descreve como particionar filas e tópicos do Barramento de Serviço usando vários agentes de mensagem.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: sethm
-ms.openlocfilehash: f9fb5f53496ea3f98a9d3341e77db283a3e3b570
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: spelluru
+ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824363"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699464"
 ---
 # <a name="partitioned-queues-and-topics"></a>Filas e tópicos particionados
 
