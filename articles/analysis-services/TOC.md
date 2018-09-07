@@ -38,7 +38,7 @@
 ### [Gerenciar um servidor](analysis-services-manage.md)
 ### [Monitorar métricas do servidor](analysis-services-monitor.md)
 ### [Configurar o log de diagnósticos](analysis-services-logging.md)
-### [Criar entidade de serviço - portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+### [Criar entidade de serviço - Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ### [Criar entidade de serviço - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 ### [Adicionar uma entidade de serviço à função de administrador de servidor](analysis-services-addservprinc-admins.md)
 
