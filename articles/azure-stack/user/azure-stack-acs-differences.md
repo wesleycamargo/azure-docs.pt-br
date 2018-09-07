@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139295"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027162"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Armazenamento do Azure stack: diferenças e considerações
+# <a name="azure-stack-storage-differences-and-considerations"></a>O armazenamento do Azure Stack: diferenças e considerações
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Armazenamento do Azure stack é o conjunto de serviços de nuvem de armazenamento no Microsoft Azure Stack. Armazenamento do Azure stack fornece blob, tabela, fila e funcionalidade de gerenciamento de conta com a semântica consistente do Azure.
+O armazenamento do Azure Stack é o conjunto de serviços de nuvem de armazenamento no Microsoft Azure Stack. O armazenamento do Azure Stack fornece blob, tabela, fila e funcionalidade de gerenciamento de conta com a semântica consistente do Azure.
 
-Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos serviços de armazenamento do Azure. Ela também lista as coisas a considerar ao implantar o Azure Stack. Para saber mais sobre as diferenças de alto nível entre global do Azure e o Azure Stack, consulte o [considerações da chave](azure-stack-considerations.md) tópico.
+Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos serviços de armazenamento do Azure. Ela também lista as coisas a considerar ao implantar o Azure Stack. Para saber mais sobre as diferenças de alto nível entre global do Azure e o Azure Stack, consulte o [considerações da chave](azure-stack-considerations.md) artigo.
 
 ## <a name="cheat-sheet-storage-differences"></a>Folha de dados: diferenças de armazenamento
 
@@ -38,7 +38,7 @@ Este artigo resume as diferenças do armazenamento do Azure Stack conhecidas dos
 |Tipo de conta de armazenamento|Contas de armazenamento de BLOBs do Azure e de uso geral|Uso geral apenas.
 |Opções de replicação|Armazenamento com redundância local, armazenamento com redundância geográfica, armazenamento com redundância geográfica de acesso de leitura e armazenamento com redundância de zona|Armazenamento com redundância local.
 |Armazenamento Premium|Com suporte total|Pode ser provisionado, mas nenhum limite de desempenho ou garantia.
-|Discos gerenciados|Premium e standard com suporte|Ainda não tem suporte.
+|Discos gerenciados|Premium e standard com suporte|Suporte quando você usa a versão 1808 ou posterior.
 |Nome de blob|1.024 caracteres (2.048 bytes)|880 caracteres (1,760 bytes)
 |Tamanho máximo do blob de blocos|4,75 TB (100 MB X 50.000 blocos)|4,75 TB (100 MB x 50.000 blocos) para a atualização 1802 ou a versão mais recente. 50.000 x 4 MB (aproximadamente 195 GB) para versões anteriores.
 |Cópia de instantâneo de blob de página|Backup do Azure não gerenciado VM discos anexados a uma VM em execução com suporte|Ainda não tem suporte.

@@ -1,6 +1,6 @@
 ---
-title: Assinar uma oferta na pilha do Azure | Microsoft Docs
-description: Criar assinaturas para ofertas na pilha do Azure
+title: Assinar uma oferta no Azure Stack | Microsoft Docs
+description: Criar assinaturas para ofertas no Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,90 +12,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.date: 09/05/2018
 ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b35e75d7cfcaa46da46d2edcb80fe37c112a66a3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295203"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025564"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar assinaturas para ofertas na pilha do Azure
+# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Criar assinaturas de ofertas no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Depois que você [criar uma oferta](azure-stack-create-offer.md), os usuários precisam de uma assinatura para essa oferta antes que eles podem usá-lo. Há duas maneiras que os usuários podem obter assinados para uma oferta:
+Depois que você [criar uma oferta](azure-stack-create-offer.md), os usuários precisam de uma assinatura para essa oferta antes que eles podem usá-lo. Há duas maneiras que os usuários podem obter uma assinatura para uma oferta:
 
-- Como um operador de nuvem, você pode criar uma assinatura de um usuário no portal do administrador. As assinaturas que você criar podem ser ofertas públicas e privadas.
-- Como um usuário de locatário, você pode assinar uma oferta pública quando você usar o portal do usuário.  
+- Como um operador de nuvem, você pode criar uma assinatura para um usuário de dentro do portal do administrador. As assinaturas que você cria podem ser para as ofertas públicas e privadas.
+- Como um usuário de locatário, você pode assinar uma oferta pública quando você usa o portal do usuário.  
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>Criar uma assinatura como um operador de nuvem
 
-Operadores de nuvem podem usar o portal de administração para criar uma assinatura para uma oferta para um usuário.  Você pode criar assinaturas de membros de seu próprio locatário de diretório.  Quando [multilocação](azure-stack-enable-multitenancy.md) está habilitado, você também pode criar assinaturas para os usuários de locatários de diretório adicionais.
+Operadores de nuvem podem usar o portal de administração para criar uma assinatura para uma oferta para um usuário.  Você pode criar assinaturas para membros de seu próprio locatário do diretório.  Quando [multilocação](azure-stack-enable-multitenancy.md) é habilitado, você também pode criar assinaturas para usuários em locatários de diretório adicionais.
 
-Se não quiser que seus locatários ao criar suas próprias assinaturas, faça suas ofertas privada e, em seguida, criar assinaturas para seus locatários. Essa abordagem é comum ao integrar a pilha do Azure cobrança externa ou sistemas de catálogo de serviço.
+Se não quiser que os seus locatários para criar suas próprias assinaturas, verifique suas ofertas privadas e, em seguida, criar assinaturas para seus locatários. Essa abordagem é comum ao integrar o Azure Stack com cobrança externa ou sistemas do catálogo de serviço.
 
-Depois de criar uma assinatura para um usuário, podem entrar no portal do usuário e veja o que estiver se inscrito para a oferta.  
+Depois de criar uma assinatura para um usuário, podem entrar no portal do usuário e ver o que estiver se inscrito para a oferta.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Para criar uma assinatura para um usuário
 
 1. No portal de administração, acesse **assinaturas do usuário.**
-2. Selecione **Adicionar**. Em **nova assinatura de usuário**, insira as seguintes informações:  
+2. Selecione **Adicionar**. Sob **nova assinatura de usuário**, insira as seguintes informações:  
 
-   - **Nome de exibição** – um nome amigável para identificar a assinatura que aparece como o *nome de assinatura de usuário*.
-   - **Usuário** – especifique um usuário de um locatário de diretório disponíveis para essa assinatura. O nome de usuário é exibido como *proprietário*.  O formato do nome do usuário depende de sua solução de identidade. Por exemplo: 
+   - **Nome de exibição** – um nome amigável para identificar a assinatura que é exibido como o *nome da assinatura de usuário*.
+   - **Usuário** – especificar um usuário de um locatário de diretório disponível para esta assinatura. O nome de usuário é exibido como *proprietário*.  O formato do nome do usuário depende de sua solução de identidade. Por exemplo: 
 
-     - **O AD do Azure:***&lt;user1 > @&lt;contoso.onmicrosoft.com >* 
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **O AD FS:***&lt;user1 > @&lt;azurestack.local >* 
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
-   - **Locatário do diretório** – selecione o locatário do diretório em que a conta de usuário pertence. Se você não tiver habilitado a multilocação, somente seu locatário de diretório local está disponível.
+   - **Locatário de diretório** – selecione o locatário de diretório em que a conta de usuário pertence. Se você não tiver habilitado a multilocação, somente seu locatário de diretório local está disponível.
 
-3. Selecione **oferecem**. Em **oferece**, escolha um **oferecem** para essa assinatura. Como você está criando a assinatura para um usuário, selecione **privada** como o estado de acessibilidade.
+3. Selecione **oferecem**. Sob **oferece**, escolha um **oferecem** para esta assinatura. Como você está criando a assinatura para um usuário, selecione **privada** como o estado de acessibilidade.
 
-4. Selecione **criar** para criar a assinatura. Você verá a nova assinatura em **assinatura de usuário**. Quando o usuário entra portal do usuário poderão ver os detalhes da assinatura.
+4. Selecione **criar** para criar a assinatura. Você verá a nova assinatura segundo **assinatura de usuário**. Quando o usuário entra portal do usuário, eles podem ver os detalhes da assinatura.
 
 ### <a name="to-make-an-add-on-plan-available"></a>Para disponibilizar um plano de complemento
 
-Um operador de nuvem pode adicionar um complemento de plano para uma assinatura criada anteriormente a qualquer momento:
+Um operador de nuvem pode adicionar um plano de complemento a uma assinatura criada anteriormente a qualquer momento:
 
-1. No portal de administração, selecione **mais serviços** > **assinaturas de usuário**. Selecione a assinatura que deseja alterar.
+1. No portal de administração, selecione **todos os serviços** e, em seguida, sob o **recursos ADMINISTRATIVOS** categoria, selecione **assinaturas do usuário**. Selecione a assinatura que deseja alterar.
 
 2. Selecione **complementos** e, em seguida, selecione **+ adicionar**.  
 
-3. Em **Adicionar plano**, selecione o plano que você deseja como um complemento.
+3. Sob **Adicionar plano**, selecione o plano que você deseja como um complemento.
 
 ## <a name="create-a-subscription-as-a-user"></a>Criar uma assinatura como um usuário
 
-Como um usuário, você pode entrar no portal do usuário para localizar e assinar ofertas públicas e planos de complemento para o seu locatário de diretório (organização).
+Como um usuário, você pode entrar no portal do usuário para localizar e assinar públicas ofertas e planos de complemento para seu locatário de diretório (organização).
 
 >[!NOTE]
->Se seu ambiente de pilha do Azure oferece suporte a [multilocação](azure-stack-enable-multitenancy.md) também é possível assinar a oferta de um locatário de diretório remoto.
+>Se seu ambiente do Azure Stack dá suporte a [multilocação](azure-stack-enable-multitenancy.md) também é possível assinar a oferta de um locatário de diretório remoto.
 
 ### <a name="to-subscribe-to-an-offer"></a>Para assinar uma oferta
 
-1. [Entrar](azure-stack-connect-azure-stack.md) portal do usuário do Azure pilha (https://portal.local.azurestack.external) e selecione **obter uma assinatura**.
+1. [Entrar no](azure-stack-connect-azure-stack.md) portal do usuário do Azure Stack (https://portal.local.azurestack.external) e selecione **obter uma assinatura**.
 
    ![Obtenha uma assinatura](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Em **obter uma assinatura**, digite o nome amigável da assinatura em **nome de exibição**. Selecione **oferecem** e, em **escolha uma oferta de**, escolha uma oferta. Selecione **criar** para criar a assinatura.
+2. Sob **obter uma assinatura**, digite o nome amigável da assinatura no **nome de exibição**. Selecione **oferecem** e, em **escolher uma oferta**, escolher uma oferta. Selecione **criar** para criar a assinatura.
 
    ![Criar uma oferta](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
-3. Após assinar uma oferta, atualize o portal para ver os serviços que fazem parte da nova assinatura.
-4. Para ver a assinatura que você criou, selecione **mais serviços** e, em seguida, selecione **assinaturas**. Selecione a assinatura para ver os detalhes da assinatura.  
+3. Depois de assinar uma oferta, atualize o portal para ver quais serviços fazem parte da nova assinatura.
+4. Para ver a assinatura que você criou, selecione **todos os serviços** e, em seguida, sob o **gerais** categoria, selecione **assinaturas**. Selecione a assinatura para ver os detalhes da assinatura.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>Para assinar um plano de complemento
 
 Se uma oferta tem um plano de complemento, você pode adicionar esse plano à sua assinatura a qualquer momento.  
 
-1. No portal do usuário, selecione **mais serviços** > **assinaturas**e, em seguida, selecione a assinatura que você deseja alterar. Se houver qualquer plano de complementos disponíveis, **+ Adicionar plano** está ativo e não há um bloco para **planos de complemento**.
+1. No portal do usuário, selecione **todos os serviços**. Em seguida, sob o **gerais** categoria, selecione **assinaturas**e, em seguida, selecione a assinatura que você deseja alterar. Se houver qualquer plano de complemento disponível, **+ Adicionar plano** está ativa e não há um bloco para **planos de complemento**.
 
    >[!NOTE]
-   >Se **+ Adicionar plano** não está ativo, em seguida, não existem planos complemento da oferta associada à assinatura.
+   >Se **+ Adicionar plano** não está ativo, em seguida, não existem quaisquer planos de complemento para a oferta associada a essa assinatura.
 
-1. Selecione **+ Adicionar plano** ou **planos de complemento** lado a lado. Em **planos de complemento**, selecione o plano que você deseja adicionar.
+1. Selecione **+ Adicionar plano** ou o **planos de complemento** lado a lado. Sob **planos de complemento**, selecione o plano que você deseja adicionar.
 
 ## <a name="next-steps"></a>Próximas etapas
 

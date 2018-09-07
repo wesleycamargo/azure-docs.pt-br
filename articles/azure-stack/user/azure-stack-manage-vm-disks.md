@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139721"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026511"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Provisionar o armazenamento de disco de máquina virtual no Azure Stack
 
@@ -30,9 +30,13 @@ Este artigo descreve como provisionar o armazenamento de disco da máquina virtu
 
 ## <a name="overview"></a>Visão geral
 
-O Azure Stack oferece suporte ao uso de [discos não gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) em máquinas virtuais, como um sistema operacional (SO) e um disco de dados.
+Começando com a versão 1808, o Azure Stack suporta o uso de discos gerenciados e não gerenciados em máquinas virtuais, como um sistema operacional (SO) e um disco de dados. Antes da versão 1808, há suporte para apenas discos não gerenciados. 
 
-Para usar discos não gerenciados, você cria um [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para armazenar os discos. Os discos que você cria são chamados de discos de VM e são armazenados em contêineres na conta de armazenamento.
+**[Discos gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  simplificar o gerenciamento de disco para VMs IaaS do Azure, gerenciando as contas de armazenamento associadas com os discos de VM. Você só precisa especificar o tamanho do disco necessário e o Azure Stack cria e gerencia o disco para você.
+
+**[Discos não gerenciados](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, exigem que você crie uma [conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para armazenar os discos. Os discos que você cria são chamados de discos de VM e são armazenados em contêineres na conta de armazenamento.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>Diretrizes de práticas recomendadas
 

@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440144"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025955"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Como redistribuir o serviço de aplicativo do Azure no Azure Stack em domínios de falha
 
@@ -48,8 +48,8 @@ Para redistribuir os conjuntos de dimensionamento implantados para o provedor de
 Para escalar horizontalmente os conjuntos de dimensionamento, siga estas etapas:
 
 1. Entrar no Portal do administrador de pilha do Azure.
-1. Escolha **Mais serviços**.
-1. Em computação, selecione **conjuntos de dimensionamento de máquina Virtual**. Conjuntos de dimensionamento existente implantados como parte da implantação do serviço de aplicativo serão listados com informações de contagem de instância. A captura de tela a seguir mostra um exemplo de conjuntos de dimensionamento.
+1. Selecione **Todos os serviços**.
+2. No **COMPUTE** categoria, selecione **conjuntos de dimensionamento de máquina Virtual**. Conjuntos de dimensionamento existente implantados como parte da implantação do serviço de aplicativo serão listados com informações de contagem de instância. A captura de tela a seguir mostra um exemplo de conjuntos de dimensionamento.
 
       ![Conjuntos de dimensionamento de serviço de aplicativo do Azure listados na UX de conjuntos de dimensionamento de máquina Virtual][1]
 

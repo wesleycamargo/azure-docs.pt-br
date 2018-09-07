@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139700"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025766"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Introdução às máquinas virtuais do Azure Stack
 
@@ -99,7 +99,7 @@ Os recursos na tabela a seguir são usados pela VM e precisam existir ou ser cri
 |Recurso|Obrigatório|DESCRIÇÃO|
 |---------|---------|---------|
 |Grupo de recursos|Sim|A VM deve estar contida em um grupo de recursos.|
-|Conta de armazenamento|Sim|A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais.|
+|Conta de armazenamento|Não |A VM faz não precisará da conta de armazenamento para armazenar seus discos rígidos virtuais, se usar o Managed Disks. <br>A VM precisará da conta de armazenamento para armazenar seus discos rígidos virtuais se usando discos não gerenciados.|
 |Rede virtual|Sim|A VM deve ser membro de uma rede virtual.|
 |Endereço IP público|Não |A VM pode ter um endereço IP público atribuído a ela para acessá-la remotamente.|
 |interface de rede|Sim|A VM precisa de interface de rede para se comunicar na rede.|

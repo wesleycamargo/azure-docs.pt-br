@@ -7,20 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411899"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024724"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Disponibilizar conjuntos de dimensionamento de máquina Virtual no Azure Stack
 
 *Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
-
+  
 Conjuntos de dimensionamento de máquina virtual são um recurso de computação do Azure Stack. Você pode usá-los para implantar e gerenciar um conjunto de máquinas virtuais idênticas. Com todas as máquinas virtuais configuradas da mesma, conjuntos de dimensionamento não exigem pré-provisionamento de máquinas virtuais. Ele é mais fácil criar serviços em grande escala que se destinam a computação de grande porte, big data e cargas de trabalho em contêineres.
 
 Este artigo orienta você pelo processo de disponibilizar conjuntos de dimensionamento no Azure Stack Marketplace. Depois de concluir este procedimento, os usuários podem adicionar conjuntos de dimensionamento de máquina virtual para suas assinaturas.
@@ -36,9 +36,31 @@ No Azure Stack, os conjuntos de dimensionamento de máquina virtual não dão su
 - **O Marketplace**  
     Registro do Azure Stack com o Azure global para habilitar a disponibilidade dos itens no Marketplace. Siga as instruções em [registrar o Azure Stack com o Azure](azure-stack-registration.md).
 - **Imagem do sistema operacional**  
-    Se você ainda não adicionou uma imagem do sistema operacional para o Azure Stack Marketplace, consulte [adicionar um item do marketplace do Azure Stack da Azure](asdk/asdk-marketplace-item.md).
+  Antes de um conjunto de dimensionamento de máquinas virtuais (VMSS) pode ser criado, você deve baixar as imagens de VM para uso em VMSS do [Marketplace do Azure Stack](azure-stack-download-azure-marketplace-item.md). As imagens já devem estar presentes antes que um usuário pode criar um novo VMSS. 
 
-## <a name="add-the-virtual-machine-scale-set"></a>Adicionar o conjunto de dimensionamento de máquina Virtual
+
+## <a name="use-the-azure-stack-portal"></a>Usar o portal do Azure Stack 
+
+>[!NOTE]  
+> As informações nesta seção se aplicam quando você usa a versão do Azure Stack 1808 ou posterior. Se sua versão for 1807 ou anterior, consulte [adicionar o conjunto de dimensionamento de máquina Virtual (antes do 1808)](#add-the-virtual-machine-scale-set-(prior-to-version-1808)).
+
+1. Entrar no portal do Azure Stack. Em seguida, acesse **todos os serviços** > **conjuntos de dimensionamento de máquina Virtual**e, em *computação*, selecione **deconjuntosdedimensionamentodemáquinaVirtual**. 
+   ![Conjuntos de dimensionamento de máquina de virtual Select](media/azure-stack-compute-add-scalesets/all-services.png)
+
+2. Selecione criar ***conjuntos de dimensionamento de máquina Virtual***.
+   ![Criar um conjunto de dimensionamento de máquinas virtuais](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. Preencha os campos vazios, escolha uma das listas suspensas para *imagem de disco do sistema operacional*, *assinatura*, e *tamanho da instância*. Selecione **Yes** para *usar discos gerenciados*. Em seguida, selecione **Criar**.
+    ![Configurar e criar](media/azure-stack-compute-add-scalesets/create.png)
+
+4. Para ver sua nova escala de máquina virtual definido, acesse **todos os recursos**, procure o nome do conjunto de dimensionamento de máquinas virtuais e, em seguida, selecione seu nome na pesquisa. 
+   ![Exibir o conjunto de dimensionamento](media/azure-stack-compute-add-scalesets/search.png)
+
+
+
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>Adicionar o conjunto de dimensionamento de máquina Virtual (antes da versão 1808)
+>[!NOTE]  
+> As informações nesta seção se aplicam quando você usa uma versão do Azure Stack antes 1808. Se você usar a versão 1808 ou posterior, consulte [usar o portal do Azure Stack](#use-the-azure-stack-portal).
 
 1. Abra o Azure Stack Marketplace e se conectar ao Azure. Selecione **gerenciamento do Marketplace**> **+ adicionar do Azure**.
 
@@ -56,7 +78,7 @@ Depois de criar um conjunto de dimensionamento de máquina virtual, os usuários
 
    Quando o *versão* é definido como **mais recente** no *imageReference* seção do modelo para uma escala definida, escalar verticalmente as operações sobre o uso do conjunto de escala a versão disponível mais recente instâncias do conjunto da imagem para a escala. Depois que um backup de dimensionamento for concluído, você pode excluir instâncias de conjuntos de dimensionamento de máquina virtual mais antigas.  (Os valores para *publisher*, *oferecem*, e *sku* permanecem inalterados). 
 
-   A seguir está um exemplo da especificação *mais recente*:  
+   O exemplo JSON a seguir especifica *mais recente*:  
 
     ```Json  
     "imageReference": {
@@ -81,6 +103,17 @@ Depois de criar um conjunto de dimensionamento de máquina virtual, os usuários
     Se você baixar uma imagem com uma versão mais recente (que altera a versão disponível), o conjunto de dimensionamento não é possível escalar verticalmente. Isso ocorre por design, como a versão da imagem especificada no modelo de conjunto de escala deve estar disponível.  
 
 Para obter mais informações, consulte [discos do sistema operacional e imagens](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
+
+## <a name="scale-a-virtual-machine-scale-set"></a>Dimensionar um conjunto de dimensionamento de máquina virtual
+Você pode dimensionar o tamanho de um *conjunto de dimensionamento de máquina virtual* para torná-la maior ou menor.  
+
+1. No portal, selecione seu conjunto de dimensionamento e, em seguida, selecione **Scaling**.
+2. Use a barra deslizante para definir o novo nível de colocação em escala para esse conjunto de dimensionamento de máquina virtual e, em seguida, selecione **salvar**.
+     ![O conjunto de dimensionamento](media/azure-stack-compute-add-scalesets/scale.png)
+
+
+
 
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Remover um conjunto de dimensionamento de máquina Virtual

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139554"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023504"
 ---
 # <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
 Este artigo descreve a política de manutenção para sistemas integrados do Azure Stack e o que você deve fazer para manter seu sistema em um estado com suporte. 
@@ -38,9 +38,10 @@ Há dois tipos de pacotes de atualização para sistemas integrados:
 A Microsoft espera liberar os pacotes de atualização de software em uma cadência mensal. No entanto, é possível ter várias ou nenhuma versões de atualização em um mês. Fornecedores de hardware de OEM liberar suas atualizações em uma base conforme necessário. 
 
 Encontre a documentação sobre como planejar e gerenciar atualizações e como determinar a versão atual no [visão geral de gerenciar atualizações](azure-stack-updates.md). Para obter informações sobre uma atualização específica, incluindo como baixá-lo, consulte as notas de versão para que a atualização: 
+- [Atualização da pilha 1808 do Azure](azure-stack-update-1808.md)
 - [Atualização de 1807 de pilha do Azure](azure-stack-update-1807.md)
 - [Atualização da pilha 1805 do Azure](azure-stack-update-1805.md)
-- [Atualização do 1804 de pilha do Azure](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Hotfixes
 Ocasionalmente, Microsoft fornece os hotfixes para o Azure Stack esse endereço de um problema específico que costuma ser preventiva ou sensível ao tempo.  Cada hotfix é lançado com um artigo de Base de Conhecimento Microsoft correspondente que fornece detalhes sobre o problema, causa e resolução. 
