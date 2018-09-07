@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841923"
+ms.locfileid: "44024851"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registre-se a pilha do Azure com o Azure
 
@@ -45,7 +45,7 @@ Você precisará do seguinte em vigor antes de registrar:
 
 Antes de registrar o Azure Stack com o Azure, você deve ter:
 
-- A ID de assinatura para uma assinatura do Azure. Para obter a ID, entre no Azure, clique em **mais serviços** > **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar o ID da assinatura.
+- A ID de assinatura para uma assinatura do Azure. Para obter a ID, entre no Azure, clique em **todos os serviços**. Em seguida, na **gerais** categoria, selecione **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar a ID da assinatura.
 
   > [!Note]  
   > Atualmente, não há suporte para assinaturas de nuvem da Alemanha.
@@ -284,7 +284,7 @@ Opcionalmente, você pode usar o cmdlet Get-Content para apontar para um arquivo
 Use estas etapas para verificar se o Azure Stack está registrado com êxito com o Azure.
 
 1. Entrar para o Azure Stack [portal do administrador](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;região >. &lt;fqdn >*.
-2. Selecione **mais serviços** > **gerenciamento de Marketplace** > **adicionar do Azure**.
+2. Selecione **todos os serviços**e, em seguida, sob o **administração** categoria, selecione **gerenciamento Marketplace** > **Add do Azure**.
 
 Se você vir uma lista de itens disponíveis do Azure (por exemplo, o WordPress), a ativação foi bem-sucedida. No entanto, em ambientes desconectados você não verá itens do marketplace do Azure no marketplace do Azure Stack.
 

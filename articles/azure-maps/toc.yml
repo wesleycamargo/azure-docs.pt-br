@@ -23,15 +23,15 @@ items:
   items:
   - name: Níveis de zoom e grade lado a lado
     href: zoom-levels-and-tile-grid.md
-  - name: Cobertura do serviço
+  - name: Cobertura
     items:
-    - name: Geocodificação
+    - name: Cobertura da geocodificação
       href: geocoding-coverage.md
-    - name: Tráfego
+    - name: Cobertura do tráfego
       href: traffic-coverage.md
-    - name: Renderizar
+    - name: Renderizar cobertura
       href: render-coverage.md
-    - name: Roteamento
+    - name: Cobertura de roteamento
       href: routing-coverage.md
   - name: Idiomas com suporte
     href: supported-languages.md
@@ -67,12 +67,14 @@ items:
       href: map-add-shape.md
     - name: Adicionar HTML personalizado
       href: map-add-custom-html.md
-    - name: Mostrar resultados da pesquisa
-      href: map-search-location.md
-    - name: Obter informações de uma coordenada
-      href: map-get-information-from-coordinate.md
-    - name: Mostrar instruções de A para B
-      href: map-route.md
+    - name: Serviços
+      items:
+      - name: Mostrar resultados da pesquisa
+        href: map-search-location.md
+      - name: Obter informações de uma coordenada
+        href: map-get-information-from-coordinate.md
+      - name: Mostrar instruções de A para B
+        href: map-route.md
     - name: Mostrar o tráfego
       href: map-show-traffic.md
     - name: Interagir com eventos de mouse
@@ -157,9 +159,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vídeos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 9ff456a752ffecc3f4fa67fc8b85540833451fb5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0cf84e9b73831c1ead82f7cd01efb94ac312883d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339124"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022808"

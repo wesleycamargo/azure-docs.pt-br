@@ -9,15 +9,27 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Guia de início rápido
   items:
-  - name: Criar Banco de dados - Portal
-    href: sql-database-get-started-portal.md
-  - name: Criar Banco de dados - CLI do Azure
-    href: sql-database-get-started-cli.md
-  - name: Criar Banco de dados – Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Criar Instância Gerenciada
-    href: sql-database-managed-instance-get-started.md
-  - name: Conexão e consulta
+  - name: Criar
+    items:
+    - name: Banco de dados individual
+      href: sql-database-get-started-portal.md
+    - name: Instância Gerenciada
+      href: sql-database-managed-instance-get-started.md
+  - name: Configurar
+    items:
+    - name: Regra de firewall do servidor lógico
+      href: sql-database-get-started-portal-firewall.md
+    - name: Conexão de VM do cliente para uma Instância Gerenciada
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Conexão ponto a site para uma Instância Gerenciada
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Carregar dados
+    items:
+    - name: Importar o BACPAC em um banco de dados individual
+      href: sql-database-import.md
+    - name: Restaurar um backup de dados para uma Instância Gerenciada
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Consultar
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -59,13 +71,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 - Implementar um banco de dados distribuído geograficamente
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - Criar Instância Gerenciada
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Restaurar um backup para uma Instância Gerenciada
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Migrar para uma Instância Gerenciada usando DMS
+  - name: 6 - Migrar para uma Instância Gerenciada usando DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Configurar a Sincronização de Dados SQL do Azure
+  - name: 7 - Configurar a Sincronização de Dados SQL do Azure
     href: sql-database-get-started-sql-data-sync.md
 - name: Exemplos
   items:
@@ -606,9 +614,9 @@ items:
     href: /azure/architecture/
   - name: Relatos de clientes
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 1cd65f1f3ee3907324bdb17be61dcfb5d0a747f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: e44c2d461f35098e20e50c776ca37b932566c4a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245904"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050472"
