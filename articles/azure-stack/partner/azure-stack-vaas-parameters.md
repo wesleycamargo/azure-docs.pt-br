@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 81a7be973739cfd6eb3f8fb8dc7a0723623c2b8e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235184"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157796"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parâmetros comuns de fluxo de trabalho para a validação do Azure Stack como um serviço
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Parâmetros comuns incluem valores como variáveis de ambiente e o usuário as credenciais necessárias por todos os testes de validação como um serviço (VaaS). Você define esses valores no nível do fluxo de trabalho. Você salve os valores quando você cria ou modifica um fluxo de trabalho. No tempo de agendamento, o fluxo de trabalho carrega os valores para o teste. 
 

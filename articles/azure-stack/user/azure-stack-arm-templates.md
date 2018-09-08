@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139573"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161758"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Usar modelos do Gerenciador de Recursos do Azure no Azure Stack
 
@@ -30,11 +30,11 @@ Você pode usar modelos do Azure Resource Manager para implantar e provisionar t
 
 Esses modelos podem ser implantados com o portal do Microsoft Azure Stack, o PowerShell, a linha de comando e o Visual Studio.
 
-Os modelos de início rápido a seguir estão disponíveis no [GitHub](http://aka.ms/azurestackgithub).
+Os modelos de início rápido a seguir estão disponíveis no [GitHub](http://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implantar o SharePoint Server (implantação de alta disponibilidade)
 
-Use a extensão de DSC do PowerShell para criar um farm do SharePoint Server 2013 que inclui os seguintes recursos:
+Use a extensão de DSC do PowerShell para [criar um farm do SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Três contas de armazenamento
@@ -45,7 +45,7 @@ Use a extensão de DSC do PowerShell para criar um farm do SharePoint Server 201
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Implantar o AD (não-alta--implantação de disponibilidade)
 
-Use a extensão de DSC do PowerShell para criar um servidor de controlador de domínio do AD que inclui os seguintes recursos:
+Use a extensão de DSC do PowerShell para [criar um servidor de controlador de domínio do AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Uma conta de armazenamento
@@ -54,7 +54,7 @@ Use a extensão de DSC do PowerShell para criar um servidor de controlador de do
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Implantar o AD/SQL (não-alta--implantação de disponibilidade)
 
-Use a extensão de DSC do PowerShell para criar um servidor autônomo do SQL Server 2014 que inclui os seguintes recursos:
+Use a extensão de DSC do PowerShell para [criar um servidor autônomo do SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) que inclui os seguintes recursos:
 
 * Uma rede virtual
 * Duas contas de armazenamento
@@ -68,15 +68,15 @@ Use a extensão do DSC do PowerShell para configurar um LCM (Gerenciador de Conf
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Criar uma máquina virtual de uma imagem do usuário
 
-Crie uma máquina virtual de uma imagem personalizada do usuário. Esse modelo também implanta uma rede virtual (com o DNS), endereço IP público e uma interface de rede.
+[Criar uma máquina virtual de uma imagem de usuário personalizada](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Esse modelo também implanta uma rede virtual (com o DNS), endereço IP público e uma interface de rede.
 
 ## <a name="basic-virtual-machine"></a>Máquina virtual básica
 
-Implante uma VM do Windows que inclui uma rede virtual (com DNS), endereço IP público e uma interface de rede.
+[Implantar uma VM Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) que inclui uma rede virtual (com DNS), endereço IP público e uma interface de rede.
 
 ## <a name="cancel-a-running-template-deployment"></a>Cancelar uma implantação de modelo em execução
 
-Para cancelar uma implantação de modelo em execução, use o `Stop-AzureRmResourceGroupDeployment` cmdlet do PowerShell.
+Para cancelar uma implantação de modelo em execução, use o [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) cmdlet do PowerShell.
 
 ## <a name="next-steps"></a>Próximas etapas
 

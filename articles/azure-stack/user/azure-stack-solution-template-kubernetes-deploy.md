@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5df8104907e30337cdf47e5a9489ffdb50451a94
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055209"
+ms.locfileid: "44159292"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Implantar um cluster Kubernetes no Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "44055209"
 > [!Note]  
 > O mecanismo do AKS (serviço de Kubernetes do Azure) no Azure Stack está em visualização particular. O operador do Azure Stack será necessário solicitar o acesso para o item do Marketplace de Kubernetes necessário para executar as instruções neste artigo.
 
-O artigo a seguir examina usando um modelo de solução do Azure Resource Manager para implantar e provisionar os recursos do Kubernetes em uma única operação coordenada. Você precisa coletar as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implante a sua nuvem.
+O artigo a seguir examina usando um modelo de solução do Azure Resource Manager para implantar e provisionar os recursos do Kubernetes em uma única operação coordenada. Você precisa coletar as informações necessárias sobre a instalação do Azure Stack, gerar o modelo e, em seguida, implante a sua nuvem. Observe que o modelo não é o mesmo gerenciadas serviço AKS oferecido no global Azure, mas quanto mais próximo ao serviço do ACS.
 
 ## <a name="kubernetes-and-containers"></a>Contêineres e Kubernetes
 

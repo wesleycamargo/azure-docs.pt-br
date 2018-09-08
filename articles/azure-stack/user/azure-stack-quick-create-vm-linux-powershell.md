@@ -1,6 +1,6 @@
 ---
-title: Criar uma máquina virtual Linux usando o PowerShell na pilha do Azure | Microsoft Docs
-description: Crie uma máquina virtual Linux com o PowerShell na pilha do Azure.
+title: Criar uma máquina virtual Linux usando o PowerShell no Azure Stack | Microsoft Docs
+description: Crie uma máquina virtual Linux com o PowerShell no Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,39 +12,41 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bb356a8b485817daae803d14b30832e7b1322f29
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226989"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158901"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: criar uma máquina virtual do servidor Linux usando o PowerShell na pilha do Azure
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Início rápido: Criar uma máquina virtual do Linux server usando o PowerShell no Azure Stack
 
-*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+*Aplica-se a: integrados do Azure Stack, sistemas e o Kit de desenvolvimento do Azure Stack*
 
-Você pode criar uma máquina virtual de Ubuntu Server 16.04 LTS usando o Azure PowerShell de pilha. Siga as etapas neste artigo para criar e usar uma máquina virtual.  Este artigo fornece as etapas para:
+Você pode criar uma máquina virtual do Ubuntu Server 16.04 LTS usando o PowerShell do Azure Stack. Siga as etapas neste artigo para criar e usar uma máquina virtual.  Este artigo fornece as etapas para:
 
 * Conecte-se à máquina virtual com um cliente remoto.
-* Instalar o servidor de web NGINX e exibir a página inicial padrão.
-* Limpe os recursos não utilizados.
+* Instalar o servidor web NGINX e exibir a página inicial padrão.
+* Limpe recursos não utilizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma imagem do Linux no mercado de pilha do Azure**
+* **Uma imagem do Linux no marketplace do Azure Stack**
 
-   Por padrão, o marketplace do Azure pilha não contêm uma imagem do Linux. Obter o operador de pilha do Azure para fornecer o **Ubuntu Server 16.04 LTS** imagem que você precisa. O operador pode usar as etapas descritas no [baixar itens do marketplace do Azure para o Azure pilha](../azure-stack-download-azure-marketplace-item.md) artigo.
+   Por padrão, o Azure Stack marketplace não contêm uma imagem do Linux. Obter o operador do Azure Stack para fornecer a **Ubuntu Server 16.04 LTS** imagem que você precisa. O operador pode usar as etapas descritas a [baixar itens do marketplace do Azure para o Azure Stack](../azure-stack-download-azure-marketplace-item.md) artigo.
 
-* A pilha do Azure requer uma versão específica do Azure PowerShell para criar e gerenciar recursos. Se você não tiver configurado para a pilha do Azure do PowerShell, entre no [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) e siga as etapas para [ instalar](azure-stack-powershell-install.md) e [configurar](azure-stack-powershell-configure-user.md) PowerShell.
+* O Azure Stack requer uma versão específica do Azure PowerShell para criar e gerenciar os recursos. Se você não tiver o PowerShell configurado para o Azure Stack, siga as etapas a serem [instalar](azure-stack-powershell-install.md) PowerShell.
 
-* Uma chave SSH pública com o id_rsa.pub nome salvo no diretório .ssh do seu perfil de usuário do Windows. Para obter informações detalhadas sobre como criar chaves SSH, consulte [chaves Criando SSH no Windows](../../virtual-machines/linux/ssh-from-windows.md).
+* Com o Azure Stack PowerShell configurado, você precisará se conectar ao ambiente do Azure Stack. Para obter instruções, consulte [conectar-se ao Azure Stack com o PowerShell como um usuário](azure-stack-powershell-configure-user.md).
+
+* Uma chave SSH pública com o id_rsa nome salvo no diretório. SSH do seu perfil de usuário do Windows. Para obter informações detalhadas sobre como criar chaves SSH, consulte [criação de chaves SSH no Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um contêiner lógico em que você pode implantar e gerenciar recursos da pilha do Azure. O kit de desenvolvimento ou o sistema de pilha do Azure integrado, execute o seguinte bloco de código para criar um grupo de recursos. Os valores são atribuídos para todas as variáveis neste documento, você pode usar esses valores ou atribuir novos valores.
+Um grupo de recursos é um contêiner lógico no qual você pode implantar e gerenciar recursos do Azure Stack. O kit de desenvolvimento ou o sistema integrado do Azure Stack, execute o seguinte bloco de código para criar um grupo de recursos. Os valores são atribuídos para todas as variáveis neste documento, você pode usar esses valores ou atribuir novos valores.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -113,7 +115,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Crie um grupo de segurança de rede e uma regra de grupo de segurança de rede
 
-O grupo de segurança de rede protege a máquina virtual por meio de regras de entrada e saídas. Crie uma regra de entrada para a porta 3389 para permitir conexões de área de trabalho remota de entrada e uma regra de entrada para a porta 80 para permitir o tráfego de entrada da web.
+O grupo de segurança de rede protege a máquina virtual por meio de regras de entrada e saídas. Crie uma regra de entrada para a porta 3389 para permitir conexões de área de trabalho remota de entrada e uma regra de entrada para a porta 80 para permitir o tráfego da web.
 
 ```powershell
 # Create variables to store the network security group and rules names.
@@ -154,7 +156,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-Crie uma configuração de máquina virtual. Essa configuração inclui as configurações usadas ao implantar a máquina virtual. Por exemplo: as credenciais do usuário, o tamanho e a imagem de máquina virtual.
+Crie uma configuração de máquina virtual. Essa configuração inclui as configurações usadas ao implantar a máquina virtual. Por exemplo: as credenciais do usuário, tamanho e a imagem de máquina virtual.
 
 ```powershell
 # Define a credential object.
@@ -211,10 +213,10 @@ New-AzureRmVM `
   -VM $VirtualMachine
 ```
 
-## <a name="quick-create-virtual-machine---full-script"></a>Rápido criar VM - script completo
+## <a name="quick-create-virtual-machine---full-script"></a>Máquina de virtual rápida criar - script completo
 
 > [!NOTE]
-> Mais ou menos é o código acima mesclado, mas com uma senha em vez de SSH a chave de autenticação.
+> É mais ou menos o código acima mesclado, mas com uma senha em vez de SSH de chave para autenticação.
 
 ```powershell
 ## Create a resource group
@@ -388,17 +390,17 @@ Depois que a máquina virtual é implantada, configure uma conexão SSH para a m
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-De um sistema cliente SSH instalado, use o seguinte comando para se conectar à máquina virtual. Se você estiver trabalhando no Windows, você pode usar [Putty](http://www.putty.org/) para criar a conexão.
+De um sistema de cliente com o SSH instalado, use o seguinte comando para se conectar à máquina virtual. Se você estiver trabalhando no Windows, você pode usar [Putty](http://www.putty.org/) para criar a conexão.
 
 ```
 ssh <Public IP Address>
 ```
 
-Quando solicitado, digite azureuser como o usuário de logon. Se você usou uma senha ao criar as chaves de SSH, você precisará fornecer a frase secreta.
+Quando solicitado, insira azureuser como o usuário de logon. Se você usou uma senha quando você criou as chaves SSH, você precisará fornecer a frase secreta.
 
-## <a name="install-the-nginx-web-server"></a>Instalar o servidor de web NGINX
+## <a name="install-the-nginx-web-server"></a>Instalar o servidor web NGINX
 
-Para atualizar recursos do pacote e instalar o pacote NGINX mais recente, execute o seguinte script:
+Para atualizar os recursos de pacote e instalar o pacote mais recente do NGINX, execute o seguinte script:
 
 ```bash
 #!/bin/bash
@@ -412,13 +414,13 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Exibir a página de boas-vindas do NGINX
 
-Com NGINX instalado e a porta 80 aberta na sua máquina virtual, você pode acessar o servidor web usando o endereço IP público da máquina virtual. Abra um navegador da web e navegue até ```http://<public IP address>```.
+Com o NGINX instalado e a porta 80 está aberta na sua máquina virtual, você pode acessar o servidor web usando o endereço IP público da máquina virtual. Abra um navegador da web e navegue até ```http://<public IP address>```.
 
-![Página de boas-vindas NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
+![Página de boas-vindas do NGINX web server](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Limpe os recursos que você não precisa mais. Você pode usar o [AzureRmResourceGroup remover](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) comando para remover esses recursos. Para excluir o grupo de recursos e todos os seus recursos, execute o seguinte comando:
+Limpe todos os recursos que você não precisa mais. Você pode usar o [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) comando para remover esses recursos. Para excluir o grupo de recursos e todos os seus recursos, execute o seguinte comando:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -426,4 +428,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este guia de início rápido, você implantado uma máquina de virtual de servidor Linux básica. Para saber mais sobre máquinas virtuais de pilha do Azure, vá para [considerações para máquinas virtuais no Azure pilha](azure-stack-vm-considerations.md).
+Neste início rápido, você implantou uma máquina de virtual de servidor Linux básica. Para saber mais sobre máquinas virtuais do Azure Stack, acesse [considerações para máquinas virtuais no Azure Stack](azure-stack-vm-considerations.md).
