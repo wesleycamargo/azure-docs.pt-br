@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494366"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160108"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Tutorial: 1. Compilar aplicativo com domínio personalizado
 Neste tutorial, crie um aplicativo que demonstre como usar **intenções** para determinar a _intenção_ do usuário com base no enunciado (texto) que eles enviam para o aplicativo. Quando terminar, você terá um ponto de extremidade do LUIS em execução na nuvem.
@@ -32,7 +32,7 @@ Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai
 > * Adicione enunciados de exemplo para a intenção ApplyForJob 
 > * Treinar, publicar e consultar novamente o ponto de extremidade 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Finalidade do aplicativo
 Este aplicativo possui algumas intenções. A primeira intenção, **`GetJobInformation`**, identifica quando um usuário deseja obter informações sobre trabalhos disponíveis dentro de uma empresa. A segunda intenção **`None`**, identifica todos os outros tipos de enunciado. Posteriormente no guia de início rápido, uma terceira intenção `ApplyForJob`, é adicionada. 
@@ -85,15 +85,15 @@ Este aplicativo possui algumas intenções. A primeira intenção, **`GetJobInfo
 
 ## <a name="train-and-publish-the-app"></a>Treinar e publicar o aplicativo
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>Publicar o aplicativo para o ponto de extremidade
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Ponto de extremidade de consulta para a intenção GetJobInformation
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Vá até o final da URL no endereço e insira `I'm looking for a job with Natual Language Processing`. O último parâmetro da cadeia de consulta é `q`, a declaração **query**. Esse enunciado não é igual a nenhum dos exemplos de enunciado na etapa 4, portanto, ele é um bom teste e deve retornar a intenção `GetJobInformation` como a intenção com maior pontuação. 
 
@@ -147,7 +147,7 @@ Volte para a guia do navegador para o site do LUIS e crie uma novo intenção pa
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Ponto de extremidade de consulta para a intenção ApplyForJob
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Na nova janela do navegador, digite `Can I submit my resume for job 235986` no final da URL. 
 
@@ -186,7 +186,7 @@ O LUIS é feito com essa solicitação. O aplicativo de chamada, como um chatbot
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
